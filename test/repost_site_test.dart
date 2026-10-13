@@ -21,6 +21,15 @@ void main() {
       );
     });
 
+    test('Douyin hosts, including the short-link and share domains', () {
+      expect(RepostSite.of('https://www.douyin.com/video/1'), RepostSite.douyin);
+      expect(RepostSite.of('https://v.douyin.com/abc/'), RepostSite.douyin);
+      expect(
+        RepostSite.of('https://www.iesdouyin.com/share/video/1'),
+        RepostSite.douyin,
+      );
+    });
+
     test('a look-alike host is not the site', () {
       expect(RepostSite.of('https://nottiktok.com/@a'), isNull);
       expect(RepostSite.of('https://example.com'), isNull);
@@ -29,6 +38,14 @@ void main() {
   });
 
   group('RepostSite.tidy', () {
+    test('Douyin keeps modal_id, which names the video', () {
+      expect(
+        RepostSite.tidy('douyin.com/discover?modal_id=123&previous_page=x'),
+        'https://douyin.com/discover?modal_id=123',
+      );
+    });
+
+
     test('keeps only the keys that name the post', () {
       expect(
         RepostSite.tidy('youtube.com/watch?v=abc&si=share&t=10'),

@@ -16,7 +16,10 @@ enum RepostSite {
     {'facebook.com', 'fb.com', 'fb.watch'},
     {'v', 'story_fbid', 'id', 'fbid', 'set'},
   ),
-  instagram('instagram', 'ig', {'instagram.com'}, {});
+  instagram('instagram', 'ig', {'instagram.com'}, {}),
+  // yt-dlp's Douyin extractor takes a single video (`/video/<id>`); `modal_id` names the video on a page that opens one
+  // over a feed (`/discover?modal_id=…`), and a `v.douyin.com` short link is followed by the tool first.
+  douyin('douyin', 'dy', {'douyin.com', 'iesdouyin.com'}, {'modal_id'});
 
   const RepostSite(this.label, this.suffix, this.hosts, this.keepKeys);
 
@@ -107,6 +110,9 @@ enum RepostSite {
           'share',
         };
         return notAUser.contains(parts.first) ? '' : parts.first;
+      case RepostSite.douyin:
+        // `/user/<sec_uid>` is a profile; a video link does not say whose it is.
+        return parts.first == 'user' && parts.length > 1 ? parts[1] : '';
     }
   }
 
