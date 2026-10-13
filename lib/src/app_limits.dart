@@ -34,6 +34,11 @@ abstract class AppLimits with _$AppLimits {
     /// Days a notification stays in the inbox.
     @Default(7) int notificationsDays,
 
+    /// Days an API key may go unused before it is removed, so keys from people
+    /// who left or browsers nobody opens again do not pile up. Whoever signs in
+    /// to the dashboard again is simply issued a new one.
+    @Default(30) int apiKeyIdleDays,
+
     /// Minutes a build may run before it is stopped as hung.
     @Default(120) int buildTimeoutMinutes,
 
@@ -68,6 +73,7 @@ abstract class AppLimits with _$AppLimits {
     'reviews_days': LimitRange(1, 90),
     'translates_days': LimitRange(1, 90),
     'notifications_days': LimitRange(1, 90),
+    'api_key_idle_days': LimitRange(7, 365),
     'build_timeout_minutes': LimitRange(10, 1440),
     'report_sweep_days': LimitRange(1, 30),
     'review_max_issues': LimitRange(1, 100),

@@ -29,6 +29,11 @@ mixin _$AppLimits {
   /// Days a notification stays in the inbox.
   int get notificationsDays => throw _privateConstructorUsedError;
 
+  /// Days an API key may go unused before it is removed, so keys from people
+  /// who left or browsers nobody opens again do not pile up. Whoever signs in
+  /// to the dashboard again is simply issued a new one.
+  int get apiKeyIdleDays => throw _privateConstructorUsedError;
+
   /// Minutes a build may run before it is stopped as hung.
   int get buildTimeoutMinutes => throw _privateConstructorUsedError;
 
@@ -68,6 +73,7 @@ abstract class $AppLimitsCopyWith<$Res> {
       {int reviewsDays,
       int translatesDays,
       int notificationsDays,
+      int apiKeyIdleDays,
       int buildTimeoutMinutes,
       int reportSweepDays,
       int reviewMaxIssues,
@@ -93,6 +99,7 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
+    Object? apiKeyIdleDays = null,
     Object? buildTimeoutMinutes = null,
     Object? reportSweepDays = null,
     Object? reviewMaxIssues = null,
@@ -113,6 +120,10 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
       notificationsDays: null == notificationsDays
           ? _value.notificationsDays
           : notificationsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      apiKeyIdleDays: null == apiKeyIdleDays
+          ? _value.apiKeyIdleDays
+          : apiKeyIdleDays // ignore: cast_nullable_to_non_nullable
               as int,
       buildTimeoutMinutes: null == buildTimeoutMinutes
           ? _value.buildTimeoutMinutes
@@ -158,6 +169,7 @@ abstract class _$$AppLimitsImplCopyWith<$Res>
       {int reviewsDays,
       int translatesDays,
       int notificationsDays,
+      int apiKeyIdleDays,
       int buildTimeoutMinutes,
       int reportSweepDays,
       int reviewMaxIssues,
@@ -181,6 +193,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
+    Object? apiKeyIdleDays = null,
     Object? buildTimeoutMinutes = null,
     Object? reportSweepDays = null,
     Object? reviewMaxIssues = null,
@@ -201,6 +214,10 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
       notificationsDays: null == notificationsDays
           ? _value.notificationsDays
           : notificationsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      apiKeyIdleDays: null == apiKeyIdleDays
+          ? _value.apiKeyIdleDays
+          : apiKeyIdleDays // ignore: cast_nullable_to_non_nullable
               as int,
       buildTimeoutMinutes: null == buildTimeoutMinutes
           ? _value.buildTimeoutMinutes
@@ -241,6 +258,7 @@ class _$AppLimitsImpl extends _AppLimits {
       {this.reviewsDays = 7,
       this.translatesDays = 7,
       this.notificationsDays = 7,
+      this.apiKeyIdleDays = 30,
       this.buildTimeoutMinutes = 120,
       this.reportSweepDays = 7,
       this.reviewMaxIssues = 20,
@@ -267,6 +285,13 @@ class _$AppLimitsImpl extends _AppLimits {
   @override
   @JsonKey()
   final int notificationsDays;
+
+  /// Days an API key may go unused before it is removed, so keys from people
+  /// who left or browsers nobody opens again do not pile up. Whoever signs in
+  /// to the dashboard again is simply issued a new one.
+  @override
+  @JsonKey()
+  final int apiKeyIdleDays;
 
   /// Minutes a build may run before it is stopped as hung.
   @override
@@ -308,7 +333,7 @@ class _$AppLimitsImpl extends _AppLimits {
 
   @override
   String toString() {
-    return 'AppLimits(reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+    return 'AppLimits(reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
   }
 
   @override
@@ -322,6 +347,8 @@ class _$AppLimitsImpl extends _AppLimits {
                 other.translatesDays == translatesDays) &&
             (identical(other.notificationsDays, notificationsDays) ||
                 other.notificationsDays == notificationsDays) &&
+            (identical(other.apiKeyIdleDays, apiKeyIdleDays) ||
+                other.apiKeyIdleDays == apiKeyIdleDays) &&
             (identical(other.buildTimeoutMinutes, buildTimeoutMinutes) ||
                 other.buildTimeoutMinutes == buildTimeoutMinutes) &&
             (identical(other.reportSweepDays, reportSweepDays) ||
@@ -346,6 +373,7 @@ class _$AppLimitsImpl extends _AppLimits {
       reviewsDays,
       translatesDays,
       notificationsDays,
+      apiKeyIdleDays,
       buildTimeoutMinutes,
       reportSweepDays,
       reviewMaxIssues,
@@ -373,6 +401,7 @@ abstract class _AppLimits extends AppLimits {
       {final int reviewsDays,
       final int translatesDays,
       final int notificationsDays,
+      final int apiKeyIdleDays,
       final int buildTimeoutMinutes,
       final int reportSweepDays,
       final int reviewMaxIssues,
@@ -397,6 +426,12 @@ abstract class _AppLimits extends AppLimits {
 
   /// Days a notification stays in the inbox.
   int get notificationsDays;
+  @override
+
+  /// Days an API key may go unused before it is removed, so keys from people
+  /// who left or browsers nobody opens again do not pile up. Whoever signs in
+  /// to the dashboard again is simply issued a new one.
+  int get apiKeyIdleDays;
   @override
 
   /// Minutes a build may run before it is stopped as hung.
