@@ -38,6 +38,19 @@ void main() {
   });
 
   group('RepostSite.tidy', () {
+    test('takes the link out of a pasted share text', () {
+      expect(
+        RepostSite.tidy(
+          '7.43 复制打开抖音，看看【作品】 https://v.douyin.com/Zw57GJZcS8Q/ 9@5.com',
+        ),
+        'https://v.douyin.com/Zw57GJZcS8Q/',
+      );
+      expect(
+        RepostSite.tidy('https://v.douyin.com/Zw57GJZcS8Q/ 9@5.com'),
+        'https://v.douyin.com/Zw57GJZcS8Q/',
+      );
+    });
+
     test('Douyin keeps modal_id, which names the video', () {
       expect(
         RepostSite.tidy('douyin.com/discover?modal_id=123&previous_page=x'),

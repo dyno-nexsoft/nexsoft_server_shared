@@ -17,6 +17,13 @@ bool _isTrackingKey(String key) =>
       '_t',
     }.contains(key);
 
+/// The first `http(s)://` word of [text] when it has more than one word, else [text] as it is.
+String _linkIn(String text) {
+  final words = text.split(RegExp(r'\s+'));
+  if (words.length < 2) return text;
+  return words.firstWhere((word) => RegExp(r'^https?://').hasMatch(word), orElse: () => text);
+}
+
 /// Cleans a link someone typed or pasted into a form, so what is sent and stored is short and has a scheme.
 ///
 /// - A missing scheme is `https://` (what [raw] has when it was pasted without one, `www.tiktok.com/@a`).
@@ -25,9 +32,13 @@ bool _isTrackingKey(String key) =>
 ///   only share tracking — except the keys in [keepKeys] (the `v` of a YouTube `watch?v=…`, which is the video).
 ///   Without it only known tracking keys go, since another link (a signed download, say) may need the rest.
 ///
+/// - Pasted with text around it (a share text: Douyin's "Share" copies a caption, the link and a code after it,
+///   `7.43 复制打开抖音… https://v.douyin.com/abc/ 9@5.com`), the first `http(s)://` word is the link. A link has no
+///   whitespace in it, so the rest was never part of it; kept, the trailing code became part of the path.
+///
 /// Null when [raw] is empty or is not an `http(s)` link with a host.
 String? tidyUrl(String raw, {bool dropQuery = false, Set<String> keepKeys = const {}}) {
-  var text = raw.trim();
+  var text = _linkIn(raw.trim());
   if (text.isEmpty) return null;
   if (text.startsWith('//')) text = text.substring(2);
   if (!RegExp(r'^[A-Za-z][A-Za-z0-9+.\-]*://').hasMatch(text)) text = 'https://$text';
