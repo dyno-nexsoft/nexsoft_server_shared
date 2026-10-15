@@ -17,6 +17,25 @@ bool _isTrackingKey(String key) =>
       '_t',
     }.contains(key);
 
+/// The links in [text], for a field that takes several: one per line, or several `http(s)://` links on one line.
+///
+/// A line with a single link — however much share text surrounds it (see [tidyUrl]) — stays one entry as it is, so
+/// pasting a few share texts, one per line, gives one link each. A line holding two or more `http(s)://` words is split
+/// at those words. Empty lines go and a link given twice is kept once, in order. The entries are not tidied: pass each
+/// through [tidyUrl].
+List<String> linksIn(String text) {
+  final links = <String>[];
+  for (final raw in text.split(RegExp(r'[\r\n]+'))) {
+    final line = raw.trim();
+    if (line.isEmpty) continue;
+    final webWords = line.split(RegExp(r'\s+')).where((word) => RegExp(r'^https?://').hasMatch(word)).toList();
+    for (final link in webWords.length > 1 ? webWords : [line]) {
+      if (!links.contains(link)) links.add(link);
+    }
+  }
+  return links;
+}
+
 /// The first `http(s)://` word of [text] when it has more than one word, else [text] as it is.
 String _linkIn(String text) {
   final words = text.split(RegExp(r'\s+'));
