@@ -31,12 +31,25 @@ Map<String, dynamic> _$$HiveBoxCleanParamsImplToJson(
 _$CronRunParamsImpl _$$CronRunParamsImplFromJson(Map<String, dynamic> json) =>
     _$CronRunParamsImpl(
       job: json['job'] as String,
+      dueAt: json['due_at'] == null
+          ? null
+          : DateTime.parse(json['due_at'] as String),
     );
 
-Map<String, dynamic> _$$CronRunParamsImplToJson(_$CronRunParamsImpl instance) =>
-    <String, dynamic>{
-      'job': instance.job,
-    };
+Map<String, dynamic> _$$CronRunParamsImplToJson(_$CronRunParamsImpl instance) {
+  final val = <String, dynamic>{
+    'job': instance.job,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('due_at', instance.dueAt?.toIso8601String());
+  return val;
+}
 
 _$P2pFilesDeleteParamsImpl _$$P2pFilesDeleteParamsImplFromJson(
         Map<String, dynamic> json) =>

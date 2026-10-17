@@ -44,6 +44,13 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     /// For an announcement: spoken as it is when the AI cannot answer, so the
     /// reminder still happens. Unused otherwise.
     @Default('') String fallback,
+
+    /// Whether a run missed while the server was down (powered off, mid
+    /// restart) is made up when it comes back — once, however many were
+    /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+    /// job saved before this existed still gets that default rather than
+    /// "never".
+    bool? catchUp,
   }) = _ScheduledJobConfig;
 
   factory ScheduledJobConfig.fromJson(Map<String, dynamic> json) =>
@@ -51,6 +58,11 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
 
   /// Whether this is one of the built-in jobs rather than an announcement.
   bool get isSystem => kind != JobKind.announcement;
+
+  /// Whether a missed run is made up (see [catchUp]). By default the
+  /// cleanup and the daily report are, being worth doing late; an
+  /// announcement is not, since a spoken lunch reminder hours later is noise.
+  bool get catchesUp => catchUp ?? isSystem;
 
   static final _namePattern = RegExp(r'^[A-Za-z][A-Za-z0-9_]{0,63}$');
 

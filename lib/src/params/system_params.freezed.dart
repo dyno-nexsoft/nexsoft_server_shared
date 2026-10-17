@@ -306,6 +306,12 @@ CronRunParams _$CronRunParamsFromJson(Map<String, dynamic> json) {
 mixin _$CronRunParams {
   String get job => throw _privateConstructorUsedError;
 
+  /// When the run was due, for one made up after the server was down: a
+  /// job decides by it what a run *now* would decide by the clock (the
+  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+  /// Omitted for a run on time or by hand.
+  DateTime? get dueAt => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CronRunParamsCopyWith<CronRunParams> get copyWith =>
@@ -318,7 +324,7 @@ abstract class $CronRunParamsCopyWith<$Res> {
           CronRunParams value, $Res Function(CronRunParams) then) =
       _$CronRunParamsCopyWithImpl<$Res, CronRunParams>;
   @useResult
-  $Res call({String job});
+  $Res call({String job, DateTime? dueAt});
 }
 
 /// @nodoc
@@ -335,12 +341,17 @@ class _$CronRunParamsCopyWithImpl<$Res, $Val extends CronRunParams>
   @override
   $Res call({
     Object? job = null,
+    Object? dueAt = freezed,
   }) {
     return _then(_value.copyWith(
       job: null == job
           ? _value.job
           : job // ignore: cast_nullable_to_non_nullable
               as String,
+      dueAt: freezed == dueAt
+          ? _value.dueAt
+          : dueAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -353,7 +364,7 @@ abstract class _$$CronRunParamsImplCopyWith<$Res>
       __$$CronRunParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String job});
+  $Res call({String job, DateTime? dueAt});
 }
 
 /// @nodoc
@@ -368,12 +379,17 @@ class __$$CronRunParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? job = null,
+    Object? dueAt = freezed,
   }) {
     return _then(_$CronRunParamsImpl(
       job: null == job
           ? _value.job
           : job // ignore: cast_nullable_to_non_nullable
               as String,
+      dueAt: freezed == dueAt
+          ? _value.dueAt
+          : dueAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -381,7 +397,7 @@ class __$$CronRunParamsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CronRunParamsImpl implements _CronRunParams {
-  const _$CronRunParamsImpl({required this.job});
+  const _$CronRunParamsImpl({required this.job, this.dueAt});
 
   factory _$CronRunParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CronRunParamsImplFromJson(json);
@@ -389,9 +405,16 @@ class _$CronRunParamsImpl implements _CronRunParams {
   @override
   final String job;
 
+  /// When the run was due, for one made up after the server was down: a
+  /// job decides by it what a run *now* would decide by the clock (the
+  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+  /// Omitted for a run on time or by hand.
+  @override
+  final DateTime? dueAt;
+
   @override
   String toString() {
-    return 'CronRunParams(job: $job)';
+    return 'CronRunParams(job: $job, dueAt: $dueAt)';
   }
 
   @override
@@ -399,12 +422,13 @@ class _$CronRunParamsImpl implements _CronRunParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CronRunParamsImpl &&
-            (identical(other.job, job) || other.job == job));
+            (identical(other.job, job) || other.job == job) &&
+            (identical(other.dueAt, dueAt) || other.dueAt == dueAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, job);
+  int get hashCode => Object.hash(runtimeType, job, dueAt);
 
   @JsonKey(ignore: true)
   @override
@@ -421,14 +445,21 @@ class _$CronRunParamsImpl implements _CronRunParams {
 }
 
 abstract class _CronRunParams implements CronRunParams {
-  const factory _CronRunParams({required final String job}) =
-      _$CronRunParamsImpl;
+  const factory _CronRunParams(
+      {required final String job, final DateTime? dueAt}) = _$CronRunParamsImpl;
 
   factory _CronRunParams.fromJson(Map<String, dynamic> json) =
       _$CronRunParamsImpl.fromJson;
 
   @override
   String get job;
+  @override
+
+  /// When the run was due, for one made up after the server was down: a
+  /// job decides by it what a run *now* would decide by the clock (the
+  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+  /// Omitted for a run on time or by hand.
+  DateTime? get dueAt;
   @override
   @JsonKey(ignore: true)
   _$$CronRunParamsImplCopyWith<_$CronRunParamsImpl> get copyWith =>

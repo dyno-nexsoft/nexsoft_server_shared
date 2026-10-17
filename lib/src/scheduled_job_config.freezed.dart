@@ -37,6 +37,13 @@ mixin _$ScheduledJobConfig {
   /// reminder still happens. Unused otherwise.
   String get fallback => throw _privateConstructorUsedError;
 
+  /// Whether a run missed while the server was down (powered off, mid
+  /// restart) is made up when it comes back — once, however many were
+  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+  /// job saved before this existed still gets that default rather than
+  /// "never".
+  bool? get catchUp => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ScheduledJobConfigCopyWith<ScheduledJobConfig> get copyWith =>
@@ -55,7 +62,8 @@ abstract class $ScheduledJobConfigCopyWith<$Res> {
       bool enabled,
       JobTiming timing,
       String prompt,
-      String fallback});
+      String fallback,
+      bool? catchUp});
 
   $JobTimingCopyWith<$Res> get timing;
 }
@@ -79,6 +87,7 @@ class _$ScheduledJobConfigCopyWithImpl<$Res, $Val extends ScheduledJobConfig>
     Object? timing = null,
     Object? prompt = null,
     Object? fallback = null,
+    Object? catchUp = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -105,6 +114,10 @@ class _$ScheduledJobConfigCopyWithImpl<$Res, $Val extends ScheduledJobConfig>
           ? _value.fallback
           : fallback // ignore: cast_nullable_to_non_nullable
               as String,
+      catchUp: freezed == catchUp
+          ? _value.catchUp
+          : catchUp // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -131,7 +144,8 @@ abstract class _$$ScheduledJobConfigImplCopyWith<$Res>
       bool enabled,
       JobTiming timing,
       String prompt,
-      String fallback});
+      String fallback,
+      bool? catchUp});
 
   @override
   $JobTimingCopyWith<$Res> get timing;
@@ -154,6 +168,7 @@ class __$$ScheduledJobConfigImplCopyWithImpl<$Res>
     Object? timing = null,
     Object? prompt = null,
     Object? fallback = null,
+    Object? catchUp = freezed,
   }) {
     return _then(_$ScheduledJobConfigImpl(
       name: null == name
@@ -180,6 +195,10 @@ class __$$ScheduledJobConfigImplCopyWithImpl<$Res>
           ? _value.fallback
           : fallback // ignore: cast_nullable_to_non_nullable
               as String,
+      catchUp: freezed == catchUp
+          ? _value.catchUp
+          : catchUp // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -193,7 +212,8 @@ class _$ScheduledJobConfigImpl extends _ScheduledJobConfig {
       this.enabled = true,
       required this.timing,
       this.prompt = '',
-      this.fallback = ''})
+      this.fallback = '',
+      this.catchUp})
       : super._();
 
   factory _$ScheduledJobConfigImpl.fromJson(Map<String, dynamic> json) =>
@@ -225,9 +245,17 @@ class _$ScheduledJobConfigImpl extends _ScheduledJobConfig {
   @JsonKey()
   final String fallback;
 
+  /// Whether a run missed while the server was down (powered off, mid
+  /// restart) is made up when it comes back — once, however many were
+  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+  /// job saved before this existed still gets that default rather than
+  /// "never".
+  @override
+  final bool? catchUp;
+
   @override
   String toString() {
-    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback)';
+    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
   }
 
   @override
@@ -241,13 +269,14 @@ class _$ScheduledJobConfigImpl extends _ScheduledJobConfig {
             (identical(other.timing, timing) || other.timing == timing) &&
             (identical(other.prompt, prompt) || other.prompt == prompt) &&
             (identical(other.fallback, fallback) ||
-                other.fallback == fallback));
+                other.fallback == fallback) &&
+            (identical(other.catchUp, catchUp) || other.catchUp == catchUp));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, kind, enabled, timing, prompt, fallback);
+  int get hashCode => Object.hash(
+      runtimeType, name, kind, enabled, timing, prompt, fallback, catchUp);
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +301,8 @@ abstract class _ScheduledJobConfig extends ScheduledJobConfig {
       final bool enabled,
       required final JobTiming timing,
       final String prompt,
-      final String fallback}) = _$ScheduledJobConfigImpl;
+      final String fallback,
+      final bool? catchUp}) = _$ScheduledJobConfigImpl;
   const _ScheduledJobConfig._() : super._();
 
   factory _ScheduledJobConfig.fromJson(Map<String, dynamic> json) =
@@ -301,6 +331,14 @@ abstract class _ScheduledJobConfig extends ScheduledJobConfig {
   /// For an announcement: spoken as it is when the AI cannot answer, so the
   /// reminder still happens. Unused otherwise.
   String get fallback;
+  @override
+
+  /// Whether a run missed while the server was down (powered off, mid
+  /// restart) is made up when it comes back — once, however many were
+  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+  /// job saved before this existed still gets that default rather than
+  /// "never".
+  bool? get catchUp;
   @override
   @JsonKey(ignore: true)
   _$$ScheduledJobConfigImplCopyWith<_$ScheduledJobConfigImpl> get copyWith =>

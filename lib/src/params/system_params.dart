@@ -30,7 +30,15 @@ abstract class HiveBoxCleanParams with _$HiveBoxCleanParams {
 /// `cron.run`.
 @freezed
 abstract class CronRunParams with _$CronRunParams {
-  const factory CronRunParams({required String job}) = _CronRunParams;
+  const factory CronRunParams({
+    required String job,
+
+    /// When the run was due, for one made up after the server was down: a
+    /// job decides by it what a run *now* would decide by the clock (the
+    /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+    /// Omitted for a run on time or by hand.
+    DateTime? dueAt,
+  }) = _CronRunParams;
 
   factory CronRunParams.fromJson(Map<String, dynamic> json) =>
       _$CronRunParamsFromJson(json);
