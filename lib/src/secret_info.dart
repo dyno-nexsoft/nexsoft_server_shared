@@ -5,12 +5,8 @@ part 'secret_info.g.dart';
 
 /// Where a secret's value comes from, as `admin.secrets.list` reports it.
 enum SecretSource {
-  /// The server's encrypted store, set from the dashboard (or imported there
-  /// from the environment once).
+  /// The server's encrypted store, set from the dashboard.
   store,
-
-  /// Only the environment the server was started with: not in the store yet.
-  environment,
 
   /// Neither: the feature it is for is off, or, for a required one, the
   /// server cannot work.

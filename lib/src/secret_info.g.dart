@@ -42,7 +42,6 @@ Map<String, dynamic> _$$SecretInfoImplToJson(_$SecretInfoImpl instance) {
 
 const _$SecretSourceEnumMap = {
   SecretSource.store: 'store',
-  SecretSource.environment: 'environment',
   SecretSource.none: 'none',
 };
 
