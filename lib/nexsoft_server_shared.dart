@@ -31,6 +31,7 @@ export 'src/job_log_chunk.dart';
 export 'src/job_state.dart';
 export 'src/job_submission.dart';
 export 'src/job_timing.dart';
+export 'src/log_steps.dart';
 export 'src/nexsoft_actions.dart';
 export 'src/openapi_model.dart';
 export 'src/owner_info.dart';
