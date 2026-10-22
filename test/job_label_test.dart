@@ -72,4 +72,10 @@ void main() {
   test('nothing to say gives null', () {
     expect(jobSubject('ci.clean', {}), isNull);
   });
+
+  test('jobTitle adds the run number when there is one', () {
+    expect(jobTitle('ci.build', 12), 'Build #12');
+    expect(jobTitle('ci.reposts', null), 'Repost');
+    expect(jobTitle(null, 3), 'Job #3');
+  });
 }

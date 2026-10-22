@@ -29,6 +29,7 @@ _$JobImpl _$$JobImplFromJson(Map<String, dynamic> json) => _$JobImpl(
       exitCode: (json['exit_code'] as num?)?.toInt(),
       lastLine: json['last_line'] as String?,
       lastSeq: (json['last_seq'] as num?)?.toInt() ?? 0,
+      runNumber: (json['run_number'] as num?)?.toInt(),
       discord: json['discord'] == null
           ? null
           : DiscordMessageRef.fromJson(json['discord'] as Map<String, dynamic>),
@@ -70,6 +71,7 @@ Map<String, dynamic> _$$JobImplToJson(_$JobImpl instance) {
   writeNotNull('exit_code', instance.exitCode);
   writeNotNull('last_line', instance.lastLine);
   val['last_seq'] = instance.lastSeq;
+  writeNotNull('run_number', instance.runNumber);
   writeNotNull('discord', instance.discord?.toJson());
   writeNotNull('resumed_from', instance.resumedFrom);
   writeNotNull('cancelled_by', instance.cancelledBy);

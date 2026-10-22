@@ -47,6 +47,11 @@ mixin _$Job {
   int? get exitCode => throw _privateConstructorUsedError;
   String? get lastLine => throw _privateConstructorUsedError;
   int get lastSeq => throw _privateConstructorUsedError;
+
+  /// A human-friendly `#123`, assigned in order as jobs are registered.
+  /// Display only: [id] stays the identity everywhere (routes, buttons,
+  /// retries), and a job from before run numbers existed has none.
+  int? get runNumber => throw _privateConstructorUsedError;
   DiscordMessageRef? get discord => throw _privateConstructorUsedError;
   String? get resumedFrom => throw _privateConstructorUsedError;
   String? get cancelledBy => throw _privateConstructorUsedError;
@@ -93,6 +98,7 @@ abstract class $JobCopyWith<$Res> {
       int? exitCode,
       String? lastLine,
       int lastSeq,
+      int? runNumber,
       DiscordMessageRef? discord,
       String? resumedFrom,
       String? cancelledBy,
@@ -133,6 +139,7 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
     Object? exitCode = freezed,
     Object? lastLine = freezed,
     Object? lastSeq = null,
+    Object? runNumber = freezed,
     Object? discord = freezed,
     Object? resumedFrom = freezed,
     Object? cancelledBy = freezed,
@@ -213,6 +220,10 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
           ? _value.lastSeq
           : lastSeq // ignore: cast_nullable_to_non_nullable
               as int,
+      runNumber: freezed == runNumber
+          ? _value.runNumber
+          : runNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
       discord: freezed == discord
           ? _value.discord
           : discord // ignore: cast_nullable_to_non_nullable
@@ -278,6 +289,7 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
       int? exitCode,
       String? lastLine,
       int lastSeq,
+      int? runNumber,
       DiscordMessageRef? discord,
       String? resumedFrom,
       String? cancelledBy,
@@ -316,6 +328,7 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
     Object? exitCode = freezed,
     Object? lastLine = freezed,
     Object? lastSeq = null,
+    Object? runNumber = freezed,
     Object? discord = freezed,
     Object? resumedFrom = freezed,
     Object? cancelledBy = freezed,
@@ -396,6 +409,10 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
           ? _value.lastSeq
           : lastSeq // ignore: cast_nullable_to_non_nullable
               as int,
+      runNumber: freezed == runNumber
+          ? _value.runNumber
+          : runNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
       discord: freezed == discord
           ? _value.discord
           : discord // ignore: cast_nullable_to_non_nullable
@@ -446,6 +463,7 @@ class _$JobImpl extends _Job {
       this.exitCode,
       this.lastLine,
       this.lastSeq = 0,
+      this.runNumber,
       this.discord,
       this.resumedFrom,
       this.cancelledBy,
@@ -522,6 +540,12 @@ class _$JobImpl extends _Job {
   @override
   @JsonKey()
   final int lastSeq;
+
+  /// A human-friendly `#123`, assigned in order as jobs are registered.
+  /// Display only: [id] stays the identity everywhere (routes, buttons,
+  /// retries), and a job from before run numbers existed has none.
+  @override
+  final int? runNumber;
   @override
   final DiscordMessageRef? discord;
   @override
@@ -558,7 +582,7 @@ class _$JobImpl extends _Job {
 
   @override
   String toString() {
-    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, logUrl: $logUrl, warnings: $warnings, message: $message)';
+    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, logUrl: $logUrl, warnings: $warnings, message: $message)';
   }
 
   @override
@@ -598,6 +622,8 @@ class _$JobImpl extends _Job {
             (identical(other.lastLine, lastLine) ||
                 other.lastLine == lastLine) &&
             (identical(other.lastSeq, lastSeq) || other.lastSeq == lastSeq) &&
+            (identical(other.runNumber, runNumber) ||
+                other.runNumber == runNumber) &&
             (identical(other.discord, discord) || other.discord == discord) &&
             (identical(other.resumedFrom, resumedFrom) ||
                 other.resumedFrom == resumedFrom) &&
@@ -630,6 +656,7 @@ class _$JobImpl extends _Job {
         exitCode,
         lastLine,
         lastSeq,
+        runNumber,
         discord,
         resumedFrom,
         cancelledBy,
@@ -672,6 +699,7 @@ abstract class _Job extends Job {
       final int? exitCode,
       final String? lastLine,
       final int lastSeq,
+      final int? runNumber,
       final DiscordMessageRef? discord,
       final String? resumedFrom,
       final String? cancelledBy,
@@ -727,6 +755,12 @@ abstract class _Job extends Job {
   String? get lastLine;
   @override
   int get lastSeq;
+  @override
+
+  /// A human-friendly `#123`, assigned in order as jobs are registered.
+  /// Display only: [id] stays the identity everywhere (routes, buttons,
+  /// retries), and a job from before run numbers existed has none.
+  int? get runNumber;
   @override
   DiscordMessageRef? get discord;
   @override

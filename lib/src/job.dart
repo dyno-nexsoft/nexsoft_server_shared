@@ -43,6 +43,11 @@ abstract class Job with _$Job {
     int? exitCode,
     String? lastLine,
     @Default(0) int lastSeq,
+
+    /// A human-friendly `#123`, assigned in order as jobs are registered.
+    /// Display only: [id] stays the identity everywhere (routes, buttons,
+    /// retries), and a job from before run numbers existed has none.
+    int? runNumber,
     DiscordMessageRef? discord,
     String? resumedFrom,
     String? cancelledBy,

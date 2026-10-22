@@ -16,6 +16,12 @@ String actionLabel(String? actionName) => switch (actionName) {
   final other => other,
 };
 
+/// The action's label with the job's run number, `Build #12`, so two jobs of one kind can be told apart and found
+/// again on the Builds page. A job from before run numbers existed is just its label.
+String jobTitle(String? actionName, int? runNumber) => runNumber == null
+    ? actionLabel(actionName)
+    : '${actionLabel(actionName)} #$runNumber';
+
 /// What a job was about, in a few words: the account for a repost (`@handle · dev`), the platform and branch for a
 /// build. Null when its params say nothing worth showing.
 String? jobSubject(String? actionName, Map<String, Object?> params) {
