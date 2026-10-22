@@ -56,6 +56,31 @@ mixin _$Job {
   String? get resumedFrom => throw _privateConstructorUsedError;
   String? get cancelledBy => throw _privateConstructorUsedError;
 
+  /// What the job left, kept with it: its folder goes after the admin's
+  /// `artifacts_days`, its history should not. Set as it ends.
+  ///
+  /// The machine that ran it: a build machine's host, or the server's.
+  String? get machine => throw _privateConstructorUsedError;
+
+  /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
+  /// commit of each module), read with `parseJobSummary`.
+  String? get summary => throw _privateConstructorUsedError;
+
+  /// The apk and ipa it made, by file name, with their sizes in bytes.
+  Map<String, int> get artifacts => throw _privateConstructorUsedError;
+
+  /// Each file's last upload to Firebase App Distribution, by file name: a
+  /// build's own, and those `ci.upload` sent for it later.
+  Map<String, FirebaseUpload> get firebaseUploads =>
+      throw _privateConstructorUsedError;
+
+  /// It failed because it ran out of time (`timeout_minutes`), not by
+  /// itself.
+  bool get timedOut => throw _privateConstructorUsedError;
+
+  /// The other half of an `android,ios` build that ran as two jobs.
+  String? get pairedWith => throw _privateConstructorUsedError;
+
   /// Set only on the response of an action invocation/retry — the build
   /// log's URL, served by the static file handler.
   String? get logUrl => throw _privateConstructorUsedError;
@@ -102,6 +127,12 @@ abstract class $JobCopyWith<$Res> {
       DiscordMessageRef? discord,
       String? resumedFrom,
       String? cancelledBy,
+      String? machine,
+      String? summary,
+      Map<String, int> artifacts,
+      Map<String, FirebaseUpload> firebaseUploads,
+      bool timedOut,
+      String? pairedWith,
       String? logUrl,
       List<String> warnings,
       String? message});
@@ -143,6 +174,12 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
     Object? discord = freezed,
     Object? resumedFrom = freezed,
     Object? cancelledBy = freezed,
+    Object? machine = freezed,
+    Object? summary = freezed,
+    Object? artifacts = null,
+    Object? firebaseUploads = null,
+    Object? timedOut = null,
+    Object? pairedWith = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
     Object? message = freezed,
@@ -236,6 +273,30 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
           ? _value.cancelledBy
           : cancelledBy // ignore: cast_nullable_to_non_nullable
               as String?,
+      machine: freezed == machine
+          ? _value.machine
+          : machine // ignore: cast_nullable_to_non_nullable
+              as String?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artifacts: null == artifacts
+          ? _value.artifacts
+          : artifacts // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
+      firebaseUploads: null == firebaseUploads
+          ? _value.firebaseUploads
+          : firebaseUploads // ignore: cast_nullable_to_non_nullable
+              as Map<String, FirebaseUpload>,
+      timedOut: null == timedOut
+          ? _value.timedOut
+          : timedOut // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pairedWith: freezed == pairedWith
+          ? _value.pairedWith
+          : pairedWith // ignore: cast_nullable_to_non_nullable
+              as String?,
       logUrl: freezed == logUrl
           ? _value.logUrl
           : logUrl // ignore: cast_nullable_to_non_nullable
@@ -293,6 +354,12 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
       DiscordMessageRef? discord,
       String? resumedFrom,
       String? cancelledBy,
+      String? machine,
+      String? summary,
+      Map<String, int> artifacts,
+      Map<String, FirebaseUpload> firebaseUploads,
+      bool timedOut,
+      String? pairedWith,
       String? logUrl,
       List<String> warnings,
       String? message});
@@ -332,6 +399,12 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
     Object? discord = freezed,
     Object? resumedFrom = freezed,
     Object? cancelledBy = freezed,
+    Object? machine = freezed,
+    Object? summary = freezed,
+    Object? artifacts = null,
+    Object? firebaseUploads = null,
+    Object? timedOut = null,
+    Object? pairedWith = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
     Object? message = freezed,
@@ -425,6 +498,30 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
           ? _value.cancelledBy
           : cancelledBy // ignore: cast_nullable_to_non_nullable
               as String?,
+      machine: freezed == machine
+          ? _value.machine
+          : machine // ignore: cast_nullable_to_non_nullable
+              as String?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      artifacts: null == artifacts
+          ? _value._artifacts
+          : artifacts // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
+      firebaseUploads: null == firebaseUploads
+          ? _value._firebaseUploads
+          : firebaseUploads // ignore: cast_nullable_to_non_nullable
+              as Map<String, FirebaseUpload>,
+      timedOut: null == timedOut
+          ? _value.timedOut
+          : timedOut // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pairedWith: freezed == pairedWith
+          ? _value.pairedWith
+          : pairedWith // ignore: cast_nullable_to_non_nullable
+              as String?,
       logUrl: freezed == logUrl
           ? _value.logUrl
           : logUrl // ignore: cast_nullable_to_non_nullable
@@ -467,11 +564,19 @@ class _$JobImpl extends _Job {
       this.discord,
       this.resumedFrom,
       this.cancelledBy,
+      this.machine,
+      this.summary,
+      final Map<String, int> artifacts = const {},
+      final Map<String, FirebaseUpload> firebaseUploads = const {},
+      this.timedOut = false,
+      this.pairedWith,
       this.logUrl,
       final List<String> warnings = const [],
       this.message})
       : _actionParams = actionParams,
         _environments = environments,
+        _artifacts = artifacts,
+        _firebaseUploads = firebaseUploads,
         _warnings = warnings,
         super._();
 
@@ -553,6 +658,54 @@ class _$JobImpl extends _Job {
   @override
   final String? cancelledBy;
 
+  /// What the job left, kept with it: its folder goes after the admin's
+  /// `artifacts_days`, its history should not. Set as it ends.
+  ///
+  /// The machine that ran it: a build machine's host, or the server's.
+  @override
+  final String? machine;
+
+  /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
+  /// commit of each module), read with `parseJobSummary`.
+  @override
+  final String? summary;
+
+  /// The apk and ipa it made, by file name, with their sizes in bytes.
+  final Map<String, int> _artifacts;
+
+  /// The apk and ipa it made, by file name, with their sizes in bytes.
+  @override
+  @JsonKey()
+  Map<String, int> get artifacts {
+    if (_artifacts is EqualUnmodifiableMapView) return _artifacts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_artifacts);
+  }
+
+  /// Each file's last upload to Firebase App Distribution, by file name: a
+  /// build's own, and those `ci.upload` sent for it later.
+  final Map<String, FirebaseUpload> _firebaseUploads;
+
+  /// Each file's last upload to Firebase App Distribution, by file name: a
+  /// build's own, and those `ci.upload` sent for it later.
+  @override
+  @JsonKey()
+  Map<String, FirebaseUpload> get firebaseUploads {
+    if (_firebaseUploads is EqualUnmodifiableMapView) return _firebaseUploads;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_firebaseUploads);
+  }
+
+  /// It failed because it ran out of time (`timeout_minutes`), not by
+  /// itself.
+  @override
+  @JsonKey()
+  final bool timedOut;
+
+  /// The other half of an `android,ios` build that ran as two jobs.
+  @override
+  final String? pairedWith;
+
   /// Set only on the response of an action invocation/retry — the build
   /// log's URL, served by the static file handler.
   @override
@@ -582,7 +735,7 @@ class _$JobImpl extends _Job {
 
   @override
   String toString() {
-    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, logUrl: $logUrl, warnings: $warnings, message: $message)';
+    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, pairedWith: $pairedWith, logUrl: $logUrl, warnings: $warnings, message: $message)';
   }
 
   @override
@@ -629,6 +782,16 @@ class _$JobImpl extends _Job {
                 other.resumedFrom == resumedFrom) &&
             (identical(other.cancelledBy, cancelledBy) ||
                 other.cancelledBy == cancelledBy) &&
+            (identical(other.machine, machine) || other.machine == machine) &&
+            (identical(other.summary, summary) || other.summary == summary) &&
+            const DeepCollectionEquality()
+                .equals(other._artifacts, _artifacts) &&
+            const DeepCollectionEquality()
+                .equals(other._firebaseUploads, _firebaseUploads) &&
+            (identical(other.timedOut, timedOut) ||
+                other.timedOut == timedOut) &&
+            (identical(other.pairedWith, pairedWith) ||
+                other.pairedWith == pairedWith) &&
             (identical(other.logUrl, logUrl) || other.logUrl == logUrl) &&
             const DeepCollectionEquality().equals(other._warnings, _warnings) &&
             (identical(other.message, message) || other.message == message));
@@ -660,6 +823,12 @@ class _$JobImpl extends _Job {
         discord,
         resumedFrom,
         cancelledBy,
+        machine,
+        summary,
+        const DeepCollectionEquality().hash(_artifacts),
+        const DeepCollectionEquality().hash(_firebaseUploads),
+        timedOut,
+        pairedWith,
         logUrl,
         const DeepCollectionEquality().hash(_warnings),
         message
@@ -703,6 +872,12 @@ abstract class _Job extends Job {
       final DiscordMessageRef? discord,
       final String? resumedFrom,
       final String? cancelledBy,
+      final String? machine,
+      final String? summary,
+      final Map<String, int> artifacts,
+      final Map<String, FirebaseUpload> firebaseUploads,
+      final bool timedOut,
+      final String? pairedWith,
       final String? logUrl,
       final List<String> warnings,
       final String? message}) = _$JobImpl;
@@ -767,6 +942,36 @@ abstract class _Job extends Job {
   String? get resumedFrom;
   @override
   String? get cancelledBy;
+  @override
+
+  /// What the job left, kept with it: its folder goes after the admin's
+  /// `artifacts_days`, its history should not. Set as it ends.
+  ///
+  /// The machine that ran it: a build machine's host, or the server's.
+  String? get machine;
+  @override
+
+  /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
+  /// commit of each module), read with `parseJobSummary`.
+  String? get summary;
+  @override
+
+  /// The apk and ipa it made, by file name, with their sizes in bytes.
+  Map<String, int> get artifacts;
+  @override
+
+  /// Each file's last upload to Firebase App Distribution, by file name: a
+  /// build's own, and those `ci.upload` sent for it later.
+  Map<String, FirebaseUpload> get firebaseUploads;
+  @override
+
+  /// It failed because it ran out of time (`timeout_minutes`), not by
+  /// itself.
+  bool get timedOut;
+  @override
+
+  /// The other half of an `android,ios` build that ran as two jobs.
+  String? get pairedWith;
   @override
 
   /// Set only on the response of an action invocation/retry — the build

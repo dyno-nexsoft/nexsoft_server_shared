@@ -35,6 +35,19 @@ _$JobImpl _$$JobImplFromJson(Map<String, dynamic> json) => _$JobImpl(
           : DiscordMessageRef.fromJson(json['discord'] as Map<String, dynamic>),
       resumedFrom: json['resumed_from'] as String?,
       cancelledBy: json['cancelled_by'] as String?,
+      machine: json['machine'] as String?,
+      summary: json['summary'] as String?,
+      artifacts: (json['artifacts'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, (e as num).toInt()),
+          ) ??
+          const {},
+      firebaseUploads: (json['firebase_uploads'] as Map<String, dynamic>?)?.map(
+            (k, e) =>
+                MapEntry(k, FirebaseUpload.fromJson(e as Map<String, dynamic>)),
+          ) ??
+          const {},
+      timedOut: json['timed_out'] as bool? ?? false,
+      pairedWith: json['paired_with'] as String?,
       logUrl: json['log_url'] as String?,
       warnings: (json['warnings'] as List<dynamic>?)
               ?.map((e) => e as String)
@@ -75,6 +88,13 @@ Map<String, dynamic> _$$JobImplToJson(_$JobImpl instance) {
   writeNotNull('discord', instance.discord?.toJson());
   writeNotNull('resumed_from', instance.resumedFrom);
   writeNotNull('cancelled_by', instance.cancelledBy);
+  writeNotNull('machine', instance.machine);
+  writeNotNull('summary', instance.summary);
+  val['artifacts'] = instance.artifacts;
+  val['firebase_uploads'] =
+      instance.firebaseUploads.map((k, e) => MapEntry(k, e.toJson()));
+  val['timed_out'] = instance.timedOut;
+  writeNotNull('paired_with', instance.pairedWith);
   writeNotNull('log_url', instance.logUrl);
   val['warnings'] = instance.warnings;
   writeNotNull('message', instance.message);

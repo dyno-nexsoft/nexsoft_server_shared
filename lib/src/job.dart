@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'artifact.dart';
 import 'discord_message_ref.dart';
 import 'job_state.dart';
 
@@ -51,6 +52,30 @@ abstract class Job with _$Job {
     DiscordMessageRef? discord,
     String? resumedFrom,
     String? cancelledBy,
+
+    /// What the job left, kept with it: its folder goes after the admin's
+    /// `artifacts_days`, its history should not. Set as it ends.
+    ///
+    /// The machine that ran it: a build machine's host, or the server's.
+    String? machine,
+
+    /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
+    /// commit of each module), read with `parseJobSummary`.
+    String? summary,
+
+    /// The apk and ipa it made, by file name, with their sizes in bytes.
+    @Default({}) Map<String, int> artifacts,
+
+    /// Each file's last upload to Firebase App Distribution, by file name: a
+    /// build's own, and those `ci.upload` sent for it later.
+    @Default({}) Map<String, FirebaseUpload> firebaseUploads,
+
+    /// It failed because it ran out of time (`timeout_minutes`), not by
+    /// itself.
+    @Default(false) bool timedOut,
+
+    /// The other half of an `android,ios` build that ran as two jobs.
+    String? pairedWith,
 
     /// Set only on the response of an action invocation/retry — the build
     /// log's URL, served by the static file handler.
