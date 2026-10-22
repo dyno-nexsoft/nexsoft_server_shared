@@ -23,6 +23,9 @@ _$CiBuildParamsImpl _$$CiBuildParamsImplFromJson(Map<String, dynamic> json) =>
       releaseNotes: json['release_notes'] as String?,
       buildName: json['build_name'] as String?,
       buildNumber: (json['build_number'] as num?)?.toInt(),
+      commits: (json['commits'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       skipFirebaseDistribution:
           json['skip_firebase_distribution'] as bool? ?? false,
       runsOn: json['runs_on'] as String?,
@@ -51,6 +54,7 @@ Map<String, dynamic> _$$CiBuildParamsImplToJson(_$CiBuildParamsImpl instance) {
   writeNotNull('release_notes', instance.releaseNotes);
   writeNotNull('build_name', instance.buildName);
   writeNotNull('build_number', instance.buildNumber);
+  writeNotNull('commits', instance.commits);
   writeNotNull('skip_firebase_distribution',
       _onlyWhenTrue(instance.skipFirebaseDistribution));
   writeNotNull('runs_on', instance.runsOn);

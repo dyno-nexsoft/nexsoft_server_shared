@@ -37,6 +37,13 @@ abstract class CiBuildParams with _$CiBuildParams {
     /// Overrides the time-of-day build number. Unset keeps the default.
     int? buildNumber,
 
+    /// The commit each repo's branch stops at, by [GitRepo.slug] (`tbchat`,
+    /// `database`, `im`, ...): the branch is still what is checked out and
+    /// shown, at that commit instead of its tip. The server fills it for the
+    /// two halves of a split build, so both build one commit however the
+    /// branch moves meanwhile, and a retry of either builds it again.
+    Map<String, String>? commits,
+
     /// Builds and copies the artifact but does not push it to Firebase App
     /// Distribution.
     @JsonKey(toJson: _onlyWhenTrue)
