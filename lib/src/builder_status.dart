@@ -23,6 +23,9 @@ abstract class BuilderStatus with _$BuilderStatus {
 
     /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
     @Default([]) List<String> labels,
+
+    /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+    @Default(false) bool paused,
   }) = _BuilderStatus;
 
   factory BuilderStatus.fromJson(Map<String, dynamic> json) =>

@@ -36,6 +36,9 @@ mixin _$BuilderStatus {
   /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
   List<String> get labels => throw _privateConstructorUsedError;
 
+  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+  bool get paused => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BuilderStatusCopyWith<BuilderStatus> get copyWith =>
@@ -53,7 +56,8 @@ abstract class $BuilderStatusCopyWith<$Res> {
       bool online,
       String? jobId,
       String? problem,
-      List<String> labels});
+      List<String> labels,
+      bool paused});
 }
 
 /// @nodoc
@@ -74,6 +78,7 @@ class _$BuilderStatusCopyWithImpl<$Res, $Val extends BuilderStatus>
     Object? jobId = freezed,
     Object? problem = freezed,
     Object? labels = null,
+    Object? paused = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -96,6 +101,10 @@ class _$BuilderStatusCopyWithImpl<$Res, $Val extends BuilderStatus>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      paused: null == paused
+          ? _value.paused
+          : paused // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -113,7 +122,8 @@ abstract class _$$BuilderStatusImplCopyWith<$Res>
       bool online,
       String? jobId,
       String? problem,
-      List<String> labels});
+      List<String> labels,
+      bool paused});
 }
 
 /// @nodoc
@@ -132,6 +142,7 @@ class __$$BuilderStatusImplCopyWithImpl<$Res>
     Object? jobId = freezed,
     Object? problem = freezed,
     Object? labels = null,
+    Object? paused = null,
   }) {
     return _then(_$BuilderStatusImpl(
       name: null == name
@@ -154,6 +165,10 @@ class __$$BuilderStatusImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      paused: null == paused
+          ? _value.paused
+          : paused // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -166,7 +181,8 @@ class _$BuilderStatusImpl implements _BuilderStatus {
       required this.online,
       this.jobId,
       this.problem,
-      final List<String> labels = const []})
+      final List<String> labels = const [],
+      this.paused = false})
       : _labels = labels;
 
   factory _$BuilderStatusImpl.fromJson(Map<String, dynamic> json) =>
@@ -201,9 +217,14 @@ class _$BuilderStatusImpl implements _BuilderStatus {
     return EqualUnmodifiableListView(_labels);
   }
 
+  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+  @override
+  @JsonKey()
+  final bool paused;
+
   @override
   String toString() {
-    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels)';
+    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
   }
 
   @override
@@ -215,13 +236,14 @@ class _$BuilderStatusImpl implements _BuilderStatus {
             (identical(other.online, online) || other.online == online) &&
             (identical(other.jobId, jobId) || other.jobId == jobId) &&
             (identical(other.problem, problem) || other.problem == problem) &&
-            const DeepCollectionEquality().equals(other._labels, _labels));
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
+            (identical(other.paused, paused) || other.paused == paused));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, online, jobId, problem,
-      const DeepCollectionEquality().hash(_labels));
+      const DeepCollectionEquality().hash(_labels), paused);
 
   @JsonKey(ignore: true)
   @override
@@ -243,7 +265,8 @@ abstract class _BuilderStatus implements BuilderStatus {
       required final bool online,
       final String? jobId,
       final String? problem,
-      final List<String> labels}) = _$BuilderStatusImpl;
+      final List<String> labels,
+      final bool paused}) = _$BuilderStatusImpl;
 
   factory _BuilderStatus.fromJson(Map<String, dynamic> json) =
       _$BuilderStatusImpl.fromJson;
@@ -269,6 +292,10 @@ abstract class _BuilderStatus implements BuilderStatus {
 
   /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
   List<String> get labels;
+  @override
+
+  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+  bool get paused;
   @override
   @JsonKey(ignore: true)
   _$$BuilderStatusImplCopyWith<_$BuilderStatusImpl> get copyWith =>

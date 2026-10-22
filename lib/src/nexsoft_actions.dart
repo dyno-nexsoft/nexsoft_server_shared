@@ -3,6 +3,7 @@ import 'action_transport.dart';
 import 'ai_provider.dart';
 import 'app_limits.dart';
 import 'artifact.dart';
+import 'build_machines_priority.dart';
 import 'build_target.dart';
 import 'daily_task.dart';
 import 'gitlab_history.dart';
@@ -142,6 +143,15 @@ extension NexsoftActions on ActionTransport {
       InteractionHosts.fromJson(
         await invokeAction('ci.interactionHosts.set', {'host': host, if (environment != null) 'environment': environment.name}),
       );
+
+  // ci.machines.* — the order the queue offers work to the machines, and which are paused.
+
+  Future<BuildMachinesPriority> machinesGet() async =>
+      BuildMachinesPriority.fromJson(await invokeAction('ci.machines.get', const {}));
+
+  /// Saves [priority]: its order must name every machine once, as [machinesGet] lists them.
+  Future<BuildMachinesPriority> machinesSet(BuildMachinesPriority priority) async =>
+      BuildMachinesPriority.fromJson(await invokeAction('ci.machines.set', priority.toJson()));
 
   // schedule.* — the working calendar the scheduled jobs follow.
 

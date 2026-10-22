@@ -16,6 +16,7 @@ _$BuilderStatusImpl _$$BuilderStatusImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      paused: json['paused'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$BuilderStatusImplToJson(_$BuilderStatusImpl instance) {
@@ -33,5 +34,6 @@ Map<String, dynamic> _$$BuilderStatusImplToJson(_$BuilderStatusImpl instance) {
   writeNotNull('job_id', instance.jobId);
   writeNotNull('problem', instance.problem);
   val['labels'] = instance.labels;
+  val['paused'] = instance.paused;
   return val;
 }

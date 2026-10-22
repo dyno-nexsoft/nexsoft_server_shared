@@ -42,6 +42,26 @@ void main() {
     ]);
   });
 
+  test('the machines priority goes out whole, and comes back typed', () async {
+    final t = _Recorder({
+      'message': 'Machines saved.',
+      'order': ['mini-3', 'local'],
+      'paused': ['mini-3'],
+    });
+    final saved = await t.machinesSet(
+      const BuildMachinesPriority(
+        order: ['mini-3', 'local'],
+        paused: ['mini-3'],
+      ),
+    );
+    expect(t.calls.single.$1, 'ci.machines.set');
+    expect(t.calls.single.$2, {
+      'order': ['mini-3', 'local'],
+      'paused': ['mini-3'],
+    });
+    expect(saved.paused, ['mini-3']);
+  });
+
   test('a call with no params sends an empty object', () async {
     final t = _Recorder({'keys': []});
     await t.apiKeysList();
