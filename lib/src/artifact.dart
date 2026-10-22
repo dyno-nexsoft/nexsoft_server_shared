@@ -5,6 +5,21 @@ import 'job.dart';
 part 'artifact.freezed.dart';
 part 'artifact.g.dart';
 
+/// How an artifact's last upload to Firebase App Distribution went, as the
+/// upload recorded it beside the file.
+enum FirebaseUploadStatus { uploaded, failed }
+
+@freezed
+abstract class FirebaseUpload with _$FirebaseUpload {
+  const factory FirebaseUpload({
+    required FirebaseUploadStatus status,
+    required DateTime at,
+  }) = _FirebaseUpload;
+
+  factory FirebaseUpload.fromJson(Map<String, dynamic> json) =>
+      _$FirebaseUploadFromJson(json);
+}
+
 @freezed
 abstract class ArtifactFile with _$ArtifactFile {
   /// Private constructor: required by freezed before custom getters/methods
@@ -16,6 +31,11 @@ abstract class ArtifactFile with _$ArtifactFile {
     @Default(false) bool isDirectory,
     int? size,
     required DateTime modified,
+
+    /// Its last upload to Firebase, for an apk or ipa that was sent; null for
+    /// one never sent (a build made with `skip_firebase_distribution`) and for
+    /// every other file.
+    FirebaseUpload? firebase,
   }) = _ArtifactFile;
 
   factory ArtifactFile.fromJson(Map<String, dynamic> json) =>
@@ -24,6 +44,14 @@ abstract class ArtifactFile with _$ArtifactFile {
   /// Whether this is an iOS app archive — the only file type that gets an
   /// OTA-install action (see [iosInstallUrl]).
   bool get isIpa => name.toLowerCase().endsWith('.ipa');
+
+  /// The platform `ci.upload` sends this file for: `android` for an apk,
+  /// `ios` for an ipa, null for anything else.
+  String? get platform => switch (name.toLowerCase()) {
+    final n when n.endsWith('.apk') => 'android',
+    final n when n.endsWith('.ipa') => 'ios',
+    _ => null,
+  };
 
   /// The direct download/view URL for this file, inside a listing served at
   /// `origin/listingKey/`.

@@ -32,6 +32,10 @@ enum CiScript {
   /// Analyzes the shared workspace, and ignores `--now` as well.
   analyze('analyze.sh'),
 
+  /// Uploads a finished build's artifacts to Firebase App Distribution
+  /// (`ci.upload`). It only reads them, so it may start beside anything.
+  distribute('distribute.sh'),
+
   /// A command none of the above: runs only in this machine's own lane, alone.
   other(null);
 

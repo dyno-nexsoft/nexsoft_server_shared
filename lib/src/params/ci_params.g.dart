@@ -144,6 +144,28 @@ Map<String, dynamic> _$$CiReplaceParamsImplToJson(
   return val;
 }
 
+_$CiUploadParamsImpl _$$CiUploadParamsImplFromJson(Map<String, dynamic> json) =>
+    _$CiUploadParamsImpl(
+      jobId: json['job_id'] as String,
+      platform: json['platform'] as String?,
+    );
+
+Map<String, dynamic> _$$CiUploadParamsImplToJson(
+    _$CiUploadParamsImpl instance) {
+  final val = <String, dynamic>{
+    'job_id': instance.jobId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('platform', instance.platform);
+  return val;
+}
+
 _$CiCleanParamsImpl _$$CiCleanParamsImplFromJson(Map<String, dynamic> json) =>
     _$CiCleanParamsImpl(
       mode: json['mode'] as String?,

@@ -1154,6 +1154,172 @@ abstract class _CiReplaceParams implements CiReplaceParams {
       throw _privateConstructorUsedError;
 }
 
+CiUploadParams _$CiUploadParamsFromJson(Map<String, dynamic> json) {
+  return _CiUploadParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CiUploadParams {
+  /// The `ci.build` job whose artifacts go up.
+  String get jobId => throw _privateConstructorUsedError;
+
+  /// `android` or `ios` for that one only; unset sends every one it made.
+  String? get platform => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CiUploadParamsCopyWith<CiUploadParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CiUploadParamsCopyWith<$Res> {
+  factory $CiUploadParamsCopyWith(
+          CiUploadParams value, $Res Function(CiUploadParams) then) =
+      _$CiUploadParamsCopyWithImpl<$Res, CiUploadParams>;
+  @useResult
+  $Res call({String jobId, String? platform});
+}
+
+/// @nodoc
+class _$CiUploadParamsCopyWithImpl<$Res, $Val extends CiUploadParams>
+    implements $CiUploadParamsCopyWith<$Res> {
+  _$CiUploadParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jobId = null,
+    Object? platform = freezed,
+  }) {
+    return _then(_value.copyWith(
+      jobId: null == jobId
+          ? _value.jobId
+          : jobId // ignore: cast_nullable_to_non_nullable
+              as String,
+      platform: freezed == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CiUploadParamsImplCopyWith<$Res>
+    implements $CiUploadParamsCopyWith<$Res> {
+  factory _$$CiUploadParamsImplCopyWith(_$CiUploadParamsImpl value,
+          $Res Function(_$CiUploadParamsImpl) then) =
+      __$$CiUploadParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String jobId, String? platform});
+}
+
+/// @nodoc
+class __$$CiUploadParamsImplCopyWithImpl<$Res>
+    extends _$CiUploadParamsCopyWithImpl<$Res, _$CiUploadParamsImpl>
+    implements _$$CiUploadParamsImplCopyWith<$Res> {
+  __$$CiUploadParamsImplCopyWithImpl(
+      _$CiUploadParamsImpl _value, $Res Function(_$CiUploadParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jobId = null,
+    Object? platform = freezed,
+  }) {
+    return _then(_$CiUploadParamsImpl(
+      jobId: null == jobId
+          ? _value.jobId
+          : jobId // ignore: cast_nullable_to_non_nullable
+              as String,
+      platform: freezed == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CiUploadParamsImpl implements _CiUploadParams {
+  const _$CiUploadParamsImpl({required this.jobId, this.platform});
+
+  factory _$CiUploadParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CiUploadParamsImplFromJson(json);
+
+  /// The `ci.build` job whose artifacts go up.
+  @override
+  final String jobId;
+
+  /// `android` or `ios` for that one only; unset sends every one it made.
+  @override
+  final String? platform;
+
+  @override
+  String toString() {
+    return 'CiUploadParams(jobId: $jobId, platform: $platform)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CiUploadParamsImpl &&
+            (identical(other.jobId, jobId) || other.jobId == jobId) &&
+            (identical(other.platform, platform) ||
+                other.platform == platform));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, jobId, platform);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CiUploadParamsImplCopyWith<_$CiUploadParamsImpl> get copyWith =>
+      __$$CiUploadParamsImplCopyWithImpl<_$CiUploadParamsImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CiUploadParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CiUploadParams implements CiUploadParams {
+  const factory _CiUploadParams(
+      {required final String jobId,
+      final String? platform}) = _$CiUploadParamsImpl;
+
+  factory _CiUploadParams.fromJson(Map<String, dynamic> json) =
+      _$CiUploadParamsImpl.fromJson;
+
+  @override
+
+  /// The `ci.build` job whose artifacts go up.
+  String get jobId;
+  @override
+
+  /// `android` or `ios` for that one only; unset sends every one it made.
+  String? get platform;
+  @override
+  @JsonKey(ignore: true)
+  _$$CiUploadParamsImplCopyWith<_$CiUploadParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 CiCleanParams _$CiCleanParamsFromJson(Map<String, dynamic> json) {
   return _CiCleanParams.fromJson(json);
 }

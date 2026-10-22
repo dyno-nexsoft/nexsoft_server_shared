@@ -44,6 +44,10 @@ extension NexsoftActions on ActionTransport {
   Future<Job> ciReplace(CiReplaceParams params) async =>
       Job.fromJson(await invokeAction('ci.replace', params.toJson()));
 
+  /// Sends a finished build's artifacts to Firebase again, as a job of its own.
+  Future<Job> ciUpload(CiUploadParams params) async =>
+      Job.fromJson(await invokeAction('ci.upload', params.toJson()));
+
   Future<Job> ciClean([CiCleanParams params = const CiCleanParams()]) async =>
       Job.fromJson(await invokeAction('ci.clean', params.toJson()));
 

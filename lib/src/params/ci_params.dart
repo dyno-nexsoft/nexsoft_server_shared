@@ -120,6 +120,22 @@ abstract class CiReplaceParams with _$CiReplaceParams {
       _$CiReplaceParamsFromJson(json);
 }
 
+/// `ci.upload` — sends a finished build's artifacts to Firebase App
+/// Distribution again, or for the first time, without building them again.
+@freezed
+abstract class CiUploadParams with _$CiUploadParams {
+  const factory CiUploadParams({
+    /// The `ci.build` job whose artifacts go up.
+    required String jobId,
+
+    /// `android` or `ios` for that one only; unset sends every one it made.
+    String? platform,
+  }) = _CiUploadParams;
+
+  factory CiUploadParams.fromJson(Map<String, dynamic> json) =>
+      _$CiUploadParamsFromJson(json);
+}
+
 /// `ci.clean`.
 @freezed
 abstract class CiCleanParams with _$CiCleanParams {
