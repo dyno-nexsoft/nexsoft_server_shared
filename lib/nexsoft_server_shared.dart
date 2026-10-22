@@ -15,6 +15,7 @@ export 'src/arb_translate_result.dart';
 export 'src/artifact.dart';
 export 'src/build_target.dart';
 export 'src/builder_status.dart';
+export 'src/ci_script.dart';
 export 'src/daily_task.dart';
 export 'src/dashboard_version.dart';
 export 'src/discord_message_ref.dart';
