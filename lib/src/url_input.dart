@@ -51,8 +51,8 @@ String _linkIn(String text) {
 ///   only share tracking — except the keys in [keepKeys] (the `v` of a YouTube `watch?v=…`, which is the video).
 ///   Without it only known tracking keys go, since another link (a signed download, say) may need the rest.
 ///
-/// - Pasted with text around it (a share text: Douyin's "Share" copies a caption, the link and a code after it,
-///   `7.43 复制打开抖音… https://v.douyin.com/abc/ 9@5.com`), the first `http(s)://` word is the link. A link has no
+/// - Pasted with text around it (a share text: an app's "Share" can copy a caption, the link and a code after it,
+///   `7.43 open the app… https://example.com/abc/ 9@5.com`), the first `http(s)://` word is the link. A link has no
 ///   whitespace in it, so the rest was never part of it; kept, the trailing code became part of the path.
 ///
 /// Null when [raw] is empty or is not an `http(s)` link with a host.

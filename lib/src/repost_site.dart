@@ -17,9 +17,6 @@ enum RepostSite {
     {'v', 'story_fbid', 'id', 'fbid', 'set'},
   ),
   instagram('instagram', 'ig', {'instagram.com'}, {}),
-  // yt-dlp's Douyin extractor takes a single video (`/video/<id>`); `modal_id` names the video on a page that opens one
-  // over a feed (`/discover?modal_id=…`), and a `v.douyin.com` short link is followed by the tool first.
-  douyin('douyin', 'dy', {'douyin.com', 'iesdouyin.com'}, {'modal_id'}),
   // yt-dlp has no Threads extractor; the tool reads the page itself. A post is `/@user/post/<code>`, so the path says it all.
   threads('threads', 'th', {'threads.net', 'threads.com'}, {});
 
@@ -112,9 +109,6 @@ enum RepostSite {
           'share',
         };
         return notAUser.contains(parts.first) ? '' : parts.first;
-      case RepostSite.douyin:
-        // `/user/<sec_uid>` is a profile; a video link does not say whose it is.
-        return parts.first == 'user' && parts.length > 1 ? parts[1] : '';
       case RepostSite.threads:
         return parts.first.startsWith('@') ? parts.first.substring(1) : '';
     }
