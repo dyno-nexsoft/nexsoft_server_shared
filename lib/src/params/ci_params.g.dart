@@ -26,6 +26,8 @@ _$CiBuildParamsImpl _$$CiBuildParamsImplFromJson(Map<String, dynamic> json) =>
       skipFirebaseDistribution:
           json['skip_firebase_distribution'] as bool? ?? false,
       runsOn: json['runs_on'] as String?,
+      timeoutMinutes: (json['timeout_minutes'] as num?)?.toInt(),
+      retries: (json['retries'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$CiBuildParamsImplToJson(_$CiBuildParamsImpl instance) {
@@ -52,6 +54,8 @@ Map<String, dynamic> _$$CiBuildParamsImplToJson(_$CiBuildParamsImpl instance) {
   writeNotNull('skip_firebase_distribution',
       _onlyWhenTrue(instance.skipFirebaseDistribution));
   writeNotNull('runs_on', instance.runsOn);
+  writeNotNull('timeout_minutes', instance.timeoutMinutes);
+  writeNotNull('retries', instance.retries);
   return val;
 }
 
@@ -117,6 +121,8 @@ _$CiReplaceParamsImpl _$$CiReplaceParamsImplFromJson(
       url: json['url'] as String,
       tbchat: json['tbchat'] as String,
       runsOn: json['runs_on'] as String?,
+      timeoutMinutes: (json['timeout_minutes'] as num?)?.toInt(),
+      retries: (json['retries'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$CiReplaceParamsImplToJson(
@@ -133,6 +139,8 @@ Map<String, dynamic> _$$CiReplaceParamsImplToJson(
   }
 
   writeNotNull('runs_on', instance.runsOn);
+  writeNotNull('timeout_minutes', instance.timeoutMinutes);
+  writeNotNull('retries', instance.retries);
   return val;
 }
 

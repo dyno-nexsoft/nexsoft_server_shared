@@ -53,6 +53,14 @@ mixin _$CiBuildParams {
   /// command: it decides where the job runs, not what it builds.
   String? get runsOn => throw _privateConstructorUsedError;
 
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  int? get timeoutMinutes => throw _privateConstructorUsedError;
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  int? get retries => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CiBuildParamsCopyWith<CiBuildParams> get copyWith =>
@@ -78,7 +86,9 @@ abstract class $CiBuildParamsCopyWith<$Res> {
       String? buildName,
       int? buildNumber,
       @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
-      String? runsOn});
+      String? runsOn,
+      int? timeoutMinutes,
+      int? retries});
 }
 
 /// @nodoc
@@ -107,6 +117,8 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
     Object? buildNumber = freezed,
     Object? skipFirebaseDistribution = null,
     Object? runsOn = freezed,
+    Object? timeoutMinutes = freezed,
+    Object? retries = freezed,
   }) {
     return _then(_value.copyWith(
       tbchat: null == tbchat
@@ -161,6 +173,14 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
           ? _value.runsOn
           : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
+      timeoutMinutes: freezed == timeoutMinutes
+          ? _value.timeoutMinutes
+          : timeoutMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retries: freezed == retries
+          ? _value.retries
+          : retries // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -186,7 +206,9 @@ abstract class _$$CiBuildParamsImplCopyWith<$Res>
       String? buildName,
       int? buildNumber,
       @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
-      String? runsOn});
+      String? runsOn,
+      int? timeoutMinutes,
+      int? retries});
 }
 
 /// @nodoc
@@ -213,6 +235,8 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
     Object? buildNumber = freezed,
     Object? skipFirebaseDistribution = null,
     Object? runsOn = freezed,
+    Object? timeoutMinutes = freezed,
+    Object? retries = freezed,
   }) {
     return _then(_$CiBuildParamsImpl(
       tbchat: null == tbchat
@@ -267,6 +291,14 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
           ? _value.runsOn
           : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
+      timeoutMinutes: freezed == timeoutMinutes
+          ? _value.timeoutMinutes
+          : timeoutMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retries: freezed == retries
+          ? _value.retries
+          : retries // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -287,7 +319,9 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       this.buildName,
       this.buildNumber,
       @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false,
-      this.runsOn});
+      this.runsOn,
+      this.timeoutMinutes,
+      this.retries});
 
   factory _$CiBuildParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiBuildParamsImplFromJson(json);
@@ -340,9 +374,19 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
   @override
   final String? runsOn;
 
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  @override
+  final int? timeoutMinutes;
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  @override
+  final int? retries;
+
   @override
   String toString() {
-    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn)';
+    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
   }
 
   @override
@@ -372,7 +416,10 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
             (identical(
                     other.skipFirebaseDistribution, skipFirebaseDistribution) ||
                 other.skipFirebaseDistribution == skipFirebaseDistribution) &&
-            (identical(other.runsOn, runsOn) || other.runsOn == runsOn));
+            (identical(other.runsOn, runsOn) || other.runsOn == runsOn) &&
+            (identical(other.timeoutMinutes, timeoutMinutes) ||
+                other.timeoutMinutes == timeoutMinutes) &&
+            (identical(other.retries, retries) || other.retries == retries));
   }
 
   @JsonKey(ignore: true)
@@ -391,7 +438,9 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       buildName,
       buildNumber,
       skipFirebaseDistribution,
-      runsOn);
+      runsOn,
+      timeoutMinutes,
+      retries);
 
   @JsonKey(ignore: true)
   @override
@@ -421,7 +470,9 @@ abstract class _CiBuildParams implements CiBuildParams {
       final String? buildName,
       final int? buildNumber,
       @JsonKey(toJson: _onlyWhenTrue) final bool skipFirebaseDistribution,
-      final String? runsOn}) = _$CiBuildParamsImpl;
+      final String? runsOn,
+      final int? timeoutMinutes,
+      final int? retries}) = _$CiBuildParamsImpl;
 
   factory _CiBuildParams.fromJson(Map<String, dynamic> json) =
       _$CiBuildParamsImpl.fromJson;
@@ -472,6 +523,16 @@ abstract class _CiBuildParams implements CiBuildParams {
   /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
   /// command: it decides where the job runs, not what it builds.
   String? get runsOn;
+  @override
+
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  int? get timeoutMinutes;
+  @override
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  int? get retries;
   @override
   @JsonKey(ignore: true)
   _$$CiBuildParamsImplCopyWith<_$CiBuildParamsImpl> get copyWith =>
@@ -847,6 +908,14 @@ mixin _$CiReplaceParams {
   /// command: it decides where the job runs, not what it builds.
   String? get runsOn => throw _privateConstructorUsedError;
 
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  int? get timeoutMinutes => throw _privateConstructorUsedError;
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  int? get retries => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CiReplaceParamsCopyWith<CiReplaceParams> get copyWith =>
@@ -859,7 +928,12 @@ abstract class $CiReplaceParamsCopyWith<$Res> {
           CiReplaceParams value, $Res Function(CiReplaceParams) then) =
       _$CiReplaceParamsCopyWithImpl<$Res, CiReplaceParams>;
   @useResult
-  $Res call({String url, String tbchat, String? runsOn});
+  $Res call(
+      {String url,
+      String tbchat,
+      String? runsOn,
+      int? timeoutMinutes,
+      int? retries});
 }
 
 /// @nodoc
@@ -878,6 +952,8 @@ class _$CiReplaceParamsCopyWithImpl<$Res, $Val extends CiReplaceParams>
     Object? url = null,
     Object? tbchat = null,
     Object? runsOn = freezed,
+    Object? timeoutMinutes = freezed,
+    Object? retries = freezed,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -892,6 +968,14 @@ class _$CiReplaceParamsCopyWithImpl<$Res, $Val extends CiReplaceParams>
           ? _value.runsOn
           : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
+      timeoutMinutes: freezed == timeoutMinutes
+          ? _value.timeoutMinutes
+          : timeoutMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retries: freezed == retries
+          ? _value.retries
+          : retries // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -904,7 +988,12 @@ abstract class _$$CiReplaceParamsImplCopyWith<$Res>
       __$$CiReplaceParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String url, String tbchat, String? runsOn});
+  $Res call(
+      {String url,
+      String tbchat,
+      String? runsOn,
+      int? timeoutMinutes,
+      int? retries});
 }
 
 /// @nodoc
@@ -921,6 +1010,8 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
     Object? url = null,
     Object? tbchat = null,
     Object? runsOn = freezed,
+    Object? timeoutMinutes = freezed,
+    Object? retries = freezed,
   }) {
     return _then(_$CiReplaceParamsImpl(
       url: null == url
@@ -935,6 +1026,14 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
           ? _value.runsOn
           : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
+      timeoutMinutes: freezed == timeoutMinutes
+          ? _value.timeoutMinutes
+          : timeoutMinutes // ignore: cast_nullable_to_non_nullable
+              as int?,
+      retries: freezed == retries
+          ? _value.retries
+          : retries // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -943,7 +1042,11 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CiReplaceParamsImpl implements _CiReplaceParams {
   const _$CiReplaceParamsImpl(
-      {required this.url, required this.tbchat, this.runsOn});
+      {required this.url,
+      required this.tbchat,
+      this.runsOn,
+      this.timeoutMinutes,
+      this.retries});
 
   factory _$CiReplaceParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiReplaceParamsImplFromJson(json);
@@ -962,9 +1065,19 @@ class _$CiReplaceParamsImpl implements _CiReplaceParams {
   @override
   final String? runsOn;
 
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  @override
+  final int? timeoutMinutes;
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  @override
+  final int? retries;
+
   @override
   String toString() {
-    return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn)';
+    return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
   }
 
   @override
@@ -974,12 +1087,16 @@ class _$CiReplaceParamsImpl implements _CiReplaceParams {
             other is _$CiReplaceParamsImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.tbchat, tbchat) || other.tbchat == tbchat) &&
-            (identical(other.runsOn, runsOn) || other.runsOn == runsOn));
+            (identical(other.runsOn, runsOn) || other.runsOn == runsOn) &&
+            (identical(other.timeoutMinutes, timeoutMinutes) ||
+                other.timeoutMinutes == timeoutMinutes) &&
+            (identical(other.retries, retries) || other.retries == retries));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, url, tbchat, runsOn);
+  int get hashCode =>
+      Object.hash(runtimeType, url, tbchat, runsOn, timeoutMinutes, retries);
 
   @JsonKey(ignore: true)
   @override
@@ -1000,7 +1117,9 @@ abstract class _CiReplaceParams implements CiReplaceParams {
   const factory _CiReplaceParams(
       {required final String url,
       required final String tbchat,
-      final String? runsOn}) = _$CiReplaceParamsImpl;
+      final String? runsOn,
+      final int? timeoutMinutes,
+      final int? retries}) = _$CiReplaceParamsImpl;
 
   factory _CiReplaceParams.fromJson(Map<String, dynamic> json) =
       _$CiReplaceParamsImpl.fromJson;
@@ -1019,6 +1138,16 @@ abstract class _CiReplaceParams implements CiReplaceParams {
   /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
   /// command: it decides where the job runs, not what it builds.
   String? get runsOn;
+  @override
+
+  /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+  /// keeps that limit.
+  int? get timeoutMinutes;
+  @override
+
+  /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+  /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+  int? get retries;
   @override
   @JsonKey(ignore: true)
   _$$CiReplaceParamsImplCopyWith<_$CiReplaceParamsImpl> get copyWith =>

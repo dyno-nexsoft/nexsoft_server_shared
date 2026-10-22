@@ -47,6 +47,14 @@ abstract class CiBuildParams with _$CiBuildParams {
     /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
     /// command: it decides where the job runs, not what it builds.
     String? runsOn,
+
+    /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+    /// keeps that limit.
+    int? timeoutMinutes,
+
+    /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+    /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+    int? retries,
   }) = _CiBuildParams;
 
   factory CiBuildParams.fromJson(Map<String, dynamic> json) =>
@@ -98,6 +106,14 @@ abstract class CiReplaceParams with _$CiReplaceParams {
     /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
     /// command: it decides where the job runs, not what it builds.
     String? runsOn,
+
+    /// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
+    /// keeps that limit.
+    int? timeoutMinutes,
+
+    /// Runs a failed job again, up to this many times (0 to 2). Never after a cancel, a timeout or a lost connection to
+    /// its machine, nor once it has uploaded to Firebase App Distribution, where a second run would upload twice.
+    int? retries,
   }) = _CiReplaceParams;
 
   factory CiReplaceParams.fromJson(Map<String, dynamic> json) =>
