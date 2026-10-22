@@ -25,6 +25,7 @@ _$CiBuildParamsImpl _$$CiBuildParamsImplFromJson(Map<String, dynamic> json) =>
       buildNumber: (json['build_number'] as num?)?.toInt(),
       skipFirebaseDistribution:
           json['skip_firebase_distribution'] as bool? ?? false,
+      runsOn: json['runs_on'] as String?,
     );
 
 Map<String, dynamic> _$$CiBuildParamsImplToJson(_$CiBuildParamsImpl instance) {
@@ -50,6 +51,7 @@ Map<String, dynamic> _$$CiBuildParamsImplToJson(_$CiBuildParamsImpl instance) {
   writeNotNull('build_number', instance.buildNumber);
   writeNotNull('skip_firebase_distribution',
       _onlyWhenTrue(instance.skipFirebaseDistribution));
+  writeNotNull('runs_on', instance.runsOn);
   return val;
 }
 
@@ -114,14 +116,25 @@ _$CiReplaceParamsImpl _$$CiReplaceParamsImplFromJson(
     _$CiReplaceParamsImpl(
       url: json['url'] as String,
       tbchat: json['tbchat'] as String,
+      runsOn: json['runs_on'] as String?,
     );
 
 Map<String, dynamic> _$$CiReplaceParamsImplToJson(
-        _$CiReplaceParamsImpl instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-      'tbchat': instance.tbchat,
-    };
+    _$CiReplaceParamsImpl instance) {
+  final val = <String, dynamic>{
+    'url': instance.url,
+    'tbchat': instance.tbchat,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('runs_on', instance.runsOn);
+  return val;
+}
 
 _$CiCleanParamsImpl _$$CiCleanParamsImplFromJson(Map<String, dynamic> json) =>
     _$CiCleanParamsImpl(

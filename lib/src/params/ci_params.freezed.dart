@@ -48,6 +48,11 @@ mixin _$CiBuildParams {
   @JsonKey(toJson: _onlyWhenTrue)
   bool get skipFirebaseDistribution => throw _privateConstructorUsedError;
 
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  String? get runsOn => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CiBuildParamsCopyWith<CiBuildParams> get copyWith =>
@@ -72,7 +77,8 @@ abstract class $CiBuildParamsCopyWith<$Res> {
       String? releaseNotes,
       String? buildName,
       int? buildNumber,
-      @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution});
+      @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
+      String? runsOn});
 }
 
 /// @nodoc
@@ -100,6 +106,7 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
     Object? buildName = freezed,
     Object? buildNumber = freezed,
     Object? skipFirebaseDistribution = null,
+    Object? runsOn = freezed,
   }) {
     return _then(_value.copyWith(
       tbchat: null == tbchat
@@ -150,6 +157,10 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
           ? _value.skipFirebaseDistribution
           : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
               as bool,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -174,7 +185,8 @@ abstract class _$$CiBuildParamsImplCopyWith<$Res>
       String? releaseNotes,
       String? buildName,
       int? buildNumber,
-      @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution});
+      @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
+      String? runsOn});
 }
 
 /// @nodoc
@@ -200,6 +212,7 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
     Object? buildName = freezed,
     Object? buildNumber = freezed,
     Object? skipFirebaseDistribution = null,
+    Object? runsOn = freezed,
   }) {
     return _then(_$CiBuildParamsImpl(
       tbchat: null == tbchat
@@ -250,6 +263,10 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
           ? _value.skipFirebaseDistribution
           : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
               as bool,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -269,7 +286,8 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       this.releaseNotes,
       this.buildName,
       this.buildNumber,
-      @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false});
+      @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false,
+      this.runsOn});
 
   factory _$CiBuildParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiBuildParamsImplFromJson(json);
@@ -316,9 +334,15 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
   @JsonKey(toJson: _onlyWhenTrue)
   final bool skipFirebaseDistribution;
 
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  @override
+  final String? runsOn;
+
   @override
   String toString() {
-    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution)';
+    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn)';
   }
 
   @override
@@ -347,7 +371,8 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
                 other.buildNumber == buildNumber) &&
             (identical(
                     other.skipFirebaseDistribution, skipFirebaseDistribution) ||
-                other.skipFirebaseDistribution == skipFirebaseDistribution));
+                other.skipFirebaseDistribution == skipFirebaseDistribution) &&
+            (identical(other.runsOn, runsOn) || other.runsOn == runsOn));
   }
 
   @JsonKey(ignore: true)
@@ -365,7 +390,8 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       releaseNotes,
       buildName,
       buildNumber,
-      skipFirebaseDistribution);
+      skipFirebaseDistribution,
+      runsOn);
 
   @JsonKey(ignore: true)
   @override
@@ -394,8 +420,8 @@ abstract class _CiBuildParams implements CiBuildParams {
       final String? releaseNotes,
       final String? buildName,
       final int? buildNumber,
-      @JsonKey(toJson: _onlyWhenTrue)
-      final bool skipFirebaseDistribution}) = _$CiBuildParamsImpl;
+      @JsonKey(toJson: _onlyWhenTrue) final bool skipFirebaseDistribution,
+      final String? runsOn}) = _$CiBuildParamsImpl;
 
   factory _CiBuildParams.fromJson(Map<String, dynamic> json) =
       _$CiBuildParamsImpl.fromJson;
@@ -440,6 +466,12 @@ abstract class _CiBuildParams implements CiBuildParams {
   /// Distribution.
   @JsonKey(toJson: _onlyWhenTrue)
   bool get skipFirebaseDistribution;
+  @override
+
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  String? get runsOn;
   @override
   @JsonKey(ignore: true)
   _$$CiBuildParamsImplCopyWith<_$CiBuildParamsImpl> get copyWith =>
@@ -810,6 +842,11 @@ mixin _$CiReplaceParams {
   /// Branch or commit hash of the `tbchat` repo.
   String get tbchat => throw _privateConstructorUsedError;
 
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  String? get runsOn => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CiReplaceParamsCopyWith<CiReplaceParams> get copyWith =>
@@ -822,7 +859,7 @@ abstract class $CiReplaceParamsCopyWith<$Res> {
           CiReplaceParams value, $Res Function(CiReplaceParams) then) =
       _$CiReplaceParamsCopyWithImpl<$Res, CiReplaceParams>;
   @useResult
-  $Res call({String url, String tbchat});
+  $Res call({String url, String tbchat, String? runsOn});
 }
 
 /// @nodoc
@@ -840,6 +877,7 @@ class _$CiReplaceParamsCopyWithImpl<$Res, $Val extends CiReplaceParams>
   $Res call({
     Object? url = null,
     Object? tbchat = null,
+    Object? runsOn = freezed,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -850,6 +888,10 @@ class _$CiReplaceParamsCopyWithImpl<$Res, $Val extends CiReplaceParams>
           ? _value.tbchat
           : tbchat // ignore: cast_nullable_to_non_nullable
               as String,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -862,7 +904,7 @@ abstract class _$$CiReplaceParamsImplCopyWith<$Res>
       __$$CiReplaceParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String url, String tbchat});
+  $Res call({String url, String tbchat, String? runsOn});
 }
 
 /// @nodoc
@@ -878,6 +920,7 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? url = null,
     Object? tbchat = null,
+    Object? runsOn = freezed,
   }) {
     return _then(_$CiReplaceParamsImpl(
       url: null == url
@@ -888,6 +931,10 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
           ? _value.tbchat
           : tbchat // ignore: cast_nullable_to_non_nullable
               as String,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -895,7 +942,8 @@ class __$$CiReplaceParamsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CiReplaceParamsImpl implements _CiReplaceParams {
-  const _$CiReplaceParamsImpl({required this.url, required this.tbchat});
+  const _$CiReplaceParamsImpl(
+      {required this.url, required this.tbchat, this.runsOn});
 
   factory _$CiReplaceParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiReplaceParamsImplFromJson(json);
@@ -908,9 +956,15 @@ class _$CiReplaceParamsImpl implements _CiReplaceParams {
   @override
   final String tbchat;
 
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  @override
+  final String? runsOn;
+
   @override
   String toString() {
-    return 'CiReplaceParams(url: $url, tbchat: $tbchat)';
+    return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn)';
   }
 
   @override
@@ -919,12 +973,13 @@ class _$CiReplaceParamsImpl implements _CiReplaceParams {
         (other.runtimeType == runtimeType &&
             other is _$CiReplaceParamsImpl &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.tbchat, tbchat) || other.tbchat == tbchat));
+            (identical(other.tbchat, tbchat) || other.tbchat == tbchat) &&
+            (identical(other.runsOn, runsOn) || other.runsOn == runsOn));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, url, tbchat);
+  int get hashCode => Object.hash(runtimeType, url, tbchat, runsOn);
 
   @JsonKey(ignore: true)
   @override
@@ -944,7 +999,8 @@ class _$CiReplaceParamsImpl implements _CiReplaceParams {
 abstract class _CiReplaceParams implements CiReplaceParams {
   const factory _CiReplaceParams(
       {required final String url,
-      required final String tbchat}) = _$CiReplaceParamsImpl;
+      required final String tbchat,
+      final String? runsOn}) = _$CiReplaceParamsImpl;
 
   factory _CiReplaceParams.fromJson(Map<String, dynamic> json) =
       _$CiReplaceParamsImpl.fromJson;
@@ -957,6 +1013,12 @@ abstract class _CiReplaceParams implements CiReplaceParams {
 
   /// Branch or commit hash of the `tbchat` repo.
   String get tbchat;
+  @override
+
+  /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+  /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+  /// command: it decides where the job runs, not what it builds.
+  String? get runsOn;
   @override
   @JsonKey(ignore: true)
   _$$CiReplaceParamsImplCopyWith<_$CiReplaceParamsImpl> get copyWith =>

@@ -20,6 +20,9 @@ abstract class BuilderStatus with _$BuilderStatus {
     /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
     /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
     String? problem,
+
+    /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
+    @Default([]) List<String> labels,
   }) = _BuilderStatus;
 
   factory BuilderStatus.fromJson(Map<String, dynamic> json) =>

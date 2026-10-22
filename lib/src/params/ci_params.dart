@@ -42,6 +42,11 @@ abstract class CiBuildParams with _$CiBuildParams {
     @JsonKey(toJson: _onlyWhenTrue)
     @Default(false)
     bool skipFirebaseDistribution,
+
+    /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+    /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+    /// command: it decides where the job runs, not what it builds.
+    String? runsOn,
   }) = _CiBuildParams;
 
   factory CiBuildParams.fromJson(Map<String, dynamic> json) =>
@@ -88,6 +93,11 @@ abstract class CiReplaceParams with _$CiReplaceParams {
 
     /// Branch or commit hash of the `tbchat` repo.
     required String tbchat,
+
+    /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+    /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
+    /// command: it decides where the job runs, not what it builds.
+    String? runsOn,
   }) = _CiReplaceParams;
 
   factory CiReplaceParams.fromJson(Map<String, dynamic> json) =>
