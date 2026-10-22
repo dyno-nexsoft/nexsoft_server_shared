@@ -30,6 +30,7 @@ export 'src/job_label.dart';
 export 'src/job_log_chunk.dart';
 export 'src/job_state.dart';
 export 'src/job_submission.dart';
+export 'src/job_summary.dart';
 export 'src/job_timing.dart';
 export 'src/log_steps.dart';
 export 'src/nexsoft_actions.dart';
