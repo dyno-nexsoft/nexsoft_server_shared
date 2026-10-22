@@ -34,6 +34,13 @@ abstract class AppLimits with _$AppLimits {
     /// Days a notification stays in the inbox.
     @Default(7) int notificationsDays,
 
+    /// Days a build's files stay on the bot machine before the nightly clean
+    /// deletes them. The disk is small and every build adds hundreds of
+    /// megabytes, so this is short; a full clean deletes them all whatever it
+    /// says. Build machines keep nothing: a job's files are deleted there once
+    /// copied to the bot.
+    @Default(1) int artifactsDays,
+
     /// Days an API key may go unused before it is removed, so keys from people
     /// who left or browsers nobody opens again do not pile up. Whoever signs in
     /// to the dashboard again is simply issued a new one.
@@ -73,6 +80,7 @@ abstract class AppLimits with _$AppLimits {
     'reviews_days': LimitRange(1, 90),
     'translates_days': LimitRange(1, 90),
     'notifications_days': LimitRange(1, 90),
+    'artifacts_days': LimitRange(1, 30),
     'api_key_idle_days': LimitRange(7, 365),
     'build_timeout_minutes': LimitRange(10, 1440),
     'report_sweep_days': LimitRange(1, 30),

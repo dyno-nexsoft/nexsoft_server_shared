@@ -5,6 +5,7 @@ void main() {
   test('the defaults are the values that used to be hardcoded, and valid', () {
     const limits = AppLimits();
     expect(limits.reviewsDays, 7);
+    expect(limits.artifactsDays, 1);
     expect(limits.buildTimeoutMinutes, 120);
     expect(limits.reviewMaxIssues, 20);
     expect(limits.aiMaxConcurrentRequests, 2);

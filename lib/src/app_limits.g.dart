@@ -11,6 +11,7 @@ _$AppLimitsImpl _$$AppLimitsImplFromJson(Map<String, dynamic> json) =>
       reviewsDays: (json['reviews_days'] as num?)?.toInt() ?? 7,
       translatesDays: (json['translates_days'] as num?)?.toInt() ?? 7,
       notificationsDays: (json['notifications_days'] as num?)?.toInt() ?? 7,
+      artifactsDays: (json['artifacts_days'] as num?)?.toInt() ?? 1,
       apiKeyIdleDays: (json['api_key_idle_days'] as num?)?.toInt() ?? 30,
       buildTimeoutMinutes:
           (json['build_timeout_minutes'] as num?)?.toInt() ?? 120,
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$AppLimitsImplToJson(_$AppLimitsImpl instance) =>
       'reviews_days': instance.reviewsDays,
       'translates_days': instance.translatesDays,
       'notifications_days': instance.notificationsDays,
+      'artifacts_days': instance.artifactsDays,
       'api_key_idle_days': instance.apiKeyIdleDays,
       'build_timeout_minutes': instance.buildTimeoutMinutes,
       'report_sweep_days': instance.reportSweepDays,

@@ -29,6 +29,13 @@ mixin _$AppLimits {
   /// Days a notification stays in the inbox.
   int get notificationsDays => throw _privateConstructorUsedError;
 
+  /// Days a build's files stay on the bot machine before the nightly clean
+  /// deletes them. The disk is small and every build adds hundreds of
+  /// megabytes, so this is short; a full clean deletes them all whatever it
+  /// says. Build machines keep nothing: a job's files are deleted there once
+  /// copied to the bot.
+  int get artifactsDays => throw _privateConstructorUsedError;
+
   /// Days an API key may go unused before it is removed, so keys from people
   /// who left or browsers nobody opens again do not pile up. Whoever signs in
   /// to the dashboard again is simply issued a new one.
@@ -73,6 +80,7 @@ abstract class $AppLimitsCopyWith<$Res> {
       {int reviewsDays,
       int translatesDays,
       int notificationsDays,
+      int artifactsDays,
       int apiKeyIdleDays,
       int buildTimeoutMinutes,
       int reportSweepDays,
@@ -99,6 +107,7 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
+    Object? artifactsDays = null,
     Object? apiKeyIdleDays = null,
     Object? buildTimeoutMinutes = null,
     Object? reportSweepDays = null,
@@ -120,6 +129,10 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
       notificationsDays: null == notificationsDays
           ? _value.notificationsDays
           : notificationsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      artifactsDays: null == artifactsDays
+          ? _value.artifactsDays
+          : artifactsDays // ignore: cast_nullable_to_non_nullable
               as int,
       apiKeyIdleDays: null == apiKeyIdleDays
           ? _value.apiKeyIdleDays
@@ -169,6 +182,7 @@ abstract class _$$AppLimitsImplCopyWith<$Res>
       {int reviewsDays,
       int translatesDays,
       int notificationsDays,
+      int artifactsDays,
       int apiKeyIdleDays,
       int buildTimeoutMinutes,
       int reportSweepDays,
@@ -193,6 +207,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
+    Object? artifactsDays = null,
     Object? apiKeyIdleDays = null,
     Object? buildTimeoutMinutes = null,
     Object? reportSweepDays = null,
@@ -214,6 +229,10 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
       notificationsDays: null == notificationsDays
           ? _value.notificationsDays
           : notificationsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      artifactsDays: null == artifactsDays
+          ? _value.artifactsDays
+          : artifactsDays // ignore: cast_nullable_to_non_nullable
               as int,
       apiKeyIdleDays: null == apiKeyIdleDays
           ? _value.apiKeyIdleDays
@@ -258,6 +277,7 @@ class _$AppLimitsImpl extends _AppLimits {
       {this.reviewsDays = 7,
       this.translatesDays = 7,
       this.notificationsDays = 7,
+      this.artifactsDays = 1,
       this.apiKeyIdleDays = 30,
       this.buildTimeoutMinutes = 120,
       this.reportSweepDays = 7,
@@ -285,6 +305,15 @@ class _$AppLimitsImpl extends _AppLimits {
   @override
   @JsonKey()
   final int notificationsDays;
+
+  /// Days a build's files stay on the bot machine before the nightly clean
+  /// deletes them. The disk is small and every build adds hundreds of
+  /// megabytes, so this is short; a full clean deletes them all whatever it
+  /// says. Build machines keep nothing: a job's files are deleted there once
+  /// copied to the bot.
+  @override
+  @JsonKey()
+  final int artifactsDays;
 
   /// Days an API key may go unused before it is removed, so keys from people
   /// who left or browsers nobody opens again do not pile up. Whoever signs in
@@ -333,7 +362,7 @@ class _$AppLimitsImpl extends _AppLimits {
 
   @override
   String toString() {
-    return 'AppLimits(reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+    return 'AppLimits(reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
   }
 
   @override
@@ -347,6 +376,8 @@ class _$AppLimitsImpl extends _AppLimits {
                 other.translatesDays == translatesDays) &&
             (identical(other.notificationsDays, notificationsDays) ||
                 other.notificationsDays == notificationsDays) &&
+            (identical(other.artifactsDays, artifactsDays) ||
+                other.artifactsDays == artifactsDays) &&
             (identical(other.apiKeyIdleDays, apiKeyIdleDays) ||
                 other.apiKeyIdleDays == apiKeyIdleDays) &&
             (identical(other.buildTimeoutMinutes, buildTimeoutMinutes) ||
@@ -373,6 +404,7 @@ class _$AppLimitsImpl extends _AppLimits {
       reviewsDays,
       translatesDays,
       notificationsDays,
+      artifactsDays,
       apiKeyIdleDays,
       buildTimeoutMinutes,
       reportSweepDays,
@@ -401,6 +433,7 @@ abstract class _AppLimits extends AppLimits {
       {final int reviewsDays,
       final int translatesDays,
       final int notificationsDays,
+      final int artifactsDays,
       final int apiKeyIdleDays,
       final int buildTimeoutMinutes,
       final int reportSweepDays,
@@ -426,6 +459,14 @@ abstract class _AppLimits extends AppLimits {
 
   /// Days a notification stays in the inbox.
   int get notificationsDays;
+  @override
+
+  /// Days a build's files stay on the bot machine before the nightly clean
+  /// deletes them. The disk is small and every build adds hundreds of
+  /// megabytes, so this is short; a full clean deletes them all whatever it
+  /// says. Build machines keep nothing: a job's files are deleted there once
+  /// copied to the bot.
+  int get artifactsDays;
   @override
 
   /// Days an API key may go unused before it is removed, so keys from people
