@@ -27,6 +27,10 @@ _$SystemStatusImpl _$$SystemStatusImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => ActiveMutation.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      builders: (json['builders'] as List<dynamic>?)
+              ?.map((e) => BuilderStatus.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$SystemStatusImplToJson(_$SystemStatusImpl instance) =>
@@ -42,4 +46,5 @@ Map<String, dynamic> _$$SystemStatusImplToJson(_$SystemStatusImpl instance) =>
       'queued': instance.queued.map((e) => e.toJson()).toList(),
       'active_mutations':
           instance.activeMutations.map((e) => e.toJson()).toList(),
+      'builders': instance.builders.map((e) => e.toJson()).toList(),
     };

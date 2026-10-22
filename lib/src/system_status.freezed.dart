@@ -40,7 +40,8 @@ mixin _$SystemStatus {
 // currently running — see ActiveMutation's own doc comment for why this
 // exists alongside running/queued rather than being folded into them.
   List<ActiveMutation> get activeMutations =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+  List<BuilderStatus> get builders => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +65,8 @@ abstract class $SystemStatusCopyWith<$Res> {
       String remoteDesktopUrl,
       List<Job> running,
       List<Job> queued,
-      List<ActiveMutation> activeMutations});
+      List<ActiveMutation> activeMutations,
+      List<BuilderStatus> builders});
 }
 
 /// @nodoc
@@ -90,6 +92,7 @@ class _$SystemStatusCopyWithImpl<$Res, $Val extends SystemStatus>
     Object? running = null,
     Object? queued = null,
     Object? activeMutations = null,
+    Object? builders = null,
   }) {
     return _then(_value.copyWith(
       appVersion: null == appVersion
@@ -132,6 +135,10 @@ class _$SystemStatusCopyWithImpl<$Res, $Val extends SystemStatus>
           ? _value.activeMutations
           : activeMutations // ignore: cast_nullable_to_non_nullable
               as List<ActiveMutation>,
+      builders: null == builders
+          ? _value.builders
+          : builders // ignore: cast_nullable_to_non_nullable
+              as List<BuilderStatus>,
     ) as $Val);
   }
 }
@@ -154,7 +161,8 @@ abstract class _$$SystemStatusImplCopyWith<$Res>
       String remoteDesktopUrl,
       List<Job> running,
       List<Job> queued,
-      List<ActiveMutation> activeMutations});
+      List<ActiveMutation> activeMutations,
+      List<BuilderStatus> builders});
 }
 
 /// @nodoc
@@ -178,6 +186,7 @@ class __$$SystemStatusImplCopyWithImpl<$Res>
     Object? running = null,
     Object? queued = null,
     Object? activeMutations = null,
+    Object? builders = null,
   }) {
     return _then(_$SystemStatusImpl(
       appVersion: null == appVersion
@@ -220,6 +229,10 @@ class __$$SystemStatusImplCopyWithImpl<$Res>
           ? _value._activeMutations
           : activeMutations // ignore: cast_nullable_to_non_nullable
               as List<ActiveMutation>,
+      builders: null == builders
+          ? _value._builders
+          : builders // ignore: cast_nullable_to_non_nullable
+              as List<BuilderStatus>,
     ));
   }
 }
@@ -237,10 +250,12 @@ class _$SystemStatusImpl extends _SystemStatus {
       required this.remoteDesktopUrl,
       final List<Job> running = const [],
       final List<Job> queued = const [],
-      final List<ActiveMutation> activeMutations = const []})
+      final List<ActiveMutation> activeMutations = const [],
+      final List<BuilderStatus> builders = const []})
       : _running = running,
         _queued = queued,
         _activeMutations = activeMutations,
+        _builders = builders,
         super._();
 
   factory _$SystemStatusImpl.fromJson(Map<String, dynamic> json) =>
@@ -300,9 +315,20 @@ class _$SystemStatusImpl extends _SystemStatus {
     return EqualUnmodifiableListView(_activeMutations);
   }
 
+// The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+  final List<BuilderStatus> _builders;
+// The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+  @override
+  @JsonKey()
+  List<BuilderStatus> get builders {
+    if (_builders is EqualUnmodifiableListView) return _builders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_builders);
+  }
+
   @override
   String toString() {
-    return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations)';
+    return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
   }
 
   @override
@@ -326,7 +352,8 @@ class _$SystemStatusImpl extends _SystemStatus {
             const DeepCollectionEquality().equals(other._running, _running) &&
             const DeepCollectionEquality().equals(other._queued, _queued) &&
             const DeepCollectionEquality()
-                .equals(other._activeMutations, _activeMutations));
+                .equals(other._activeMutations, _activeMutations) &&
+            const DeepCollectionEquality().equals(other._builders, _builders));
   }
 
   @JsonKey(ignore: true)
@@ -342,7 +369,8 @@ class _$SystemStatusImpl extends _SystemStatus {
       remoteDesktopUrl,
       const DeepCollectionEquality().hash(_running),
       const DeepCollectionEquality().hash(_queued),
-      const DeepCollectionEquality().hash(_activeMutations));
+      const DeepCollectionEquality().hash(_activeMutations),
+      const DeepCollectionEquality().hash(_builders));
 
   @JsonKey(ignore: true)
   @override
@@ -369,7 +397,8 @@ abstract class _SystemStatus extends SystemStatus {
       required final String remoteDesktopUrl,
       final List<Job> running,
       final List<Job> queued,
-      final List<ActiveMutation> activeMutations}) = _$SystemStatusImpl;
+      final List<ActiveMutation> activeMutations,
+      final List<BuilderStatus> builders}) = _$SystemStatusImpl;
   const _SystemStatus._() : super._();
 
   factory _SystemStatus.fromJson(Map<String, dynamic> json) =
@@ -403,6 +432,8 @@ abstract class _SystemStatus extends SystemStatus {
 // currently running — see ActiveMutation's own doc comment for why this
 // exists alongside running/queued rather than being folded into them.
   List<ActiveMutation> get activeMutations;
+  @override // The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+  List<BuilderStatus> get builders;
   @override
   @JsonKey(ignore: true)
   _$$SystemStatusImplCopyWith<_$SystemStatusImpl> get copyWith =>

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'active_mutation.dart';
+import 'builder_status.dart';
 import 'job.dart';
 
 part 'system_status.freezed.dart';
@@ -30,6 +31,8 @@ abstract class SystemStatus with _$SystemStatus {
     // currently running — see ActiveMutation's own doc comment for why this
     // exists alongside running/queued rather than being folded into them.
     @Default([]) List<ActiveMutation> activeMutations,
+    // The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+    @Default([]) List<BuilderStatus> builders,
   }) = _SystemStatus;
 
   const SystemStatus._();
