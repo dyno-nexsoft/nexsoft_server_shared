@@ -90,3 +90,29 @@ Map<String, dynamic> _$$LogsTailParamsImplToJson(
   writeNotNull('to_line', instance.toLine);
   return val;
 }
+
+_$SecretSetParamsImpl _$$SecretSetParamsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SecretSetParamsImpl(
+      name: json['name'] as String,
+      value: json['value'] as String,
+    );
+
+Map<String, dynamic> _$$SecretSetParamsImplToJson(
+        _$SecretSetParamsImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'value': instance.value,
+    };
+
+_$SecretNameParamsImpl _$$SecretNameParamsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SecretNameParamsImpl(
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$$SecretNameParamsImplToJson(
+        _$SecretNameParamsImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+    };

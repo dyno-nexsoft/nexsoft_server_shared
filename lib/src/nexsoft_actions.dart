@@ -16,6 +16,7 @@ import 'params/notification_params.dart';
 import 'params/system_params.dart';
 import 'params/zentao_params.dart';
 import 'schedule_info.dart';
+import 'secret_info.dart';
 import 'zentao_status.dart';
 
 /// Every action as a typed call: the params object in, the decoded result
@@ -237,6 +238,21 @@ extension NexsoftActions on ActionTransport {
   Future<ActionMessage> apiKeysSignOut() async => ActionMessage.fromJson(
     await invokeAction('admin.apiKeys.signOut', const {}),
   );
+
+  // admin.secrets.*
+
+  Future<SecretList> secretsList() async =>
+      SecretList.fromJson(await invokeAction('admin.secrets.list', const {}));
+
+  Future<ActionMessage> secretsSet(SecretSetParams params) async =>
+      ActionMessage.fromJson(
+        await invokeAction('admin.secrets.set', params.toJson()),
+      );
+
+  Future<ActionMessage> secretsRemove(SecretNameParams params) async =>
+      ActionMessage.fromJson(
+        await invokeAction('admin.secrets.remove', params.toJson()),
+      );
 
   // admin.owners.*
 

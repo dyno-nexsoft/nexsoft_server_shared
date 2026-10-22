@@ -844,3 +844,296 @@ abstract class _LogsTailParams implements LogsTailParams {
   _$$LogsTailParamsImplCopyWith<_$LogsTailParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+SecretSetParams _$SecretSetParamsFromJson(Map<String, dynamic> json) {
+  return _SecretSetParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SecretSetParams {
+  String get name => throw _privateConstructorUsedError;
+  String get value => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SecretSetParamsCopyWith<SecretSetParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SecretSetParamsCopyWith<$Res> {
+  factory $SecretSetParamsCopyWith(
+          SecretSetParams value, $Res Function(SecretSetParams) then) =
+      _$SecretSetParamsCopyWithImpl<$Res, SecretSetParams>;
+  @useResult
+  $Res call({String name, String value});
+}
+
+/// @nodoc
+class _$SecretSetParamsCopyWithImpl<$Res, $Val extends SecretSetParams>
+    implements $SecretSetParamsCopyWith<$Res> {
+  _$SecretSetParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? value = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SecretSetParamsImplCopyWith<$Res>
+    implements $SecretSetParamsCopyWith<$Res> {
+  factory _$$SecretSetParamsImplCopyWith(_$SecretSetParamsImpl value,
+          $Res Function(_$SecretSetParamsImpl) then) =
+      __$$SecretSetParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name, String value});
+}
+
+/// @nodoc
+class __$$SecretSetParamsImplCopyWithImpl<$Res>
+    extends _$SecretSetParamsCopyWithImpl<$Res, _$SecretSetParamsImpl>
+    implements _$$SecretSetParamsImplCopyWith<$Res> {
+  __$$SecretSetParamsImplCopyWithImpl(
+      _$SecretSetParamsImpl _value, $Res Function(_$SecretSetParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? value = null,
+  }) {
+    return _then(_$SecretSetParamsImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SecretSetParamsImpl implements _SecretSetParams {
+  const _$SecretSetParamsImpl({required this.name, required this.value});
+
+  factory _$SecretSetParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SecretSetParamsImplFromJson(json);
+
+  @override
+  final String name;
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'SecretSetParams(name: $name, value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SecretSetParamsImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SecretSetParamsImplCopyWith<_$SecretSetParamsImpl> get copyWith =>
+      __$$SecretSetParamsImplCopyWithImpl<_$SecretSetParamsImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SecretSetParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _SecretSetParams implements SecretSetParams {
+  const factory _SecretSetParams(
+      {required final String name,
+      required final String value}) = _$SecretSetParamsImpl;
+
+  factory _SecretSetParams.fromJson(Map<String, dynamic> json) =
+      _$SecretSetParamsImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  String get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$SecretSetParamsImplCopyWith<_$SecretSetParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+SecretNameParams _$SecretNameParamsFromJson(Map<String, dynamic> json) {
+  return _SecretNameParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$SecretNameParams {
+  String get name => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SecretNameParamsCopyWith<SecretNameParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SecretNameParamsCopyWith<$Res> {
+  factory $SecretNameParamsCopyWith(
+          SecretNameParams value, $Res Function(SecretNameParams) then) =
+      _$SecretNameParamsCopyWithImpl<$Res, SecretNameParams>;
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class _$SecretNameParamsCopyWithImpl<$Res, $Val extends SecretNameParams>
+    implements $SecretNameParamsCopyWith<$Res> {
+  _$SecretNameParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$SecretNameParamsImplCopyWith<$Res>
+    implements $SecretNameParamsCopyWith<$Res> {
+  factory _$$SecretNameParamsImplCopyWith(_$SecretNameParamsImpl value,
+          $Res Function(_$SecretNameParamsImpl) then) =
+      __$$SecretNameParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$$SecretNameParamsImplCopyWithImpl<$Res>
+    extends _$SecretNameParamsCopyWithImpl<$Res, _$SecretNameParamsImpl>
+    implements _$$SecretNameParamsImplCopyWith<$Res> {
+  __$$SecretNameParamsImplCopyWithImpl(_$SecretNameParamsImpl _value,
+      $Res Function(_$SecretNameParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+  }) {
+    return _then(_$SecretNameParamsImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SecretNameParamsImpl implements _SecretNameParams {
+  const _$SecretNameParamsImpl({required this.name});
+
+  factory _$SecretNameParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SecretNameParamsImplFromJson(json);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'SecretNameParams(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SecretNameParamsImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SecretNameParamsImplCopyWith<_$SecretNameParamsImpl> get copyWith =>
+      __$$SecretNameParamsImplCopyWithImpl<_$SecretNameParamsImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SecretNameParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _SecretNameParams implements SecretNameParams {
+  const factory _SecretNameParams({required final String name}) =
+      _$SecretNameParamsImpl;
+
+  factory _SecretNameParams.fromJson(Map<String, dynamic> json) =
+      _$SecretNameParamsImpl.fromJson;
+
+  @override
+  String get name;
+  @override
+  @JsonKey(ignore: true)
+  _$$SecretNameParamsImplCopyWith<_$SecretNameParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

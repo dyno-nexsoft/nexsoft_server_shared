@@ -81,3 +81,23 @@ abstract class LogsTailParams with _$LogsTailParams {
   factory LogsTailParams.fromJson(Map<String, dynamic> json) =>
       _$LogsTailParamsFromJson(json);
 }
+
+/// `admin.secrets.set`. Sent in the JSON body only, never in a URL, so no
+/// request log can hold the value.
+@freezed
+abstract class SecretSetParams with _$SecretSetParams {
+  const factory SecretSetParams({required String name, required String value}) =
+      _SecretSetParams;
+
+  factory SecretSetParams.fromJson(Map<String, dynamic> json) =>
+      _$SecretSetParamsFromJson(json);
+}
+
+/// `admin.secrets.remove`.
+@freezed
+abstract class SecretNameParams with _$SecretNameParams {
+  const factory SecretNameParams({required String name}) = _SecretNameParams;
+
+  factory SecretNameParams.fromJson(Map<String, dynamic> json) =>
+      _$SecretNameParamsFromJson(json);
+}
