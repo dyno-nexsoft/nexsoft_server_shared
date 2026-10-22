@@ -16,6 +16,10 @@ abstract class BuilderStatus with _$BuilderStatus {
 
     /// The job it is running right now, or null when it is idle.
     String? jobId,
+
+    /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+    /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+    String? problem,
   }) = _BuilderStatus;
 
   factory BuilderStatus.fromJson(Map<String, dynamic> json) =>

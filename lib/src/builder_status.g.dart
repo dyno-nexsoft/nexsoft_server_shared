@@ -11,6 +11,7 @@ _$BuilderStatusImpl _$$BuilderStatusImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       online: json['online'] as bool,
       jobId: json['job_id'] as String?,
+      problem: json['problem'] as String?,
     );
 
 Map<String, dynamic> _$$BuilderStatusImplToJson(_$BuilderStatusImpl instance) {
@@ -26,5 +27,6 @@ Map<String, dynamic> _$$BuilderStatusImplToJson(_$BuilderStatusImpl instance) {
   }
 
   writeNotNull('job_id', instance.jobId);
+  writeNotNull('problem', instance.problem);
   return val;
 }

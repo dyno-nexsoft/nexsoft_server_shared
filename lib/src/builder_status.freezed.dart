@@ -29,6 +29,10 @@ mixin _$BuilderStatus {
   /// The job it is running right now, or null when it is idle.
   String? get jobId => throw _privateConstructorUsedError;
 
+  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+  String? get problem => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BuilderStatusCopyWith<BuilderStatus> get copyWith =>
@@ -41,7 +45,7 @@ abstract class $BuilderStatusCopyWith<$Res> {
           BuilderStatus value, $Res Function(BuilderStatus) then) =
       _$BuilderStatusCopyWithImpl<$Res, BuilderStatus>;
   @useResult
-  $Res call({String name, bool online, String? jobId});
+  $Res call({String name, bool online, String? jobId, String? problem});
 }
 
 /// @nodoc
@@ -60,6 +64,7 @@ class _$BuilderStatusCopyWithImpl<$Res, $Val extends BuilderStatus>
     Object? name = null,
     Object? online = null,
     Object? jobId = freezed,
+    Object? problem = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -74,6 +79,10 @@ class _$BuilderStatusCopyWithImpl<$Res, $Val extends BuilderStatus>
           ? _value.jobId
           : jobId // ignore: cast_nullable_to_non_nullable
               as String?,
+      problem: freezed == problem
+          ? _value.problem
+          : problem // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -86,7 +95,7 @@ abstract class _$$BuilderStatusImplCopyWith<$Res>
       __$$BuilderStatusImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, bool online, String? jobId});
+  $Res call({String name, bool online, String? jobId, String? problem});
 }
 
 /// @nodoc
@@ -103,6 +112,7 @@ class __$$BuilderStatusImplCopyWithImpl<$Res>
     Object? name = null,
     Object? online = null,
     Object? jobId = freezed,
+    Object? problem = freezed,
   }) {
     return _then(_$BuilderStatusImpl(
       name: null == name
@@ -117,6 +127,10 @@ class __$$BuilderStatusImplCopyWithImpl<$Res>
           ? _value.jobId
           : jobId // ignore: cast_nullable_to_non_nullable
               as String?,
+      problem: freezed == problem
+          ? _value.problem
+          : problem // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -125,7 +139,7 @@ class __$$BuilderStatusImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BuilderStatusImpl implements _BuilderStatus {
   const _$BuilderStatusImpl(
-      {required this.name, required this.online, this.jobId});
+      {required this.name, required this.online, this.jobId, this.problem});
 
   factory _$BuilderStatusImpl.fromJson(Map<String, dynamic> json) =>
       _$$BuilderStatusImplFromJson(json);
@@ -142,9 +156,14 @@ class _$BuilderStatusImpl implements _BuilderStatus {
   @override
   final String? jobId;
 
+  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+  @override
+  final String? problem;
+
   @override
   String toString() {
-    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId)';
+    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem)';
   }
 
   @override
@@ -154,12 +173,13 @@ class _$BuilderStatusImpl implements _BuilderStatus {
             other is _$BuilderStatusImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.online, online) || other.online == online) &&
-            (identical(other.jobId, jobId) || other.jobId == jobId));
+            (identical(other.jobId, jobId) || other.jobId == jobId) &&
+            (identical(other.problem, problem) || other.problem == problem));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, online, jobId);
+  int get hashCode => Object.hash(runtimeType, name, online, jobId, problem);
 
   @JsonKey(ignore: true)
   @override
@@ -179,7 +199,8 @@ abstract class _BuilderStatus implements BuilderStatus {
   const factory _BuilderStatus(
       {required final String name,
       required final bool online,
-      final String? jobId}) = _$BuilderStatusImpl;
+      final String? jobId,
+      final String? problem}) = _$BuilderStatusImpl;
 
   factory _BuilderStatus.fromJson(Map<String, dynamic> json) =
       _$BuilderStatusImpl.fromJson;
@@ -196,6 +217,11 @@ abstract class _BuilderStatus implements BuilderStatus {
 
   /// The job it is running right now, or null when it is idle.
   String? get jobId;
+  @override
+
+  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+  String? get problem;
   @override
   @JsonKey(ignore: true)
   _$$BuilderStatusImplCopyWith<_$BuilderStatusImpl> get copyWith =>
