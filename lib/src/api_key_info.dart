@@ -9,6 +9,13 @@ part 'api_key_info.g.dart';
 /// [ApiKeyInfo.source] of a key minted by the dashboard's Discord sign-in.
 const webLoginKeySource = 'discord_login';
 
+/// Response header set when a request sent an API key the server does not
+/// know but was answered anyway, because its path needs no key (`/status`,
+/// `/jobs`, a read action). Without it a removed key kept a dashboard tab
+/// looking signed in for hours, answered as anonymous, until some screen
+/// finally needed the key.
+const apiKeyRejectedHeader = 'X-Api-Key-Rejected';
+
 /// One entry of `admin.apiKeys.list`'s `keys` array.
 @freezed
 abstract class ApiKeyInfo with _$ApiKeyInfo {
