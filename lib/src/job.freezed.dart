@@ -78,8 +78,13 @@ mixin _$Job {
   /// itself.
   bool get timedOut => throw _privateConstructorUsedError;
 
-  /// The other half of an `android,ios` build that ran as two jobs.
-  String? get pairedWith => throw _privateConstructorUsedError;
+  /// The run this job is a leg of (`JobRun.id`), when a build runs as
+  /// several jobs on several machines; null for a job of its own.
+  String? get runId => throw _privateConstructorUsedError;
+
+  /// That run as a whole, worked out by the server from its legs: set on
+  /// every leg it answers with, never stored.
+  JobRun? get run => throw _privateConstructorUsedError;
 
   /// For a `ci.upload`, the build whose files it sent: its row says which
   /// one ("from Build #62 · test · branch") from this alone, where its
@@ -137,13 +142,15 @@ abstract class $JobCopyWith<$Res> {
       Map<String, int> artifacts,
       Map<String, FirebaseUpload> firebaseUploads,
       bool timedOut,
-      String? pairedWith,
+      String? runId,
+      JobRun? run,
       JobRef? sourceBuild,
       String? logUrl,
       List<String> warnings,
       String? message});
 
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  $JobRunCopyWith<$Res>? get run;
   $JobRefCopyWith<$Res>? get sourceBuild;
 }
 
@@ -186,7 +193,8 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
     Object? artifacts = null,
     Object? firebaseUploads = null,
     Object? timedOut = null,
-    Object? pairedWith = freezed,
+    Object? runId = freezed,
+    Object? run = freezed,
     Object? sourceBuild = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
@@ -301,10 +309,14 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
           ? _value.timedOut
           : timedOut // ignore: cast_nullable_to_non_nullable
               as bool,
-      pairedWith: freezed == pairedWith
-          ? _value.pairedWith
-          : pairedWith // ignore: cast_nullable_to_non_nullable
+      runId: freezed == runId
+          ? _value.runId
+          : runId // ignore: cast_nullable_to_non_nullable
               as String?,
+      run: freezed == run
+          ? _value.run
+          : run // ignore: cast_nullable_to_non_nullable
+              as JobRun?,
       sourceBuild: freezed == sourceBuild
           ? _value.sourceBuild
           : sourceBuild // ignore: cast_nullable_to_non_nullable
@@ -333,6 +345,18 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
 
     return $DiscordMessageRefCopyWith<$Res>(_value.discord!, (value) {
       return _then(_value.copyWith(discord: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $JobRunCopyWith<$Res>? get run {
+    if (_value.run == null) {
+      return null;
+    }
+
+    return $JobRunCopyWith<$Res>(_value.run!, (value) {
+      return _then(_value.copyWith(run: value) as $Val);
     });
   }
 
@@ -383,7 +407,8 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
       Map<String, int> artifacts,
       Map<String, FirebaseUpload> firebaseUploads,
       bool timedOut,
-      String? pairedWith,
+      String? runId,
+      JobRun? run,
       JobRef? sourceBuild,
       String? logUrl,
       List<String> warnings,
@@ -391,6 +416,8 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
 
   @override
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  @override
+  $JobRunCopyWith<$Res>? get run;
   @override
   $JobRefCopyWith<$Res>? get sourceBuild;
 }
@@ -431,7 +458,8 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
     Object? artifacts = null,
     Object? firebaseUploads = null,
     Object? timedOut = null,
-    Object? pairedWith = freezed,
+    Object? runId = freezed,
+    Object? run = freezed,
     Object? sourceBuild = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
@@ -546,10 +574,14 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
           ? _value.timedOut
           : timedOut // ignore: cast_nullable_to_non_nullable
               as bool,
-      pairedWith: freezed == pairedWith
-          ? _value.pairedWith
-          : pairedWith // ignore: cast_nullable_to_non_nullable
+      runId: freezed == runId
+          ? _value.runId
+          : runId // ignore: cast_nullable_to_non_nullable
               as String?,
+      run: freezed == run
+          ? _value.run
+          : run // ignore: cast_nullable_to_non_nullable
+              as JobRun?,
       sourceBuild: freezed == sourceBuild
           ? _value.sourceBuild
           : sourceBuild // ignore: cast_nullable_to_non_nullable
@@ -601,7 +633,8 @@ class _$JobImpl extends _Job {
       final Map<String, int> artifacts = const {},
       final Map<String, FirebaseUpload> firebaseUploads = const {},
       this.timedOut = false,
-      this.pairedWith,
+      this.runId,
+      this.run,
       this.sourceBuild,
       this.logUrl,
       final List<String> warnings = const [],
@@ -735,9 +768,15 @@ class _$JobImpl extends _Job {
   @JsonKey()
   final bool timedOut;
 
-  /// The other half of an `android,ios` build that ran as two jobs.
+  /// The run this job is a leg of (`JobRun.id`), when a build runs as
+  /// several jobs on several machines; null for a job of its own.
   @override
-  final String? pairedWith;
+  final String? runId;
+
+  /// That run as a whole, worked out by the server from its legs: set on
+  /// every leg it answers with, never stored.
+  @override
+  final JobRun? run;
 
   /// For a `ci.upload`, the build whose files it sent: its row says which
   /// one ("from Build #62 · test · branch") from this alone, where its
@@ -774,7 +813,7 @@ class _$JobImpl extends _Job {
 
   @override
   String toString() {
-    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, pairedWith: $pairedWith, sourceBuild: $sourceBuild, logUrl: $logUrl, warnings: $warnings, message: $message)';
+    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, runId: $runId, run: $run, sourceBuild: $sourceBuild, logUrl: $logUrl, warnings: $warnings, message: $message)';
   }
 
   @override
@@ -829,8 +868,8 @@ class _$JobImpl extends _Job {
                 .equals(other._firebaseUploads, _firebaseUploads) &&
             (identical(other.timedOut, timedOut) ||
                 other.timedOut == timedOut) &&
-            (identical(other.pairedWith, pairedWith) ||
-                other.pairedWith == pairedWith) &&
+            (identical(other.runId, runId) || other.runId == runId) &&
+            (identical(other.run, run) || other.run == run) &&
             (identical(other.sourceBuild, sourceBuild) ||
                 other.sourceBuild == sourceBuild) &&
             (identical(other.logUrl, logUrl) || other.logUrl == logUrl) &&
@@ -869,7 +908,8 @@ class _$JobImpl extends _Job {
         const DeepCollectionEquality().hash(_artifacts),
         const DeepCollectionEquality().hash(_firebaseUploads),
         timedOut,
-        pairedWith,
+        runId,
+        run,
         sourceBuild,
         logUrl,
         const DeepCollectionEquality().hash(_warnings),
@@ -919,7 +959,8 @@ abstract class _Job extends Job {
       final Map<String, int> artifacts,
       final Map<String, FirebaseUpload> firebaseUploads,
       final bool timedOut,
-      final String? pairedWith,
+      final String? runId,
+      final JobRun? run,
       final JobRef? sourceBuild,
       final String? logUrl,
       final List<String> warnings,
@@ -1013,8 +1054,14 @@ abstract class _Job extends Job {
   bool get timedOut;
   @override
 
-  /// The other half of an `android,ios` build that ran as two jobs.
-  String? get pairedWith;
+  /// The run this job is a leg of (`JobRun.id`), when a build runs as
+  /// several jobs on several machines; null for a job of its own.
+  String? get runId;
+  @override
+
+  /// That run as a whole, worked out by the server from its legs: set on
+  /// every leg it answers with, never stored.
+  JobRun? get run;
   @override
 
   /// For a `ci.upload`, the build whose files it sent: its row says which

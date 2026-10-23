@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'artifact.dart';
 import 'discord_message_ref.dart';
 import 'job_ref.dart';
+import 'job_run.dart';
 import 'job_state.dart';
 
 part 'job.freezed.dart';
@@ -75,8 +76,13 @@ abstract class Job with _$Job {
     /// itself.
     @Default(false) bool timedOut,
 
-    /// The other half of an `android,ios` build that ran as two jobs.
-    String? pairedWith,
+    /// The run this job is a leg of (`JobRun.id`), when a build runs as
+    /// several jobs on several machines; null for a job of its own.
+    String? runId,
+
+    /// That run as a whole, worked out by the server from its legs: set on
+    /// every leg it answers with, never stored.
+    JobRun? run,
 
     /// For a `ci.upload`, the build whose files it sent: its row says which
     /// one ("from Build #62 · test · branch") from this alone, where its

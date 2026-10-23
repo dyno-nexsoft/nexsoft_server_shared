@@ -33,6 +33,7 @@ export 'src/job_event.dart';
 export 'src/job_label.dart';
 export 'src/job_log_chunk.dart';
 export 'src/job_ref.dart';
+export 'src/job_run.dart';
 export 'src/job_state.dart';
 export 'src/job_stats.dart';
 export 'src/job_submission.dart';
