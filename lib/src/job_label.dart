@@ -38,7 +38,12 @@ String? jobSubject(String? actionName, Map<String, Object?> params) {
       text('environment'),
     ],
     'ci.build' => [text('platform'), text('environment'), text('tbchat')],
-    'ci.replace' || 'ci.gen' => [text('tbchat'), text('environment')],
+    'ci.replace' => [text('tbchat'), text('environment')],
+    // gen's branch is `socialfi`: it showed only its environment.
+    'ci.gen' => [text('socialfi'), text('environment')],
+    'ci.upload' => [text('platform')],
+    // Which machine it cleaned, and how deep.
+    'ci.clean' => [text('runs_on'), text('mode')],
     _ => const <String?>[],
   };
   final shown = [
