@@ -27,9 +27,17 @@ mixin _$JobRun {
   @JobStateConverter()
   JobState get state => throw _privateConstructorUsedError;
 
-  /// In the order they were started; the first is the one whose id the
-  /// run's message and links use.
+  /// By what they build; the first is the one whose id the run's message
+  /// and links use.
   List<JobRunLeg> get legs => throw _privateConstructorUsedError;
+
+  /// Every leg's platform, as one build's would read: `android,ios`.
+  String? get platform => throw _privateConstructorUsedError;
+
+  /// From the first leg to start to the last one to end: how long the run
+  /// kept its owner waiting. [finishedAt] is null while any leg is at work.
+  DateTime? get startedAt => throw _privateConstructorUsedError;
+  DateTime? get finishedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +50,12 @@ abstract class $JobRunCopyWith<$Res> {
       _$JobRunCopyWithImpl<$Res, JobRun>;
   @useResult
   $Res call(
-      {String id, @JobStateConverter() JobState state, List<JobRunLeg> legs});
+      {String id,
+      @JobStateConverter() JobState state,
+      List<JobRunLeg> legs,
+      String? platform,
+      DateTime? startedAt,
+      DateTime? finishedAt});
 }
 
 /// @nodoc
@@ -61,6 +74,9 @@ class _$JobRunCopyWithImpl<$Res, $Val extends JobRun>
     Object? id = null,
     Object? state = null,
     Object? legs = null,
+    Object? platform = freezed,
+    Object? startedAt = freezed,
+    Object? finishedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -75,6 +91,18 @@ class _$JobRunCopyWithImpl<$Res, $Val extends JobRun>
           ? _value.legs
           : legs // ignore: cast_nullable_to_non_nullable
               as List<JobRunLeg>,
+      platform: freezed == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startedAt: freezed == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      finishedAt: freezed == finishedAt
+          ? _value.finishedAt
+          : finishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -87,7 +115,12 @@ abstract class _$$JobRunImplCopyWith<$Res> implements $JobRunCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id, @JobStateConverter() JobState state, List<JobRunLeg> legs});
+      {String id,
+      @JobStateConverter() JobState state,
+      List<JobRunLeg> legs,
+      String? platform,
+      DateTime? startedAt,
+      DateTime? finishedAt});
 }
 
 /// @nodoc
@@ -104,6 +137,9 @@ class __$$JobRunImplCopyWithImpl<$Res>
     Object? id = null,
     Object? state = null,
     Object? legs = null,
+    Object? platform = freezed,
+    Object? startedAt = freezed,
+    Object? finishedAt = freezed,
   }) {
     return _then(_$JobRunImpl(
       id: null == id
@@ -118,6 +154,18 @@ class __$$JobRunImplCopyWithImpl<$Res>
           ? _value._legs
           : legs // ignore: cast_nullable_to_non_nullable
               as List<JobRunLeg>,
+      platform: freezed == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startedAt: freezed == startedAt
+          ? _value.startedAt
+          : startedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      finishedAt: freezed == finishedAt
+          ? _value.finishedAt
+          : finishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -128,7 +176,10 @@ class _$JobRunImpl extends _JobRun {
   const _$JobRunImpl(
       {required this.id,
       @JobStateConverter() required this.state,
-      final List<JobRunLeg> legs = const []})
+      final List<JobRunLeg> legs = const [],
+      this.platform,
+      this.startedAt,
+      this.finishedAt})
       : _legs = legs,
         super._();
 
@@ -144,12 +195,12 @@ class _$JobRunImpl extends _JobRun {
   @JobStateConverter()
   final JobState state;
 
-  /// In the order they were started; the first is the one whose id the
-  /// run's message and links use.
+  /// By what they build; the first is the one whose id the run's message
+  /// and links use.
   final List<JobRunLeg> _legs;
 
-  /// In the order they were started; the first is the one whose id the
-  /// run's message and links use.
+  /// By what they build; the first is the one whose id the run's message
+  /// and links use.
   @override
   @JsonKey()
   List<JobRunLeg> get legs {
@@ -158,9 +209,20 @@ class _$JobRunImpl extends _JobRun {
     return EqualUnmodifiableListView(_legs);
   }
 
+  /// Every leg's platform, as one build's would read: `android,ios`.
+  @override
+  final String? platform;
+
+  /// From the first leg to start to the last one to end: how long the run
+  /// kept its owner waiting. [finishedAt] is null while any leg is at work.
+  @override
+  final DateTime? startedAt;
+  @override
+  final DateTime? finishedAt;
+
   @override
   String toString() {
-    return 'JobRun(id: $id, state: $state, legs: $legs)';
+    return 'JobRun(id: $id, state: $state, legs: $legs, platform: $platform, startedAt: $startedAt, finishedAt: $finishedAt)';
   }
 
   @override
@@ -170,13 +232,25 @@ class _$JobRunImpl extends _JobRun {
             other is _$JobRunImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.state, state) || other.state == state) &&
-            const DeepCollectionEquality().equals(other._legs, _legs));
+            const DeepCollectionEquality().equals(other._legs, _legs) &&
+            (identical(other.platform, platform) ||
+                other.platform == platform) &&
+            (identical(other.startedAt, startedAt) ||
+                other.startedAt == startedAt) &&
+            (identical(other.finishedAt, finishedAt) ||
+                other.finishedAt == finishedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, state, const DeepCollectionEquality().hash(_legs));
+      runtimeType,
+      id,
+      state,
+      const DeepCollectionEquality().hash(_legs),
+      platform,
+      startedAt,
+      finishedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -196,7 +270,10 @@ abstract class _JobRun extends JobRun {
   const factory _JobRun(
       {required final String id,
       @JobStateConverter() required final JobState state,
-      final List<JobRunLeg> legs}) = _$JobRunImpl;
+      final List<JobRunLeg> legs,
+      final String? platform,
+      final DateTime? startedAt,
+      final DateTime? finishedAt}) = _$JobRunImpl;
   const _JobRun._() : super._();
 
   factory _JobRun.fromJson(Map<String, dynamic> json) = _$JobRunImpl.fromJson;
@@ -212,9 +289,20 @@ abstract class _JobRun extends JobRun {
   JobState get state;
   @override
 
-  /// In the order they were started; the first is the one whose id the
-  /// run's message and links use.
+  /// By what they build; the first is the one whose id the run's message
+  /// and links use.
   List<JobRunLeg> get legs;
+  @override
+
+  /// Every leg's platform, as one build's would read: `android,ios`.
+  String? get platform;
+  @override
+
+  /// From the first leg to start to the last one to end: how long the run
+  /// kept its owner waiting. [finishedAt] is null while any leg is at work.
+  DateTime? get startedAt;
+  @override
+  DateTime? get finishedAt;
   @override
   @JsonKey(ignore: true)
   _$$JobRunImplCopyWith<_$JobRunImpl> get copyWith =>

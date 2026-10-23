@@ -13,14 +13,33 @@ _$JobRunImpl _$$JobRunImplFromJson(Map<String, dynamic> json) => _$JobRunImpl(
               ?.map((e) => JobRunLeg.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      platform: json['platform'] as String?,
+      startedAt: json['started_at'] == null
+          ? null
+          : DateTime.parse(json['started_at'] as String),
+      finishedAt: json['finished_at'] == null
+          ? null
+          : DateTime.parse(json['finished_at'] as String),
     );
 
-Map<String, dynamic> _$$JobRunImplToJson(_$JobRunImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'state': const JobStateConverter().toJson(instance.state),
-      'legs': instance.legs.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$$JobRunImplToJson(_$JobRunImpl instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+    'state': const JobStateConverter().toJson(instance.state),
+    'legs': instance.legs.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('platform', instance.platform);
+  writeNotNull('started_at', instance.startedAt?.toIso8601String());
+  writeNotNull('finished_at', instance.finishedAt?.toIso8601String());
+  return val;
+}
 
 _$JobRunLegImpl _$$JobRunLegImplFromJson(Map<String, dynamic> json) =>
     _$JobRunLegImpl(

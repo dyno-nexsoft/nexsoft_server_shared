@@ -19,9 +19,17 @@ abstract class JobRun with _$JobRun {
     /// How the run stands, from its legs ([aggregate]).
     @JobStateConverter() required JobState state,
 
-    /// In the order they were started; the first is the one whose id the
-    /// run's message and links use.
+    /// By what they build; the first is the one whose id the run's message
+    /// and links use.
     @Default([]) List<JobRunLeg> legs,
+
+    /// Every leg's platform, as one build's would read: `android,ios`.
+    String? platform,
+
+    /// From the first leg to start to the last one to end: how long the run
+    /// kept its owner waiting. [finishedAt] is null while any leg is at work.
+    DateTime? startedAt,
+    DateTime? finishedAt,
   }) = _JobRun;
 
   const JobRun._();
