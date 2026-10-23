@@ -48,6 +48,9 @@ _$JobImpl _$$JobImplFromJson(Map<String, dynamic> json) => _$JobImpl(
           const {},
       timedOut: json['timed_out'] as bool? ?? false,
       pairedWith: json['paired_with'] as String?,
+      sourceBuild: json['source_build'] == null
+          ? null
+          : JobRef.fromJson(json['source_build'] as Map<String, dynamic>),
       logUrl: json['log_url'] as String?,
       warnings: (json['warnings'] as List<dynamic>?)
               ?.map((e) => e as String)
@@ -95,6 +98,7 @@ Map<String, dynamic> _$$JobImplToJson(_$JobImpl instance) {
       instance.firebaseUploads.map((k, e) => MapEntry(k, e.toJson()));
   val['timed_out'] = instance.timedOut;
   writeNotNull('paired_with', instance.pairedWith);
+  writeNotNull('source_build', instance.sourceBuild?.toJson());
   writeNotNull('log_url', instance.logUrl);
   val['warnings'] = instance.warnings;
   writeNotNull('message', instance.message);

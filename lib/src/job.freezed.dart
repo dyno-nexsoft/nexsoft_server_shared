@@ -81,6 +81,11 @@ mixin _$Job {
   /// The other half of an `android,ios` build that ran as two jobs.
   String? get pairedWith => throw _privateConstructorUsedError;
 
+  /// For a `ci.upload`, the build whose files it sent: its row says which
+  /// one ("from Build #62 · test · branch") from this alone, where its
+  /// params hold only that build's id.
+  JobRef? get sourceBuild => throw _privateConstructorUsedError;
+
   /// Set only on the response of an action invocation/retry — the build
   /// log's URL, served by the static file handler.
   String? get logUrl => throw _privateConstructorUsedError;
@@ -133,11 +138,13 @@ abstract class $JobCopyWith<$Res> {
       Map<String, FirebaseUpload> firebaseUploads,
       bool timedOut,
       String? pairedWith,
+      JobRef? sourceBuild,
       String? logUrl,
       List<String> warnings,
       String? message});
 
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  $JobRefCopyWith<$Res>? get sourceBuild;
 }
 
 /// @nodoc
@@ -180,6 +187,7 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
     Object? firebaseUploads = null,
     Object? timedOut = null,
     Object? pairedWith = freezed,
+    Object? sourceBuild = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
     Object? message = freezed,
@@ -297,6 +305,10 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
           ? _value.pairedWith
           : pairedWith // ignore: cast_nullable_to_non_nullable
               as String?,
+      sourceBuild: freezed == sourceBuild
+          ? _value.sourceBuild
+          : sourceBuild // ignore: cast_nullable_to_non_nullable
+              as JobRef?,
       logUrl: freezed == logUrl
           ? _value.logUrl
           : logUrl // ignore: cast_nullable_to_non_nullable
@@ -321,6 +333,18 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
 
     return $DiscordMessageRefCopyWith<$Res>(_value.discord!, (value) {
       return _then(_value.copyWith(discord: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $JobRefCopyWith<$Res>? get sourceBuild {
+    if (_value.sourceBuild == null) {
+      return null;
+    }
+
+    return $JobRefCopyWith<$Res>(_value.sourceBuild!, (value) {
+      return _then(_value.copyWith(sourceBuild: value) as $Val);
     });
   }
 }
@@ -360,12 +384,15 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
       Map<String, FirebaseUpload> firebaseUploads,
       bool timedOut,
       String? pairedWith,
+      JobRef? sourceBuild,
       String? logUrl,
       List<String> warnings,
       String? message});
 
   @override
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  @override
+  $JobRefCopyWith<$Res>? get sourceBuild;
 }
 
 /// @nodoc
@@ -405,6 +432,7 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
     Object? firebaseUploads = null,
     Object? timedOut = null,
     Object? pairedWith = freezed,
+    Object? sourceBuild = freezed,
     Object? logUrl = freezed,
     Object? warnings = null,
     Object? message = freezed,
@@ -522,6 +550,10 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
           ? _value.pairedWith
           : pairedWith // ignore: cast_nullable_to_non_nullable
               as String?,
+      sourceBuild: freezed == sourceBuild
+          ? _value.sourceBuild
+          : sourceBuild // ignore: cast_nullable_to_non_nullable
+              as JobRef?,
       logUrl: freezed == logUrl
           ? _value.logUrl
           : logUrl // ignore: cast_nullable_to_non_nullable
@@ -570,6 +602,7 @@ class _$JobImpl extends _Job {
       final Map<String, FirebaseUpload> firebaseUploads = const {},
       this.timedOut = false,
       this.pairedWith,
+      this.sourceBuild,
       this.logUrl,
       final List<String> warnings = const [],
       this.message})
@@ -706,6 +739,12 @@ class _$JobImpl extends _Job {
   @override
   final String? pairedWith;
 
+  /// For a `ci.upload`, the build whose files it sent: its row says which
+  /// one ("from Build #62 · test · branch") from this alone, where its
+  /// params hold only that build's id.
+  @override
+  final JobRef? sourceBuild;
+
   /// Set only on the response of an action invocation/retry — the build
   /// log's URL, served by the static file handler.
   @override
@@ -735,7 +774,7 @@ class _$JobImpl extends _Job {
 
   @override
   String toString() {
-    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, pairedWith: $pairedWith, logUrl: $logUrl, warnings: $warnings, message: $message)';
+    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, pairedWith: $pairedWith, sourceBuild: $sourceBuild, logUrl: $logUrl, warnings: $warnings, message: $message)';
   }
 
   @override
@@ -792,6 +831,8 @@ class _$JobImpl extends _Job {
                 other.timedOut == timedOut) &&
             (identical(other.pairedWith, pairedWith) ||
                 other.pairedWith == pairedWith) &&
+            (identical(other.sourceBuild, sourceBuild) ||
+                other.sourceBuild == sourceBuild) &&
             (identical(other.logUrl, logUrl) || other.logUrl == logUrl) &&
             const DeepCollectionEquality().equals(other._warnings, _warnings) &&
             (identical(other.message, message) || other.message == message));
@@ -829,6 +870,7 @@ class _$JobImpl extends _Job {
         const DeepCollectionEquality().hash(_firebaseUploads),
         timedOut,
         pairedWith,
+        sourceBuild,
         logUrl,
         const DeepCollectionEquality().hash(_warnings),
         message
@@ -878,6 +920,7 @@ abstract class _Job extends Job {
       final Map<String, FirebaseUpload> firebaseUploads,
       final bool timedOut,
       final String? pairedWith,
+      final JobRef? sourceBuild,
       final String? logUrl,
       final List<String> warnings,
       final String? message}) = _$JobImpl;
@@ -972,6 +1015,12 @@ abstract class _Job extends Job {
 
   /// The other half of an `android,ios` build that ran as two jobs.
   String? get pairedWith;
+  @override
+
+  /// For a `ci.upload`, the build whose files it sent: its row says which
+  /// one ("from Build #62 · test · branch") from this alone, where its
+  /// params hold only that build's id.
+  JobRef? get sourceBuild;
   @override
 
   /// Set only on the response of an action invocation/retry — the build

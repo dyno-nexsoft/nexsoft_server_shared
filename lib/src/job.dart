@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'artifact.dart';
 import 'discord_message_ref.dart';
+import 'job_ref.dart';
 import 'job_state.dart';
 
 part 'job.freezed.dart';
@@ -76,6 +77,11 @@ abstract class Job with _$Job {
 
     /// The other half of an `android,ios` build that ran as two jobs.
     String? pairedWith,
+
+    /// For a `ci.upload`, the build whose files it sent: its row says which
+    /// one ("from Build #62 · test · branch") from this alone, where its
+    /// params hold only that build's id.
+    JobRef? sourceBuild,
 
     /// Set only on the response of an action invocation/retry — the build
     /// log's URL, served by the static file handler.
