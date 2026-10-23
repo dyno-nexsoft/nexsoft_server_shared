@@ -17,8 +17,9 @@ enum CiScript {
     group: CiScriptGroup.replace,
   ),
 
-  /// Generates proto and API docs in a workspace of its own, but switches the shared `proto` checkout.
-  gen('gen.sh', group: CiScriptGroup.protoAndAccounts),
+  /// Generates proto code into `tbchat_socialfi`, from a `proto` checkout of its own (`proto_gen`): it shares nothing
+  /// with the reposts, so it waits only for another gen.
+  gen('gen.sh', group: CiScriptGroup.gen),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
   reposts('reposts.sh', group: CiScriptGroup.protoAndAccounts),
@@ -84,4 +85,7 @@ enum CiScriptGroup {
 
   /// The shared `proto` checkout and the kept accounts.
   protoAndAccounts,
+
+  /// [CiScript.gen]'s `tbchat_socialfi` and `proto_gen` checkouts, and the bot branch it pushes.
+  gen,
 }
