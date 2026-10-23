@@ -14,6 +14,11 @@ abstract class FirebaseUpload with _$FirebaseUpload {
   const factory FirebaseUpload({
     required FirebaseUploadStatus status,
     required DateTime at,
+
+    /// The release's page in Firebase's tester app, from an upload that went:
+    /// how an iOS tester installs it, since an ipa installs straight from the
+    /// server only over HTTPS. Null for one recorded before it was kept.
+    String? testerUrl,
   }) = _FirebaseUpload;
 
   factory FirebaseUpload.fromJson(Map<String, dynamic> json) =>

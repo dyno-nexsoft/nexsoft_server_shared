@@ -10,14 +10,25 @@ _$FirebaseUploadImpl _$$FirebaseUploadImplFromJson(Map<String, dynamic> json) =>
     _$FirebaseUploadImpl(
       status: $enumDecode(_$FirebaseUploadStatusEnumMap, json['status']),
       at: DateTime.parse(json['at'] as String),
+      testerUrl: json['tester_url'] as String?,
     );
 
 Map<String, dynamic> _$$FirebaseUploadImplToJson(
-        _$FirebaseUploadImpl instance) =>
-    <String, dynamic>{
-      'status': _$FirebaseUploadStatusEnumMap[instance.status]!,
-      'at': instance.at.toIso8601String(),
-    };
+    _$FirebaseUploadImpl instance) {
+  final val = <String, dynamic>{
+    'status': _$FirebaseUploadStatusEnumMap[instance.status]!,
+    'at': instance.at.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('tester_url', instance.testerUrl);
+  return val;
+}
 
 const _$FirebaseUploadStatusEnumMap = {
   FirebaseUploadStatus.uploaded: 'uploaded',

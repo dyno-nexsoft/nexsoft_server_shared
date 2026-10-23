@@ -23,6 +23,11 @@ mixin _$FirebaseUpload {
   FirebaseUploadStatus get status => throw _privateConstructorUsedError;
   DateTime get at => throw _privateConstructorUsedError;
 
+  /// The release's page in Firebase's tester app, from an upload that went:
+  /// how an iOS tester installs it, since an ipa installs straight from the
+  /// server only over HTTPS. Null for one recorded before it was kept.
+  String? get testerUrl => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FirebaseUploadCopyWith<FirebaseUpload> get copyWith =>
@@ -35,7 +40,7 @@ abstract class $FirebaseUploadCopyWith<$Res> {
           FirebaseUpload value, $Res Function(FirebaseUpload) then) =
       _$FirebaseUploadCopyWithImpl<$Res, FirebaseUpload>;
   @useResult
-  $Res call({FirebaseUploadStatus status, DateTime at});
+  $Res call({FirebaseUploadStatus status, DateTime at, String? testerUrl});
 }
 
 /// @nodoc
@@ -53,6 +58,7 @@ class _$FirebaseUploadCopyWithImpl<$Res, $Val extends FirebaseUpload>
   $Res call({
     Object? status = null,
     Object? at = null,
+    Object? testerUrl = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -63,6 +69,10 @@ class _$FirebaseUploadCopyWithImpl<$Res, $Val extends FirebaseUpload>
           ? _value.at
           : at // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      testerUrl: freezed == testerUrl
+          ? _value.testerUrl
+          : testerUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -75,7 +85,7 @@ abstract class _$$FirebaseUploadImplCopyWith<$Res>
       __$$FirebaseUploadImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FirebaseUploadStatus status, DateTime at});
+  $Res call({FirebaseUploadStatus status, DateTime at, String? testerUrl});
 }
 
 /// @nodoc
@@ -91,6 +101,7 @@ class __$$FirebaseUploadImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? at = null,
+    Object? testerUrl = freezed,
   }) {
     return _then(_$FirebaseUploadImpl(
       status: null == status
@@ -101,6 +112,10 @@ class __$$FirebaseUploadImplCopyWithImpl<$Res>
           ? _value.at
           : at // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      testerUrl: freezed == testerUrl
+          ? _value.testerUrl
+          : testerUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -108,7 +123,8 @@ class __$$FirebaseUploadImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$FirebaseUploadImpl implements _FirebaseUpload {
-  const _$FirebaseUploadImpl({required this.status, required this.at});
+  const _$FirebaseUploadImpl(
+      {required this.status, required this.at, this.testerUrl});
 
   factory _$FirebaseUploadImpl.fromJson(Map<String, dynamic> json) =>
       _$$FirebaseUploadImplFromJson(json);
@@ -118,9 +134,15 @@ class _$FirebaseUploadImpl implements _FirebaseUpload {
   @override
   final DateTime at;
 
+  /// The release's page in Firebase's tester app, from an upload that went:
+  /// how an iOS tester installs it, since an ipa installs straight from the
+  /// server only over HTTPS. Null for one recorded before it was kept.
+  @override
+  final String? testerUrl;
+
   @override
   String toString() {
-    return 'FirebaseUpload(status: $status, at: $at)';
+    return 'FirebaseUpload(status: $status, at: $at, testerUrl: $testerUrl)';
   }
 
   @override
@@ -129,12 +151,14 @@ class _$FirebaseUploadImpl implements _FirebaseUpload {
         (other.runtimeType == runtimeType &&
             other is _$FirebaseUploadImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.at, at) || other.at == at));
+            (identical(other.at, at) || other.at == at) &&
+            (identical(other.testerUrl, testerUrl) ||
+                other.testerUrl == testerUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, status, at);
+  int get hashCode => Object.hash(runtimeType, status, at, testerUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +178,8 @@ class _$FirebaseUploadImpl implements _FirebaseUpload {
 abstract class _FirebaseUpload implements FirebaseUpload {
   const factory _FirebaseUpload(
       {required final FirebaseUploadStatus status,
-      required final DateTime at}) = _$FirebaseUploadImpl;
+      required final DateTime at,
+      final String? testerUrl}) = _$FirebaseUploadImpl;
 
   factory _FirebaseUpload.fromJson(Map<String, dynamic> json) =
       _$FirebaseUploadImpl.fromJson;
@@ -163,6 +188,12 @@ abstract class _FirebaseUpload implements FirebaseUpload {
   FirebaseUploadStatus get status;
   @override
   DateTime get at;
+  @override
+
+  /// The release's page in Firebase's tester app, from an upload that went:
+  /// how an iOS tester installs it, since an ipa installs straight from the
+  /// server only over HTTPS. Null for one recorded before it was kept.
+  String? get testerUrl;
   @override
   @JsonKey(ignore: true)
   _$$FirebaseUploadImplCopyWith<_$FirebaseUploadImpl> get copyWith =>
