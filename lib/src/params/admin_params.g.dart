@@ -116,3 +116,28 @@ Map<String, dynamic> _$$SecretNameParamsImplToJson(
     <String, dynamic>{
       'name': instance.name,
     };
+
+_$AuditListParamsImpl _$$AuditListParamsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AuditListParamsImpl(
+      limit: (json['limit'] as num?)?.toInt() ?? 200,
+      action: json['action'] as String?,
+      actor: json['actor'] as String?,
+    );
+
+Map<String, dynamic> _$$AuditListParamsImplToJson(
+    _$AuditListParamsImpl instance) {
+  final val = <String, dynamic>{
+    'limit': instance.limit,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('action', instance.action);
+  writeNotNull('actor', instance.actor);
+  return val;
+}

@@ -29,6 +29,9 @@ abstract class AppLimits with _$AppLimits {
     /// day's counts outlive it: they are kept apart, for the charts.
     @Default(30) int jobsDays,
 
+    /// Days the audit log keeps who did what.
+    @Default(90) int auditDays,
+
     /// Days a GitLab review stays in history before it is pruned.
     @Default(7) int reviewsDays,
 
@@ -82,6 +85,7 @@ abstract class AppLimits with _$AppLimits {
   /// and what the dashboard offers.
   static const ranges = <String, LimitRange>{
     'jobs_days': LimitRange(1, 365),
+    'audit_days': LimitRange(7, 365),
     'reviews_days': LimitRange(1, 90),
     'translates_days': LimitRange(1, 90),
     'notifications_days': LimitRange(1, 90),

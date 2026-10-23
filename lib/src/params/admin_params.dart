@@ -101,3 +101,17 @@ abstract class SecretNameParams with _$SecretNameParams {
   factory SecretNameParams.fromJson(Map<String, dynamic> json) =>
       _$SecretNameParamsFromJson(json);
 }
+
+/// `admin.audit.list`: the newest [limit] entries, narrowed to one [action]
+/// or one [actor] when given.
+@freezed
+abstract class AuditListParams with _$AuditListParams {
+  const factory AuditListParams({
+    @Default(200) int limit,
+    String? action,
+    String? actor,
+  }) = _AuditListParams;
+
+  factory AuditListParams.fromJson(Map<String, dynamic> json) =>
+      _$AuditListParamsFromJson(json);
+}

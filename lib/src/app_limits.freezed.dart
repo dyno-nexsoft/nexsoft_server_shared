@@ -24,6 +24,9 @@ mixin _$AppLimits {
   /// day's counts outlive it: they are kept apart, for the charts.
   int get jobsDays => throw _privateConstructorUsedError;
 
+  /// Days the audit log keeps who did what.
+  int get auditDays => throw _privateConstructorUsedError;
+
   /// Days a GitLab review stays in history before it is pruned.
   int get reviewsDays => throw _privateConstructorUsedError;
 
@@ -82,6 +85,7 @@ abstract class $AppLimitsCopyWith<$Res> {
   @useResult
   $Res call(
       {int jobsDays,
+      int auditDays,
       int reviewsDays,
       int translatesDays,
       int notificationsDays,
@@ -110,6 +114,7 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
   @override
   $Res call({
     Object? jobsDays = null,
+    Object? auditDays = null,
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
@@ -127,6 +132,10 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
       jobsDays: null == jobsDays
           ? _value.jobsDays
           : jobsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      auditDays: null == auditDays
+          ? _value.auditDays
+          : auditDays // ignore: cast_nullable_to_non_nullable
               as int,
       reviewsDays: null == reviewsDays
           ? _value.reviewsDays
@@ -190,6 +199,7 @@ abstract class _$$AppLimitsImplCopyWith<$Res>
   @useResult
   $Res call(
       {int jobsDays,
+      int auditDays,
       int reviewsDays,
       int translatesDays,
       int notificationsDays,
@@ -216,6 +226,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? jobsDays = null,
+    Object? auditDays = null,
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
@@ -233,6 +244,10 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
       jobsDays: null == jobsDays
           ? _value.jobsDays
           : jobsDays // ignore: cast_nullable_to_non_nullable
+              as int,
+      auditDays: null == auditDays
+          ? _value.auditDays
+          : auditDays // ignore: cast_nullable_to_non_nullable
               as int,
       reviewsDays: null == reviewsDays
           ? _value.reviewsDays
@@ -291,6 +306,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
 class _$AppLimitsImpl extends _AppLimits {
   const _$AppLimitsImpl(
       {this.jobsDays = 30,
+      this.auditDays = 90,
       this.reviewsDays = 7,
       this.translatesDays = 7,
       this.notificationsDays = 7,
@@ -313,6 +329,11 @@ class _$AppLimitsImpl extends _AppLimits {
   @override
   @JsonKey()
   final int jobsDays;
+
+  /// Days the audit log keeps who did what.
+  @override
+  @JsonKey()
+  final int auditDays;
 
   /// Days a GitLab review stays in history before it is pruned.
   @override
@@ -385,7 +406,7 @@ class _$AppLimitsImpl extends _AppLimits {
 
   @override
   String toString() {
-    return 'AppLimits(jobsDays: $jobsDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
   }
 
   @override
@@ -395,6 +416,8 @@ class _$AppLimitsImpl extends _AppLimits {
             other is _$AppLimitsImpl &&
             (identical(other.jobsDays, jobsDays) ||
                 other.jobsDays == jobsDays) &&
+            (identical(other.auditDays, auditDays) ||
+                other.auditDays == auditDays) &&
             (identical(other.reviewsDays, reviewsDays) ||
                 other.reviewsDays == reviewsDays) &&
             (identical(other.translatesDays, translatesDays) ||
@@ -427,6 +450,7 @@ class _$AppLimitsImpl extends _AppLimits {
   int get hashCode => Object.hash(
       runtimeType,
       jobsDays,
+      auditDays,
       reviewsDays,
       translatesDays,
       notificationsDays,
@@ -457,6 +481,7 @@ class _$AppLimitsImpl extends _AppLimits {
 abstract class _AppLimits extends AppLimits {
   const factory _AppLimits(
       {final int jobsDays,
+      final int auditDays,
       final int reviewsDays,
       final int translatesDays,
       final int notificationsDays,
@@ -479,6 +504,10 @@ abstract class _AppLimits extends AppLimits {
   /// Days a job stays in history (the jobs list, its page, retries). Its
   /// day's counts outlive it: they are kept apart, for the charts.
   int get jobsDays;
+  @override
+
+  /// Days the audit log keeps who did what.
+  int get auditDays;
   @override
 
   /// Days a GitLab review stays in history before it is pruned.

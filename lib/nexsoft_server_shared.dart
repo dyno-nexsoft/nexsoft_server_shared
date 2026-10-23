@@ -14,6 +14,7 @@ export 'src/app_notification.dart';
 export 'src/arb_key_utils.dart';
 export 'src/arb_translate_result.dart';
 export 'src/artifact.dart';
+export 'src/audit.dart';
 export 'src/build_machines_priority.dart';
 export 'src/build_target.dart';
 export 'src/builder_status.dart';

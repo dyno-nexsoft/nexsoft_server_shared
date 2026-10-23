@@ -104,6 +104,10 @@ abstract class ActionParam with _$ActionParam {
     /// multi-line field (one entry per line) instead of a single-line one,
     /// and splits/joins on `\n` when building/restoring the request body.
     @Default(false) bool isStringList,
+
+    /// A credential (a password, a secret's value): the audit log keeps it
+    /// as `•••`, and a client should not echo it back.
+    @Default(false) bool isSecret,
   }) = _ActionParam;
 
   factory ActionParam.fromJson(Map<String, dynamic> json) =>

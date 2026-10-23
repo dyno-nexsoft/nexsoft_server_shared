@@ -54,6 +54,7 @@ _$ActionParamImpl _$$ActionParamImplFromJson(Map<String, dynamic> json) =>
       isBranchRef: json['is_branch_ref'] as bool? ?? false,
       isUrl: json['is_url'] as bool? ?? false,
       isStringList: json['is_string_list'] as bool? ?? false,
+      isSecret: json['is_secret'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$ActionParamImplToJson(_$ActionParamImpl instance) {
@@ -75,6 +76,7 @@ Map<String, dynamic> _$$ActionParamImplToJson(_$ActionParamImpl instance) {
   val['is_branch_ref'] = instance.isBranchRef;
   val['is_url'] = instance.isUrl;
   val['is_string_list'] = instance.isStringList;
+  val['is_secret'] = instance.isSecret;
   return val;
 }
 

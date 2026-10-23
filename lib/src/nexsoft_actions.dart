@@ -3,6 +3,7 @@ import 'action_transport.dart';
 import 'ai_provider.dart';
 import 'app_limits.dart';
 import 'artifact.dart';
+import 'audit.dart';
 import 'build_machines_priority.dart';
 import 'build_target.dart';
 import 'daily_task.dart';
@@ -246,6 +247,14 @@ extension NexsoftActions on ActionTransport {
   /// Ends this session's key if it came from Discord sign-in.
   Future<ActionMessage> apiKeysSignOut() async => ActionMessage.fromJson(
     await invokeAction('admin.apiKeys.signOut', const {}),
+  );
+
+  // admin.audit.*
+
+  Future<AuditList> auditList([
+    AuditListParams params = const AuditListParams(),
+  ]) async => AuditList.fromJson(
+    await invokeAction('admin.audit.list', params.toJson()),
   );
 
   // admin.secrets.*

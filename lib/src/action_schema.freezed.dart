@@ -440,6 +440,10 @@ mixin _$ActionParam {
   /// and splits/joins on `\n` when building/restoring the request body.
   bool get isStringList => throw _privateConstructorUsedError;
 
+  /// A credential (a password, a secret's value): the audit log keeps it
+  /// as `•••`, and a client should not echo it back.
+  bool get isSecret => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ActionParamCopyWith<ActionParam> get copyWith =>
@@ -461,7 +465,8 @@ abstract class $ActionParamCopyWith<$Res> {
       @JsonKey(name: 'default') dynamic defaultValue,
       bool isBranchRef,
       bool isUrl,
-      bool isStringList});
+      bool isStringList,
+      bool isSecret});
 }
 
 /// @nodoc
@@ -486,6 +491,7 @@ class _$ActionParamCopyWithImpl<$Res, $Val extends ActionParam>
     Object? isBranchRef = null,
     Object? isUrl = null,
     Object? isStringList = null,
+    Object? isSecret = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -524,6 +530,10 @@ class _$ActionParamCopyWithImpl<$Res, $Val extends ActionParam>
           ? _value.isStringList
           : isStringList // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSecret: null == isSecret
+          ? _value.isSecret
+          : isSecret // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -545,7 +555,8 @@ abstract class _$$ActionParamImplCopyWith<$Res>
       @JsonKey(name: 'default') dynamic defaultValue,
       bool isBranchRef,
       bool isUrl,
-      bool isStringList});
+      bool isStringList,
+      bool isSecret});
 }
 
 /// @nodoc
@@ -568,6 +579,7 @@ class __$$ActionParamImplCopyWithImpl<$Res>
     Object? isBranchRef = null,
     Object? isUrl = null,
     Object? isStringList = null,
+    Object? isSecret = null,
   }) {
     return _then(_$ActionParamImpl(
       name: null == name
@@ -606,6 +618,10 @@ class __$$ActionParamImplCopyWithImpl<$Res>
           ? _value.isStringList
           : isStringList // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSecret: null == isSecret
+          ? _value.isSecret
+          : isSecret // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -622,7 +638,8 @@ class _$ActionParamImpl implements _ActionParam {
       @JsonKey(name: 'default') this.defaultValue,
       this.isBranchRef = false,
       this.isUrl = false,
-      this.isStringList = false})
+      this.isStringList = false,
+      this.isSecret = false})
       : _choices = choices;
 
   factory _$ActionParamImpl.fromJson(Map<String, dynamic> json) =>
@@ -671,9 +688,15 @@ class _$ActionParamImpl implements _ActionParam {
   @JsonKey()
   final bool isStringList;
 
+  /// A credential (a password, a secret's value): the audit log keeps it
+  /// as `•••`, and a client should not echo it back.
+  @override
+  @JsonKey()
+  final bool isSecret;
+
   @override
   String toString() {
-    return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList)';
+    return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
   }
 
   @override
@@ -694,7 +717,9 @@ class _$ActionParamImpl implements _ActionParam {
                 other.isBranchRef == isBranchRef) &&
             (identical(other.isUrl, isUrl) || other.isUrl == isUrl) &&
             (identical(other.isStringList, isStringList) ||
-                other.isStringList == isStringList));
+                other.isStringList == isStringList) &&
+            (identical(other.isSecret, isSecret) ||
+                other.isSecret == isSecret));
   }
 
   @JsonKey(ignore: true)
@@ -709,7 +734,8 @@ class _$ActionParamImpl implements _ActionParam {
       const DeepCollectionEquality().hash(defaultValue),
       isBranchRef,
       isUrl,
-      isStringList);
+      isStringList,
+      isSecret);
 
   @JsonKey(ignore: true)
   @override
@@ -735,7 +761,8 @@ abstract class _ActionParam implements ActionParam {
       @JsonKey(name: 'default') final dynamic defaultValue,
       final bool isBranchRef,
       final bool isUrl,
-      final bool isStringList}) = _$ActionParamImpl;
+      final bool isStringList,
+      final bool isSecret}) = _$ActionParamImpl;
 
   factory _ActionParam.fromJson(Map<String, dynamic> json) =
       _$ActionParamImpl.fromJson;
@@ -771,6 +798,11 @@ abstract class _ActionParam implements ActionParam {
   /// multi-line field (one entry per line) instead of a single-line one,
   /// and splits/joins on `\n` when building/restoring the request body.
   bool get isStringList;
+  @override
+
+  /// A credential (a password, a secret's value): the audit log keeps it
+  /// as `•••`, and a client should not echo it back.
+  bool get isSecret;
   @override
   @JsonKey(ignore: true)
   _$$ActionParamImplCopyWith<_$ActionParamImpl> get copyWith =>

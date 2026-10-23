@@ -1137,3 +1137,176 @@ abstract class _SecretNameParams implements SecretNameParams {
   _$$SecretNameParamsImplCopyWith<_$SecretNameParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+AuditListParams _$AuditListParamsFromJson(Map<String, dynamic> json) {
+  return _AuditListParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AuditListParams {
+  int get limit => throw _privateConstructorUsedError;
+  String? get action => throw _privateConstructorUsedError;
+  String? get actor => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AuditListParamsCopyWith<AuditListParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuditListParamsCopyWith<$Res> {
+  factory $AuditListParamsCopyWith(
+          AuditListParams value, $Res Function(AuditListParams) then) =
+      _$AuditListParamsCopyWithImpl<$Res, AuditListParams>;
+  @useResult
+  $Res call({int limit, String? action, String? actor});
+}
+
+/// @nodoc
+class _$AuditListParamsCopyWithImpl<$Res, $Val extends AuditListParams>
+    implements $AuditListParamsCopyWith<$Res> {
+  _$AuditListParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? limit = null,
+    Object? action = freezed,
+    Object? actor = freezed,
+  }) {
+    return _then(_value.copyWith(
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      action: freezed == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as String?,
+      actor: freezed == actor
+          ? _value.actor
+          : actor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AuditListParamsImplCopyWith<$Res>
+    implements $AuditListParamsCopyWith<$Res> {
+  factory _$$AuditListParamsImplCopyWith(_$AuditListParamsImpl value,
+          $Res Function(_$AuditListParamsImpl) then) =
+      __$$AuditListParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int limit, String? action, String? actor});
+}
+
+/// @nodoc
+class __$$AuditListParamsImplCopyWithImpl<$Res>
+    extends _$AuditListParamsCopyWithImpl<$Res, _$AuditListParamsImpl>
+    implements _$$AuditListParamsImplCopyWith<$Res> {
+  __$$AuditListParamsImplCopyWithImpl(
+      _$AuditListParamsImpl _value, $Res Function(_$AuditListParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? limit = null,
+    Object? action = freezed,
+    Object? actor = freezed,
+  }) {
+    return _then(_$AuditListParamsImpl(
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      action: freezed == action
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as String?,
+      actor: freezed == actor
+          ? _value.actor
+          : actor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AuditListParamsImpl implements _AuditListParams {
+  const _$AuditListParamsImpl({this.limit = 200, this.action, this.actor});
+
+  factory _$AuditListParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AuditListParamsImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final int limit;
+  @override
+  final String? action;
+  @override
+  final String? actor;
+
+  @override
+  String toString() {
+    return 'AuditListParams(limit: $limit, action: $action, actor: $actor)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuditListParamsImpl &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.action, action) || other.action == action) &&
+            (identical(other.actor, actor) || other.actor == actor));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, limit, action, actor);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>
+      __$$AuditListParamsImplCopyWithImpl<_$AuditListParamsImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuditListParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AuditListParams implements AuditListParams {
+  const factory _AuditListParams(
+      {final int limit,
+      final String? action,
+      final String? actor}) = _$AuditListParamsImpl;
+
+  factory _AuditListParams.fromJson(Map<String, dynamic> json) =
+      _$AuditListParamsImpl.fromJson;
+
+  @override
+  int get limit;
+  @override
+  String? get action;
+  @override
+  String? get actor;
+  @override
+  @JsonKey(ignore: true)
+  _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -9,6 +9,7 @@ part of 'app_limits.dart';
 _$AppLimitsImpl _$$AppLimitsImplFromJson(Map<String, dynamic> json) =>
     _$AppLimitsImpl(
       jobsDays: (json['jobs_days'] as num?)?.toInt() ?? 30,
+      auditDays: (json['audit_days'] as num?)?.toInt() ?? 90,
       reviewsDays: (json['reviews_days'] as num?)?.toInt() ?? 7,
       translatesDays: (json['translates_days'] as num?)?.toInt() ?? 7,
       notificationsDays: (json['notifications_days'] as num?)?.toInt() ?? 7,
@@ -28,6 +29,7 @@ _$AppLimitsImpl _$$AppLimitsImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppLimitsImplToJson(_$AppLimitsImpl instance) =>
     <String, dynamic>{
       'jobs_days': instance.jobsDays,
+      'audit_days': instance.auditDays,
       'reviews_days': instance.reviewsDays,
       'translates_days': instance.translatesDays,
       'notifications_days': instance.notificationsDays,
