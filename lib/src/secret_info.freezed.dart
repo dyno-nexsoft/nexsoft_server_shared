@@ -38,6 +38,18 @@ mixin _$SecretInfo {
   /// Holds several values, comma-separated (API keys tried in turn).
   bool get isList => throw _privateConstructorUsedError;
 
+  /// Set since the server started, and [needsRestart]: it waits for one.
+  bool get pendingRestart => throw _privateConstructorUsedError;
+
+  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+  /// server sends it to that host only.
+  String? get boundHost => throw _privateConstructorUsedError;
+
+  /// Set for a host the setting no longer names, so it is not sent
+  /// anywhere until it is set again: an admin who points the server
+  /// elsewhere does not take the credential with it.
+  bool get needsReentry => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SecretInfoCopyWith<SecretInfo> get copyWith =>
@@ -57,7 +69,10 @@ abstract class $SecretInfoCopyWith<$Res> {
       DateTime? changedAt,
       bool isRequired,
       bool needsRestart,
-      bool isList});
+      bool isList,
+      bool pendingRestart,
+      String? boundHost,
+      bool needsReentry});
 }
 
 /// @nodoc
@@ -80,6 +95,9 @@ class _$SecretInfoCopyWithImpl<$Res, $Val extends SecretInfo>
     Object? isRequired = null,
     Object? needsRestart = null,
     Object? isList = null,
+    Object? pendingRestart = null,
+    Object? boundHost = freezed,
+    Object? needsReentry = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -110,6 +128,18 @@ class _$SecretInfoCopyWithImpl<$Res, $Val extends SecretInfo>
           ? _value.isList
           : isList // ignore: cast_nullable_to_non_nullable
               as bool,
+      pendingRestart: null == pendingRestart
+          ? _value.pendingRestart
+          : pendingRestart // ignore: cast_nullable_to_non_nullable
+              as bool,
+      boundHost: freezed == boundHost
+          ? _value.boundHost
+          : boundHost // ignore: cast_nullable_to_non_nullable
+              as String?,
+      needsReentry: null == needsReentry
+          ? _value.needsReentry
+          : needsReentry // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -129,7 +159,10 @@ abstract class _$$SecretInfoImplCopyWith<$Res>
       DateTime? changedAt,
       bool isRequired,
       bool needsRestart,
-      bool isList});
+      bool isList,
+      bool pendingRestart,
+      String? boundHost,
+      bool needsReentry});
 }
 
 /// @nodoc
@@ -150,6 +183,9 @@ class __$$SecretInfoImplCopyWithImpl<$Res>
     Object? isRequired = null,
     Object? needsRestart = null,
     Object? isList = null,
+    Object? pendingRestart = null,
+    Object? boundHost = freezed,
+    Object? needsReentry = null,
   }) {
     return _then(_$SecretInfoImpl(
       name: null == name
@@ -180,6 +216,18 @@ class __$$SecretInfoImplCopyWithImpl<$Res>
           ? _value.isList
           : isList // ignore: cast_nullable_to_non_nullable
               as bool,
+      pendingRestart: null == pendingRestart
+          ? _value.pendingRestart
+          : pendingRestart // ignore: cast_nullable_to_non_nullable
+              as bool,
+      boundHost: freezed == boundHost
+          ? _value.boundHost
+          : boundHost // ignore: cast_nullable_to_non_nullable
+              as String?,
+      needsReentry: null == needsReentry
+          ? _value.needsReentry
+          : needsReentry // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -194,7 +242,10 @@ class _$SecretInfoImpl extends _SecretInfo {
       this.changedAt,
       this.isRequired = false,
       this.needsRestart = false,
-      this.isList = false})
+      this.isList = false,
+      this.pendingRestart = false,
+      this.boundHost,
+      this.needsReentry = false})
       : super._();
 
   factory _$SecretInfoImpl.fromJson(Map<String, dynamic> json) =>
@@ -230,9 +281,26 @@ class _$SecretInfoImpl extends _SecretInfo {
   @JsonKey()
   final bool isList;
 
+  /// Set since the server started, and [needsRestart]: it waits for one.
+  @override
+  @JsonKey()
+  final bool pendingRestart;
+
+  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+  /// server sends it to that host only.
+  @override
+  final String? boundHost;
+
+  /// Set for a host the setting no longer names, so it is not sent
+  /// anywhere until it is set again: an admin who points the server
+  /// elsewhere does not take the credential with it.
+  @override
+  @JsonKey()
+  final bool needsReentry;
+
   @override
   String toString() {
-    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList)';
+    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
   }
 
   @override
@@ -250,13 +318,29 @@ class _$SecretInfoImpl extends _SecretInfo {
                 other.isRequired == isRequired) &&
             (identical(other.needsRestart, needsRestart) ||
                 other.needsRestart == needsRestart) &&
-            (identical(other.isList, isList) || other.isList == isList));
+            (identical(other.isList, isList) || other.isList == isList) &&
+            (identical(other.pendingRestart, pendingRestart) ||
+                other.pendingRestart == pendingRestart) &&
+            (identical(other.boundHost, boundHost) ||
+                other.boundHost == boundHost) &&
+            (identical(other.needsReentry, needsReentry) ||
+                other.needsReentry == needsReentry));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, source,
-      changedAt, isRequired, needsRestart, isList);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      description,
+      source,
+      changedAt,
+      isRequired,
+      needsRestart,
+      isList,
+      pendingRestart,
+      boundHost,
+      needsReentry);
 
   @JsonKey(ignore: true)
   @override
@@ -280,7 +364,10 @@ abstract class _SecretInfo extends SecretInfo {
       final DateTime? changedAt,
       final bool isRequired,
       final bool needsRestart,
-      final bool isList}) = _$SecretInfoImpl;
+      final bool isList,
+      final bool pendingRestart,
+      final String? boundHost,
+      final bool needsReentry}) = _$SecretInfoImpl;
   const _SecretInfo._() : super._();
 
   factory _SecretInfo.fromJson(Map<String, dynamic> json) =
@@ -311,6 +398,21 @@ abstract class _SecretInfo extends SecretInfo {
 
   /// Holds several values, comma-separated (API keys tried in turn).
   bool get isList;
+  @override
+
+  /// Set since the server started, and [needsRestart]: it waits for one.
+  bool get pendingRestart;
+  @override
+
+  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+  /// server sends it to that host only.
+  String? get boundHost;
+  @override
+
+  /// Set for a host the setting no longer names, so it is not sent
+  /// anywhere until it is set again: an admin who points the server
+  /// elsewhere does not take the credential with it.
+  bool get needsReentry;
   @override
   @JsonKey(ignore: true)
   _$$SecretInfoImplCopyWith<_$SecretInfoImpl> get copyWith =>

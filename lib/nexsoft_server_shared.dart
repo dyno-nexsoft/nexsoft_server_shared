@@ -56,6 +56,7 @@ export 'src/review_issue.dart';
 export 'src/schedule_info.dart';
 export 'src/scheduled_job_config.dart';
 export 'src/secret_info.dart';
+export 'src/server_setting.dart';
 export 'src/stream_token.dart';
 export 'src/system_status.dart';
 export 'src/tbchat_module.dart';

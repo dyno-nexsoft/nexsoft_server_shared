@@ -18,6 +18,9 @@ _$SecretInfoImpl _$$SecretInfoImplFromJson(Map<String, dynamic> json) =>
       isRequired: json['is_required'] as bool? ?? false,
       needsRestart: json['needs_restart'] as bool? ?? false,
       isList: json['is_list'] as bool? ?? false,
+      pendingRestart: json['pending_restart'] as bool? ?? false,
+      boundHost: json['bound_host'] as String?,
+      needsReentry: json['needs_reentry'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SecretInfoImplToJson(_$SecretInfoImpl instance) {
@@ -37,6 +40,9 @@ Map<String, dynamic> _$$SecretInfoImplToJson(_$SecretInfoImpl instance) {
   val['is_required'] = instance.isRequired;
   val['needs_restart'] = instance.needsRestart;
   val['is_list'] = instance.isList;
+  val['pending_restart'] = instance.pendingRestart;
+  writeNotNull('bound_host', instance.boundHost);
+  val['needs_reentry'] = instance.needsReentry;
   return val;
 }
 

@@ -19,6 +19,7 @@ import 'params/system_params.dart';
 import 'params/zentao_params.dart';
 import 'schedule_info.dart';
 import 'secret_info.dart';
+import 'server_setting.dart';
 import 'zentao_status.dart';
 
 /// Every action as a typed call: the params object in, the decoded result
@@ -256,6 +257,17 @@ extension NexsoftActions on ActionTransport {
   ]) async => AuditList.fromJson(
     await invokeAction('admin.audit.list', params.toJson()),
   );
+
+  // settings.* — the server settings, once the plist's variables.
+
+  Future<ServerSettingsInfo> settingsGet() async => ServerSettingsInfo.fromJson(
+    await invokeAction('settings.get', const {}),
+  );
+
+  Future<ServerSettingsInfo> settingsSet(SettingSetParams params) async =>
+      ServerSettingsInfo.fromJson(
+        await invokeAction('settings.set', params.toJson()),
+      );
 
   // admin.secrets.*
 

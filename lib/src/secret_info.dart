@@ -36,6 +36,18 @@ abstract class SecretInfo with _$SecretInfo {
 
     /// Holds several values, comma-separated (API keys tried in turn).
     @Default(false) bool isList,
+
+    /// Set since the server started, and [needsRestart]: it waits for one.
+    @Default(false) bool pendingRestart,
+
+    /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+    /// server sends it to that host only.
+    String? boundHost,
+
+    /// Set for a host the setting no longer names, so it is not sent
+    /// anywhere until it is set again: an admin who points the server
+    /// elsewhere does not take the credential with it.
+    @Default(false) bool needsReentry,
   }) = _SecretInfo;
 
   const SecretInfo._();
