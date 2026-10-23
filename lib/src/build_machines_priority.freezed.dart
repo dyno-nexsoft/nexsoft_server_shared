@@ -24,7 +24,7 @@ mixin _$BuildMachinesPriority {
   /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
   List<String> get order => throw _privateConstructorUsedError;
 
-  /// Build machines that take no job for now, by host. Never [local]: it alone runs gen, reposts and clean.
+  /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and clean.
   List<String> get paused => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -134,10 +134,10 @@ class _$BuildMachinesPriorityImpl implements _BuildMachinesPriority {
     return EqualUnmodifiableListView(_order);
   }
 
-  /// Build machines that take no job for now, by host. Never [local]: it alone runs gen, reposts and clean.
+  /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and clean.
   final List<String> _paused;
 
-  /// Build machines that take no job for now, by host. Never [local]: it alone runs gen, reposts and clean.
+  /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and clean.
   @override
   @JsonKey()
   List<String> get paused {
@@ -196,7 +196,7 @@ abstract class _BuildMachinesPriority implements BuildMachinesPriority {
   List<String> get order;
   @override
 
-  /// Build machines that take no job for now, by host. Never [local]: it alone runs gen, reposts and clean.
+  /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and clean.
   List<String> get paused;
   @override
   @JsonKey(ignore: true)

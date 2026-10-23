@@ -18,7 +18,8 @@ enum CiScript {
   ),
 
   /// Generates proto code into `tbchat_socialfi`, from a `proto` checkout of its own (`proto_gen`): it shares nothing
-  /// with the reposts, so it waits only for another gen.
+  /// with the reposts, so it waits only for another gen. Not [runsOnBuilder] by itself: a build machine runs it only
+  /// once the server has a key that may read the proto repository to give it.
   gen('gen.sh', group: CiScriptGroup.gen),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
