@@ -43,13 +43,6 @@ mixin _$CiBuildParams {
   /// Overrides the time-of-day build number. Unset keeps the default.
   int? get buildNumber => throw _privateConstructorUsedError;
 
-  /// The commit each repo's branch stops at, by [GitRepo.slug] (`tbchat`,
-  /// `database`, `im`, ...): the branch is still what is checked out and
-  /// shown, at that commit instead of its tip. The server fills it for the
-  /// two halves of a split build, so both build one commit however the
-  /// branch moves meanwhile, and a retry of either builds it again.
-  Map<String, String>? get commits => throw _privateConstructorUsedError;
-
   /// Builds and copies the artifact but does not push it to Firebase App
   /// Distribution.
   @JsonKey(toJson: _onlyWhenTrue)
@@ -92,7 +85,6 @@ abstract class $CiBuildParamsCopyWith<$Res> {
       String? releaseNotes,
       String? buildName,
       int? buildNumber,
-      Map<String, String>? commits,
       @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
       String? runsOn,
       int? timeoutMinutes,
@@ -123,7 +115,6 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
     Object? releaseNotes = freezed,
     Object? buildName = freezed,
     Object? buildNumber = freezed,
-    Object? commits = freezed,
     Object? skipFirebaseDistribution = null,
     Object? runsOn = freezed,
     Object? timeoutMinutes = freezed,
@@ -174,10 +165,6 @@ class _$CiBuildParamsCopyWithImpl<$Res, $Val extends CiBuildParams>
           ? _value.buildNumber
           : buildNumber // ignore: cast_nullable_to_non_nullable
               as int?,
-      commits: freezed == commits
-          ? _value.commits
-          : commits // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
       skipFirebaseDistribution: null == skipFirebaseDistribution
           ? _value.skipFirebaseDistribution
           : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
@@ -218,7 +205,6 @@ abstract class _$$CiBuildParamsImplCopyWith<$Res>
       String? releaseNotes,
       String? buildName,
       int? buildNumber,
-      Map<String, String>? commits,
       @JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,
       String? runsOn,
       int? timeoutMinutes,
@@ -247,7 +233,6 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
     Object? releaseNotes = freezed,
     Object? buildName = freezed,
     Object? buildNumber = freezed,
-    Object? commits = freezed,
     Object? skipFirebaseDistribution = null,
     Object? runsOn = freezed,
     Object? timeoutMinutes = freezed,
@@ -298,10 +283,6 @@ class __$$CiBuildParamsImplCopyWithImpl<$Res>
           ? _value.buildNumber
           : buildNumber // ignore: cast_nullable_to_non_nullable
               as int?,
-      commits: freezed == commits
-          ? _value._commits
-          : commits // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>?,
       skipFirebaseDistribution: null == skipFirebaseDistribution
           ? _value.skipFirebaseDistribution
           : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
@@ -337,12 +318,10 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       this.releaseNotes,
       this.buildName,
       this.buildNumber,
-      final Map<String, String>? commits,
       @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false,
       this.runsOn,
       this.timeoutMinutes,
-      this.retries})
-      : _commits = commits;
+      this.retries});
 
   factory _$CiBuildParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiBuildParamsImplFromJson(json);
@@ -383,27 +362,6 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
   @override
   final int? buildNumber;
 
-  /// The commit each repo's branch stops at, by [GitRepo.slug] (`tbchat`,
-  /// `database`, `im`, ...): the branch is still what is checked out and
-  /// shown, at that commit instead of its tip. The server fills it for the
-  /// two halves of a split build, so both build one commit however the
-  /// branch moves meanwhile, and a retry of either builds it again.
-  final Map<String, String>? _commits;
-
-  /// The commit each repo's branch stops at, by [GitRepo.slug] (`tbchat`,
-  /// `database`, `im`, ...): the branch is still what is checked out and
-  /// shown, at that commit instead of its tip. The server fills it for the
-  /// two halves of a split build, so both build one commit however the
-  /// branch moves meanwhile, and a retry of either builds it again.
-  @override
-  Map<String, String>? get commits {
-    final value = _commits;
-    if (value == null) return null;
-    if (_commits is EqualUnmodifiableMapView) return _commits;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
   /// Builds and copies the artifact but does not push it to Firebase App
   /// Distribution.
   @override
@@ -428,7 +386,7 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
 
   @override
   String toString() {
-    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, commits: $commits, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
   }
 
   @override
@@ -455,7 +413,6 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
                 other.buildName == buildName) &&
             (identical(other.buildNumber, buildNumber) ||
                 other.buildNumber == buildNumber) &&
-            const DeepCollectionEquality().equals(other._commits, _commits) &&
             (identical(
                     other.skipFirebaseDistribution, skipFirebaseDistribution) ||
                 other.skipFirebaseDistribution == skipFirebaseDistribution) &&
@@ -480,7 +437,6 @@ class _$CiBuildParamsImpl implements _CiBuildParams {
       releaseNotes,
       buildName,
       buildNumber,
-      const DeepCollectionEquality().hash(_commits),
       skipFirebaseDistribution,
       runsOn,
       timeoutMinutes,
@@ -513,7 +469,6 @@ abstract class _CiBuildParams implements CiBuildParams {
       final String? releaseNotes,
       final String? buildName,
       final int? buildNumber,
-      final Map<String, String>? commits,
       @JsonKey(toJson: _onlyWhenTrue) final bool skipFirebaseDistribution,
       final String? runsOn,
       final int? timeoutMinutes,
@@ -556,14 +511,6 @@ abstract class _CiBuildParams implements CiBuildParams {
 
   /// Overrides the time-of-day build number. Unset keeps the default.
   int? get buildNumber;
-  @override
-
-  /// The commit each repo's branch stops at, by [GitRepo.slug] (`tbchat`,
-  /// `database`, `im`, ...): the branch is still what is checked out and
-  /// shown, at that commit instead of its tip. The server fills it for the
-  /// two halves of a split build, so both build one commit however the
-  /// branch moves meanwhile, and a retry of either builds it again.
-  Map<String, String>? get commits;
   @override
 
   /// Builds and copies the artifact but does not push it to Firebase App
