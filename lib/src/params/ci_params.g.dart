@@ -166,6 +166,16 @@ Map<String, dynamic> _$$CiUploadParamsImplToJson(
   return val;
 }
 
+_$CiStatsParamsImpl _$$CiStatsParamsImplFromJson(Map<String, dynamic> json) =>
+    _$CiStatsParamsImpl(
+      days: (json['days'] as num?)?.toInt() ?? 7,
+    );
+
+Map<String, dynamic> _$$CiStatsParamsImplToJson(_$CiStatsParamsImpl instance) =>
+    <String, dynamic>{
+      'days': instance.days,
+    };
+
 _$CiCleanParamsImpl _$$CiCleanParamsImplFromJson(Map<String, dynamic> json) =>
     _$CiCleanParamsImpl(
       mode: json['mode'] as String?,

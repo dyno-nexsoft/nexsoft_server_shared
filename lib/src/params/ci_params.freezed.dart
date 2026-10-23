@@ -1320,6 +1320,147 @@ abstract class _CiUploadParams implements CiUploadParams {
       throw _privateConstructorUsedError;
 }
 
+CiStatsParams _$CiStatsParamsFromJson(Map<String, dynamic> json) {
+  return _CiStatsParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$CiStatsParams {
+  /// How many days back, today included.
+  int get days => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CiStatsParamsCopyWith<CiStatsParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CiStatsParamsCopyWith<$Res> {
+  factory $CiStatsParamsCopyWith(
+          CiStatsParams value, $Res Function(CiStatsParams) then) =
+      _$CiStatsParamsCopyWithImpl<$Res, CiStatsParams>;
+  @useResult
+  $Res call({int days});
+}
+
+/// @nodoc
+class _$CiStatsParamsCopyWithImpl<$Res, $Val extends CiStatsParams>
+    implements $CiStatsParamsCopyWith<$Res> {
+  _$CiStatsParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? days = null,
+  }) {
+    return _then(_value.copyWith(
+      days: null == days
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$CiStatsParamsImplCopyWith<$Res>
+    implements $CiStatsParamsCopyWith<$Res> {
+  factory _$$CiStatsParamsImplCopyWith(
+          _$CiStatsParamsImpl value, $Res Function(_$CiStatsParamsImpl) then) =
+      __$$CiStatsParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int days});
+}
+
+/// @nodoc
+class __$$CiStatsParamsImplCopyWithImpl<$Res>
+    extends _$CiStatsParamsCopyWithImpl<$Res, _$CiStatsParamsImpl>
+    implements _$$CiStatsParamsImplCopyWith<$Res> {
+  __$$CiStatsParamsImplCopyWithImpl(
+      _$CiStatsParamsImpl _value, $Res Function(_$CiStatsParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? days = null,
+  }) {
+    return _then(_$CiStatsParamsImpl(
+      days: null == days
+          ? _value.days
+          : days // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CiStatsParamsImpl implements _CiStatsParams {
+  const _$CiStatsParamsImpl({this.days = 7});
+
+  factory _$CiStatsParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CiStatsParamsImplFromJson(json);
+
+  /// How many days back, today included.
+  @override
+  @JsonKey()
+  final int days;
+
+  @override
+  String toString() {
+    return 'CiStatsParams(days: $days)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CiStatsParamsImpl &&
+            (identical(other.days, days) || other.days == days));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, days);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CiStatsParamsImplCopyWith<_$CiStatsParamsImpl> get copyWith =>
+      __$$CiStatsParamsImplCopyWithImpl<_$CiStatsParamsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CiStatsParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _CiStatsParams implements CiStatsParams {
+  const factory _CiStatsParams({final int days}) = _$CiStatsParamsImpl;
+
+  factory _CiStatsParams.fromJson(Map<String, dynamic> json) =
+      _$CiStatsParamsImpl.fromJson;
+
+  @override
+
+  /// How many days back, today included.
+  int get days;
+  @override
+  @JsonKey(ignore: true)
+  _$$CiStatsParamsImplCopyWith<_$CiStatsParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 CiCleanParams _$CiCleanParamsFromJson(Map<String, dynamic> json) {
   return _CiCleanParams.fromJson(json);
 }

@@ -25,6 +25,10 @@ abstract class AppLimits with _$AppLimits {
   const AppLimits._();
 
   const factory AppLimits({
+    /// Days a job stays in history (the jobs list, its page, retries). Its
+    /// day's counts outlive it: they are kept apart, for the charts.
+    @Default(30) int jobsDays,
+
     /// Days a GitLab review stays in history before it is pruned.
     @Default(7) int reviewsDays,
 
@@ -77,6 +81,7 @@ abstract class AppLimits with _$AppLimits {
   /// Allowed values, by wire (snake_case) field name — what [problems] checks
   /// and what the dashboard offers.
   static const ranges = <String, LimitRange>{
+    'jobs_days': LimitRange(1, 365),
     'reviews_days': LimitRange(1, 90),
     'translates_days': LimitRange(1, 90),
     'notifications_days': LimitRange(1, 90),

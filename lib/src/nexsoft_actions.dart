@@ -9,6 +9,7 @@ import 'daily_task.dart';
 import 'gitlab_history.dart';
 import 'interaction_hosts.dart';
 import 'job.dart';
+import 'job_stats.dart';
 import 'params/admin_params.dart';
 import 'params/ci_params.dart';
 import 'params/gitlab_params.dart';
@@ -150,6 +151,10 @@ extension NexsoftActions on ActionTransport {
       );
 
   // ci.machines.* — the order the queue offers work to the machines, and which are paused.
+
+  /// The jobs that ended each day of the last [CiStatsParams.days].
+  Future<JobStats> ciStats([CiStatsParams params = const CiStatsParams()]) async =>
+      JobStats.fromJson(await invokeAction('ci.stats.get', params.toJson()));
 
   Future<BuildMachinesPriority> machinesGet() async =>
       BuildMachinesPriority.fromJson(await invokeAction('ci.machines.get', const {}));

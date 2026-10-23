@@ -136,6 +136,18 @@ abstract class CiUploadParams with _$CiUploadParams {
       _$CiUploadParamsFromJson(json);
 }
 
+/// `ci.stats.get`.
+@freezed
+abstract class CiStatsParams with _$CiStatsParams {
+  const factory CiStatsParams({
+    /// How many days back, today included.
+    @Default(7) int days,
+  }) = _CiStatsParams;
+
+  factory CiStatsParams.fromJson(Map<String, dynamic> json) =>
+      _$CiStatsParamsFromJson(json);
+}
+
 /// `ci.clean`.
 @freezed
 abstract class CiCleanParams with _$CiCleanParams {

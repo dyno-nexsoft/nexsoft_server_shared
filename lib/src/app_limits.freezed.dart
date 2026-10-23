@@ -20,6 +20,10 @@ AppLimits _$AppLimitsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppLimits {
+  /// Days a job stays in history (the jobs list, its page, retries). Its
+  /// day's counts outlive it: they are kept apart, for the charts.
+  int get jobsDays => throw _privateConstructorUsedError;
+
   /// Days a GitLab review stays in history before it is pruned.
   int get reviewsDays => throw _privateConstructorUsedError;
 
@@ -77,7 +81,8 @@ abstract class $AppLimitsCopyWith<$Res> {
       _$AppLimitsCopyWithImpl<$Res, AppLimits>;
   @useResult
   $Res call(
-      {int reviewsDays,
+      {int jobsDays,
+      int reviewsDays,
       int translatesDays,
       int notificationsDays,
       int artifactsDays,
@@ -104,6 +109,7 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? jobsDays = null,
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
@@ -118,6 +124,10 @@ class _$AppLimitsCopyWithImpl<$Res, $Val extends AppLimits>
     Object? aiGroqBatchChars = null,
   }) {
     return _then(_value.copyWith(
+      jobsDays: null == jobsDays
+          ? _value.jobsDays
+          : jobsDays // ignore: cast_nullable_to_non_nullable
+              as int,
       reviewsDays: null == reviewsDays
           ? _value.reviewsDays
           : reviewsDays // ignore: cast_nullable_to_non_nullable
@@ -179,7 +189,8 @@ abstract class _$$AppLimitsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int reviewsDays,
+      {int jobsDays,
+      int reviewsDays,
       int translatesDays,
       int notificationsDays,
       int artifactsDays,
@@ -204,6 +215,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? jobsDays = null,
     Object? reviewsDays = null,
     Object? translatesDays = null,
     Object? notificationsDays = null,
@@ -218,6 +230,10 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
     Object? aiGroqBatchChars = null,
   }) {
     return _then(_$AppLimitsImpl(
+      jobsDays: null == jobsDays
+          ? _value.jobsDays
+          : jobsDays // ignore: cast_nullable_to_non_nullable
+              as int,
       reviewsDays: null == reviewsDays
           ? _value.reviewsDays
           : reviewsDays // ignore: cast_nullable_to_non_nullable
@@ -274,7 +290,8 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AppLimitsImpl extends _AppLimits {
   const _$AppLimitsImpl(
-      {this.reviewsDays = 7,
+      {this.jobsDays = 30,
+      this.reviewsDays = 7,
       this.translatesDays = 7,
       this.notificationsDays = 7,
       this.artifactsDays = 1,
@@ -290,6 +307,12 @@ class _$AppLimitsImpl extends _AppLimits {
 
   factory _$AppLimitsImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppLimitsImplFromJson(json);
+
+  /// Days a job stays in history (the jobs list, its page, retries). Its
+  /// day's counts outlive it: they are kept apart, for the charts.
+  @override
+  @JsonKey()
+  final int jobsDays;
 
   /// Days a GitLab review stays in history before it is pruned.
   @override
@@ -362,7 +385,7 @@ class _$AppLimitsImpl extends _AppLimits {
 
   @override
   String toString() {
-    return 'AppLimits(reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+    return 'AppLimits(jobsDays: $jobsDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
   }
 
   @override
@@ -370,6 +393,8 @@ class _$AppLimitsImpl extends _AppLimits {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppLimitsImpl &&
+            (identical(other.jobsDays, jobsDays) ||
+                other.jobsDays == jobsDays) &&
             (identical(other.reviewsDays, reviewsDays) ||
                 other.reviewsDays == reviewsDays) &&
             (identical(other.translatesDays, translatesDays) ||
@@ -401,6 +426,7 @@ class _$AppLimitsImpl extends _AppLimits {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      jobsDays,
       reviewsDays,
       translatesDays,
       notificationsDays,
@@ -430,7 +456,8 @@ class _$AppLimitsImpl extends _AppLimits {
 
 abstract class _AppLimits extends AppLimits {
   const factory _AppLimits(
-      {final int reviewsDays,
+      {final int jobsDays,
+      final int reviewsDays,
       final int translatesDays,
       final int notificationsDays,
       final int artifactsDays,
@@ -447,6 +474,11 @@ abstract class _AppLimits extends AppLimits {
   factory _AppLimits.fromJson(Map<String, dynamic> json) =
       _$AppLimitsImpl.fromJson;
 
+  @override
+
+  /// Days a job stays in history (the jobs list, its page, retries). Its
+  /// day's counts outlive it: they are kept apart, for the charts.
+  int get jobsDays;
   @override
 
   /// Days a GitLab review stays in history before it is pruned.
