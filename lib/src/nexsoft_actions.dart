@@ -324,6 +324,9 @@ extension NexsoftActions on ActionTransport {
     ];
   }
 
+  Future<WhoAmI> whoAmI() async =>
+      WhoAmI.fromJson(await invokeAction('system.whoami', const {}));
+
   Future<ActionMessage> hotReload() async =>
       ActionMessage.fromJson(await invokeAction('system.hotReload', const {}));
 

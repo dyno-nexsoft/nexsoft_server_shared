@@ -36,6 +36,28 @@ class ApiKeyCreated {
   final ApiKeyRole role;
 }
 
+/// `system.whoami` — who the presented API key is, so a client can offer only what the key may do.
+class WhoAmI {
+  const WhoAmI({required this.name, required this.permissions});
+
+  factory WhoAmI.fromJson(Map<String, dynamic> json) => WhoAmI(
+    name: json['name'] as String? ?? '',
+    permissions: {
+      for (final wire in json['permissions'] as List<dynamic>? ?? const [])
+        wire as String,
+    },
+  );
+
+  /// Display name of the caller: the key's name, or `Anonymous` when none was sent or it was refused.
+  final String name;
+
+  /// The wire form of each permission the key holds (`read`, `invoke`, `invoke_dangerous`, `admin`).
+  final Set<String> permissions;
+
+  /// Whether the key may administer the server. An admin also passes every other check.
+  bool get isAdmin => permissions.contains('admin');
+}
+
 /// `admin.apiKeys.list`.
 class ApiKeyList {
   const ApiKeyList({required this.keys, this.currentKeyId});
