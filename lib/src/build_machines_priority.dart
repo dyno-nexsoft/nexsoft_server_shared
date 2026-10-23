@@ -14,7 +14,7 @@ abstract class BuildMachinesPriority with _$BuildMachinesPriority {
     /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
     required List<String> order,
 
-    /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and clean.
+    /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
     @Default([]) List<String> paused,
   }) = _BuildMachinesPriority;
 
