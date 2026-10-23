@@ -3,15 +3,17 @@
 /// functions on the action name and its params, so the server and the dashboard word it the same way.
 library;
 
+import 'action_names.dart';
+
 /// A short name for an action: `ci.build` → `Build`. An action it does not know keeps its own name, and none at all is
 /// just `Job`.
 String actionLabel(String? actionName) => switch (actionName) {
-  'ci.build' => 'Build',
-  'ci.gen' => 'Gen',
-  'ci.reposts' => 'Repost',
-  'ci.interaction' => 'Interaction',
-  'ci.replace' => 'SDK replace',
-  'ci.clean' => 'Clean',
+  ActionNames.build => 'Build',
+  ActionNames.gen => 'Gen',
+  ActionNames.reposts => 'Repost',
+  ActionNames.interaction => 'Interaction',
+  ActionNames.replace => 'SDK replace',
+  ActionNames.clean => 'Clean',
   null || '' => 'Job',
   final other => other,
 };
@@ -31,19 +33,23 @@ String? jobSubject(String? actionName, Map<String, Object?> params) {
   }
 
   final parts = switch (actionName) {
-    'ci.reposts' => [_postOwner(text('url')), text('environment')],
-    'ci.interaction' => [
+    ActionNames.reposts => [_postOwner(text('url')), text('environment')],
+    ActionNames.interaction => [
       text('type'),
       _postRef(text('post')),
       text('environment'),
     ],
-    'ci.build' => [text('platform'), text('environment'), text('tbchat')],
-    'ci.replace' => [text('tbchat'), text('environment')],
+    ActionNames.build => [
+      text('platform'),
+      text('environment'),
+      text('tbchat'),
+    ],
+    ActionNames.replace => [text('tbchat'), text('environment')],
     // gen's branch is `socialfi`: it showed only its environment.
-    'ci.gen' => [text('socialfi'), text('environment')],
-    'ci.upload' => [text('platform')],
+    ActionNames.gen => [text('socialfi'), text('environment')],
+    ActionNames.upload => [text('platform')],
     // Which machine it cleaned, and how deep.
-    'ci.clean' => [text('runs_on'), text('mode')],
+    ActionNames.clean => [text('runs_on'), text('mode')],
     _ => const <String?>[],
   };
   final shown = [

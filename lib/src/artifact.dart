@@ -50,6 +50,9 @@ abstract class ArtifactFile with _$ArtifactFile {
   /// OTA-install action (see [iosInstallUrl]).
   bool get isIpa => name.toLowerCase().endsWith('.ipa');
 
+  /// Whether this is an app a build made: an apk or an ipa ([platform]).
+  bool get isApp => platform != null;
+
   /// The platform `ci.upload` sends this file for: `android` for an apk,
   /// `ios` for an ipa, null for anything else.
   String? get platform => switch (name.toLowerCase()) {
