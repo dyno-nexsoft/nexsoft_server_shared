@@ -142,6 +142,10 @@ abstract class CiCleanParams with _$CiCleanParams {
   const factory CiCleanParams({
     /// `full` or `files`; unset means no flag at all, matching `/ci clean`.
     String? mode,
+
+    /// The machine to clean, by its name; unset cleans the server's own. A clean empties the machine it runs on, so it
+    /// goes to another only when named, never to whichever is free.
+    String? runsOn,
   }) = _CiCleanParams;
 
   factory CiCleanParams.fromJson(Map<String, dynamic> json) =>

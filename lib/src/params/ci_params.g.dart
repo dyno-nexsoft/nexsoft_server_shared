@@ -169,6 +169,7 @@ Map<String, dynamic> _$$CiUploadParamsImplToJson(
 _$CiCleanParamsImpl _$$CiCleanParamsImplFromJson(Map<String, dynamic> json) =>
     _$CiCleanParamsImpl(
       mode: json['mode'] as String?,
+      runsOn: json['runs_on'] as String?,
     );
 
 Map<String, dynamic> _$$CiCleanParamsImplToJson(_$CiCleanParamsImpl instance) {
@@ -181,6 +182,7 @@ Map<String, dynamic> _$$CiCleanParamsImplToJson(_$CiCleanParamsImpl instance) {
   }
 
   writeNotNull('mode', instance.mode);
+  writeNotNull('runs_on', instance.runsOn);
   return val;
 }
 

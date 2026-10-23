@@ -1329,6 +1329,10 @@ mixin _$CiCleanParams {
   /// `full` or `files`; unset means no flag at all, matching `/ci clean`.
   String? get mode => throw _privateConstructorUsedError;
 
+  /// The machine to clean, by its name; unset cleans the server's own. A clean empties the machine it runs on, so it
+  /// goes to another only when named, never to whichever is free.
+  String? get runsOn => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CiCleanParamsCopyWith<CiCleanParams> get copyWith =>
@@ -1341,7 +1345,7 @@ abstract class $CiCleanParamsCopyWith<$Res> {
           CiCleanParams value, $Res Function(CiCleanParams) then) =
       _$CiCleanParamsCopyWithImpl<$Res, CiCleanParams>;
   @useResult
-  $Res call({String? mode});
+  $Res call({String? mode, String? runsOn});
 }
 
 /// @nodoc
@@ -1358,11 +1362,16 @@ class _$CiCleanParamsCopyWithImpl<$Res, $Val extends CiCleanParams>
   @override
   $Res call({
     Object? mode = freezed,
+    Object? runsOn = freezed,
   }) {
     return _then(_value.copyWith(
       mode: freezed == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -1376,7 +1385,7 @@ abstract class _$$CiCleanParamsImplCopyWith<$Res>
       __$$CiCleanParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? mode});
+  $Res call({String? mode, String? runsOn});
 }
 
 /// @nodoc
@@ -1391,11 +1400,16 @@ class __$$CiCleanParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? mode = freezed,
+    Object? runsOn = freezed,
   }) {
     return _then(_$CiCleanParamsImpl(
       mode: freezed == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      runsOn: freezed == runsOn
+          ? _value.runsOn
+          : runsOn // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -1404,7 +1418,7 @@ class __$$CiCleanParamsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CiCleanParamsImpl implements _CiCleanParams {
-  const _$CiCleanParamsImpl({this.mode});
+  const _$CiCleanParamsImpl({this.mode, this.runsOn});
 
   factory _$CiCleanParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$CiCleanParamsImplFromJson(json);
@@ -1413,9 +1427,14 @@ class _$CiCleanParamsImpl implements _CiCleanParams {
   @override
   final String? mode;
 
+  /// The machine to clean, by its name; unset cleans the server's own. A clean empties the machine it runs on, so it
+  /// goes to another only when named, never to whichever is free.
+  @override
+  final String? runsOn;
+
   @override
   String toString() {
-    return 'CiCleanParams(mode: $mode)';
+    return 'CiCleanParams(mode: $mode, runsOn: $runsOn)';
   }
 
   @override
@@ -1423,12 +1442,13 @@ class _$CiCleanParamsImpl implements _CiCleanParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CiCleanParamsImpl &&
-            (identical(other.mode, mode) || other.mode == mode));
+            (identical(other.mode, mode) || other.mode == mode) &&
+            (identical(other.runsOn, runsOn) || other.runsOn == runsOn));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, mode);
+  int get hashCode => Object.hash(runtimeType, mode, runsOn);
 
   @JsonKey(ignore: true)
   @override
@@ -1445,7 +1465,8 @@ class _$CiCleanParamsImpl implements _CiCleanParams {
 }
 
 abstract class _CiCleanParams implements CiCleanParams {
-  const factory _CiCleanParams({final String? mode}) = _$CiCleanParamsImpl;
+  const factory _CiCleanParams({final String? mode, final String? runsOn}) =
+      _$CiCleanParamsImpl;
 
   factory _CiCleanParams.fromJson(Map<String, dynamic> json) =
       _$CiCleanParamsImpl.fromJson;
@@ -1454,6 +1475,11 @@ abstract class _CiCleanParams implements CiCleanParams {
 
   /// `full` or `files`; unset means no flag at all, matching `/ci clean`.
   String? get mode;
+  @override
+
+  /// The machine to clean, by its name; unset cleans the server's own. A clean empties the machine it runs on, so it
+  /// goes to another only when named, never to whichever is free.
+  String? get runsOn;
   @override
   @JsonKey(ignore: true)
   _$$CiCleanParamsImplCopyWith<_$CiCleanParamsImpl> get copyWith =>
