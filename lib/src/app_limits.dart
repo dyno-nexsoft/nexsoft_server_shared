@@ -27,7 +27,7 @@ abstract class AppLimits with _$AppLimits {
   const factory AppLimits({
     /// Days a job stays in history (the jobs list, its page, retries). Its
     /// day's counts outlive it: they are kept apart, for the charts.
-    @Default(30) int jobsDays,
+    @Default(7) int jobsDays,
 
     /// Days the audit log keeps who did what.
     @Default(30) int auditDays,
