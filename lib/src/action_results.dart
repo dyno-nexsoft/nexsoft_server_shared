@@ -145,15 +145,32 @@ class GitlabRunStarted {
 
 /// One entry of `system.hive.list`'s `boxes` array.
 class HiveBoxInfo {
-  const HiveBoxInfo({required this.name, required this.entryCount});
+  const HiveBoxInfo({
+    required this.name,
+    required this.entryCount,
+    this.clearable = true,
+  });
 
   factory HiveBoxInfo.fromJson(Map<String, dynamic> json) => HiveBoxInfo(
     name: json['name'] as String? ?? '',
     entryCount: (json['entry_count'] as num?)?.toInt() ?? 0,
+    // A server from before the flag let every box be cleared.
+    clearable: json['clearable'] as bool? ?? true,
   );
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'entry_count': entryCount,
+    'clearable': clearable,
+  };
 
   final String name;
   final int entryCount;
+
+  /// Whether `system.hive.clean` accepts it: a box of history or a cache,
+  /// not one of settings (the config, the run counter, the audit log), which
+  /// the server refuses to clear.
+  final bool clearable;
 }
 
 /// `notifications.list`.
