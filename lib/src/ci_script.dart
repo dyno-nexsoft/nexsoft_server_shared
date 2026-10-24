@@ -23,10 +23,18 @@ enum CiScript {
   gen('gen.sh', group: CiScriptGroup.gen),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
-  reposts('reposts.sh', group: CiScriptGroup.protoAndAccounts),
+  reposts(
+    'reposts.sh',
+    group: CiScriptGroup.protoAndAccounts,
+    runsBeside: true,
+  ),
 
   /// Likes or comments with the accounts the reposts keep, on the same `proto` checkout.
-  interaction('interaction.sh', group: CiScriptGroup.protoAndAccounts),
+  interaction(
+    'interaction.sh',
+    group: CiScriptGroup.protoAndAccounts,
+    runsBeside: true,
+  ),
 
   /// Cleans the machine it runs on. It reads `--now` as an unknown argument, so it never runs beside a job.
   clean('clean.sh'),
@@ -36,7 +44,7 @@ enum CiScript {
 
   /// Uploads a finished build's artifacts to Firebase App Distribution
   /// (`ci.upload`). It only reads them, so it may start beside anything.
-  distribute('distribute.sh'),
+  distribute('distribute.sh', runsBeside: true),
 
   /// A command none of the above: runs only in this machine's own lane, alone.
   other(null);
@@ -46,6 +54,7 @@ enum CiScript {
     this.runsOnBuilder = false,
     this.isolatedByNow = false,
     this.group,
+    this.runsBeside = false,
   });
 
   /// The script's file in `assets/`, or null for [other].
@@ -60,6 +69,12 @@ enum CiScript {
 
   /// The scripts it shares something with: at most one of a group runs at a time, on any machine.
   final CiScriptGroup? group;
+
+  /// Whether it starts in the server's parallel lane by itself, beside whatever its serial lane runs, instead of
+  /// waiting its turn there: a short job only this machine runs, touching nothing of a build's workspace (an upload
+  /// reads finished files; the reposts and interactions use checkouts and accounts of their own). Its [group] still
+  /// holds, and it is not sent `--now`: it is not promoted, it simply never queued behind a build.
+  final bool runsBeside;
 
   /// The script [command] runs.
   static CiScript of(String command) => values.firstWhere(
