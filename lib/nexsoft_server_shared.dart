@@ -32,6 +32,7 @@ export 'src/job.dart';
 export 'src/job_event.dart';
 export 'src/job_label.dart';
 export 'src/job_log_chunk.dart';
+export 'src/job_merge_request.dart';
 export 'src/job_page.dart';
 export 'src/job_ref.dart';
 export 'src/job_run.dart';

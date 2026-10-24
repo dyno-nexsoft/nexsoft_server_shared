@@ -46,6 +46,10 @@ _$JobImpl _$$JobImplFromJson(Map<String, dynamic> json) => _$JobImpl(
                 MapEntry(k, FirebaseUpload.fromJson(e as Map<String, dynamic>)),
           ) ??
           const {},
+      mergeRequest: json['merge_request'] == null
+          ? null
+          : JobMergeRequest.fromJson(
+              json['merge_request'] as Map<String, dynamic>),
       timedOut: json['timed_out'] as bool? ?? false,
       runId: json['run_id'] as String?,
       run: json['run'] == null
@@ -99,6 +103,7 @@ Map<String, dynamic> _$$JobImplToJson(_$JobImpl instance) {
   val['artifacts'] = instance.artifacts;
   val['firebase_uploads'] =
       instance.firebaseUploads.map((k, e) => MapEntry(k, e.toJson()));
+  writeNotNull('merge_request', instance.mergeRequest?.toJson());
   val['timed_out'] = instance.timedOut;
   writeNotNull('run_id', instance.runId);
   writeNotNull('run', instance.run?.toJson());

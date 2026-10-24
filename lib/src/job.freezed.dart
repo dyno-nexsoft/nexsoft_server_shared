@@ -74,6 +74,11 @@ mixin _$Job {
   Map<String, FirebaseUpload> get firebaseUploads =>
       throw _privateConstructorUsedError;
 
+  /// The merge request a `ci.replace` or `ci.gen` opened or updated, or
+  /// that it had nothing to push; null for any other job, or one that
+  /// ended before it pushed.
+  JobMergeRequest? get mergeRequest => throw _privateConstructorUsedError;
+
   /// It failed because it ran out of time (`timeout_minutes`), not by
   /// itself.
   bool get timedOut => throw _privateConstructorUsedError;
@@ -141,6 +146,7 @@ abstract class $JobCopyWith<$Res> {
       String? summary,
       Map<String, int> artifacts,
       Map<String, FirebaseUpload> firebaseUploads,
+      JobMergeRequest? mergeRequest,
       bool timedOut,
       String? runId,
       JobRun? run,
@@ -150,6 +156,7 @@ abstract class $JobCopyWith<$Res> {
       String? message});
 
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  $JobMergeRequestCopyWith<$Res>? get mergeRequest;
   $JobRunCopyWith<$Res>? get run;
   $JobRefCopyWith<$Res>? get sourceBuild;
 }
@@ -192,6 +199,7 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
     Object? summary = freezed,
     Object? artifacts = null,
     Object? firebaseUploads = null,
+    Object? mergeRequest = freezed,
     Object? timedOut = null,
     Object? runId = freezed,
     Object? run = freezed,
@@ -305,6 +313,10 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
           ? _value.firebaseUploads
           : firebaseUploads // ignore: cast_nullable_to_non_nullable
               as Map<String, FirebaseUpload>,
+      mergeRequest: freezed == mergeRequest
+          ? _value.mergeRequest
+          : mergeRequest // ignore: cast_nullable_to_non_nullable
+              as JobMergeRequest?,
       timedOut: null == timedOut
           ? _value.timedOut
           : timedOut // ignore: cast_nullable_to_non_nullable
@@ -345,6 +357,18 @@ class _$JobCopyWithImpl<$Res, $Val extends Job> implements $JobCopyWith<$Res> {
 
     return $DiscordMessageRefCopyWith<$Res>(_value.discord!, (value) {
       return _then(_value.copyWith(discord: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $JobMergeRequestCopyWith<$Res>? get mergeRequest {
+    if (_value.mergeRequest == null) {
+      return null;
+    }
+
+    return $JobMergeRequestCopyWith<$Res>(_value.mergeRequest!, (value) {
+      return _then(_value.copyWith(mergeRequest: value) as $Val);
     });
   }
 
@@ -406,6 +430,7 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
       String? summary,
       Map<String, int> artifacts,
       Map<String, FirebaseUpload> firebaseUploads,
+      JobMergeRequest? mergeRequest,
       bool timedOut,
       String? runId,
       JobRun? run,
@@ -416,6 +441,8 @@ abstract class _$$JobImplCopyWith<$Res> implements $JobCopyWith<$Res> {
 
   @override
   $DiscordMessageRefCopyWith<$Res>? get discord;
+  @override
+  $JobMergeRequestCopyWith<$Res>? get mergeRequest;
   @override
   $JobRunCopyWith<$Res>? get run;
   @override
@@ -457,6 +484,7 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
     Object? summary = freezed,
     Object? artifacts = null,
     Object? firebaseUploads = null,
+    Object? mergeRequest = freezed,
     Object? timedOut = null,
     Object? runId = freezed,
     Object? run = freezed,
@@ -570,6 +598,10 @@ class __$$JobImplCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res, _$JobImpl>
           ? _value._firebaseUploads
           : firebaseUploads // ignore: cast_nullable_to_non_nullable
               as Map<String, FirebaseUpload>,
+      mergeRequest: freezed == mergeRequest
+          ? _value.mergeRequest
+          : mergeRequest // ignore: cast_nullable_to_non_nullable
+              as JobMergeRequest?,
       timedOut: null == timedOut
           ? _value.timedOut
           : timedOut // ignore: cast_nullable_to_non_nullable
@@ -632,6 +664,7 @@ class _$JobImpl extends _Job {
       this.summary,
       final Map<String, int> artifacts = const {},
       final Map<String, FirebaseUpload> firebaseUploads = const {},
+      this.mergeRequest,
       this.timedOut = false,
       this.runId,
       this.run,
@@ -762,6 +795,12 @@ class _$JobImpl extends _Job {
     return EqualUnmodifiableMapView(_firebaseUploads);
   }
 
+  /// The merge request a `ci.replace` or `ci.gen` opened or updated, or
+  /// that it had nothing to push; null for any other job, or one that
+  /// ended before it pushed.
+  @override
+  final JobMergeRequest? mergeRequest;
+
   /// It failed because it ran out of time (`timeout_minutes`), not by
   /// itself.
   @override
@@ -813,7 +852,7 @@ class _$JobImpl extends _Job {
 
   @override
   String toString() {
-    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, timedOut: $timedOut, runId: $runId, run: $run, sourceBuild: $sourceBuild, logUrl: $logUrl, warnings: $warnings, message: $message)';
+    return 'Job(id: $id, state: $state, command: $command, actionName: $actionName, actionParams: $actionParams, environments: $environments, createdBy: $createdBy, createdByApiKeyId: $createdByApiKeyId, createdByDiscordUserId: $createdByDiscordUserId, artifactKey: $artifactKey, promoted: $promoted, announce: $announce, createdAt: $createdAt, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode, lastLine: $lastLine, lastSeq: $lastSeq, runNumber: $runNumber, discord: $discord, resumedFrom: $resumedFrom, cancelledBy: $cancelledBy, machine: $machine, summary: $summary, artifacts: $artifacts, firebaseUploads: $firebaseUploads, mergeRequest: $mergeRequest, timedOut: $timedOut, runId: $runId, run: $run, sourceBuild: $sourceBuild, logUrl: $logUrl, warnings: $warnings, message: $message)';
   }
 
   @override
@@ -866,6 +905,8 @@ class _$JobImpl extends _Job {
                 .equals(other._artifacts, _artifacts) &&
             const DeepCollectionEquality()
                 .equals(other._firebaseUploads, _firebaseUploads) &&
+            (identical(other.mergeRequest, mergeRequest) ||
+                other.mergeRequest == mergeRequest) &&
             (identical(other.timedOut, timedOut) ||
                 other.timedOut == timedOut) &&
             (identical(other.runId, runId) || other.runId == runId) &&
@@ -907,6 +948,7 @@ class _$JobImpl extends _Job {
         summary,
         const DeepCollectionEquality().hash(_artifacts),
         const DeepCollectionEquality().hash(_firebaseUploads),
+        mergeRequest,
         timedOut,
         runId,
         run,
@@ -958,6 +1000,7 @@ abstract class _Job extends Job {
       final String? summary,
       final Map<String, int> artifacts,
       final Map<String, FirebaseUpload> firebaseUploads,
+      final JobMergeRequest? mergeRequest,
       final bool timedOut,
       final String? runId,
       final JobRun? run,
@@ -1047,6 +1090,12 @@ abstract class _Job extends Job {
   /// Each file's last upload to Firebase App Distribution, by file name: a
   /// build's own, and those `ci.upload` sent for it later.
   Map<String, FirebaseUpload> get firebaseUploads;
+  @override
+
+  /// The merge request a `ci.replace` or `ci.gen` opened or updated, or
+  /// that it had nothing to push; null for any other job, or one that
+  /// ended before it pushed.
+  JobMergeRequest? get mergeRequest;
   @override
 
   /// It failed because it ran out of time (`timeout_minutes`), not by

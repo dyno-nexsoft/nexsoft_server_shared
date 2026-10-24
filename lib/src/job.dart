@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'artifact.dart';
 import 'discord_message_ref.dart';
+import 'job_merge_request.dart';
 import 'job_ref.dart';
 import 'job_run.dart';
 import 'job_state.dart';
@@ -71,6 +72,11 @@ abstract class Job with _$Job {
     /// Each file's last upload to Firebase App Distribution, by file name: a
     /// build's own, and those `ci.upload` sent for it later.
     @Default({}) Map<String, FirebaseUpload> firebaseUploads,
+
+    /// The merge request a `ci.replace` or `ci.gen` opened or updated, or
+    /// that it had nothing to push; null for any other job, or one that
+    /// ended before it pushed.
+    JobMergeRequest? mergeRequest,
 
     /// It failed because it ran out of time (`timeout_minutes`), not by
     /// itself.
