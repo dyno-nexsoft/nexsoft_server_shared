@@ -30,7 +30,7 @@ abstract class AppLimits with _$AppLimits {
     @Default(30) int jobsDays,
 
     /// Days the audit log keeps who did what.
-    @Default(90) int auditDays,
+    @Default(30) int auditDays,
 
     /// Days a GitLab review stays in history before it is pruned.
     @Default(7) int reviewsDays,
@@ -81,14 +81,26 @@ abstract class AppLimits with _$AppLimits {
   factory AppLimits.fromJson(Map<String, dynamic> json) =>
       _$AppLimitsFromJson(json);
 
+  /// [json] as stored, each value held to its range: a value saved before a
+  /// range shrank (history is kept a month at most now) would otherwise keep
+  /// applying, and `limits.set` would refuse to save anything beside it.
+  static AppLimits fromStored(Map<String, dynamic> json) => AppLimits.fromJson({
+    ...json,
+    for (final MapEntry(:key, value: range) in ranges.entries)
+      if (json[key] case final num n)
+        key: n.toInt().clamp(range.min, range.max),
+  });
+
   /// Allowed values, by wire (snake_case) field name — what [problems] checks
   /// and what the dashboard offers.
   static const ranges = <String, LimitRange>{
-    'jobs_days': LimitRange(1, 365),
-    'audit_days': LimitRange(7, 365),
-    'reviews_days': LimitRange(1, 90),
-    'translates_days': LimitRange(1, 90),
-    'notifications_days': LimitRange(1, 90),
+    // History on this machine is kept a month at most: the database is a
+    // record of recent work, not an archive.
+    'jobs_days': LimitRange(1, 30),
+    'audit_days': LimitRange(7, 30),
+    'reviews_days': LimitRange(1, 30),
+    'translates_days': LimitRange(1, 30),
+    'notifications_days': LimitRange(1, 30),
     'artifacts_days': LimitRange(1, 30),
     'api_key_idle_days': LimitRange(7, 365),
     'build_timeout_minutes': LimitRange(10, 1440),
