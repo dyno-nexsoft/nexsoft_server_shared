@@ -338,11 +338,11 @@ extension NexsoftActions on ActionTransport {
 
   // system.* / cron.* / p2p.*
 
-  Future<List<HiveBoxInfo>> hiveList() async {
-    final body = await invokeAction('system.hive.list', const {});
+  Future<List<DbTableInfo>> dbList() async {
+    final body = await invokeAction('system.db.list', const {});
     return [
-      for (final box in body['boxes'] as List<dynamic>? ?? const [])
-        HiveBoxInfo.fromJson(box as Map<String, dynamic>),
+      for (final table in body['tables'] as List<dynamic>? ?? const [])
+        DbTableInfo.fromJson(table as Map<String, dynamic>),
     ];
   }
 
@@ -367,9 +367,9 @@ extension NexsoftActions on ActionTransport {
     await invokeAction('system.restart', params.toJson()),
   );
 
-  Future<ActionMessage> hiveClean(HiveBoxCleanParams params) async =>
+  Future<ActionMessage> dbClean(DbTableCleanParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('system.hive.clean', params.toJson()),
+        await invokeAction('system.db.clean', params.toJson()),
       );
 
   Future<ActionMessage> cronRun(CronRunParams params) async =>

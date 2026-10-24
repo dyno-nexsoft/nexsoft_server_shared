@@ -27,7 +27,7 @@ abstract class ApiKeyInfo with _$ApiKeyInfo {
     /// `List<String>`, not `List<Permission>`: each entry is a `Permission`'s
     /// Dart-convention `.name` (`invokeDangerous`, not [Permission.toWire]'s
     /// `invoke_dangerous`) — this is how API key scopes are actually stored
-    /// in Hive today, a separate, pre-existing format from the REST-facing
+    /// in the database, a separate, pre-existing format from the REST-facing
     /// wire value `toWire` fixes elsewhere. Kept as free text rather than
     /// `List<Permission>` so an unparseable scope round-trips instead of
     /// silently disappearing.

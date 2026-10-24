@@ -156,34 +156,34 @@ abstract class _RestartParams implements RestartParams {
       throw _privateConstructorUsedError;
 }
 
-HiveBoxCleanParams _$HiveBoxCleanParamsFromJson(Map<String, dynamic> json) {
-  return _HiveBoxCleanParams.fromJson(json);
+DbTableCleanParams _$DbTableCleanParamsFromJson(Map<String, dynamic> json) {
+  return _DbTableCleanParams.fromJson(json);
 }
 
 /// @nodoc
-mixin _$HiveBoxCleanParams {
-  /// Exact box name from `system.hive.list`.
-  String get box => throw _privateConstructorUsedError;
+mixin _$DbTableCleanParams {
+  /// Exact table name from `system.db.list`.
+  String get table => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $HiveBoxCleanParamsCopyWith<HiveBoxCleanParams> get copyWith =>
+  $DbTableCleanParamsCopyWith<DbTableCleanParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HiveBoxCleanParamsCopyWith<$Res> {
-  factory $HiveBoxCleanParamsCopyWith(
-          HiveBoxCleanParams value, $Res Function(HiveBoxCleanParams) then) =
-      _$HiveBoxCleanParamsCopyWithImpl<$Res, HiveBoxCleanParams>;
+abstract class $DbTableCleanParamsCopyWith<$Res> {
+  factory $DbTableCleanParamsCopyWith(
+          DbTableCleanParams value, $Res Function(DbTableCleanParams) then) =
+      _$DbTableCleanParamsCopyWithImpl<$Res, DbTableCleanParams>;
   @useResult
-  $Res call({String box});
+  $Res call({String table});
 }
 
 /// @nodoc
-class _$HiveBoxCleanParamsCopyWithImpl<$Res, $Val extends HiveBoxCleanParams>
-    implements $HiveBoxCleanParamsCopyWith<$Res> {
-  _$HiveBoxCleanParamsCopyWithImpl(this._value, this._then);
+class _$DbTableCleanParamsCopyWithImpl<$Res, $Val extends DbTableCleanParams>
+    implements $DbTableCleanParamsCopyWith<$Res> {
+  _$DbTableCleanParamsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -193,45 +193,45 @@ class _$HiveBoxCleanParamsCopyWithImpl<$Res, $Val extends HiveBoxCleanParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? box = null,
+    Object? table = null,
   }) {
     return _then(_value.copyWith(
-      box: null == box
-          ? _value.box
-          : box // ignore: cast_nullable_to_non_nullable
+      table: null == table
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$HiveBoxCleanParamsImplCopyWith<$Res>
-    implements $HiveBoxCleanParamsCopyWith<$Res> {
-  factory _$$HiveBoxCleanParamsImplCopyWith(_$HiveBoxCleanParamsImpl value,
-          $Res Function(_$HiveBoxCleanParamsImpl) then) =
-      __$$HiveBoxCleanParamsImplCopyWithImpl<$Res>;
+abstract class _$$DbTableCleanParamsImplCopyWith<$Res>
+    implements $DbTableCleanParamsCopyWith<$Res> {
+  factory _$$DbTableCleanParamsImplCopyWith(_$DbTableCleanParamsImpl value,
+          $Res Function(_$DbTableCleanParamsImpl) then) =
+      __$$DbTableCleanParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String box});
+  $Res call({String table});
 }
 
 /// @nodoc
-class __$$HiveBoxCleanParamsImplCopyWithImpl<$Res>
-    extends _$HiveBoxCleanParamsCopyWithImpl<$Res, _$HiveBoxCleanParamsImpl>
-    implements _$$HiveBoxCleanParamsImplCopyWith<$Res> {
-  __$$HiveBoxCleanParamsImplCopyWithImpl(_$HiveBoxCleanParamsImpl _value,
-      $Res Function(_$HiveBoxCleanParamsImpl) _then)
+class __$$DbTableCleanParamsImplCopyWithImpl<$Res>
+    extends _$DbTableCleanParamsCopyWithImpl<$Res, _$DbTableCleanParamsImpl>
+    implements _$$DbTableCleanParamsImplCopyWith<$Res> {
+  __$$DbTableCleanParamsImplCopyWithImpl(_$DbTableCleanParamsImpl _value,
+      $Res Function(_$DbTableCleanParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? box = null,
+    Object? table = null,
   }) {
-    return _then(_$HiveBoxCleanParamsImpl(
-      box: null == box
-          ? _value.box
-          : box // ignore: cast_nullable_to_non_nullable
+    return _then(_$DbTableCleanParamsImpl(
+      table: null == table
+          ? _value.table
+          : table // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -239,62 +239,62 @@ class __$$HiveBoxCleanParamsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$HiveBoxCleanParamsImpl implements _HiveBoxCleanParams {
-  const _$HiveBoxCleanParamsImpl({required this.box});
+class _$DbTableCleanParamsImpl implements _DbTableCleanParams {
+  const _$DbTableCleanParamsImpl({required this.table});
 
-  factory _$HiveBoxCleanParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HiveBoxCleanParamsImplFromJson(json);
+  factory _$DbTableCleanParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DbTableCleanParamsImplFromJson(json);
 
-  /// Exact box name from `system.hive.list`.
+  /// Exact table name from `system.db.list`.
   @override
-  final String box;
+  final String table;
 
   @override
   String toString() {
-    return 'HiveBoxCleanParams(box: $box)';
+    return 'DbTableCleanParams(table: $table)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HiveBoxCleanParamsImpl &&
-            (identical(other.box, box) || other.box == box));
+            other is _$DbTableCleanParamsImpl &&
+            (identical(other.table, table) || other.table == table));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, box);
+  int get hashCode => Object.hash(runtimeType, table);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HiveBoxCleanParamsImplCopyWith<_$HiveBoxCleanParamsImpl> get copyWith =>
-      __$$HiveBoxCleanParamsImplCopyWithImpl<_$HiveBoxCleanParamsImpl>(
+  _$$DbTableCleanParamsImplCopyWith<_$DbTableCleanParamsImpl> get copyWith =>
+      __$$DbTableCleanParamsImplCopyWithImpl<_$DbTableCleanParamsImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$HiveBoxCleanParamsImplToJson(
+    return _$$DbTableCleanParamsImplToJson(
       this,
     );
   }
 }
 
-abstract class _HiveBoxCleanParams implements HiveBoxCleanParams {
-  const factory _HiveBoxCleanParams({required final String box}) =
-      _$HiveBoxCleanParamsImpl;
+abstract class _DbTableCleanParams implements DbTableCleanParams {
+  const factory _DbTableCleanParams({required final String table}) =
+      _$DbTableCleanParamsImpl;
 
-  factory _HiveBoxCleanParams.fromJson(Map<String, dynamic> json) =
-      _$HiveBoxCleanParamsImpl.fromJson;
+  factory _DbTableCleanParams.fromJson(Map<String, dynamic> json) =
+      _$DbTableCleanParamsImpl.fromJson;
 
   @override
 
-  /// Exact box name from `system.hive.list`.
-  String get box;
+  /// Exact table name from `system.db.list`.
+  String get table;
   @override
   @JsonKey(ignore: true)
-  _$$HiveBoxCleanParamsImplCopyWith<_$HiveBoxCleanParamsImpl> get copyWith =>
+  _$$DbTableCleanParamsImplCopyWith<_$DbTableCleanParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

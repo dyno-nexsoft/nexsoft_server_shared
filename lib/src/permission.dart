@@ -32,8 +32,8 @@ enum Permission {
   };
 
   /// Matches the enum's own Dart-convention name (`invokeDangerous`), not
-  /// [toWire]'s wire value — for API-key `scopes`, which are stored in Hive
-  /// this way already and are a separate, pre-existing format from the
+  /// [toWire]'s wire value — for API-key `scopes`, which are stored in the
+  /// database this way already, a separate, pre-existing format from the
   /// REST-facing wire value [toWire] fixes. Null (not found, or `name` is
   /// itself null) rather than a throw: an unparseable scope should be
   /// dropped, not take down the whole key.

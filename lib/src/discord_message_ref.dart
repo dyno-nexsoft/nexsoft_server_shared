@@ -7,7 +7,7 @@ part 'discord_message_ref.g.dart';
 /// restart without scanning channel history.
 ///
 /// Both ids are strings on the wire, not JSON numbers: a Discord snowflake
-/// routinely exceeds the 2^53 precision limit of both Hive's float storage
+/// routinely exceeds the 2^53 precision limit of a double (a JSON number)
 /// and a browser's JS engine.
 @freezed
 abstract class DiscordMessageRef with _$DiscordMessageRef {

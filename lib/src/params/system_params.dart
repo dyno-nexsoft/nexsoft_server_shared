@@ -15,16 +15,16 @@ abstract class RestartParams with _$RestartParams {
       _$RestartParamsFromJson(json);
 }
 
-/// `system.hive.clean`.
+/// `system.db.clean`.
 @freezed
-abstract class HiveBoxCleanParams with _$HiveBoxCleanParams {
-  const factory HiveBoxCleanParams({
-    /// Exact box name from `system.hive.list`.
-    required String box,
-  }) = _HiveBoxCleanParams;
+abstract class DbTableCleanParams with _$DbTableCleanParams {
+  const factory DbTableCleanParams({
+    /// Exact table name from `system.db.list`.
+    required String table,
+  }) = _DbTableCleanParams;
 
-  factory HiveBoxCleanParams.fromJson(Map<String, dynamic> json) =>
-      _$HiveBoxCleanParamsFromJson(json);
+  factory DbTableCleanParams.fromJson(Map<String, dynamic> json) =>
+      _$DbTableCleanParamsFromJson(json);
 }
 
 /// `cron.run`.

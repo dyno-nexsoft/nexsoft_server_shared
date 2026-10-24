@@ -143,33 +143,33 @@ class GitlabRunStarted {
   final String label;
 }
 
-/// One entry of `system.hive.list`'s `boxes` array.
-class HiveBoxInfo {
-  const HiveBoxInfo({
+/// One entry of `system.db.list`'s `tables` array: a table of the server's
+/// database and how many rows it holds.
+class DbTableInfo {
+  const DbTableInfo({
     required this.name,
-    required this.entryCount,
-    this.clearable = true,
+    required this.rowCount,
+    this.clearable = false,
   });
 
-  factory HiveBoxInfo.fromJson(Map<String, dynamic> json) => HiveBoxInfo(
+  factory DbTableInfo.fromJson(Map<String, dynamic> json) => DbTableInfo(
     name: json['name'] as String? ?? '',
-    entryCount: (json['entry_count'] as num?)?.toInt() ?? 0,
-    // A server from before the flag let every box be cleared.
-    clearable: json['clearable'] as bool? ?? true,
+    rowCount: (json['row_count'] as num?)?.toInt() ?? 0,
+    clearable: json['clearable'] as bool? ?? false,
   );
 
   Map<String, dynamic> toJson() => {
     'name': name,
-    'entry_count': entryCount,
+    'row_count': rowCount,
     'clearable': clearable,
   };
 
   final String name;
-  final int entryCount;
+  final int rowCount;
 
-  /// Whether `system.hive.clean` accepts it: a box of history or a cache,
-  /// not one of settings (the config, the run counter, the audit log), which
-  /// the server refuses to clear.
+  /// Whether `system.db.clean` accepts it: a table of history or a cache,
+  /// not one of settings (the settings, the secrets, the run counter, the
+  /// audit log), which the server refuses to clear.
   final bool clearable;
 }
 

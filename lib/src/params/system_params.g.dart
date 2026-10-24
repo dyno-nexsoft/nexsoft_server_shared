@@ -16,16 +16,16 @@ Map<String, dynamic> _$$RestartParamsImplToJson(_$RestartParamsImpl instance) =>
       'when_idle': instance.whenIdle,
     };
 
-_$HiveBoxCleanParamsImpl _$$HiveBoxCleanParamsImplFromJson(
+_$DbTableCleanParamsImpl _$$DbTableCleanParamsImplFromJson(
         Map<String, dynamic> json) =>
-    _$HiveBoxCleanParamsImpl(
-      box: json['box'] as String,
+    _$DbTableCleanParamsImpl(
+      table: json['table'] as String,
     );
 
-Map<String, dynamic> _$$HiveBoxCleanParamsImplToJson(
-        _$HiveBoxCleanParamsImpl instance) =>
+Map<String, dynamic> _$$DbTableCleanParamsImplToJson(
+        _$DbTableCleanParamsImpl instance) =>
     <String, dynamic>{
-      'box': instance.box,
+      'table': instance.table,
     };
 
 _$CronRunParamsImpl _$$CronRunParamsImplFromJson(Map<String, dynamic> json) =>
