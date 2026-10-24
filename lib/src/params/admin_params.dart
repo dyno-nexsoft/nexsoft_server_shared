@@ -115,3 +115,15 @@ abstract class AuditListParams with _$AuditListParams {
   factory AuditListParams.fromJson(Map<String, dynamic> json) =>
       _$AuditListParamsFromJson(json);
 }
+
+/// `admin.aiKeys.check`: one small request with every configured AI key;
+/// with [removeDead], the keys a provider refused are dropped from its list
+/// (and the list removed when none is left).
+@freezed
+abstract class AiKeysCheckParams with _$AiKeysCheckParams {
+  const factory AiKeysCheckParams({@Default(false) bool removeDead}) =
+      _AiKeysCheckParams;
+
+  factory AiKeysCheckParams.fromJson(Map<String, dynamic> json) =>
+      _$AiKeysCheckParamsFromJson(json);
+}

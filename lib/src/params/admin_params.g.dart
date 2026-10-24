@@ -141,3 +141,15 @@ Map<String, dynamic> _$$AuditListParamsImplToJson(
   writeNotNull('actor', instance.actor);
   return val;
 }
+
+_$AiKeysCheckParamsImpl _$$AiKeysCheckParamsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$AiKeysCheckParamsImpl(
+      removeDead: json['remove_dead'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$$AiKeysCheckParamsImplToJson(
+        _$AiKeysCheckParamsImpl instance) =>
+    <String, dynamic>{
+      'remove_dead': instance.removeDead,
+    };

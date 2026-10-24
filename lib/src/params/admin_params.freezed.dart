@@ -1310,3 +1310,143 @@ abstract class _AuditListParams implements AuditListParams {
   _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+AiKeysCheckParams _$AiKeysCheckParamsFromJson(Map<String, dynamic> json) {
+  return _AiKeysCheckParams.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AiKeysCheckParams {
+  bool get removeDead => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AiKeysCheckParamsCopyWith<AiKeysCheckParams> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AiKeysCheckParamsCopyWith<$Res> {
+  factory $AiKeysCheckParamsCopyWith(
+          AiKeysCheckParams value, $Res Function(AiKeysCheckParams) then) =
+      _$AiKeysCheckParamsCopyWithImpl<$Res, AiKeysCheckParams>;
+  @useResult
+  $Res call({bool removeDead});
+}
+
+/// @nodoc
+class _$AiKeysCheckParamsCopyWithImpl<$Res, $Val extends AiKeysCheckParams>
+    implements $AiKeysCheckParamsCopyWith<$Res> {
+  _$AiKeysCheckParamsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? removeDead = null,
+  }) {
+    return _then(_value.copyWith(
+      removeDead: null == removeDead
+          ? _value.removeDead
+          : removeDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AiKeysCheckParamsImplCopyWith<$Res>
+    implements $AiKeysCheckParamsCopyWith<$Res> {
+  factory _$$AiKeysCheckParamsImplCopyWith(_$AiKeysCheckParamsImpl value,
+          $Res Function(_$AiKeysCheckParamsImpl) then) =
+      __$$AiKeysCheckParamsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool removeDead});
+}
+
+/// @nodoc
+class __$$AiKeysCheckParamsImplCopyWithImpl<$Res>
+    extends _$AiKeysCheckParamsCopyWithImpl<$Res, _$AiKeysCheckParamsImpl>
+    implements _$$AiKeysCheckParamsImplCopyWith<$Res> {
+  __$$AiKeysCheckParamsImplCopyWithImpl(_$AiKeysCheckParamsImpl _value,
+      $Res Function(_$AiKeysCheckParamsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? removeDead = null,
+  }) {
+    return _then(_$AiKeysCheckParamsImpl(
+      removeDead: null == removeDead
+          ? _value.removeDead
+          : removeDead // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AiKeysCheckParamsImpl implements _AiKeysCheckParams {
+  const _$AiKeysCheckParamsImpl({this.removeDead = false});
+
+  factory _$AiKeysCheckParamsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AiKeysCheckParamsImplFromJson(json);
+
+  @override
+  @JsonKey()
+  final bool removeDead;
+
+  @override
+  String toString() {
+    return 'AiKeysCheckParams(removeDead: $removeDead)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AiKeysCheckParamsImpl &&
+            (identical(other.removeDead, removeDead) ||
+                other.removeDead == removeDead));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, removeDead);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AiKeysCheckParamsImplCopyWith<_$AiKeysCheckParamsImpl> get copyWith =>
+      __$$AiKeysCheckParamsImplCopyWithImpl<_$AiKeysCheckParamsImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AiKeysCheckParamsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AiKeysCheckParams implements AiKeysCheckParams {
+  const factory _AiKeysCheckParams({final bool removeDead}) =
+      _$AiKeysCheckParamsImpl;
+
+  factory _AiKeysCheckParams.fromJson(Map<String, dynamic> json) =
+      _$AiKeysCheckParamsImpl.fromJson;
+
+  @override
+  bool get removeDead;
+  @override
+  @JsonKey(ignore: true)
+  _$$AiKeysCheckParamsImplCopyWith<_$AiKeysCheckParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
