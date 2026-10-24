@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,1468 +9,2427 @@ part of 'admin_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ApiKeyAddParams _$ApiKeyAddParamsFromJson(Map<String, dynamic> json) {
-  return _ApiKeyAddParams.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ApiKeyAddParams {
-  /// Display name — audit log, `CREATED_BY` on builds.
-  String get name => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ApiKeyAddParamsCopyWith<ApiKeyAddParams> get copyWith =>
-      throw _privateConstructorUsedError;
+/// Display name — audit log, `CREATED_BY` on builds.
+ String get name;
+/// Create a copy of ApiKeyAddParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ApiKeyAddParamsCopyWith<ApiKeyAddParams> get copyWith => _$ApiKeyAddParamsCopyWithImpl<ApiKeyAddParams>(this as ApiKeyAddParams, _$identity);
+
+  /// Serializes this ApiKeyAddParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyAddParams&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'ApiKeyAddParams(name: $name)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ApiKeyAddParamsCopyWith<$Res> {
-  factory $ApiKeyAddParamsCopyWith(
-          ApiKeyAddParams value, $Res Function(ApiKeyAddParams) then) =
-      _$ApiKeyAddParamsCopyWithImpl<$Res, ApiKeyAddParams>;
-  @useResult
-  $Res call({String name});
-}
+abstract mixin class $ApiKeyAddParamsCopyWith<$Res>  {
+  factory $ApiKeyAddParamsCopyWith(ApiKeyAddParams value, $Res Function(ApiKeyAddParams) _then) = _$ApiKeyAddParamsCopyWithImpl;
+@useResult
+$Res call({
+ String name
+});
 
+
+
+
+}
 /// @nodoc
-class _$ApiKeyAddParamsCopyWithImpl<$Res, $Val extends ApiKeyAddParams>
+class _$ApiKeyAddParamsCopyWithImpl<$Res>
     implements $ApiKeyAddParamsCopyWith<$Res> {
-  _$ApiKeyAddParamsCopyWithImpl(this._value, this._then);
+  _$ApiKeyAddParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ApiKeyAddParams _self;
+  final $Res Function(ApiKeyAddParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of ApiKeyAddParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ApiKeyAddParamsImplCopyWith<$Res>
-    implements $ApiKeyAddParamsCopyWith<$Res> {
-  factory _$$ApiKeyAddParamsImplCopyWith(_$ApiKeyAddParamsImpl value,
-          $Res Function(_$ApiKeyAddParamsImpl) then) =
-      __$$ApiKeyAddParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name});
 }
 
-/// @nodoc
-class __$$ApiKeyAddParamsImplCopyWithImpl<$Res>
-    extends _$ApiKeyAddParamsCopyWithImpl<$Res, _$ApiKeyAddParamsImpl>
-    implements _$$ApiKeyAddParamsImplCopyWith<$Res> {
-  __$$ApiKeyAddParamsImplCopyWithImpl(
-      _$ApiKeyAddParamsImpl _value, $Res Function(_$ApiKeyAddParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$ApiKeyAddParamsImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ApiKeyAddParams].
+extension ApiKeyAddParamsPatterns on ApiKeyAddParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApiKeyAddParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApiKeyAddParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApiKeyAddParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyAddParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApiKeyAddParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyAddParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApiKeyAddParams() when $default != null:
+return $default(_that.name);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name)  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyAddParams():
+return $default(_that.name);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name)?  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyAddParams() when $default != null:
+return $default(_that.name);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ApiKeyAddParamsImpl implements _ApiKeyAddParams {
-  const _$ApiKeyAddParamsImpl({required this.name});
 
-  factory _$ApiKeyAddParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApiKeyAddParamsImplFromJson(json);
+class _ApiKeyAddParams implements ApiKeyAddParams {
+  const _ApiKeyAddParams({required this.name});
+  factory _ApiKeyAddParams.fromJson(Map<String, dynamic> json) => _$ApiKeyAddParamsFromJson(json);
 
-  /// Display name — audit log, `CREATED_BY` on builds.
-  @override
-  final String name;
+/// Display name — audit log, `CREATED_BY` on builds.
+@override final  String name;
 
-  @override
-  String toString() {
-    return 'ApiKeyAddParams(name: $name)';
-  }
+/// Create a copy of ApiKeyAddParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ApiKeyAddParamsCopyWith<_ApiKeyAddParams> get copyWith => __$ApiKeyAddParamsCopyWithImpl<_ApiKeyAddParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApiKeyAddParamsImpl &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ApiKeyAddParamsImplCopyWith<_$ApiKeyAddParamsImpl> get copyWith =>
-      __$$ApiKeyAddParamsImplCopyWithImpl<_$ApiKeyAddParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ApiKeyAddParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ApiKeyAddParamsToJson(this, );
 }
 
-abstract class _ApiKeyAddParams implements ApiKeyAddParams {
-  const factory _ApiKeyAddParams({required final String name}) =
-      _$ApiKeyAddParamsImpl;
-
-  factory _ApiKeyAddParams.fromJson(Map<String, dynamic> json) =
-      _$ApiKeyAddParamsImpl.fromJson;
-
-  @override
-
-  /// Display name — audit log, `CREATED_BY` on builds.
-  String get name;
-  @override
-  @JsonKey(ignore: true)
-  _$$ApiKeyAddParamsImplCopyWith<_$ApiKeyAddParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyAddParams&&(identical(other.name, name) || other.name == name));
 }
 
-ApiKeyEditParams _$ApiKeyEditParamsFromJson(Map<String, dynamic> json) {
-  return _ApiKeyEditParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'ApiKeyAddParams(name: $name)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ApiKeyAddParamsCopyWith<$Res> implements $ApiKeyAddParamsCopyWith<$Res> {
+  factory _$ApiKeyAddParamsCopyWith(_ApiKeyAddParams value, $Res Function(_ApiKeyAddParams) _then) = __$ApiKeyAddParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String name
+});
+
+
+
+
+}
+/// @nodoc
+class __$ApiKeyAddParamsCopyWithImpl<$Res>
+    implements _$ApiKeyAddParamsCopyWith<$Res> {
+  __$ApiKeyAddParamsCopyWithImpl(this._self, this._then);
+
+  final _ApiKeyAddParams _self;
+  final $Res Function(_ApiKeyAddParams) _then;
+
+/// Create a copy of ApiKeyAddParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
+  return _then(_ApiKeyAddParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ApiKeyEditParams {
-  String get id => throw _privateConstructorUsedError;
 
-  /// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
-  List<String> get scopes => throw _privateConstructorUsedError;
+ String get id;/// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
+ List<String> get scopes;/// Null leaves the name unchanged.
+ String? get name;
+/// Create a copy of ApiKeyEditParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ApiKeyEditParamsCopyWith<ApiKeyEditParams> get copyWith => _$ApiKeyEditParamsCopyWithImpl<ApiKeyEditParams>(this as ApiKeyEditParams, _$identity);
 
-  /// Null leaves the name unchanged.
-  String? get name => throw _privateConstructorUsedError;
+  /// Serializes this ApiKeyEditParams to a JSON map.
+  Map<String, dynamic> toJson();
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ApiKeyEditParamsCopyWith<ApiKeyEditParams> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyEditParams&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.scopes, scopes)&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(scopes),name);
+
+@override
+String toString() {
+  return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ApiKeyEditParamsCopyWith<$Res> {
-  factory $ApiKeyEditParamsCopyWith(
-          ApiKeyEditParams value, $Res Function(ApiKeyEditParams) then) =
-      _$ApiKeyEditParamsCopyWithImpl<$Res, ApiKeyEditParams>;
-  @useResult
-  $Res call({String id, List<String> scopes, String? name});
-}
+abstract mixin class $ApiKeyEditParamsCopyWith<$Res>  {
+  factory $ApiKeyEditParamsCopyWith(ApiKeyEditParams value, $Res Function(ApiKeyEditParams) _then) = _$ApiKeyEditParamsCopyWithImpl;
+@useResult
+$Res call({
+ String id, List<String> scopes, String? name
+});
 
+
+
+
+}
 /// @nodoc
-class _$ApiKeyEditParamsCopyWithImpl<$Res, $Val extends ApiKeyEditParams>
+class _$ApiKeyEditParamsCopyWithImpl<$Res>
     implements $ApiKeyEditParamsCopyWith<$Res> {
-  _$ApiKeyEditParamsCopyWithImpl(this._value, this._then);
+  _$ApiKeyEditParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ApiKeyEditParams _self;
+  final $Res Function(ApiKeyEditParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? scopes = null,
-    Object? name = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      scopes: null == scopes
-          ? _value.scopes
-          : scopes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of ApiKeyEditParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? scopes = null,Object? name = freezed,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,scopes: null == scopes ? _self.scopes : scopes // ignore: cast_nullable_to_non_nullable
+as List<String>,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ApiKeyEditParamsImplCopyWith<$Res>
-    implements $ApiKeyEditParamsCopyWith<$Res> {
-  factory _$$ApiKeyEditParamsImplCopyWith(_$ApiKeyEditParamsImpl value,
-          $Res Function(_$ApiKeyEditParamsImpl) then) =
-      __$$ApiKeyEditParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, List<String> scopes, String? name});
 }
 
-/// @nodoc
-class __$$ApiKeyEditParamsImplCopyWithImpl<$Res>
-    extends _$ApiKeyEditParamsCopyWithImpl<$Res, _$ApiKeyEditParamsImpl>
-    implements _$$ApiKeyEditParamsImplCopyWith<$Res> {
-  __$$ApiKeyEditParamsImplCopyWithImpl(_$ApiKeyEditParamsImpl _value,
-      $Res Function(_$ApiKeyEditParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? scopes = null,
-    Object? name = freezed,
-  }) {
-    return _then(_$ApiKeyEditParamsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      scopes: null == scopes
-          ? _value._scopes
-          : scopes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ApiKeyEditParams].
+extension ApiKeyEditParamsPatterns on ApiKeyEditParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApiKeyEditParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApiKeyEditParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApiKeyEditParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyEditParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApiKeyEditParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyEditParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  List<String> scopes,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApiKeyEditParams() when $default != null:
+return $default(_that.id,_that.scopes,_that.name);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  List<String> scopes,  String? name)  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyEditParams():
+return $default(_that.id,_that.scopes,_that.name);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  List<String> scopes,  String? name)?  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyEditParams() when $default != null:
+return $default(_that.id,_that.scopes,_that.name);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ApiKeyEditParamsImpl implements _ApiKeyEditParams {
-  const _$ApiKeyEditParamsImpl(
-      {required this.id, required final List<String> scopes, this.name})
-      : _scopes = scopes;
 
-  factory _$ApiKeyEditParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApiKeyEditParamsImplFromJson(json);
+class _ApiKeyEditParams implements ApiKeyEditParams {
+  const _ApiKeyEditParams({required this.id, required final  List<String> scopes, this.name}): _scopes = scopes;
+  factory _ApiKeyEditParams.fromJson(Map<String, dynamic> json) => _$ApiKeyEditParamsFromJson(json);
 
-  @override
-  final String id;
-
-  /// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
-  final List<String> _scopes;
-
-  /// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
-  @override
-  List<String> get scopes {
-    if (_scopes is EqualUnmodifiableListView) return _scopes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_scopes);
-  }
-
-  /// Null leaves the name unchanged.
-  @override
-  final String? name;
-
-  @override
-  String toString() {
-    return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApiKeyEditParamsImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality().equals(other._scopes, _scopes) &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, id, const DeepCollectionEquality().hash(_scopes), name);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ApiKeyEditParamsImplCopyWith<_$ApiKeyEditParamsImpl> get copyWith =>
-      __$$ApiKeyEditParamsImplCopyWithImpl<_$ApiKeyEditParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ApiKeyEditParamsImplToJson(
-      this,
-    );
-  }
+@override final  String id;
+/// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
+ final  List<String> _scopes;
+/// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
+@override List<String> get scopes {
+  if (_scopes is EqualUnmodifiableListView) return _scopes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_scopes);
 }
 
-abstract class _ApiKeyEditParams implements ApiKeyEditParams {
-  const factory _ApiKeyEditParams(
-      {required final String id,
-      required final List<String> scopes,
-      final String? name}) = _$ApiKeyEditParamsImpl;
+/// Null leaves the name unchanged.
+@override final  String? name;
 
-  factory _ApiKeyEditParams.fromJson(Map<String, dynamic> json) =
-      _$ApiKeyEditParamsImpl.fromJson;
+/// Create a copy of ApiKeyEditParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ApiKeyEditParamsCopyWith<_ApiKeyEditParams> get copyWith => __$ApiKeyEditParamsCopyWithImpl<_ApiKeyEditParams>(this, _$identity);
 
-  @override
-  String get id;
-  @override
-
-  /// Permission `.name`s — `read`, `invoke`, `invokeDangerous`, `admin`.
-  List<String> get scopes;
-  @override
-
-  /// Null leaves the name unchanged.
-  String? get name;
-  @override
-  @JsonKey(ignore: true)
-  _$$ApiKeyEditParamsImplCopyWith<_$ApiKeyEditParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ApiKeyEditParamsToJson(this, );
 }
 
-ApiKeyRemoveParams _$ApiKeyRemoveParamsFromJson(Map<String, dynamic> json) {
-  return _ApiKeyRemoveParams.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyEditParams&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._scopes, _scopes)&&(identical(other.name, name) || other.name == name));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_scopes),name);
+
+@override
+String toString() {
+  return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ApiKeyEditParamsCopyWith<$Res> implements $ApiKeyEditParamsCopyWith<$Res> {
+  factory _$ApiKeyEditParamsCopyWith(_ApiKeyEditParams value, $Res Function(_ApiKeyEditParams) _then) = __$ApiKeyEditParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, List<String> scopes, String? name
+});
+
+
+
+
+}
+/// @nodoc
+class __$ApiKeyEditParamsCopyWithImpl<$Res>
+    implements _$ApiKeyEditParamsCopyWith<$Res> {
+  __$ApiKeyEditParamsCopyWithImpl(this._self, this._then);
+
+  final _ApiKeyEditParams _self;
+  final $Res Function(_ApiKeyEditParams) _then;
+
+/// Create a copy of ApiKeyEditParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? scopes = null,Object? name = freezed,}) {
+  return _then(_ApiKeyEditParams(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,scopes: null == scopes ? _self._scopes : scopes // ignore: cast_nullable_to_non_nullable
+as List<String>,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ApiKeyRemoveParams {
-  String get id => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ApiKeyRemoveParamsCopyWith<ApiKeyRemoveParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get id;
+/// Create a copy of ApiKeyRemoveParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ApiKeyRemoveParamsCopyWith<ApiKeyRemoveParams> get copyWith => _$ApiKeyRemoveParamsCopyWithImpl<ApiKeyRemoveParams>(this as ApiKeyRemoveParams, _$identity);
+
+  /// Serializes this ApiKeyRemoveParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyRemoveParams&&(identical(other.id, id) || other.id == id));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id);
+
+@override
+String toString() {
+  return 'ApiKeyRemoveParams(id: $id)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ApiKeyRemoveParamsCopyWith<$Res> {
-  factory $ApiKeyRemoveParamsCopyWith(
-          ApiKeyRemoveParams value, $Res Function(ApiKeyRemoveParams) then) =
-      _$ApiKeyRemoveParamsCopyWithImpl<$Res, ApiKeyRemoveParams>;
-  @useResult
-  $Res call({String id});
-}
+abstract mixin class $ApiKeyRemoveParamsCopyWith<$Res>  {
+  factory $ApiKeyRemoveParamsCopyWith(ApiKeyRemoveParams value, $Res Function(ApiKeyRemoveParams) _then) = _$ApiKeyRemoveParamsCopyWithImpl;
+@useResult
+$Res call({
+ String id
+});
 
+
+
+
+}
 /// @nodoc
-class _$ApiKeyRemoveParamsCopyWithImpl<$Res, $Val extends ApiKeyRemoveParams>
+class _$ApiKeyRemoveParamsCopyWithImpl<$Res>
     implements $ApiKeyRemoveParamsCopyWith<$Res> {
-  _$ApiKeyRemoveParamsCopyWithImpl(this._value, this._then);
+  _$ApiKeyRemoveParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ApiKeyRemoveParams _self;
+  final $Res Function(ApiKeyRemoveParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of ApiKeyRemoveParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ApiKeyRemoveParamsImplCopyWith<$Res>
-    implements $ApiKeyRemoveParamsCopyWith<$Res> {
-  factory _$$ApiKeyRemoveParamsImplCopyWith(_$ApiKeyRemoveParamsImpl value,
-          $Res Function(_$ApiKeyRemoveParamsImpl) then) =
-      __$$ApiKeyRemoveParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id});
 }
 
-/// @nodoc
-class __$$ApiKeyRemoveParamsImplCopyWithImpl<$Res>
-    extends _$ApiKeyRemoveParamsCopyWithImpl<$Res, _$ApiKeyRemoveParamsImpl>
-    implements _$$ApiKeyRemoveParamsImplCopyWith<$Res> {
-  __$$ApiKeyRemoveParamsImplCopyWithImpl(_$ApiKeyRemoveParamsImpl _value,
-      $Res Function(_$ApiKeyRemoveParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$ApiKeyRemoveParamsImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ApiKeyRemoveParams].
+extension ApiKeyRemoveParamsPatterns on ApiKeyRemoveParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ApiKeyRemoveParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ApiKeyRemoveParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ApiKeyRemoveParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams() when $default != null:
+return $default(_that.id);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id)  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams():
+return $default(_that.id);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id)?  $default,) {final _that = this;
+switch (_that) {
+case _ApiKeyRemoveParams() when $default != null:
+return $default(_that.id);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ApiKeyRemoveParamsImpl implements _ApiKeyRemoveParams {
-  const _$ApiKeyRemoveParamsImpl({required this.id});
 
-  factory _$ApiKeyRemoveParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApiKeyRemoveParamsImplFromJson(json);
+class _ApiKeyRemoveParams implements ApiKeyRemoveParams {
+  const _ApiKeyRemoveParams({required this.id});
+  factory _ApiKeyRemoveParams.fromJson(Map<String, dynamic> json) => _$ApiKeyRemoveParamsFromJson(json);
 
-  @override
-  final String id;
+@override final  String id;
 
-  @override
-  String toString() {
-    return 'ApiKeyRemoveParams(id: $id)';
-  }
+/// Create a copy of ApiKeyRemoveParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ApiKeyRemoveParamsCopyWith<_ApiKeyRemoveParams> get copyWith => __$ApiKeyRemoveParamsCopyWithImpl<_ApiKeyRemoveParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ApiKeyRemoveParamsImpl &&
-            (identical(other.id, id) || other.id == id));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ApiKeyRemoveParamsImplCopyWith<_$ApiKeyRemoveParamsImpl> get copyWith =>
-      __$$ApiKeyRemoveParamsImplCopyWithImpl<_$ApiKeyRemoveParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ApiKeyRemoveParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ApiKeyRemoveParamsToJson(this, );
 }
 
-abstract class _ApiKeyRemoveParams implements ApiKeyRemoveParams {
-  const factory _ApiKeyRemoveParams({required final String id}) =
-      _$ApiKeyRemoveParamsImpl;
-
-  factory _ApiKeyRemoveParams.fromJson(Map<String, dynamic> json) =
-      _$ApiKeyRemoveParamsImpl.fromJson;
-
-  @override
-  String get id;
-  @override
-  @JsonKey(ignore: true)
-  _$$ApiKeyRemoveParamsImplCopyWith<_$ApiKeyRemoveParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyRemoveParams&&(identical(other.id, id) || other.id == id));
 }
 
-OwnerParams _$OwnerParamsFromJson(Map<String, dynamic> json) {
-  return _OwnerParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id);
+
+@override
+String toString() {
+  return 'ApiKeyRemoveParams(id: $id)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ApiKeyRemoveParamsCopyWith<$Res> implements $ApiKeyRemoveParamsCopyWith<$Res> {
+  factory _$ApiKeyRemoveParamsCopyWith(_ApiKeyRemoveParams value, $Res Function(_ApiKeyRemoveParams) _then) = __$ApiKeyRemoveParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String id
+});
+
+
+
+
+}
+/// @nodoc
+class __$ApiKeyRemoveParamsCopyWithImpl<$Res>
+    implements _$ApiKeyRemoveParamsCopyWith<$Res> {
+  __$ApiKeyRemoveParamsCopyWithImpl(this._self, this._then);
+
+  final _ApiKeyRemoveParams _self;
+  final $Res Function(_ApiKeyRemoveParams) _then;
+
+/// Create a copy of ApiKeyRemoveParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
+  return _then(_ApiKeyRemoveParams(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$OwnerParams {
-  /// A Discord snowflake as a string — it exceeds what a browser's number
-  /// type holds exactly.
-  String get userId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $OwnerParamsCopyWith<OwnerParams> get copyWith =>
-      throw _privateConstructorUsedError;
+/// A Discord snowflake as a string — it exceeds what a browser's number
+/// type holds exactly.
+ String get userId;
+/// Create a copy of OwnerParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$OwnerParamsCopyWith<OwnerParams> get copyWith => _$OwnerParamsCopyWithImpl<OwnerParams>(this as OwnerParams, _$identity);
+
+  /// Serializes this OwnerParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OwnerParams&&(identical(other.userId, userId) || other.userId == userId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,userId);
+
+@override
+String toString() {
+  return 'OwnerParams(userId: $userId)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $OwnerParamsCopyWith<$Res> {
-  factory $OwnerParamsCopyWith(
-          OwnerParams value, $Res Function(OwnerParams) then) =
-      _$OwnerParamsCopyWithImpl<$Res, OwnerParams>;
-  @useResult
-  $Res call({String userId});
-}
+abstract mixin class $OwnerParamsCopyWith<$Res>  {
+  factory $OwnerParamsCopyWith(OwnerParams value, $Res Function(OwnerParams) _then) = _$OwnerParamsCopyWithImpl;
+@useResult
+$Res call({
+ String userId
+});
 
+
+
+
+}
 /// @nodoc
-class _$OwnerParamsCopyWithImpl<$Res, $Val extends OwnerParams>
+class _$OwnerParamsCopyWithImpl<$Res>
     implements $OwnerParamsCopyWith<$Res> {
-  _$OwnerParamsCopyWithImpl(this._value, this._then);
+  _$OwnerParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OwnerParams _self;
+  final $Res Function(OwnerParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of OwnerParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? userId = null,}) {
+  return _then(_self.copyWith(
+userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$OwnerParamsImplCopyWith<$Res>
-    implements $OwnerParamsCopyWith<$Res> {
-  factory _$$OwnerParamsImplCopyWith(
-          _$OwnerParamsImpl value, $Res Function(_$OwnerParamsImpl) then) =
-      __$$OwnerParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String userId});
 }
 
-/// @nodoc
-class __$$OwnerParamsImplCopyWithImpl<$Res>
-    extends _$OwnerParamsCopyWithImpl<$Res, _$OwnerParamsImpl>
-    implements _$$OwnerParamsImplCopyWith<$Res> {
-  __$$OwnerParamsImplCopyWithImpl(
-      _$OwnerParamsImpl _value, $Res Function(_$OwnerParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_$OwnerParamsImpl(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [OwnerParams].
+extension OwnerParamsPatterns on OwnerParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _OwnerParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _OwnerParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _OwnerParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _OwnerParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _OwnerParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _OwnerParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String userId)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _OwnerParams() when $default != null:
+return $default(_that.userId);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String userId)  $default,) {final _that = this;
+switch (_that) {
+case _OwnerParams():
+return $default(_that.userId);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String userId)?  $default,) {final _that = this;
+switch (_that) {
+case _OwnerParams() when $default != null:
+return $default(_that.userId);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OwnerParamsImpl implements _OwnerParams {
-  const _$OwnerParamsImpl({required this.userId});
 
-  factory _$OwnerParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OwnerParamsImplFromJson(json);
+class _OwnerParams implements OwnerParams {
+  const _OwnerParams({required this.userId});
+  factory _OwnerParams.fromJson(Map<String, dynamic> json) => _$OwnerParamsFromJson(json);
 
-  /// A Discord snowflake as a string — it exceeds what a browser's number
-  /// type holds exactly.
-  @override
-  final String userId;
+/// A Discord snowflake as a string — it exceeds what a browser's number
+/// type holds exactly.
+@override final  String userId;
 
-  @override
-  String toString() {
-    return 'OwnerParams(userId: $userId)';
-  }
+/// Create a copy of OwnerParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OwnerParamsCopyWith<_OwnerParams> get copyWith => __$OwnerParamsCopyWithImpl<_OwnerParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$OwnerParamsImpl &&
-            (identical(other.userId, userId) || other.userId == userId));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, userId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$OwnerParamsImplCopyWith<_$OwnerParamsImpl> get copyWith =>
-      __$$OwnerParamsImplCopyWithImpl<_$OwnerParamsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OwnerParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$OwnerParamsToJson(this, );
 }
 
-abstract class _OwnerParams implements OwnerParams {
-  const factory _OwnerParams({required final String userId}) =
-      _$OwnerParamsImpl;
-
-  factory _OwnerParams.fromJson(Map<String, dynamic> json) =
-      _$OwnerParamsImpl.fromJson;
-
-  @override
-
-  /// A Discord snowflake as a string — it exceeds what a browser's number
-  /// type holds exactly.
-  String get userId;
-  @override
-  @JsonKey(ignore: true)
-  _$$OwnerParamsImplCopyWith<_$OwnerParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OwnerParams&&(identical(other.userId, userId) || other.userId == userId));
 }
 
-LogsTailParams _$LogsTailParamsFromJson(Map<String, dynamic> json) {
-  return _LogsTailParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,userId);
+
+@override
+String toString() {
+  return 'OwnerParams(userId: $userId)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OwnerParamsCopyWith<$Res> implements $OwnerParamsCopyWith<$Res> {
+  factory _$OwnerParamsCopyWith(_OwnerParams value, $Res Function(_OwnerParams) _then) = __$OwnerParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String userId
+});
+
+
+
+
+}
+/// @nodoc
+class __$OwnerParamsCopyWithImpl<$Res>
+    implements _$OwnerParamsCopyWith<$Res> {
+  __$OwnerParamsCopyWithImpl(this._self, this._then);
+
+  final _OwnerParams _self;
+  final $Res Function(_OwnerParams) _then;
+
+/// Create a copy of OwnerParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? userId = null,}) {
+  return _then(_OwnerParams(
+userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$LogsTailParams {
-  /// How many lines — the server defaults to 200 and caps at 1000.
-  int? get lines => throw _privateConstructorUsedError;
 
-  /// `server` (default) or `novnc`.
-  String? get source => throw _privateConstructorUsedError;
+/// How many lines — the server defaults to 200 and caps at 1000.
+ int? get lines;/// `server` (default) or `novnc`.
+ String? get source;/// First line to return, absolute and 1-based.
+ int? get fromLine;/// Last line to return, inclusive.
+ int? get toLine;
+/// Create a copy of LogsTailParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LogsTailParamsCopyWith<LogsTailParams> get copyWith => _$LogsTailParamsCopyWithImpl<LogsTailParams>(this as LogsTailParams, _$identity);
 
-  /// First line to return, absolute and 1-based.
-  int? get fromLine => throw _privateConstructorUsedError;
+  /// Serializes this LogsTailParams to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// Last line to return, inclusive.
-  int? get toLine => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $LogsTailParamsCopyWith<LogsTailParams> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogsTailParams&&(identical(other.lines, lines) || other.lines == lines)&&(identical(other.source, source) || other.source == source)&&(identical(other.fromLine, fromLine) || other.fromLine == fromLine)&&(identical(other.toLine, toLine) || other.toLine == toLine));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,lines,source,fromLine,toLine);
+
+@override
+String toString() {
+  return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LogsTailParamsCopyWith<$Res> {
-  factory $LogsTailParamsCopyWith(
-          LogsTailParams value, $Res Function(LogsTailParams) then) =
-      _$LogsTailParamsCopyWithImpl<$Res, LogsTailParams>;
-  @useResult
-  $Res call({int? lines, String? source, int? fromLine, int? toLine});
-}
+abstract mixin class $LogsTailParamsCopyWith<$Res>  {
+  factory $LogsTailParamsCopyWith(LogsTailParams value, $Res Function(LogsTailParams) _then) = _$LogsTailParamsCopyWithImpl;
+@useResult
+$Res call({
+ int? lines, String? source, int? fromLine, int? toLine
+});
 
+
+
+
+}
 /// @nodoc
-class _$LogsTailParamsCopyWithImpl<$Res, $Val extends LogsTailParams>
+class _$LogsTailParamsCopyWithImpl<$Res>
     implements $LogsTailParamsCopyWith<$Res> {
-  _$LogsTailParamsCopyWithImpl(this._value, this._then);
+  _$LogsTailParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LogsTailParams _self;
+  final $Res Function(LogsTailParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? lines = freezed,
-    Object? source = freezed,
-    Object? fromLine = freezed,
-    Object? toLine = freezed,
-  }) {
-    return _then(_value.copyWith(
-      lines: freezed == lines
-          ? _value.lines
-          : lines // ignore: cast_nullable_to_non_nullable
-              as int?,
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fromLine: freezed == fromLine
-          ? _value.fromLine
-          : fromLine // ignore: cast_nullable_to_non_nullable
-              as int?,
-      toLine: freezed == toLine
-          ? _value.toLine
-          : toLine // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
+/// Create a copy of LogsTailParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? lines = freezed,Object? source = freezed,Object? fromLine = freezed,Object? toLine = freezed,}) {
+  return _then(_self.copyWith(
+lines: freezed == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
+as int?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String?,fromLine: freezed == fromLine ? _self.fromLine : fromLine // ignore: cast_nullable_to_non_nullable
+as int?,toLine: freezed == toLine ? _self.toLine : toLine // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$LogsTailParamsImplCopyWith<$Res>
-    implements $LogsTailParamsCopyWith<$Res> {
-  factory _$$LogsTailParamsImplCopyWith(_$LogsTailParamsImpl value,
-          $Res Function(_$LogsTailParamsImpl) then) =
-      __$$LogsTailParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int? lines, String? source, int? fromLine, int? toLine});
 }
 
-/// @nodoc
-class __$$LogsTailParamsImplCopyWithImpl<$Res>
-    extends _$LogsTailParamsCopyWithImpl<$Res, _$LogsTailParamsImpl>
-    implements _$$LogsTailParamsImplCopyWith<$Res> {
-  __$$LogsTailParamsImplCopyWithImpl(
-      _$LogsTailParamsImpl _value, $Res Function(_$LogsTailParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? lines = freezed,
-    Object? source = freezed,
-    Object? fromLine = freezed,
-    Object? toLine = freezed,
-  }) {
-    return _then(_$LogsTailParamsImpl(
-      lines: freezed == lines
-          ? _value.lines
-          : lines // ignore: cast_nullable_to_non_nullable
-              as int?,
-      source: freezed == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as String?,
-      fromLine: freezed == fromLine
-          ? _value.fromLine
-          : fromLine // ignore: cast_nullable_to_non_nullable
-              as int?,
-      toLine: freezed == toLine
-          ? _value.toLine
-          : toLine // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [LogsTailParams].
+extension LogsTailParamsPatterns on LogsTailParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LogsTailParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _LogsTailParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LogsTailParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _LogsTailParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LogsTailParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _LogsTailParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? lines,  String? source,  int? fromLine,  int? toLine)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _LogsTailParams() when $default != null:
+return $default(_that.lines,_that.source,_that.fromLine,_that.toLine);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? lines,  String? source,  int? fromLine,  int? toLine)  $default,) {final _that = this;
+switch (_that) {
+case _LogsTailParams():
+return $default(_that.lines,_that.source,_that.fromLine,_that.toLine);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? lines,  String? source,  int? fromLine,  int? toLine)?  $default,) {final _that = this;
+switch (_that) {
+case _LogsTailParams() when $default != null:
+return $default(_that.lines,_that.source,_that.fromLine,_that.toLine);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$LogsTailParamsImpl implements _LogsTailParams {
-  const _$LogsTailParamsImpl(
-      {this.lines, this.source, this.fromLine, this.toLine});
 
-  factory _$LogsTailParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LogsTailParamsImplFromJson(json);
+class _LogsTailParams implements LogsTailParams {
+  const _LogsTailParams({this.lines, this.source, this.fromLine, this.toLine});
+  factory _LogsTailParams.fromJson(Map<String, dynamic> json) => _$LogsTailParamsFromJson(json);
 
-  /// How many lines — the server defaults to 200 and caps at 1000.
-  @override
-  final int? lines;
+/// How many lines — the server defaults to 200 and caps at 1000.
+@override final  int? lines;
+/// `server` (default) or `novnc`.
+@override final  String? source;
+/// First line to return, absolute and 1-based.
+@override final  int? fromLine;
+/// Last line to return, inclusive.
+@override final  int? toLine;
 
-  /// `server` (default) or `novnc`.
-  @override
-  final String? source;
+/// Create a copy of LogsTailParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LogsTailParamsCopyWith<_LogsTailParams> get copyWith => __$LogsTailParamsCopyWithImpl<_LogsTailParams>(this, _$identity);
 
-  /// First line to return, absolute and 1-based.
-  @override
-  final int? fromLine;
-
-  /// Last line to return, inclusive.
-  @override
-  final int? toLine;
-
-  @override
-  String toString() {
-    return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LogsTailParamsImpl &&
-            (identical(other.lines, lines) || other.lines == lines) &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.fromLine, fromLine) ||
-                other.fromLine == fromLine) &&
-            (identical(other.toLine, toLine) || other.toLine == toLine));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, lines, source, fromLine, toLine);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LogsTailParamsImplCopyWith<_$LogsTailParamsImpl> get copyWith =>
-      __$$LogsTailParamsImplCopyWithImpl<_$LogsTailParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LogsTailParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$LogsTailParamsToJson(this, );
 }
 
-abstract class _LogsTailParams implements LogsTailParams {
-  const factory _LogsTailParams(
-      {final int? lines,
-      final String? source,
-      final int? fromLine,
-      final int? toLine}) = _$LogsTailParamsImpl;
-
-  factory _LogsTailParams.fromJson(Map<String, dynamic> json) =
-      _$LogsTailParamsImpl.fromJson;
-
-  @override
-
-  /// How many lines — the server defaults to 200 and caps at 1000.
-  int? get lines;
-  @override
-
-  /// `server` (default) or `novnc`.
-  String? get source;
-  @override
-
-  /// First line to return, absolute and 1-based.
-  int? get fromLine;
-  @override
-
-  /// Last line to return, inclusive.
-  int? get toLine;
-  @override
-  @JsonKey(ignore: true)
-  _$$LogsTailParamsImplCopyWith<_$LogsTailParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogsTailParams&&(identical(other.lines, lines) || other.lines == lines)&&(identical(other.source, source) || other.source == source)&&(identical(other.fromLine, fromLine) || other.fromLine == fromLine)&&(identical(other.toLine, toLine) || other.toLine == toLine));
 }
 
-SecretSetParams _$SecretSetParamsFromJson(Map<String, dynamic> json) {
-  return _SecretSetParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,lines,source,fromLine,toLine);
+
+@override
+String toString() {
+  return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LogsTailParamsCopyWith<$Res> implements $LogsTailParamsCopyWith<$Res> {
+  factory _$LogsTailParamsCopyWith(_LogsTailParams value, $Res Function(_LogsTailParams) _then) = __$LogsTailParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ int? lines, String? source, int? fromLine, int? toLine
+});
+
+
+
+
+}
+/// @nodoc
+class __$LogsTailParamsCopyWithImpl<$Res>
+    implements _$LogsTailParamsCopyWith<$Res> {
+  __$LogsTailParamsCopyWithImpl(this._self, this._then);
+
+  final _LogsTailParams _self;
+  final $Res Function(_LogsTailParams) _then;
+
+/// Create a copy of LogsTailParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? lines = freezed,Object? source = freezed,Object? fromLine = freezed,Object? toLine = freezed,}) {
+  return _then(_LogsTailParams(
+lines: freezed == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
+as int?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as String?,fromLine: freezed == fromLine ? _self.fromLine : fromLine // ignore: cast_nullable_to_non_nullable
+as int?,toLine: freezed == toLine ? _self.toLine : toLine // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$SecretSetParams {
-  String get name => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SecretSetParamsCopyWith<SecretSetParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get name; String get value;
+/// Create a copy of SecretSetParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SecretSetParamsCopyWith<SecretSetParams> get copyWith => _$SecretSetParamsCopyWithImpl<SecretSetParams>(this as SecretSetParams, _$identity);
+
+  /// Serializes this SecretSetParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value);
+
+@override
+String toString() {
+  return 'SecretSetParams(name: $name, value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SecretSetParamsCopyWith<$Res> {
-  factory $SecretSetParamsCopyWith(
-          SecretSetParams value, $Res Function(SecretSetParams) then) =
-      _$SecretSetParamsCopyWithImpl<$Res, SecretSetParams>;
-  @useResult
-  $Res call({String name, String value});
-}
+abstract mixin class $SecretSetParamsCopyWith<$Res>  {
+  factory $SecretSetParamsCopyWith(SecretSetParams value, $Res Function(SecretSetParams) _then) = _$SecretSetParamsCopyWithImpl;
+@useResult
+$Res call({
+ String name, String value
+});
 
+
+
+
+}
 /// @nodoc
-class _$SecretSetParamsCopyWithImpl<$Res, $Val extends SecretSetParams>
+class _$SecretSetParamsCopyWithImpl<$Res>
     implements $SecretSetParamsCopyWith<$Res> {
-  _$SecretSetParamsCopyWithImpl(this._value, this._then);
+  _$SecretSetParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SecretSetParams _self;
+  final $Res Function(SecretSetParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SecretSetParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SecretSetParamsImplCopyWith<$Res>
-    implements $SecretSetParamsCopyWith<$Res> {
-  factory _$$SecretSetParamsImplCopyWith(_$SecretSetParamsImpl value,
-          $Res Function(_$SecretSetParamsImpl) then) =
-      __$$SecretSetParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String value});
 }
 
-/// @nodoc
-class __$$SecretSetParamsImplCopyWithImpl<$Res>
-    extends _$SecretSetParamsCopyWithImpl<$Res, _$SecretSetParamsImpl>
-    implements _$$SecretSetParamsImplCopyWith<$Res> {
-  __$$SecretSetParamsImplCopyWithImpl(
-      _$SecretSetParamsImpl _value, $Res Function(_$SecretSetParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = null,
-  }) {
-    return _then(_$SecretSetParamsImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SecretSetParams].
+extension SecretSetParamsPatterns on SecretSetParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SecretSetParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SecretSetParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SecretSetParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _SecretSetParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SecretSetParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SecretSetParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String value)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SecretSetParams() when $default != null:
+return $default(_that.name,_that.value);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String value)  $default,) {final _that = this;
+switch (_that) {
+case _SecretSetParams():
+return $default(_that.name,_that.value);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String value)?  $default,) {final _that = this;
+switch (_that) {
+case _SecretSetParams() when $default != null:
+return $default(_that.name,_that.value);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SecretSetParamsImpl implements _SecretSetParams {
-  const _$SecretSetParamsImpl({required this.name, required this.value});
 
-  factory _$SecretSetParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SecretSetParamsImplFromJson(json);
+class _SecretSetParams implements SecretSetParams {
+  const _SecretSetParams({required this.name, required this.value});
+  factory _SecretSetParams.fromJson(Map<String, dynamic> json) => _$SecretSetParamsFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String value;
+@override final  String name;
+@override final  String value;
 
-  @override
-  String toString() {
-    return 'SecretSetParams(name: $name, value: $value)';
-  }
+/// Create a copy of SecretSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SecretSetParamsCopyWith<_SecretSetParams> get copyWith => __$SecretSetParamsCopyWithImpl<_SecretSetParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SecretSetParamsImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SecretSetParamsImplCopyWith<_$SecretSetParamsImpl> get copyWith =>
-      __$$SecretSetParamsImplCopyWithImpl<_$SecretSetParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SecretSetParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SecretSetParamsToJson(this, );
 }
 
-abstract class _SecretSetParams implements SecretSetParams {
-  const factory _SecretSetParams(
-      {required final String name,
-      required final String value}) = _$SecretSetParamsImpl;
-
-  factory _SecretSetParams.fromJson(Map<String, dynamic> json) =
-      _$SecretSetParamsImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String get value;
-  @override
-  @JsonKey(ignore: true)
-  _$$SecretSetParamsImplCopyWith<_$SecretSetParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
 }
 
-SecretNameParams _$SecretNameParamsFromJson(Map<String, dynamic> json) {
-  return _SecretNameParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value);
+
+@override
+String toString() {
+  return 'SecretSetParams(name: $name, value: $value)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SecretSetParamsCopyWith<$Res> implements $SecretSetParamsCopyWith<$Res> {
+  factory _$SecretSetParamsCopyWith(_SecretSetParams value, $Res Function(_SecretSetParams) _then) = __$SecretSetParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$SecretSetParamsCopyWithImpl<$Res>
+    implements _$SecretSetParamsCopyWith<$Res> {
+  __$SecretSetParamsCopyWithImpl(this._self, this._then);
+
+  final _SecretSetParams _self;
+  final $Res Function(_SecretSetParams) _then;
+
+/// Create a copy of SecretSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? value = null,}) {
+  return _then(_SecretSetParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$SecretNameParams {
-  String get name => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SecretNameParamsCopyWith<SecretNameParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get name;
+/// Create a copy of SecretNameParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SecretNameParamsCopyWith<SecretNameParams> get copyWith => _$SecretNameParamsCopyWithImpl<SecretNameParams>(this as SecretNameParams, _$identity);
+
+  /// Serializes this SecretNameParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretNameParams&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'SecretNameParams(name: $name)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SecretNameParamsCopyWith<$Res> {
-  factory $SecretNameParamsCopyWith(
-          SecretNameParams value, $Res Function(SecretNameParams) then) =
-      _$SecretNameParamsCopyWithImpl<$Res, SecretNameParams>;
-  @useResult
-  $Res call({String name});
-}
+abstract mixin class $SecretNameParamsCopyWith<$Res>  {
+  factory $SecretNameParamsCopyWith(SecretNameParams value, $Res Function(SecretNameParams) _then) = _$SecretNameParamsCopyWithImpl;
+@useResult
+$Res call({
+ String name
+});
 
+
+
+
+}
 /// @nodoc
-class _$SecretNameParamsCopyWithImpl<$Res, $Val extends SecretNameParams>
+class _$SecretNameParamsCopyWithImpl<$Res>
     implements $SecretNameParamsCopyWith<$Res> {
-  _$SecretNameParamsCopyWithImpl(this._value, this._then);
+  _$SecretNameParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SecretNameParams _self;
+  final $Res Function(SecretNameParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SecretNameParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SecretNameParamsImplCopyWith<$Res>
-    implements $SecretNameParamsCopyWith<$Res> {
-  factory _$$SecretNameParamsImplCopyWith(_$SecretNameParamsImpl value,
-          $Res Function(_$SecretNameParamsImpl) then) =
-      __$$SecretNameParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name});
 }
 
-/// @nodoc
-class __$$SecretNameParamsImplCopyWithImpl<$Res>
-    extends _$SecretNameParamsCopyWithImpl<$Res, _$SecretNameParamsImpl>
-    implements _$$SecretNameParamsImplCopyWith<$Res> {
-  __$$SecretNameParamsImplCopyWithImpl(_$SecretNameParamsImpl _value,
-      $Res Function(_$SecretNameParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$SecretNameParamsImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SecretNameParams].
+extension SecretNameParamsPatterns on SecretNameParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SecretNameParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SecretNameParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SecretNameParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _SecretNameParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SecretNameParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SecretNameParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SecretNameParams() when $default != null:
+return $default(_that.name);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name)  $default,) {final _that = this;
+switch (_that) {
+case _SecretNameParams():
+return $default(_that.name);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name)?  $default,) {final _that = this;
+switch (_that) {
+case _SecretNameParams() when $default != null:
+return $default(_that.name);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SecretNameParamsImpl implements _SecretNameParams {
-  const _$SecretNameParamsImpl({required this.name});
 
-  factory _$SecretNameParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SecretNameParamsImplFromJson(json);
+class _SecretNameParams implements SecretNameParams {
+  const _SecretNameParams({required this.name});
+  factory _SecretNameParams.fromJson(Map<String, dynamic> json) => _$SecretNameParamsFromJson(json);
 
-  @override
-  final String name;
+@override final  String name;
 
-  @override
-  String toString() {
-    return 'SecretNameParams(name: $name)';
-  }
+/// Create a copy of SecretNameParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SecretNameParamsCopyWith<_SecretNameParams> get copyWith => __$SecretNameParamsCopyWithImpl<_SecretNameParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SecretNameParamsImpl &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SecretNameParamsImplCopyWith<_$SecretNameParamsImpl> get copyWith =>
-      __$$SecretNameParamsImplCopyWithImpl<_$SecretNameParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SecretNameParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SecretNameParamsToJson(this, );
 }
 
-abstract class _SecretNameParams implements SecretNameParams {
-  const factory _SecretNameParams({required final String name}) =
-      _$SecretNameParamsImpl;
-
-  factory _SecretNameParams.fromJson(Map<String, dynamic> json) =
-      _$SecretNameParamsImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  @JsonKey(ignore: true)
-  _$$SecretNameParamsImplCopyWith<_$SecretNameParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretNameParams&&(identical(other.name, name) || other.name == name));
 }
 
-AuditListParams _$AuditListParamsFromJson(Map<String, dynamic> json) {
-  return _AuditListParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'SecretNameParams(name: $name)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SecretNameParamsCopyWith<$Res> implements $SecretNameParamsCopyWith<$Res> {
+  factory _$SecretNameParamsCopyWith(_SecretNameParams value, $Res Function(_SecretNameParams) _then) = __$SecretNameParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String name
+});
+
+
+
+
+}
+/// @nodoc
+class __$SecretNameParamsCopyWithImpl<$Res>
+    implements _$SecretNameParamsCopyWith<$Res> {
+  __$SecretNameParamsCopyWithImpl(this._self, this._then);
+
+  final _SecretNameParams _self;
+  final $Res Function(_SecretNameParams) _then;
+
+/// Create a copy of SecretNameParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
+  return _then(_SecretNameParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$AuditListParams {
-  int get limit => throw _privateConstructorUsedError;
-  String? get action => throw _privateConstructorUsedError;
-  String? get actor => throw _privateConstructorUsedError;
 
-  /// The `next_cursor` of the page before: the entries after it.
-  String? get before => throw _privateConstructorUsedError;
+ int get limit; String? get action; String? get actor;/// The `next_cursor` of the page before: the entries after it.
+ String? get before;
+/// Create a copy of AuditListParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AuditListParamsCopyWith<AuditListParams> get copyWith => _$AuditListParamsCopyWithImpl<AuditListParams>(this as AuditListParams, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AuditListParamsCopyWith<AuditListParams> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this AuditListParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditListParams&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.before, before) || other.before == before));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,limit,action,actor,before);
+
+@override
+String toString() {
+  return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AuditListParamsCopyWith<$Res> {
-  factory $AuditListParamsCopyWith(
-          AuditListParams value, $Res Function(AuditListParams) then) =
-      _$AuditListParamsCopyWithImpl<$Res, AuditListParams>;
-  @useResult
-  $Res call({int limit, String? action, String? actor, String? before});
-}
+abstract mixin class $AuditListParamsCopyWith<$Res>  {
+  factory $AuditListParamsCopyWith(AuditListParams value, $Res Function(AuditListParams) _then) = _$AuditListParamsCopyWithImpl;
+@useResult
+$Res call({
+ int limit, String? action, String? actor, String? before
+});
 
+
+
+
+}
 /// @nodoc
-class _$AuditListParamsCopyWithImpl<$Res, $Val extends AuditListParams>
+class _$AuditListParamsCopyWithImpl<$Res>
     implements $AuditListParamsCopyWith<$Res> {
-  _$AuditListParamsCopyWithImpl(this._value, this._then);
+  _$AuditListParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AuditListParams _self;
+  final $Res Function(AuditListParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? limit = null,
-    Object? action = freezed,
-    Object? actor = freezed,
-    Object? before = freezed,
-  }) {
-    return _then(_value.copyWith(
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      action: freezed == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actor: freezed == actor
-          ? _value.actor
-          : actor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      before: freezed == before
-          ? _value.before
-          : before // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of AuditListParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? action = freezed,Object? actor = freezed,Object? before = freezed,}) {
+  return _then(_self.copyWith(
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,action: freezed == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as String?,actor: freezed == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
+as String?,before: freezed == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AuditListParamsImplCopyWith<$Res>
-    implements $AuditListParamsCopyWith<$Res> {
-  factory _$$AuditListParamsImplCopyWith(_$AuditListParamsImpl value,
-          $Res Function(_$AuditListParamsImpl) then) =
-      __$$AuditListParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int limit, String? action, String? actor, String? before});
 }
 
-/// @nodoc
-class __$$AuditListParamsImplCopyWithImpl<$Res>
-    extends _$AuditListParamsCopyWithImpl<$Res, _$AuditListParamsImpl>
-    implements _$$AuditListParamsImplCopyWith<$Res> {
-  __$$AuditListParamsImplCopyWithImpl(
-      _$AuditListParamsImpl _value, $Res Function(_$AuditListParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? limit = null,
-    Object? action = freezed,
-    Object? actor = freezed,
-    Object? before = freezed,
-  }) {
-    return _then(_$AuditListParamsImpl(
-      limit: null == limit
-          ? _value.limit
-          : limit // ignore: cast_nullable_to_non_nullable
-              as int,
-      action: freezed == action
-          ? _value.action
-          : action // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actor: freezed == actor
-          ? _value.actor
-          : actor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      before: freezed == before
-          ? _value.before
-          : before // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AuditListParams].
+extension AuditListParamsPatterns on AuditListParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AuditListParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AuditListParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AuditListParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _AuditListParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AuditListParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AuditListParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int limit,  String? action,  String? actor,  String? before)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AuditListParams() when $default != null:
+return $default(_that.limit,_that.action,_that.actor,_that.before);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int limit,  String? action,  String? actor,  String? before)  $default,) {final _that = this;
+switch (_that) {
+case _AuditListParams():
+return $default(_that.limit,_that.action,_that.actor,_that.before);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int limit,  String? action,  String? actor,  String? before)?  $default,) {final _that = this;
+switch (_that) {
+case _AuditListParams() when $default != null:
+return $default(_that.limit,_that.action,_that.actor,_that.before);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AuditListParamsImpl implements _AuditListParams {
-  const _$AuditListParamsImpl(
-      {this.limit = 200, this.action, this.actor, this.before});
 
-  factory _$AuditListParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AuditListParamsImplFromJson(json);
+class _AuditListParams implements AuditListParams {
+  const _AuditListParams({this.limit = 200, this.action, this.actor, this.before});
+  factory _AuditListParams.fromJson(Map<String, dynamic> json) => _$AuditListParamsFromJson(json);
 
-  @override
-  @JsonKey()
-  final int limit;
-  @override
-  final String? action;
-  @override
-  final String? actor;
+@override@JsonKey() final  int limit;
+@override final  String? action;
+@override final  String? actor;
+/// The `next_cursor` of the page before: the entries after it.
+@override final  String? before;
 
-  /// The `next_cursor` of the page before: the entries after it.
-  @override
-  final String? before;
+/// Create a copy of AuditListParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AuditListParamsCopyWith<_AuditListParams> get copyWith => __$AuditListParamsCopyWithImpl<_AuditListParams>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuditListParamsImpl &&
-            (identical(other.limit, limit) || other.limit == limit) &&
-            (identical(other.action, action) || other.action == action) &&
-            (identical(other.actor, actor) || other.actor == actor) &&
-            (identical(other.before, before) || other.before == before));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, limit, action, actor, before);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>
-      __$$AuditListParamsImplCopyWithImpl<_$AuditListParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AuditListParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AuditListParamsToJson(this, );
 }
 
-abstract class _AuditListParams implements AuditListParams {
-  const factory _AuditListParams(
-      {final int limit,
-      final String? action,
-      final String? actor,
-      final String? before}) = _$AuditListParamsImpl;
-
-  factory _AuditListParams.fromJson(Map<String, dynamic> json) =
-      _$AuditListParamsImpl.fromJson;
-
-  @override
-  int get limit;
-  @override
-  String? get action;
-  @override
-  String? get actor;
-  @override
-
-  /// The `next_cursor` of the page before: the entries after it.
-  String? get before;
-  @override
-  @JsonKey(ignore: true)
-  _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditListParams&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.before, before) || other.before == before));
 }
 
-AiKeysCheckParams _$AiKeysCheckParamsFromJson(Map<String, dynamic> json) {
-  return _AiKeysCheckParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,limit,action,actor,before);
+
+@override
+String toString() {
+  return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AuditListParamsCopyWith<$Res> implements $AuditListParamsCopyWith<$Res> {
+  factory _$AuditListParamsCopyWith(_AuditListParams value, $Res Function(_AuditListParams) _then) = __$AuditListParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ int limit, String? action, String? actor, String? before
+});
+
+
+
+
+}
+/// @nodoc
+class __$AuditListParamsCopyWithImpl<$Res>
+    implements _$AuditListParamsCopyWith<$Res> {
+  __$AuditListParamsCopyWithImpl(this._self, this._then);
+
+  final _AuditListParams _self;
+  final $Res Function(_AuditListParams) _then;
+
+/// Create a copy of AuditListParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? limit = null,Object? action = freezed,Object? actor = freezed,Object? before = freezed,}) {
+  return _then(_AuditListParams(
+limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
+as int,action: freezed == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
+as String?,actor: freezed == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
+as String?,before: freezed == before ? _self.before : before // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$AiKeysCheckParams {
-  bool get removeDead => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AiKeysCheckParamsCopyWith<AiKeysCheckParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ bool get removeDead;
+/// Create a copy of AiKeysCheckParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiKeysCheckParamsCopyWith<AiKeysCheckParams> get copyWith => _$AiKeysCheckParamsCopyWithImpl<AiKeysCheckParams>(this as AiKeysCheckParams, _$identity);
+
+  /// Serializes this AiKeysCheckParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,removeDead);
+
+@override
+String toString() {
+  return 'AiKeysCheckParams(removeDead: $removeDead)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AiKeysCheckParamsCopyWith<$Res> {
-  factory $AiKeysCheckParamsCopyWith(
-          AiKeysCheckParams value, $Res Function(AiKeysCheckParams) then) =
-      _$AiKeysCheckParamsCopyWithImpl<$Res, AiKeysCheckParams>;
-  @useResult
-  $Res call({bool removeDead});
-}
+abstract mixin class $AiKeysCheckParamsCopyWith<$Res>  {
+  factory $AiKeysCheckParamsCopyWith(AiKeysCheckParams value, $Res Function(AiKeysCheckParams) _then) = _$AiKeysCheckParamsCopyWithImpl;
+@useResult
+$Res call({
+ bool removeDead
+});
 
+
+
+
+}
 /// @nodoc
-class _$AiKeysCheckParamsCopyWithImpl<$Res, $Val extends AiKeysCheckParams>
+class _$AiKeysCheckParamsCopyWithImpl<$Res>
     implements $AiKeysCheckParamsCopyWith<$Res> {
-  _$AiKeysCheckParamsCopyWithImpl(this._value, this._then);
+  _$AiKeysCheckParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AiKeysCheckParams _self;
+  final $Res Function(AiKeysCheckParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? removeDead = null,
-  }) {
-    return _then(_value.copyWith(
-      removeDead: null == removeDead
-          ? _value.removeDead
-          : removeDead // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of AiKeysCheckParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? removeDead = null,}) {
+  return _then(_self.copyWith(
+removeDead: null == removeDead ? _self.removeDead : removeDead // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AiKeysCheckParamsImplCopyWith<$Res>
-    implements $AiKeysCheckParamsCopyWith<$Res> {
-  factory _$$AiKeysCheckParamsImplCopyWith(_$AiKeysCheckParamsImpl value,
-          $Res Function(_$AiKeysCheckParamsImpl) then) =
-      __$$AiKeysCheckParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool removeDead});
 }
 
-/// @nodoc
-class __$$AiKeysCheckParamsImplCopyWithImpl<$Res>
-    extends _$AiKeysCheckParamsCopyWithImpl<$Res, _$AiKeysCheckParamsImpl>
-    implements _$$AiKeysCheckParamsImplCopyWith<$Res> {
-  __$$AiKeysCheckParamsImplCopyWithImpl(_$AiKeysCheckParamsImpl _value,
-      $Res Function(_$AiKeysCheckParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? removeDead = null,
-  }) {
-    return _then(_$AiKeysCheckParamsImpl(
-      removeDead: null == removeDead
-          ? _value.removeDead
-          : removeDead // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AiKeysCheckParams].
+extension AiKeysCheckParamsPatterns on AiKeysCheckParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiKeysCheckParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiKeysCheckParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiKeysCheckParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiKeysCheckParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiKeysCheckParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiKeysCheckParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool removeDead)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiKeysCheckParams() when $default != null:
+return $default(_that.removeDead);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool removeDead)  $default,) {final _that = this;
+switch (_that) {
+case _AiKeysCheckParams():
+return $default(_that.removeDead);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool removeDead)?  $default,) {final _that = this;
+switch (_that) {
+case _AiKeysCheckParams() when $default != null:
+return $default(_that.removeDead);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AiKeysCheckParamsImpl implements _AiKeysCheckParams {
-  const _$AiKeysCheckParamsImpl({this.removeDead = false});
 
-  factory _$AiKeysCheckParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AiKeysCheckParamsImplFromJson(json);
+class _AiKeysCheckParams implements AiKeysCheckParams {
+  const _AiKeysCheckParams({this.removeDead = false});
+  factory _AiKeysCheckParams.fromJson(Map<String, dynamic> json) => _$AiKeysCheckParamsFromJson(json);
 
-  @override
-  @JsonKey()
-  final bool removeDead;
+@override@JsonKey() final  bool removeDead;
 
-  @override
-  String toString() {
-    return 'AiKeysCheckParams(removeDead: $removeDead)';
-  }
+/// Create a copy of AiKeysCheckParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiKeysCheckParamsCopyWith<_AiKeysCheckParams> get copyWith => __$AiKeysCheckParamsCopyWithImpl<_AiKeysCheckParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AiKeysCheckParamsImpl &&
-            (identical(other.removeDead, removeDead) ||
-                other.removeDead == removeDead));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, removeDead);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AiKeysCheckParamsImplCopyWith<_$AiKeysCheckParamsImpl> get copyWith =>
-      __$$AiKeysCheckParamsImplCopyWithImpl<_$AiKeysCheckParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AiKeysCheckParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AiKeysCheckParamsToJson(this, );
 }
 
-abstract class _AiKeysCheckParams implements AiKeysCheckParams {
-  const factory _AiKeysCheckParams({final bool removeDead}) =
-      _$AiKeysCheckParamsImpl;
-
-  factory _AiKeysCheckParams.fromJson(Map<String, dynamic> json) =
-      _$AiKeysCheckParamsImpl.fromJson;
-
-  @override
-  bool get removeDead;
-  @override
-  @JsonKey(ignore: true)
-  _$$AiKeysCheckParamsImplCopyWith<_$AiKeysCheckParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,removeDead);
+
+@override
+String toString() {
+  return 'AiKeysCheckParams(removeDead: $removeDead)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiKeysCheckParamsCopyWith<$Res> implements $AiKeysCheckParamsCopyWith<$Res> {
+  factory _$AiKeysCheckParamsCopyWith(_AiKeysCheckParams value, $Res Function(_AiKeysCheckParams) _then) = __$AiKeysCheckParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ bool removeDead
+});
+
+
+
+
+}
+/// @nodoc
+class __$AiKeysCheckParamsCopyWithImpl<$Res>
+    implements _$AiKeysCheckParamsCopyWith<$Res> {
+  __$AiKeysCheckParamsCopyWithImpl(this._self, this._then);
+
+  final _AiKeysCheckParams _self;
+  final $Res Function(_AiKeysCheckParams) _then;
+
+/// Create a copy of AiKeysCheckParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? removeDead = null,}) {
+  return _then(_AiKeysCheckParams(
+removeDead: null == removeDead ? _self.removeDead : removeDead // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+// dart format on

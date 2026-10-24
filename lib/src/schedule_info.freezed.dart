@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,590 +9,895 @@ part of 'schedule_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ScheduledJobInfo _$ScheduledJobInfoFromJson(Map<String, dynamic> json) {
-  return _ScheduledJobInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ScheduledJobInfo {
-  ScheduledJobConfig get config => throw _privateConstructorUsedError;
 
-  /// When it runs, e.g. "Working days, at the start of the day + 30 min" or
-  /// "Every day at 23:00".
-  String get rule => throw _privateConstructorUsedError;
+ ScheduledJobConfig get config;/// When it runs, e.g. "Working days, at the start of the day + 30 min" or
+/// "Every day at 23:00".
+ String get rule;/// The next time it will run, in the server's local time; null when it is
+/// disabled, or the calendar leaves it no day to run on in the coming
+/// weeks.
+ DateTime? get nextRun;
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScheduledJobInfoCopyWith<ScheduledJobInfo> get copyWith => _$ScheduledJobInfoCopyWithImpl<ScheduledJobInfo>(this as ScheduledJobInfo, _$identity);
 
-  /// The next time it will run, in the server's local time; null when it is
-  /// disabled, or the calendar leaves it no day to run on in the coming
-  /// weeks.
-  DateTime? get nextRun => throw _privateConstructorUsedError;
+  /// Serializes this ScheduledJobInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ScheduledJobInfoCopyWith<ScheduledJobInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobInfo&&(identical(other.config, config) || other.config == config)&&(identical(other.rule, rule) || other.rule == rule)&&(identical(other.nextRun, nextRun) || other.nextRun == nextRun));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,config,rule,nextRun);
+
+@override
+String toString() {
+  return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ScheduledJobInfoCopyWith<$Res> {
-  factory $ScheduledJobInfoCopyWith(
-          ScheduledJobInfo value, $Res Function(ScheduledJobInfo) then) =
-      _$ScheduledJobInfoCopyWithImpl<$Res, ScheduledJobInfo>;
-  @useResult
-  $Res call({ScheduledJobConfig config, String rule, DateTime? nextRun});
+abstract mixin class $ScheduledJobInfoCopyWith<$Res>  {
+  factory $ScheduledJobInfoCopyWith(ScheduledJobInfo value, $Res Function(ScheduledJobInfo) _then) = _$ScheduledJobInfoCopyWithImpl;
+@useResult
+$Res call({
+ ScheduledJobConfig config, String rule, DateTime? nextRun
+});
 
-  $ScheduledJobConfigCopyWith<$Res> get config;
+
+$ScheduledJobConfigCopyWith<$Res> get config;
+
 }
-
 /// @nodoc
-class _$ScheduledJobInfoCopyWithImpl<$Res, $Val extends ScheduledJobInfo>
+class _$ScheduledJobInfoCopyWithImpl<$Res>
     implements $ScheduledJobInfoCopyWith<$Res> {
-  _$ScheduledJobInfoCopyWithImpl(this._value, this._then);
+  _$ScheduledJobInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ScheduledJobInfo _self;
+  final $Res Function(ScheduledJobInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? config = null,
-    Object? rule = null,
-    Object? nextRun = freezed,
-  }) {
-    return _then(_value.copyWith(
-      config: null == config
-          ? _value.config
-          : config // ignore: cast_nullable_to_non_nullable
-              as ScheduledJobConfig,
-      rule: null == rule
-          ? _value.rule
-          : rule // ignore: cast_nullable_to_non_nullable
-              as String,
-      nextRun: freezed == nextRun
-          ? _value.nextRun
-          : nextRun // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ScheduledJobConfigCopyWith<$Res> get config {
-    return $ScheduledJobConfigCopyWith<$Res>(_value.config, (value) {
-      return _then(_value.copyWith(config: value) as $Val);
-    });
-  }
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? config = null,Object? rule = null,Object? nextRun = freezed,}) {
+  return _then(_self.copyWith(
+config: null == config ? _self.config : config // ignore: cast_nullable_to_non_nullable
+as ScheduledJobConfig,rule: null == rule ? _self.rule : rule // ignore: cast_nullable_to_non_nullable
+as String,nextRun: freezed == nextRun ? _self.nextRun : nextRun // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ScheduledJobConfigCopyWith<$Res> get config {
+  
+  return $ScheduledJobConfigCopyWith<$Res>(_self.config, (value) {
+    return _then(_self.copyWith(config: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ScheduledJobInfoImplCopyWith<$Res>
-    implements $ScheduledJobInfoCopyWith<$Res> {
-  factory _$$ScheduledJobInfoImplCopyWith(_$ScheduledJobInfoImpl value,
-          $Res Function(_$ScheduledJobInfoImpl) then) =
-      __$$ScheduledJobInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({ScheduledJobConfig config, String rule, DateTime? nextRun});
 
-  @override
-  $ScheduledJobConfigCopyWith<$Res> get config;
+/// Adds pattern-matching-related methods to [ScheduledJobInfo].
+extension ScheduledJobInfoPatterns on ScheduledJobInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ScheduledJobInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ScheduledJobInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ScheduledJobInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduledJobInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ScheduledJobInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduledJobInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ScheduledJobConfig config,  String rule,  DateTime? nextRun)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ScheduledJobInfo() when $default != null:
+return $default(_that.config,_that.rule,_that.nextRun);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ScheduledJobConfig config,  String rule,  DateTime? nextRun)  $default,) {final _that = this;
+switch (_that) {
+case _ScheduledJobInfo():
+return $default(_that.config,_that.rule,_that.nextRun);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ScheduledJobConfig config,  String rule,  DateTime? nextRun)?  $default,) {final _that = this;
+switch (_that) {
+case _ScheduledJobInfo() when $default != null:
+return $default(_that.config,_that.rule,_that.nextRun);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$ScheduledJobInfoImplCopyWithImpl<$Res>
-    extends _$ScheduledJobInfoCopyWithImpl<$Res, _$ScheduledJobInfoImpl>
-    implements _$$ScheduledJobInfoImplCopyWith<$Res> {
-  __$$ScheduledJobInfoImplCopyWithImpl(_$ScheduledJobInfoImpl _value,
-      $Res Function(_$ScheduledJobInfoImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? config = null,
-    Object? rule = null,
-    Object? nextRun = freezed,
-  }) {
-    return _then(_$ScheduledJobInfoImpl(
-      config: null == config
-          ? _value.config
-          : config // ignore: cast_nullable_to_non_nullable
-              as ScheduledJobConfig,
-      rule: null == rule
-          ? _value.rule
-          : rule // ignore: cast_nullable_to_non_nullable
-              as String,
-      nextRun: freezed == nextRun
-          ? _value.nextRun
-          : nextRun // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduledJobInfoImpl implements _ScheduledJobInfo {
-  const _$ScheduledJobInfoImpl(
-      {required this.config, required this.rule, this.nextRun});
 
-  factory _$ScheduledJobInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduledJobInfoImplFromJson(json);
+class _ScheduledJobInfo implements ScheduledJobInfo {
+  const _ScheduledJobInfo({required this.config, required this.rule, this.nextRun});
+  factory _ScheduledJobInfo.fromJson(Map<String, dynamic> json) => _$ScheduledJobInfoFromJson(json);
 
-  @override
-  final ScheduledJobConfig config;
+@override final  ScheduledJobConfig config;
+/// When it runs, e.g. "Working days, at the start of the day + 30 min" or
+/// "Every day at 23:00".
+@override final  String rule;
+/// The next time it will run, in the server's local time; null when it is
+/// disabled, or the calendar leaves it no day to run on in the coming
+/// weeks.
+@override final  DateTime? nextRun;
 
-  /// When it runs, e.g. "Working days, at the start of the day + 30 min" or
-  /// "Every day at 23:00".
-  @override
-  final String rule;
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScheduledJobInfoCopyWith<_ScheduledJobInfo> get copyWith => __$ScheduledJobInfoCopyWithImpl<_ScheduledJobInfo>(this, _$identity);
 
-  /// The next time it will run, in the server's local time; null when it is
-  /// disabled, or the calendar leaves it no day to run on in the coming
-  /// weeks.
-  @override
-  final DateTime? nextRun;
-
-  @override
-  String toString() {
-    return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScheduledJobInfoImpl &&
-            (identical(other.config, config) || other.config == config) &&
-            (identical(other.rule, rule) || other.rule == rule) &&
-            (identical(other.nextRun, nextRun) || other.nextRun == nextRun));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, config, rule, nextRun);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScheduledJobInfoImplCopyWith<_$ScheduledJobInfoImpl> get copyWith =>
-      __$$ScheduledJobInfoImplCopyWithImpl<_$ScheduledJobInfoImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ScheduledJobInfoImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ScheduledJobInfoToJson(this, );
 }
 
-abstract class _ScheduledJobInfo implements ScheduledJobInfo {
-  const factory _ScheduledJobInfo(
-      {required final ScheduledJobConfig config,
-      required final String rule,
-      final DateTime? nextRun}) = _$ScheduledJobInfoImpl;
-
-  factory _ScheduledJobInfo.fromJson(Map<String, dynamic> json) =
-      _$ScheduledJobInfoImpl.fromJson;
-
-  @override
-  ScheduledJobConfig get config;
-  @override
-
-  /// When it runs, e.g. "Working days, at the start of the day + 30 min" or
-  /// "Every day at 23:00".
-  String get rule;
-  @override
-
-  /// The next time it will run, in the server's local time; null when it is
-  /// disabled, or the calendar leaves it no day to run on in the coming
-  /// weeks.
-  DateTime? get nextRun;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScheduledJobInfoImplCopyWith<_$ScheduledJobInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobInfo&&(identical(other.config, config) || other.config == config)&&(identical(other.rule, rule) || other.rule == rule)&&(identical(other.nextRun, nextRun) || other.nextRun == nextRun));
 }
 
-ScheduleInfo _$ScheduleInfoFromJson(Map<String, dynamic> json) {
-  return _ScheduleInfo.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,config,rule,nextRun);
+
+@override
+String toString() {
+  return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ScheduledJobInfoCopyWith<$Res> implements $ScheduledJobInfoCopyWith<$Res> {
+  factory _$ScheduledJobInfoCopyWith(_ScheduledJobInfo value, $Res Function(_ScheduledJobInfo) _then) = __$ScheduledJobInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ ScheduledJobConfig config, String rule, DateTime? nextRun
+});
+
+
+@override $ScheduledJobConfigCopyWith<$Res> get config;
+
+}
+/// @nodoc
+class __$ScheduledJobInfoCopyWithImpl<$Res>
+    implements _$ScheduledJobInfoCopyWith<$Res> {
+  __$ScheduledJobInfoCopyWithImpl(this._self, this._then);
+
+  final _ScheduledJobInfo _self;
+  final $Res Function(_ScheduledJobInfo) _then;
+
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? config = null,Object? rule = null,Object? nextRun = freezed,}) {
+  return _then(_ScheduledJobInfo(
+config: null == config ? _self.config : config // ignore: cast_nullable_to_non_nullable
+as ScheduledJobConfig,rule: null == rule ? _self.rule : rule // ignore: cast_nullable_to_non_nullable
+as String,nextRun: freezed == nextRun ? _self.nextRun : nextRun // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+
+/// Create a copy of ScheduledJobInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ScheduledJobConfigCopyWith<$Res> get config {
+  
+  return $ScheduledJobConfigCopyWith<$Res>(_self.config, (value) {
+    return _then(_self.copyWith(config: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$ScheduleInfo {
-  WorkCalendar get calendar => throw _privateConstructorUsedError;
-  List<ScheduledJobInfo> get jobs => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ScheduleInfoCopyWith<ScheduleInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+ WorkCalendar get calendar; List<ScheduledJobInfo> get jobs;
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScheduleInfoCopyWith<ScheduleInfo> get copyWith => _$ScheduleInfoCopyWithImpl<ScheduleInfo>(this as ScheduleInfo, _$identity);
+
+  /// Serializes this ScheduleInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleInfo&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, jobs));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(jobs));
+
+@override
+String toString() {
+  return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ScheduleInfoCopyWith<$Res> {
-  factory $ScheduleInfoCopyWith(
-          ScheduleInfo value, $Res Function(ScheduleInfo) then) =
-      _$ScheduleInfoCopyWithImpl<$Res, ScheduleInfo>;
-  @useResult
-  $Res call({WorkCalendar calendar, List<ScheduledJobInfo> jobs});
+abstract mixin class $ScheduleInfoCopyWith<$Res>  {
+  factory $ScheduleInfoCopyWith(ScheduleInfo value, $Res Function(ScheduleInfo) _then) = _$ScheduleInfoCopyWithImpl;
+@useResult
+$Res call({
+ WorkCalendar calendar, List<ScheduledJobInfo> jobs
+});
 
-  $WorkCalendarCopyWith<$Res> get calendar;
+
+$WorkCalendarCopyWith<$Res> get calendar;
+
 }
-
 /// @nodoc
-class _$ScheduleInfoCopyWithImpl<$Res, $Val extends ScheduleInfo>
+class _$ScheduleInfoCopyWithImpl<$Res>
     implements $ScheduleInfoCopyWith<$Res> {
-  _$ScheduleInfoCopyWithImpl(this._value, this._then);
+  _$ScheduleInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ScheduleInfo _self;
+  final $Res Function(ScheduleInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? calendar = null,
-    Object? jobs = null,
-  }) {
-    return _then(_value.copyWith(
-      calendar: null == calendar
-          ? _value.calendar
-          : calendar // ignore: cast_nullable_to_non_nullable
-              as WorkCalendar,
-      jobs: null == jobs
-          ? _value.jobs
-          : jobs // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledJobInfo>,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $WorkCalendarCopyWith<$Res> get calendar {
-    return $WorkCalendarCopyWith<$Res>(_value.calendar, (value) {
-      return _then(_value.copyWith(calendar: value) as $Val);
-    });
-  }
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? calendar = null,Object? jobs = null,}) {
+  return _then(_self.copyWith(
+calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
+as WorkCalendar,jobs: null == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<ScheduledJobInfo>,
+  ));
+}
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkCalendarCopyWith<$Res> get calendar {
+  
+  return $WorkCalendarCopyWith<$Res>(_self.calendar, (value) {
+    return _then(_self.copyWith(calendar: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ScheduleInfoImplCopyWith<$Res>
-    implements $ScheduleInfoCopyWith<$Res> {
-  factory _$$ScheduleInfoImplCopyWith(
-          _$ScheduleInfoImpl value, $Res Function(_$ScheduleInfoImpl) then) =
-      __$$ScheduleInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({WorkCalendar calendar, List<ScheduledJobInfo> jobs});
 
-  @override
-  $WorkCalendarCopyWith<$Res> get calendar;
+/// Adds pattern-matching-related methods to [ScheduleInfo].
+extension ScheduleInfoPatterns on ScheduleInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ScheduleInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ScheduleInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ScheduleInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduleInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ScheduleInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduleInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( WorkCalendar calendar,  List<ScheduledJobInfo> jobs)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ScheduleInfo() when $default != null:
+return $default(_that.calendar,_that.jobs);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( WorkCalendar calendar,  List<ScheduledJobInfo> jobs)  $default,) {final _that = this;
+switch (_that) {
+case _ScheduleInfo():
+return $default(_that.calendar,_that.jobs);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( WorkCalendar calendar,  List<ScheduledJobInfo> jobs)?  $default,) {final _that = this;
+switch (_that) {
+case _ScheduleInfo() when $default != null:
+return $default(_that.calendar,_that.jobs);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$ScheduleInfoImplCopyWithImpl<$Res>
-    extends _$ScheduleInfoCopyWithImpl<$Res, _$ScheduleInfoImpl>
-    implements _$$ScheduleInfoImplCopyWith<$Res> {
-  __$$ScheduleInfoImplCopyWithImpl(
-      _$ScheduleInfoImpl _value, $Res Function(_$ScheduleInfoImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? calendar = null,
-    Object? jobs = null,
-  }) {
-    return _then(_$ScheduleInfoImpl(
-      calendar: null == calendar
-          ? _value.calendar
-          : calendar // ignore: cast_nullable_to_non_nullable
-              as WorkCalendar,
-      jobs: null == jobs
-          ? _value._jobs
-          : jobs // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledJobInfo>,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduleInfoImpl implements _ScheduleInfo {
-  const _$ScheduleInfoImpl(
-      {required this.calendar,
-      final List<ScheduledJobInfo> jobs = const <ScheduledJobInfo>[]})
-      : _jobs = jobs;
 
-  factory _$ScheduleInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduleInfoImplFromJson(json);
+class _ScheduleInfo implements ScheduleInfo {
+  const _ScheduleInfo({required this.calendar, final  List<ScheduledJobInfo> jobs = const <ScheduledJobInfo>[]}): _jobs = jobs;
+  factory _ScheduleInfo.fromJson(Map<String, dynamic> json) => _$ScheduleInfoFromJson(json);
 
-  @override
-  final WorkCalendar calendar;
-  final List<ScheduledJobInfo> _jobs;
-  @override
-  @JsonKey()
-  List<ScheduledJobInfo> get jobs {
-    if (_jobs is EqualUnmodifiableListView) return _jobs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_jobs);
-  }
-
-  @override
-  String toString() {
-    return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScheduleInfoImpl &&
-            (identical(other.calendar, calendar) ||
-                other.calendar == calendar) &&
-            const DeepCollectionEquality().equals(other._jobs, _jobs));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, calendar, const DeepCollectionEquality().hash(_jobs));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScheduleInfoImplCopyWith<_$ScheduleInfoImpl> get copyWith =>
-      __$$ScheduleInfoImplCopyWithImpl<_$ScheduleInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ScheduleInfoImplToJson(
-      this,
-    );
-  }
+@override final  WorkCalendar calendar;
+ final  List<ScheduledJobInfo> _jobs;
+@override@JsonKey() List<ScheduledJobInfo> get jobs {
+  if (_jobs is EqualUnmodifiableListView) return _jobs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_jobs);
 }
 
-abstract class _ScheduleInfo implements ScheduleInfo {
-  const factory _ScheduleInfo(
-      {required final WorkCalendar calendar,
-      final List<ScheduledJobInfo> jobs}) = _$ScheduleInfoImpl;
 
-  factory _ScheduleInfo.fromJson(Map<String, dynamic> json) =
-      _$ScheduleInfoImpl.fromJson;
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScheduleInfoCopyWith<_ScheduleInfo> get copyWith => __$ScheduleInfoCopyWithImpl<_ScheduleInfo>(this, _$identity);
 
-  @override
-  WorkCalendar get calendar;
-  @override
-  List<ScheduledJobInfo> get jobs;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScheduleInfoImplCopyWith<_$ScheduleInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ScheduleInfoToJson(this, );
 }
 
-ScheduleSetParams _$ScheduleSetParamsFromJson(Map<String, dynamic> json) {
-  return _ScheduleSetParams.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleInfo&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other._jobs, _jobs));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+
+@override
+String toString() {
+  return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ScheduleInfoCopyWith<$Res> implements $ScheduleInfoCopyWith<$Res> {
+  factory _$ScheduleInfoCopyWith(_ScheduleInfo value, $Res Function(_ScheduleInfo) _then) = __$ScheduleInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ WorkCalendar calendar, List<ScheduledJobInfo> jobs
+});
+
+
+@override $WorkCalendarCopyWith<$Res> get calendar;
+
+}
+/// @nodoc
+class __$ScheduleInfoCopyWithImpl<$Res>
+    implements _$ScheduleInfoCopyWith<$Res> {
+  __$ScheduleInfoCopyWithImpl(this._self, this._then);
+
+  final _ScheduleInfo _self;
+  final $Res Function(_ScheduleInfo) _then;
+
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? calendar = null,Object? jobs = null,}) {
+  return _then(_ScheduleInfo(
+calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
+as WorkCalendar,jobs: null == jobs ? _self._jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<ScheduledJobInfo>,
+  ));
+}
+
+/// Create a copy of ScheduleInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkCalendarCopyWith<$Res> get calendar {
+  
+  return $WorkCalendarCopyWith<$Res>(_self.calendar, (value) {
+    return _then(_self.copyWith(calendar: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$ScheduleSetParams {
-  /// The whole calendar, replacing what is stored — the dashboard edits it
-  /// as one document, so there is no partial update to get half applied.
-  WorkCalendar get calendar => throw _privateConstructorUsedError;
 
-  /// The whole job list, replacing what is stored. Null leaves the jobs as
-  /// they are, which is what a client that only edits the calendar sends.
-  List<ScheduledJobConfig>? get jobs => throw _privateConstructorUsedError;
+/// The whole calendar, replacing what is stored — the dashboard edits it
+/// as one document, so there is no partial update to get half applied.
+ WorkCalendar get calendar;/// The whole job list, replacing what is stored. Null leaves the jobs as
+/// they are, which is what a client that only edits the calendar sends.
+ List<ScheduledJobConfig>? get jobs;
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScheduleSetParamsCopyWith<ScheduleSetParams> get copyWith => _$ScheduleSetParamsCopyWithImpl<ScheduleSetParams>(this as ScheduleSetParams, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ScheduleSetParamsCopyWith<ScheduleSetParams> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this ScheduleSetParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleSetParams&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, jobs));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(jobs));
+
+@override
+String toString() {
+  return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ScheduleSetParamsCopyWith<$Res> {
-  factory $ScheduleSetParamsCopyWith(
-          ScheduleSetParams value, $Res Function(ScheduleSetParams) then) =
-      _$ScheduleSetParamsCopyWithImpl<$Res, ScheduleSetParams>;
-  @useResult
-  $Res call({WorkCalendar calendar, List<ScheduledJobConfig>? jobs});
+abstract mixin class $ScheduleSetParamsCopyWith<$Res>  {
+  factory $ScheduleSetParamsCopyWith(ScheduleSetParams value, $Res Function(ScheduleSetParams) _then) = _$ScheduleSetParamsCopyWithImpl;
+@useResult
+$Res call({
+ WorkCalendar calendar, List<ScheduledJobConfig>? jobs
+});
 
-  $WorkCalendarCopyWith<$Res> get calendar;
+
+$WorkCalendarCopyWith<$Res> get calendar;
+
 }
-
 /// @nodoc
-class _$ScheduleSetParamsCopyWithImpl<$Res, $Val extends ScheduleSetParams>
+class _$ScheduleSetParamsCopyWithImpl<$Res>
     implements $ScheduleSetParamsCopyWith<$Res> {
-  _$ScheduleSetParamsCopyWithImpl(this._value, this._then);
+  _$ScheduleSetParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ScheduleSetParams _self;
+  final $Res Function(ScheduleSetParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? calendar = null,
-    Object? jobs = freezed,
-  }) {
-    return _then(_value.copyWith(
-      calendar: null == calendar
-          ? _value.calendar
-          : calendar // ignore: cast_nullable_to_non_nullable
-              as WorkCalendar,
-      jobs: freezed == jobs
-          ? _value.jobs
-          : jobs // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledJobConfig>?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $WorkCalendarCopyWith<$Res> get calendar {
-    return $WorkCalendarCopyWith<$Res>(_value.calendar, (value) {
-      return _then(_value.copyWith(calendar: value) as $Val);
-    });
-  }
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? calendar = null,Object? jobs = freezed,}) {
+  return _then(_self.copyWith(
+calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
+as WorkCalendar,jobs: freezed == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<ScheduledJobConfig>?,
+  ));
+}
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkCalendarCopyWith<$Res> get calendar {
+  
+  return $WorkCalendarCopyWith<$Res>(_self.calendar, (value) {
+    return _then(_self.copyWith(calendar: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ScheduleSetParamsImplCopyWith<$Res>
-    implements $ScheduleSetParamsCopyWith<$Res> {
-  factory _$$ScheduleSetParamsImplCopyWith(_$ScheduleSetParamsImpl value,
-          $Res Function(_$ScheduleSetParamsImpl) then) =
-      __$$ScheduleSetParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({WorkCalendar calendar, List<ScheduledJobConfig>? jobs});
 
-  @override
-  $WorkCalendarCopyWith<$Res> get calendar;
+/// Adds pattern-matching-related methods to [ScheduleSetParams].
+extension ScheduleSetParamsPatterns on ScheduleSetParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ScheduleSetParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ScheduleSetParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ScheduleSetParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduleSetParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ScheduleSetParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduleSetParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( WorkCalendar calendar,  List<ScheduledJobConfig>? jobs)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ScheduleSetParams() when $default != null:
+return $default(_that.calendar,_that.jobs);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( WorkCalendar calendar,  List<ScheduledJobConfig>? jobs)  $default,) {final _that = this;
+switch (_that) {
+case _ScheduleSetParams():
+return $default(_that.calendar,_that.jobs);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( WorkCalendar calendar,  List<ScheduledJobConfig>? jobs)?  $default,) {final _that = this;
+switch (_that) {
+case _ScheduleSetParams() when $default != null:
+return $default(_that.calendar,_that.jobs);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$ScheduleSetParamsImplCopyWithImpl<$Res>
-    extends _$ScheduleSetParamsCopyWithImpl<$Res, _$ScheduleSetParamsImpl>
-    implements _$$ScheduleSetParamsImplCopyWith<$Res> {
-  __$$ScheduleSetParamsImplCopyWithImpl(_$ScheduleSetParamsImpl _value,
-      $Res Function(_$ScheduleSetParamsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? calendar = null,
-    Object? jobs = freezed,
-  }) {
-    return _then(_$ScheduleSetParamsImpl(
-      calendar: null == calendar
-          ? _value.calendar
-          : calendar // ignore: cast_nullable_to_non_nullable
-              as WorkCalendar,
-      jobs: freezed == jobs
-          ? _value._jobs
-          : jobs // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledJobConfig>?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduleSetParamsImpl implements _ScheduleSetParams {
-  const _$ScheduleSetParamsImpl(
-      {required this.calendar, final List<ScheduledJobConfig>? jobs})
-      : _jobs = jobs;
 
-  factory _$ScheduleSetParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduleSetParamsImplFromJson(json);
+class _ScheduleSetParams implements ScheduleSetParams {
+  const _ScheduleSetParams({required this.calendar, final  List<ScheduledJobConfig>? jobs}): _jobs = jobs;
+  factory _ScheduleSetParams.fromJson(Map<String, dynamic> json) => _$ScheduleSetParamsFromJson(json);
 
-  /// The whole calendar, replacing what is stored — the dashboard edits it
-  /// as one document, so there is no partial update to get half applied.
-  @override
-  final WorkCalendar calendar;
-
-  /// The whole job list, replacing what is stored. Null leaves the jobs as
-  /// they are, which is what a client that only edits the calendar sends.
-  final List<ScheduledJobConfig>? _jobs;
-
-  /// The whole job list, replacing what is stored. Null leaves the jobs as
-  /// they are, which is what a client that only edits the calendar sends.
-  @override
-  List<ScheduledJobConfig>? get jobs {
-    final value = _jobs;
-    if (value == null) return null;
-    if (_jobs is EqualUnmodifiableListView) return _jobs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScheduleSetParamsImpl &&
-            (identical(other.calendar, calendar) ||
-                other.calendar == calendar) &&
-            const DeepCollectionEquality().equals(other._jobs, _jobs));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, calendar, const DeepCollectionEquality().hash(_jobs));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScheduleSetParamsImplCopyWith<_$ScheduleSetParamsImpl> get copyWith =>
-      __$$ScheduleSetParamsImplCopyWithImpl<_$ScheduleSetParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ScheduleSetParamsImplToJson(
-      this,
-    );
-  }
+/// The whole calendar, replacing what is stored — the dashboard edits it
+/// as one document, so there is no partial update to get half applied.
+@override final  WorkCalendar calendar;
+/// The whole job list, replacing what is stored. Null leaves the jobs as
+/// they are, which is what a client that only edits the calendar sends.
+ final  List<ScheduledJobConfig>? _jobs;
+/// The whole job list, replacing what is stored. Null leaves the jobs as
+/// they are, which is what a client that only edits the calendar sends.
+@override List<ScheduledJobConfig>? get jobs {
+  final value = _jobs;
+  if (value == null) return null;
+  if (_jobs is EqualUnmodifiableListView) return _jobs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
 }
 
-abstract class _ScheduleSetParams implements ScheduleSetParams {
-  const factory _ScheduleSetParams(
-      {required final WorkCalendar calendar,
-      final List<ScheduledJobConfig>? jobs}) = _$ScheduleSetParamsImpl;
 
-  factory _ScheduleSetParams.fromJson(Map<String, dynamic> json) =
-      _$ScheduleSetParamsImpl.fromJson;
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScheduleSetParamsCopyWith<_ScheduleSetParams> get copyWith => __$ScheduleSetParamsCopyWithImpl<_ScheduleSetParams>(this, _$identity);
 
-  @override
-
-  /// The whole calendar, replacing what is stored — the dashboard edits it
-  /// as one document, so there is no partial update to get half applied.
-  WorkCalendar get calendar;
-  @override
-
-  /// The whole job list, replacing what is stored. Null leaves the jobs as
-  /// they are, which is what a client that only edits the calendar sends.
-  List<ScheduledJobConfig>? get jobs;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScheduleSetParamsImplCopyWith<_$ScheduleSetParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ScheduleSetParamsToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleSetParams&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other._jobs, _jobs));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+
+@override
+String toString() {
+  return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ScheduleSetParamsCopyWith<$Res> implements $ScheduleSetParamsCopyWith<$Res> {
+  factory _$ScheduleSetParamsCopyWith(_ScheduleSetParams value, $Res Function(_ScheduleSetParams) _then) = __$ScheduleSetParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ WorkCalendar calendar, List<ScheduledJobConfig>? jobs
+});
+
+
+@override $WorkCalendarCopyWith<$Res> get calendar;
+
+}
+/// @nodoc
+class __$ScheduleSetParamsCopyWithImpl<$Res>
+    implements _$ScheduleSetParamsCopyWith<$Res> {
+  __$ScheduleSetParamsCopyWithImpl(this._self, this._then);
+
+  final _ScheduleSetParams _self;
+  final $Res Function(_ScheduleSetParams) _then;
+
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? calendar = null,Object? jobs = freezed,}) {
+  return _then(_ScheduleSetParams(
+calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
+as WorkCalendar,jobs: freezed == jobs ? _self._jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<ScheduledJobConfig>?,
+  ));
+}
+
+/// Create a copy of ScheduleSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkCalendarCopyWith<$Res> get calendar {
+  
+  return $WorkCalendarCopyWith<$Res>(_self.calendar, (value) {
+    return _then(_self.copyWith(calendar: value));
+  });
+}
+}
+
+// dart format on

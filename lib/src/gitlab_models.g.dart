@@ -6,9 +6,8 @@ part of 'gitlab_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GitLabMergeRequestImpl _$$GitLabMergeRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GitLabMergeRequestImpl(
+_GitLabMergeRequest _$GitLabMergeRequestFromJson(Map<String, dynamic> json) =>
+    _GitLabMergeRequest(
       iid: (json['iid'] as num).toInt(),
       title: json['title'] as String,
       sourceBranch: json['source_branch'] as String,
@@ -17,7 +16,8 @@ _$GitLabMergeRequestImpl _$$GitLabMergeRequestImplFromJson(
       webUrl: json['web_url'] as String,
       state: json['state'] as String,
       description: json['description'] as String? ?? '',
-      labels: (json['labels'] as List<dynamic>?)
+      labels:
+          (json['labels'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
@@ -28,49 +28,38 @@ _$GitLabMergeRequestImpl _$$GitLabMergeRequestImplFromJson(
           : GitLabDiffRefs.fromJson(json['diff_refs'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$GitLabMergeRequestImplToJson(
-    _$GitLabMergeRequestImpl instance) {
-  final val = <String, dynamic>{
-    'iid': instance.iid,
-    'title': instance.title,
-    'source_branch': instance.sourceBranch,
-    'target_branch': instance.targetBranch,
-    'author': instance.authorName,
-    'web_url': instance.webUrl,
-    'state': instance.state,
-    'description': instance.description,
-    'labels': instance.labels,
-    'changes_count': instance.changesCount,
-    'sha': instance.sha,
-  };
+Map<String, dynamic> _$GitLabMergeRequestToJson(_GitLabMergeRequest instance) =>
+    <String, dynamic>{
+      'iid': instance.iid,
+      'title': instance.title,
+      'source_branch': instance.sourceBranch,
+      'target_branch': instance.targetBranch,
+      'author': instance.authorName,
+      'web_url': instance.webUrl,
+      'state': instance.state,
+      'description': instance.description,
+      'labels': instance.labels,
+      'changes_count': instance.changesCount,
+      'sha': instance.sha,
+      'diff_refs': ?instance.diffRefs?.toJson(),
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('diff_refs', instance.diffRefs?.toJson());
-  return val;
-}
-
-_$GitLabDiffRefsImpl _$$GitLabDiffRefsImplFromJson(Map<String, dynamic> json) =>
-    _$GitLabDiffRefsImpl(
+_GitLabDiffRefs _$GitLabDiffRefsFromJson(Map<String, dynamic> json) =>
+    _GitLabDiffRefs(
       baseSha: json['base_sha'] as String,
       startSha: json['start_sha'] as String,
       headSha: json['head_sha'] as String,
     );
 
-Map<String, dynamic> _$$GitLabDiffRefsImplToJson(
-        _$GitLabDiffRefsImpl instance) =>
+Map<String, dynamic> _$GitLabDiffRefsToJson(_GitLabDiffRefs instance) =>
     <String, dynamic>{
       'base_sha': instance.baseSha,
       'start_sha': instance.startSha,
       'head_sha': instance.headSha,
     };
 
-_$GitLabMrDiffImpl _$$GitLabMrDiffImplFromJson(Map<String, dynamic> json) =>
-    _$GitLabMrDiffImpl(
+_GitLabMrDiff _$GitLabMrDiffFromJson(Map<String, dynamic> json) =>
+    _GitLabMrDiff(
       newPath: json['new_path'] as String,
       oldPath: json['old_path'] as String,
       diff: json['diff'] as String? ?? '',
@@ -79,7 +68,7 @@ _$GitLabMrDiffImpl _$$GitLabMrDiffImplFromJson(Map<String, dynamic> json) =>
       isNewFile: json['new_file'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$GitLabMrDiffImplToJson(_$GitLabMrDiffImpl instance) =>
+Map<String, dynamic> _$GitLabMrDiffToJson(_GitLabMrDiff instance) =>
     <String, dynamic>{
       'new_path': instance.newPath,
       'old_path': instance.oldPath,

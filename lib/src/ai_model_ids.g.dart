@@ -6,15 +6,14 @@ part of 'ai_model_ids.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AiModelIdsImpl _$$AiModelIdsImplFromJson(Map<String, dynamic> json) =>
-    _$AiModelIdsImpl(
-      geminiFlash: json['gemini_flash'] as String? ?? 'gemini-3.6-flash',
-      geminiPro: json['gemini_pro'] as String? ?? 'gemini-3.1-pro',
-      groqFlash: json['groq_flash'] as String? ?? 'openai/gpt-oss-20b',
-      groqPro: json['groq_pro'] as String? ?? 'openai/gpt-oss-120b',
-    );
+_AiModelIds _$AiModelIdsFromJson(Map<String, dynamic> json) => _AiModelIds(
+  geminiFlash: json['gemini_flash'] as String? ?? 'gemini-3.6-flash',
+  geminiPro: json['gemini_pro'] as String? ?? 'gemini-3.1-pro',
+  groqFlash: json['groq_flash'] as String? ?? 'openai/gpt-oss-20b',
+  groqPro: json['groq_pro'] as String? ?? 'openai/gpt-oss-120b',
+);
 
-Map<String, dynamic> _$$AiModelIdsImplToJson(_$AiModelIdsImpl instance) =>
+Map<String, dynamic> _$AiModelIdsToJson(_AiModelIds instance) =>
     <String, dynamic>{
       'gemini_flash': instance.geminiFlash,
       'gemini_pro': instance.geminiPro,

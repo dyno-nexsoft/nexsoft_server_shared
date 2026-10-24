@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,197 +9,281 @@ part of 'job_timing.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-JobTiming _$JobTimingFromJson(Map<String, dynamic> json) {
-  return _JobTiming.fromJson(json);
-}
 
 /// @nodoc
 mixin _$JobTiming {
-  /// Pins the job to this point of each working day; null for a daily job.
-  TimeAnchor? get anchor => throw _privateConstructorUsedError;
 
-  /// Minutes after [anchor] (before, when negative).
-  int get offsetMinutes => throw _privateConstructorUsedError;
+/// Pins the job to this point of each working day; null for a daily job.
+ TimeAnchor? get anchor;/// Minutes after [anchor] (before, when negative).
+ int get offsetMinutes;/// `HH:mm`, for a job that runs every day at a fixed time.
+ String? get time;
+/// Create a copy of JobTiming
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobTimingCopyWith<JobTiming> get copyWith => _$JobTimingCopyWithImpl<JobTiming>(this as JobTiming, _$identity);
 
-  /// `HH:mm`, for a job that runs every day at a fixed time.
-  String? get time => throw _privateConstructorUsedError;
+  /// Serializes this JobTiming to a JSON map.
+  Map<String, dynamic> toJson();
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $JobTimingCopyWith<JobTiming> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,anchor,offsetMinutes,time);
+
+@override
+String toString() {
+  return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $JobTimingCopyWith<$Res> {
-  factory $JobTimingCopyWith(JobTiming value, $Res Function(JobTiming) then) =
-      _$JobTimingCopyWithImpl<$Res, JobTiming>;
-  @useResult
-  $Res call({TimeAnchor? anchor, int offsetMinutes, String? time});
-}
+abstract mixin class $JobTimingCopyWith<$Res>  {
+  factory $JobTimingCopyWith(JobTiming value, $Res Function(JobTiming) _then) = _$JobTimingCopyWithImpl;
+@useResult
+$Res call({
+ TimeAnchor? anchor, int offsetMinutes, String? time
+});
 
+
+
+
+}
 /// @nodoc
-class _$JobTimingCopyWithImpl<$Res, $Val extends JobTiming>
+class _$JobTimingCopyWithImpl<$Res>
     implements $JobTimingCopyWith<$Res> {
-  _$JobTimingCopyWithImpl(this._value, this._then);
+  _$JobTimingCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final JobTiming _self;
+  final $Res Function(JobTiming) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? anchor = freezed,
-    Object? offsetMinutes = null,
-    Object? time = freezed,
-  }) {
-    return _then(_value.copyWith(
-      anchor: freezed == anchor
-          ? _value.anchor
-          : anchor // ignore: cast_nullable_to_non_nullable
-              as TimeAnchor?,
-      offsetMinutes: null == offsetMinutes
-          ? _value.offsetMinutes
-          : offsetMinutes // ignore: cast_nullable_to_non_nullable
-              as int,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of JobTiming
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,}) {
+  return _then(_self.copyWith(
+anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
+as TimeAnchor?,offsetMinutes: null == offsetMinutes ? _self.offsetMinutes : offsetMinutes // ignore: cast_nullable_to_non_nullable
+as int,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$JobTimingImplCopyWith<$Res>
-    implements $JobTimingCopyWith<$Res> {
-  factory _$$JobTimingImplCopyWith(
-          _$JobTimingImpl value, $Res Function(_$JobTimingImpl) then) =
-      __$$JobTimingImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({TimeAnchor? anchor, int offsetMinutes, String? time});
 }
 
-/// @nodoc
-class __$$JobTimingImplCopyWithImpl<$Res>
-    extends _$JobTimingCopyWithImpl<$Res, _$JobTimingImpl>
-    implements _$$JobTimingImplCopyWith<$Res> {
-  __$$JobTimingImplCopyWithImpl(
-      _$JobTimingImpl _value, $Res Function(_$JobTimingImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? anchor = freezed,
-    Object? offsetMinutes = null,
-    Object? time = freezed,
-  }) {
-    return _then(_$JobTimingImpl(
-      anchor: freezed == anchor
-          ? _value.anchor
-          : anchor // ignore: cast_nullable_to_non_nullable
-              as TimeAnchor?,
-      offsetMinutes: null == offsetMinutes
-          ? _value.offsetMinutes
-          : offsetMinutes // ignore: cast_nullable_to_non_nullable
-              as int,
-      time: freezed == time
-          ? _value.time
-          : time // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [JobTiming].
+extension JobTimingPatterns on JobTiming {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _JobTiming value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _JobTiming() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _JobTiming value)  $default,){
+final _that = this;
+switch (_that) {
+case _JobTiming():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _JobTiming value)?  $default,){
+final _that = this;
+switch (_that) {
+case _JobTiming() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _JobTiming() when $default != null:
+return $default(_that.anchor,_that.offsetMinutes,_that.time);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time)  $default,) {final _that = this;
+switch (_that) {
+case _JobTiming():
+return $default(_that.anchor,_that.offsetMinutes,_that.time);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TimeAnchor? anchor,  int offsetMinutes,  String? time)?  $default,) {final _that = this;
+switch (_that) {
+case _JobTiming() when $default != null:
+return $default(_that.anchor,_that.offsetMinutes,_that.time);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobTimingImpl extends _JobTiming {
-  const _$JobTimingImpl({this.anchor, this.offsetMinutes = 0, this.time})
-      : super._();
 
-  factory _$JobTimingImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobTimingImplFromJson(json);
+class _JobTiming extends JobTiming {
+  const _JobTiming({this.anchor, this.offsetMinutes = 0, this.time}): super._();
+  factory _JobTiming.fromJson(Map<String, dynamic> json) => _$JobTimingFromJson(json);
 
-  /// Pins the job to this point of each working day; null for a daily job.
-  @override
-  final TimeAnchor? anchor;
+/// Pins the job to this point of each working day; null for a daily job.
+@override final  TimeAnchor? anchor;
+/// Minutes after [anchor] (before, when negative).
+@override@JsonKey() final  int offsetMinutes;
+/// `HH:mm`, for a job that runs every day at a fixed time.
+@override final  String? time;
 
-  /// Minutes after [anchor] (before, when negative).
-  @override
-  @JsonKey()
-  final int offsetMinutes;
+/// Create a copy of JobTiming
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$JobTimingCopyWith<_JobTiming> get copyWith => __$JobTimingCopyWithImpl<_JobTiming>(this, _$identity);
 
-  /// `HH:mm`, for a job that runs every day at a fixed time.
-  @override
-  final String? time;
-
-  @override
-  String toString() {
-    return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobTimingImpl &&
-            (identical(other.anchor, anchor) || other.anchor == anchor) &&
-            (identical(other.offsetMinutes, offsetMinutes) ||
-                other.offsetMinutes == offsetMinutes) &&
-            (identical(other.time, time) || other.time == time));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, anchor, offsetMinutes, time);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobTimingImplCopyWith<_$JobTimingImpl> get copyWith =>
-      __$$JobTimingImplCopyWithImpl<_$JobTimingImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobTimingImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobTimingToJson(this, );
 }
 
-abstract class _JobTiming extends JobTiming {
-  const factory _JobTiming(
-      {final TimeAnchor? anchor,
-      final int offsetMinutes,
-      final String? time}) = _$JobTimingImpl;
-  const _JobTiming._() : super._();
-
-  factory _JobTiming.fromJson(Map<String, dynamic> json) =
-      _$JobTimingImpl.fromJson;
-
-  @override
-
-  /// Pins the job to this point of each working day; null for a daily job.
-  TimeAnchor? get anchor;
-  @override
-
-  /// Minutes after [anchor] (before, when negative).
-  int get offsetMinutes;
-  @override
-
-  /// `HH:mm`, for a job that runs every day at a fixed time.
-  String? get time;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobTimingImplCopyWith<_$JobTimingImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,anchor,offsetMinutes,time);
+
+@override
+String toString() {
+  return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$JobTimingCopyWith<$Res> implements $JobTimingCopyWith<$Res> {
+  factory _$JobTimingCopyWith(_JobTiming value, $Res Function(_JobTiming) _then) = __$JobTimingCopyWithImpl;
+@override @useResult
+$Res call({
+ TimeAnchor? anchor, int offsetMinutes, String? time
+});
+
+
+
+
+}
+/// @nodoc
+class __$JobTimingCopyWithImpl<$Res>
+    implements _$JobTimingCopyWith<$Res> {
+  __$JobTimingCopyWithImpl(this._self, this._then);
+
+  final _JobTiming _self;
+  final $Res Function(_JobTiming) _then;
+
+/// Create a copy of JobTiming
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,}) {
+  return _then(_JobTiming(
+anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
+as TimeAnchor?,offsetMinutes: null == offsetMinutes ? _self.offsetMinutes : offsetMinutes // ignore: cast_nullable_to_non_nullable
+as int,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

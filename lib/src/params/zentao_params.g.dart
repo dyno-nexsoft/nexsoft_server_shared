@@ -6,78 +6,58 @@ part of 'zentao_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ZentaoReportStartParamsImpl _$$ZentaoReportStartParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoReportStartParamsImpl(
-      description: json['description'] as String? ?? '',
-    );
+_ZentaoReportStartParams _$ZentaoReportStartParamsFromJson(
+  Map<String, dynamic> json,
+) =>
+    _ZentaoReportStartParams(description: json['description'] as String? ?? '');
 
-Map<String, dynamic> _$$ZentaoReportStartParamsImplToJson(
-        _$ZentaoReportStartParamsImpl instance) =>
-    <String, dynamic>{
-      'description': instance.description,
-    };
+Map<String, dynamic> _$ZentaoReportStartParamsToJson(
+  _ZentaoReportStartParams instance,
+) => <String, dynamic>{'description': instance.description};
 
-_$ZentaoReportEditParamsImpl _$$ZentaoReportEditParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoReportEditParamsImpl(
-      taskId: (json['task_id'] as num).toInt(),
-      description: json['description'] as String? ?? '',
-    );
+_ZentaoReportEditParams _$ZentaoReportEditParamsFromJson(
+  Map<String, dynamic> json,
+) => _ZentaoReportEditParams(
+  taskId: (json['task_id'] as num).toInt(),
+  description: json['description'] as String? ?? '',
+);
 
-Map<String, dynamic> _$$ZentaoReportEditParamsImplToJson(
-        _$ZentaoReportEditParamsImpl instance) =>
-    <String, dynamic>{
-      'task_id': instance.taskId,
-      'description': instance.description,
-    };
+Map<String, dynamic> _$ZentaoReportEditParamsToJson(
+  _ZentaoReportEditParams instance,
+) => <String, dynamic>{
+  'task_id': instance.taskId,
+  'description': instance.description,
+};
 
-_$ZentaoTaskParamsImpl _$$ZentaoTaskParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoTaskParamsImpl(
-      taskId: (json['task_id'] as num).toInt(),
-    );
+_ZentaoTaskParams _$ZentaoTaskParamsFromJson(Map<String, dynamic> json) =>
+    _ZentaoTaskParams(taskId: (json['task_id'] as num).toInt());
 
-Map<String, dynamic> _$$ZentaoTaskParamsImplToJson(
-        _$ZentaoTaskParamsImpl instance) =>
-    <String, dynamic>{
-      'task_id': instance.taskId,
-    };
+Map<String, dynamic> _$ZentaoTaskParamsToJson(_ZentaoTaskParams instance) =>
+    <String, dynamic>{'task_id': instance.taskId};
 
-_$ZentaoLinkParamsImpl _$$ZentaoLinkParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoLinkParamsImpl(
+_ZentaoLinkParams _$ZentaoLinkParamsFromJson(Map<String, dynamic> json) =>
+    _ZentaoLinkParams(
       account: json['account'] as String,
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$$ZentaoLinkParamsImplToJson(
-        _$ZentaoLinkParamsImpl instance) =>
+Map<String, dynamic> _$ZentaoLinkParamsToJson(_ZentaoLinkParams instance) =>
     <String, dynamic>{
       'account': instance.account,
       'password': instance.password,
     };
 
-_$ZentaoProjectParamsImpl _$$ZentaoProjectParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoProjectParamsImpl(
-      projectId: (json['project_id'] as num).toInt(),
-    );
+_ZentaoProjectParams _$ZentaoProjectParamsFromJson(Map<String, dynamic> json) =>
+    _ZentaoProjectParams(projectId: (json['project_id'] as num).toInt());
 
-Map<String, dynamic> _$$ZentaoProjectParamsImplToJson(
-        _$ZentaoProjectParamsImpl instance) =>
-    <String, dynamic>{
-      'project_id': instance.projectId,
-    };
+Map<String, dynamic> _$ZentaoProjectParamsToJson(
+  _ZentaoProjectParams instance,
+) => <String, dynamic>{'project_id': instance.projectId};
 
-_$ZentaoExecutionParamsImpl _$$ZentaoExecutionParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ZentaoExecutionParamsImpl(
-      executionId: (json['execution_id'] as num).toInt(),
-    );
+_ZentaoExecutionParams _$ZentaoExecutionParamsFromJson(
+  Map<String, dynamic> json,
+) => _ZentaoExecutionParams(executionId: (json['execution_id'] as num).toInt());
 
-Map<String, dynamic> _$$ZentaoExecutionParamsImplToJson(
-        _$ZentaoExecutionParamsImpl instance) =>
-    <String, dynamic>{
-      'execution_id': instance.executionId,
-    };
+Map<String, dynamic> _$ZentaoExecutionParamsToJson(
+  _ZentaoExecutionParams instance,
+) => <String, dynamic>{'execution_id': instance.executionId};

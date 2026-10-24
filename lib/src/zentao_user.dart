@@ -5,7 +5,7 @@ part 'zentao_user.g.dart';
 
 /// Value object representing a Zentao user account with Discord mapping.
 @freezed
-class ZentaoUser with _$ZentaoUser {
+abstract class ZentaoUser with _$ZentaoUser {
   const factory ZentaoUser({
     required String account,
     required String password,

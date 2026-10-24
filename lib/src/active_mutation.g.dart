@@ -6,8 +6,8 @@ part of 'active_mutation.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActiveMutationImpl _$$ActiveMutationImplFromJson(Map<String, dynamic> json) =>
-    _$ActiveMutationImpl(
+_ActiveMutation _$ActiveMutationFromJson(Map<String, dynamic> json) =>
+    _ActiveMutation(
       id: json['id'] as String,
       actionName: json['action_name'] as String,
       label: json['label'] as String,
@@ -15,8 +15,7 @@ _$ActiveMutationImpl _$$ActiveMutationImplFromJson(Map<String, dynamic> json) =>
       startedAt: DateTime.parse(json['started_at'] as String),
     );
 
-Map<String, dynamic> _$$ActiveMutationImplToJson(
-        _$ActiveMutationImpl instance) =>
+Map<String, dynamic> _$ActiveMutationToJson(_ActiveMutation instance) =>
     <String, dynamic>{
       'id': instance.id,
       'action_name': instance.actionName,

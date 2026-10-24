@@ -6,19 +6,15 @@ part of 'build_machines_priority.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BuildMachinesPriorityImpl _$$BuildMachinesPriorityImplFromJson(
-        Map<String, dynamic> json) =>
-    _$BuildMachinesPriorityImpl(
-      order: (json['order'] as List<dynamic>).map((e) => e as String).toList(),
-      paused: (json['paused'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-    );
+_BuildMachinesPriority _$BuildMachinesPriorityFromJson(
+  Map<String, dynamic> json,
+) => _BuildMachinesPriority(
+  order: (json['order'] as List<dynamic>).map((e) => e as String).toList(),
+  paused:
+      (json['paused'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+);
 
-Map<String, dynamic> _$$BuildMachinesPriorityImplToJson(
-        _$BuildMachinesPriorityImpl instance) =>
-    <String, dynamic>{
-      'order': instance.order,
-      'paused': instance.paused,
-    };
+Map<String, dynamic> _$BuildMachinesPriorityToJson(
+  _BuildMachinesPriority instance,
+) => <String, dynamic>{'order': instance.order, 'paused': instance.paused};

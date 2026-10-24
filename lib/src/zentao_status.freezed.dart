@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,259 +9,291 @@ part of 'zentao_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ZentaoStatus _$ZentaoStatusFromJson(Map<String, dynamic> json) {
-  return _ZentaoStatus.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ZentaoStatus {
-  /// Whether the calling Discord account has Zentao credentials stored.
-  bool get linked => throw _privateConstructorUsedError;
 
-  /// The linked Zentao account name — never the stored password.
-  String? get account => throw _privateConstructorUsedError;
+/// Whether the calling Discord account has Zentao credentials stored.
+ bool get linked;/// The linked Zentao account name — never the stored password.
+ String? get account;/// The server-wide project new report tasks are filed under.
+ int get projectId;/// The server-wide execution (sprint) new report tasks are created in.
+ int get executionId;/// Today's report task for the calling user, if one was started.
+ int? get todayTaskId;
+/// Create a copy of ZentaoStatus
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ZentaoStatusCopyWith<ZentaoStatus> get copyWith => _$ZentaoStatusCopyWithImpl<ZentaoStatus>(this as ZentaoStatus, _$identity);
 
-  /// The server-wide project new report tasks are filed under.
-  int get projectId => throw _privateConstructorUsedError;
+  /// Serializes this ZentaoStatus to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// The server-wide execution (sprint) new report tasks are created in.
-  int get executionId => throw _privateConstructorUsedError;
 
-  /// Today's report task for the calling user, if one was started.
-  int? get todayTaskId => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoStatus&&(identical(other.linked, linked) || other.linked == linked)&&(identical(other.account, account) || other.account == account)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.executionId, executionId) || other.executionId == executionId)&&(identical(other.todayTaskId, todayTaskId) || other.todayTaskId == todayTaskId));
+}
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ZentaoStatusCopyWith<ZentaoStatus> get copyWith =>
-      throw _privateConstructorUsedError;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,linked,account,projectId,executionId,todayTaskId);
+
+@override
+String toString() {
+  return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ZentaoStatusCopyWith<$Res> {
-  factory $ZentaoStatusCopyWith(
-          ZentaoStatus value, $Res Function(ZentaoStatus) then) =
-      _$ZentaoStatusCopyWithImpl<$Res, ZentaoStatus>;
-  @useResult
-  $Res call(
-      {bool linked,
-      String? account,
-      int projectId,
-      int executionId,
-      int? todayTaskId});
-}
+abstract mixin class $ZentaoStatusCopyWith<$Res>  {
+  factory $ZentaoStatusCopyWith(ZentaoStatus value, $Res Function(ZentaoStatus) _then) = _$ZentaoStatusCopyWithImpl;
+@useResult
+$Res call({
+ bool linked, String? account, int projectId, int executionId, int? todayTaskId
+});
 
+
+
+
+}
 /// @nodoc
-class _$ZentaoStatusCopyWithImpl<$Res, $Val extends ZentaoStatus>
+class _$ZentaoStatusCopyWithImpl<$Res>
     implements $ZentaoStatusCopyWith<$Res> {
-  _$ZentaoStatusCopyWithImpl(this._value, this._then);
+  _$ZentaoStatusCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ZentaoStatus _self;
+  final $Res Function(ZentaoStatus) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? linked = null,
-    Object? account = freezed,
-    Object? projectId = null,
-    Object? executionId = null,
-    Object? todayTaskId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      linked: null == linked
-          ? _value.linked
-          : linked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      account: freezed == account
-          ? _value.account
-          : account // ignore: cast_nullable_to_non_nullable
-              as String?,
-      projectId: null == projectId
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as int,
-      executionId: null == executionId
-          ? _value.executionId
-          : executionId // ignore: cast_nullable_to_non_nullable
-              as int,
-      todayTaskId: freezed == todayTaskId
-          ? _value.todayTaskId
-          : todayTaskId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ) as $Val);
-  }
+/// Create a copy of ZentaoStatus
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? linked = null,Object? account = freezed,Object? projectId = null,Object? executionId = null,Object? todayTaskId = freezed,}) {
+  return _then(_self.copyWith(
+linked: null == linked ? _self.linked : linked // ignore: cast_nullable_to_non_nullable
+as bool,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as String?,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as int,executionId: null == executionId ? _self.executionId : executionId // ignore: cast_nullable_to_non_nullable
+as int,todayTaskId: freezed == todayTaskId ? _self.todayTaskId : todayTaskId // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ZentaoStatusImplCopyWith<$Res>
-    implements $ZentaoStatusCopyWith<$Res> {
-  factory _$$ZentaoStatusImplCopyWith(
-          _$ZentaoStatusImpl value, $Res Function(_$ZentaoStatusImpl) then) =
-      __$$ZentaoStatusImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {bool linked,
-      String? account,
-      int projectId,
-      int executionId,
-      int? todayTaskId});
 }
 
-/// @nodoc
-class __$$ZentaoStatusImplCopyWithImpl<$Res>
-    extends _$ZentaoStatusCopyWithImpl<$Res, _$ZentaoStatusImpl>
-    implements _$$ZentaoStatusImplCopyWith<$Res> {
-  __$$ZentaoStatusImplCopyWithImpl(
-      _$ZentaoStatusImpl _value, $Res Function(_$ZentaoStatusImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? linked = null,
-    Object? account = freezed,
-    Object? projectId = null,
-    Object? executionId = null,
-    Object? todayTaskId = freezed,
-  }) {
-    return _then(_$ZentaoStatusImpl(
-      linked: null == linked
-          ? _value.linked
-          : linked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      account: freezed == account
-          ? _value.account
-          : account // ignore: cast_nullable_to_non_nullable
-              as String?,
-      projectId: null == projectId
-          ? _value.projectId
-          : projectId // ignore: cast_nullable_to_non_nullable
-              as int,
-      executionId: null == executionId
-          ? _value.executionId
-          : executionId // ignore: cast_nullable_to_non_nullable
-              as int,
-      todayTaskId: freezed == todayTaskId
-          ? _value.todayTaskId
-          : todayTaskId // ignore: cast_nullable_to_non_nullable
-              as int?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ZentaoStatus].
+extension ZentaoStatusPatterns on ZentaoStatus {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ZentaoStatus value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ZentaoStatus() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ZentaoStatus value)  $default,){
+final _that = this;
+switch (_that) {
+case _ZentaoStatus():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ZentaoStatus value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ZentaoStatus() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool linked,  String? account,  int projectId,  int executionId,  int? todayTaskId)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ZentaoStatus() when $default != null:
+return $default(_that.linked,_that.account,_that.projectId,_that.executionId,_that.todayTaskId);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool linked,  String? account,  int projectId,  int executionId,  int? todayTaskId)  $default,) {final _that = this;
+switch (_that) {
+case _ZentaoStatus():
+return $default(_that.linked,_that.account,_that.projectId,_that.executionId,_that.todayTaskId);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool linked,  String? account,  int projectId,  int executionId,  int? todayTaskId)?  $default,) {final _that = this;
+switch (_that) {
+case _ZentaoStatus() when $default != null:
+return $default(_that.linked,_that.account,_that.projectId,_that.executionId,_that.todayTaskId);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ZentaoStatusImpl implements _ZentaoStatus {
-  const _$ZentaoStatusImpl(
-      {required this.linked,
-      this.account,
-      required this.projectId,
-      required this.executionId,
-      this.todayTaskId});
 
-  factory _$ZentaoStatusImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ZentaoStatusImplFromJson(json);
+class _ZentaoStatus implements ZentaoStatus {
+  const _ZentaoStatus({required this.linked, this.account, required this.projectId, required this.executionId, this.todayTaskId});
+  factory _ZentaoStatus.fromJson(Map<String, dynamic> json) => _$ZentaoStatusFromJson(json);
 
-  /// Whether the calling Discord account has Zentao credentials stored.
-  @override
-  final bool linked;
+/// Whether the calling Discord account has Zentao credentials stored.
+@override final  bool linked;
+/// The linked Zentao account name — never the stored password.
+@override final  String? account;
+/// The server-wide project new report tasks are filed under.
+@override final  int projectId;
+/// The server-wide execution (sprint) new report tasks are created in.
+@override final  int executionId;
+/// Today's report task for the calling user, if one was started.
+@override final  int? todayTaskId;
 
-  /// The linked Zentao account name — never the stored password.
-  @override
-  final String? account;
+/// Create a copy of ZentaoStatus
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ZentaoStatusCopyWith<_ZentaoStatus> get copyWith => __$ZentaoStatusCopyWithImpl<_ZentaoStatus>(this, _$identity);
 
-  /// The server-wide project new report tasks are filed under.
-  @override
-  final int projectId;
-
-  /// The server-wide execution (sprint) new report tasks are created in.
-  @override
-  final int executionId;
-
-  /// Today's report task for the calling user, if one was started.
-  @override
-  final int? todayTaskId;
-
-  @override
-  String toString() {
-    return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ZentaoStatusImpl &&
-            (identical(other.linked, linked) || other.linked == linked) &&
-            (identical(other.account, account) || other.account == account) &&
-            (identical(other.projectId, projectId) ||
-                other.projectId == projectId) &&
-            (identical(other.executionId, executionId) ||
-                other.executionId == executionId) &&
-            (identical(other.todayTaskId, todayTaskId) ||
-                other.todayTaskId == todayTaskId));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, linked, account, projectId, executionId, todayTaskId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ZentaoStatusImplCopyWith<_$ZentaoStatusImpl> get copyWith =>
-      __$$ZentaoStatusImplCopyWithImpl<_$ZentaoStatusImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ZentaoStatusImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ZentaoStatusToJson(this, );
 }
 
-abstract class _ZentaoStatus implements ZentaoStatus {
-  const factory _ZentaoStatus(
-      {required final bool linked,
-      final String? account,
-      required final int projectId,
-      required final int executionId,
-      final int? todayTaskId}) = _$ZentaoStatusImpl;
-
-  factory _ZentaoStatus.fromJson(Map<String, dynamic> json) =
-      _$ZentaoStatusImpl.fromJson;
-
-  @override
-
-  /// Whether the calling Discord account has Zentao credentials stored.
-  bool get linked;
-  @override
-
-  /// The linked Zentao account name — never the stored password.
-  String? get account;
-  @override
-
-  /// The server-wide project new report tasks are filed under.
-  int get projectId;
-  @override
-
-  /// The server-wide execution (sprint) new report tasks are created in.
-  int get executionId;
-  @override
-
-  /// Today's report task for the calling user, if one was started.
-  int? get todayTaskId;
-  @override
-  @JsonKey(ignore: true)
-  _$$ZentaoStatusImplCopyWith<_$ZentaoStatusImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoStatus&&(identical(other.linked, linked) || other.linked == linked)&&(identical(other.account, account) || other.account == account)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.executionId, executionId) || other.executionId == executionId)&&(identical(other.todayTaskId, todayTaskId) || other.todayTaskId == todayTaskId));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,linked,account,projectId,executionId,todayTaskId);
+
+@override
+String toString() {
+  return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ZentaoStatusCopyWith<$Res> implements $ZentaoStatusCopyWith<$Res> {
+  factory _$ZentaoStatusCopyWith(_ZentaoStatus value, $Res Function(_ZentaoStatus) _then) = __$ZentaoStatusCopyWithImpl;
+@override @useResult
+$Res call({
+ bool linked, String? account, int projectId, int executionId, int? todayTaskId
+});
+
+
+
+
+}
+/// @nodoc
+class __$ZentaoStatusCopyWithImpl<$Res>
+    implements _$ZentaoStatusCopyWith<$Res> {
+  __$ZentaoStatusCopyWithImpl(this._self, this._then);
+
+  final _ZentaoStatus _self;
+  final $Res Function(_ZentaoStatus) _then;
+
+/// Create a copy of ZentaoStatus
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? linked = null,Object? account = freezed,Object? projectId = null,Object? executionId = null,Object? todayTaskId = freezed,}) {
+  return _then(_ZentaoStatus(
+linked: null == linked ? _self.linked : linked // ignore: cast_nullable_to_non_nullable
+as bool,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
+as String?,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
+as int,executionId: null == executionId ? _self.executionId : executionId // ignore: cast_nullable_to_non_nullable
+as int,todayTaskId: freezed == todayTaskId ? _self.todayTaskId : todayTaskId // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
+// dart format on

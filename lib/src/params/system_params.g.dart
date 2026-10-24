@@ -6,59 +6,36 @@ part of 'system_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RestartParamsImpl _$$RestartParamsImplFromJson(Map<String, dynamic> json) =>
-    _$RestartParamsImpl(
-      whenIdle: json['when_idle'] as bool? ?? false,
-    );
+_RestartParams _$RestartParamsFromJson(Map<String, dynamic> json) =>
+    _RestartParams(whenIdle: json['when_idle'] as bool? ?? false);
 
-Map<String, dynamic> _$$RestartParamsImplToJson(_$RestartParamsImpl instance) =>
-    <String, dynamic>{
-      'when_idle': instance.whenIdle,
-    };
+Map<String, dynamic> _$RestartParamsToJson(_RestartParams instance) =>
+    <String, dynamic>{'when_idle': instance.whenIdle};
 
-_$DbTableCleanParamsImpl _$$DbTableCleanParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DbTableCleanParamsImpl(
-      table: json['table'] as String,
-    );
+_DbTableCleanParams _$DbTableCleanParamsFromJson(Map<String, dynamic> json) =>
+    _DbTableCleanParams(table: json['table'] as String);
 
-Map<String, dynamic> _$$DbTableCleanParamsImplToJson(
-        _$DbTableCleanParamsImpl instance) =>
-    <String, dynamic>{
-      'table': instance.table,
-    };
+Map<String, dynamic> _$DbTableCleanParamsToJson(_DbTableCleanParams instance) =>
+    <String, dynamic>{'table': instance.table};
 
-_$CronRunParamsImpl _$$CronRunParamsImplFromJson(Map<String, dynamic> json) =>
-    _$CronRunParamsImpl(
+_CronRunParams _$CronRunParamsFromJson(Map<String, dynamic> json) =>
+    _CronRunParams(
       job: json['job'] as String,
       dueAt: json['due_at'] == null
           ? null
           : DateTime.parse(json['due_at'] as String),
     );
 
-Map<String, dynamic> _$$CronRunParamsImplToJson(_$CronRunParamsImpl instance) {
-  final val = <String, dynamic>{
-    'job': instance.job,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('due_at', instance.dueAt?.toIso8601String());
-  return val;
-}
-
-_$P2pFilesDeleteParamsImpl _$$P2pFilesDeleteParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$P2pFilesDeleteParamsImpl(
-      filename: json['filename'] as String,
-    );
-
-Map<String, dynamic> _$$P2pFilesDeleteParamsImplToJson(
-        _$P2pFilesDeleteParamsImpl instance) =>
+Map<String, dynamic> _$CronRunParamsToJson(_CronRunParams instance) =>
     <String, dynamic>{
-      'filename': instance.filename,
+      'job': instance.job,
+      'due_at': ?instance.dueAt?.toIso8601String(),
     };
+
+_P2pFilesDeleteParams _$P2pFilesDeleteParamsFromJson(
+  Map<String, dynamic> json,
+) => _P2pFilesDeleteParams(filename: json['filename'] as String);
+
+Map<String, dynamic> _$P2pFilesDeleteParamsToJson(
+  _P2pFilesDeleteParams instance,
+) => <String, dynamic>{'filename': instance.filename};

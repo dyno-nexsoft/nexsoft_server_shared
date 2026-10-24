@@ -10,7 +10,7 @@ enum DailyTaskAction { edit, finish, close }
 
 /// A Zentao daily-report task, projected from the untyped API response.
 @freezed
-class DailyTask with _$DailyTask {
+abstract class DailyTask with _$DailyTask {
   const DailyTask._();
 
   const factory DailyTask({

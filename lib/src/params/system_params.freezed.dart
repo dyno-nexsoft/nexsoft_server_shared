@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,600 +9,1073 @@ part of 'system_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RestartParams _$RestartParamsFromJson(Map<String, dynamic> json) {
-  return _RestartParams.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RestartParams {
-  /// Wait until no build is running or queued, instead of interrupting one.
-  bool get whenIdle => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $RestartParamsCopyWith<RestartParams> get copyWith =>
-      throw _privateConstructorUsedError;
+/// Wait until no build is running or queued, instead of interrupting one.
+ bool get whenIdle;
+/// Create a copy of RestartParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RestartParamsCopyWith<RestartParams> get copyWith => _$RestartParamsCopyWithImpl<RestartParams>(this as RestartParams, _$identity);
+
+  /// Serializes this RestartParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RestartParams&&(identical(other.whenIdle, whenIdle) || other.whenIdle == whenIdle));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,whenIdle);
+
+@override
+String toString() {
+  return 'RestartParams(whenIdle: $whenIdle)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RestartParamsCopyWith<$Res> {
-  factory $RestartParamsCopyWith(
-          RestartParams value, $Res Function(RestartParams) then) =
-      _$RestartParamsCopyWithImpl<$Res, RestartParams>;
-  @useResult
-  $Res call({bool whenIdle});
-}
+abstract mixin class $RestartParamsCopyWith<$Res>  {
+  factory $RestartParamsCopyWith(RestartParams value, $Res Function(RestartParams) _then) = _$RestartParamsCopyWithImpl;
+@useResult
+$Res call({
+ bool whenIdle
+});
 
+
+
+
+}
 /// @nodoc
-class _$RestartParamsCopyWithImpl<$Res, $Val extends RestartParams>
+class _$RestartParamsCopyWithImpl<$Res>
     implements $RestartParamsCopyWith<$Res> {
-  _$RestartParamsCopyWithImpl(this._value, this._then);
+  _$RestartParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RestartParams _self;
+  final $Res Function(RestartParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? whenIdle = null,
-  }) {
-    return _then(_value.copyWith(
-      whenIdle: null == whenIdle
-          ? _value.whenIdle
-          : whenIdle // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of RestartParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? whenIdle = null,}) {
+  return _then(_self.copyWith(
+whenIdle: null == whenIdle ? _self.whenIdle : whenIdle // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RestartParamsImplCopyWith<$Res>
-    implements $RestartParamsCopyWith<$Res> {
-  factory _$$RestartParamsImplCopyWith(
-          _$RestartParamsImpl value, $Res Function(_$RestartParamsImpl) then) =
-      __$$RestartParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({bool whenIdle});
 }
 
-/// @nodoc
-class __$$RestartParamsImplCopyWithImpl<$Res>
-    extends _$RestartParamsCopyWithImpl<$Res, _$RestartParamsImpl>
-    implements _$$RestartParamsImplCopyWith<$Res> {
-  __$$RestartParamsImplCopyWithImpl(
-      _$RestartParamsImpl _value, $Res Function(_$RestartParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? whenIdle = null,
-  }) {
-    return _then(_$RestartParamsImpl(
-      whenIdle: null == whenIdle
-          ? _value.whenIdle
-          : whenIdle // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [RestartParams].
+extension RestartParamsPatterns on RestartParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RestartParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _RestartParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RestartParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _RestartParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RestartParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _RestartParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool whenIdle)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _RestartParams() when $default != null:
+return $default(_that.whenIdle);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool whenIdle)  $default,) {final _that = this;
+switch (_that) {
+case _RestartParams():
+return $default(_that.whenIdle);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool whenIdle)?  $default,) {final _that = this;
+switch (_that) {
+case _RestartParams() when $default != null:
+return $default(_that.whenIdle);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$RestartParamsImpl implements _RestartParams {
-  const _$RestartParamsImpl({this.whenIdle = false});
 
-  factory _$RestartParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RestartParamsImplFromJson(json);
+class _RestartParams implements RestartParams {
+  const _RestartParams({this.whenIdle = false});
+  factory _RestartParams.fromJson(Map<String, dynamic> json) => _$RestartParamsFromJson(json);
 
-  /// Wait until no build is running or queued, instead of interrupting one.
-  @override
-  @JsonKey()
-  final bool whenIdle;
+/// Wait until no build is running or queued, instead of interrupting one.
+@override@JsonKey() final  bool whenIdle;
 
-  @override
-  String toString() {
-    return 'RestartParams(whenIdle: $whenIdle)';
-  }
+/// Create a copy of RestartParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RestartParamsCopyWith<_RestartParams> get copyWith => __$RestartParamsCopyWithImpl<_RestartParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RestartParamsImpl &&
-            (identical(other.whenIdle, whenIdle) ||
-                other.whenIdle == whenIdle));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, whenIdle);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RestartParamsImplCopyWith<_$RestartParamsImpl> get copyWith =>
-      __$$RestartParamsImplCopyWithImpl<_$RestartParamsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RestartParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RestartParamsToJson(this, );
 }
 
-abstract class _RestartParams implements RestartParams {
-  const factory _RestartParams({final bool whenIdle}) = _$RestartParamsImpl;
-
-  factory _RestartParams.fromJson(Map<String, dynamic> json) =
-      _$RestartParamsImpl.fromJson;
-
-  @override
-
-  /// Wait until no build is running or queued, instead of interrupting one.
-  bool get whenIdle;
-  @override
-  @JsonKey(ignore: true)
-  _$$RestartParamsImplCopyWith<_$RestartParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RestartParams&&(identical(other.whenIdle, whenIdle) || other.whenIdle == whenIdle));
 }
 
-DbTableCleanParams _$DbTableCleanParamsFromJson(Map<String, dynamic> json) {
-  return _DbTableCleanParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,whenIdle);
+
+@override
+String toString() {
+  return 'RestartParams(whenIdle: $whenIdle)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RestartParamsCopyWith<$Res> implements $RestartParamsCopyWith<$Res> {
+  factory _$RestartParamsCopyWith(_RestartParams value, $Res Function(_RestartParams) _then) = __$RestartParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ bool whenIdle
+});
+
+
+
+
+}
+/// @nodoc
+class __$RestartParamsCopyWithImpl<$Res>
+    implements _$RestartParamsCopyWith<$Res> {
+  __$RestartParamsCopyWithImpl(this._self, this._then);
+
+  final _RestartParams _self;
+  final $Res Function(_RestartParams) _then;
+
+/// Create a copy of RestartParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? whenIdle = null,}) {
+  return _then(_RestartParams(
+whenIdle: null == whenIdle ? _self.whenIdle : whenIdle // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$DbTableCleanParams {
-  /// Exact table name from `system.db.list`.
-  String get table => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DbTableCleanParamsCopyWith<DbTableCleanParams> get copyWith =>
-      throw _privateConstructorUsedError;
+/// Exact table name from `system.db.list`.
+ String get table;
+/// Create a copy of DbTableCleanParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DbTableCleanParamsCopyWith<DbTableCleanParams> get copyWith => _$DbTableCleanParamsCopyWithImpl<DbTableCleanParams>(this as DbTableCleanParams, _$identity);
+
+  /// Serializes this DbTableCleanParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DbTableCleanParams&&(identical(other.table, table) || other.table == table));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,table);
+
+@override
+String toString() {
+  return 'DbTableCleanParams(table: $table)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DbTableCleanParamsCopyWith<$Res> {
-  factory $DbTableCleanParamsCopyWith(
-          DbTableCleanParams value, $Res Function(DbTableCleanParams) then) =
-      _$DbTableCleanParamsCopyWithImpl<$Res, DbTableCleanParams>;
-  @useResult
-  $Res call({String table});
-}
+abstract mixin class $DbTableCleanParamsCopyWith<$Res>  {
+  factory $DbTableCleanParamsCopyWith(DbTableCleanParams value, $Res Function(DbTableCleanParams) _then) = _$DbTableCleanParamsCopyWithImpl;
+@useResult
+$Res call({
+ String table
+});
 
+
+
+
+}
 /// @nodoc
-class _$DbTableCleanParamsCopyWithImpl<$Res, $Val extends DbTableCleanParams>
+class _$DbTableCleanParamsCopyWithImpl<$Res>
     implements $DbTableCleanParamsCopyWith<$Res> {
-  _$DbTableCleanParamsCopyWithImpl(this._value, this._then);
+  _$DbTableCleanParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DbTableCleanParams _self;
+  final $Res Function(DbTableCleanParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? table = null,
-  }) {
-    return _then(_value.copyWith(
-      table: null == table
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of DbTableCleanParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? table = null,}) {
+  return _then(_self.copyWith(
+table: null == table ? _self.table : table // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$DbTableCleanParamsImplCopyWith<$Res>
-    implements $DbTableCleanParamsCopyWith<$Res> {
-  factory _$$DbTableCleanParamsImplCopyWith(_$DbTableCleanParamsImpl value,
-          $Res Function(_$DbTableCleanParamsImpl) then) =
-      __$$DbTableCleanParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String table});
 }
 
-/// @nodoc
-class __$$DbTableCleanParamsImplCopyWithImpl<$Res>
-    extends _$DbTableCleanParamsCopyWithImpl<$Res, _$DbTableCleanParamsImpl>
-    implements _$$DbTableCleanParamsImplCopyWith<$Res> {
-  __$$DbTableCleanParamsImplCopyWithImpl(_$DbTableCleanParamsImpl _value,
-      $Res Function(_$DbTableCleanParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? table = null,
-  }) {
-    return _then(_$DbTableCleanParamsImpl(
-      table: null == table
-          ? _value.table
-          : table // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [DbTableCleanParams].
+extension DbTableCleanParamsPatterns on DbTableCleanParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DbTableCleanParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DbTableCleanParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DbTableCleanParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _DbTableCleanParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DbTableCleanParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DbTableCleanParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String table)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DbTableCleanParams() when $default != null:
+return $default(_that.table);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String table)  $default,) {final _that = this;
+switch (_that) {
+case _DbTableCleanParams():
+return $default(_that.table);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String table)?  $default,) {final _that = this;
+switch (_that) {
+case _DbTableCleanParams() when $default != null:
+return $default(_that.table);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DbTableCleanParamsImpl implements _DbTableCleanParams {
-  const _$DbTableCleanParamsImpl({required this.table});
 
-  factory _$DbTableCleanParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DbTableCleanParamsImplFromJson(json);
+class _DbTableCleanParams implements DbTableCleanParams {
+  const _DbTableCleanParams({required this.table});
+  factory _DbTableCleanParams.fromJson(Map<String, dynamic> json) => _$DbTableCleanParamsFromJson(json);
 
-  /// Exact table name from `system.db.list`.
-  @override
-  final String table;
+/// Exact table name from `system.db.list`.
+@override final  String table;
 
-  @override
-  String toString() {
-    return 'DbTableCleanParams(table: $table)';
-  }
+/// Create a copy of DbTableCleanParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DbTableCleanParamsCopyWith<_DbTableCleanParams> get copyWith => __$DbTableCleanParamsCopyWithImpl<_DbTableCleanParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DbTableCleanParamsImpl &&
-            (identical(other.table, table) || other.table == table));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, table);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DbTableCleanParamsImplCopyWith<_$DbTableCleanParamsImpl> get copyWith =>
-      __$$DbTableCleanParamsImplCopyWithImpl<_$DbTableCleanParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DbTableCleanParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$DbTableCleanParamsToJson(this, );
 }
 
-abstract class _DbTableCleanParams implements DbTableCleanParams {
-  const factory _DbTableCleanParams({required final String table}) =
-      _$DbTableCleanParamsImpl;
-
-  factory _DbTableCleanParams.fromJson(Map<String, dynamic> json) =
-      _$DbTableCleanParamsImpl.fromJson;
-
-  @override
-
-  /// Exact table name from `system.db.list`.
-  String get table;
-  @override
-  @JsonKey(ignore: true)
-  _$$DbTableCleanParamsImplCopyWith<_$DbTableCleanParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DbTableCleanParams&&(identical(other.table, table) || other.table == table));
 }
 
-CronRunParams _$CronRunParamsFromJson(Map<String, dynamic> json) {
-  return _CronRunParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,table);
+
+@override
+String toString() {
+  return 'DbTableCleanParams(table: $table)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DbTableCleanParamsCopyWith<$Res> implements $DbTableCleanParamsCopyWith<$Res> {
+  factory _$DbTableCleanParamsCopyWith(_DbTableCleanParams value, $Res Function(_DbTableCleanParams) _then) = __$DbTableCleanParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String table
+});
+
+
+
+
+}
+/// @nodoc
+class __$DbTableCleanParamsCopyWithImpl<$Res>
+    implements _$DbTableCleanParamsCopyWith<$Res> {
+  __$DbTableCleanParamsCopyWithImpl(this._self, this._then);
+
+  final _DbTableCleanParams _self;
+  final $Res Function(_DbTableCleanParams) _then;
+
+/// Create a copy of DbTableCleanParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? table = null,}) {
+  return _then(_DbTableCleanParams(
+table: null == table ? _self.table : table // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$CronRunParams {
-  String get job => throw _privateConstructorUsedError;
 
-  /// When the run was due, for one made up after the server was down: a
-  /// job decides by it what a run *now* would decide by the clock (the
-  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
-  /// Omitted for a run on time or by hand.
-  DateTime? get dueAt => throw _privateConstructorUsedError;
+ String get job;/// When the run was due, for one made up after the server was down: a
+/// job decides by it what a run *now* would decide by the clock (the
+/// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+/// Omitted for a run on time or by hand.
+ DateTime? get dueAt;
+/// Create a copy of CronRunParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CronRunParamsCopyWith<CronRunParams> get copyWith => _$CronRunParamsCopyWithImpl<CronRunParams>(this as CronRunParams, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CronRunParamsCopyWith<CronRunParams> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this CronRunParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CronRunParams&&(identical(other.job, job) || other.job == job)&&(identical(other.dueAt, dueAt) || other.dueAt == dueAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,job,dueAt);
+
+@override
+String toString() {
+  return 'CronRunParams(job: $job, dueAt: $dueAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CronRunParamsCopyWith<$Res> {
-  factory $CronRunParamsCopyWith(
-          CronRunParams value, $Res Function(CronRunParams) then) =
-      _$CronRunParamsCopyWithImpl<$Res, CronRunParams>;
-  @useResult
-  $Res call({String job, DateTime? dueAt});
-}
+abstract mixin class $CronRunParamsCopyWith<$Res>  {
+  factory $CronRunParamsCopyWith(CronRunParams value, $Res Function(CronRunParams) _then) = _$CronRunParamsCopyWithImpl;
+@useResult
+$Res call({
+ String job, DateTime? dueAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$CronRunParamsCopyWithImpl<$Res, $Val extends CronRunParams>
+class _$CronRunParamsCopyWithImpl<$Res>
     implements $CronRunParamsCopyWith<$Res> {
-  _$CronRunParamsCopyWithImpl(this._value, this._then);
+  _$CronRunParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CronRunParams _self;
+  final $Res Function(CronRunParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? job = null,
-    Object? dueAt = freezed,
-  }) {
-    return _then(_value.copyWith(
-      job: null == job
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as String,
-      dueAt: freezed == dueAt
-          ? _value.dueAt
-          : dueAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
-  }
+/// Create a copy of CronRunParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? job = null,Object? dueAt = freezed,}) {
+  return _then(_self.copyWith(
+job: null == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
+as String,dueAt: freezed == dueAt ? _self.dueAt : dueAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$CronRunParamsImplCopyWith<$Res>
-    implements $CronRunParamsCopyWith<$Res> {
-  factory _$$CronRunParamsImplCopyWith(
-          _$CronRunParamsImpl value, $Res Function(_$CronRunParamsImpl) then) =
-      __$$CronRunParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String job, DateTime? dueAt});
 }
 
-/// @nodoc
-class __$$CronRunParamsImplCopyWithImpl<$Res>
-    extends _$CronRunParamsCopyWithImpl<$Res, _$CronRunParamsImpl>
-    implements _$$CronRunParamsImplCopyWith<$Res> {
-  __$$CronRunParamsImplCopyWithImpl(
-      _$CronRunParamsImpl _value, $Res Function(_$CronRunParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? job = null,
-    Object? dueAt = freezed,
-  }) {
-    return _then(_$CronRunParamsImpl(
-      job: null == job
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as String,
-      dueAt: freezed == dueAt
-          ? _value.dueAt
-          : dueAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [CronRunParams].
+extension CronRunParamsPatterns on CronRunParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CronRunParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _CronRunParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CronRunParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _CronRunParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CronRunParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _CronRunParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String job,  DateTime? dueAt)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _CronRunParams() when $default != null:
+return $default(_that.job,_that.dueAt);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String job,  DateTime? dueAt)  $default,) {final _that = this;
+switch (_that) {
+case _CronRunParams():
+return $default(_that.job,_that.dueAt);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String job,  DateTime? dueAt)?  $default,) {final _that = this;
+switch (_that) {
+case _CronRunParams() when $default != null:
+return $default(_that.job,_that.dueAt);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CronRunParamsImpl implements _CronRunParams {
-  const _$CronRunParamsImpl({required this.job, this.dueAt});
 
-  factory _$CronRunParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CronRunParamsImplFromJson(json);
+class _CronRunParams implements CronRunParams {
+  const _CronRunParams({required this.job, this.dueAt});
+  factory _CronRunParams.fromJson(Map<String, dynamic> json) => _$CronRunParamsFromJson(json);
 
-  @override
-  final String job;
+@override final  String job;
+/// When the run was due, for one made up after the server was down: a
+/// job decides by it what a run *now* would decide by the clock (the
+/// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
+/// Omitted for a run on time or by hand.
+@override final  DateTime? dueAt;
 
-  /// When the run was due, for one made up after the server was down: a
-  /// job decides by it what a run *now* would decide by the clock (the
-  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
-  /// Omitted for a run on time or by hand.
-  @override
-  final DateTime? dueAt;
+/// Create a copy of CronRunParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CronRunParamsCopyWith<_CronRunParams> get copyWith => __$CronRunParamsCopyWithImpl<_CronRunParams>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'CronRunParams(job: $job, dueAt: $dueAt)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CronRunParamsImpl &&
-            (identical(other.job, job) || other.job == job) &&
-            (identical(other.dueAt, dueAt) || other.dueAt == dueAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, job, dueAt);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CronRunParamsImplCopyWith<_$CronRunParamsImpl> get copyWith =>
-      __$$CronRunParamsImplCopyWithImpl<_$CronRunParamsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CronRunParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$CronRunParamsToJson(this, );
 }
 
-abstract class _CronRunParams implements CronRunParams {
-  const factory _CronRunParams(
-      {required final String job, final DateTime? dueAt}) = _$CronRunParamsImpl;
-
-  factory _CronRunParams.fromJson(Map<String, dynamic> json) =
-      _$CronRunParamsImpl.fromJson;
-
-  @override
-  String get job;
-  @override
-
-  /// When the run was due, for one made up after the server was down: a
-  /// job decides by it what a run *now* would decide by the clock (the
-  /// cleanup's weekly full clean is Sunday's, not the Monday it ran on).
-  /// Omitted for a run on time or by hand.
-  DateTime? get dueAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$CronRunParamsImplCopyWith<_$CronRunParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CronRunParams&&(identical(other.job, job) || other.job == job)&&(identical(other.dueAt, dueAt) || other.dueAt == dueAt));
 }
 
-P2pFilesDeleteParams _$P2pFilesDeleteParamsFromJson(Map<String, dynamic> json) {
-  return _P2pFilesDeleteParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,job,dueAt);
+
+@override
+String toString() {
+  return 'CronRunParams(job: $job, dueAt: $dueAt)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CronRunParamsCopyWith<$Res> implements $CronRunParamsCopyWith<$Res> {
+  factory _$CronRunParamsCopyWith(_CronRunParams value, $Res Function(_CronRunParams) _then) = __$CronRunParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String job, DateTime? dueAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$CronRunParamsCopyWithImpl<$Res>
+    implements _$CronRunParamsCopyWith<$Res> {
+  __$CronRunParamsCopyWithImpl(this._self, this._then);
+
+  final _CronRunParams _self;
+  final $Res Function(_CronRunParams) _then;
+
+/// Create a copy of CronRunParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? job = null,Object? dueAt = freezed,}) {
+  return _then(_CronRunParams(
+job: null == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
+as String,dueAt: freezed == dueAt ? _self.dueAt : dueAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$P2pFilesDeleteParams {
-  String get filename => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $P2pFilesDeleteParamsCopyWith<P2pFilesDeleteParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get filename;
+/// Create a copy of P2pFilesDeleteParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$P2pFilesDeleteParamsCopyWith<P2pFilesDeleteParams> get copyWith => _$P2pFilesDeleteParamsCopyWithImpl<P2pFilesDeleteParams>(this as P2pFilesDeleteParams, _$identity);
+
+  /// Serializes this P2pFilesDeleteParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pFilesDeleteParams&&(identical(other.filename, filename) || other.filename == filename));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,filename);
+
+@override
+String toString() {
+  return 'P2pFilesDeleteParams(filename: $filename)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $P2pFilesDeleteParamsCopyWith<$Res> {
-  factory $P2pFilesDeleteParamsCopyWith(P2pFilesDeleteParams value,
-          $Res Function(P2pFilesDeleteParams) then) =
-      _$P2pFilesDeleteParamsCopyWithImpl<$Res, P2pFilesDeleteParams>;
-  @useResult
-  $Res call({String filename});
-}
+abstract mixin class $P2pFilesDeleteParamsCopyWith<$Res>  {
+  factory $P2pFilesDeleteParamsCopyWith(P2pFilesDeleteParams value, $Res Function(P2pFilesDeleteParams) _then) = _$P2pFilesDeleteParamsCopyWithImpl;
+@useResult
+$Res call({
+ String filename
+});
 
+
+
+
+}
 /// @nodoc
-class _$P2pFilesDeleteParamsCopyWithImpl<$Res,
-        $Val extends P2pFilesDeleteParams>
+class _$P2pFilesDeleteParamsCopyWithImpl<$Res>
     implements $P2pFilesDeleteParamsCopyWith<$Res> {
-  _$P2pFilesDeleteParamsCopyWithImpl(this._value, this._then);
+  _$P2pFilesDeleteParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final P2pFilesDeleteParams _self;
+  final $Res Function(P2pFilesDeleteParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? filename = null,
-  }) {
-    return _then(_value.copyWith(
-      filename: null == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of P2pFilesDeleteParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? filename = null,}) {
+  return _then(_self.copyWith(
+filename: null == filename ? _self.filename : filename // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$P2pFilesDeleteParamsImplCopyWith<$Res>
-    implements $P2pFilesDeleteParamsCopyWith<$Res> {
-  factory _$$P2pFilesDeleteParamsImplCopyWith(_$P2pFilesDeleteParamsImpl value,
-          $Res Function(_$P2pFilesDeleteParamsImpl) then) =
-      __$$P2pFilesDeleteParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String filename});
 }
 
-/// @nodoc
-class __$$P2pFilesDeleteParamsImplCopyWithImpl<$Res>
-    extends _$P2pFilesDeleteParamsCopyWithImpl<$Res, _$P2pFilesDeleteParamsImpl>
-    implements _$$P2pFilesDeleteParamsImplCopyWith<$Res> {
-  __$$P2pFilesDeleteParamsImplCopyWithImpl(_$P2pFilesDeleteParamsImpl _value,
-      $Res Function(_$P2pFilesDeleteParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? filename = null,
-  }) {
-    return _then(_$P2pFilesDeleteParamsImpl(
-      filename: null == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [P2pFilesDeleteParams].
+extension P2pFilesDeleteParamsPatterns on P2pFilesDeleteParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _P2pFilesDeleteParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _P2pFilesDeleteParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _P2pFilesDeleteParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String filename)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams() when $default != null:
+return $default(_that.filename);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String filename)  $default,) {final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams():
+return $default(_that.filename);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String filename)?  $default,) {final _that = this;
+switch (_that) {
+case _P2pFilesDeleteParams() when $default != null:
+return $default(_that.filename);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$P2pFilesDeleteParamsImpl implements _P2pFilesDeleteParams {
-  const _$P2pFilesDeleteParamsImpl({required this.filename});
 
-  factory _$P2pFilesDeleteParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$P2pFilesDeleteParamsImplFromJson(json);
+class _P2pFilesDeleteParams implements P2pFilesDeleteParams {
+  const _P2pFilesDeleteParams({required this.filename});
+  factory _P2pFilesDeleteParams.fromJson(Map<String, dynamic> json) => _$P2pFilesDeleteParamsFromJson(json);
 
-  @override
-  final String filename;
+@override final  String filename;
 
-  @override
-  String toString() {
-    return 'P2pFilesDeleteParams(filename: $filename)';
-  }
+/// Create a copy of P2pFilesDeleteParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$P2pFilesDeleteParamsCopyWith<_P2pFilesDeleteParams> get copyWith => __$P2pFilesDeleteParamsCopyWithImpl<_P2pFilesDeleteParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$P2pFilesDeleteParamsImpl &&
-            (identical(other.filename, filename) ||
-                other.filename == filename));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, filename);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$P2pFilesDeleteParamsImplCopyWith<_$P2pFilesDeleteParamsImpl>
-      get copyWith =>
-          __$$P2pFilesDeleteParamsImplCopyWithImpl<_$P2pFilesDeleteParamsImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$P2pFilesDeleteParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$P2pFilesDeleteParamsToJson(this, );
 }
 
-abstract class _P2pFilesDeleteParams implements P2pFilesDeleteParams {
-  const factory _P2pFilesDeleteParams({required final String filename}) =
-      _$P2pFilesDeleteParamsImpl;
-
-  factory _P2pFilesDeleteParams.fromJson(Map<String, dynamic> json) =
-      _$P2pFilesDeleteParamsImpl.fromJson;
-
-  @override
-  String get filename;
-  @override
-  @JsonKey(ignore: true)
-  _$$P2pFilesDeleteParamsImplCopyWith<_$P2pFilesDeleteParamsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pFilesDeleteParams&&(identical(other.filename, filename) || other.filename == filename));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,filename);
+
+@override
+String toString() {
+  return 'P2pFilesDeleteParams(filename: $filename)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$P2pFilesDeleteParamsCopyWith<$Res> implements $P2pFilesDeleteParamsCopyWith<$Res> {
+  factory _$P2pFilesDeleteParamsCopyWith(_P2pFilesDeleteParams value, $Res Function(_P2pFilesDeleteParams) _then) = __$P2pFilesDeleteParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String filename
+});
+
+
+
+
+}
+/// @nodoc
+class __$P2pFilesDeleteParamsCopyWithImpl<$Res>
+    implements _$P2pFilesDeleteParamsCopyWith<$Res> {
+  __$P2pFilesDeleteParamsCopyWithImpl(this._self, this._then);
+
+  final _P2pFilesDeleteParams _self;
+  final $Res Function(_P2pFilesDeleteParams) _then;
+
+/// Create a copy of P2pFilesDeleteParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? filename = null,}) {
+  return _then(_P2pFilesDeleteParams(
+filename: null == filename ? _self.filename : filename // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

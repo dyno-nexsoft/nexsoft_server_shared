@@ -6,71 +6,47 @@ part of 'gitlab_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GitlabReviewParamsImpl _$$GitlabReviewParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GitlabReviewParamsImpl(
+_GitlabReviewParams _$GitlabReviewParamsFromJson(Map<String, dynamic> json) =>
+    _GitlabReviewParams(
       url: const GitLabMrUrlConverter().fromJson(json['url'] as String),
-      model:
-          json['model'] == null ? AiModel.flash : AiModel.parse(json['model']),
+      model: json['model'] == null
+          ? AiModel.flash
+          : AiModel.parse(json['model']),
     );
 
-Map<String, dynamic> _$$GitlabReviewParamsImplToJson(
-        _$GitlabReviewParamsImpl instance) =>
+Map<String, dynamic> _$GitlabReviewParamsToJson(_GitlabReviewParams instance) =>
     <String, dynamic>{
       'url': const GitLabMrUrlConverter().toJson(instance.url),
       'model': _$AiModelEnumMap[instance.model]!,
     };
 
-const _$AiModelEnumMap = {
-  AiModel.flash: 'flash',
-  AiModel.pro: 'pro',
+const _$AiModelEnumMap = {AiModel.flash: 'flash', AiModel.pro: 'pro'};
+
+_GitlabTranslateArbParams _$GitlabTranslateArbParamsFromJson(
+  Map<String, dynamic> json,
+) => _GitlabTranslateArbParams(
+  module: const TbchatModuleConverter().fromJson(json['module'] as String),
+  targetBranch: json['target_branch'] as String,
+  model: json['model'] == null ? AiModel.flash : AiModel.parse(json['model']),
+);
+
+Map<String, dynamic> _$GitlabTranslateArbParamsToJson(
+  _GitlabTranslateArbParams instance,
+) => <String, dynamic>{
+  'module': const TbchatModuleConverter().toJson(instance.module),
+  'target_branch': instance.targetBranch,
+  'model': _$AiModelEnumMap[instance.model]!,
 };
 
-_$GitlabTranslateArbParamsImpl _$$GitlabTranslateArbParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GitlabTranslateArbParamsImpl(
-      module: const TbchatModuleConverter().fromJson(json['module'] as String),
-      targetBranch: json['target_branch'] as String,
-      model:
-          json['model'] == null ? AiModel.flash : AiModel.parse(json['model']),
-    );
+_HistoryListParams _$HistoryListParamsFromJson(Map<String, dynamic> json) =>
+    _HistoryListParams(limit: (json['limit'] as num?)?.toInt());
 
-Map<String, dynamic> _$$GitlabTranslateArbParamsImplToJson(
-        _$GitlabTranslateArbParamsImpl instance) =>
-    <String, dynamic>{
-      'module': const TbchatModuleConverter().toJson(instance.module),
-      'target_branch': instance.targetBranch,
-      'model': _$AiModelEnumMap[instance.model]!,
-    };
+Map<String, dynamic> _$HistoryListParamsToJson(_HistoryListParams instance) =>
+    <String, dynamic>{'limit': ?instance.limit};
 
-_$HistoryListParamsImpl _$$HistoryListParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$HistoryListParamsImpl(
-      limit: (json['limit'] as num?)?.toInt(),
-    );
+_HistoryDeleteParams _$HistoryDeleteParamsFromJson(Map<String, dynamic> json) =>
+    _HistoryDeleteParams(id: json['id'] as String);
 
-Map<String, dynamic> _$$HistoryListParamsImplToJson(
-    _$HistoryListParamsImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('limit', instance.limit);
-  return val;
-}
-
-_$HistoryDeleteParamsImpl _$$HistoryDeleteParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$HistoryDeleteParamsImpl(
-      id: json['id'] as String,
-    );
-
-Map<String, dynamic> _$$HistoryDeleteParamsImplToJson(
-        _$HistoryDeleteParamsImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-    };
+Map<String, dynamic> _$HistoryDeleteParamsToJson(
+  _HistoryDeleteParams instance,
+) => <String, dynamic>{'id': instance.id};

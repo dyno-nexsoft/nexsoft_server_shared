@@ -6,39 +6,34 @@ part of 'ai_prompts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AiPromptsImpl _$$AiPromptsImplFromJson(Map<String, dynamic> json) =>
-    _$AiPromptsImpl(
-      reviewIntro: json['review_intro'] as String,
-      reviewConventions: json['review_conventions'] as String,
-      translatorIntro: json['translator_intro'] as String,
-    );
+_AiPrompts _$AiPromptsFromJson(Map<String, dynamic> json) => _AiPrompts(
+  reviewIntro: json['review_intro'] as String,
+  reviewConventions: json['review_conventions'] as String,
+  translatorIntro: json['translator_intro'] as String,
+);
 
-Map<String, dynamic> _$$AiPromptsImplToJson(_$AiPromptsImpl instance) =>
+Map<String, dynamic> _$AiPromptsToJson(_AiPrompts instance) =>
     <String, dynamic>{
       'review_intro': instance.reviewIntro,
       'review_conventions': instance.reviewConventions,
       'translator_intro': instance.translatorIntro,
     };
 
-_$AiPromptsSetParamsImpl _$$AiPromptsSetParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AiPromptsSetParamsImpl(
+_AiPromptsSetParams _$AiPromptsSetParamsFromJson(Map<String, dynamic> json) =>
+    _AiPromptsSetParams(
       prompts: AiPrompts.fromJson(json['prompts'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$AiPromptsSetParamsImplToJson(
-        _$AiPromptsSetParamsImpl instance) =>
-    <String, dynamic>{
-      'prompts': instance.prompts.toJson(),
-    };
+Map<String, dynamic> _$AiPromptsSetParamsToJson(_AiPromptsSetParams instance) =>
+    <String, dynamic>{'prompts': instance.prompts.toJson()};
 
-_$AiPromptsInfoImpl _$$AiPromptsInfoImplFromJson(Map<String, dynamic> json) =>
-    _$AiPromptsInfoImpl(
+_AiPromptsInfo _$AiPromptsInfoFromJson(Map<String, dynamic> json) =>
+    _AiPromptsInfo(
       prompts: AiPrompts.fromJson(json['prompts'] as Map<String, dynamic>),
       defaults: AiPrompts.fromJson(json['defaults'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$AiPromptsInfoImplToJson(_$AiPromptsInfoImpl instance) =>
+Map<String, dynamic> _$AiPromptsInfoToJson(_AiPromptsInfo instance) =>
     <String, dynamic>{
       'prompts': instance.prompts.toJson(),
       'defaults': instance.defaults.toJson(),

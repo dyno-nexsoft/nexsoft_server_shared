@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,811 +9,1157 @@ part of 'work_calendar.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-WorkHours _$WorkHoursFromJson(Map<String, dynamic> json) {
-  return _WorkHours.fromJson(json);
-}
 
 /// @nodoc
 mixin _$WorkHours {
-  String get start => throw _privateConstructorUsedError;
-  String get end => throw _privateConstructorUsedError;
-  String? get lunchStart => throw _privateConstructorUsedError;
-  String? get lunchEnd => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WorkHoursCopyWith<WorkHours> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get start; String get end; String? get lunchStart; String? get lunchEnd;
+/// Create a copy of WorkHours
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WorkHoursCopyWith<WorkHours> get copyWith => _$WorkHoursCopyWithImpl<WorkHours>(this as WorkHours, _$identity);
+
+  /// Serializes this WorkHours to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkHours&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end)&&(identical(other.lunchStart, lunchStart) || other.lunchStart == lunchStart)&&(identical(other.lunchEnd, lunchEnd) || other.lunchEnd == lunchEnd));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,start,end,lunchStart,lunchEnd);
+
+@override
+String toString() {
+  return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WorkHoursCopyWith<$Res> {
-  factory $WorkHoursCopyWith(WorkHours value, $Res Function(WorkHours) then) =
-      _$WorkHoursCopyWithImpl<$Res, WorkHours>;
-  @useResult
-  $Res call({String start, String end, String? lunchStart, String? lunchEnd});
-}
+abstract mixin class $WorkHoursCopyWith<$Res>  {
+  factory $WorkHoursCopyWith(WorkHours value, $Res Function(WorkHours) _then) = _$WorkHoursCopyWithImpl;
+@useResult
+$Res call({
+ String start, String end, String? lunchStart, String? lunchEnd
+});
 
+
+
+
+}
 /// @nodoc
-class _$WorkHoursCopyWithImpl<$Res, $Val extends WorkHours>
+class _$WorkHoursCopyWithImpl<$Res>
     implements $WorkHoursCopyWith<$Res> {
-  _$WorkHoursCopyWithImpl(this._value, this._then);
+  _$WorkHoursCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WorkHours _self;
+  final $Res Function(WorkHours) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? start = null,
-    Object? end = null,
-    Object? lunchStart = freezed,
-    Object? lunchEnd = freezed,
-  }) {
-    return _then(_value.copyWith(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as String,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as String,
-      lunchStart: freezed == lunchStart
-          ? _value.lunchStart
-          : lunchStart // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lunchEnd: freezed == lunchEnd
-          ? _value.lunchEnd
-          : lunchEnd // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of WorkHours
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? start = null,Object? end = null,Object? lunchStart = freezed,Object? lunchEnd = freezed,}) {
+  return _then(_self.copyWith(
+start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as String,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
+as String,lunchStart: freezed == lunchStart ? _self.lunchStart : lunchStart // ignore: cast_nullable_to_non_nullable
+as String?,lunchEnd: freezed == lunchEnd ? _self.lunchEnd : lunchEnd // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WorkHoursImplCopyWith<$Res>
-    implements $WorkHoursCopyWith<$Res> {
-  factory _$$WorkHoursImplCopyWith(
-          _$WorkHoursImpl value, $Res Function(_$WorkHoursImpl) then) =
-      __$$WorkHoursImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String start, String end, String? lunchStart, String? lunchEnd});
 }
 
-/// @nodoc
-class __$$WorkHoursImplCopyWithImpl<$Res>
-    extends _$WorkHoursCopyWithImpl<$Res, _$WorkHoursImpl>
-    implements _$$WorkHoursImplCopyWith<$Res> {
-  __$$WorkHoursImplCopyWithImpl(
-      _$WorkHoursImpl _value, $Res Function(_$WorkHoursImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? start = null,
-    Object? end = null,
-    Object? lunchStart = freezed,
-    Object? lunchEnd = freezed,
-  }) {
-    return _then(_$WorkHoursImpl(
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as String,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as String,
-      lunchStart: freezed == lunchStart
-          ? _value.lunchStart
-          : lunchStart // ignore: cast_nullable_to_non_nullable
-              as String?,
-      lunchEnd: freezed == lunchEnd
-          ? _value.lunchEnd
-          : lunchEnd // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [WorkHours].
+extension WorkHoursPatterns on WorkHours {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _WorkHours value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _WorkHours() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _WorkHours value)  $default,){
+final _that = this;
+switch (_that) {
+case _WorkHours():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _WorkHours value)?  $default,){
+final _that = this;
+switch (_that) {
+case _WorkHours() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String start,  String end,  String? lunchStart,  String? lunchEnd)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _WorkHours() when $default != null:
+return $default(_that.start,_that.end,_that.lunchStart,_that.lunchEnd);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String start,  String end,  String? lunchStart,  String? lunchEnd)  $default,) {final _that = this;
+switch (_that) {
+case _WorkHours():
+return $default(_that.start,_that.end,_that.lunchStart,_that.lunchEnd);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String start,  String end,  String? lunchStart,  String? lunchEnd)?  $default,) {final _that = this;
+switch (_that) {
+case _WorkHours() when $default != null:
+return $default(_that.start,_that.end,_that.lunchStart,_that.lunchEnd);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WorkHoursImpl extends _WorkHours {
-  const _$WorkHoursImpl(
-      {required this.start, required this.end, this.lunchStart, this.lunchEnd})
-      : super._();
 
-  factory _$WorkHoursImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WorkHoursImplFromJson(json);
+class _WorkHours extends WorkHours {
+  const _WorkHours({required this.start, required this.end, this.lunchStart, this.lunchEnd}): super._();
+  factory _WorkHours.fromJson(Map<String, dynamic> json) => _$WorkHoursFromJson(json);
 
-  @override
-  final String start;
-  @override
-  final String end;
-  @override
-  final String? lunchStart;
-  @override
-  final String? lunchEnd;
+@override final  String start;
+@override final  String end;
+@override final  String? lunchStart;
+@override final  String? lunchEnd;
 
-  @override
-  String toString() {
-    return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
-  }
+/// Create a copy of WorkHours
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WorkHoursCopyWith<_WorkHours> get copyWith => __$WorkHoursCopyWithImpl<_WorkHours>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WorkHoursImpl &&
-            (identical(other.start, start) || other.start == start) &&
-            (identical(other.end, end) || other.end == end) &&
-            (identical(other.lunchStart, lunchStart) ||
-                other.lunchStart == lunchStart) &&
-            (identical(other.lunchEnd, lunchEnd) ||
-                other.lunchEnd == lunchEnd));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, start, end, lunchStart, lunchEnd);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WorkHoursImplCopyWith<_$WorkHoursImpl> get copyWith =>
-      __$$WorkHoursImplCopyWithImpl<_$WorkHoursImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WorkHoursImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$WorkHoursToJson(this, );
 }
 
-abstract class _WorkHours extends WorkHours {
-  const factory _WorkHours(
-      {required final String start,
-      required final String end,
-      final String? lunchStart,
-      final String? lunchEnd}) = _$WorkHoursImpl;
-  const _WorkHours._() : super._();
-
-  factory _WorkHours.fromJson(Map<String, dynamic> json) =
-      _$WorkHoursImpl.fromJson;
-
-  @override
-  String get start;
-  @override
-  String get end;
-  @override
-  String? get lunchStart;
-  @override
-  String? get lunchEnd;
-  @override
-  @JsonKey(ignore: true)
-  _$$WorkHoursImplCopyWith<_$WorkHoursImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkHours&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end)&&(identical(other.lunchStart, lunchStart) || other.lunchStart == lunchStart)&&(identical(other.lunchEnd, lunchEnd) || other.lunchEnd == lunchEnd));
 }
 
-WorkWeekday _$WorkWeekdayFromJson(Map<String, dynamic> json) {
-  return _WorkWeekday.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,start,end,lunchStart,lunchEnd);
+
+@override
+String toString() {
+  return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WorkHoursCopyWith<$Res> implements $WorkHoursCopyWith<$Res> {
+  factory _$WorkHoursCopyWith(_WorkHours value, $Res Function(_WorkHours) _then) = __$WorkHoursCopyWithImpl;
+@override @useResult
+$Res call({
+ String start, String end, String? lunchStart, String? lunchEnd
+});
+
+
+
+
+}
+/// @nodoc
+class __$WorkHoursCopyWithImpl<$Res>
+    implements _$WorkHoursCopyWith<$Res> {
+  __$WorkHoursCopyWithImpl(this._self, this._then);
+
+  final _WorkHours _self;
+  final $Res Function(_WorkHours) _then;
+
+/// Create a copy of WorkHours
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? start = null,Object? end = null,Object? lunchStart = freezed,Object? lunchEnd = freezed,}) {
+  return _then(_WorkHours(
+start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as String,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
+as String,lunchStart: freezed == lunchStart ? _self.lunchStart : lunchStart // ignore: cast_nullable_to_non_nullable
+as String?,lunchEnd: freezed == lunchEnd ? _self.lunchEnd : lunchEnd // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$WorkWeekday {
-  /// `DateTime.weekday`: 1 is Monday, 7 is Sunday.
-  int get weekday => throw _privateConstructorUsedError;
 
-  /// Whether this weekday is a working day at all. Its [hours] are kept when
-  /// it is not, so switching it back on does not lose them.
-  bool get working => throw _privateConstructorUsedError;
-  WorkHours get hours => throw _privateConstructorUsedError;
+/// `DateTime.weekday`: 1 is Monday, 7 is Sunday.
+ int get weekday;/// Whether this weekday is a working day at all. Its [hours] are kept when
+/// it is not, so switching it back on does not lose them.
+ bool get working; WorkHours get hours;
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WorkWeekdayCopyWith<WorkWeekday> get copyWith => _$WorkWeekdayCopyWithImpl<WorkWeekday>(this as WorkWeekday, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WorkWeekdayCopyWith<WorkWeekday> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this WorkWeekday to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkWeekday&&(identical(other.weekday, weekday) || other.weekday == weekday)&&(identical(other.working, working) || other.working == working)&&(identical(other.hours, hours) || other.hours == hours));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,weekday,working,hours);
+
+@override
+String toString() {
+  return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WorkWeekdayCopyWith<$Res> {
-  factory $WorkWeekdayCopyWith(
-          WorkWeekday value, $Res Function(WorkWeekday) then) =
-      _$WorkWeekdayCopyWithImpl<$Res, WorkWeekday>;
-  @useResult
-  $Res call({int weekday, bool working, WorkHours hours});
+abstract mixin class $WorkWeekdayCopyWith<$Res>  {
+  factory $WorkWeekdayCopyWith(WorkWeekday value, $Res Function(WorkWeekday) _then) = _$WorkWeekdayCopyWithImpl;
+@useResult
+$Res call({
+ int weekday, bool working, WorkHours hours
+});
 
-  $WorkHoursCopyWith<$Res> get hours;
+
+$WorkHoursCopyWith<$Res> get hours;
+
 }
-
 /// @nodoc
-class _$WorkWeekdayCopyWithImpl<$Res, $Val extends WorkWeekday>
+class _$WorkWeekdayCopyWithImpl<$Res>
     implements $WorkWeekdayCopyWith<$Res> {
-  _$WorkWeekdayCopyWithImpl(this._value, this._then);
+  _$WorkWeekdayCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WorkWeekday _self;
+  final $Res Function(WorkWeekday) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weekday = null,
-    Object? working = null,
-    Object? hours = null,
-  }) {
-    return _then(_value.copyWith(
-      weekday: null == weekday
-          ? _value.weekday
-          : weekday // ignore: cast_nullable_to_non_nullable
-              as int,
-      working: null == working
-          ? _value.working
-          : working // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hours: null == hours
-          ? _value.hours
-          : hours // ignore: cast_nullable_to_non_nullable
-              as WorkHours,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $WorkHoursCopyWith<$Res> get hours {
-    return $WorkHoursCopyWith<$Res>(_value.hours, (value) {
-      return _then(_value.copyWith(hours: value) as $Val);
-    });
-  }
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? weekday = null,Object? working = null,Object? hours = null,}) {
+  return _then(_self.copyWith(
+weekday: null == weekday ? _self.weekday : weekday // ignore: cast_nullable_to_non_nullable
+as int,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
+as bool,hours: null == hours ? _self.hours : hours // ignore: cast_nullable_to_non_nullable
+as WorkHours,
+  ));
+}
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkHoursCopyWith<$Res> get hours {
+  
+  return $WorkHoursCopyWith<$Res>(_self.hours, (value) {
+    return _then(_self.copyWith(hours: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$WorkWeekdayImplCopyWith<$Res>
-    implements $WorkWeekdayCopyWith<$Res> {
-  factory _$$WorkWeekdayImplCopyWith(
-          _$WorkWeekdayImpl value, $Res Function(_$WorkWeekdayImpl) then) =
-      __$$WorkWeekdayImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int weekday, bool working, WorkHours hours});
 
-  @override
-  $WorkHoursCopyWith<$Res> get hours;
+/// Adds pattern-matching-related methods to [WorkWeekday].
+extension WorkWeekdayPatterns on WorkWeekday {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _WorkWeekday value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _WorkWeekday() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _WorkWeekday value)  $default,){
+final _that = this;
+switch (_that) {
+case _WorkWeekday():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _WorkWeekday value)?  $default,){
+final _that = this;
+switch (_that) {
+case _WorkWeekday() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int weekday,  bool working,  WorkHours hours)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _WorkWeekday() when $default != null:
+return $default(_that.weekday,_that.working,_that.hours);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int weekday,  bool working,  WorkHours hours)  $default,) {final _that = this;
+switch (_that) {
+case _WorkWeekday():
+return $default(_that.weekday,_that.working,_that.hours);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int weekday,  bool working,  WorkHours hours)?  $default,) {final _that = this;
+switch (_that) {
+case _WorkWeekday() when $default != null:
+return $default(_that.weekday,_that.working,_that.hours);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$WorkWeekdayImplCopyWithImpl<$Res>
-    extends _$WorkWeekdayCopyWithImpl<$Res, _$WorkWeekdayImpl>
-    implements _$$WorkWeekdayImplCopyWith<$Res> {
-  __$$WorkWeekdayImplCopyWithImpl(
-      _$WorkWeekdayImpl _value, $Res Function(_$WorkWeekdayImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weekday = null,
-    Object? working = null,
-    Object? hours = null,
-  }) {
-    return _then(_$WorkWeekdayImpl(
-      weekday: null == weekday
-          ? _value.weekday
-          : weekday // ignore: cast_nullable_to_non_nullable
-              as int,
-      working: null == working
-          ? _value.working
-          : working // ignore: cast_nullable_to_non_nullable
-              as bool,
-      hours: null == hours
-          ? _value.hours
-          : hours // ignore: cast_nullable_to_non_nullable
-              as WorkHours,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WorkWeekdayImpl implements _WorkWeekday {
-  const _$WorkWeekdayImpl(
-      {required this.weekday, required this.working, required this.hours});
 
-  factory _$WorkWeekdayImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WorkWeekdayImplFromJson(json);
+class _WorkWeekday implements WorkWeekday {
+  const _WorkWeekday({required this.weekday, required this.working, required this.hours});
+  factory _WorkWeekday.fromJson(Map<String, dynamic> json) => _$WorkWeekdayFromJson(json);
 
-  /// `DateTime.weekday`: 1 is Monday, 7 is Sunday.
-  @override
-  final int weekday;
+/// `DateTime.weekday`: 1 is Monday, 7 is Sunday.
+@override final  int weekday;
+/// Whether this weekday is a working day at all. Its [hours] are kept when
+/// it is not, so switching it back on does not lose them.
+@override final  bool working;
+@override final  WorkHours hours;
 
-  /// Whether this weekday is a working day at all. Its [hours] are kept when
-  /// it is not, so switching it back on does not lose them.
-  @override
-  final bool working;
-  @override
-  final WorkHours hours;
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WorkWeekdayCopyWith<_WorkWeekday> get copyWith => __$WorkWeekdayCopyWithImpl<_WorkWeekday>(this, _$identity);
 
-  @override
-  String toString() {
-    return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WorkWeekdayImpl &&
-            (identical(other.weekday, weekday) || other.weekday == weekday) &&
-            (identical(other.working, working) || other.working == working) &&
-            (identical(other.hours, hours) || other.hours == hours));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, weekday, working, hours);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WorkWeekdayImplCopyWith<_$WorkWeekdayImpl> get copyWith =>
-      __$$WorkWeekdayImplCopyWithImpl<_$WorkWeekdayImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WorkWeekdayImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$WorkWeekdayToJson(this, );
 }
 
-abstract class _WorkWeekday implements WorkWeekday {
-  const factory _WorkWeekday(
-      {required final int weekday,
-      required final bool working,
-      required final WorkHours hours}) = _$WorkWeekdayImpl;
-
-  factory _WorkWeekday.fromJson(Map<String, dynamic> json) =
-      _$WorkWeekdayImpl.fromJson;
-
-  @override
-
-  /// `DateTime.weekday`: 1 is Monday, 7 is Sunday.
-  int get weekday;
-  @override
-
-  /// Whether this weekday is a working day at all. Its [hours] are kept when
-  /// it is not, so switching it back on does not lose them.
-  bool get working;
-  @override
-  WorkHours get hours;
-  @override
-  @JsonKey(ignore: true)
-  _$$WorkWeekdayImplCopyWith<_$WorkWeekdayImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkWeekday&&(identical(other.weekday, weekday) || other.weekday == weekday)&&(identical(other.working, working) || other.working == working)&&(identical(other.hours, hours) || other.hours == hours));
 }
 
-CalendarException _$CalendarExceptionFromJson(Map<String, dynamic> json) {
-  return _CalendarException.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,weekday,working,hours);
+
+@override
+String toString() {
+  return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WorkWeekdayCopyWith<$Res> implements $WorkWeekdayCopyWith<$Res> {
+  factory _$WorkWeekdayCopyWith(_WorkWeekday value, $Res Function(_WorkWeekday) _then) = __$WorkWeekdayCopyWithImpl;
+@override @useResult
+$Res call({
+ int weekday, bool working, WorkHours hours
+});
+
+
+@override $WorkHoursCopyWith<$Res> get hours;
+
+}
+/// @nodoc
+class __$WorkWeekdayCopyWithImpl<$Res>
+    implements _$WorkWeekdayCopyWith<$Res> {
+  __$WorkWeekdayCopyWithImpl(this._self, this._then);
+
+  final _WorkWeekday _self;
+  final $Res Function(_WorkWeekday) _then;
+
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? weekday = null,Object? working = null,Object? hours = null,}) {
+  return _then(_WorkWeekday(
+weekday: null == weekday ? _self.weekday : weekday // ignore: cast_nullable_to_non_nullable
+as int,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
+as bool,hours: null == hours ? _self.hours : hours // ignore: cast_nullable_to_non_nullable
+as WorkHours,
+  ));
+}
+
+/// Create a copy of WorkWeekday
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkHoursCopyWith<$Res> get hours {
+  
+  return $WorkHoursCopyWith<$Res>(_self.hours, (value) {
+    return _then(_self.copyWith(hours: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$CalendarException {
-  /// `yyyy-MM-dd`.
-  String get date => throw _privateConstructorUsedError;
 
-  /// True: this date is worked, whatever its weekday says. False: it is a
-  /// day off.
-  bool get working => throw _privateConstructorUsedError;
+/// `yyyy-MM-dd`.
+ String get date;/// True: this date is worked, whatever its weekday says. False: it is a
+/// day off.
+ bool get working;/// What it is for ("National Day", "Make-up for 2 Jan"), shown next to it.
+ String get note;/// Hours for a worked date. Null uses the weekday's own hours, which for a
+/// Saturday make-up day is whatever Saturday is set to.
+ WorkHours? get hours;
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CalendarExceptionCopyWith<CalendarException> get copyWith => _$CalendarExceptionCopyWithImpl<CalendarException>(this as CalendarException, _$identity);
 
-  /// What it is for ("National Day", "Make-up for 2 Jan"), shown next to it.
-  String get note => throw _privateConstructorUsedError;
+  /// Serializes this CalendarException to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// Hours for a worked date. Null uses the weekday's own hours, which for a
-  /// Saturday make-up day is whatever Saturday is set to.
-  WorkHours? get hours => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CalendarExceptionCopyWith<CalendarException> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CalendarException&&(identical(other.date, date) || other.date == date)&&(identical(other.working, working) || other.working == working)&&(identical(other.note, note) || other.note == note)&&(identical(other.hours, hours) || other.hours == hours));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,date,working,note,hours);
+
+@override
+String toString() {
+  return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $CalendarExceptionCopyWith<$Res> {
-  factory $CalendarExceptionCopyWith(
-          CalendarException value, $Res Function(CalendarException) then) =
-      _$CalendarExceptionCopyWithImpl<$Res, CalendarException>;
-  @useResult
-  $Res call({String date, bool working, String note, WorkHours? hours});
+abstract mixin class $CalendarExceptionCopyWith<$Res>  {
+  factory $CalendarExceptionCopyWith(CalendarException value, $Res Function(CalendarException) _then) = _$CalendarExceptionCopyWithImpl;
+@useResult
+$Res call({
+ String date, bool working, String note, WorkHours? hours
+});
 
-  $WorkHoursCopyWith<$Res>? get hours;
+
+$WorkHoursCopyWith<$Res>? get hours;
+
 }
-
 /// @nodoc
-class _$CalendarExceptionCopyWithImpl<$Res, $Val extends CalendarException>
+class _$CalendarExceptionCopyWithImpl<$Res>
     implements $CalendarExceptionCopyWith<$Res> {
-  _$CalendarExceptionCopyWithImpl(this._value, this._then);
+  _$CalendarExceptionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CalendarException _self;
+  final $Res Function(CalendarException) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-    Object? working = null,
-    Object? note = null,
-    Object? hours = freezed,
-  }) {
-    return _then(_value.copyWith(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      working: null == working
-          ? _value.working
-          : working // ignore: cast_nullable_to_non_nullable
-              as bool,
-      note: null == note
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as String,
-      hours: freezed == hours
-          ? _value.hours
-          : hours // ignore: cast_nullable_to_non_nullable
-              as WorkHours?,
-    ) as $Val);
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? working = null,Object? note = null,Object? hours = freezed,}) {
+  return _then(_self.copyWith(
+date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as String,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
+as bool,note: null == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
+as String,hours: freezed == hours ? _self.hours : hours // ignore: cast_nullable_to_non_nullable
+as WorkHours?,
+  ));
+}
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkHoursCopyWith<$Res>? get hours {
+    if (_self.hours == null) {
+    return null;
   }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $WorkHoursCopyWith<$Res>? get hours {
-    if (_value.hours == null) {
-      return null;
-    }
-
-    return $WorkHoursCopyWith<$Res>(_value.hours!, (value) {
-      return _then(_value.copyWith(hours: value) as $Val);
-    });
-  }
+  return $WorkHoursCopyWith<$Res>(_self.hours!, (value) {
+    return _then(_self.copyWith(hours: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$CalendarExceptionImplCopyWith<$Res>
-    implements $CalendarExceptionCopyWith<$Res> {
-  factory _$$CalendarExceptionImplCopyWith(_$CalendarExceptionImpl value,
-          $Res Function(_$CalendarExceptionImpl) then) =
-      __$$CalendarExceptionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String date, bool working, String note, WorkHours? hours});
 
-  @override
-  $WorkHoursCopyWith<$Res>? get hours;
+/// Adds pattern-matching-related methods to [CalendarException].
+extension CalendarExceptionPatterns on CalendarException {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _CalendarException value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _CalendarException() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _CalendarException value)  $default,){
+final _that = this;
+switch (_that) {
+case _CalendarException():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _CalendarException value)?  $default,){
+final _that = this;
+switch (_that) {
+case _CalendarException() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String date,  bool working,  String note,  WorkHours? hours)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _CalendarException() when $default != null:
+return $default(_that.date,_that.working,_that.note,_that.hours);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String date,  bool working,  String note,  WorkHours? hours)  $default,) {final _that = this;
+switch (_that) {
+case _CalendarException():
+return $default(_that.date,_that.working,_that.note,_that.hours);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String date,  bool working,  String note,  WorkHours? hours)?  $default,) {final _that = this;
+switch (_that) {
+case _CalendarException() when $default != null:
+return $default(_that.date,_that.working,_that.note,_that.hours);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$CalendarExceptionImplCopyWithImpl<$Res>
-    extends _$CalendarExceptionCopyWithImpl<$Res, _$CalendarExceptionImpl>
-    implements _$$CalendarExceptionImplCopyWith<$Res> {
-  __$$CalendarExceptionImplCopyWithImpl(_$CalendarExceptionImpl _value,
-      $Res Function(_$CalendarExceptionImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? date = null,
-    Object? working = null,
-    Object? note = null,
-    Object? hours = freezed,
-  }) {
-    return _then(_$CalendarExceptionImpl(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      working: null == working
-          ? _value.working
-          : working // ignore: cast_nullable_to_non_nullable
-              as bool,
-      note: null == note
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
-              as String,
-      hours: freezed == hours
-          ? _value.hours
-          : hours // ignore: cast_nullable_to_non_nullable
-              as WorkHours?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$CalendarExceptionImpl implements _CalendarException {
-  const _$CalendarExceptionImpl(
-      {required this.date, required this.working, this.note = '', this.hours});
 
-  factory _$CalendarExceptionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CalendarExceptionImplFromJson(json);
+class _CalendarException implements CalendarException {
+  const _CalendarException({required this.date, required this.working, this.note = '', this.hours});
+  factory _CalendarException.fromJson(Map<String, dynamic> json) => _$CalendarExceptionFromJson(json);
 
-  /// `yyyy-MM-dd`.
-  @override
-  final String date;
+/// `yyyy-MM-dd`.
+@override final  String date;
+/// True: this date is worked, whatever its weekday says. False: it is a
+/// day off.
+@override final  bool working;
+/// What it is for ("National Day", "Make-up for 2 Jan"), shown next to it.
+@override@JsonKey() final  String note;
+/// Hours for a worked date. Null uses the weekday's own hours, which for a
+/// Saturday make-up day is whatever Saturday is set to.
+@override final  WorkHours? hours;
 
-  /// True: this date is worked, whatever its weekday says. False: it is a
-  /// day off.
-  @override
-  final bool working;
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CalendarExceptionCopyWith<_CalendarException> get copyWith => __$CalendarExceptionCopyWithImpl<_CalendarException>(this, _$identity);
 
-  /// What it is for ("National Day", "Make-up for 2 Jan"), shown next to it.
-  @override
-  @JsonKey()
-  final String note;
-
-  /// Hours for a worked date. Null uses the weekday's own hours, which for a
-  /// Saturday make-up day is whatever Saturday is set to.
-  @override
-  final WorkHours? hours;
-
-  @override
-  String toString() {
-    return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CalendarExceptionImpl &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.working, working) || other.working == working) &&
-            (identical(other.note, note) || other.note == note) &&
-            (identical(other.hours, hours) || other.hours == hours));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, date, working, note, hours);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CalendarExceptionImplCopyWith<_$CalendarExceptionImpl> get copyWith =>
-      __$$CalendarExceptionImplCopyWithImpl<_$CalendarExceptionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CalendarExceptionImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$CalendarExceptionToJson(this, );
 }
 
-abstract class _CalendarException implements CalendarException {
-  const factory _CalendarException(
-      {required final String date,
-      required final bool working,
-      final String note,
-      final WorkHours? hours}) = _$CalendarExceptionImpl;
-
-  factory _CalendarException.fromJson(Map<String, dynamic> json) =
-      _$CalendarExceptionImpl.fromJson;
-
-  @override
-
-  /// `yyyy-MM-dd`.
-  String get date;
-  @override
-
-  /// True: this date is worked, whatever its weekday says. False: it is a
-  /// day off.
-  bool get working;
-  @override
-
-  /// What it is for ("National Day", "Make-up for 2 Jan"), shown next to it.
-  String get note;
-  @override
-
-  /// Hours for a worked date. Null uses the weekday's own hours, which for a
-  /// Saturday make-up day is whatever Saturday is set to.
-  WorkHours? get hours;
-  @override
-  @JsonKey(ignore: true)
-  _$$CalendarExceptionImplCopyWith<_$CalendarExceptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CalendarException&&(identical(other.date, date) || other.date == date)&&(identical(other.working, working) || other.working == working)&&(identical(other.note, note) || other.note == note)&&(identical(other.hours, hours) || other.hours == hours));
 }
 
-WorkCalendar _$WorkCalendarFromJson(Map<String, dynamic> json) {
-  return _WorkCalendar.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,date,working,note,hours);
+
+@override
+String toString() {
+  return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CalendarExceptionCopyWith<$Res> implements $CalendarExceptionCopyWith<$Res> {
+  factory _$CalendarExceptionCopyWith(_CalendarException value, $Res Function(_CalendarException) _then) = __$CalendarExceptionCopyWithImpl;
+@override @useResult
+$Res call({
+ String date, bool working, String note, WorkHours? hours
+});
+
+
+@override $WorkHoursCopyWith<$Res>? get hours;
+
+}
+/// @nodoc
+class __$CalendarExceptionCopyWithImpl<$Res>
+    implements _$CalendarExceptionCopyWith<$Res> {
+  __$CalendarExceptionCopyWithImpl(this._self, this._then);
+
+  final _CalendarException _self;
+  final $Res Function(_CalendarException) _then;
+
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? date = null,Object? working = null,Object? note = null,Object? hours = freezed,}) {
+  return _then(_CalendarException(
+date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as String,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
+as bool,note: null == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
+as String,hours: freezed == hours ? _self.hours : hours // ignore: cast_nullable_to_non_nullable
+as WorkHours?,
+  ));
+}
+
+/// Create a copy of CalendarException
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$WorkHoursCopyWith<$Res>? get hours {
+    if (_self.hours == null) {
+    return null;
+  }
+
+  return $WorkHoursCopyWith<$Res>(_self.hours!, (value) {
+    return _then(_self.copyWith(hours: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$WorkCalendar {
-  List<WorkWeekday> get weekdays => throw _privateConstructorUsedError;
-  List<CalendarException> get exceptions => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WorkCalendarCopyWith<WorkCalendar> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<WorkWeekday> get weekdays; List<CalendarException> get exceptions;
+/// Create a copy of WorkCalendar
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$WorkCalendarCopyWith<WorkCalendar> get copyWith => _$WorkCalendarCopyWithImpl<WorkCalendar>(this as WorkCalendar, _$identity);
+
+  /// Serializes this WorkCalendar to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkCalendar&&const DeepCollectionEquality().equals(other.weekdays, weekdays)&&const DeepCollectionEquality().equals(other.exceptions, exceptions));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(weekdays),const DeepCollectionEquality().hash(exceptions));
+
+@override
+String toString() {
+  return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $WorkCalendarCopyWith<$Res> {
-  factory $WorkCalendarCopyWith(
-          WorkCalendar value, $Res Function(WorkCalendar) then) =
-      _$WorkCalendarCopyWithImpl<$Res, WorkCalendar>;
-  @useResult
-  $Res call({List<WorkWeekday> weekdays, List<CalendarException> exceptions});
-}
+abstract mixin class $WorkCalendarCopyWith<$Res>  {
+  factory $WorkCalendarCopyWith(WorkCalendar value, $Res Function(WorkCalendar) _then) = _$WorkCalendarCopyWithImpl;
+@useResult
+$Res call({
+ List<WorkWeekday> weekdays, List<CalendarException> exceptions
+});
 
+
+
+
+}
 /// @nodoc
-class _$WorkCalendarCopyWithImpl<$Res, $Val extends WorkCalendar>
+class _$WorkCalendarCopyWithImpl<$Res>
     implements $WorkCalendarCopyWith<$Res> {
-  _$WorkCalendarCopyWithImpl(this._value, this._then);
+  _$WorkCalendarCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final WorkCalendar _self;
+  final $Res Function(WorkCalendar) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weekdays = null,
-    Object? exceptions = null,
-  }) {
-    return _then(_value.copyWith(
-      weekdays: null == weekdays
-          ? _value.weekdays
-          : weekdays // ignore: cast_nullable_to_non_nullable
-              as List<WorkWeekday>,
-      exceptions: null == exceptions
-          ? _value.exceptions
-          : exceptions // ignore: cast_nullable_to_non_nullable
-              as List<CalendarException>,
-    ) as $Val);
-  }
+/// Create a copy of WorkCalendar
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? weekdays = null,Object? exceptions = null,}) {
+  return _then(_self.copyWith(
+weekdays: null == weekdays ? _self.weekdays : weekdays // ignore: cast_nullable_to_non_nullable
+as List<WorkWeekday>,exceptions: null == exceptions ? _self.exceptions : exceptions // ignore: cast_nullable_to_non_nullable
+as List<CalendarException>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$WorkCalendarImplCopyWith<$Res>
-    implements $WorkCalendarCopyWith<$Res> {
-  factory _$$WorkCalendarImplCopyWith(
-          _$WorkCalendarImpl value, $Res Function(_$WorkCalendarImpl) then) =
-      __$$WorkCalendarImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<WorkWeekday> weekdays, List<CalendarException> exceptions});
 }
 
-/// @nodoc
-class __$$WorkCalendarImplCopyWithImpl<$Res>
-    extends _$WorkCalendarCopyWithImpl<$Res, _$WorkCalendarImpl>
-    implements _$$WorkCalendarImplCopyWith<$Res> {
-  __$$WorkCalendarImplCopyWithImpl(
-      _$WorkCalendarImpl _value, $Res Function(_$WorkCalendarImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weekdays = null,
-    Object? exceptions = null,
-  }) {
-    return _then(_$WorkCalendarImpl(
-      weekdays: null == weekdays
-          ? _value._weekdays
-          : weekdays // ignore: cast_nullable_to_non_nullable
-              as List<WorkWeekday>,
-      exceptions: null == exceptions
-          ? _value._exceptions
-          : exceptions // ignore: cast_nullable_to_non_nullable
-              as List<CalendarException>,
-    ));
-  }
+/// Adds pattern-matching-related methods to [WorkCalendar].
+extension WorkCalendarPatterns on WorkCalendar {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _WorkCalendar value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _WorkCalendar() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _WorkCalendar value)  $default,){
+final _that = this;
+switch (_that) {
+case _WorkCalendar():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _WorkCalendar value)?  $default,){
+final _that = this;
+switch (_that) {
+case _WorkCalendar() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<WorkWeekday> weekdays,  List<CalendarException> exceptions)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _WorkCalendar() when $default != null:
+return $default(_that.weekdays,_that.exceptions);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<WorkWeekday> weekdays,  List<CalendarException> exceptions)  $default,) {final _that = this;
+switch (_that) {
+case _WorkCalendar():
+return $default(_that.weekdays,_that.exceptions);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<WorkWeekday> weekdays,  List<CalendarException> exceptions)?  $default,) {final _that = this;
+switch (_that) {
+case _WorkCalendar() when $default != null:
+return $default(_that.weekdays,_that.exceptions);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$WorkCalendarImpl extends _WorkCalendar {
-  const _$WorkCalendarImpl(
-      {final List<WorkWeekday> weekdays = const <WorkWeekday>[],
-      final List<CalendarException> exceptions = const <CalendarException>[]})
-      : _weekdays = weekdays,
-        _exceptions = exceptions,
-        super._();
 
-  factory _$WorkCalendarImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WorkCalendarImplFromJson(json);
+class _WorkCalendar extends WorkCalendar {
+  const _WorkCalendar({final  List<WorkWeekday> weekdays = const <WorkWeekday>[], final  List<CalendarException> exceptions = const <CalendarException>[]}): _weekdays = weekdays,_exceptions = exceptions,super._();
+  factory _WorkCalendar.fromJson(Map<String, dynamic> json) => _$WorkCalendarFromJson(json);
 
-  final List<WorkWeekday> _weekdays;
-  @override
-  @JsonKey()
-  List<WorkWeekday> get weekdays {
-    if (_weekdays is EqualUnmodifiableListView) return _weekdays;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_weekdays);
-  }
-
-  final List<CalendarException> _exceptions;
-  @override
-  @JsonKey()
-  List<CalendarException> get exceptions {
-    if (_exceptions is EqualUnmodifiableListView) return _exceptions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_exceptions);
-  }
-
-  @override
-  String toString() {
-    return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WorkCalendarImpl &&
-            const DeepCollectionEquality().equals(other._weekdays, _weekdays) &&
-            const DeepCollectionEquality()
-                .equals(other._exceptions, _exceptions));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_weekdays),
-      const DeepCollectionEquality().hash(_exceptions));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WorkCalendarImplCopyWith<_$WorkCalendarImpl> get copyWith =>
-      __$$WorkCalendarImplCopyWithImpl<_$WorkCalendarImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WorkCalendarImplToJson(
-      this,
-    );
-  }
+ final  List<WorkWeekday> _weekdays;
+@override@JsonKey() List<WorkWeekday> get weekdays {
+  if (_weekdays is EqualUnmodifiableListView) return _weekdays;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_weekdays);
 }
 
-abstract class _WorkCalendar extends WorkCalendar {
-  const factory _WorkCalendar(
-      {final List<WorkWeekday> weekdays,
-      final List<CalendarException> exceptions}) = _$WorkCalendarImpl;
-  const _WorkCalendar._() : super._();
-
-  factory _WorkCalendar.fromJson(Map<String, dynamic> json) =
-      _$WorkCalendarImpl.fromJson;
-
-  @override
-  List<WorkWeekday> get weekdays;
-  @override
-  List<CalendarException> get exceptions;
-  @override
-  @JsonKey(ignore: true)
-  _$$WorkCalendarImplCopyWith<_$WorkCalendarImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+ final  List<CalendarException> _exceptions;
+@override@JsonKey() List<CalendarException> get exceptions {
+  if (_exceptions is EqualUnmodifiableListView) return _exceptions;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_exceptions);
 }
+
+
+/// Create a copy of WorkCalendar
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$WorkCalendarCopyWith<_WorkCalendar> get copyWith => __$WorkCalendarCopyWithImpl<_WorkCalendar>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$WorkCalendarToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkCalendar&&const DeepCollectionEquality().equals(other._weekdays, _weekdays)&&const DeepCollectionEquality().equals(other._exceptions, _exceptions));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_weekdays),const DeepCollectionEquality().hash(_exceptions));
+
+@override
+String toString() {
+  return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$WorkCalendarCopyWith<$Res> implements $WorkCalendarCopyWith<$Res> {
+  factory _$WorkCalendarCopyWith(_WorkCalendar value, $Res Function(_WorkCalendar) _then) = __$WorkCalendarCopyWithImpl;
+@override @useResult
+$Res call({
+ List<WorkWeekday> weekdays, List<CalendarException> exceptions
+});
+
+
+
+
+}
+/// @nodoc
+class __$WorkCalendarCopyWithImpl<$Res>
+    implements _$WorkCalendarCopyWith<$Res> {
+  __$WorkCalendarCopyWithImpl(this._self, this._then);
+
+  final _WorkCalendar _self;
+  final $Res Function(_WorkCalendar) _then;
+
+/// Create a copy of WorkCalendar
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? weekdays = null,Object? exceptions = null,}) {
+  return _then(_WorkCalendar(
+weekdays: null == weekdays ? _self._weekdays : weekdays // ignore: cast_nullable_to_non_nullable
+as List<WorkWeekday>,exceptions: null == exceptions ? _self._exceptions : exceptions // ignore: cast_nullable_to_non_nullable
+as List<CalendarException>,
+  ));
+}
+
+
+}
+
+// dart format on

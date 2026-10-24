@@ -22,7 +22,7 @@ Object? _readAuthorName(Map<dynamic, dynamic> json, String key) =>
 /// the diff booleans are `deleted_file` / `renamed_file` / `new_file`, not
 /// `is_deleted` / `is_renamed` / `is_new_file`.
 @freezed
-class GitLabMergeRequest with _$GitLabMergeRequest {
+abstract class GitLabMergeRequest with _$GitLabMergeRequest {
   const GitLabMergeRequest._();
 
   const factory GitLabMergeRequest({
@@ -84,7 +84,7 @@ class GitLabMergeRequest with _$GitLabMergeRequest {
 /// The three commit SHAs that pin a diff-anchored comment's `position` to
 /// the exact diff it was reviewed against — see [GitLabMergeRequest.diffRefs].
 @freezed
-class GitLabDiffRefs with _$GitLabDiffRefs {
+abstract class GitLabDiffRefs with _$GitLabDiffRefs {
   const factory GitLabDiffRefs({
     required String baseSha,
     required String startSha,
@@ -97,7 +97,7 @@ class GitLabDiffRefs with _$GitLabDiffRefs {
 
 /// Represents a single file diff within a Merge Request.
 @freezed
-class GitLabMrDiff with _$GitLabMrDiff {
+abstract class GitLabMrDiff with _$GitLabMrDiff {
   const factory GitLabMrDiff({
     /// File path after the change.
     required String newPath,

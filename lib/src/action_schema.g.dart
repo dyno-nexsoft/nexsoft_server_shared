@@ -6,14 +6,16 @@ part of 'action_schema.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActionSchemaImpl _$$ActionSchemaImplFromJson(Map<String, dynamic> json) =>
-    _$ActionSchemaImpl(
+_ActionSchema _$ActionSchemaFromJson(Map<String, dynamic> json) =>
+    _ActionSchema(
       name: json['name'] as String,
       description: json['description'] as String? ?? '',
       kind: $enumDecode(_$ActionKindEnumMap, json['kind']),
-      permission:
-          const PermissionConverter().fromJson(json['permission'] as String),
-      params: (json['params'] as List<dynamic>?)
+      permission: const PermissionConverter().fromJson(
+        json['permission'] as String,
+      ),
+      params:
+          (json['params'] as List<dynamic>?)
               ?.map((e) => ActionParam.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -22,7 +24,7 @@ _$ActionSchemaImpl _$$ActionSchemaImplFromJson(Map<String, dynamic> json) =>
       exposedInDashboard: json['exposed_in_dashboard'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$ActionSchemaImplToJson(_$ActionSchemaImpl instance) =>
+Map<String, dynamic> _$ActionSchemaToJson(_ActionSchema instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
@@ -40,45 +42,34 @@ const _$ActionKindEnumMap = {
   ActionKind.job: 'job',
 };
 
-_$ActionParamImpl _$$ActionParamImplFromJson(Map<String, dynamic> json) =>
-    _$ActionParamImpl(
-      name: json['name'] as String,
-      description: json['description'] as String? ?? '',
-      type: $enumDecode(_$ParamTypeEnumMap, json['type']),
-      isRequired: json['required'] as bool? ?? false,
-      choices: (json['choices'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      defaultValue: json['default'],
-      isBranchRef: json['is_branch_ref'] as bool? ?? false,
-      isUrl: json['is_url'] as bool? ?? false,
-      isStringList: json['is_string_list'] as bool? ?? false,
-      isSecret: json['is_secret'] as bool? ?? false,
-    );
+_ActionParam _$ActionParamFromJson(Map<String, dynamic> json) => _ActionParam(
+  name: json['name'] as String,
+  description: json['description'] as String? ?? '',
+  type: $enumDecode(_$ParamTypeEnumMap, json['type']),
+  isRequired: json['required'] as bool? ?? false,
+  choices:
+      (json['choices'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  defaultValue: json['default'],
+  isBranchRef: json['is_branch_ref'] as bool? ?? false,
+  isUrl: json['is_url'] as bool? ?? false,
+  isStringList: json['is_string_list'] as bool? ?? false,
+  isSecret: json['is_secret'] as bool? ?? false,
+);
 
-Map<String, dynamic> _$$ActionParamImplToJson(_$ActionParamImpl instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-    'description': instance.description,
-    'type': _$ParamTypeEnumMap[instance.type]!,
-    'required': instance.isRequired,
-    'choices': instance.choices,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('default', instance.defaultValue);
-  val['is_branch_ref'] = instance.isBranchRef;
-  val['is_url'] = instance.isUrl;
-  val['is_string_list'] = instance.isStringList;
-  val['is_secret'] = instance.isSecret;
-  return val;
-}
+Map<String, dynamic> _$ActionParamToJson(_ActionParam instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'description': instance.description,
+      'type': _$ParamTypeEnumMap[instance.type]!,
+      'required': instance.isRequired,
+      'choices': instance.choices,
+      'default': ?instance.defaultValue,
+      'is_branch_ref': instance.isBranchRef,
+      'is_url': instance.isUrl,
+      'is_string_list': instance.isStringList,
+      'is_secret': instance.isSecret,
+    };
 
 const _$ParamTypeEnumMap = {
   ParamType.string: 'string',

@@ -6,152 +6,89 @@ part of 'admin_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ApiKeyAddParamsImpl _$$ApiKeyAddParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ApiKeyAddParamsImpl(
-      name: json['name'] as String,
-    );
+_ApiKeyAddParams _$ApiKeyAddParamsFromJson(Map<String, dynamic> json) =>
+    _ApiKeyAddParams(name: json['name'] as String);
 
-Map<String, dynamic> _$$ApiKeyAddParamsImplToJson(
-        _$ApiKeyAddParamsImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
+Map<String, dynamic> _$ApiKeyAddParamsToJson(_ApiKeyAddParams instance) =>
+    <String, dynamic>{'name': instance.name};
 
-_$ApiKeyEditParamsImpl _$$ApiKeyEditParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ApiKeyEditParamsImpl(
+_ApiKeyEditParams _$ApiKeyEditParamsFromJson(Map<String, dynamic> json) =>
+    _ApiKeyEditParams(
       id: json['id'] as String,
-      scopes:
-          (json['scopes'] as List<dynamic>).map((e) => e as String).toList(),
+      scopes: (json['scopes'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$ApiKeyEditParamsImplToJson(
-    _$ApiKeyEditParamsImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'scopes': instance.scopes,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  return val;
-}
-
-_$ApiKeyRemoveParamsImpl _$$ApiKeyRemoveParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ApiKeyRemoveParamsImpl(
-      id: json['id'] as String,
-    );
-
-Map<String, dynamic> _$$ApiKeyRemoveParamsImplToJson(
-        _$ApiKeyRemoveParamsImpl instance) =>
+Map<String, dynamic> _$ApiKeyEditParamsToJson(_ApiKeyEditParams instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'scopes': instance.scopes,
+      'name': ?instance.name,
     };
 
-_$OwnerParamsImpl _$$OwnerParamsImplFromJson(Map<String, dynamic> json) =>
-    _$OwnerParamsImpl(
-      userId: json['user_id'] as String,
-    );
+_ApiKeyRemoveParams _$ApiKeyRemoveParamsFromJson(Map<String, dynamic> json) =>
+    _ApiKeyRemoveParams(id: json['id'] as String);
 
-Map<String, dynamic> _$$OwnerParamsImplToJson(_$OwnerParamsImpl instance) =>
-    <String, dynamic>{
-      'user_id': instance.userId,
-    };
+Map<String, dynamic> _$ApiKeyRemoveParamsToJson(_ApiKeyRemoveParams instance) =>
+    <String, dynamic>{'id': instance.id};
 
-_$LogsTailParamsImpl _$$LogsTailParamsImplFromJson(Map<String, dynamic> json) =>
-    _$LogsTailParamsImpl(
+_OwnerParams _$OwnerParamsFromJson(Map<String, dynamic> json) =>
+    _OwnerParams(userId: json['user_id'] as String);
+
+Map<String, dynamic> _$OwnerParamsToJson(_OwnerParams instance) =>
+    <String, dynamic>{'user_id': instance.userId};
+
+_LogsTailParams _$LogsTailParamsFromJson(Map<String, dynamic> json) =>
+    _LogsTailParams(
       lines: (json['lines'] as num?)?.toInt(),
       source: json['source'] as String?,
       fromLine: (json['from_line'] as num?)?.toInt(),
       toLine: (json['to_line'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$$LogsTailParamsImplToJson(
-    _$LogsTailParamsImpl instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$LogsTailParamsToJson(_LogsTailParams instance) =>
+    <String, dynamic>{
+      'lines': ?instance.lines,
+      'source': ?instance.source,
+      'from_line': ?instance.fromLine,
+      'to_line': ?instance.toLine,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('lines', instance.lines);
-  writeNotNull('source', instance.source);
-  writeNotNull('from_line', instance.fromLine);
-  writeNotNull('to_line', instance.toLine);
-  return val;
-}
-
-_$SecretSetParamsImpl _$$SecretSetParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SecretSetParamsImpl(
+_SecretSetParams _$SecretSetParamsFromJson(Map<String, dynamic> json) =>
+    _SecretSetParams(
       name: json['name'] as String,
       value: json['value'] as String,
     );
 
-Map<String, dynamic> _$$SecretSetParamsImplToJson(
-        _$SecretSetParamsImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'value': instance.value,
-    };
+Map<String, dynamic> _$SecretSetParamsToJson(_SecretSetParams instance) =>
+    <String, dynamic>{'name': instance.name, 'value': instance.value};
 
-_$SecretNameParamsImpl _$$SecretNameParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SecretNameParamsImpl(
-      name: json['name'] as String,
-    );
+_SecretNameParams _$SecretNameParamsFromJson(Map<String, dynamic> json) =>
+    _SecretNameParams(name: json['name'] as String);
 
-Map<String, dynamic> _$$SecretNameParamsImplToJson(
-        _$SecretNameParamsImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
+Map<String, dynamic> _$SecretNameParamsToJson(_SecretNameParams instance) =>
+    <String, dynamic>{'name': instance.name};
 
-_$AuditListParamsImpl _$$AuditListParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AuditListParamsImpl(
+_AuditListParams _$AuditListParamsFromJson(Map<String, dynamic> json) =>
+    _AuditListParams(
       limit: (json['limit'] as num?)?.toInt() ?? 200,
       action: json['action'] as String?,
       actor: json['actor'] as String?,
       before: json['before'] as String?,
     );
 
-Map<String, dynamic> _$$AuditListParamsImplToJson(
-    _$AuditListParamsImpl instance) {
-  final val = <String, dynamic>{
-    'limit': instance.limit,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('action', instance.action);
-  writeNotNull('actor', instance.actor);
-  writeNotNull('before', instance.before);
-  return val;
-}
-
-_$AiKeysCheckParamsImpl _$$AiKeysCheckParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AiKeysCheckParamsImpl(
-      removeDead: json['remove_dead'] as bool? ?? false,
-    );
-
-Map<String, dynamic> _$$AiKeysCheckParamsImplToJson(
-        _$AiKeysCheckParamsImpl instance) =>
+Map<String, dynamic> _$AuditListParamsToJson(_AuditListParams instance) =>
     <String, dynamic>{
-      'remove_dead': instance.removeDead,
+      'limit': instance.limit,
+      'action': ?instance.action,
+      'actor': ?instance.actor,
+      'before': ?instance.before,
     };
+
+_AiKeysCheckParams _$AiKeysCheckParamsFromJson(Map<String, dynamic> json) =>
+    _AiKeysCheckParams(removeDead: json['remove_dead'] as bool? ?? false);
+
+Map<String, dynamic> _$AiKeysCheckParamsToJson(_AiKeysCheckParams instance) =>
+    <String, dynamic>{'remove_dead': instance.removeDead};

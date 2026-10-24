@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,537 +9,866 @@ part of 'ai_prompts.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AiPrompts _$AiPromptsFromJson(Map<String, dynamic> json) {
-  return _AiPrompts.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AiPrompts {
-  /// The opening of the review prompt: who the reviewer is and what the
-  /// project is, including the versions it is on.
-  String get reviewIntro => throw _privateConstructorUsedError;
 
-  /// The project conventions the review checks against — a Markdown list.
-  String get reviewConventions => throw _privateConstructorUsedError;
+/// The opening of the review prompt: who the reviewer is and what the
+/// project is, including the versions it is on.
+ String get reviewIntro;/// The project conventions the review checks against — a Markdown list.
+ String get reviewConventions;/// The opening of the translation prompt: what app the strings are for.
+ String get translatorIntro;
+/// Create a copy of AiPrompts
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<AiPrompts> get copyWith => _$AiPromptsCopyWithImpl<AiPrompts>(this as AiPrompts, _$identity);
 
-  /// The opening of the translation prompt: what app the strings are for.
-  String get translatorIntro => throw _privateConstructorUsedError;
+  /// Serializes this AiPrompts to a JSON map.
+  Map<String, dynamic> toJson();
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AiPromptsCopyWith<AiPrompts> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPrompts&&(identical(other.reviewIntro, reviewIntro) || other.reviewIntro == reviewIntro)&&(identical(other.reviewConventions, reviewConventions) || other.reviewConventions == reviewConventions)&&(identical(other.translatorIntro, translatorIntro) || other.translatorIntro == translatorIntro));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,reviewIntro,reviewConventions,translatorIntro);
+
+@override
+String toString() {
+  return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AiPromptsCopyWith<$Res> {
-  factory $AiPromptsCopyWith(AiPrompts value, $Res Function(AiPrompts) then) =
-      _$AiPromptsCopyWithImpl<$Res, AiPrompts>;
-  @useResult
-  $Res call(
-      {String reviewIntro, String reviewConventions, String translatorIntro});
-}
+abstract mixin class $AiPromptsCopyWith<$Res>  {
+  factory $AiPromptsCopyWith(AiPrompts value, $Res Function(AiPrompts) _then) = _$AiPromptsCopyWithImpl;
+@useResult
+$Res call({
+ String reviewIntro, String reviewConventions, String translatorIntro
+});
 
+
+
+
+}
 /// @nodoc
-class _$AiPromptsCopyWithImpl<$Res, $Val extends AiPrompts>
+class _$AiPromptsCopyWithImpl<$Res>
     implements $AiPromptsCopyWith<$Res> {
-  _$AiPromptsCopyWithImpl(this._value, this._then);
+  _$AiPromptsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AiPrompts _self;
+  final $Res Function(AiPrompts) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? reviewIntro = null,
-    Object? reviewConventions = null,
-    Object? translatorIntro = null,
-  }) {
-    return _then(_value.copyWith(
-      reviewIntro: null == reviewIntro
-          ? _value.reviewIntro
-          : reviewIntro // ignore: cast_nullable_to_non_nullable
-              as String,
-      reviewConventions: null == reviewConventions
-          ? _value.reviewConventions
-          : reviewConventions // ignore: cast_nullable_to_non_nullable
-              as String,
-      translatorIntro: null == translatorIntro
-          ? _value.translatorIntro
-          : translatorIntro // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of AiPrompts
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? reviewIntro = null,Object? reviewConventions = null,Object? translatorIntro = null,}) {
+  return _then(_self.copyWith(
+reviewIntro: null == reviewIntro ? _self.reviewIntro : reviewIntro // ignore: cast_nullable_to_non_nullable
+as String,reviewConventions: null == reviewConventions ? _self.reviewConventions : reviewConventions // ignore: cast_nullable_to_non_nullable
+as String,translatorIntro: null == translatorIntro ? _self.translatorIntro : translatorIntro // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AiPromptsImplCopyWith<$Res>
-    implements $AiPromptsCopyWith<$Res> {
-  factory _$$AiPromptsImplCopyWith(
-          _$AiPromptsImpl value, $Res Function(_$AiPromptsImpl) then) =
-      __$$AiPromptsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String reviewIntro, String reviewConventions, String translatorIntro});
 }
 
-/// @nodoc
-class __$$AiPromptsImplCopyWithImpl<$Res>
-    extends _$AiPromptsCopyWithImpl<$Res, _$AiPromptsImpl>
-    implements _$$AiPromptsImplCopyWith<$Res> {
-  __$$AiPromptsImplCopyWithImpl(
-      _$AiPromptsImpl _value, $Res Function(_$AiPromptsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? reviewIntro = null,
-    Object? reviewConventions = null,
-    Object? translatorIntro = null,
-  }) {
-    return _then(_$AiPromptsImpl(
-      reviewIntro: null == reviewIntro
-          ? _value.reviewIntro
-          : reviewIntro // ignore: cast_nullable_to_non_nullable
-              as String,
-      reviewConventions: null == reviewConventions
-          ? _value.reviewConventions
-          : reviewConventions // ignore: cast_nullable_to_non_nullable
-              as String,
-      translatorIntro: null == translatorIntro
-          ? _value.translatorIntro
-          : translatorIntro // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AiPrompts].
+extension AiPromptsPatterns on AiPrompts {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiPrompts value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiPrompts() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiPrompts value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiPrompts():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiPrompts value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiPrompts() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String reviewIntro,  String reviewConventions,  String translatorIntro)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiPrompts() when $default != null:
+return $default(_that.reviewIntro,_that.reviewConventions,_that.translatorIntro);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String reviewIntro,  String reviewConventions,  String translatorIntro)  $default,) {final _that = this;
+switch (_that) {
+case _AiPrompts():
+return $default(_that.reviewIntro,_that.reviewConventions,_that.translatorIntro);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String reviewIntro,  String reviewConventions,  String translatorIntro)?  $default,) {final _that = this;
+switch (_that) {
+case _AiPrompts() when $default != null:
+return $default(_that.reviewIntro,_that.reviewConventions,_that.translatorIntro);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AiPromptsImpl extends _AiPrompts {
-  const _$AiPromptsImpl(
-      {required this.reviewIntro,
-      required this.reviewConventions,
-      required this.translatorIntro})
-      : super._();
 
-  factory _$AiPromptsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AiPromptsImplFromJson(json);
+class _AiPrompts extends AiPrompts {
+  const _AiPrompts({required this.reviewIntro, required this.reviewConventions, required this.translatorIntro}): super._();
+  factory _AiPrompts.fromJson(Map<String, dynamic> json) => _$AiPromptsFromJson(json);
 
-  /// The opening of the review prompt: who the reviewer is and what the
-  /// project is, including the versions it is on.
-  @override
-  final String reviewIntro;
+/// The opening of the review prompt: who the reviewer is and what the
+/// project is, including the versions it is on.
+@override final  String reviewIntro;
+/// The project conventions the review checks against — a Markdown list.
+@override final  String reviewConventions;
+/// The opening of the translation prompt: what app the strings are for.
+@override final  String translatorIntro;
 
-  /// The project conventions the review checks against — a Markdown list.
-  @override
-  final String reviewConventions;
+/// Create a copy of AiPrompts
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiPromptsCopyWith<_AiPrompts> get copyWith => __$AiPromptsCopyWithImpl<_AiPrompts>(this, _$identity);
 
-  /// The opening of the translation prompt: what app the strings are for.
-  @override
-  final String translatorIntro;
-
-  @override
-  String toString() {
-    return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AiPromptsImpl &&
-            (identical(other.reviewIntro, reviewIntro) ||
-                other.reviewIntro == reviewIntro) &&
-            (identical(other.reviewConventions, reviewConventions) ||
-                other.reviewConventions == reviewConventions) &&
-            (identical(other.translatorIntro, translatorIntro) ||
-                other.translatorIntro == translatorIntro));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, reviewIntro, reviewConventions, translatorIntro);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AiPromptsImplCopyWith<_$AiPromptsImpl> get copyWith =>
-      __$$AiPromptsImplCopyWithImpl<_$AiPromptsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AiPromptsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AiPromptsToJson(this, );
 }
 
-abstract class _AiPrompts extends AiPrompts {
-  const factory _AiPrompts(
-      {required final String reviewIntro,
-      required final String reviewConventions,
-      required final String translatorIntro}) = _$AiPromptsImpl;
-  const _AiPrompts._() : super._();
-
-  factory _AiPrompts.fromJson(Map<String, dynamic> json) =
-      _$AiPromptsImpl.fromJson;
-
-  @override
-
-  /// The opening of the review prompt: who the reviewer is and what the
-  /// project is, including the versions it is on.
-  String get reviewIntro;
-  @override
-
-  /// The project conventions the review checks against — a Markdown list.
-  String get reviewConventions;
-  @override
-
-  /// The opening of the translation prompt: what app the strings are for.
-  String get translatorIntro;
-  @override
-  @JsonKey(ignore: true)
-  _$$AiPromptsImplCopyWith<_$AiPromptsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPrompts&&(identical(other.reviewIntro, reviewIntro) || other.reviewIntro == reviewIntro)&&(identical(other.reviewConventions, reviewConventions) || other.reviewConventions == reviewConventions)&&(identical(other.translatorIntro, translatorIntro) || other.translatorIntro == translatorIntro));
 }
 
-AiPromptsSetParams _$AiPromptsSetParamsFromJson(Map<String, dynamic> json) {
-  return _AiPromptsSetParams.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,reviewIntro,reviewConventions,translatorIntro);
+
+@override
+String toString() {
+  return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiPromptsCopyWith<$Res> implements $AiPromptsCopyWith<$Res> {
+  factory _$AiPromptsCopyWith(_AiPrompts value, $Res Function(_AiPrompts) _then) = __$AiPromptsCopyWithImpl;
+@override @useResult
+$Res call({
+ String reviewIntro, String reviewConventions, String translatorIntro
+});
+
+
+
+
+}
+/// @nodoc
+class __$AiPromptsCopyWithImpl<$Res>
+    implements _$AiPromptsCopyWith<$Res> {
+  __$AiPromptsCopyWithImpl(this._self, this._then);
+
+  final _AiPrompts _self;
+  final $Res Function(_AiPrompts) _then;
+
+/// Create a copy of AiPrompts
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? reviewIntro = null,Object? reviewConventions = null,Object? translatorIntro = null,}) {
+  return _then(_AiPrompts(
+reviewIntro: null == reviewIntro ? _self.reviewIntro : reviewIntro // ignore: cast_nullable_to_non_nullable
+as String,reviewConventions: null == reviewConventions ? _self.reviewConventions : reviewConventions // ignore: cast_nullable_to_non_nullable
+as String,translatorIntro: null == translatorIntro ? _self.translatorIntro : translatorIntro // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$AiPromptsSetParams {
-  AiPrompts get prompts => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AiPromptsSetParamsCopyWith<AiPromptsSetParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ AiPrompts get prompts;
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiPromptsSetParamsCopyWith<AiPromptsSetParams> get copyWith => _$AiPromptsSetParamsCopyWithImpl<AiPromptsSetParams>(this as AiPromptsSetParams, _$identity);
+
+  /// Serializes this AiPromptsSetParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsSetParams&&(identical(other.prompts, prompts) || other.prompts == prompts));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,prompts);
+
+@override
+String toString() {
+  return 'AiPromptsSetParams(prompts: $prompts)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AiPromptsSetParamsCopyWith<$Res> {
-  factory $AiPromptsSetParamsCopyWith(
-          AiPromptsSetParams value, $Res Function(AiPromptsSetParams) then) =
-      _$AiPromptsSetParamsCopyWithImpl<$Res, AiPromptsSetParams>;
-  @useResult
-  $Res call({AiPrompts prompts});
+abstract mixin class $AiPromptsSetParamsCopyWith<$Res>  {
+  factory $AiPromptsSetParamsCopyWith(AiPromptsSetParams value, $Res Function(AiPromptsSetParams) _then) = _$AiPromptsSetParamsCopyWithImpl;
+@useResult
+$Res call({
+ AiPrompts prompts
+});
 
-  $AiPromptsCopyWith<$Res> get prompts;
+
+$AiPromptsCopyWith<$Res> get prompts;
+
 }
-
 /// @nodoc
-class _$AiPromptsSetParamsCopyWithImpl<$Res, $Val extends AiPromptsSetParams>
+class _$AiPromptsSetParamsCopyWithImpl<$Res>
     implements $AiPromptsSetParamsCopyWith<$Res> {
-  _$AiPromptsSetParamsCopyWithImpl(this._value, this._then);
+  _$AiPromptsSetParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AiPromptsSetParams _self;
+  final $Res Function(AiPromptsSetParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? prompts = null,
-  }) {
-    return _then(_value.copyWith(
-      prompts: null == prompts
-          ? _value.prompts
-          : prompts // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AiPromptsCopyWith<$Res> get prompts {
-    return $AiPromptsCopyWith<$Res>(_value.prompts, (value) {
-      return _then(_value.copyWith(prompts: value) as $Val);
-    });
-  }
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? prompts = null,}) {
+  return _then(_self.copyWith(
+prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
+as AiPrompts,
+  ));
+}
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get prompts {
+  
+  return $AiPromptsCopyWith<$Res>(_self.prompts, (value) {
+    return _then(_self.copyWith(prompts: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$AiPromptsSetParamsImplCopyWith<$Res>
-    implements $AiPromptsSetParamsCopyWith<$Res> {
-  factory _$$AiPromptsSetParamsImplCopyWith(_$AiPromptsSetParamsImpl value,
-          $Res Function(_$AiPromptsSetParamsImpl) then) =
-      __$$AiPromptsSetParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({AiPrompts prompts});
 
-  @override
-  $AiPromptsCopyWith<$Res> get prompts;
+/// Adds pattern-matching-related methods to [AiPromptsSetParams].
+extension AiPromptsSetParamsPatterns on AiPromptsSetParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiPromptsSetParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiPromptsSetParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiPromptsSetParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiPromptsSetParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiPromptsSetParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiPromptsSetParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( AiPrompts prompts)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiPromptsSetParams() when $default != null:
+return $default(_that.prompts);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( AiPrompts prompts)  $default,) {final _that = this;
+switch (_that) {
+case _AiPromptsSetParams():
+return $default(_that.prompts);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( AiPrompts prompts)?  $default,) {final _that = this;
+switch (_that) {
+case _AiPromptsSetParams() when $default != null:
+return $default(_that.prompts);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$AiPromptsSetParamsImplCopyWithImpl<$Res>
-    extends _$AiPromptsSetParamsCopyWithImpl<$Res, _$AiPromptsSetParamsImpl>
-    implements _$$AiPromptsSetParamsImplCopyWith<$Res> {
-  __$$AiPromptsSetParamsImplCopyWithImpl(_$AiPromptsSetParamsImpl _value,
-      $Res Function(_$AiPromptsSetParamsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? prompts = null,
-  }) {
-    return _then(_$AiPromptsSetParamsImpl(
-      prompts: null == prompts
-          ? _value.prompts
-          : prompts // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AiPromptsSetParamsImpl implements _AiPromptsSetParams {
-  const _$AiPromptsSetParamsImpl({required this.prompts});
 
-  factory _$AiPromptsSetParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AiPromptsSetParamsImplFromJson(json);
+class _AiPromptsSetParams implements AiPromptsSetParams {
+  const _AiPromptsSetParams({required this.prompts});
+  factory _AiPromptsSetParams.fromJson(Map<String, dynamic> json) => _$AiPromptsSetParamsFromJson(json);
 
-  @override
-  final AiPrompts prompts;
+@override final  AiPrompts prompts;
 
-  @override
-  String toString() {
-    return 'AiPromptsSetParams(prompts: $prompts)';
-  }
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiPromptsSetParamsCopyWith<_AiPromptsSetParams> get copyWith => __$AiPromptsSetParamsCopyWithImpl<_AiPromptsSetParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AiPromptsSetParamsImpl &&
-            (identical(other.prompts, prompts) || other.prompts == prompts));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, prompts);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AiPromptsSetParamsImplCopyWith<_$AiPromptsSetParamsImpl> get copyWith =>
-      __$$AiPromptsSetParamsImplCopyWithImpl<_$AiPromptsSetParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AiPromptsSetParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AiPromptsSetParamsToJson(this, );
 }
 
-abstract class _AiPromptsSetParams implements AiPromptsSetParams {
-  const factory _AiPromptsSetParams({required final AiPrompts prompts}) =
-      _$AiPromptsSetParamsImpl;
-
-  factory _AiPromptsSetParams.fromJson(Map<String, dynamic> json) =
-      _$AiPromptsSetParamsImpl.fromJson;
-
-  @override
-  AiPrompts get prompts;
-  @override
-  @JsonKey(ignore: true)
-  _$$AiPromptsSetParamsImplCopyWith<_$AiPromptsSetParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsSetParams&&(identical(other.prompts, prompts) || other.prompts == prompts));
 }
 
-AiPromptsInfo _$AiPromptsInfoFromJson(Map<String, dynamic> json) {
-  return _AiPromptsInfo.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,prompts);
+
+@override
+String toString() {
+  return 'AiPromptsSetParams(prompts: $prompts)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiPromptsSetParamsCopyWith<$Res> implements $AiPromptsSetParamsCopyWith<$Res> {
+  factory _$AiPromptsSetParamsCopyWith(_AiPromptsSetParams value, $Res Function(_AiPromptsSetParams) _then) = __$AiPromptsSetParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ AiPrompts prompts
+});
+
+
+@override $AiPromptsCopyWith<$Res> get prompts;
+
+}
+/// @nodoc
+class __$AiPromptsSetParamsCopyWithImpl<$Res>
+    implements _$AiPromptsSetParamsCopyWith<$Res> {
+  __$AiPromptsSetParamsCopyWithImpl(this._self, this._then);
+
+  final _AiPromptsSetParams _self;
+  final $Res Function(_AiPromptsSetParams) _then;
+
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? prompts = null,}) {
+  return _then(_AiPromptsSetParams(
+prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
+as AiPrompts,
+  ));
+}
+
+/// Create a copy of AiPromptsSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get prompts {
+  
+  return $AiPromptsCopyWith<$Res>(_self.prompts, (value) {
+    return _then(_self.copyWith(prompts: value));
+  });
+}
+}
+
 
 /// @nodoc
 mixin _$AiPromptsInfo {
-  AiPrompts get prompts => throw _privateConstructorUsedError;
-  AiPrompts get defaults => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AiPromptsInfoCopyWith<AiPromptsInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+ AiPrompts get prompts; AiPrompts get defaults;
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiPromptsInfoCopyWith<AiPromptsInfo> get copyWith => _$AiPromptsInfoCopyWithImpl<AiPromptsInfo>(this as AiPromptsInfo, _$identity);
+
+  /// Serializes this AiPromptsInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsInfo&&(identical(other.prompts, prompts) || other.prompts == prompts)&&(identical(other.defaults, defaults) || other.defaults == defaults));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,prompts,defaults);
+
+@override
+String toString() {
+  return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AiPromptsInfoCopyWith<$Res> {
-  factory $AiPromptsInfoCopyWith(
-          AiPromptsInfo value, $Res Function(AiPromptsInfo) then) =
-      _$AiPromptsInfoCopyWithImpl<$Res, AiPromptsInfo>;
-  @useResult
-  $Res call({AiPrompts prompts, AiPrompts defaults});
+abstract mixin class $AiPromptsInfoCopyWith<$Res>  {
+  factory $AiPromptsInfoCopyWith(AiPromptsInfo value, $Res Function(AiPromptsInfo) _then) = _$AiPromptsInfoCopyWithImpl;
+@useResult
+$Res call({
+ AiPrompts prompts, AiPrompts defaults
+});
 
-  $AiPromptsCopyWith<$Res> get prompts;
-  $AiPromptsCopyWith<$Res> get defaults;
+
+$AiPromptsCopyWith<$Res> get prompts;$AiPromptsCopyWith<$Res> get defaults;
+
 }
-
 /// @nodoc
-class _$AiPromptsInfoCopyWithImpl<$Res, $Val extends AiPromptsInfo>
+class _$AiPromptsInfoCopyWithImpl<$Res>
     implements $AiPromptsInfoCopyWith<$Res> {
-  _$AiPromptsInfoCopyWithImpl(this._value, this._then);
+  _$AiPromptsInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AiPromptsInfo _self;
+  final $Res Function(AiPromptsInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? prompts = null,
-    Object? defaults = null,
-  }) {
-    return _then(_value.copyWith(
-      prompts: null == prompts
-          ? _value.prompts
-          : prompts // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-      defaults: null == defaults
-          ? _value.defaults
-          : defaults // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AiPromptsCopyWith<$Res> get prompts {
-    return $AiPromptsCopyWith<$Res>(_value.prompts, (value) {
-      return _then(_value.copyWith(prompts: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AiPromptsCopyWith<$Res> get defaults {
-    return $AiPromptsCopyWith<$Res>(_value.defaults, (value) {
-      return _then(_value.copyWith(defaults: value) as $Val);
-    });
-  }
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? prompts = null,Object? defaults = null,}) {
+  return _then(_self.copyWith(
+prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
+as AiPrompts,defaults: null == defaults ? _self.defaults : defaults // ignore: cast_nullable_to_non_nullable
+as AiPrompts,
+  ));
+}
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get prompts {
+  
+  return $AiPromptsCopyWith<$Res>(_self.prompts, (value) {
+    return _then(_self.copyWith(prompts: value));
+  });
+}/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get defaults {
+  
+  return $AiPromptsCopyWith<$Res>(_self.defaults, (value) {
+    return _then(_self.copyWith(defaults: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$AiPromptsInfoImplCopyWith<$Res>
-    implements $AiPromptsInfoCopyWith<$Res> {
-  factory _$$AiPromptsInfoImplCopyWith(
-          _$AiPromptsInfoImpl value, $Res Function(_$AiPromptsInfoImpl) then) =
-      __$$AiPromptsInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({AiPrompts prompts, AiPrompts defaults});
 
-  @override
-  $AiPromptsCopyWith<$Res> get prompts;
-  @override
-  $AiPromptsCopyWith<$Res> get defaults;
+/// Adds pattern-matching-related methods to [AiPromptsInfo].
+extension AiPromptsInfoPatterns on AiPromptsInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiPromptsInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiPromptsInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiPromptsInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiPromptsInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiPromptsInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiPromptsInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( AiPrompts prompts,  AiPrompts defaults)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiPromptsInfo() when $default != null:
+return $default(_that.prompts,_that.defaults);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( AiPrompts prompts,  AiPrompts defaults)  $default,) {final _that = this;
+switch (_that) {
+case _AiPromptsInfo():
+return $default(_that.prompts,_that.defaults);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( AiPrompts prompts,  AiPrompts defaults)?  $default,) {final _that = this;
+switch (_that) {
+case _AiPromptsInfo() when $default != null:
+return $default(_that.prompts,_that.defaults);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$AiPromptsInfoImplCopyWithImpl<$Res>
-    extends _$AiPromptsInfoCopyWithImpl<$Res, _$AiPromptsInfoImpl>
-    implements _$$AiPromptsInfoImplCopyWith<$Res> {
-  __$$AiPromptsInfoImplCopyWithImpl(
-      _$AiPromptsInfoImpl _value, $Res Function(_$AiPromptsInfoImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? prompts = null,
-    Object? defaults = null,
-  }) {
-    return _then(_$AiPromptsInfoImpl(
-      prompts: null == prompts
-          ? _value.prompts
-          : prompts // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-      defaults: null == defaults
-          ? _value.defaults
-          : defaults // ignore: cast_nullable_to_non_nullable
-              as AiPrompts,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AiPromptsInfoImpl implements _AiPromptsInfo {
-  const _$AiPromptsInfoImpl({required this.prompts, required this.defaults});
 
-  factory _$AiPromptsInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AiPromptsInfoImplFromJson(json);
+class _AiPromptsInfo implements AiPromptsInfo {
+  const _AiPromptsInfo({required this.prompts, required this.defaults});
+  factory _AiPromptsInfo.fromJson(Map<String, dynamic> json) => _$AiPromptsInfoFromJson(json);
 
-  @override
-  final AiPrompts prompts;
-  @override
-  final AiPrompts defaults;
+@override final  AiPrompts prompts;
+@override final  AiPrompts defaults;
 
-  @override
-  String toString() {
-    return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
-  }
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiPromptsInfoCopyWith<_AiPromptsInfo> get copyWith => __$AiPromptsInfoCopyWithImpl<_AiPromptsInfo>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AiPromptsInfoImpl &&
-            (identical(other.prompts, prompts) || other.prompts == prompts) &&
-            (identical(other.defaults, defaults) ||
-                other.defaults == defaults));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, prompts, defaults);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AiPromptsInfoImplCopyWith<_$AiPromptsInfoImpl> get copyWith =>
-      __$$AiPromptsInfoImplCopyWithImpl<_$AiPromptsInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AiPromptsInfoImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AiPromptsInfoToJson(this, );
 }
 
-abstract class _AiPromptsInfo implements AiPromptsInfo {
-  const factory _AiPromptsInfo(
-      {required final AiPrompts prompts,
-      required final AiPrompts defaults}) = _$AiPromptsInfoImpl;
-
-  factory _AiPromptsInfo.fromJson(Map<String, dynamic> json) =
-      _$AiPromptsInfoImpl.fromJson;
-
-  @override
-  AiPrompts get prompts;
-  @override
-  AiPrompts get defaults;
-  @override
-  @JsonKey(ignore: true)
-  _$$AiPromptsInfoImplCopyWith<_$AiPromptsInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsInfo&&(identical(other.prompts, prompts) || other.prompts == prompts)&&(identical(other.defaults, defaults) || other.defaults == defaults));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,prompts,defaults);
+
+@override
+String toString() {
+  return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiPromptsInfoCopyWith<$Res> implements $AiPromptsInfoCopyWith<$Res> {
+  factory _$AiPromptsInfoCopyWith(_AiPromptsInfo value, $Res Function(_AiPromptsInfo) _then) = __$AiPromptsInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ AiPrompts prompts, AiPrompts defaults
+});
+
+
+@override $AiPromptsCopyWith<$Res> get prompts;@override $AiPromptsCopyWith<$Res> get defaults;
+
+}
+/// @nodoc
+class __$AiPromptsInfoCopyWithImpl<$Res>
+    implements _$AiPromptsInfoCopyWith<$Res> {
+  __$AiPromptsInfoCopyWithImpl(this._self, this._then);
+
+  final _AiPromptsInfo _self;
+  final $Res Function(_AiPromptsInfo) _then;
+
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? prompts = null,Object? defaults = null,}) {
+  return _then(_AiPromptsInfo(
+prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
+as AiPrompts,defaults: null == defaults ? _self.defaults : defaults // ignore: cast_nullable_to_non_nullable
+as AiPrompts,
+  ));
+}
+
+/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get prompts {
+  
+  return $AiPromptsCopyWith<$Res>(_self.prompts, (value) {
+    return _then(_self.copyWith(prompts: value));
+  });
+}/// Create a copy of AiPromptsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$AiPromptsCopyWith<$Res> get defaults {
+  
+  return $AiPromptsCopyWith<$Res>(_self.defaults, (value) {
+    return _then(_self.copyWith(defaults: value));
+  });
+}
+}
+
+// dart format on

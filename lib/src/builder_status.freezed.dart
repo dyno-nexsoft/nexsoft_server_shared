@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,295 +9,305 @@ part of 'builder_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-BuilderStatus _$BuilderStatusFromJson(Map<String, dynamic> json) {
-  return _BuilderStatus.fromJson(json);
-}
 
 /// @nodoc
 mixin _$BuilderStatus {
-  /// The machine's host name, as the bot addresses it.
-  String get name => throw _privateConstructorUsedError;
 
-  /// False once a probe or a job found it unreachable; the queue then stops handing it work until it answers again.
-  bool get online => throw _privateConstructorUsedError;
+/// The machine's host name, as the bot addresses it.
+ String get name;/// False once a probe or a job found it unreachable; the queue then stops handing it work until it answers again.
+ bool get online;/// The job it is running right now, or null when it is idle.
+ String? get jobId;/// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+/// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+ String? get problem;/// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
+ List<String> get labels;/// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+ bool get paused;
+/// Create a copy of BuilderStatus
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$BuilderStatusCopyWith<BuilderStatus> get copyWith => _$BuilderStatusCopyWithImpl<BuilderStatus>(this as BuilderStatus, _$identity);
 
-  /// The job it is running right now, or null when it is idle.
-  String? get jobId => throw _privateConstructorUsedError;
+  /// Serializes this BuilderStatus to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
-  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
-  String? get problem => throw _privateConstructorUsedError;
 
-  /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
-  List<String> get labels => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuilderStatus&&(identical(other.name, name) || other.name == name)&&(identical(other.online, online) || other.online == online)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.problem, problem) || other.problem == problem)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.paused, paused) || other.paused == paused));
+}
 
-  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
-  bool get paused => throw _privateConstructorUsedError;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,online,jobId,problem,const DeepCollectionEquality().hash(labels),paused);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $BuilderStatusCopyWith<BuilderStatus> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $BuilderStatusCopyWith<$Res> {
-  factory $BuilderStatusCopyWith(
-          BuilderStatus value, $Res Function(BuilderStatus) then) =
-      _$BuilderStatusCopyWithImpl<$Res, BuilderStatus>;
-  @useResult
-  $Res call(
-      {String name,
-      bool online,
-      String? jobId,
-      String? problem,
-      List<String> labels,
-      bool paused});
-}
+abstract mixin class $BuilderStatusCopyWith<$Res>  {
+  factory $BuilderStatusCopyWith(BuilderStatus value, $Res Function(BuilderStatus) _then) = _$BuilderStatusCopyWithImpl;
+@useResult
+$Res call({
+ String name, bool online, String? jobId, String? problem, List<String> labels, bool paused
+});
 
+
+
+
+}
 /// @nodoc
-class _$BuilderStatusCopyWithImpl<$Res, $Val extends BuilderStatus>
+class _$BuilderStatusCopyWithImpl<$Res>
     implements $BuilderStatusCopyWith<$Res> {
-  _$BuilderStatusCopyWithImpl(this._value, this._then);
+  _$BuilderStatusCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final BuilderStatus _self;
+  final $Res Function(BuilderStatus) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? online = null,
-    Object? jobId = freezed,
-    Object? problem = freezed,
-    Object? labels = null,
-    Object? paused = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      online: null == online
-          ? _value.online
-          : online // ignore: cast_nullable_to_non_nullable
-              as bool,
-      jobId: freezed == jobId
-          ? _value.jobId
-          : jobId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      problem: freezed == problem
-          ? _value.problem
-          : problem // ignore: cast_nullable_to_non_nullable
-              as String?,
-      labels: null == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      paused: null == paused
-          ? _value.paused
-          : paused // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of BuilderStatus
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? online = null,Object? jobId = freezed,Object? problem = freezed,Object? labels = null,Object? paused = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,online: null == online ? _self.online : online // ignore: cast_nullable_to_non_nullable
+as bool,jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
+as String?,problem: freezed == problem ? _self.problem : problem // ignore: cast_nullable_to_non_nullable
+as String?,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
+as List<String>,paused: null == paused ? _self.paused : paused // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$BuilderStatusImplCopyWith<$Res>
-    implements $BuilderStatusCopyWith<$Res> {
-  factory _$$BuilderStatusImplCopyWith(
-          _$BuilderStatusImpl value, $Res Function(_$BuilderStatusImpl) then) =
-      __$$BuilderStatusImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      bool online,
-      String? jobId,
-      String? problem,
-      List<String> labels,
-      bool paused});
 }
 
-/// @nodoc
-class __$$BuilderStatusImplCopyWithImpl<$Res>
-    extends _$BuilderStatusCopyWithImpl<$Res, _$BuilderStatusImpl>
-    implements _$$BuilderStatusImplCopyWith<$Res> {
-  __$$BuilderStatusImplCopyWithImpl(
-      _$BuilderStatusImpl _value, $Res Function(_$BuilderStatusImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? online = null,
-    Object? jobId = freezed,
-    Object? problem = freezed,
-    Object? labels = null,
-    Object? paused = null,
-  }) {
-    return _then(_$BuilderStatusImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      online: null == online
-          ? _value.online
-          : online // ignore: cast_nullable_to_non_nullable
-              as bool,
-      jobId: freezed == jobId
-          ? _value.jobId
-          : jobId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      problem: freezed == problem
-          ? _value.problem
-          : problem // ignore: cast_nullable_to_non_nullable
-              as String?,
-      labels: null == labels
-          ? _value._labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      paused: null == paused
-          ? _value.paused
-          : paused // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [BuilderStatus].
+extension BuilderStatusPatterns on BuilderStatus {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BuilderStatus value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _BuilderStatus() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BuilderStatus value)  $default,){
+final _that = this;
+switch (_that) {
+case _BuilderStatus():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BuilderStatus value)?  $default,){
+final _that = this;
+switch (_that) {
+case _BuilderStatus() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  bool online,  String? jobId,  String? problem,  List<String> labels,  bool paused)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _BuilderStatus() when $default != null:
+return $default(_that.name,_that.online,_that.jobId,_that.problem,_that.labels,_that.paused);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  bool online,  String? jobId,  String? problem,  List<String> labels,  bool paused)  $default,) {final _that = this;
+switch (_that) {
+case _BuilderStatus():
+return $default(_that.name,_that.online,_that.jobId,_that.problem,_that.labels,_that.paused);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  bool online,  String? jobId,  String? problem,  List<String> labels,  bool paused)?  $default,) {final _that = this;
+switch (_that) {
+case _BuilderStatus() when $default != null:
+return $default(_that.name,_that.online,_that.jobId,_that.problem,_that.labels,_that.paused);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BuilderStatusImpl implements _BuilderStatus {
-  const _$BuilderStatusImpl(
-      {required this.name,
-      required this.online,
-      this.jobId,
-      this.problem,
-      final List<String> labels = const [],
-      this.paused = false})
-      : _labels = labels;
 
-  factory _$BuilderStatusImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BuilderStatusImplFromJson(json);
+class _BuilderStatus implements BuilderStatus {
+  const _BuilderStatus({required this.name, required this.online, this.jobId, this.problem, final  List<String> labels = const [], this.paused = false}): _labels = labels;
+  factory _BuilderStatus.fromJson(Map<String, dynamic> json) => _$BuilderStatusFromJson(json);
 
-  /// The machine's host name, as the bot addresses it.
-  @override
-  final String name;
-
-  /// False once a probe or a job found it unreachable; the queue then stops handing it work until it answers again.
-  @override
-  final bool online;
-
-  /// The job it is running right now, or null when it is idle.
-  @override
-  final String? jobId;
-
-  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
-  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
-  @override
-  final String? problem;
-
-  /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
-  final List<String> _labels;
-
-  /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
-  @override
-  @JsonKey()
-  List<String> get labels {
-    if (_labels is EqualUnmodifiableListView) return _labels;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
-  }
-
-  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
-  @override
-  @JsonKey()
-  final bool paused;
-
-  @override
-  String toString() {
-    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BuilderStatusImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.online, online) || other.online == online) &&
-            (identical(other.jobId, jobId) || other.jobId == jobId) &&
-            (identical(other.problem, problem) || other.problem == problem) &&
-            const DeepCollectionEquality().equals(other._labels, _labels) &&
-            (identical(other.paused, paused) || other.paused == paused));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, online, jobId, problem,
-      const DeepCollectionEquality().hash(_labels), paused);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BuilderStatusImplCopyWith<_$BuilderStatusImpl> get copyWith =>
-      __$$BuilderStatusImplCopyWithImpl<_$BuilderStatusImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$BuilderStatusImplToJson(
-      this,
-    );
-  }
+/// The machine's host name, as the bot addresses it.
+@override final  String name;
+/// False once a probe or a job found it unreachable; the queue then stops handing it work until it answers again.
+@override final  bool online;
+/// The job it is running right now, or null when it is idle.
+@override final  String? jobId;
+/// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
+/// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
+@override final  String? problem;
+/// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
+ final  List<String> _labels;
+/// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
+@override@JsonKey() List<String> get labels {
+  if (_labels is EqualUnmodifiableListView) return _labels;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_labels);
 }
 
-abstract class _BuilderStatus implements BuilderStatus {
-  const factory _BuilderStatus(
-      {required final String name,
-      required final bool online,
-      final String? jobId,
-      final String? problem,
-      final List<String> labels,
-      final bool paused}) = _$BuilderStatusImpl;
+/// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
+@override@JsonKey() final  bool paused;
 
-  factory _BuilderStatus.fromJson(Map<String, dynamic> json) =
-      _$BuilderStatusImpl.fromJson;
+/// Create a copy of BuilderStatus
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$BuilderStatusCopyWith<_BuilderStatus> get copyWith => __$BuilderStatusCopyWithImpl<_BuilderStatus>(this, _$identity);
 
-  @override
-
-  /// The machine's host name, as the bot addresses it.
-  String get name;
-  @override
-
-  /// False once a probe or a job found it unreachable; the queue then stops handing it work until it answers again.
-  bool get online;
-  @override
-
-  /// The job it is running right now, or null when it is idle.
-  String? get jobId;
-  @override
-
-  /// Why the queue last skipped it (it does not answer, its disk is too full), or null. Kept while it is back in
-  /// rotation until a job is prepared there, so a machine every job skips does not look fine between two jobs.
-  String? get problem;
-  @override
-
-  /// What a job's `runs_on` may name to run here: its host, its short name, and the labels its entry gives it.
-  List<String> get labels;
-  @override
-
-  /// Whether an admin paused it (`ci.machines.set`): it answers, but the queue gives it nothing.
-  bool get paused;
-  @override
-  @JsonKey(ignore: true)
-  _$$BuilderStatusImplCopyWith<_$BuilderStatusImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$BuilderStatusToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuilderStatus&&(identical(other.name, name) || other.name == name)&&(identical(other.online, online) || other.online == online)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.problem, problem) || other.problem == problem)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.paused, paused) || other.paused == paused));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,online,jobId,problem,const DeepCollectionEquality().hash(_labels),paused);
+
+@override
+String toString() {
+  return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$BuilderStatusCopyWith<$Res> implements $BuilderStatusCopyWith<$Res> {
+  factory _$BuilderStatusCopyWith(_BuilderStatus value, $Res Function(_BuilderStatus) _then) = __$BuilderStatusCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, bool online, String? jobId, String? problem, List<String> labels, bool paused
+});
+
+
+
+
+}
+/// @nodoc
+class __$BuilderStatusCopyWithImpl<$Res>
+    implements _$BuilderStatusCopyWith<$Res> {
+  __$BuilderStatusCopyWithImpl(this._self, this._then);
+
+  final _BuilderStatus _self;
+  final $Res Function(_BuilderStatus) _then;
+
+/// Create a copy of BuilderStatus
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? online = null,Object? jobId = freezed,Object? problem = freezed,Object? labels = null,Object? paused = null,}) {
+  return _then(_BuilderStatus(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,online: null == online ? _self.online : online // ignore: cast_nullable_to_non_nullable
+as bool,jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
+as String?,problem: freezed == problem ? _self.problem : problem // ignore: cast_nullable_to_non_nullable
+as String?,labels: null == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
+as List<String>,paused: null == paused ? _self.paused : paused // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+// dart format on

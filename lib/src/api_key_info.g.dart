@@ -6,42 +6,31 @@ part of 'api_key_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ApiKeyInfoImpl _$$ApiKeyInfoImplFromJson(Map<String, dynamic> json) =>
-    _$ApiKeyInfoImpl(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      keyHash: json['key_hash'] as String,
-      scopes: (json['scopes'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const [],
-      discordUserId: _discordUserIdFromJson(json['discord_user_id']),
-      lastUsedAt: json['last_used_at'] == null
-          ? null
-          : DateTime.parse(json['last_used_at'] as String),
-      discord: json['discord'] == null
-          ? null
-          : DiscordUserInfo.fromJson(json['discord'] as Map<String, dynamic>),
-      source: json['source'] as String?,
-    );
+_ApiKeyInfo _$ApiKeyInfoFromJson(Map<String, dynamic> json) => _ApiKeyInfo(
+  id: json['id'] as String,
+  name: json['name'] as String,
+  keyHash: json['key_hash'] as String,
+  scopes:
+      (json['scopes'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  discordUserId: _discordUserIdFromJson(json['discord_user_id']),
+  lastUsedAt: json['last_used_at'] == null
+      ? null
+      : DateTime.parse(json['last_used_at'] as String),
+  discord: json['discord'] == null
+      ? null
+      : DiscordUserInfo.fromJson(json['discord'] as Map<String, dynamic>),
+  source: json['source'] as String?,
+);
 
-Map<String, dynamic> _$$ApiKeyInfoImplToJson(_$ApiKeyInfoImpl instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-    'name': instance.name,
-    'key_hash': instance.keyHash,
-    'scopes': instance.scopes,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('discord_user_id', instance.discordUserId);
-  writeNotNull('last_used_at', instance.lastUsedAt?.toIso8601String());
-  writeNotNull('discord', instance.discord?.toJson());
-  writeNotNull('source', instance.source);
-  return val;
-}
+Map<String, dynamic> _$ApiKeyInfoToJson(_ApiKeyInfo instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'key_hash': instance.keyHash,
+      'scopes': instance.scopes,
+      'discord_user_id': ?instance.discordUserId,
+      'last_used_at': ?instance.lastUsedAt?.toIso8601String(),
+      'discord': ?instance.discord?.toJson(),
+      'source': ?instance.source,
+    };

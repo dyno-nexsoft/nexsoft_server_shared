@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,1810 +9,815 @@ part of 'job_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+JobEvent _$JobEventFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['type']) {
+                  case 'queued':
+          return JobQueuedEvent.fromJson(
+            json
+          );
+                case 'started':
+          return JobStartedEvent.fromJson(
+            json
+          );
+                case 'promoted':
+          return JobPromotedEvent.fromJson(
+            json
+          );
+                case 'status':
+          return JobStatusEvent.fromJson(
+            json
+          );
+                case 'log':
+          return JobLogEvent.fromJson(
+            json
+          );
+                case 'error':
+          return JobErrorEvent.fromJson(
+            json
+          );
+                case 'finished':
+          return JobFinishedEvent.fromJson(
+            json
+          );
+        
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'type',
+  'JobEvent',
+  'Invalid union type "${json['type']}"!'
 );
-
-JobEvent _$JobEventFromJson(Map<String, dynamic> json) {
-  switch (json['type']) {
-    case 'queued':
-      return JobQueuedEvent.fromJson(json);
-    case 'started':
-      return JobStartedEvent.fromJson(json);
-    case 'promoted':
-      return JobPromotedEvent.fromJson(json);
-    case 'status':
-      return JobStatusEvent.fromJson(json);
-    case 'log':
-      return JobLogEvent.fromJson(json);
-    case 'error':
-      return JobErrorEvent.fromJson(json);
-    case 'finished':
-      return JobFinishedEvent.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(
-        json,
-        'type',
-        'JobEvent',
-        'Invalid union type "${json['type']}"!',
-      );
-  }
+        }
+      
 }
 
 /// @nodoc
 mixin _$JobEvent {
-  int get seq => throw _privateConstructorUsedError;
-  DateTime get at => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $JobEventCopyWith<JobEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+
+ int get seq; DateTime get at;
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobEventCopyWith<JobEvent> get copyWith => _$JobEventCopyWithImpl<JobEvent>(this as JobEvent, _$identity);
+
+  /// Serializes this JobEvent to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at);
+
+@override
+String toString() {
+  return 'JobEvent(seq: $seq, at: $at)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $JobEventCopyWith<$Res> {
-  factory $JobEventCopyWith(JobEvent value, $Res Function(JobEvent) then) =
-      _$JobEventCopyWithImpl<$Res, JobEvent>;
-  @useResult
-  $Res call({int seq, DateTime at});
-}
+abstract mixin class $JobEventCopyWith<$Res>  {
+  factory $JobEventCopyWith(JobEvent value, $Res Function(JobEvent) _then) = _$JobEventCopyWithImpl;
+@useResult
+$Res call({
+ int seq, DateTime at
+});
 
+
+
+
+}
 /// @nodoc
-class _$JobEventCopyWithImpl<$Res, $Val extends JobEvent>
+class _$JobEventCopyWithImpl<$Res>
     implements $JobEventCopyWith<$Res> {
-  _$JobEventCopyWithImpl(this._value, this._then);
+  _$JobEventCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final JobEvent _self;
+  final $Res Function(JobEvent) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null}) {
-    return _then(
-      _value.copyWith(
-            seq: null == seq
-                ? _value.seq
-                : seq // ignore: cast_nullable_to_non_nullable
-                      as int,
-            at: null == at
-                ? _value.at
-                : at // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? seq = null,Object? at = null,}) {
+  return _then(_self.copyWith(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$JobQueuedEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobQueuedEventImplCopyWith(
-    _$JobQueuedEventImpl value,
-    $Res Function(_$JobQueuedEventImpl) then,
-  ) = __$$JobQueuedEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at, int position});
 }
 
-/// @nodoc
-class __$$JobQueuedEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobQueuedEventImpl>
-    implements _$$JobQueuedEventImplCopyWith<$Res> {
-  __$$JobQueuedEventImplCopyWithImpl(
-    _$JobQueuedEventImpl _value,
-    $Res Function(_$JobQueuedEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null, Object? position = null}) {
-    return _then(
-      _$JobQueuedEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        position: null == position
-            ? _value.position
-            : position // ignore: cast_nullable_to_non_nullable
-                  as int,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [JobEvent].
+extension JobEventPatterns on JobEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( JobQueuedEvent value)?  queued,TResult Function( JobStartedEvent value)?  started,TResult Function( JobPromotedEvent value)?  promoted,TResult Function( JobStatusEvent value)?  status,TResult Function( JobLogEvent value)?  log,TResult Function( JobErrorEvent value)?  error,TResult Function( JobFinishedEvent value)?  finished,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case JobQueuedEvent() when queued != null:
+return queued(_that);case JobStartedEvent() when started != null:
+return started(_that);case JobPromotedEvent() when promoted != null:
+return promoted(_that);case JobStatusEvent() when status != null:
+return status(_that);case JobLogEvent() when log != null:
+return log(_that);case JobErrorEvent() when error != null:
+return error(_that);case JobFinishedEvent() when finished != null:
+return finished(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( JobQueuedEvent value)  queued,required TResult Function( JobStartedEvent value)  started,required TResult Function( JobPromotedEvent value)  promoted,required TResult Function( JobStatusEvent value)  status,required TResult Function( JobLogEvent value)  log,required TResult Function( JobErrorEvent value)  error,required TResult Function( JobFinishedEvent value)  finished,}){
+final _that = this;
+switch (_that) {
+case JobQueuedEvent():
+return queued(_that);case JobStartedEvent():
+return started(_that);case JobPromotedEvent():
+return promoted(_that);case JobStatusEvent():
+return status(_that);case JobLogEvent():
+return log(_that);case JobErrorEvent():
+return error(_that);case JobFinishedEvent():
+return finished(_that);}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( JobQueuedEvent value)?  queued,TResult? Function( JobStartedEvent value)?  started,TResult? Function( JobPromotedEvent value)?  promoted,TResult? Function( JobStatusEvent value)?  status,TResult? Function( JobLogEvent value)?  log,TResult? Function( JobErrorEvent value)?  error,TResult? Function( JobFinishedEvent value)?  finished,}){
+final _that = this;
+switch (_that) {
+case JobQueuedEvent() when queued != null:
+return queued(_that);case JobStartedEvent() when started != null:
+return started(_that);case JobPromotedEvent() when promoted != null:
+return promoted(_that);case JobStatusEvent() when status != null:
+return status(_that);case JobLogEvent() when log != null:
+return log(_that);case JobErrorEvent() when error != null:
+return error(_that);case JobFinishedEvent() when finished != null:
+return finished(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( int seq,  DateTime at,  int position)?  queued,TResult Function( int seq,  DateTime at,  bool immediate)?  started,TResult Function( int seq,  DateTime at)?  promoted,TResult Function( int seq,  DateTime at,  String line)?  status,TResult Function( int seq,  DateTime at,  String chunk)?  log,TResult Function( int seq,  DateTime at,  String message)?  error,TResult Function( int seq,  DateTime at, @JobStateConverter()  JobState state,  int? exitCode)?  finished,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case JobQueuedEvent() when queued != null:
+return queued(_that.seq,_that.at,_that.position);case JobStartedEvent() when started != null:
+return started(_that.seq,_that.at,_that.immediate);case JobPromotedEvent() when promoted != null:
+return promoted(_that.seq,_that.at);case JobStatusEvent() when status != null:
+return status(_that.seq,_that.at,_that.line);case JobLogEvent() when log != null:
+return log(_that.seq,_that.at,_that.chunk);case JobErrorEvent() when error != null:
+return error(_that.seq,_that.at,_that.message);case JobFinishedEvent() when finished != null:
+return finished(_that.seq,_that.at,_that.state,_that.exitCode);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( int seq,  DateTime at,  int position)  queued,required TResult Function( int seq,  DateTime at,  bool immediate)  started,required TResult Function( int seq,  DateTime at)  promoted,required TResult Function( int seq,  DateTime at,  String line)  status,required TResult Function( int seq,  DateTime at,  String chunk)  log,required TResult Function( int seq,  DateTime at,  String message)  error,required TResult Function( int seq,  DateTime at, @JobStateConverter()  JobState state,  int? exitCode)  finished,}) {final _that = this;
+switch (_that) {
+case JobQueuedEvent():
+return queued(_that.seq,_that.at,_that.position);case JobStartedEvent():
+return started(_that.seq,_that.at,_that.immediate);case JobPromotedEvent():
+return promoted(_that.seq,_that.at);case JobStatusEvent():
+return status(_that.seq,_that.at,_that.line);case JobLogEvent():
+return log(_that.seq,_that.at,_that.chunk);case JobErrorEvent():
+return error(_that.seq,_that.at,_that.message);case JobFinishedEvent():
+return finished(_that.seq,_that.at,_that.state,_that.exitCode);}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( int seq,  DateTime at,  int position)?  queued,TResult? Function( int seq,  DateTime at,  bool immediate)?  started,TResult? Function( int seq,  DateTime at)?  promoted,TResult? Function( int seq,  DateTime at,  String line)?  status,TResult? Function( int seq,  DateTime at,  String chunk)?  log,TResult? Function( int seq,  DateTime at,  String message)?  error,TResult? Function( int seq,  DateTime at, @JobStateConverter()  JobState state,  int? exitCode)?  finished,}) {final _that = this;
+switch (_that) {
+case JobQueuedEvent() when queued != null:
+return queued(_that.seq,_that.at,_that.position);case JobStartedEvent() when started != null:
+return started(_that.seq,_that.at,_that.immediate);case JobPromotedEvent() when promoted != null:
+return promoted(_that.seq,_that.at);case JobStatusEvent() when status != null:
+return status(_that.seq,_that.at,_that.line);case JobLogEvent() when log != null:
+return log(_that.seq,_that.at,_that.chunk);case JobErrorEvent() when error != null:
+return error(_that.seq,_that.at,_that.message);case JobFinishedEvent() when finished != null:
+return finished(_that.seq,_that.at,_that.state,_that.exitCode);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobQueuedEventImpl extends JobQueuedEvent {
-  const _$JobQueuedEventImpl({
-    required this.seq,
-    required this.at,
-    required this.position,
-    final String? $type,
-  }) : $type = $type ?? 'queued',
-       super._();
 
-  factory _$JobQueuedEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobQueuedEventImplFromJson(json);
+class JobQueuedEvent extends JobEvent {
+  const JobQueuedEvent({required this.seq, required this.at, required this.position, final  String? $type}): $type = $type ?? 'queued',super._();
+  factory JobQueuedEvent.fromJson(Map<String, dynamic> json) => _$JobQueuedEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
+@override final  int seq;
+@override final  DateTime at;
+/// 1-based position in the queue at the time of queuing.
+ final  int position;
 
-  /// 1-based position in the queue at the time of queuing.
-  @override
-  final int position;
+@JsonKey(name: 'type')
+final String $type;
 
-  @JsonKey(name: 'type')
-  final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.queued(seq: $seq, at: $at, position: $position)';
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobQueuedEventCopyWith<JobQueuedEvent> get copyWith => _$JobQueuedEventCopyWithImpl<JobQueuedEvent>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobQueuedEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.position, position) ||
-                other.position == position));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, position);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobQueuedEventImplCopyWith<_$JobQueuedEventImpl> get copyWith =>
-      __$$JobQueuedEventImplCopyWithImpl<_$JobQueuedEventImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return queued(seq, at, position);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return queued?.call(seq, at, position);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (queued != null) {
-      return queued(seq, at, position);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return queued(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return queued?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (queued != null) {
-      return queued(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobQueuedEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobQueuedEventToJson(this, );
 }
 
-abstract class JobQueuedEvent extends JobEvent {
-  const factory JobQueuedEvent({
-    required final int seq,
-    required final DateTime at,
-    required final int position,
-  }) = _$JobQueuedEventImpl;
-  const JobQueuedEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobQueuedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.position, position) || other.position == position));
+}
 
-  factory JobQueuedEvent.fromJson(Map<String, dynamic> json) =
-      _$JobQueuedEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,position);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
+@override
+String toString() {
+  return 'JobEvent.queued(seq: $seq, at: $at, position: $position)';
+}
 
-  /// 1-based position in the queue at the time of queuing.
-  int get position;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobQueuedEventImplCopyWith<_$JobQueuedEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class _$$JobStartedEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobStartedEventImplCopyWith(
-    _$JobStartedEventImpl value,
-    $Res Function(_$JobStartedEventImpl) then,
-  ) = __$$JobStartedEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at, bool immediate});
+abstract mixin class $JobQueuedEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobQueuedEventCopyWith(JobQueuedEvent value, $Res Function(JobQueuedEvent) _then) = _$JobQueuedEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at, int position
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobQueuedEventCopyWithImpl<$Res>
+    implements $JobQueuedEventCopyWith<$Res> {
+  _$JobQueuedEventCopyWithImpl(this._self, this._then);
+
+  final JobQueuedEvent _self;
+  final $Res Function(JobQueuedEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? position = null,}) {
+  return _then(JobQueuedEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,position: null == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-class __$$JobStartedEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobStartedEventImpl>
-    implements _$$JobStartedEventImplCopyWith<$Res> {
-  __$$JobStartedEventImplCopyWithImpl(
-    _$JobStartedEventImpl _value,
-    $Res Function(_$JobStartedEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null, Object? immediate = null}) {
-    return _then(
-      _$JobStartedEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        immediate: null == immediate
-            ? _value.immediate
-            : immediate // ignore: cast_nullable_to_non_nullable
-                  as bool,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobStartedEventImpl extends JobStartedEvent {
-  const _$JobStartedEventImpl({
-    required this.seq,
-    required this.at,
-    required this.immediate,
-    final String? $type,
-  }) : $type = $type ?? 'started',
-       super._();
 
-  factory _$JobStartedEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobStartedEventImplFromJson(json);
+class JobStartedEvent extends JobEvent {
+  const JobStartedEvent({required this.seq, required this.at, required this.immediate, final  String? $type}): $type = $type ?? 'started',super._();
+  factory JobStartedEvent.fromJson(Map<String, dynamic> json) => _$JobStartedEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
+@override final  int seq;
+@override final  DateTime at;
+/// True when the job runs in the parallel lane rather than the queue.
+ final  bool immediate;
 
-  /// True when the job runs in the parallel lane rather than the queue.
-  @override
-  final bool immediate;
+@JsonKey(name: 'type')
+final String $type;
 
-  @JsonKey(name: 'type')
-  final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.started(seq: $seq, at: $at, immediate: $immediate)';
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobStartedEventCopyWith<JobStartedEvent> get copyWith => _$JobStartedEventCopyWithImpl<JobStartedEvent>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobStartedEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.immediate, immediate) ||
-                other.immediate == immediate));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, immediate);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobStartedEventImplCopyWith<_$JobStartedEventImpl> get copyWith =>
-      __$$JobStartedEventImplCopyWithImpl<_$JobStartedEventImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return started(seq, at, immediate);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return started?.call(seq, at, immediate);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(seq, at, immediate);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobStartedEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobStartedEventToJson(this, );
 }
 
-abstract class JobStartedEvent extends JobEvent {
-  const factory JobStartedEvent({
-    required final int seq,
-    required final DateTime at,
-    required final bool immediate,
-  }) = _$JobStartedEventImpl;
-  const JobStartedEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStartedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.immediate, immediate) || other.immediate == immediate));
+}
 
-  factory JobStartedEvent.fromJson(Map<String, dynamic> json) =
-      _$JobStartedEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,immediate);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
+@override
+String toString() {
+  return 'JobEvent.started(seq: $seq, at: $at, immediate: $immediate)';
+}
 
-  /// True when the job runs in the parallel lane rather than the queue.
-  bool get immediate;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobStartedEventImplCopyWith<_$JobStartedEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class _$$JobPromotedEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobPromotedEventImplCopyWith(
-    _$JobPromotedEventImpl value,
-    $Res Function(_$JobPromotedEventImpl) then,
-  ) = __$$JobPromotedEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at});
+abstract mixin class $JobStartedEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobStartedEventCopyWith(JobStartedEvent value, $Res Function(JobStartedEvent) _then) = _$JobStartedEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at, bool immediate
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobStartedEventCopyWithImpl<$Res>
+    implements $JobStartedEventCopyWith<$Res> {
+  _$JobStartedEventCopyWithImpl(this._self, this._then);
+
+  final JobStartedEvent _self;
+  final $Res Function(JobStartedEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? immediate = null,}) {
+  return _then(JobStartedEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,immediate: null == immediate ? _self.immediate : immediate // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-class __$$JobPromotedEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobPromotedEventImpl>
-    implements _$$JobPromotedEventImplCopyWith<$Res> {
-  __$$JobPromotedEventImplCopyWithImpl(
-    _$JobPromotedEventImpl _value,
-    $Res Function(_$JobPromotedEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null}) {
-    return _then(
-      _$JobPromotedEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobPromotedEventImpl extends JobPromotedEvent {
-  const _$JobPromotedEventImpl({
-    required this.seq,
-    required this.at,
-    final String? $type,
-  }) : $type = $type ?? 'promoted',
-       super._();
 
-  factory _$JobPromotedEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobPromotedEventImplFromJson(json);
+class JobPromotedEvent extends JobEvent {
+  const JobPromotedEvent({required this.seq, required this.at, final  String? $type}): $type = $type ?? 'promoted',super._();
+  factory JobPromotedEvent.fromJson(Map<String, dynamic> json) => _$JobPromotedEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
+@override final  int seq;
+@override final  DateTime at;
 
-  @JsonKey(name: 'type')
-  final String $type;
+@JsonKey(name: 'type')
+final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.promoted(seq: $seq, at: $at)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobPromotedEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at));
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobPromotedEventCopyWith<JobPromotedEvent> get copyWith => _$JobPromotedEventCopyWithImpl<JobPromotedEvent>(this, _$identity);
 
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobPromotedEventImplCopyWith<_$JobPromotedEventImpl> get copyWith =>
-      __$$JobPromotedEventImplCopyWithImpl<_$JobPromotedEventImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return promoted(seq, at);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return promoted?.call(seq, at);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (promoted != null) {
-      return promoted(seq, at);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return promoted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return promoted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (promoted != null) {
-      return promoted(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobPromotedEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobPromotedEventToJson(this, );
 }
 
-abstract class JobPromotedEvent extends JobEvent {
-  const factory JobPromotedEvent({
-    required final int seq,
-    required final DateTime at,
-  }) = _$JobPromotedEventImpl;
-  const JobPromotedEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPromotedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at));
+}
 
-  factory JobPromotedEvent.fromJson(Map<String, dynamic> json) =
-      _$JobPromotedEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobPromotedEventImplCopyWith<_$JobPromotedEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'JobEvent.promoted(seq: $seq, at: $at)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$JobStatusEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobStatusEventImplCopyWith(
-    _$JobStatusEventImpl value,
-    $Res Function(_$JobStatusEventImpl) then,
-  ) = __$$JobStatusEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at, String line});
+abstract mixin class $JobPromotedEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobPromotedEventCopyWith(JobPromotedEvent value, $Res Function(JobPromotedEvent) _then) = _$JobPromotedEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobPromotedEventCopyWithImpl<$Res>
+    implements $JobPromotedEventCopyWith<$Res> {
+  _$JobPromotedEventCopyWithImpl(this._self, this._then);
+
+  final JobPromotedEvent _self;
+  final $Res Function(JobPromotedEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,}) {
+  return _then(JobPromotedEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-class __$$JobStatusEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobStatusEventImpl>
-    implements _$$JobStatusEventImplCopyWith<$Res> {
-  __$$JobStatusEventImplCopyWithImpl(
-    _$JobStatusEventImpl _value,
-    $Res Function(_$JobStatusEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null, Object? line = null}) {
-    return _then(
-      _$JobStatusEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        line: null == line
-            ? _value.line
-            : line // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobStatusEventImpl extends JobStatusEvent {
-  const _$JobStatusEventImpl({
-    required this.seq,
-    required this.at,
-    required this.line,
-    final String? $type,
-  }) : $type = $type ?? 'status',
-       super._();
 
-  factory _$JobStatusEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobStatusEventImplFromJson(json);
+class JobStatusEvent extends JobEvent {
+  const JobStatusEvent({required this.seq, required this.at, required this.line, final  String? $type}): $type = $type ?? 'status',super._();
+  factory JobStatusEvent.fromJson(Map<String, dynamic> json) => _$JobStatusEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
-  @override
-  final String line;
+@override final  int seq;
+@override final  DateTime at;
+ final  String line;
 
-  @JsonKey(name: 'type')
-  final String $type;
+@JsonKey(name: 'type')
+final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.status(seq: $seq, at: $at, line: $line)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobStatusEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.line, line) || other.line == line));
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobStatusEventCopyWith<JobStatusEvent> get copyWith => _$JobStatusEventCopyWithImpl<JobStatusEvent>(this, _$identity);
 
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, line);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobStatusEventImplCopyWith<_$JobStatusEventImpl> get copyWith =>
-      __$$JobStatusEventImplCopyWithImpl<_$JobStatusEventImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return status(seq, at, line);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return status?.call(seq, at, line);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (status != null) {
-      return status(seq, at, line);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return status(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return status?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (status != null) {
-      return status(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobStatusEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobStatusEventToJson(this, );
 }
 
-abstract class JobStatusEvent extends JobEvent {
-  const factory JobStatusEvent({
-    required final int seq,
-    required final DateTime at,
-    required final String line,
-  }) = _$JobStatusEventImpl;
-  const JobStatusEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStatusEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.line, line) || other.line == line));
+}
 
-  factory JobStatusEvent.fromJson(Map<String, dynamic> json) =
-      _$JobStatusEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,line);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
-  String get line;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobStatusEventImplCopyWith<_$JobStatusEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'JobEvent.status(seq: $seq, at: $at, line: $line)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$JobLogEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobLogEventImplCopyWith(
-    _$JobLogEventImpl value,
-    $Res Function(_$JobLogEventImpl) then,
-  ) = __$$JobLogEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at, String chunk});
+abstract mixin class $JobStatusEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobStatusEventCopyWith(JobStatusEvent value, $Res Function(JobStatusEvent) _then) = _$JobStatusEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at, String line
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobStatusEventCopyWithImpl<$Res>
+    implements $JobStatusEventCopyWith<$Res> {
+  _$JobStatusEventCopyWithImpl(this._self, this._then);
+
+  final JobStatusEvent _self;
+  final $Res Function(JobStatusEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? line = null,}) {
+  return _then(JobStatusEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,line: null == line ? _self.line : line // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$JobLogEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobLogEventImpl>
-    implements _$$JobLogEventImplCopyWith<$Res> {
-  __$$JobLogEventImplCopyWithImpl(
-    _$JobLogEventImpl _value,
-    $Res Function(_$JobLogEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null, Object? chunk = null}) {
-    return _then(
-      _$JobLogEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        chunk: null == chunk
-            ? _value.chunk
-            : chunk // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobLogEventImpl extends JobLogEvent {
-  const _$JobLogEventImpl({
-    required this.seq,
-    required this.at,
-    required this.chunk,
-    final String? $type,
-  }) : $type = $type ?? 'log',
-       super._();
 
-  factory _$JobLogEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobLogEventImplFromJson(json);
+class JobLogEvent extends JobEvent {
+  const JobLogEvent({required this.seq, required this.at, required this.chunk, final  String? $type}): $type = $type ?? 'log',super._();
+  factory JobLogEvent.fromJson(Map<String, dynamic> json) => _$JobLogEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
-  @override
-  final String chunk;
+@override final  int seq;
+@override final  DateTime at;
+ final  String chunk;
 
-  @JsonKey(name: 'type')
-  final String $type;
+@JsonKey(name: 'type')
+final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.log(seq: $seq, at: $at, chunk: $chunk)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobLogEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.chunk, chunk) || other.chunk == chunk));
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobLogEventCopyWith<JobLogEvent> get copyWith => _$JobLogEventCopyWithImpl<JobLogEvent>(this, _$identity);
 
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, chunk);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobLogEventImplCopyWith<_$JobLogEventImpl> get copyWith =>
-      __$$JobLogEventImplCopyWithImpl<_$JobLogEventImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return log(seq, at, chunk);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return log?.call(seq, at, chunk);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (log != null) {
-      return log(seq, at, chunk);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return log(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return log?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (log != null) {
-      return log(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobLogEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobLogEventToJson(this, );
 }
 
-abstract class JobLogEvent extends JobEvent {
-  const factory JobLogEvent({
-    required final int seq,
-    required final DateTime at,
-    required final String chunk,
-  }) = _$JobLogEventImpl;
-  const JobLogEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobLogEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.chunk, chunk) || other.chunk == chunk));
+}
 
-  factory JobLogEvent.fromJson(Map<String, dynamic> json) =
-      _$JobLogEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,chunk);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
-  String get chunk;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobLogEventImplCopyWith<_$JobLogEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'JobEvent.log(seq: $seq, at: $at, chunk: $chunk)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$JobErrorEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobErrorEventImplCopyWith(
-    _$JobErrorEventImpl value,
-    $Res Function(_$JobErrorEventImpl) then,
-  ) = __$$JobErrorEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int seq, DateTime at, String message});
+abstract mixin class $JobLogEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobLogEventCopyWith(JobLogEvent value, $Res Function(JobLogEvent) _then) = _$JobLogEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at, String chunk
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobLogEventCopyWithImpl<$Res>
+    implements $JobLogEventCopyWith<$Res> {
+  _$JobLogEventCopyWithImpl(this._self, this._then);
+
+  final JobLogEvent _self;
+  final $Res Function(JobLogEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? chunk = null,}) {
+  return _then(JobLogEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,chunk: null == chunk ? _self.chunk : chunk // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$JobErrorEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobErrorEventImpl>
-    implements _$$JobErrorEventImplCopyWith<$Res> {
-  __$$JobErrorEventImplCopyWithImpl(
-    _$JobErrorEventImpl _value,
-    $Res Function(_$JobErrorEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? seq = null, Object? at = null, Object? message = null}) {
-    return _then(
-      _$JobErrorEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        message: null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobErrorEventImpl extends JobErrorEvent {
-  const _$JobErrorEventImpl({
-    required this.seq,
-    required this.at,
-    required this.message,
-    final String? $type,
-  }) : $type = $type ?? 'error',
-       super._();
 
-  factory _$JobErrorEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobErrorEventImplFromJson(json);
+class JobErrorEvent extends JobEvent {
+  const JobErrorEvent({required this.seq, required this.at, required this.message, final  String? $type}): $type = $type ?? 'error',super._();
+  factory JobErrorEvent.fromJson(Map<String, dynamic> json) => _$JobErrorEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
-  @override
-  final String message;
+@override final  int seq;
+@override final  DateTime at;
+ final  String message;
 
-  @JsonKey(name: 'type')
-  final String $type;
+@JsonKey(name: 'type')
+final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.error(seq: $seq, at: $at, message: $message)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobErrorEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.message, message) || other.message == message));
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobErrorEventCopyWith<JobErrorEvent> get copyWith => _$JobErrorEventCopyWithImpl<JobErrorEvent>(this, _$identity);
 
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, message);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobErrorEventImplCopyWith<_$JobErrorEventImpl> get copyWith =>
-      __$$JobErrorEventImplCopyWithImpl<_$JobErrorEventImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return error(seq, at, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return error?.call(seq, at, message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(seq, at, message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobErrorEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobErrorEventToJson(this, );
 }
 
-abstract class JobErrorEvent extends JobEvent {
-  const factory JobErrorEvent({
-    required final int seq,
-    required final DateTime at,
-    required final String message,
-  }) = _$JobErrorEventImpl;
-  const JobErrorEvent._() : super._();
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobErrorEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.message, message) || other.message == message));
+}
 
-  factory JobErrorEvent.fromJson(Map<String, dynamic> json) =
-      _$JobErrorEventImpl.fromJson;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,message);
 
-  @override
-  int get seq;
-  @override
-  DateTime get at;
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobErrorEventImplCopyWith<_$JobErrorEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'JobEvent.error(seq: $seq, at: $at, message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$JobFinishedEventImplCopyWith<$Res>
-    implements $JobEventCopyWith<$Res> {
-  factory _$$JobFinishedEventImplCopyWith(
-    _$JobFinishedEventImpl value,
-    $Res Function(_$JobFinishedEventImpl) then,
-  ) = __$$JobFinishedEventImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    int seq,
-    DateTime at,
-    @JobStateConverter() JobState state,
-    int? exitCode,
-  });
+abstract mixin class $JobErrorEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobErrorEventCopyWith(JobErrorEvent value, $Res Function(JobErrorEvent) _then) = _$JobErrorEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at, String message
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobErrorEventCopyWithImpl<$Res>
+    implements $JobErrorEventCopyWith<$Res> {
+  _$JobErrorEventCopyWithImpl(this._self, this._then);
+
+  final JobErrorEvent _self;
+  final $Res Function(JobErrorEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? message = null,}) {
+  return _then(JobErrorEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-class __$$JobFinishedEventImplCopyWithImpl<$Res>
-    extends _$JobEventCopyWithImpl<$Res, _$JobFinishedEventImpl>
-    implements _$$JobFinishedEventImplCopyWith<$Res> {
-  __$$JobFinishedEventImplCopyWithImpl(
-    _$JobFinishedEventImpl _value,
-    $Res Function(_$JobFinishedEventImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? seq = null,
-    Object? at = null,
-    Object? state = null,
-    Object? exitCode = freezed,
-  }) {
-    return _then(
-      _$JobFinishedEventImpl(
-        seq: null == seq
-            ? _value.seq
-            : seq // ignore: cast_nullable_to_non_nullable
-                  as int,
-        at: null == at
-            ? _value.at
-            : at // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        state: null == state
-            ? _value.state
-            : state // ignore: cast_nullable_to_non_nullable
-                  as JobState,
-        exitCode: freezed == exitCode
-            ? _value.exitCode
-            : exitCode // ignore: cast_nullable_to_non_nullable
-                  as int?,
-      ),
-    );
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobFinishedEventImpl extends JobFinishedEvent {
-  const _$JobFinishedEventImpl({
-    required this.seq,
-    required this.at,
-    @JobStateConverter() required this.state,
-    this.exitCode,
-    final String? $type,
-  }) : $type = $type ?? 'finished',
-       super._();
 
-  factory _$JobFinishedEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobFinishedEventImplFromJson(json);
+class JobFinishedEvent extends JobEvent {
+  const JobFinishedEvent({required this.seq, required this.at, @JobStateConverter() required this.state, this.exitCode, final  String? $type}): $type = $type ?? 'finished',super._();
+  factory JobFinishedEvent.fromJson(Map<String, dynamic> json) => _$JobFinishedEventFromJson(json);
 
-  @override
-  final int seq;
-  @override
-  final DateTime at;
-  @override
-  @JobStateConverter()
-  final JobState state;
-  @override
-  final int? exitCode;
+@override final  int seq;
+@override final  DateTime at;
+@JobStateConverter() final  JobState state;
+ final  int? exitCode;
 
-  @JsonKey(name: 'type')
-  final String $type;
+@JsonKey(name: 'type')
+final String $type;
 
-  @override
-  String toString() {
-    return 'JobEvent.finished(seq: $seq, at: $at, state: $state, exitCode: $exitCode)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobFinishedEventImpl &&
-            (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.at, at) || other.at == at) &&
-            (identical(other.state, state) || other.state == state) &&
-            (identical(other.exitCode, exitCode) ||
-                other.exitCode == exitCode));
-  }
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobFinishedEventCopyWith<JobFinishedEvent> get copyWith => _$JobFinishedEventCopyWithImpl<JobFinishedEvent>(this, _$identity);
 
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, seq, at, state, exitCode);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobFinishedEventImplCopyWith<_$JobFinishedEventImpl> get copyWith =>
-      __$$JobFinishedEventImplCopyWithImpl<_$JobFinishedEventImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int seq, DateTime at, int position) queued,
-    required TResult Function(int seq, DateTime at, bool immediate) started,
-    required TResult Function(int seq, DateTime at) promoted,
-    required TResult Function(int seq, DateTime at, String line) status,
-    required TResult Function(int seq, DateTime at, String chunk) log,
-    required TResult Function(int seq, DateTime at, String message) error,
-    required TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )
-    finished,
-  }) {
-    return finished(seq, at, state, exitCode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int seq, DateTime at, int position)? queued,
-    TResult? Function(int seq, DateTime at, bool immediate)? started,
-    TResult? Function(int seq, DateTime at)? promoted,
-    TResult? Function(int seq, DateTime at, String line)? status,
-    TResult? Function(int seq, DateTime at, String chunk)? log,
-    TResult? Function(int seq, DateTime at, String message)? error,
-    TResult? Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-  }) {
-    return finished?.call(seq, at, state, exitCode);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int seq, DateTime at, int position)? queued,
-    TResult Function(int seq, DateTime at, bool immediate)? started,
-    TResult Function(int seq, DateTime at)? promoted,
-    TResult Function(int seq, DateTime at, String line)? status,
-    TResult Function(int seq, DateTime at, String chunk)? log,
-    TResult Function(int seq, DateTime at, String message)? error,
-    TResult Function(
-      int seq,
-      DateTime at,
-      @JobStateConverter() JobState state,
-      int? exitCode,
-    )?
-    finished,
-    required TResult orElse(),
-  }) {
-    if (finished != null) {
-      return finished(seq, at, state, exitCode);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(JobQueuedEvent value) queued,
-    required TResult Function(JobStartedEvent value) started,
-    required TResult Function(JobPromotedEvent value) promoted,
-    required TResult Function(JobStatusEvent value) status,
-    required TResult Function(JobLogEvent value) log,
-    required TResult Function(JobErrorEvent value) error,
-    required TResult Function(JobFinishedEvent value) finished,
-  }) {
-    return finished(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(JobQueuedEvent value)? queued,
-    TResult? Function(JobStartedEvent value)? started,
-    TResult? Function(JobPromotedEvent value)? promoted,
-    TResult? Function(JobStatusEvent value)? status,
-    TResult? Function(JobLogEvent value)? log,
-    TResult? Function(JobErrorEvent value)? error,
-    TResult? Function(JobFinishedEvent value)? finished,
-  }) {
-    return finished?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(JobQueuedEvent value)? queued,
-    TResult Function(JobStartedEvent value)? started,
-    TResult Function(JobPromotedEvent value)? promoted,
-    TResult Function(JobStatusEvent value)? status,
-    TResult Function(JobLogEvent value)? log,
-    TResult Function(JobErrorEvent value)? error,
-    TResult Function(JobFinishedEvent value)? finished,
-    required TResult orElse(),
-  }) {
-    if (finished != null) {
-      return finished(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobFinishedEventImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$JobFinishedEventToJson(this, );
 }
 
-abstract class JobFinishedEvent extends JobEvent {
-  const factory JobFinishedEvent({
-    required final int seq,
-    required final DateTime at,
-    @JobStateConverter() required final JobState state,
-    final int? exitCode,
-  }) = _$JobFinishedEventImpl;
-  const JobFinishedEvent._() : super._();
-
-  factory JobFinishedEvent.fromJson(Map<String, dynamic> json) =
-      _$JobFinishedEventImpl.fromJson;
-
-  @override
-  int get seq;
-  @override
-  DateTime get at;
-  @JobStateConverter()
-  JobState get state;
-  int? get exitCode;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobFinishedEventImplCopyWith<_$JobFinishedEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobFinishedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.state, state) || other.state == state)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,seq,at,state,exitCode);
+
+@override
+String toString() {
+  return 'JobEvent.finished(seq: $seq, at: $at, state: $state, exitCode: $exitCode)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $JobFinishedEventCopyWith<$Res> implements $JobEventCopyWith<$Res> {
+  factory $JobFinishedEventCopyWith(JobFinishedEvent value, $Res Function(JobFinishedEvent) _then) = _$JobFinishedEventCopyWithImpl;
+@override @useResult
+$Res call({
+ int seq, DateTime at,@JobStateConverter() JobState state, int? exitCode
+});
+
+
+
+
+}
+/// @nodoc
+class _$JobFinishedEventCopyWithImpl<$Res>
+    implements $JobFinishedEventCopyWith<$Res> {
+  _$JobFinishedEventCopyWithImpl(this._self, this._then);
+
+  final JobFinishedEvent _self;
+  final $Res Function(JobFinishedEvent) _then;
+
+/// Create a copy of JobEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? seq = null,Object? at = null,Object? state = null,Object? exitCode = freezed,}) {
+  return _then(JobFinishedEvent(
+seq: null == seq ? _self.seq : seq // ignore: cast_nullable_to_non_nullable
+as int,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
+as JobState,exitCode: freezed == exitCode ? _self.exitCode : exitCode // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
+
+// dart format on

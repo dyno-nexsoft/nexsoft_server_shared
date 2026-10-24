@@ -6,9 +6,8 @@ part of 'ai_provider.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AiProviderSetParamsImpl _$$AiProviderSetParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AiProviderSetParamsImpl(
+_AiProviderSetParams _$AiProviderSetParamsFromJson(Map<String, dynamic> json) =>
+    _AiProviderSetParams(
       provider: json['provider'] as String,
       failover: json['failover'] as bool?,
       geminiFlash: json['gemini_flash'] as String?,
@@ -17,30 +16,22 @@ _$AiProviderSetParamsImpl _$$AiProviderSetParamsImplFromJson(
       groqPro: json['groq_pro'] as String?,
     );
 
-Map<String, dynamic> _$$AiProviderSetParamsImplToJson(
-    _$AiProviderSetParamsImpl instance) {
-  final val = <String, dynamic>{
-    'provider': instance.provider,
-  };
+Map<String, dynamic> _$AiProviderSetParamsToJson(
+  _AiProviderSetParams instance,
+) => <String, dynamic>{
+  'provider': instance.provider,
+  'failover': ?instance.failover,
+  'gemini_flash': ?instance.geminiFlash,
+  'gemini_pro': ?instance.geminiPro,
+  'groq_flash': ?instance.groqFlash,
+  'groq_pro': ?instance.groqPro,
+};
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('failover', instance.failover);
-  writeNotNull('gemini_flash', instance.geminiFlash);
-  writeNotNull('gemini_pro', instance.geminiPro);
-  writeNotNull('groq_flash', instance.groqFlash);
-  writeNotNull('groq_pro', instance.groqPro);
-  return val;
-}
-
-_$AiProviderInfoImpl _$$AiProviderInfoImplFromJson(Map<String, dynamic> json) =>
-    _$AiProviderInfoImpl(
+_AiProviderInfo _$AiProviderInfoFromJson(Map<String, dynamic> json) =>
+    _AiProviderInfo(
       provider: json['provider'] as String,
-      available: (json['available'] as List<dynamic>?)
+      available:
+          (json['available'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
@@ -50,8 +41,7 @@ _$AiProviderInfoImpl _$$AiProviderInfoImplFromJson(Map<String, dynamic> json) =>
           : AiModelIds.fromJson(json['models'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$AiProviderInfoImplToJson(
-        _$AiProviderInfoImpl instance) =>
+Map<String, dynamic> _$AiProviderInfoToJson(_AiProviderInfo instance) =>
     <String, dynamic>{
       'provider': instance.provider,
       'available': instance.available,

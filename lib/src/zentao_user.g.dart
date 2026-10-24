@@ -6,25 +6,15 @@ part of 'zentao_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ZentaoUserImpl _$$ZentaoUserImplFromJson(Map<String, dynamic> json) =>
-    _$ZentaoUserImpl(
-      account: json['account'] as String,
-      password: json['password'] as String,
-      module: (json['module'] as num?)?.toInt(),
-    );
+_ZentaoUser _$ZentaoUserFromJson(Map<String, dynamic> json) => _ZentaoUser(
+  account: json['account'] as String,
+  password: json['password'] as String,
+  module: (json['module'] as num?)?.toInt(),
+);
 
-Map<String, dynamic> _$$ZentaoUserImplToJson(_$ZentaoUserImpl instance) {
-  final val = <String, dynamic>{
-    'account': instance.account,
-    'password': instance.password,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('module', instance.module);
-  return val;
-}
+Map<String, dynamic> _$ZentaoUserToJson(_ZentaoUser instance) =>
+    <String, dynamic>{
+      'account': instance.account,
+      'password': instance.password,
+      'module': ?instance.module,
+    };

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,169 +9,278 @@ part of 'job_page.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-JobPage _$JobPageFromJson(Map<String, dynamic> json) {
-  return _JobPage.fromJson(json);
-}
 
 /// @nodoc
 mixin _$JobPage {
-  List<Job> get jobs => throw _privateConstructorUsedError;
-  String? get nextCursor => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $JobPageCopyWith<JobPage> get copyWith => throw _privateConstructorUsedError;
+ List<Job> get jobs; String? get nextCursor;
+/// Create a copy of JobPage
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$JobPageCopyWith<JobPage> get copyWith => _$JobPageCopyWithImpl<JobPage>(this as JobPage, _$identity);
+
+  /// Serializes this JobPage to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPage&&const DeepCollectionEquality().equals(other.jobs, jobs)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(jobs),nextCursor);
+
+@override
+String toString() {
+  return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $JobPageCopyWith<$Res> {
-  factory $JobPageCopyWith(JobPage value, $Res Function(JobPage) then) =
-      _$JobPageCopyWithImpl<$Res, JobPage>;
-  @useResult
-  $Res call({List<Job> jobs, String? nextCursor});
-}
+abstract mixin class $JobPageCopyWith<$Res>  {
+  factory $JobPageCopyWith(JobPage value, $Res Function(JobPage) _then) = _$JobPageCopyWithImpl;
+@useResult
+$Res call({
+ List<Job> jobs, String? nextCursor
+});
 
+
+
+
+}
 /// @nodoc
-class _$JobPageCopyWithImpl<$Res, $Val extends JobPage>
+class _$JobPageCopyWithImpl<$Res>
     implements $JobPageCopyWith<$Res> {
-  _$JobPageCopyWithImpl(this._value, this._then);
+  _$JobPageCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final JobPage _self;
+  final $Res Function(JobPage) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? jobs = null, Object? nextCursor = freezed}) {
-    return _then(
-      _value.copyWith(
-            jobs: null == jobs
-                ? _value.jobs
-                : jobs // ignore: cast_nullable_to_non_nullable
-                      as List<Job>,
-            nextCursor: freezed == nextCursor
-                ? _value.nextCursor
-                : nextCursor // ignore: cast_nullable_to_non_nullable
-                      as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of JobPage
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? jobs = null,Object? nextCursor = freezed,}) {
+  return _then(_self.copyWith(
+jobs: null == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<Job>,nextCursor: freezed == nextCursor ? _self.nextCursor : nextCursor // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$JobPageImplCopyWith<$Res> implements $JobPageCopyWith<$Res> {
-  factory _$$JobPageImplCopyWith(
-    _$JobPageImpl value,
-    $Res Function(_$JobPageImpl) then,
-  ) = __$$JobPageImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Job> jobs, String? nextCursor});
 }
 
-/// @nodoc
-class __$$JobPageImplCopyWithImpl<$Res>
-    extends _$JobPageCopyWithImpl<$Res, _$JobPageImpl>
-    implements _$$JobPageImplCopyWith<$Res> {
-  __$$JobPageImplCopyWithImpl(
-    _$JobPageImpl _value,
-    $Res Function(_$JobPageImpl) _then,
-  ) : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? jobs = null, Object? nextCursor = freezed}) {
-    return _then(
-      _$JobPageImpl(
-        jobs: null == jobs
-            ? _value._jobs
-            : jobs // ignore: cast_nullable_to_non_nullable
-                  as List<Job>,
-        nextCursor: freezed == nextCursor
-            ? _value.nextCursor
-            : nextCursor // ignore: cast_nullable_to_non_nullable
-                  as String?,
-      ),
-    );
-  }
+/// Adds pattern-matching-related methods to [JobPage].
+extension JobPagePatterns on JobPage {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _JobPage value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _JobPage() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _JobPage value)  $default,){
+final _that = this;
+switch (_that) {
+case _JobPage():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _JobPage value)?  $default,){
+final _that = this;
+switch (_that) {
+case _JobPage() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Job> jobs,  String? nextCursor)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _JobPage() when $default != null:
+return $default(_that.jobs,_that.nextCursor);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Job> jobs,  String? nextCursor)  $default,) {final _that = this;
+switch (_that) {
+case _JobPage():
+return $default(_that.jobs,_that.nextCursor);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Job> jobs,  String? nextCursor)?  $default,) {final _that = this;
+switch (_that) {
+case _JobPage() when $default != null:
+return $default(_that.jobs,_that.nextCursor);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$JobPageImpl implements _JobPage {
-  const _$JobPageImpl({final List<Job> jobs = const [], this.nextCursor})
-    : _jobs = jobs;
 
-  factory _$JobPageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$JobPageImplFromJson(json);
+class _JobPage implements JobPage {
+  const _JobPage({final  List<Job> jobs = const [], this.nextCursor}): _jobs = jobs;
+  factory _JobPage.fromJson(Map<String, dynamic> json) => _$JobPageFromJson(json);
 
-  final List<Job> _jobs;
-  @override
-  @JsonKey()
-  List<Job> get jobs {
-    if (_jobs is EqualUnmodifiableListView) return _jobs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_jobs);
-  }
-
-  @override
-  final String? nextCursor;
-
-  @override
-  String toString() {
-    return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$JobPageImpl &&
-            const DeepCollectionEquality().equals(other._jobs, _jobs) &&
-            (identical(other.nextCursor, nextCursor) ||
-                other.nextCursor == nextCursor));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_jobs),
-    nextCursor,
-  );
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$JobPageImplCopyWith<_$JobPageImpl> get copyWith =>
-      __$$JobPageImplCopyWithImpl<_$JobPageImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$JobPageImplToJson(this);
-  }
+ final  List<Job> _jobs;
+@override@JsonKey() List<Job> get jobs {
+  if (_jobs is EqualUnmodifiableListView) return _jobs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_jobs);
 }
 
-abstract class _JobPage implements JobPage {
-  const factory _JobPage({final List<Job> jobs, final String? nextCursor}) =
-      _$JobPageImpl;
+@override final  String? nextCursor;
 
-  factory _JobPage.fromJson(Map<String, dynamic> json) = _$JobPageImpl.fromJson;
+/// Create a copy of JobPage
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$JobPageCopyWith<_JobPage> get copyWith => __$JobPageCopyWithImpl<_JobPage>(this, _$identity);
 
-  @override
-  List<Job> get jobs;
-  @override
-  String? get nextCursor;
-  @override
-  @JsonKey(ignore: true)
-  _$$JobPageImplCopyWith<_$JobPageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$JobPageToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobPage&&const DeepCollectionEquality().equals(other._jobs, _jobs)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_jobs),nextCursor);
+
+@override
+String toString() {
+  return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$JobPageCopyWith<$Res> implements $JobPageCopyWith<$Res> {
+  factory _$JobPageCopyWith(_JobPage value, $Res Function(_JobPage) _then) = __$JobPageCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Job> jobs, String? nextCursor
+});
+
+
+
+
+}
+/// @nodoc
+class __$JobPageCopyWithImpl<$Res>
+    implements _$JobPageCopyWith<$Res> {
+  __$JobPageCopyWithImpl(this._self, this._then);
+
+  final _JobPage _self;
+  final $Res Function(_JobPage) _then;
+
+/// Create a copy of JobPage
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? jobs = null,Object? nextCursor = freezed,}) {
+  return _then(_JobPage(
+jobs: null == jobs ? _self._jobs : jobs // ignore: cast_nullable_to_non_nullable
+as List<Job>,nextCursor: freezed == nextCursor ? _self.nextCursor : nextCursor // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,532 +9,825 @@ part of 'server_setting.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ServerSettingInfo _$ServerSettingInfoFromJson(Map<String, dynamic> json) {
-  return _ServerSettingInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ServerSettingInfo {
-  /// [ServerSetting.key].
-  String get name => throw _privateConstructorUsedError;
 
-  /// What it is now; null when unset (its default then applies).
-  String? get value => throw _privateConstructorUsedError;
+/// [ServerSetting.key].
+ String get name;/// What it is now; null when unset (its default then applies).
+ String? get value;/// Saved since the server started, but read only at start-up: it waits
+/// for a Restart.
+ bool get pendingRestart;
+/// Create a copy of ServerSettingInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerSettingInfoCopyWith<ServerSettingInfo> get copyWith => _$ServerSettingInfoCopyWithImpl<ServerSettingInfo>(this as ServerSettingInfo, _$identity);
 
-  /// Saved since the server started, but read only at start-up: it waits
-  /// for a Restart.
-  bool get pendingRestart => throw _privateConstructorUsedError;
+  /// Serializes this ServerSettingInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerSettingInfoCopyWith<ServerSettingInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value,pendingRestart);
+
+@override
+String toString() {
+  return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServerSettingInfoCopyWith<$Res> {
-  factory $ServerSettingInfoCopyWith(
-          ServerSettingInfo value, $Res Function(ServerSettingInfo) then) =
-      _$ServerSettingInfoCopyWithImpl<$Res, ServerSettingInfo>;
-  @useResult
-  $Res call({String name, String? value, bool pendingRestart});
-}
+abstract mixin class $ServerSettingInfoCopyWith<$Res>  {
+  factory $ServerSettingInfoCopyWith(ServerSettingInfo value, $Res Function(ServerSettingInfo) _then) = _$ServerSettingInfoCopyWithImpl;
+@useResult
+$Res call({
+ String name, String? value, bool pendingRestart
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServerSettingInfoCopyWithImpl<$Res, $Val extends ServerSettingInfo>
+class _$ServerSettingInfoCopyWithImpl<$Res>
     implements $ServerSettingInfoCopyWith<$Res> {
-  _$ServerSettingInfoCopyWithImpl(this._value, this._then);
+  _$ServerSettingInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerSettingInfo _self;
+  final $Res Function(ServerSettingInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = freezed,
-    Object? pendingRestart = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pendingRestart: null == pendingRestart
-          ? _value.pendingRestart
-          : pendingRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of ServerSettingInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = freezed,Object? pendingRestart = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String?,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServerSettingInfoImplCopyWith<$Res>
-    implements $ServerSettingInfoCopyWith<$Res> {
-  factory _$$ServerSettingInfoImplCopyWith(_$ServerSettingInfoImpl value,
-          $Res Function(_$ServerSettingInfoImpl) then) =
-      __$$ServerSettingInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String? value, bool pendingRestart});
 }
 
-/// @nodoc
-class __$$ServerSettingInfoImplCopyWithImpl<$Res>
-    extends _$ServerSettingInfoCopyWithImpl<$Res, _$ServerSettingInfoImpl>
-    implements _$$ServerSettingInfoImplCopyWith<$Res> {
-  __$$ServerSettingInfoImplCopyWithImpl(_$ServerSettingInfoImpl _value,
-      $Res Function(_$ServerSettingInfoImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = freezed,
-    Object? pendingRestart = null,
-  }) {
-    return _then(_$ServerSettingInfoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-      pendingRestart: null == pendingRestart
-          ? _value.pendingRestart
-          : pendingRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ServerSettingInfo].
+extension ServerSettingInfoPatterns on ServerSettingInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerSettingInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerSettingInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerSettingInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerSettingInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerSettingInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerSettingInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String? value,  bool pendingRestart)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerSettingInfo() when $default != null:
+return $default(_that.name,_that.value,_that.pendingRestart);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String? value,  bool pendingRestart)  $default,) {final _that = this;
+switch (_that) {
+case _ServerSettingInfo():
+return $default(_that.name,_that.value,_that.pendingRestart);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String? value,  bool pendingRestart)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerSettingInfo() when $default != null:
+return $default(_that.name,_that.value,_that.pendingRestart);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerSettingInfoImpl implements _ServerSettingInfo {
-  const _$ServerSettingInfoImpl(
-      {required this.name, this.value, this.pendingRestart = false});
 
-  factory _$ServerSettingInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerSettingInfoImplFromJson(json);
+class _ServerSettingInfo implements ServerSettingInfo {
+  const _ServerSettingInfo({required this.name, this.value, this.pendingRestart = false});
+  factory _ServerSettingInfo.fromJson(Map<String, dynamic> json) => _$ServerSettingInfoFromJson(json);
 
-  /// [ServerSetting.key].
-  @override
-  final String name;
+/// [ServerSetting.key].
+@override final  String name;
+/// What it is now; null when unset (its default then applies).
+@override final  String? value;
+/// Saved since the server started, but read only at start-up: it waits
+/// for a Restart.
+@override@JsonKey() final  bool pendingRestart;
 
-  /// What it is now; null when unset (its default then applies).
-  @override
-  final String? value;
+/// Create a copy of ServerSettingInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerSettingInfoCopyWith<_ServerSettingInfo> get copyWith => __$ServerSettingInfoCopyWithImpl<_ServerSettingInfo>(this, _$identity);
 
-  /// Saved since the server started, but read only at start-up: it waits
-  /// for a Restart.
-  @override
-  @JsonKey()
-  final bool pendingRestart;
-
-  @override
-  String toString() {
-    return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerSettingInfoImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.pendingRestart, pendingRestart) ||
-                other.pendingRestart == pendingRestart));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, value, pendingRestart);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerSettingInfoImplCopyWith<_$ServerSettingInfoImpl> get copyWith =>
-      __$$ServerSettingInfoImplCopyWithImpl<_$ServerSettingInfoImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerSettingInfoImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerSettingInfoToJson(this, );
 }
 
-abstract class _ServerSettingInfo implements ServerSettingInfo {
-  const factory _ServerSettingInfo(
-      {required final String name,
-      final String? value,
-      final bool pendingRestart}) = _$ServerSettingInfoImpl;
-
-  factory _ServerSettingInfo.fromJson(Map<String, dynamic> json) =
-      _$ServerSettingInfoImpl.fromJson;
-
-  @override
-
-  /// [ServerSetting.key].
-  String get name;
-  @override
-
-  /// What it is now; null when unset (its default then applies).
-  String? get value;
-  @override
-
-  /// Saved since the server started, but read only at start-up: it waits
-  /// for a Restart.
-  bool get pendingRestart;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerSettingInfoImplCopyWith<_$ServerSettingInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart));
 }
 
-ServerSettingsInfo _$ServerSettingsInfoFromJson(Map<String, dynamic> json) {
-  return _ServerSettingsInfo.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value,pendingRestart);
+
+@override
+String toString() {
+  return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerSettingInfoCopyWith<$Res> implements $ServerSettingInfoCopyWith<$Res> {
+  factory _$ServerSettingInfoCopyWith(_ServerSettingInfo value, $Res Function(_ServerSettingInfo) _then) = __$ServerSettingInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String? value, bool pendingRestart
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerSettingInfoCopyWithImpl<$Res>
+    implements _$ServerSettingInfoCopyWith<$Res> {
+  __$ServerSettingInfoCopyWithImpl(this._self, this._then);
+
+  final _ServerSettingInfo _self;
+  final $Res Function(_ServerSettingInfo) _then;
+
+/// Create a copy of ServerSettingInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? value = freezed,Object? pendingRestart = null,}) {
+  return _then(_ServerSettingInfo(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String?,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$ServerSettingsInfo {
-  List<ServerSettingInfo> get settings => throw _privateConstructorUsedError;
 
-  /// Whether the caller may change the [ServerSetting.primaryOwnerOnly]
-  /// ones.
-  bool get isPrimaryOwner => throw _privateConstructorUsedError;
+ List<ServerSettingInfo> get settings;/// Whether the caller may change the [ServerSetting.primaryOwnerOnly]
+/// ones.
+ bool get isPrimaryOwner;
+/// Create a copy of ServerSettingsInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerSettingsInfoCopyWith<ServerSettingsInfo> get copyWith => _$ServerSettingsInfoCopyWithImpl<ServerSettingsInfo>(this as ServerSettingsInfo, _$identity);
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ServerSettingsInfoCopyWith<ServerSettingsInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  /// Serializes this ServerSettingsInfo to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingsInfo&&const DeepCollectionEquality().equals(other.settings, settings)&&(identical(other.isPrimaryOwner, isPrimaryOwner) || other.isPrimaryOwner == isPrimaryOwner));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(settings),isPrimaryOwner);
+
+@override
+String toString() {
+  return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ServerSettingsInfoCopyWith<$Res> {
-  factory $ServerSettingsInfoCopyWith(
-          ServerSettingsInfo value, $Res Function(ServerSettingsInfo) then) =
-      _$ServerSettingsInfoCopyWithImpl<$Res, ServerSettingsInfo>;
-  @useResult
-  $Res call({List<ServerSettingInfo> settings, bool isPrimaryOwner});
-}
+abstract mixin class $ServerSettingsInfoCopyWith<$Res>  {
+  factory $ServerSettingsInfoCopyWith(ServerSettingsInfo value, $Res Function(ServerSettingsInfo) _then) = _$ServerSettingsInfoCopyWithImpl;
+@useResult
+$Res call({
+ List<ServerSettingInfo> settings, bool isPrimaryOwner
+});
 
+
+
+
+}
 /// @nodoc
-class _$ServerSettingsInfoCopyWithImpl<$Res, $Val extends ServerSettingsInfo>
+class _$ServerSettingsInfoCopyWithImpl<$Res>
     implements $ServerSettingsInfoCopyWith<$Res> {
-  _$ServerSettingsInfoCopyWithImpl(this._value, this._then);
+  _$ServerSettingsInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ServerSettingsInfo _self;
+  final $Res Function(ServerSettingsInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? settings = null,
-    Object? isPrimaryOwner = null,
-  }) {
-    return _then(_value.copyWith(
-      settings: null == settings
-          ? _value.settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as List<ServerSettingInfo>,
-      isPrimaryOwner: null == isPrimaryOwner
-          ? _value.isPrimaryOwner
-          : isPrimaryOwner // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of ServerSettingsInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? settings = null,Object? isPrimaryOwner = null,}) {
+  return _then(_self.copyWith(
+settings: null == settings ? _self.settings : settings // ignore: cast_nullable_to_non_nullable
+as List<ServerSettingInfo>,isPrimaryOwner: null == isPrimaryOwner ? _self.isPrimaryOwner : isPrimaryOwner // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$ServerSettingsInfoImplCopyWith<$Res>
-    implements $ServerSettingsInfoCopyWith<$Res> {
-  factory _$$ServerSettingsInfoImplCopyWith(_$ServerSettingsInfoImpl value,
-          $Res Function(_$ServerSettingsInfoImpl) then) =
-      __$$ServerSettingsInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<ServerSettingInfo> settings, bool isPrimaryOwner});
 }
 
-/// @nodoc
-class __$$ServerSettingsInfoImplCopyWithImpl<$Res>
-    extends _$ServerSettingsInfoCopyWithImpl<$Res, _$ServerSettingsInfoImpl>
-    implements _$$ServerSettingsInfoImplCopyWith<$Res> {
-  __$$ServerSettingsInfoImplCopyWithImpl(_$ServerSettingsInfoImpl _value,
-      $Res Function(_$ServerSettingsInfoImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? settings = null,
-    Object? isPrimaryOwner = null,
-  }) {
-    return _then(_$ServerSettingsInfoImpl(
-      settings: null == settings
-          ? _value._settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as List<ServerSettingInfo>,
-      isPrimaryOwner: null == isPrimaryOwner
-          ? _value.isPrimaryOwner
-          : isPrimaryOwner // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [ServerSettingsInfo].
+extension ServerSettingsInfoPatterns on ServerSettingsInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerSettingsInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerSettingsInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerSettingsInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerSettingsInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerSettingsInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerSettingsInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ServerSettingInfo> settings,  bool isPrimaryOwner)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerSettingsInfo() when $default != null:
+return $default(_that.settings,_that.isPrimaryOwner);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ServerSettingInfo> settings,  bool isPrimaryOwner)  $default,) {final _that = this;
+switch (_that) {
+case _ServerSettingsInfo():
+return $default(_that.settings,_that.isPrimaryOwner);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ServerSettingInfo> settings,  bool isPrimaryOwner)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerSettingsInfo() when $default != null:
+return $default(_that.settings,_that.isPrimaryOwner);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ServerSettingsInfoImpl implements _ServerSettingsInfo {
-  const _$ServerSettingsInfoImpl(
-      {final List<ServerSettingInfo> settings = const [],
-      this.isPrimaryOwner = false})
-      : _settings = settings;
 
-  factory _$ServerSettingsInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ServerSettingsInfoImplFromJson(json);
+class _ServerSettingsInfo implements ServerSettingsInfo {
+  const _ServerSettingsInfo({final  List<ServerSettingInfo> settings = const [], this.isPrimaryOwner = false}): _settings = settings;
+  factory _ServerSettingsInfo.fromJson(Map<String, dynamic> json) => _$ServerSettingsInfoFromJson(json);
 
-  final List<ServerSettingInfo> _settings;
-  @override
-  @JsonKey()
-  List<ServerSettingInfo> get settings {
-    if (_settings is EqualUnmodifiableListView) return _settings;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_settings);
-  }
-
-  /// Whether the caller may change the [ServerSetting.primaryOwnerOnly]
-  /// ones.
-  @override
-  @JsonKey()
-  final bool isPrimaryOwner;
-
-  @override
-  String toString() {
-    return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ServerSettingsInfoImpl &&
-            const DeepCollectionEquality().equals(other._settings, _settings) &&
-            (identical(other.isPrimaryOwner, isPrimaryOwner) ||
-                other.isPrimaryOwner == isPrimaryOwner));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_settings), isPrimaryOwner);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ServerSettingsInfoImplCopyWith<_$ServerSettingsInfoImpl> get copyWith =>
-      __$$ServerSettingsInfoImplCopyWithImpl<_$ServerSettingsInfoImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ServerSettingsInfoImplToJson(
-      this,
-    );
-  }
+ final  List<ServerSettingInfo> _settings;
+@override@JsonKey() List<ServerSettingInfo> get settings {
+  if (_settings is EqualUnmodifiableListView) return _settings;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_settings);
 }
 
-abstract class _ServerSettingsInfo implements ServerSettingsInfo {
-  const factory _ServerSettingsInfo(
-      {final List<ServerSettingInfo> settings,
-      final bool isPrimaryOwner}) = _$ServerSettingsInfoImpl;
+/// Whether the caller may change the [ServerSetting.primaryOwnerOnly]
+/// ones.
+@override@JsonKey() final  bool isPrimaryOwner;
 
-  factory _ServerSettingsInfo.fromJson(Map<String, dynamic> json) =
-      _$ServerSettingsInfoImpl.fromJson;
+/// Create a copy of ServerSettingsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerSettingsInfoCopyWith<_ServerSettingsInfo> get copyWith => __$ServerSettingsInfoCopyWithImpl<_ServerSettingsInfo>(this, _$identity);
 
-  @override
-  List<ServerSettingInfo> get settings;
-  @override
-
-  /// Whether the caller may change the [ServerSetting.primaryOwnerOnly]
-  /// ones.
-  bool get isPrimaryOwner;
-  @override
-  @JsonKey(ignore: true)
-  _$$ServerSettingsInfoImplCopyWith<_$ServerSettingsInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerSettingsInfoToJson(this, );
 }
 
-SettingSetParams _$SettingSetParamsFromJson(Map<String, dynamic> json) {
-  return _SettingSetParams.fromJson(json);
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingsInfo&&const DeepCollectionEquality().equals(other._settings, _settings)&&(identical(other.isPrimaryOwner, isPrimaryOwner) || other.isPrimaryOwner == isPrimaryOwner));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_settings),isPrimaryOwner);
+
+@override
+String toString() {
+  return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerSettingsInfoCopyWith<$Res> implements $ServerSettingsInfoCopyWith<$Res> {
+  factory _$ServerSettingsInfoCopyWith(_ServerSettingsInfo value, $Res Function(_ServerSettingsInfo) _then) = __$ServerSettingsInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ List<ServerSettingInfo> settings, bool isPrimaryOwner
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerSettingsInfoCopyWithImpl<$Res>
+    implements _$ServerSettingsInfoCopyWith<$Res> {
+  __$ServerSettingsInfoCopyWithImpl(this._self, this._then);
+
+  final _ServerSettingsInfo _self;
+  final $Res Function(_ServerSettingsInfo) _then;
+
+/// Create a copy of ServerSettingsInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? settings = null,Object? isPrimaryOwner = null,}) {
+  return _then(_ServerSettingsInfo(
+settings: null == settings ? _self._settings : settings // ignore: cast_nullable_to_non_nullable
+as List<ServerSettingInfo>,isPrimaryOwner: null == isPrimaryOwner ? _self.isPrimaryOwner : isPrimaryOwner // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$SettingSetParams {
-  String get name => throw _privateConstructorUsedError;
-  String? get value => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SettingSetParamsCopyWith<SettingSetParams> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get name; String? get value;
+/// Create a copy of SettingSetParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SettingSetParamsCopyWith<SettingSetParams> get copyWith => _$SettingSetParamsCopyWithImpl<SettingSetParams>(this as SettingSetParams, _$identity);
+
+  /// Serializes this SettingSetParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value);
+
+@override
+String toString() {
+  return 'SettingSetParams(name: $name, value: $value)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SettingSetParamsCopyWith<$Res> {
-  factory $SettingSetParamsCopyWith(
-          SettingSetParams value, $Res Function(SettingSetParams) then) =
-      _$SettingSetParamsCopyWithImpl<$Res, SettingSetParams>;
-  @useResult
-  $Res call({String name, String? value});
-}
+abstract mixin class $SettingSetParamsCopyWith<$Res>  {
+  factory $SettingSetParamsCopyWith(SettingSetParams value, $Res Function(SettingSetParams) _then) = _$SettingSetParamsCopyWithImpl;
+@useResult
+$Res call({
+ String name, String? value
+});
 
+
+
+
+}
 /// @nodoc
-class _$SettingSetParamsCopyWithImpl<$Res, $Val extends SettingSetParams>
+class _$SettingSetParamsCopyWithImpl<$Res>
     implements $SettingSetParamsCopyWith<$Res> {
-  _$SettingSetParamsCopyWithImpl(this._value, this._then);
+  _$SettingSetParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SettingSetParams _self;
+  final $Res Function(SettingSetParams) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
+/// Create a copy of SettingSetParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = freezed,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SettingSetParamsImplCopyWith<$Res>
-    implements $SettingSetParamsCopyWith<$Res> {
-  factory _$$SettingSetParamsImplCopyWith(_$SettingSetParamsImpl value,
-          $Res Function(_$SettingSetParamsImpl) then) =
-      __$$SettingSetParamsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String? value});
 }
 
-/// @nodoc
-class __$$SettingSetParamsImplCopyWithImpl<$Res>
-    extends _$SettingSetParamsCopyWithImpl<$Res, _$SettingSetParamsImpl>
-    implements _$$SettingSetParamsImplCopyWith<$Res> {
-  __$$SettingSetParamsImplCopyWithImpl(_$SettingSetParamsImpl _value,
-      $Res Function(_$SettingSetParamsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? value = freezed,
-  }) {
-    return _then(_$SettingSetParamsImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      value: freezed == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SettingSetParams].
+extension SettingSetParamsPatterns on SettingSetParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SettingSetParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SettingSetParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SettingSetParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _SettingSetParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SettingSetParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SettingSetParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String? value)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SettingSetParams() when $default != null:
+return $default(_that.name,_that.value);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String? value)  $default,) {final _that = this;
+switch (_that) {
+case _SettingSetParams():
+return $default(_that.name,_that.value);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String? value)?  $default,) {final _that = this;
+switch (_that) {
+case _SettingSetParams() when $default != null:
+return $default(_that.name,_that.value);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SettingSetParamsImpl implements _SettingSetParams {
-  const _$SettingSetParamsImpl({required this.name, this.value});
 
-  factory _$SettingSetParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SettingSetParamsImplFromJson(json);
+class _SettingSetParams implements SettingSetParams {
+  const _SettingSetParams({required this.name, this.value});
+  factory _SettingSetParams.fromJson(Map<String, dynamic> json) => _$SettingSetParamsFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String? value;
+@override final  String name;
+@override final  String? value;
 
-  @override
-  String toString() {
-    return 'SettingSetParams(name: $name, value: $value)';
-  }
+/// Create a copy of SettingSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SettingSetParamsCopyWith<_SettingSetParams> get copyWith => __$SettingSetParamsCopyWithImpl<_SettingSetParams>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SettingSetParamsImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SettingSetParamsImplCopyWith<_$SettingSetParamsImpl> get copyWith =>
-      __$$SettingSetParamsImplCopyWithImpl<_$SettingSetParamsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SettingSetParamsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SettingSetParamsToJson(this, );
 }
 
-abstract class _SettingSetParams implements SettingSetParams {
-  const factory _SettingSetParams(
-      {required final String name,
-      final String? value}) = _$SettingSetParamsImpl;
-
-  factory _SettingSetParams.fromJson(Map<String, dynamic> json) =
-      _$SettingSetParamsImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String? get value;
-  @override
-  @JsonKey(ignore: true)
-  _$$SettingSetParamsImplCopyWith<_$SettingSetParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,value);
+
+@override
+String toString() {
+  return 'SettingSetParams(name: $name, value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SettingSetParamsCopyWith<$Res> implements $SettingSetParamsCopyWith<$Res> {
+  factory _$SettingSetParamsCopyWith(_SettingSetParams value, $Res Function(_SettingSetParams) _then) = __$SettingSetParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String? value
+});
+
+
+
+
+}
+/// @nodoc
+class __$SettingSetParamsCopyWithImpl<$Res>
+    implements _$SettingSetParamsCopyWith<$Res> {
+  __$SettingSetParamsCopyWithImpl(this._self, this._then);
+
+  final _SettingSetParams _self;
+  final $Res Function(_SettingSetParams) _then;
+
+/// Create a copy of SettingSetParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? value = freezed,}) {
+  return _then(_SettingSetParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

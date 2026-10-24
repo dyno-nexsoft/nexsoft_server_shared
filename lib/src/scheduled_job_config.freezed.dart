@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,338 +9,327 @@ part of 'scheduled_job_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ScheduledJobConfig _$ScheduledJobConfigFromJson(Map<String, dynamic> json) {
-  return _ScheduledJobConfig.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ScheduledJobConfig {
-  /// The job's identity — what `cron.run` names it and the audit log shows.
-  /// Letters, digits and underscores; fixed once created.
-  String get name => throw _privateConstructorUsedError;
-  @JsonKey(unknownEnumValue: JobKind.announcement)
-  JobKind get kind => throw _privateConstructorUsedError;
 
-  /// A disabled job stays configured but never runs on its own.
-  bool get enabled => throw _privateConstructorUsedError;
-  JobTiming get timing => throw _privateConstructorUsedError;
+/// The job's identity — what `cron.run` names it and the audit log shows.
+/// Letters, digits and underscores; fixed once created.
+ String get name;@JsonKey(unknownEnumValue: JobKind.announcement) JobKind get kind;/// A disabled job stays configured but never runs on its own.
+ bool get enabled; JobTiming get timing;/// For an announcement: what the AI is asked to say. Unused otherwise.
+ String get prompt;/// For an announcement: spoken as it is when the AI cannot answer, so the
+/// reminder still happens. Unused otherwise.
+ String get fallback;/// Whether a run missed while the server was down (powered off, mid
+/// restart) is made up when it comes back — once, however many were
+/// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+/// job saved before this existed still gets that default rather than
+/// "never".
+ bool? get catchUp;
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScheduledJobConfigCopyWith<ScheduledJobConfig> get copyWith => _$ScheduledJobConfigCopyWithImpl<ScheduledJobConfig>(this as ScheduledJobConfig, _$identity);
 
-  /// For an announcement: what the AI is asked to say. Unused otherwise.
-  String get prompt => throw _privateConstructorUsedError;
+  /// Serializes this ScheduledJobConfig to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// For an announcement: spoken as it is when the AI cannot answer, so the
-  /// reminder still happens. Unused otherwise.
-  String get fallback => throw _privateConstructorUsedError;
 
-  /// Whether a run missed while the server was down (powered off, mid
-  /// restart) is made up when it comes back — once, however many were
-  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
-  /// job saved before this existed still gets that default rather than
-  /// "never".
-  bool? get catchUp => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
+}
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ScheduledJobConfigCopyWith<ScheduledJobConfig> get copyWith =>
-      throw _privateConstructorUsedError;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+
+@override
+String toString() {
+  return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ScheduledJobConfigCopyWith<$Res> {
-  factory $ScheduledJobConfigCopyWith(
-          ScheduledJobConfig value, $Res Function(ScheduledJobConfig) then) =
-      _$ScheduledJobConfigCopyWithImpl<$Res, ScheduledJobConfig>;
-  @useResult
-  $Res call(
-      {String name,
-      @JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind,
-      bool enabled,
-      JobTiming timing,
-      String prompt,
-      String fallback,
-      bool? catchUp});
+abstract mixin class $ScheduledJobConfigCopyWith<$Res>  {
+  factory $ScheduledJobConfigCopyWith(ScheduledJobConfig value, $Res Function(ScheduledJobConfig) _then) = _$ScheduledJobConfigCopyWithImpl;
+@useResult
+$Res call({
+ String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp
+});
 
-  $JobTimingCopyWith<$Res> get timing;
+
+$JobTimingCopyWith<$Res> get timing;
+
 }
-
 /// @nodoc
-class _$ScheduledJobConfigCopyWithImpl<$Res, $Val extends ScheduledJobConfig>
+class _$ScheduledJobConfigCopyWithImpl<$Res>
     implements $ScheduledJobConfigCopyWith<$Res> {
-  _$ScheduledJobConfigCopyWithImpl(this._value, this._then);
+  _$ScheduledJobConfigCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ScheduledJobConfig _self;
+  final $Res Function(ScheduledJobConfig) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? kind = null,
-    Object? enabled = null,
-    Object? timing = null,
-    Object? prompt = null,
-    Object? fallback = null,
-    Object? catchUp = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as JobKind,
-      enabled: null == enabled
-          ? _value.enabled
-          : enabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timing: null == timing
-          ? _value.timing
-          : timing // ignore: cast_nullable_to_non_nullable
-              as JobTiming,
-      prompt: null == prompt
-          ? _value.prompt
-          : prompt // ignore: cast_nullable_to_non_nullable
-              as String,
-      fallback: null == fallback
-          ? _value.fallback
-          : fallback // ignore: cast_nullable_to_non_nullable
-              as String,
-      catchUp: freezed == catchUp
-          ? _value.catchUp
-          : catchUp // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $JobTimingCopyWith<$Res> get timing {
-    return $JobTimingCopyWith<$Res>(_value.timing, (value) {
-      return _then(_value.copyWith(timing: value) as $Val);
-    });
-  }
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as JobKind,enabled: null == enabled ? _self.enabled : enabled // ignore: cast_nullable_to_non_nullable
+as bool,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_to_non_nullable
+as JobTiming,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
+as String,fallback: null == fallback ? _self.fallback : fallback // ignore: cast_nullable_to_non_nullable
+as String,catchUp: freezed == catchUp ? _self.catchUp : catchUp // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
+}
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobTimingCopyWith<$Res> get timing {
+  
+  return $JobTimingCopyWith<$Res>(_self.timing, (value) {
+    return _then(_self.copyWith(timing: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$ScheduledJobConfigImplCopyWith<$Res>
-    implements $ScheduledJobConfigCopyWith<$Res> {
-  factory _$$ScheduledJobConfigImplCopyWith(_$ScheduledJobConfigImpl value,
-          $Res Function(_$ScheduledJobConfigImpl) then) =
-      __$$ScheduledJobConfigImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      @JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind,
-      bool enabled,
-      JobTiming timing,
-      String prompt,
-      String fallback,
-      bool? catchUp});
 
-  @override
-  $JobTimingCopyWith<$Res> get timing;
+/// Adds pattern-matching-related methods to [ScheduledJobConfig].
+extension ScheduledJobConfigPatterns on ScheduledJobConfig {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ScheduledJobConfig value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ScheduledJobConfig() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ScheduledJobConfig value)  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduledJobConfig():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ScheduledJobConfig value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ScheduledJobConfig() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ScheduledJobConfig() when $default != null:
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)  $default,) {final _that = this;
+switch (_that) {
+case _ScheduledJobConfig():
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)?  $default,) {final _that = this;
+switch (_that) {
+case _ScheduledJobConfig() when $default != null:
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-class __$$ScheduledJobConfigImplCopyWithImpl<$Res>
-    extends _$ScheduledJobConfigCopyWithImpl<$Res, _$ScheduledJobConfigImpl>
-    implements _$$ScheduledJobConfigImplCopyWith<$Res> {
-  __$$ScheduledJobConfigImplCopyWithImpl(_$ScheduledJobConfigImpl _value,
-      $Res Function(_$ScheduledJobConfigImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? kind = null,
-    Object? enabled = null,
-    Object? timing = null,
-    Object? prompt = null,
-    Object? fallback = null,
-    Object? catchUp = freezed,
-  }) {
-    return _then(_$ScheduledJobConfigImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      kind: null == kind
-          ? _value.kind
-          : kind // ignore: cast_nullable_to_non_nullable
-              as JobKind,
-      enabled: null == enabled
-          ? _value.enabled
-          : enabled // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timing: null == timing
-          ? _value.timing
-          : timing // ignore: cast_nullable_to_non_nullable
-              as JobTiming,
-      prompt: null == prompt
-          ? _value.prompt
-          : prompt // ignore: cast_nullable_to_non_nullable
-              as String,
-      fallback: null == fallback
-          ? _value.fallback
-          : fallback // ignore: cast_nullable_to_non_nullable
-              as String,
-      catchUp: freezed == catchUp
-          ? _value.catchUp
-          : catchUp // ignore: cast_nullable_to_non_nullable
-              as bool?,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ScheduledJobConfigImpl extends _ScheduledJobConfig {
-  const _$ScheduledJobConfigImpl(
-      {required this.name,
-      @JsonKey(unknownEnumValue: JobKind.announcement) required this.kind,
-      this.enabled = true,
-      required this.timing,
-      this.prompt = '',
-      this.fallback = '',
-      this.catchUp})
-      : super._();
 
-  factory _$ScheduledJobConfigImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ScheduledJobConfigImplFromJson(json);
+class _ScheduledJobConfig extends ScheduledJobConfig {
+  const _ScheduledJobConfig({required this.name, @JsonKey(unknownEnumValue: JobKind.announcement) required this.kind, this.enabled = true, required this.timing, this.prompt = '', this.fallback = '', this.catchUp}): super._();
+  factory _ScheduledJobConfig.fromJson(Map<String, dynamic> json) => _$ScheduledJobConfigFromJson(json);
 
-  /// The job's identity — what `cron.run` names it and the audit log shows.
-  /// Letters, digits and underscores; fixed once created.
-  @override
-  final String name;
-  @override
-  @JsonKey(unknownEnumValue: JobKind.announcement)
-  final JobKind kind;
+/// The job's identity — what `cron.run` names it and the audit log shows.
+/// Letters, digits and underscores; fixed once created.
+@override final  String name;
+@override@JsonKey(unknownEnumValue: JobKind.announcement) final  JobKind kind;
+/// A disabled job stays configured but never runs on its own.
+@override@JsonKey() final  bool enabled;
+@override final  JobTiming timing;
+/// For an announcement: what the AI is asked to say. Unused otherwise.
+@override@JsonKey() final  String prompt;
+/// For an announcement: spoken as it is when the AI cannot answer, so the
+/// reminder still happens. Unused otherwise.
+@override@JsonKey() final  String fallback;
+/// Whether a run missed while the server was down (powered off, mid
+/// restart) is made up when it comes back — once, however many were
+/// missed. Null means the kind's default, [catchesUp]; kept nullable so a
+/// job saved before this existed still gets that default rather than
+/// "never".
+@override final  bool? catchUp;
 
-  /// A disabled job stays configured but never runs on its own.
-  @override
-  @JsonKey()
-  final bool enabled;
-  @override
-  final JobTiming timing;
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScheduledJobConfigCopyWith<_ScheduledJobConfig> get copyWith => __$ScheduledJobConfigCopyWithImpl<_ScheduledJobConfig>(this, _$identity);
 
-  /// For an announcement: what the AI is asked to say. Unused otherwise.
-  @override
-  @JsonKey()
-  final String prompt;
-
-  /// For an announcement: spoken as it is when the AI cannot answer, so the
-  /// reminder still happens. Unused otherwise.
-  @override
-  @JsonKey()
-  final String fallback;
-
-  /// Whether a run missed while the server was down (powered off, mid
-  /// restart) is made up when it comes back — once, however many were
-  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
-  /// job saved before this existed still gets that default rather than
-  /// "never".
-  @override
-  final bool? catchUp;
-
-  @override
-  String toString() {
-    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScheduledJobConfigImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.kind, kind) || other.kind == kind) &&
-            (identical(other.enabled, enabled) || other.enabled == enabled) &&
-            (identical(other.timing, timing) || other.timing == timing) &&
-            (identical(other.prompt, prompt) || other.prompt == prompt) &&
-            (identical(other.fallback, fallback) ||
-                other.fallback == fallback) &&
-            (identical(other.catchUp, catchUp) || other.catchUp == catchUp));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, name, kind, enabled, timing, prompt, fallback, catchUp);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScheduledJobConfigImplCopyWith<_$ScheduledJobConfigImpl> get copyWith =>
-      __$$ScheduledJobConfigImplCopyWithImpl<_$ScheduledJobConfigImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ScheduledJobConfigImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$ScheduledJobConfigToJson(this, );
 }
 
-abstract class _ScheduledJobConfig extends ScheduledJobConfig {
-  const factory _ScheduledJobConfig(
-      {required final String name,
-      @JsonKey(unknownEnumValue: JobKind.announcement)
-      required final JobKind kind,
-      final bool enabled,
-      required final JobTiming timing,
-      final String prompt,
-      final String fallback,
-      final bool? catchUp}) = _$ScheduledJobConfigImpl;
-  const _ScheduledJobConfig._() : super._();
-
-  factory _ScheduledJobConfig.fromJson(Map<String, dynamic> json) =
-      _$ScheduledJobConfigImpl.fromJson;
-
-  @override
-
-  /// The job's identity — what `cron.run` names it and the audit log shows.
-  /// Letters, digits and underscores; fixed once created.
-  String get name;
-  @override
-  @JsonKey(unknownEnumValue: JobKind.announcement)
-  JobKind get kind;
-  @override
-
-  /// A disabled job stays configured but never runs on its own.
-  bool get enabled;
-  @override
-  JobTiming get timing;
-  @override
-
-  /// For an announcement: what the AI is asked to say. Unused otherwise.
-  String get prompt;
-  @override
-
-  /// For an announcement: spoken as it is when the AI cannot answer, so the
-  /// reminder still happens. Unused otherwise.
-  String get fallback;
-  @override
-
-  /// Whether a run missed while the server was down (powered off, mid
-  /// restart) is made up when it comes back — once, however many were
-  /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
-  /// job saved before this existed still gets that default rather than
-  /// "never".
-  bool? get catchUp;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScheduledJobConfigImplCopyWith<_$ScheduledJobConfigImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+
+@override
+String toString() {
+  return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ScheduledJobConfigCopyWith<$Res> implements $ScheduledJobConfigCopyWith<$Res> {
+  factory _$ScheduledJobConfigCopyWith(_ScheduledJobConfig value, $Res Function(_ScheduledJobConfig) _then) = __$ScheduledJobConfigCopyWithImpl;
+@override @useResult
+$Res call({
+ String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp
+});
+
+
+@override $JobTimingCopyWith<$Res> get timing;
+
+}
+/// @nodoc
+class __$ScheduledJobConfigCopyWithImpl<$Res>
+    implements _$ScheduledJobConfigCopyWith<$Res> {
+  __$ScheduledJobConfigCopyWithImpl(this._self, this._then);
+
+  final _ScheduledJobConfig _self;
+  final $Res Function(_ScheduledJobConfig) _then;
+
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,}) {
+  return _then(_ScheduledJobConfig(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as JobKind,enabled: null == enabled ? _self.enabled : enabled // ignore: cast_nullable_to_non_nullable
+as bool,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_to_non_nullable
+as JobTiming,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
+as String,fallback: null == fallback ? _self.fallback : fallback // ignore: cast_nullable_to_non_nullable
+as String,catchUp: freezed == catchUp ? _self.catchUp : catchUp // ignore: cast_nullable_to_non_nullable
+as bool?,
+  ));
+}
+
+/// Create a copy of ScheduledJobConfig
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$JobTimingCopyWith<$Res> get timing {
+  
+  return $JobTimingCopyWith<$Res>(_self.timing, (value) {
+    return _then(_self.copyWith(timing: value));
+  });
+}
+}
+
+// dart format on

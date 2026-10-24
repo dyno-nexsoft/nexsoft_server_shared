@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,557 +9,589 @@ part of 'secret_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SecretInfo _$SecretInfoFromJson(Map<String, dynamic> json) {
-  return _SecretInfo.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SecretInfo {
-  /// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
-  String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  SecretSource get source => throw _privateConstructorUsedError;
 
-  /// When it was last set in the store; null when it is not there.
-  DateTime? get changedAt => throw _privateConstructorUsedError;
+/// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
+ String get name; String get description; SecretSource get source;/// When it was last set in the store; null when it is not there.
+ DateTime? get changedAt;/// The server cannot do its main work without it.
+ bool get isRequired;/// A new value is read only when the server starts, so it needs a
+/// Restart; every other one applies on its next use.
+ bool get needsRestart;/// Holds several values, comma-separated (API keys tried in turn).
+ bool get isList;/// Set since the server started, and [needsRestart]: it waits for one.
+ bool get pendingRestart;/// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+/// server sends it to that host only.
+ String? get boundHost;/// Set for a host the setting no longer names, so it is not sent
+/// anywhere until it is set again: an admin who points the server
+/// elsewhere does not take the credential with it.
+ bool get needsReentry;
+/// Create a copy of SecretInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SecretInfoCopyWith<SecretInfo> get copyWith => _$SecretInfoCopyWithImpl<SecretInfo>(this as SecretInfo, _$identity);
 
-  /// The server cannot do its main work without it.
-  bool get isRequired => throw _privateConstructorUsedError;
+  /// Serializes this SecretInfo to a JSON map.
+  Map<String, dynamic> toJson();
 
-  /// A new value is read only when the server starts, so it needs a
-  /// Restart; every other one applies on its next use.
-  bool get needsRestart => throw _privateConstructorUsedError;
 
-  /// Holds several values, comma-separated (API keys tried in turn).
-  bool get isList => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
+}
 
-  /// Set since the server started, and [needsRestart]: it waits for one.
-  bool get pendingRestart => throw _privateConstructorUsedError;
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,pendingRestart,boundHost,needsReentry);
 
-  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
-  /// server sends it to that host only.
-  String? get boundHost => throw _privateConstructorUsedError;
+@override
+String toString() {
+  return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
+}
 
-  /// Set for a host the setting no longer names, so it is not sent
-  /// anywhere until it is set again: an admin who points the server
-  /// elsewhere does not take the credential with it.
-  bool get needsReentry => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SecretInfoCopyWith<SecretInfo> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SecretInfoCopyWith<$Res> {
-  factory $SecretInfoCopyWith(
-          SecretInfo value, $Res Function(SecretInfo) then) =
-      _$SecretInfoCopyWithImpl<$Res, SecretInfo>;
-  @useResult
-  $Res call(
-      {String name,
-      String description,
-      SecretSource source,
-      DateTime? changedAt,
-      bool isRequired,
-      bool needsRestart,
-      bool isList,
-      bool pendingRestart,
-      String? boundHost,
-      bool needsReentry});
-}
+abstract mixin class $SecretInfoCopyWith<$Res>  {
+  factory $SecretInfoCopyWith(SecretInfo value, $Res Function(SecretInfo) _then) = _$SecretInfoCopyWithImpl;
+@useResult
+$Res call({
+ String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, bool pendingRestart, String? boundHost, bool needsReentry
+});
 
+
+
+
+}
 /// @nodoc
-class _$SecretInfoCopyWithImpl<$Res, $Val extends SecretInfo>
+class _$SecretInfoCopyWithImpl<$Res>
     implements $SecretInfoCopyWith<$Res> {
-  _$SecretInfoCopyWithImpl(this._value, this._then);
+  _$SecretInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SecretInfo _self;
+  final $Res Function(SecretInfo) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? source = null,
-    Object? changedAt = freezed,
-    Object? isRequired = null,
-    Object? needsRestart = null,
-    Object? isList = null,
-    Object? pendingRestart = null,
-    Object? boundHost = freezed,
-    Object? needsReentry = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as SecretSource,
-      changedAt: freezed == changedAt
-          ? _value.changedAt
-          : changedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      isRequired: null == isRequired
-          ? _value.isRequired
-          : isRequired // ignore: cast_nullable_to_non_nullable
-              as bool,
-      needsRestart: null == needsRestart
-          ? _value.needsRestart
-          : needsRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isList: null == isList
-          ? _value.isList
-          : isList // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pendingRestart: null == pendingRestart
-          ? _value.pendingRestart
-          : pendingRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      boundHost: freezed == boundHost
-          ? _value.boundHost
-          : boundHost // ignore: cast_nullable_to_non_nullable
-              as String?,
-      needsReentry: null == needsReentry
-          ? _value.needsReentry
-          : needsReentry // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of SecretInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as SecretSource,changedAt: freezed == changedAt ? _self.changedAt : changedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
+as bool,needsRestart: null == needsRestart ? _self.needsRestart : needsRestart // ignore: cast_nullable_to_non_nullable
+as bool,isList: null == isList ? _self.isList : isList // ignore: cast_nullable_to_non_nullable
+as bool,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
+as bool,boundHost: freezed == boundHost ? _self.boundHost : boundHost // ignore: cast_nullable_to_non_nullable
+as String?,needsReentry: null == needsReentry ? _self.needsReentry : needsReentry // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SecretInfoImplCopyWith<$Res>
-    implements $SecretInfoCopyWith<$Res> {
-  factory _$$SecretInfoImplCopyWith(
-          _$SecretInfoImpl value, $Res Function(_$SecretInfoImpl) then) =
-      __$$SecretInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String description,
-      SecretSource source,
-      DateTime? changedAt,
-      bool isRequired,
-      bool needsRestart,
-      bool isList,
-      bool pendingRestart,
-      String? boundHost,
-      bool needsReentry});
 }
 
-/// @nodoc
-class __$$SecretInfoImplCopyWithImpl<$Res>
-    extends _$SecretInfoCopyWithImpl<$Res, _$SecretInfoImpl>
-    implements _$$SecretInfoImplCopyWith<$Res> {
-  __$$SecretInfoImplCopyWithImpl(
-      _$SecretInfoImpl _value, $Res Function(_$SecretInfoImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? description = null,
-    Object? source = null,
-    Object? changedAt = freezed,
-    Object? isRequired = null,
-    Object? needsRestart = null,
-    Object? isList = null,
-    Object? pendingRestart = null,
-    Object? boundHost = freezed,
-    Object? needsReentry = null,
-  }) {
-    return _then(_$SecretInfoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as SecretSource,
-      changedAt: freezed == changedAt
-          ? _value.changedAt
-          : changedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      isRequired: null == isRequired
-          ? _value.isRequired
-          : isRequired // ignore: cast_nullable_to_non_nullable
-              as bool,
-      needsRestart: null == needsRestart
-          ? _value.needsRestart
-          : needsRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isList: null == isList
-          ? _value.isList
-          : isList // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pendingRestart: null == pendingRestart
-          ? _value.pendingRestart
-          : pendingRestart // ignore: cast_nullable_to_non_nullable
-              as bool,
-      boundHost: freezed == boundHost
-          ? _value.boundHost
-          : boundHost // ignore: cast_nullable_to_non_nullable
-              as String?,
-      needsReentry: null == needsReentry
-          ? _value.needsReentry
-          : needsReentry // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SecretInfo].
+extension SecretInfoPatterns on SecretInfo {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SecretInfo value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SecretInfo() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SecretInfo value)  $default,){
+final _that = this;
+switch (_that) {
+case _SecretInfo():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SecretInfo value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SecretInfo() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SecretInfo() when $default != null:
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool pendingRestart,  String? boundHost,  bool needsReentry)  $default,) {final _that = this;
+switch (_that) {
+case _SecretInfo():
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,) {final _that = this;
+switch (_that) {
+case _SecretInfo() when $default != null:
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SecretInfoImpl extends _SecretInfo {
-  const _$SecretInfoImpl(
-      {required this.name,
-      this.description = '',
-      this.source = SecretSource.none,
-      this.changedAt,
-      this.isRequired = false,
-      this.needsRestart = false,
-      this.isList = false,
-      this.pendingRestart = false,
-      this.boundHost,
-      this.needsReentry = false})
-      : super._();
 
-  factory _$SecretInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SecretInfoImplFromJson(json);
+class _SecretInfo extends SecretInfo {
+  const _SecretInfo({required this.name, this.description = '', this.source = SecretSource.none, this.changedAt, this.isRequired = false, this.needsRestart = false, this.isList = false, this.pendingRestart = false, this.boundHost, this.needsReentry = false}): super._();
+  factory _SecretInfo.fromJson(Map<String, dynamic> json) => _$SecretInfoFromJson(json);
 
-  /// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
-  @override
-  final String name;
-  @override
-  @JsonKey()
-  final String description;
-  @override
-  @JsonKey()
-  final SecretSource source;
+/// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
+@override final  String name;
+@override@JsonKey() final  String description;
+@override@JsonKey() final  SecretSource source;
+/// When it was last set in the store; null when it is not there.
+@override final  DateTime? changedAt;
+/// The server cannot do its main work without it.
+@override@JsonKey() final  bool isRequired;
+/// A new value is read only when the server starts, so it needs a
+/// Restart; every other one applies on its next use.
+@override@JsonKey() final  bool needsRestart;
+/// Holds several values, comma-separated (API keys tried in turn).
+@override@JsonKey() final  bool isList;
+/// Set since the server started, and [needsRestart]: it waits for one.
+@override@JsonKey() final  bool pendingRestart;
+/// Bound to the host of a server setting (`ServerSetting.hostOf`): the
+/// server sends it to that host only.
+@override final  String? boundHost;
+/// Set for a host the setting no longer names, so it is not sent
+/// anywhere until it is set again: an admin who points the server
+/// elsewhere does not take the credential with it.
+@override@JsonKey() final  bool needsReentry;
 
-  /// When it was last set in the store; null when it is not there.
-  @override
-  final DateTime? changedAt;
+/// Create a copy of SecretInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SecretInfoCopyWith<_SecretInfo> get copyWith => __$SecretInfoCopyWithImpl<_SecretInfo>(this, _$identity);
 
-  /// The server cannot do its main work without it.
-  @override
-  @JsonKey()
-  final bool isRequired;
-
-  /// A new value is read only when the server starts, so it needs a
-  /// Restart; every other one applies on its next use.
-  @override
-  @JsonKey()
-  final bool needsRestart;
-
-  /// Holds several values, comma-separated (API keys tried in turn).
-  @override
-  @JsonKey()
-  final bool isList;
-
-  /// Set since the server started, and [needsRestart]: it waits for one.
-  @override
-  @JsonKey()
-  final bool pendingRestart;
-
-  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
-  /// server sends it to that host only.
-  @override
-  final String? boundHost;
-
-  /// Set for a host the setting no longer names, so it is not sent
-  /// anywhere until it is set again: an admin who points the server
-  /// elsewhere does not take the credential with it.
-  @override
-  @JsonKey()
-  final bool needsReentry;
-
-  @override
-  String toString() {
-    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SecretInfoImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.source, source) || other.source == source) &&
-            (identical(other.changedAt, changedAt) ||
-                other.changedAt == changedAt) &&
-            (identical(other.isRequired, isRequired) ||
-                other.isRequired == isRequired) &&
-            (identical(other.needsRestart, needsRestart) ||
-                other.needsRestart == needsRestart) &&
-            (identical(other.isList, isList) || other.isList == isList) &&
-            (identical(other.pendingRestart, pendingRestart) ||
-                other.pendingRestart == pendingRestart) &&
-            (identical(other.boundHost, boundHost) ||
-                other.boundHost == boundHost) &&
-            (identical(other.needsReentry, needsReentry) ||
-                other.needsReentry == needsReentry));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      name,
-      description,
-      source,
-      changedAt,
-      isRequired,
-      needsRestart,
-      isList,
-      pendingRestart,
-      boundHost,
-      needsReentry);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SecretInfoImplCopyWith<_$SecretInfoImpl> get copyWith =>
-      __$$SecretInfoImplCopyWithImpl<_$SecretInfoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SecretInfoImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SecretInfoToJson(this, );
 }
 
-abstract class _SecretInfo extends SecretInfo {
-  const factory _SecretInfo(
-      {required final String name,
-      final String description,
-      final SecretSource source,
-      final DateTime? changedAt,
-      final bool isRequired,
-      final bool needsRestart,
-      final bool isList,
-      final bool pendingRestart,
-      final String? boundHost,
-      final bool needsReentry}) = _$SecretInfoImpl;
-  const _SecretInfo._() : super._();
-
-  factory _SecretInfo.fromJson(Map<String, dynamic> json) =
-      _$SecretInfoImpl.fromJson;
-
-  @override
-
-  /// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
-  String get name;
-  @override
-  String get description;
-  @override
-  SecretSource get source;
-  @override
-
-  /// When it was last set in the store; null when it is not there.
-  DateTime? get changedAt;
-  @override
-
-  /// The server cannot do its main work without it.
-  bool get isRequired;
-  @override
-
-  /// A new value is read only when the server starts, so it needs a
-  /// Restart; every other one applies on its next use.
-  bool get needsRestart;
-  @override
-
-  /// Holds several values, comma-separated (API keys tried in turn).
-  bool get isList;
-  @override
-
-  /// Set since the server started, and [needsRestart]: it waits for one.
-  bool get pendingRestart;
-  @override
-
-  /// Bound to the host of a server setting (`ServerSetting.hostOf`): the
-  /// server sends it to that host only.
-  String? get boundHost;
-  @override
-
-  /// Set for a host the setting no longer names, so it is not sent
-  /// anywhere until it is set again: an admin who points the server
-  /// elsewhere does not take the credential with it.
-  bool get needsReentry;
-  @override
-  @JsonKey(ignore: true)
-  _$$SecretInfoImplCopyWith<_$SecretInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
 }
 
-SecretList _$SecretListFromJson(Map<String, dynamic> json) {
-  return _SecretList.fromJson(json);
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,pendingRestart,boundHost,needsReentry);
+
+@override
+String toString() {
+  return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
 }
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SecretInfoCopyWith<$Res> implements $SecretInfoCopyWith<$Res> {
+  factory _$SecretInfoCopyWith(_SecretInfo value, $Res Function(_SecretInfo) _then) = __$SecretInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, bool pendingRestart, String? boundHost, bool needsReentry
+});
+
+
+
+
+}
+/// @nodoc
+class __$SecretInfoCopyWithImpl<$Res>
+    implements _$SecretInfoCopyWith<$Res> {
+  __$SecretInfoCopyWithImpl(this._self, this._then);
+
+  final _SecretInfo _self;
+  final $Res Function(_SecretInfo) _then;
+
+/// Create a copy of SecretInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
+  return _then(_SecretInfo(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
+as SecretSource,changedAt: freezed == changedAt ? _self.changedAt : changedAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
+as bool,needsRestart: null == needsRestart ? _self.needsRestart : needsRestart // ignore: cast_nullable_to_non_nullable
+as bool,isList: null == isList ? _self.isList : isList // ignore: cast_nullable_to_non_nullable
+as bool,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
+as bool,boundHost: freezed == boundHost ? _self.boundHost : boundHost // ignore: cast_nullable_to_non_nullable
+as String?,needsReentry: null == needsReentry ? _self.needsReentry : needsReentry // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
 
 /// @nodoc
 mixin _$SecretList {
-  List<SecretInfo> get secrets => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SecretListCopyWith<SecretList> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<SecretInfo> get secrets;
+/// Create a copy of SecretList
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SecretListCopyWith<SecretList> get copyWith => _$SecretListCopyWithImpl<SecretList>(this as SecretList, _$identity);
+
+  /// Serializes this SecretList to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretList&&const DeepCollectionEquality().equals(other.secrets, secrets));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(secrets));
+
+@override
+String toString() {
+  return 'SecretList(secrets: $secrets)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SecretListCopyWith<$Res> {
-  factory $SecretListCopyWith(
-          SecretList value, $Res Function(SecretList) then) =
-      _$SecretListCopyWithImpl<$Res, SecretList>;
-  @useResult
-  $Res call({List<SecretInfo> secrets});
-}
+abstract mixin class $SecretListCopyWith<$Res>  {
+  factory $SecretListCopyWith(SecretList value, $Res Function(SecretList) _then) = _$SecretListCopyWithImpl;
+@useResult
+$Res call({
+ List<SecretInfo> secrets
+});
 
+
+
+
+}
 /// @nodoc
-class _$SecretListCopyWithImpl<$Res, $Val extends SecretList>
+class _$SecretListCopyWithImpl<$Res>
     implements $SecretListCopyWith<$Res> {
-  _$SecretListCopyWithImpl(this._value, this._then);
+  _$SecretListCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SecretList _self;
+  final $Res Function(SecretList) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? secrets = null,
-  }) {
-    return _then(_value.copyWith(
-      secrets: null == secrets
-          ? _value.secrets
-          : secrets // ignore: cast_nullable_to_non_nullable
-              as List<SecretInfo>,
-    ) as $Val);
-  }
+/// Create a copy of SecretList
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? secrets = null,}) {
+  return _then(_self.copyWith(
+secrets: null == secrets ? _self.secrets : secrets // ignore: cast_nullable_to_non_nullable
+as List<SecretInfo>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SecretListImplCopyWith<$Res>
-    implements $SecretListCopyWith<$Res> {
-  factory _$$SecretListImplCopyWith(
-          _$SecretListImpl value, $Res Function(_$SecretListImpl) then) =
-      __$$SecretListImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<SecretInfo> secrets});
 }
 
-/// @nodoc
-class __$$SecretListImplCopyWithImpl<$Res>
-    extends _$SecretListCopyWithImpl<$Res, _$SecretListImpl>
-    implements _$$SecretListImplCopyWith<$Res> {
-  __$$SecretListImplCopyWithImpl(
-      _$SecretListImpl _value, $Res Function(_$SecretListImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? secrets = null,
-  }) {
-    return _then(_$SecretListImpl(
-      secrets: null == secrets
-          ? _value._secrets
-          : secrets // ignore: cast_nullable_to_non_nullable
-              as List<SecretInfo>,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SecretList].
+extension SecretListPatterns on SecretList {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SecretList value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SecretList() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SecretList value)  $default,){
+final _that = this;
+switch (_that) {
+case _SecretList():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SecretList value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SecretList() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<SecretInfo> secrets)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SecretList() when $default != null:
+return $default(_that.secrets);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<SecretInfo> secrets)  $default,) {final _that = this;
+switch (_that) {
+case _SecretList():
+return $default(_that.secrets);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<SecretInfo> secrets)?  $default,) {final _that = this;
+switch (_that) {
+case _SecretList() when $default != null:
+return $default(_that.secrets);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SecretListImpl implements _SecretList {
-  const _$SecretListImpl({final List<SecretInfo> secrets = const []})
-      : _secrets = secrets;
 
-  factory _$SecretListImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SecretListImplFromJson(json);
+class _SecretList implements SecretList {
+  const _SecretList({final  List<SecretInfo> secrets = const []}): _secrets = secrets;
+  factory _SecretList.fromJson(Map<String, dynamic> json) => _$SecretListFromJson(json);
 
-  final List<SecretInfo> _secrets;
-  @override
-  @JsonKey()
-  List<SecretInfo> get secrets {
-    if (_secrets is EqualUnmodifiableListView) return _secrets;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_secrets);
-  }
-
-  @override
-  String toString() {
-    return 'SecretList(secrets: $secrets)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SecretListImpl &&
-            const DeepCollectionEquality().equals(other._secrets, _secrets));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_secrets));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SecretListImplCopyWith<_$SecretListImpl> get copyWith =>
-      __$$SecretListImplCopyWithImpl<_$SecretListImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SecretListImplToJson(
-      this,
-    );
-  }
+ final  List<SecretInfo> _secrets;
+@override@JsonKey() List<SecretInfo> get secrets {
+  if (_secrets is EqualUnmodifiableListView) return _secrets;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_secrets);
 }
 
-abstract class _SecretList implements SecretList {
-  const factory _SecretList({final List<SecretInfo> secrets}) =
-      _$SecretListImpl;
 
-  factory _SecretList.fromJson(Map<String, dynamic> json) =
-      _$SecretListImpl.fromJson;
+/// Create a copy of SecretList
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SecretListCopyWith<_SecretList> get copyWith => __$SecretListCopyWithImpl<_SecretList>(this, _$identity);
 
-  @override
-  List<SecretInfo> get secrets;
-  @override
-  @JsonKey(ignore: true)
-  _$$SecretListImplCopyWith<_$SecretListImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$SecretListToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretList&&const DeepCollectionEquality().equals(other._secrets, _secrets));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_secrets));
+
+@override
+String toString() {
+  return 'SecretList(secrets: $secrets)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SecretListCopyWith<$Res> implements $SecretListCopyWith<$Res> {
+  factory _$SecretListCopyWith(_SecretList value, $Res Function(_SecretList) _then) = __$SecretListCopyWithImpl;
+@override @useResult
+$Res call({
+ List<SecretInfo> secrets
+});
+
+
+
+
+}
+/// @nodoc
+class __$SecretListCopyWithImpl<$Res>
+    implements _$SecretListCopyWith<$Res> {
+  __$SecretListCopyWithImpl(this._self, this._then);
+
+  final _SecretList _self;
+  final $Res Function(_SecretList) _then;
+
+/// Create a copy of SecretList
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? secrets = null,}) {
+  return _then(_SecretList(
+secrets: null == secrets ? _self._secrets : secrets // ignore: cast_nullable_to_non_nullable
+as List<SecretInfo>,
+  ));
+}
+
+
+}
+
+// dart format on

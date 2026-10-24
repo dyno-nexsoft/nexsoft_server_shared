@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,211 +9,278 @@ part of 'ai_model_ids.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AiModelIds _$AiModelIdsFromJson(Map<String, dynamic> json) {
-  return _AiModelIds.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AiModelIds {
-  String get geminiFlash => throw _privateConstructorUsedError;
-  String get geminiPro => throw _privateConstructorUsedError;
-  String get groqFlash => throw _privateConstructorUsedError;
-  String get groqPro => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AiModelIdsCopyWith<AiModelIds> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get geminiFlash; String get geminiPro; String get groqFlash; String get groqPro;
+/// Create a copy of AiModelIds
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiModelIdsCopyWith<AiModelIds> get copyWith => _$AiModelIdsCopyWithImpl<AiModelIds>(this as AiModelIds, _$identity);
+
+  /// Serializes this AiModelIds to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,geminiFlash,geminiPro,groqFlash,groqPro);
+
+@override
+String toString() {
+  return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AiModelIdsCopyWith<$Res> {
-  factory $AiModelIdsCopyWith(
-          AiModelIds value, $Res Function(AiModelIds) then) =
-      _$AiModelIdsCopyWithImpl<$Res, AiModelIds>;
-  @useResult
-  $Res call(
-      {String geminiFlash, String geminiPro, String groqFlash, String groqPro});
-}
+abstract mixin class $AiModelIdsCopyWith<$Res>  {
+  factory $AiModelIdsCopyWith(AiModelIds value, $Res Function(AiModelIds) _then) = _$AiModelIdsCopyWithImpl;
+@useResult
+$Res call({
+ String geminiFlash, String geminiPro, String groqFlash, String groqPro
+});
 
+
+
+
+}
 /// @nodoc
-class _$AiModelIdsCopyWithImpl<$Res, $Val extends AiModelIds>
+class _$AiModelIdsCopyWithImpl<$Res>
     implements $AiModelIdsCopyWith<$Res> {
-  _$AiModelIdsCopyWithImpl(this._value, this._then);
+  _$AiModelIdsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AiModelIds _self;
+  final $Res Function(AiModelIds) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? geminiFlash = null,
-    Object? geminiPro = null,
-    Object? groqFlash = null,
-    Object? groqPro = null,
-  }) {
-    return _then(_value.copyWith(
-      geminiFlash: null == geminiFlash
-          ? _value.geminiFlash
-          : geminiFlash // ignore: cast_nullable_to_non_nullable
-              as String,
-      geminiPro: null == geminiPro
-          ? _value.geminiPro
-          : geminiPro // ignore: cast_nullable_to_non_nullable
-              as String,
-      groqFlash: null == groqFlash
-          ? _value.groqFlash
-          : groqFlash // ignore: cast_nullable_to_non_nullable
-              as String,
-      groqPro: null == groqPro
-          ? _value.groqPro
-          : groqPro // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of AiModelIds
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,}) {
+  return _then(_self.copyWith(
+geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
+as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
+as String,groqFlash: null == groqFlash ? _self.groqFlash : groqFlash // ignore: cast_nullable_to_non_nullable
+as String,groqPro: null == groqPro ? _self.groqPro : groqPro // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AiModelIdsImplCopyWith<$Res>
-    implements $AiModelIdsCopyWith<$Res> {
-  factory _$$AiModelIdsImplCopyWith(
-          _$AiModelIdsImpl value, $Res Function(_$AiModelIdsImpl) then) =
-      __$$AiModelIdsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String geminiFlash, String geminiPro, String groqFlash, String groqPro});
 }
 
-/// @nodoc
-class __$$AiModelIdsImplCopyWithImpl<$Res>
-    extends _$AiModelIdsCopyWithImpl<$Res, _$AiModelIdsImpl>
-    implements _$$AiModelIdsImplCopyWith<$Res> {
-  __$$AiModelIdsImplCopyWithImpl(
-      _$AiModelIdsImpl _value, $Res Function(_$AiModelIdsImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? geminiFlash = null,
-    Object? geminiPro = null,
-    Object? groqFlash = null,
-    Object? groqPro = null,
-  }) {
-    return _then(_$AiModelIdsImpl(
-      geminiFlash: null == geminiFlash
-          ? _value.geminiFlash
-          : geminiFlash // ignore: cast_nullable_to_non_nullable
-              as String,
-      geminiPro: null == geminiPro
-          ? _value.geminiPro
-          : geminiPro // ignore: cast_nullable_to_non_nullable
-              as String,
-      groqFlash: null == groqFlash
-          ? _value.groqFlash
-          : groqFlash // ignore: cast_nullable_to_non_nullable
-              as String,
-      groqPro: null == groqPro
-          ? _value.groqPro
-          : groqPro // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [AiModelIds].
+extension AiModelIdsPatterns on AiModelIds {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiModelIds value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiModelIds() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiModelIds value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiModelIds():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiModelIds value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiModelIds() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiModelIds() when $default != null:
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)  $default,) {final _that = this;
+switch (_that) {
+case _AiModelIds():
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)?  $default,) {final _that = this;
+switch (_that) {
+case _AiModelIds() when $default != null:
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$AiModelIdsImpl extends _AiModelIds {
-  const _$AiModelIdsImpl(
-      {this.geminiFlash = 'gemini-3.6-flash',
-      this.geminiPro = 'gemini-3.1-pro',
-      this.groqFlash = 'openai/gpt-oss-20b',
-      this.groqPro = 'openai/gpt-oss-120b'})
-      : super._();
 
-  factory _$AiModelIdsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AiModelIdsImplFromJson(json);
+class _AiModelIds extends AiModelIds {
+  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.groqFlash = 'openai/gpt-oss-20b', this.groqPro = 'openai/gpt-oss-120b'}): super._();
+  factory _AiModelIds.fromJson(Map<String, dynamic> json) => _$AiModelIdsFromJson(json);
 
-  @override
-  @JsonKey()
-  final String geminiFlash;
-  @override
-  @JsonKey()
-  final String geminiPro;
-  @override
-  @JsonKey()
-  final String groqFlash;
-  @override
-  @JsonKey()
-  final String groqPro;
+@override@JsonKey() final  String geminiFlash;
+@override@JsonKey() final  String geminiPro;
+@override@JsonKey() final  String groqFlash;
+@override@JsonKey() final  String groqPro;
 
-  @override
-  String toString() {
-    return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
-  }
+/// Create a copy of AiModelIds
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiModelIdsCopyWith<_AiModelIds> get copyWith => __$AiModelIdsCopyWithImpl<_AiModelIds>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AiModelIdsImpl &&
-            (identical(other.geminiFlash, geminiFlash) ||
-                other.geminiFlash == geminiFlash) &&
-            (identical(other.geminiPro, geminiPro) ||
-                other.geminiPro == geminiPro) &&
-            (identical(other.groqFlash, groqFlash) ||
-                other.groqFlash == groqFlash) &&
-            (identical(other.groqPro, groqPro) || other.groqPro == groqPro));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, geminiFlash, geminiPro, groqFlash, groqPro);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AiModelIdsImplCopyWith<_$AiModelIdsImpl> get copyWith =>
-      __$$AiModelIdsImplCopyWithImpl<_$AiModelIdsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AiModelIdsImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AiModelIdsToJson(this, );
 }
 
-abstract class _AiModelIds extends AiModelIds {
-  const factory _AiModelIds(
-      {final String geminiFlash,
-      final String geminiPro,
-      final String groqFlash,
-      final String groqPro}) = _$AiModelIdsImpl;
-  const _AiModelIds._() : super._();
-
-  factory _AiModelIds.fromJson(Map<String, dynamic> json) =
-      _$AiModelIdsImpl.fromJson;
-
-  @override
-  String get geminiFlash;
-  @override
-  String get geminiPro;
-  @override
-  String get groqFlash;
-  @override
-  String get groqPro;
-  @override
-  @JsonKey(ignore: true)
-  _$$AiModelIdsImplCopyWith<_$AiModelIdsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,geminiFlash,geminiPro,groqFlash,groqPro);
+
+@override
+String toString() {
+  return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiModelIdsCopyWith<$Res> implements $AiModelIdsCopyWith<$Res> {
+  factory _$AiModelIdsCopyWith(_AiModelIds value, $Res Function(_AiModelIds) _then) = __$AiModelIdsCopyWithImpl;
+@override @useResult
+$Res call({
+ String geminiFlash, String geminiPro, String groqFlash, String groqPro
+});
+
+
+
+
+}
+/// @nodoc
+class __$AiModelIdsCopyWithImpl<$Res>
+    implements _$AiModelIdsCopyWith<$Res> {
+  __$AiModelIdsCopyWithImpl(this._self, this._then);
+
+  final _AiModelIds _self;
+  final $Res Function(_AiModelIds) _then;
+
+/// Create a copy of AiModelIds
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,}) {
+  return _then(_AiModelIds(
+geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
+as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
+as String,groqFlash: null == groqFlash ? _self.groqFlash : groqFlash // ignore: cast_nullable_to_non_nullable
+as String,groqPro: null == groqPro ? _self.groqPro : groqPro // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

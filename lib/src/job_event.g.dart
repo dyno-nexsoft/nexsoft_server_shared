@@ -6,83 +6,76 @@ part of 'job_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JobQueuedEventImpl _$$JobQueuedEventImplFromJson(Map<String, dynamic> json) =>
-    _$JobQueuedEventImpl(
+JobQueuedEvent _$JobQueuedEventFromJson(Map<String, dynamic> json) =>
+    JobQueuedEvent(
       seq: (json['seq'] as num).toInt(),
       at: DateTime.parse(json['at'] as String),
       position: (json['position'] as num).toInt(),
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$JobQueuedEventImplToJson(
-  _$JobQueuedEventImpl instance,
-) => <String, dynamic>{
-  'seq': instance.seq,
-  'at': instance.at.toIso8601String(),
-  'position': instance.position,
-  'type': instance.$type,
-};
+Map<String, dynamic> _$JobQueuedEventToJson(JobQueuedEvent instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'at': instance.at.toIso8601String(),
+      'position': instance.position,
+      'type': instance.$type,
+    };
 
-_$JobStartedEventImpl _$$JobStartedEventImplFromJson(
-  Map<String, dynamic> json,
-) => _$JobStartedEventImpl(
-  seq: (json['seq'] as num).toInt(),
-  at: DateTime.parse(json['at'] as String),
-  immediate: json['immediate'] as bool,
-  $type: json['type'] as String?,
-);
+JobStartedEvent _$JobStartedEventFromJson(Map<String, dynamic> json) =>
+    JobStartedEvent(
+      seq: (json['seq'] as num).toInt(),
+      at: DateTime.parse(json['at'] as String),
+      immediate: json['immediate'] as bool,
+      $type: json['type'] as String?,
+    );
 
-Map<String, dynamic> _$$JobStartedEventImplToJson(
-  _$JobStartedEventImpl instance,
-) => <String, dynamic>{
-  'seq': instance.seq,
-  'at': instance.at.toIso8601String(),
-  'immediate': instance.immediate,
-  'type': instance.$type,
-};
+Map<String, dynamic> _$JobStartedEventToJson(JobStartedEvent instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'at': instance.at.toIso8601String(),
+      'immediate': instance.immediate,
+      'type': instance.$type,
+    };
 
-_$JobPromotedEventImpl _$$JobPromotedEventImplFromJson(
-  Map<String, dynamic> json,
-) => _$JobPromotedEventImpl(
-  seq: (json['seq'] as num).toInt(),
-  at: DateTime.parse(json['at'] as String),
-  $type: json['type'] as String?,
-);
+JobPromotedEvent _$JobPromotedEventFromJson(Map<String, dynamic> json) =>
+    JobPromotedEvent(
+      seq: (json['seq'] as num).toInt(),
+      at: DateTime.parse(json['at'] as String),
+      $type: json['type'] as String?,
+    );
 
-Map<String, dynamic> _$$JobPromotedEventImplToJson(
-  _$JobPromotedEventImpl instance,
-) => <String, dynamic>{
-  'seq': instance.seq,
-  'at': instance.at.toIso8601String(),
-  'type': instance.$type,
-};
+Map<String, dynamic> _$JobPromotedEventToJson(JobPromotedEvent instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'at': instance.at.toIso8601String(),
+      'type': instance.$type,
+    };
 
-_$JobStatusEventImpl _$$JobStatusEventImplFromJson(Map<String, dynamic> json) =>
-    _$JobStatusEventImpl(
+JobStatusEvent _$JobStatusEventFromJson(Map<String, dynamic> json) =>
+    JobStatusEvent(
       seq: (json['seq'] as num).toInt(),
       at: DateTime.parse(json['at'] as String),
       line: json['line'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$JobStatusEventImplToJson(
-  _$JobStatusEventImpl instance,
-) => <String, dynamic>{
-  'seq': instance.seq,
-  'at': instance.at.toIso8601String(),
-  'line': instance.line,
-  'type': instance.$type,
-};
+Map<String, dynamic> _$JobStatusEventToJson(JobStatusEvent instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'at': instance.at.toIso8601String(),
+      'line': instance.line,
+      'type': instance.$type,
+    };
 
-_$JobLogEventImpl _$$JobLogEventImplFromJson(Map<String, dynamic> json) =>
-    _$JobLogEventImpl(
-      seq: (json['seq'] as num).toInt(),
-      at: DateTime.parse(json['at'] as String),
-      chunk: json['chunk'] as String,
-      $type: json['type'] as String?,
-    );
+JobLogEvent _$JobLogEventFromJson(Map<String, dynamic> json) => JobLogEvent(
+  seq: (json['seq'] as num).toInt(),
+  at: DateTime.parse(json['at'] as String),
+  chunk: json['chunk'] as String,
+  $type: json['type'] as String?,
+);
 
-Map<String, dynamic> _$$JobLogEventImplToJson(_$JobLogEventImpl instance) =>
+Map<String, dynamic> _$JobLogEventToJson(JobLogEvent instance) =>
     <String, dynamic>{
       'seq': instance.seq,
       'at': instance.at.toIso8601String(),
@@ -90,15 +83,15 @@ Map<String, dynamic> _$$JobLogEventImplToJson(_$JobLogEventImpl instance) =>
       'type': instance.$type,
     };
 
-_$JobErrorEventImpl _$$JobErrorEventImplFromJson(Map<String, dynamic> json) =>
-    _$JobErrorEventImpl(
+JobErrorEvent _$JobErrorEventFromJson(Map<String, dynamic> json) =>
+    JobErrorEvent(
       seq: (json['seq'] as num).toInt(),
       at: DateTime.parse(json['at'] as String),
       message: json['message'] as String,
       $type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$$JobErrorEventImplToJson(_$JobErrorEventImpl instance) =>
+Map<String, dynamic> _$JobErrorEventToJson(JobErrorEvent instance) =>
     <String, dynamic>{
       'seq': instance.seq,
       'at': instance.at.toIso8601String(),
@@ -106,32 +99,20 @@ Map<String, dynamic> _$$JobErrorEventImplToJson(_$JobErrorEventImpl instance) =>
       'type': instance.$type,
     };
 
-_$JobFinishedEventImpl _$$JobFinishedEventImplFromJson(
-  Map<String, dynamic> json,
-) => _$JobFinishedEventImpl(
-  seq: (json['seq'] as num).toInt(),
-  at: DateTime.parse(json['at'] as String),
-  state: const JobStateConverter().fromJson(json['state'] as String),
-  exitCode: (json['exit_code'] as num?)?.toInt(),
-  $type: json['type'] as String?,
-);
+JobFinishedEvent _$JobFinishedEventFromJson(Map<String, dynamic> json) =>
+    JobFinishedEvent(
+      seq: (json['seq'] as num).toInt(),
+      at: DateTime.parse(json['at'] as String),
+      state: const JobStateConverter().fromJson(json['state'] as String),
+      exitCode: (json['exit_code'] as num?)?.toInt(),
+      $type: json['type'] as String?,
+    );
 
-Map<String, dynamic> _$$JobFinishedEventImplToJson(
-  _$JobFinishedEventImpl instance,
-) {
-  final val = <String, dynamic>{
-    'seq': instance.seq,
-    'at': instance.at.toIso8601String(),
-    'state': const JobStateConverter().toJson(instance.state),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('exit_code', instance.exitCode);
-  val['type'] = instance.$type;
-  return val;
-}
+Map<String, dynamic> _$JobFinishedEventToJson(JobFinishedEvent instance) =>
+    <String, dynamic>{
+      'seq': instance.seq,
+      'at': instance.at.toIso8601String(),
+      'state': const JobStateConverter().toJson(instance.state),
+      'exit_code': ?instance.exitCode,
+      'type': instance.$type,
+    };

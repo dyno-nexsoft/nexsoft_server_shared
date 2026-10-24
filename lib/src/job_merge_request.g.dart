@@ -6,26 +6,16 @@ part of 'job_merge_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$JobMergeRequestImpl _$$JobMergeRequestImplFromJson(
-        Map<String, dynamic> json) =>
-    _$JobMergeRequestImpl(
+_JobMergeRequest _$JobMergeRequestFromJson(Map<String, dynamic> json) =>
+    _JobMergeRequest(
       branch: json['branch'] as String?,
       url: json['url'] as String?,
       unchanged: json['unchanged'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$JobMergeRequestImplToJson(
-    _$JobMergeRequestImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('branch', instance.branch);
-  writeNotNull('url', instance.url);
-  val['unchanged'] = instance.unchanged;
-  return val;
-}
+Map<String, dynamic> _$JobMergeRequestToJson(_JobMergeRequest instance) =>
+    <String, dynamic>{
+      'branch': ?instance.branch,
+      'url': ?instance.url,
+      'unchanged': instance.unchanged,
+    };

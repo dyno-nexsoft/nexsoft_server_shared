@@ -9,7 +9,7 @@ part 'gitlab_mr_url.g.dart';
 /// shared currency between the slash-command converter, the REST layer,
 /// the cron jobs, and the reporters in `application/`.
 @freezed
-class GitLabMrUrl with _$GitLabMrUrl {
+abstract class GitLabMrUrl with _$GitLabMrUrl {
   /// Private constructor: required by freezed before custom getters may be
   /// added to the class.
   const GitLabMrUrl._();

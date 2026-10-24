@@ -12,7 +12,7 @@ part 'job_submission.freezed.dart';
 /// shape plus these two extra fields — matching the previous hand-written
 /// `JobSubmitted.toJson()` in `nexsoft_server` exactly, which this replaces.
 @freezed
-class JobSubmission with _$JobSubmission {
+abstract class JobSubmission with _$JobSubmission {
   const JobSubmission._();
 
   const factory JobSubmission({

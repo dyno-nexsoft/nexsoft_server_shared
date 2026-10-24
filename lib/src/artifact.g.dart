@@ -6,37 +6,27 @@ part of 'artifact.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FirebaseUploadImpl _$$FirebaseUploadImplFromJson(Map<String, dynamic> json) =>
-    _$FirebaseUploadImpl(
+_FirebaseUpload _$FirebaseUploadFromJson(Map<String, dynamic> json) =>
+    _FirebaseUpload(
       status: $enumDecode(_$FirebaseUploadStatusEnumMap, json['status']),
       at: DateTime.parse(json['at'] as String),
       testerUrl: json['tester_url'] as String?,
     );
 
-Map<String, dynamic> _$$FirebaseUploadImplToJson(
-    _$FirebaseUploadImpl instance) {
-  final val = <String, dynamic>{
-    'status': _$FirebaseUploadStatusEnumMap[instance.status]!,
-    'at': instance.at.toIso8601String(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('tester_url', instance.testerUrl);
-  return val;
-}
+Map<String, dynamic> _$FirebaseUploadToJson(_FirebaseUpload instance) =>
+    <String, dynamic>{
+      'status': _$FirebaseUploadStatusEnumMap[instance.status]!,
+      'at': instance.at.toIso8601String(),
+      'tester_url': ?instance.testerUrl,
+    };
 
 const _$FirebaseUploadStatusEnumMap = {
   FirebaseUploadStatus.uploaded: 'uploaded',
   FirebaseUploadStatus.failed: 'failed',
 };
 
-_$ArtifactFileImpl _$$ArtifactFileImplFromJson(Map<String, dynamic> json) =>
-    _$ArtifactFileImpl(
+_ArtifactFile _$ArtifactFileFromJson(Map<String, dynamic> json) =>
+    _ArtifactFile(
       name: json['name'] as String,
       isDirectory: json['is_directory'] as bool? ?? false,
       size: (json['size'] as num?)?.toInt(),
@@ -46,29 +36,20 @@ _$ArtifactFileImpl _$$ArtifactFileImplFromJson(Map<String, dynamic> json) =>
           : FirebaseUpload.fromJson(json['firebase'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ArtifactFileImplToJson(_$ArtifactFileImpl instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-    'is_directory': instance.isDirectory,
-  };
+Map<String, dynamic> _$ArtifactFileToJson(_ArtifactFile instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'is_directory': instance.isDirectory,
+      'size': ?instance.size,
+      'modified': instance.modified.toIso8601String(),
+      'firebase': ?instance.firebase?.toJson(),
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('size', instance.size);
-  val['modified'] = instance.modified.toIso8601String();
-  writeNotNull('firebase', instance.firebase?.toJson());
-  return val;
-}
-
-_$ArtifactListingImpl _$$ArtifactListingImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ArtifactListingImpl(
+_ArtifactListing _$ArtifactListingFromJson(Map<String, dynamic> json) =>
+    _ArtifactListing(
       key: json['key'] as String,
-      files: (json['files'] as List<dynamic>?)
+      files:
+          (json['files'] as List<dynamic>?)
               ?.map((e) => ArtifactFile.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
@@ -77,19 +58,9 @@ _$ArtifactListingImpl _$$ArtifactListingImplFromJson(
           : Job.fromJson(json['job'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ArtifactListingImplToJson(
-    _$ArtifactListingImpl instance) {
-  final val = <String, dynamic>{
-    'key': instance.key,
-    'files': instance.files.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('job', instance.job?.toJson());
-  return val;
-}
+Map<String, dynamic> _$ArtifactListingToJson(_ArtifactListing instance) =>
+    <String, dynamic>{
+      'key': instance.key,
+      'files': instance.files.map((e) => e.toJson()).toList(),
+      'job': ?instance.job?.toJson(),
+    };

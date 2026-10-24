@@ -6,52 +6,38 @@ part of 'notification_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MarkNotificationsReadParamsImpl _$$MarkNotificationsReadParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MarkNotificationsReadParamsImpl(
-      ids: (json['ids'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-          const [],
-    );
+_MarkNotificationsReadParams _$MarkNotificationsReadParamsFromJson(
+  Map<String, dynamic> json,
+) => _MarkNotificationsReadParams(
+  ids:
+      (json['ids'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+);
 
-Map<String, dynamic> _$$MarkNotificationsReadParamsImplToJson(
-        _$MarkNotificationsReadParamsImpl instance) =>
-    <String, dynamic>{
-      'ids': instance.ids,
-    };
+Map<String, dynamic> _$MarkNotificationsReadParamsToJson(
+  _MarkNotificationsReadParams instance,
+) => <String, dynamic>{'ids': instance.ids};
 
-_$AnnounceNotificationParamsImpl _$$AnnounceNotificationParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$AnnounceNotificationParamsImpl(
-      title: json['title'] as String,
-      body: json['body'] as String,
-      path: json['path'] as String?,
-    );
+_AnnounceNotificationParams _$AnnounceNotificationParamsFromJson(
+  Map<String, dynamic> json,
+) => _AnnounceNotificationParams(
+  title: json['title'] as String,
+  body: json['body'] as String,
+  path: json['path'] as String?,
+);
 
-Map<String, dynamic> _$$AnnounceNotificationParamsImplToJson(
-    _$AnnounceNotificationParamsImpl instance) {
-  final val = <String, dynamic>{
-    'title': instance.title,
-    'body': instance.body,
-  };
+Map<String, dynamic> _$AnnounceNotificationParamsToJson(
+  _AnnounceNotificationParams instance,
+) => <String, dynamic>{
+  'title': instance.title,
+  'body': instance.body,
+  'path': ?instance.path,
+};
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
+_RemoveNotificationParams _$RemoveNotificationParamsFromJson(
+  Map<String, dynamic> json,
+) => _RemoveNotificationParams(id: json['id'] as String);
 
-  writeNotNull('path', instance.path);
-  return val;
-}
-
-_$RemoveNotificationParamsImpl _$$RemoveNotificationParamsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$RemoveNotificationParamsImpl(
-      id: json['id'] as String,
-    );
-
-Map<String, dynamic> _$$RemoveNotificationParamsImplToJson(
-        _$RemoveNotificationParamsImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-    };
+Map<String, dynamic> _$RemoveNotificationParamsToJson(
+  _RemoveNotificationParams instance,
+) => <String, dynamic>{'id': instance.id};
