@@ -26,6 +26,9 @@ enum SettingKind {
 
   /// An absolute file path on the server.
   path,
+
+  /// A Git SSH remote of one repository, `user@host:path.git`.
+  gitRemote,
 }
 
 /// Every setting an admin changes on the dashboard instead of in the
@@ -87,6 +90,32 @@ enum ServerSetting {
         'The SSH remote base the module repositories are cloned '
         'from, for branch suggestions',
   ),
+  gitlabProtoRepo(
+    'gitlab_proto_repo',
+    SettingKind.gitRemote,
+    description: 'The proto repository ci.gen clones and generates from',
+  ),
+  gitlabGenAssignee(
+    'gitlab_gen_assignee',
+    SettingKind.text,
+    description:
+        'The GitLab user ci.gen assigns its merge request to; unset, '
+        'it is left unassigned',
+  ),
+  gitlabReplaceAssignee(
+    'gitlab_replace_assignee',
+    SettingKind.text,
+    description:
+        'The GitLab user ci.replace assigns its merge request to; unset, '
+        'it is left unassigned',
+  ),
+  gitlabTranslateAssignee(
+    'gitlab_translate_assignee',
+    SettingKind.text,
+    description:
+        'The GitLab user a new ARB translation merge request is assigned '
+        'to; unset, it is left unassigned',
+  ),
   zentaoServer(
     'zentao_server',
     SettingKind.url,
@@ -124,6 +153,13 @@ enum ServerSetting {
     SettingKind.path,
     envName: 'APP_NOVNC_LOG_PATH',
     description: "The noVNC service's log, readable from the dashboard",
+  ),
+  sdkServer(
+    'sdk_server',
+    SettingKind.url,
+    description:
+        'The server ci.replace downloads the SDK from; the host of a '
+        'pasted link is replaced by this one',
   );
 
   const ServerSetting(
@@ -205,6 +241,9 @@ enum ServerSetting {
         '$key must look like user@host:namespace',
       SettingKind.path when !value.startsWith('/') =>
         '$key must be an absolute path',
+      SettingKind.gitRemote
+          when !RegExp(r'^[\w.-]+@[\w.-]+:[\w./-]+\.git$').hasMatch(value) =>
+        '$key must look like user@host:path.git',
       _ => null,
     };
   }
