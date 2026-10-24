@@ -30,7 +30,7 @@ abstract class AppLimits with _$AppLimits {
     @Default(7) int jobsDays,
 
     /// Days the audit log keeps who did what.
-    @Default(30) int auditDays,
+    @Default(7) int auditDays,
 
     /// Days a GitLab review stays in history before it is pruned.
     @Default(7) int reviewsDays,

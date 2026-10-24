@@ -306,7 +306,7 @@ class __$$AppLimitsImplCopyWithImpl<$Res>
 class _$AppLimitsImpl extends _AppLimits {
   const _$AppLimitsImpl(
       {this.jobsDays = 7,
-      this.auditDays = 30,
+      this.auditDays = 7,
       this.reviewsDays = 7,
       this.translatesDays = 7,
       this.notificationsDays = 7,
