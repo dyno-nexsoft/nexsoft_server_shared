@@ -123,6 +123,7 @@ _$AuditListParamsImpl _$$AuditListParamsImplFromJson(
       limit: (json['limit'] as num?)?.toInt() ?? 200,
       action: json['action'] as String?,
       actor: json['actor'] as String?,
+      before: json['before'] as String?,
     );
 
 Map<String, dynamic> _$$AuditListParamsImplToJson(
@@ -139,6 +140,7 @@ Map<String, dynamic> _$$AuditListParamsImplToJson(
 
   writeNotNull('action', instance.action);
   writeNotNull('actor', instance.actor);
+  writeNotNull('before', instance.before);
   return val;
 }
 

@@ -1148,6 +1148,9 @@ mixin _$AuditListParams {
   String? get action => throw _privateConstructorUsedError;
   String? get actor => throw _privateConstructorUsedError;
 
+  /// The `next_cursor` of the page before: the entries after it.
+  String? get before => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AuditListParamsCopyWith<AuditListParams> get copyWith =>
@@ -1160,7 +1163,7 @@ abstract class $AuditListParamsCopyWith<$Res> {
           AuditListParams value, $Res Function(AuditListParams) then) =
       _$AuditListParamsCopyWithImpl<$Res, AuditListParams>;
   @useResult
-  $Res call({int limit, String? action, String? actor});
+  $Res call({int limit, String? action, String? actor, String? before});
 }
 
 /// @nodoc
@@ -1179,6 +1182,7 @@ class _$AuditListParamsCopyWithImpl<$Res, $Val extends AuditListParams>
     Object? limit = null,
     Object? action = freezed,
     Object? actor = freezed,
+    Object? before = freezed,
   }) {
     return _then(_value.copyWith(
       limit: null == limit
@@ -1193,6 +1197,10 @@ class _$AuditListParamsCopyWithImpl<$Res, $Val extends AuditListParams>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String?,
+      before: freezed == before
+          ? _value.before
+          : before // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -1205,7 +1213,7 @@ abstract class _$$AuditListParamsImplCopyWith<$Res>
       __$$AuditListParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int limit, String? action, String? actor});
+  $Res call({int limit, String? action, String? actor, String? before});
 }
 
 /// @nodoc
@@ -1222,6 +1230,7 @@ class __$$AuditListParamsImplCopyWithImpl<$Res>
     Object? limit = null,
     Object? action = freezed,
     Object? actor = freezed,
+    Object? before = freezed,
   }) {
     return _then(_$AuditListParamsImpl(
       limit: null == limit
@@ -1236,6 +1245,10 @@ class __$$AuditListParamsImplCopyWithImpl<$Res>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String?,
+      before: freezed == before
+          ? _value.before
+          : before // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1243,7 +1256,8 @@ class __$$AuditListParamsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuditListParamsImpl implements _AuditListParams {
-  const _$AuditListParamsImpl({this.limit = 200, this.action, this.actor});
+  const _$AuditListParamsImpl(
+      {this.limit = 200, this.action, this.actor, this.before});
 
   factory _$AuditListParamsImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuditListParamsImplFromJson(json);
@@ -1256,9 +1270,13 @@ class _$AuditListParamsImpl implements _AuditListParams {
   @override
   final String? actor;
 
+  /// The `next_cursor` of the page before: the entries after it.
+  @override
+  final String? before;
+
   @override
   String toString() {
-    return 'AuditListParams(limit: $limit, action: $action, actor: $actor)';
+    return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
   }
 
   @override
@@ -1268,12 +1286,13 @@ class _$AuditListParamsImpl implements _AuditListParams {
             other is _$AuditListParamsImpl &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.action, action) || other.action == action) &&
-            (identical(other.actor, actor) || other.actor == actor));
+            (identical(other.actor, actor) || other.actor == actor) &&
+            (identical(other.before, before) || other.before == before));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, limit, action, actor);
+  int get hashCode => Object.hash(runtimeType, limit, action, actor, before);
 
   @JsonKey(ignore: true)
   @override
@@ -1294,7 +1313,8 @@ abstract class _AuditListParams implements AuditListParams {
   const factory _AuditListParams(
       {final int limit,
       final String? action,
-      final String? actor}) = _$AuditListParamsImpl;
+      final String? actor,
+      final String? before}) = _$AuditListParamsImpl;
 
   factory _AuditListParams.fromJson(Map<String, dynamic> json) =
       _$AuditListParamsImpl.fromJson;
@@ -1305,6 +1325,10 @@ abstract class _AuditListParams implements AuditListParams {
   String? get action;
   @override
   String? get actor;
+  @override
+
+  /// The `next_cursor` of the page before: the entries after it.
+  String? get before;
   @override
   @JsonKey(ignore: true)
   _$$AuditListParamsImplCopyWith<_$AuditListParamsImpl> get copyWith =>

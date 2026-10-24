@@ -35,7 +35,13 @@ abstract class AuditEntry with _$AuditEntry {
 /// `admin.audit.list`'s answer, newest first.
 @freezed
 abstract class AuditList with _$AuditList {
-  const factory AuditList({@Default([]) List<AuditEntry> entries}) = _AuditList;
+  const factory AuditList({
+    @Default([]) List<AuditEntry> entries,
+
+    /// What to send as `before` for the older entries; null on the last
+    /// page.
+    String? nextCursor,
+  }) = _AuditList;
 
   factory AuditList.fromJson(Map<String, dynamic> json) =>
       _$AuditListFromJson(json);

@@ -47,9 +47,20 @@ _$AuditListImpl _$$AuditListImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => AuditEntry.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      nextCursor: json['next_cursor'] as String?,
     );
 
-Map<String, dynamic> _$$AuditListImplToJson(_$AuditListImpl instance) =>
-    <String, dynamic>{
-      'entries': instance.entries.map((e) => e.toJson()).toList(),
-    };
+Map<String, dynamic> _$$AuditListImplToJson(_$AuditListImpl instance) {
+  final val = <String, dynamic>{
+    'entries': instance.entries.map((e) => e.toJson()).toList(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('next_cursor', instance.nextCursor);
+  return val;
+}

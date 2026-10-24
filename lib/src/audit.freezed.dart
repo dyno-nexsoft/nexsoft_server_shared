@@ -366,6 +366,10 @@ AuditList _$AuditListFromJson(Map<String, dynamic> json) {
 mixin _$AuditList {
   List<AuditEntry> get entries => throw _privateConstructorUsedError;
 
+  /// What to send as `before` for the older entries; null on the last
+  /// page.
+  String? get nextCursor => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AuditListCopyWith<AuditList> get copyWith =>
@@ -377,7 +381,7 @@ abstract class $AuditListCopyWith<$Res> {
   factory $AuditListCopyWith(AuditList value, $Res Function(AuditList) then) =
       _$AuditListCopyWithImpl<$Res, AuditList>;
   @useResult
-  $Res call({List<AuditEntry> entries});
+  $Res call({List<AuditEntry> entries, String? nextCursor});
 }
 
 /// @nodoc
@@ -394,12 +398,17 @@ class _$AuditListCopyWithImpl<$Res, $Val extends AuditList>
   @override
   $Res call({
     Object? entries = null,
+    Object? nextCursor = freezed,
   }) {
     return _then(_value.copyWith(
       entries: null == entries
           ? _value.entries
           : entries // ignore: cast_nullable_to_non_nullable
               as List<AuditEntry>,
+      nextCursor: freezed == nextCursor
+          ? _value.nextCursor
+          : nextCursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -412,7 +421,7 @@ abstract class _$$AuditListImplCopyWith<$Res>
       __$$AuditListImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AuditEntry> entries});
+  $Res call({List<AuditEntry> entries, String? nextCursor});
 }
 
 /// @nodoc
@@ -427,12 +436,17 @@ class __$$AuditListImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? entries = null,
+    Object? nextCursor = freezed,
   }) {
     return _then(_$AuditListImpl(
       entries: null == entries
           ? _value._entries
           : entries // ignore: cast_nullable_to_non_nullable
               as List<AuditEntry>,
+      nextCursor: freezed == nextCursor
+          ? _value.nextCursor
+          : nextCursor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -440,7 +454,8 @@ class __$$AuditListImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuditListImpl implements _AuditList {
-  const _$AuditListImpl({final List<AuditEntry> entries = const []})
+  const _$AuditListImpl(
+      {final List<AuditEntry> entries = const [], this.nextCursor})
       : _entries = entries;
 
   factory _$AuditListImpl.fromJson(Map<String, dynamic> json) =>
@@ -455,9 +470,14 @@ class _$AuditListImpl implements _AuditList {
     return EqualUnmodifiableListView(_entries);
   }
 
+  /// What to send as `before` for the older entries; null on the last
+  /// page.
+  @override
+  final String? nextCursor;
+
   @override
   String toString() {
-    return 'AuditList(entries: $entries)';
+    return 'AuditList(entries: $entries, nextCursor: $nextCursor)';
   }
 
   @override
@@ -465,13 +485,15 @@ class _$AuditListImpl implements _AuditList {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuditListImpl &&
-            const DeepCollectionEquality().equals(other._entries, _entries));
+            const DeepCollectionEquality().equals(other._entries, _entries) &&
+            (identical(other.nextCursor, nextCursor) ||
+                other.nextCursor == nextCursor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_entries));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_entries), nextCursor);
 
   @JsonKey(ignore: true)
   @override
@@ -488,13 +510,20 @@ class _$AuditListImpl implements _AuditList {
 }
 
 abstract class _AuditList implements AuditList {
-  const factory _AuditList({final List<AuditEntry> entries}) = _$AuditListImpl;
+  const factory _AuditList(
+      {final List<AuditEntry> entries,
+      final String? nextCursor}) = _$AuditListImpl;
 
   factory _AuditList.fromJson(Map<String, dynamic> json) =
       _$AuditListImpl.fromJson;
 
   @override
   List<AuditEntry> get entries;
+  @override
+
+  /// What to send as `before` for the older entries; null on the last
+  /// page.
+  String? get nextCursor;
   @override
   @JsonKey(ignore: true)
   _$$AuditListImplCopyWith<_$AuditListImpl> get copyWith =>

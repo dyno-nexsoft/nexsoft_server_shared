@@ -110,6 +110,9 @@ abstract class AuditListParams with _$AuditListParams {
     @Default(200) int limit,
     String? action,
     String? actor,
+
+    /// The `next_cursor` of the page before: the entries after it.
+    String? before,
   }) = _AuditListParams;
 
   factory AuditListParams.fromJson(Map<String, dynamic> json) =>
