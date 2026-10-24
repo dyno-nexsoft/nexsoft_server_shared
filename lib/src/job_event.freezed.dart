@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_event.dart';
@@ -9,6 +9,7 @@ part of 'job_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 JobEvent _$JobEventFromJson(
@@ -71,16 +72,21 @@ $JobEventCopyWith<JobEvent> get copyWith => _$JobEventCopyWithImpl<JobEvent>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at));
+  final _this = this as JobEvent;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobEvent&&(identical(other.seq, _this.seq) || other.seq == _this.seq)&&(identical(other.at, _this.at) || other.at == _this.at));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at);
+int get hashCode {
+  final _this = this as JobEvent;
+  return Object.hash(runtimeType,_this.seq,_this.at);
+}
 
 @override
 String toString() {
-  return 'JobEvent(seq: $seq, at: $at)';
+  final _this = this as JobEvent;
+  return 'JobEvent(seq: ${_this.seq}, at: ${_this.at})';
 }
 
 
@@ -283,7 +289,7 @@ return finished(_that.seq,_that.at,_that.state,_that.exitCode);case _:
 @JsonSerializable()
 
 class JobQueuedEvent extends JobEvent {
-  const JobQueuedEvent({required this.seq, required this.at, required this.position, final  String? $type}): $type = $type ?? 'queued',super._();
+  const JobQueuedEvent({required this.seq, required this.at, required this.position,  String? $type}): $type = $type ?? 'queued',super._();
   factory JobQueuedEvent.fromJson(Map<String, dynamic> json) => _$JobQueuedEventFromJson(json);
 
 @override final  int seq;
@@ -308,16 +314,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobQueuedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.position, position) || other.position == position));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobQueuedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.position, position) || other.position == position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,position);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,position);
+}
 
 @override
 String toString() {
-  return 'JobEvent.queued(seq: $seq, at: $at, position: $position)';
+    return 'JobEvent.queued(seq: $seq, at: $at, position: $position)';
 }
 
 
@@ -361,7 +369,7 @@ as int,
 @JsonSerializable()
 
 class JobStartedEvent extends JobEvent {
-  const JobStartedEvent({required this.seq, required this.at, required this.immediate, final  String? $type}): $type = $type ?? 'started',super._();
+  const JobStartedEvent({required this.seq, required this.at, required this.immediate,  String? $type}): $type = $type ?? 'started',super._();
   factory JobStartedEvent.fromJson(Map<String, dynamic> json) => _$JobStartedEventFromJson(json);
 
 @override final  int seq;
@@ -386,16 +394,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStartedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.immediate, immediate) || other.immediate == immediate));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStartedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.immediate, immediate) || other.immediate == immediate));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,immediate);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,immediate);
+}
 
 @override
 String toString() {
-  return 'JobEvent.started(seq: $seq, at: $at, immediate: $immediate)';
+    return 'JobEvent.started(seq: $seq, at: $at, immediate: $immediate)';
 }
 
 
@@ -439,7 +449,7 @@ as bool,
 @JsonSerializable()
 
 class JobPromotedEvent extends JobEvent {
-  const JobPromotedEvent({required this.seq, required this.at, final  String? $type}): $type = $type ?? 'promoted',super._();
+  const JobPromotedEvent({required this.seq, required this.at,  String? $type}): $type = $type ?? 'promoted',super._();
   factory JobPromotedEvent.fromJson(Map<String, dynamic> json) => _$JobPromotedEventFromJson(json);
 
 @override final  int seq;
@@ -462,16 +472,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPromotedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPromotedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at);
+}
 
 @override
 String toString() {
-  return 'JobEvent.promoted(seq: $seq, at: $at)';
+    return 'JobEvent.promoted(seq: $seq, at: $at)';
 }
 
 
@@ -514,7 +526,7 @@ as DateTime,
 @JsonSerializable()
 
 class JobStatusEvent extends JobEvent {
-  const JobStatusEvent({required this.seq, required this.at, required this.line, final  String? $type}): $type = $type ?? 'status',super._();
+  const JobStatusEvent({required this.seq, required this.at, required this.line,  String? $type}): $type = $type ?? 'status',super._();
   factory JobStatusEvent.fromJson(Map<String, dynamic> json) => _$JobStatusEventFromJson(json);
 
 @override final  int seq;
@@ -538,16 +550,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStatusEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.line, line) || other.line == line));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStatusEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.line, line) || other.line == line));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,line);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,line);
+}
 
 @override
 String toString() {
-  return 'JobEvent.status(seq: $seq, at: $at, line: $line)';
+    return 'JobEvent.status(seq: $seq, at: $at, line: $line)';
 }
 
 
@@ -591,7 +605,7 @@ as String,
 @JsonSerializable()
 
 class JobLogEvent extends JobEvent {
-  const JobLogEvent({required this.seq, required this.at, required this.chunk, final  String? $type}): $type = $type ?? 'log',super._();
+  const JobLogEvent({required this.seq, required this.at, required this.chunk,  String? $type}): $type = $type ?? 'log',super._();
   factory JobLogEvent.fromJson(Map<String, dynamic> json) => _$JobLogEventFromJson(json);
 
 @override final  int seq;
@@ -615,16 +629,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobLogEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.chunk, chunk) || other.chunk == chunk));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobLogEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.chunk, chunk) || other.chunk == chunk));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,chunk);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,chunk);
+}
 
 @override
 String toString() {
-  return 'JobEvent.log(seq: $seq, at: $at, chunk: $chunk)';
+    return 'JobEvent.log(seq: $seq, at: $at, chunk: $chunk)';
 }
 
 
@@ -668,7 +684,7 @@ as String,
 @JsonSerializable()
 
 class JobErrorEvent extends JobEvent {
-  const JobErrorEvent({required this.seq, required this.at, required this.message, final  String? $type}): $type = $type ?? 'error',super._();
+  const JobErrorEvent({required this.seq, required this.at, required this.message,  String? $type}): $type = $type ?? 'error',super._();
   factory JobErrorEvent.fromJson(Map<String, dynamic> json) => _$JobErrorEventFromJson(json);
 
 @override final  int seq;
@@ -692,16 +708,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobErrorEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.message, message) || other.message == message));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobErrorEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.message, message) || other.message == message));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,message);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,message);
+}
 
 @override
 String toString() {
-  return 'JobEvent.error(seq: $seq, at: $at, message: $message)';
+    return 'JobEvent.error(seq: $seq, at: $at, message: $message)';
 }
 
 
@@ -745,7 +763,7 @@ as String,
 @JsonSerializable()
 
 class JobFinishedEvent extends JobEvent {
-  const JobFinishedEvent({required this.seq, required this.at, @JobStateConverter() required this.state, this.exitCode, final  String? $type}): $type = $type ?? 'finished',super._();
+  const JobFinishedEvent({required this.seq, required this.at, @JobStateConverter() required this.state, this.exitCode,  String? $type}): $type = $type ?? 'finished',super._();
   factory JobFinishedEvent.fromJson(Map<String, dynamic> json) => _$JobFinishedEventFromJson(json);
 
 @override final  int seq;
@@ -770,16 +788,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobFinishedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.state, state) || other.state == state)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is JobFinishedEvent&&(identical(other.seq, seq) || other.seq == seq)&&(identical(other.at, at) || other.at == at)&&(identical(other.state, state) || other.state == state)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,seq,at,state,exitCode);
+int get hashCode {
+    return Object.hash(runtimeType,seq,at,state,exitCode);
+}
 
 @override
 String toString() {
-  return 'JobEvent.finished(seq: $seq, at: $at, state: $state, exitCode: $exitCode)';
+    return 'JobEvent.finished(seq: $seq, at: $at, state: $state, exitCode: $exitCode)';
 }
 
 

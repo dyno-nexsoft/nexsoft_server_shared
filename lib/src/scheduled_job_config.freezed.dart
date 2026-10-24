@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'scheduled_job_config.dart';
@@ -9,6 +9,7 @@ part of 'scheduled_job_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -39,16 +40,21 @@ $ScheduledJobConfigCopyWith<ScheduledJobConfig> get copyWith => _$ScheduledJobCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
+  final _this = this as ScheduledJobConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobConfig&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.enabled, _this.enabled) || other.enabled == _this.enabled)&&(identical(other.timing, _this.timing) || other.timing == _this.timing)&&(identical(other.prompt, _this.prompt) || other.prompt == _this.prompt)&&(identical(other.fallback, _this.fallback) || other.fallback == _this.fallback)&&(identical(other.catchUp, _this.catchUp) || other.catchUp == _this.catchUp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+int get hashCode {
+  final _this = this as ScheduledJobConfig;
+  return Object.hash(runtimeType,_this.name,_this.kind,_this.enabled,_this.timing,_this.prompt,_this.fallback,_this.catchUp);
+}
 
 @override
 String toString() {
-  return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
+  final _this = this as ScheduledJobConfig;
+  return 'ScheduledJobConfig(name: ${_this.name}, kind: ${_this.kind}, enabled: ${_this.enabled}, timing: ${_this.timing}, prompt: ${_this.prompt}, fallback: ${_this.fallback}, catchUp: ${_this.catchUp})';
 }
 
 
@@ -77,7 +83,7 @@ class _$ScheduledJobConfigCopyWithImpl<$Res>
 /// Create a copy of ScheduledJobConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduledJobConfig(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
 as JobKind,enabled: null == enabled ? _self.enabled : enabled // ignore: cast_nullable_to_non_nullable
@@ -270,16 +276,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+int get hashCode {
+    return Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+}
 
 @override
 String toString() {
-  return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
+    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'api_key_info.dart';
@@ -9,6 +9,7 @@ part of 'api_key_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -45,16 +46,21 @@ $ApiKeyInfoCopyWith<ApiKeyInfo> get copyWith => _$ApiKeyInfoCopyWithImpl<ApiKeyI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyInfo&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.keyHash, keyHash) || other.keyHash == keyHash)&&const DeepCollectionEquality().equals(other.scopes, scopes)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.lastUsedAt, lastUsedAt) || other.lastUsedAt == lastUsedAt)&&(identical(other.discord, discord) || other.discord == discord)&&(identical(other.source, source) || other.source == source));
+  final _this = this as ApiKeyInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyInfo&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.keyHash, _this.keyHash) || other.keyHash == _this.keyHash)&&const DeepCollectionEquality().equals(other.scopes, _this.scopes)&&(identical(other.discordUserId, _this.discordUserId) || other.discordUserId == _this.discordUserId)&&(identical(other.lastUsedAt, _this.lastUsedAt) || other.lastUsedAt == _this.lastUsedAt)&&(identical(other.discord, _this.discord) || other.discord == _this.discord)&&(identical(other.source, _this.source) || other.source == _this.source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,keyHash,const DeepCollectionEquality().hash(scopes),discordUserId,lastUsedAt,discord,source);
+int get hashCode {
+  final _this = this as ApiKeyInfo;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.keyHash,const DeepCollectionEquality().hash(_this.scopes),_this.discordUserId,_this.lastUsedAt,_this.discord,_this.source);
+}
 
 @override
 String toString() {
-  return 'ApiKeyInfo(id: $id, name: $name, keyHash: $keyHash, scopes: $scopes, discordUserId: $discordUserId, lastUsedAt: $lastUsedAt, discord: $discord, source: $source)';
+  final _this = this as ApiKeyInfo;
+  return 'ApiKeyInfo(id: ${_this.id}, name: ${_this.name}, keyHash: ${_this.keyHash}, scopes: ${_this.scopes}, discordUserId: ${_this.discordUserId}, lastUsedAt: ${_this.lastUsedAt}, discord: ${_this.discord}, source: ${_this.source})';
 }
 
 
@@ -83,7 +89,7 @@ class _$ApiKeyInfoCopyWithImpl<$Res>
 /// Create a copy of ApiKeyInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? keyHash = null,Object? scopes = null,Object? discordUserId = freezed,Object? lastUsedAt = freezed,Object? discord = freezed,Object? source = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ApiKeyInfo(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,keyHash: null == keyHash ? _self.keyHash : keyHash // ignore: cast_nullable_to_non_nullable
@@ -245,7 +251,7 @@ return $default(_that.id,_that.name,_that.keyHash,_that.scopes,_that.discordUser
 @JsonSerializable()
 
 class _ApiKeyInfo extends ApiKeyInfo {
-  const _ApiKeyInfo({required this.id, required this.name, required this.keyHash, final  List<String> scopes = const [], @JsonKey(fromJson: _discordUserIdFromJson) this.discordUserId, this.lastUsedAt, this.discord, this.source}): _scopes = scopes,super._();
+  const _ApiKeyInfo({required this.id, required this.name, required this.keyHash,  List<String> scopes = const [], @JsonKey(fromJson: _discordUserIdFromJson) this.discordUserId, this.lastUsedAt, this.discord, this.source}): _scopes = scopes,super._();
   factory _ApiKeyInfo.fromJson(Map<String, dynamic> json) => _$ApiKeyInfoFromJson(json);
 
 @override final  String id;
@@ -300,16 +306,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyInfo&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.keyHash, keyHash) || other.keyHash == keyHash)&&const DeepCollectionEquality().equals(other._scopes, _scopes)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.lastUsedAt, lastUsedAt) || other.lastUsedAt == lastUsedAt)&&(identical(other.discord, discord) || other.discord == discord)&&(identical(other.source, source) || other.source == source));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyInfo&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.keyHash, keyHash) || other.keyHash == keyHash)&&const DeepCollectionEquality().equals(other.scopes, _scopes)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.lastUsedAt, lastUsedAt) || other.lastUsedAt == lastUsedAt)&&(identical(other.discord, discord) || other.discord == discord)&&(identical(other.source, source) || other.source == source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,keyHash,const DeepCollectionEquality().hash(_scopes),discordUserId,lastUsedAt,discord,source);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,keyHash,const DeepCollectionEquality().hash(_scopes),discordUserId,lastUsedAt,discord,source);
+}
 
 @override
 String toString() {
-  return 'ApiKeyInfo(id: $id, name: $name, keyHash: $keyHash, scopes: $scopes, discordUserId: $discordUserId, lastUsedAt: $lastUsedAt, discord: $discord, source: $source)';
+    return 'ApiKeyInfo(id: $id, name: $name, keyHash: $keyHash, scopes: $scopes, discordUserId: $discordUserId, lastUsedAt: $lastUsedAt, discord: $discord, source: $source)';
 }
 
 

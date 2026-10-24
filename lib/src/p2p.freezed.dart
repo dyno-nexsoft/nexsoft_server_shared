@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'p2p.dart';
@@ -9,6 +9,7 @@ part of 'p2p.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $P2pPeerCopyWith<P2pPeer> get copyWith => _$P2pPeerCopyWithImpl<P2pPeer>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pPeer&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.connectedAt, connectedAt) || other.connectedAt == connectedAt));
+  final _this = this as P2pPeer;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pPeer&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&(identical(other.connectedAt, _this.connectedAt) || other.connectedAt == _this.connectedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,displayName,connectedAt);
+int get hashCode {
+  final _this = this as P2pPeer;
+  return Object.hash(runtimeType,_this.id,_this.displayName,_this.connectedAt);
+}
 
 @override
 String toString() {
-  return 'P2pPeer(id: $id, displayName: $displayName, connectedAt: $connectedAt)';
+  final _this = this as P2pPeer;
+  return 'P2pPeer(id: ${_this.id}, displayName: ${_this.displayName}, connectedAt: ${_this.connectedAt})';
 }
 
 
@@ -66,7 +72,7 @@ class _$P2pPeerCopyWithImpl<$Res>
 /// Create a copy of P2pPeer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? displayName = null,Object? connectedAt = null,}) {
-  return _then(_self.copyWith(
+  return _then(P2pPeer(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
 as String,connectedAt: null == connectedAt ? _self.connectedAt : connectedAt // ignore: cast_nullable_to_non_nullable
@@ -231,16 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pPeer&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.connectedAt, connectedAt) || other.connectedAt == connectedAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pPeer&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.connectedAt, connectedAt) || other.connectedAt == connectedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,displayName,connectedAt);
+int get hashCode {
+    return Object.hash(runtimeType,id,displayName,connectedAt);
+}
 
 @override
 String toString() {
-  return 'P2pPeer(id: $id, displayName: $displayName, connectedAt: $connectedAt)';
+    return 'P2pPeer(id: $id, displayName: $displayName, connectedAt: $connectedAt)';
 }
 
 
@@ -297,16 +305,21 @@ $P2pSignalCopyWith<P2pSignal> get copyWith => _$P2pSignalCopyWithImpl<P2pSignal>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pSignal&&(identical(other.from, from) || other.from == from)&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.payload, payload));
+  final _this = this as P2pSignal;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pSignal&&(identical(other.from, _this.from) || other.from == _this.from)&&(identical(other.type, _this.type) || other.type == _this.type)&&const DeepCollectionEquality().equals(other.payload, _this.payload));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,from,type,const DeepCollectionEquality().hash(payload));
+int get hashCode {
+  final _this = this as P2pSignal;
+  return Object.hash(runtimeType,_this.from,_this.type,const DeepCollectionEquality().hash(_this.payload));
+}
 
 @override
 String toString() {
-  return 'P2pSignal(from: $from, type: $type, payload: $payload)';
+  final _this = this as P2pSignal;
+  return 'P2pSignal(from: ${_this.from}, type: ${_this.type}, payload: ${_this.payload})';
 }
 
 
@@ -335,7 +348,7 @@ class _$P2pSignalCopyWithImpl<$Res>
 /// Create a copy of P2pSignal
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? from = null,Object? type = null,Object? payload = null,}) {
-  return _then(_self.copyWith(
+  return _then(P2pSignal(
 from: null == from ? _self.from : from // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,payload: null == payload ? _self.payload : payload // ignore: cast_nullable_to_non_nullable
@@ -480,7 +493,7 @@ return $default(_that.from,_that.type,_that.payload);case _:
 @JsonSerializable()
 
 class _P2pSignal implements P2pSignal {
-  const _P2pSignal({required this.from, required this.type, required final  Map<String, dynamic> payload}): _payload = payload;
+  const _P2pSignal({required this.from, required this.type, required  Map<String, dynamic> payload}): _payload = payload;
   factory _P2pSignal.fromJson(Map<String, dynamic> json) => _$P2pSignalFromJson(json);
 
 @override final  String from;
@@ -506,16 +519,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pSignal&&(identical(other.from, from) || other.from == from)&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other._payload, _payload));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pSignal&&(identical(other.from, from) || other.from == from)&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.payload, _payload));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,from,type,const DeepCollectionEquality().hash(_payload));
+int get hashCode {
+    return Object.hash(runtimeType,from,type,const DeepCollectionEquality().hash(_payload));
+}
 
 @override
 String toString() {
-  return 'P2pSignal(from: $from, type: $type, payload: $payload)';
+    return 'P2pSignal(from: $from, type: $type, payload: $payload)';
 }
 
 

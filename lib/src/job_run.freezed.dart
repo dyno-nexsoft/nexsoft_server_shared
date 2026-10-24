@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_run.dart';
@@ -9,6 +9,7 @@ part of 'job_run.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -35,16 +36,21 @@ $JobRunCopyWith<JobRun> get copyWith => _$JobRunCopyWithImpl<JobRun>(this as Job
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRun&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&const DeepCollectionEquality().equals(other.legs, legs)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt));
+  final _this = this as JobRun;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRun&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.state, _this.state) || other.state == _this.state)&&const DeepCollectionEquality().equals(other.legs, _this.legs)&&(identical(other.platform, _this.platform) || other.platform == _this.platform)&&(identical(other.startedAt, _this.startedAt) || other.startedAt == _this.startedAt)&&(identical(other.finishedAt, _this.finishedAt) || other.finishedAt == _this.finishedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,state,const DeepCollectionEquality().hash(legs),platform,startedAt,finishedAt);
+int get hashCode {
+  final _this = this as JobRun;
+  return Object.hash(runtimeType,_this.id,_this.state,const DeepCollectionEquality().hash(_this.legs),_this.platform,_this.startedAt,_this.finishedAt);
+}
 
 @override
 String toString() {
-  return 'JobRun(id: $id, state: $state, legs: $legs, platform: $platform, startedAt: $startedAt, finishedAt: $finishedAt)';
+  final _this = this as JobRun;
+  return 'JobRun(id: ${_this.id}, state: ${_this.state}, legs: ${_this.legs}, platform: ${_this.platform}, startedAt: ${_this.startedAt}, finishedAt: ${_this.finishedAt})';
 }
 
 
@@ -73,7 +79,7 @@ class _$JobRunCopyWithImpl<$Res>
 /// Create a copy of JobRun
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? state = null,Object? legs = null,Object? platform = freezed,Object? startedAt = freezed,Object? finishedAt = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(JobRun(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
 as JobState,legs: null == legs ? _self.legs : legs // ignore: cast_nullable_to_non_nullable
@@ -221,7 +227,7 @@ return $default(_that.id,_that.state,_that.legs,_that.platform,_that.startedAt,_
 @JsonSerializable()
 
 class _JobRun extends JobRun {
-  const _JobRun({required this.id, @JobStateConverter() required this.state, final  List<JobRunLeg> legs = const [], this.platform, this.startedAt, this.finishedAt}): _legs = legs,super._();
+  const _JobRun({required this.id, @JobStateConverter() required this.state,  List<JobRunLeg> legs = const [], this.platform, this.startedAt, this.finishedAt}): _legs = legs,super._();
   factory _JobRun.fromJson(Map<String, dynamic> json) => _$JobRunFromJson(json);
 
 /// The run's own id, shared by its legs (`Job.runId`).
@@ -259,16 +265,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRun&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&const DeepCollectionEquality().equals(other._legs, _legs)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRun&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&const DeepCollectionEquality().equals(other.legs, _legs)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,state,const DeepCollectionEquality().hash(_legs),platform,startedAt,finishedAt);
+int get hashCode {
+    return Object.hash(runtimeType,id,state,const DeepCollectionEquality().hash(_legs),platform,startedAt,finishedAt);
+}
 
 @override
 String toString() {
-  return 'JobRun(id: $id, state: $state, legs: $legs, platform: $platform, startedAt: $startedAt, finishedAt: $finishedAt)';
+    return 'JobRun(id: $id, state: $state, legs: $legs, platform: $platform, startedAt: $startedAt, finishedAt: $finishedAt)';
 }
 
 
@@ -329,16 +337,21 @@ $JobRunLegCopyWith<JobRunLeg> get copyWith => _$JobRunLegCopyWithImpl<JobRunLeg>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRunLeg&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.machine, machine) || other.machine == machine)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
+  final _this = this as JobRunLeg;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRunLeg&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.state, _this.state) || other.state == _this.state)&&(identical(other.platform, _this.platform) || other.platform == _this.platform)&&(identical(other.machine, _this.machine) || other.machine == _this.machine)&&(identical(other.startedAt, _this.startedAt) || other.startedAt == _this.startedAt)&&(identical(other.finishedAt, _this.finishedAt) || other.finishedAt == _this.finishedAt)&&(identical(other.exitCode, _this.exitCode) || other.exitCode == _this.exitCode));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,state,platform,machine,startedAt,finishedAt,exitCode);
+int get hashCode {
+  final _this = this as JobRunLeg;
+  return Object.hash(runtimeType,_this.id,_this.state,_this.platform,_this.machine,_this.startedAt,_this.finishedAt,_this.exitCode);
+}
 
 @override
 String toString() {
-  return 'JobRunLeg(id: $id, state: $state, platform: $platform, machine: $machine, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode)';
+  final _this = this as JobRunLeg;
+  return 'JobRunLeg(id: ${_this.id}, state: ${_this.state}, platform: ${_this.platform}, machine: ${_this.machine}, startedAt: ${_this.startedAt}, finishedAt: ${_this.finishedAt}, exitCode: ${_this.exitCode})';
 }
 
 
@@ -367,7 +380,7 @@ class _$JobRunLegCopyWithImpl<$Res>
 /// Create a copy of JobRunLeg
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? state = null,Object? platform = freezed,Object? machine = freezed,Object? startedAt = freezed,Object? finishedAt = freezed,Object? exitCode = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(JobRunLeg(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,state: null == state ? _self.state : state // ignore: cast_nullable_to_non_nullable
 as JobState,platform: freezed == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
@@ -541,16 +554,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRunLeg&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.machine, machine) || other.machine == machine)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRunLeg&&(identical(other.id, id) || other.id == id)&&(identical(other.state, state) || other.state == state)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.machine, machine) || other.machine == machine)&&(identical(other.startedAt, startedAt) || other.startedAt == startedAt)&&(identical(other.finishedAt, finishedAt) || other.finishedAt == finishedAt)&&(identical(other.exitCode, exitCode) || other.exitCode == exitCode));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,state,platform,machine,startedAt,finishedAt,exitCode);
+int get hashCode {
+    return Object.hash(runtimeType,id,state,platform,machine,startedAt,finishedAt,exitCode);
+}
 
 @override
 String toString() {
-  return 'JobRunLeg(id: $id, state: $state, platform: $platform, machine: $machine, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode)';
+    return 'JobRunLeg(id: $id, state: $state, platform: $platform, machine: $machine, startedAt: $startedAt, finishedAt: $finishedAt, exitCode: $exitCode)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_ref.dart';
@@ -9,6 +9,7 @@ part of 'job_ref.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $JobRefCopyWith<JobRef> get copyWith => _$JobRefCopyWithImpl<JobRef>(this as Job
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRef&&(identical(other.id, id) || other.id == id)&&(identical(other.actionName, actionName) || other.actionName == actionName)&&(identical(other.runNumber, runNumber) || other.runNumber == runNumber)&&const DeepCollectionEquality().equals(other.actionParams, actionParams));
+  final _this = this as JobRef;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobRef&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.actionName, _this.actionName) || other.actionName == _this.actionName)&&(identical(other.runNumber, _this.runNumber) || other.runNumber == _this.runNumber)&&const DeepCollectionEquality().equals(other.actionParams, _this.actionParams));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,actionName,runNumber,const DeepCollectionEquality().hash(actionParams));
+int get hashCode {
+  final _this = this as JobRef;
+  return Object.hash(runtimeType,_this.id,_this.actionName,_this.runNumber,const DeepCollectionEquality().hash(_this.actionParams));
+}
 
 @override
 String toString() {
-  return 'JobRef(id: $id, actionName: $actionName, runNumber: $runNumber, actionParams: $actionParams)';
+  final _this = this as JobRef;
+  return 'JobRef(id: ${_this.id}, actionName: ${_this.actionName}, runNumber: ${_this.runNumber}, actionParams: ${_this.actionParams})';
 }
 
 
@@ -66,7 +72,7 @@ class _$JobRefCopyWithImpl<$Res>
 /// Create a copy of JobRef
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? actionName = freezed,Object? runNumber = freezed,Object? actionParams = null,}) {
-  return _then(_self.copyWith(
+  return _then(JobRef(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,actionName: freezed == actionName ? _self.actionName : actionName // ignore: cast_nullable_to_non_nullable
 as String?,runNumber: freezed == runNumber ? _self.runNumber : runNumber // ignore: cast_nullable_to_non_nullable
@@ -212,7 +218,7 @@ return $default(_that.id,_that.actionName,_that.runNumber,_that.actionParams);ca
 @JsonSerializable()
 
 class _JobRef implements JobRef {
-  const _JobRef({required this.id, this.actionName, this.runNumber, final  Map<String, Object?> actionParams = const {}}): _actionParams = actionParams;
+  const _JobRef({required this.id, this.actionName, this.runNumber,  Map<String, Object?> actionParams = const {}}): _actionParams = actionParams;
   factory _JobRef.fromJson(Map<String, dynamic> json) => _$JobRefFromJson(json);
 
 @override final  String id;
@@ -239,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRef&&(identical(other.id, id) || other.id == id)&&(identical(other.actionName, actionName) || other.actionName == actionName)&&(identical(other.runNumber, runNumber) || other.runNumber == runNumber)&&const DeepCollectionEquality().equals(other._actionParams, _actionParams));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobRef&&(identical(other.id, id) || other.id == id)&&(identical(other.actionName, actionName) || other.actionName == actionName)&&(identical(other.runNumber, runNumber) || other.runNumber == runNumber)&&const DeepCollectionEquality().equals(other.actionParams, _actionParams));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,actionName,runNumber,const DeepCollectionEquality().hash(_actionParams));
+int get hashCode {
+    return Object.hash(runtimeType,id,actionName,runNumber,const DeepCollectionEquality().hash(_actionParams));
+}
 
 @override
 String toString() {
-  return 'JobRef(id: $id, actionName: $actionName, runNumber: $runNumber, actionParams: $actionParams)';
+    return 'JobRef(id: $id, actionName: $actionName, runNumber: $runNumber, actionParams: $actionParams)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'artifact.dart';
@@ -9,6 +9,7 @@ part of 'artifact.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -31,16 +32,21 @@ $FirebaseUploadCopyWith<FirebaseUpload> get copyWith => _$FirebaseUploadCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FirebaseUpload&&(identical(other.status, status) || other.status == status)&&(identical(other.at, at) || other.at == at)&&(identical(other.testerUrl, testerUrl) || other.testerUrl == testerUrl));
+  final _this = this as FirebaseUpload;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FirebaseUpload&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.at, _this.at) || other.at == _this.at)&&(identical(other.testerUrl, _this.testerUrl) || other.testerUrl == _this.testerUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,at,testerUrl);
+int get hashCode {
+  final _this = this as FirebaseUpload;
+  return Object.hash(runtimeType,_this.status,_this.at,_this.testerUrl);
+}
 
 @override
 String toString() {
-  return 'FirebaseUpload(status: $status, at: $at, testerUrl: $testerUrl)';
+  final _this = this as FirebaseUpload;
+  return 'FirebaseUpload(status: ${_this.status}, at: ${_this.at}, testerUrl: ${_this.testerUrl})';
 }
 
 
@@ -69,7 +75,7 @@ class _$FirebaseUploadCopyWithImpl<$Res>
 /// Create a copy of FirebaseUpload
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? at = null,Object? testerUrl = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(FirebaseUpload(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as FirebaseUploadStatus,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
 as DateTime,testerUrl: freezed == testerUrl ? _self.testerUrl : testerUrl // ignore: cast_nullable_to_non_nullable
@@ -237,16 +243,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FirebaseUpload&&(identical(other.status, status) || other.status == status)&&(identical(other.at, at) || other.at == at)&&(identical(other.testerUrl, testerUrl) || other.testerUrl == testerUrl));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _FirebaseUpload&&(identical(other.status, status) || other.status == status)&&(identical(other.at, at) || other.at == at)&&(identical(other.testerUrl, testerUrl) || other.testerUrl == testerUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,at,testerUrl);
+int get hashCode {
+    return Object.hash(runtimeType,status,at,testerUrl);
+}
 
 @override
 String toString() {
-  return 'FirebaseUpload(status: $status, at: $at, testerUrl: $testerUrl)';
+    return 'FirebaseUpload(status: $status, at: $at, testerUrl: $testerUrl)';
 }
 
 
@@ -306,16 +314,21 @@ $ArtifactFileCopyWith<ArtifactFile> get copyWith => _$ArtifactFileCopyWithImpl<A
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactFile&&(identical(other.name, name) || other.name == name)&&(identical(other.isDirectory, isDirectory) || other.isDirectory == isDirectory)&&(identical(other.size, size) || other.size == size)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.firebase, firebase) || other.firebase == firebase));
+  final _this = this as ArtifactFile;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactFile&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.isDirectory, _this.isDirectory) || other.isDirectory == _this.isDirectory)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.modified, _this.modified) || other.modified == _this.modified)&&(identical(other.firebase, _this.firebase) || other.firebase == _this.firebase));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,isDirectory,size,modified,firebase);
+int get hashCode {
+  final _this = this as ArtifactFile;
+  return Object.hash(runtimeType,_this.name,_this.isDirectory,_this.size,_this.modified,_this.firebase);
+}
 
 @override
 String toString() {
-  return 'ArtifactFile(name: $name, isDirectory: $isDirectory, size: $size, modified: $modified, firebase: $firebase)';
+  final _this = this as ArtifactFile;
+  return 'ArtifactFile(name: ${_this.name}, isDirectory: ${_this.isDirectory}, size: ${_this.size}, modified: ${_this.modified}, firebase: ${_this.firebase})';
 }
 
 
@@ -344,7 +357,7 @@ class _$ArtifactFileCopyWithImpl<$Res>
 /// Create a copy of ArtifactFile
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? isDirectory = null,Object? size = freezed,Object? modified = null,Object? firebase = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ArtifactFile(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,isDirectory: null == isDirectory ? _self.isDirectory : isDirectory // ignore: cast_nullable_to_non_nullable
 as bool,size: freezed == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
@@ -528,16 +541,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactFile&&(identical(other.name, name) || other.name == name)&&(identical(other.isDirectory, isDirectory) || other.isDirectory == isDirectory)&&(identical(other.size, size) || other.size == size)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.firebase, firebase) || other.firebase == firebase));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactFile&&(identical(other.name, name) || other.name == name)&&(identical(other.isDirectory, isDirectory) || other.isDirectory == isDirectory)&&(identical(other.size, size) || other.size == size)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.firebase, firebase) || other.firebase == firebase));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,isDirectory,size,modified,firebase);
+int get hashCode {
+    return Object.hash(runtimeType,name,isDirectory,size,modified,firebase);
+}
 
 @override
 String toString() {
-  return 'ArtifactFile(name: $name, isDirectory: $isDirectory, size: $size, modified: $modified, firebase: $firebase)';
+    return 'ArtifactFile(name: $name, isDirectory: $isDirectory, size: $size, modified: $modified, firebase: $firebase)';
 }
 
 
@@ -610,16 +625,21 @@ $ArtifactListingCopyWith<ArtifactListing> get copyWith => _$ArtifactListingCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactListing&&(identical(other.key, key) || other.key == key)&&const DeepCollectionEquality().equals(other.files, files)&&(identical(other.job, job) || other.job == job));
+  final _this = this as ArtifactListing;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactListing&&(identical(other.key, _this.key) || other.key == _this.key)&&const DeepCollectionEquality().equals(other.files, _this.files)&&(identical(other.job, _this.job) || other.job == _this.job));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,key,const DeepCollectionEquality().hash(files),job);
+int get hashCode {
+  final _this = this as ArtifactListing;
+  return Object.hash(runtimeType,_this.key,const DeepCollectionEquality().hash(_this.files),_this.job);
+}
 
 @override
 String toString() {
-  return 'ArtifactListing(key: $key, files: $files, job: $job)';
+  final _this = this as ArtifactListing;
+  return 'ArtifactListing(key: ${_this.key}, files: ${_this.files}, job: ${_this.job})';
 }
 
 
@@ -648,7 +668,7 @@ class _$ArtifactListingCopyWithImpl<$Res>
 /// Create a copy of ArtifactListing
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? key = null,Object? files = null,Object? job = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ArtifactListing(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,files: null == files ? _self.files : files // ignore: cast_nullable_to_non_nullable
 as List<ArtifactFile>,job: freezed == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
@@ -805,7 +825,7 @@ return $default(_that.key,_that.files,_that.job);case _:
 @JsonSerializable()
 
 class _ArtifactListing implements ArtifactListing {
-  const _ArtifactListing({required this.key, final  List<ArtifactFile> files = const [], this.job}): _files = files;
+  const _ArtifactListing({required this.key,  List<ArtifactFile> files = const [], this.job}): _files = files;
   factory _ArtifactListing.fromJson(Map<String, dynamic> json) => _$ArtifactListingFromJson(json);
 
 @override final  String key;
@@ -833,16 +853,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactListing&&(identical(other.key, key) || other.key == key)&&const DeepCollectionEquality().equals(other._files, _files)&&(identical(other.job, job) || other.job == job));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactListing&&(identical(other.key, key) || other.key == key)&&const DeepCollectionEquality().equals(other.files, _files)&&(identical(other.job, job) || other.job == job));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,key,const DeepCollectionEquality().hash(_files),job);
+int get hashCode {
+    return Object.hash(runtimeType,key,const DeepCollectionEquality().hash(_files),job);
+}
 
 @override
 String toString() {
-  return 'ArtifactListing(key: $key, files: $files, job: $job)';
+    return 'ArtifactListing(key: $key, files: $files, job: $job)';
 }
 
 

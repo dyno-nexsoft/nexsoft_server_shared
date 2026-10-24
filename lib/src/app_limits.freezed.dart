@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'app_limits.dart';
@@ -9,6 +9,7 @@ part of 'app_limits.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -52,16 +53,21 @@ $AppLimitsCopyWith<AppLimits> get copyWith => _$AppLimitsCopyWithImpl<AppLimits>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests)&&(identical(other.aiGroqBatchChars, aiGroqBatchChars) || other.aiGroqBatchChars == aiGroqBatchChars));
+  final _this = this as AppLimits;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, _this.jobsDays) || other.jobsDays == _this.jobsDays)&&(identical(other.auditDays, _this.auditDays) || other.auditDays == _this.auditDays)&&(identical(other.reviewsDays, _this.reviewsDays) || other.reviewsDays == _this.reviewsDays)&&(identical(other.translatesDays, _this.translatesDays) || other.translatesDays == _this.translatesDays)&&(identical(other.notificationsDays, _this.notificationsDays) || other.notificationsDays == _this.notificationsDays)&&(identical(other.artifactsDays, _this.artifactsDays) || other.artifactsDays == _this.artifactsDays)&&(identical(other.apiKeyIdleDays, _this.apiKeyIdleDays) || other.apiKeyIdleDays == _this.apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, _this.buildTimeoutMinutes) || other.buildTimeoutMinutes == _this.buildTimeoutMinutes)&&(identical(other.reportSweepDays, _this.reportSweepDays) || other.reportSweepDays == _this.reportSweepDays)&&(identical(other.reviewMaxIssues, _this.reviewMaxIssues) || other.reviewMaxIssues == _this.reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, _this.aiAttemptsPerModel) || other.aiAttemptsPerModel == _this.aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, _this.aiKeyRestMinutes) || other.aiKeyRestMinutes == _this.aiKeyRestMinutes)&&(identical(other.aiMaxConcurrentRequests, _this.aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == _this.aiMaxConcurrentRequests)&&(identical(other.aiGroqBatchChars, _this.aiGroqBatchChars) || other.aiGroqBatchChars == _this.aiGroqBatchChars));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,aiAttemptsPerModel,aiKeyRestMinutes,aiMaxConcurrentRequests,aiGroqBatchChars);
+int get hashCode {
+  final _this = this as AppLimits;
+  return Object.hash(runtimeType,_this.jobsDays,_this.auditDays,_this.reviewsDays,_this.translatesDays,_this.notificationsDays,_this.artifactsDays,_this.apiKeyIdleDays,_this.buildTimeoutMinutes,_this.reportSweepDays,_this.reviewMaxIssues,_this.aiAttemptsPerModel,_this.aiKeyRestMinutes,_this.aiMaxConcurrentRequests,_this.aiGroqBatchChars);
+}
 
 @override
 String toString() {
-  return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+  final _this = this as AppLimits;
+  return 'AppLimits(jobsDays: ${_this.jobsDays}, auditDays: ${_this.auditDays}, reviewsDays: ${_this.reviewsDays}, translatesDays: ${_this.translatesDays}, notificationsDays: ${_this.notificationsDays}, artifactsDays: ${_this.artifactsDays}, apiKeyIdleDays: ${_this.apiKeyIdleDays}, buildTimeoutMinutes: ${_this.buildTimeoutMinutes}, reportSweepDays: ${_this.reportSweepDays}, reviewMaxIssues: ${_this.reviewMaxIssues}, aiAttemptsPerModel: ${_this.aiAttemptsPerModel}, aiKeyRestMinutes: ${_this.aiKeyRestMinutes}, aiMaxConcurrentRequests: ${_this.aiMaxConcurrentRequests}, aiGroqBatchChars: ${_this.aiGroqBatchChars})';
 }
 
 
@@ -90,7 +96,7 @@ class _$AppLimitsCopyWithImpl<$Res>
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiMaxConcurrentRequests = null,Object? aiGroqBatchChars = null,}) {
-  return _then(_self.copyWith(
+  return _then(AppLimits(
 jobsDays: null == jobsDays ? _self.jobsDays : jobsDays // ignore: cast_nullable_to_non_nullable
 as int,auditDays: null == auditDays ? _self.auditDays : auditDays // ignore: cast_nullable_to_non_nullable
 as int,reviewsDays: null == reviewsDays ? _self.reviewsDays : reviewsDays // ignore: cast_nullable_to_non_nullable
@@ -301,16 +307,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests)&&(identical(other.aiGroqBatchChars, aiGroqBatchChars) || other.aiGroqBatchChars == aiGroqBatchChars));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests)&&(identical(other.aiGroqBatchChars, aiGroqBatchChars) || other.aiGroqBatchChars == aiGroqBatchChars));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,aiAttemptsPerModel,aiKeyRestMinutes,aiMaxConcurrentRequests,aiGroqBatchChars);
+int get hashCode {
+    return Object.hash(runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,aiAttemptsPerModel,aiKeyRestMinutes,aiMaxConcurrentRequests,aiGroqBatchChars);
+}
 
 @override
 String toString() {
-  return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
+    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, aiGroqBatchChars: $aiGroqBatchChars)';
 }
 
 
@@ -378,16 +386,21 @@ $LimitsSetParamsCopyWith<LimitsSetParams> get copyWith => _$LimitsSetParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LimitsSetParams&&(identical(other.limits, limits) || other.limits == limits));
+  final _this = this as LimitsSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LimitsSetParams&&(identical(other.limits, _this.limits) || other.limits == _this.limits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limits);
+int get hashCode {
+  final _this = this as LimitsSetParams;
+  return Object.hash(runtimeType,_this.limits);
+}
 
 @override
 String toString() {
-  return 'LimitsSetParams(limits: $limits)';
+  final _this = this as LimitsSetParams;
+  return 'LimitsSetParams(limits: ${_this.limits})';
 }
 
 
@@ -416,7 +429,7 @@ class _$LimitsSetParamsCopyWithImpl<$Res>
 /// Create a copy of LimitsSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? limits = null,}) {
-  return _then(_self.copyWith(
+  return _then(LimitsSetParams(
 limits: null == limits ? _self.limits : limits // ignore: cast_nullable_to_non_nullable
 as AppLimits,
   ));
@@ -586,16 +599,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LimitsSetParams&&(identical(other.limits, limits) || other.limits == limits));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LimitsSetParams&&(identical(other.limits, limits) || other.limits == limits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limits);
+int get hashCode {
+    return Object.hash(runtimeType,limits);
+}
 
 @override
 String toString() {
-  return 'LimitsSetParams(limits: $limits)';
+    return 'LimitsSetParams(limits: $limits)';
 }
 
 
@@ -659,16 +674,21 @@ $LimitsInfoCopyWith<LimitsInfo> get copyWith => _$LimitsInfoCopyWithImpl<LimitsI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LimitsInfo&&(identical(other.limits, limits) || other.limits == limits));
+  final _this = this as LimitsInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LimitsInfo&&(identical(other.limits, _this.limits) || other.limits == _this.limits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limits);
+int get hashCode {
+  final _this = this as LimitsInfo;
+  return Object.hash(runtimeType,_this.limits);
+}
 
 @override
 String toString() {
-  return 'LimitsInfo(limits: $limits)';
+  final _this = this as LimitsInfo;
+  return 'LimitsInfo(limits: ${_this.limits})';
 }
 
 
@@ -697,7 +717,7 @@ class _$LimitsInfoCopyWithImpl<$Res>
 /// Create a copy of LimitsInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? limits = null,}) {
-  return _then(_self.copyWith(
+  return _then(LimitsInfo(
 limits: null == limits ? _self.limits : limits // ignore: cast_nullable_to_non_nullable
 as AppLimits,
   ));
@@ -867,16 +887,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LimitsInfo&&(identical(other.limits, limits) || other.limits == limits));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LimitsInfo&&(identical(other.limits, limits) || other.limits == limits));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limits);
+int get hashCode {
+    return Object.hash(runtimeType,limits);
+}
 
 @override
 String toString() {
-  return 'LimitsInfo(limits: $limits)';
+    return 'LimitsInfo(limits: $limits)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'admin_params.dart';
@@ -9,6 +9,7 @@ part of 'admin_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -29,16 +30,21 @@ $ApiKeyAddParamsCopyWith<ApiKeyAddParams> get copyWith => _$ApiKeyAddParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyAddParams&&(identical(other.name, name) || other.name == name));
+  final _this = this as ApiKeyAddParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyAddParams&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name);
+int get hashCode {
+  final _this = this as ApiKeyAddParams;
+  return Object.hash(runtimeType,_this.name);
+}
 
 @override
 String toString() {
-  return 'ApiKeyAddParams(name: $name)';
+  final _this = this as ApiKeyAddParams;
+  return 'ApiKeyAddParams(name: ${_this.name})';
 }
 
 
@@ -67,7 +73,7 @@ class _$ApiKeyAddParamsCopyWithImpl<$Res>
 /// Create a copy of ApiKeyAddParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(ApiKeyAddParams(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -229,16 +235,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyAddParams&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyAddParams&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name);
+int get hashCode {
+    return Object.hash(runtimeType,name);
+}
 
 @override
 String toString() {
-  return 'ApiKeyAddParams(name: $name)';
+    return 'ApiKeyAddParams(name: $name)';
 }
 
 
@@ -295,16 +303,21 @@ $ApiKeyEditParamsCopyWith<ApiKeyEditParams> get copyWith => _$ApiKeyEditParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyEditParams&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.scopes, scopes)&&(identical(other.name, name) || other.name == name));
+  final _this = this as ApiKeyEditParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyEditParams&&(identical(other.id, _this.id) || other.id == _this.id)&&const DeepCollectionEquality().equals(other.scopes, _this.scopes)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(scopes),name);
+int get hashCode {
+  final _this = this as ApiKeyEditParams;
+  return Object.hash(runtimeType,_this.id,const DeepCollectionEquality().hash(_this.scopes),_this.name);
+}
 
 @override
 String toString() {
-  return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
+  final _this = this as ApiKeyEditParams;
+  return 'ApiKeyEditParams(id: ${_this.id}, scopes: ${_this.scopes}, name: ${_this.name})';
 }
 
 
@@ -333,7 +346,7 @@ class _$ApiKeyEditParamsCopyWithImpl<$Res>
 /// Create a copy of ApiKeyEditParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? scopes = null,Object? name = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ApiKeyEditParams(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,scopes: null == scopes ? _self.scopes : scopes // ignore: cast_nullable_to_non_nullable
 as List<String>,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -478,7 +491,7 @@ return $default(_that.id,_that.scopes,_that.name);case _:
 @JsonSerializable()
 
 class _ApiKeyEditParams implements ApiKeyEditParams {
-  const _ApiKeyEditParams({required this.id, required final  List<String> scopes, this.name}): _scopes = scopes;
+  const _ApiKeyEditParams({required this.id, required  List<String> scopes, this.name}): _scopes = scopes;
   factory _ApiKeyEditParams.fromJson(Map<String, dynamic> json) => _$ApiKeyEditParamsFromJson(json);
 
 @override final  String id;
@@ -507,16 +520,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyEditParams&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._scopes, _scopes)&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyEditParams&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.scopes, _scopes)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_scopes),name);
+int get hashCode {
+    return Object.hash(runtimeType,id,const DeepCollectionEquality().hash(_scopes),name);
+}
 
 @override
 String toString() {
-  return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
+    return 'ApiKeyEditParams(id: $id, scopes: $scopes, name: $name)';
 }
 
 
@@ -573,16 +588,21 @@ $ApiKeyRemoveParamsCopyWith<ApiKeyRemoveParams> get copyWith => _$ApiKeyRemovePa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyRemoveParams&&(identical(other.id, id) || other.id == id));
+  final _this = this as ApiKeyRemoveParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiKeyRemoveParams&&(identical(other.id, _this.id) || other.id == _this.id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode {
+  final _this = this as ApiKeyRemoveParams;
+  return Object.hash(runtimeType,_this.id);
+}
 
 @override
 String toString() {
-  return 'ApiKeyRemoveParams(id: $id)';
+  final _this = this as ApiKeyRemoveParams;
+  return 'ApiKeyRemoveParams(id: ${_this.id})';
 }
 
 
@@ -611,7 +631,7 @@ class _$ApiKeyRemoveParamsCopyWithImpl<$Res>
 /// Create a copy of ApiKeyRemoveParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,}) {
-  return _then(_self.copyWith(
+  return _then(ApiKeyRemoveParams(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -772,16 +792,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyRemoveParams&&(identical(other.id, id) || other.id == id));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiKeyRemoveParams&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode {
+    return Object.hash(runtimeType,id);
+}
 
 @override
 String toString() {
-  return 'ApiKeyRemoveParams(id: $id)';
+    return 'ApiKeyRemoveParams(id: $id)';
 }
 
 
@@ -838,16 +860,21 @@ $OwnerParamsCopyWith<OwnerParams> get copyWith => _$OwnerParamsCopyWithImpl<Owne
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OwnerParams&&(identical(other.userId, userId) || other.userId == userId));
+  final _this = this as OwnerParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OwnerParams&&(identical(other.userId, _this.userId) || other.userId == _this.userId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userId);
+int get hashCode {
+  final _this = this as OwnerParams;
+  return Object.hash(runtimeType,_this.userId);
+}
 
 @override
 String toString() {
-  return 'OwnerParams(userId: $userId)';
+  final _this = this as OwnerParams;
+  return 'OwnerParams(userId: ${_this.userId})';
 }
 
 
@@ -876,7 +903,7 @@ class _$OwnerParamsCopyWithImpl<$Res>
 /// Create a copy of OwnerParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? userId = null,}) {
-  return _then(_self.copyWith(
+  return _then(OwnerParams(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -1039,16 +1066,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OwnerParams&&(identical(other.userId, userId) || other.userId == userId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _OwnerParams&&(identical(other.userId, userId) || other.userId == userId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userId);
+int get hashCode {
+    return Object.hash(runtimeType,userId);
+}
 
 @override
 String toString() {
-  return 'OwnerParams(userId: $userId)';
+    return 'OwnerParams(userId: $userId)';
 }
 
 
@@ -1107,16 +1136,21 @@ $LogsTailParamsCopyWith<LogsTailParams> get copyWith => _$LogsTailParamsCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogsTailParams&&(identical(other.lines, lines) || other.lines == lines)&&(identical(other.source, source) || other.source == source)&&(identical(other.fromLine, fromLine) || other.fromLine == fromLine)&&(identical(other.toLine, toLine) || other.toLine == toLine));
+  final _this = this as LogsTailParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LogsTailParams&&(identical(other.lines, _this.lines) || other.lines == _this.lines)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.fromLine, _this.fromLine) || other.fromLine == _this.fromLine)&&(identical(other.toLine, _this.toLine) || other.toLine == _this.toLine));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,lines,source,fromLine,toLine);
+int get hashCode {
+  final _this = this as LogsTailParams;
+  return Object.hash(runtimeType,_this.lines,_this.source,_this.fromLine,_this.toLine);
+}
 
 @override
 String toString() {
-  return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
+  final _this = this as LogsTailParams;
+  return 'LogsTailParams(lines: ${_this.lines}, source: ${_this.source}, fromLine: ${_this.fromLine}, toLine: ${_this.toLine})';
 }
 
 
@@ -1145,7 +1179,7 @@ class _$LogsTailParamsCopyWithImpl<$Res>
 /// Create a copy of LogsTailParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? lines = freezed,Object? source = freezed,Object? fromLine = freezed,Object? toLine = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(LogsTailParams(
 lines: freezed == lines ? _self.lines : lines // ignore: cast_nullable_to_non_nullable
 as int?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as String?,fromLine: freezed == fromLine ? _self.fromLine : fromLine // ignore: cast_nullable_to_non_nullable
@@ -1316,16 +1350,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogsTailParams&&(identical(other.lines, lines) || other.lines == lines)&&(identical(other.source, source) || other.source == source)&&(identical(other.fromLine, fromLine) || other.fromLine == fromLine)&&(identical(other.toLine, toLine) || other.toLine == toLine));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LogsTailParams&&(identical(other.lines, lines) || other.lines == lines)&&(identical(other.source, source) || other.source == source)&&(identical(other.fromLine, fromLine) || other.fromLine == fromLine)&&(identical(other.toLine, toLine) || other.toLine == toLine));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,lines,source,fromLine,toLine);
+int get hashCode {
+    return Object.hash(runtimeType,lines,source,fromLine,toLine);
+}
 
 @override
 String toString() {
-  return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
+    return 'LogsTailParams(lines: $lines, source: $source, fromLine: $fromLine, toLine: $toLine)';
 }
 
 
@@ -1383,16 +1419,21 @@ $SecretSetParamsCopyWith<SecretSetParams> get copyWith => _$SecretSetParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+  final _this = this as SecretSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretSetParams&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.value, _this.value) || other.value == _this.value));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value);
+int get hashCode {
+  final _this = this as SecretSetParams;
+  return Object.hash(runtimeType,_this.name,_this.value);
+}
 
 @override
 String toString() {
-  return 'SecretSetParams(name: $name, value: $value)';
+  final _this = this as SecretSetParams;
+  return 'SecretSetParams(name: ${_this.name}, value: ${_this.value})';
 }
 
 
@@ -1421,7 +1462,7 @@ class _$SecretSetParamsCopyWithImpl<$Res>
 /// Create a copy of SecretSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = null,}) {
-  return _then(_self.copyWith(
+  return _then(SecretSetParams(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1584,16 +1625,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value);
+int get hashCode {
+    return Object.hash(runtimeType,name,value);
+}
 
 @override
 String toString() {
-  return 'SecretSetParams(name: $name, value: $value)';
+    return 'SecretSetParams(name: $name, value: $value)';
 }
 
 
@@ -1649,16 +1692,21 @@ $SecretNameParamsCopyWith<SecretNameParams> get copyWith => _$SecretNameParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretNameParams&&(identical(other.name, name) || other.name == name));
+  final _this = this as SecretNameParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretNameParams&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name);
+int get hashCode {
+  final _this = this as SecretNameParams;
+  return Object.hash(runtimeType,_this.name);
+}
 
 @override
 String toString() {
-  return 'SecretNameParams(name: $name)';
+  final _this = this as SecretNameParams;
+  return 'SecretNameParams(name: ${_this.name})';
 }
 
 
@@ -1687,7 +1735,7 @@ class _$SecretNameParamsCopyWithImpl<$Res>
 /// Create a copy of SecretNameParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,}) {
-  return _then(_self.copyWith(
+  return _then(SecretNameParams(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -1848,16 +1896,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretNameParams&&(identical(other.name, name) || other.name == name));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretNameParams&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name);
+int get hashCode {
+    return Object.hash(runtimeType,name);
+}
 
 @override
 String toString() {
-  return 'SecretNameParams(name: $name)';
+    return 'SecretNameParams(name: $name)';
 }
 
 
@@ -1913,16 +1963,21 @@ $AuditListParamsCopyWith<AuditListParams> get copyWith => _$AuditListParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditListParams&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.before, before) || other.before == before));
+  final _this = this as AuditListParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditListParams&&(identical(other.limit, _this.limit) || other.limit == _this.limit)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.actor, _this.actor) || other.actor == _this.actor)&&(identical(other.before, _this.before) || other.before == _this.before));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limit,action,actor,before);
+int get hashCode {
+  final _this = this as AuditListParams;
+  return Object.hash(runtimeType,_this.limit,_this.action,_this.actor,_this.before);
+}
 
 @override
 String toString() {
-  return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
+  final _this = this as AuditListParams;
+  return 'AuditListParams(limit: ${_this.limit}, action: ${_this.action}, actor: ${_this.actor}, before: ${_this.before})';
 }
 
 
@@ -1951,7 +2006,7 @@ class _$AuditListParamsCopyWithImpl<$Res>
 /// Create a copy of AuditListParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? limit = null,Object? action = freezed,Object? actor = freezed,Object? before = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AuditListParams(
 limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int,action: freezed == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as String?,actor: freezed == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
@@ -2119,16 +2174,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditListParams&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.before, before) || other.before == before));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditListParams&&(identical(other.limit, limit) || other.limit == limit)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.before, before) || other.before == before));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limit,action,actor,before);
+int get hashCode {
+    return Object.hash(runtimeType,limit,action,actor,before);
+}
 
 @override
 String toString() {
-  return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
+    return 'AuditListParams(limit: $limit, action: $action, actor: $actor, before: $before)';
 }
 
 
@@ -2186,16 +2243,21 @@ $AiKeysCheckParamsCopyWith<AiKeysCheckParams> get copyWith => _$AiKeysCheckParam
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
+  final _this = this as AiKeysCheckParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiKeysCheckParams&&(identical(other.removeDead, _this.removeDead) || other.removeDead == _this.removeDead));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,removeDead);
+int get hashCode {
+  final _this = this as AiKeysCheckParams;
+  return Object.hash(runtimeType,_this.removeDead);
+}
 
 @override
 String toString() {
-  return 'AiKeysCheckParams(removeDead: $removeDead)';
+  final _this = this as AiKeysCheckParams;
+  return 'AiKeysCheckParams(removeDead: ${_this.removeDead})';
 }
 
 
@@ -2224,7 +2286,7 @@ class _$AiKeysCheckParamsCopyWithImpl<$Res>
 /// Create a copy of AiKeysCheckParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? removeDead = null,}) {
-  return _then(_self.copyWith(
+  return _then(AiKeysCheckParams(
 removeDead: null == removeDead ? _self.removeDead : removeDead // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -2385,16 +2447,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,removeDead);
+int get hashCode {
+    return Object.hash(runtimeType,removeDead);
+}
 
 @override
 String toString() {
-  return 'AiKeysCheckParams(removeDead: $removeDead)';
+    return 'AiKeysCheckParams(removeDead: $removeDead)';
 }
 
 

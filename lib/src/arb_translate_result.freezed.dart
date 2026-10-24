@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'arb_translate_result.dart';
@@ -9,6 +9,7 @@ part of 'arb_translate_result.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -50,16 +51,21 @@ $ArbTranslateResultCopyWith<ArbTranslateResult> get copyWith => _$ArbTranslateRe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArbTranslateResult&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.mrUrl, mrUrl) || other.mrUrl == mrUrl)&&(identical(other.translatedKeyCount, translatedKeyCount) || other.translatedKeyCount == translatedKeyCount)&&const DeepCollectionEquality().equals(other.localesUpdated, localesUpdated)&&const DeepCollectionEquality().equals(other.keysByFile, keysByFile)&&(identical(other.failedKeyCount, failedKeyCount) || other.failedKeyCount == failedKeyCount)&&const DeepCollectionEquality().equals(other.warnings, warnings));
+  final _this = this as ArbTranslateResult;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArbTranslateResult&&(identical(other.module, _this.module) || other.module == _this.module)&&(identical(other.targetBranch, _this.targetBranch) || other.targetBranch == _this.targetBranch)&&(identical(other.mrUrl, _this.mrUrl) || other.mrUrl == _this.mrUrl)&&(identical(other.translatedKeyCount, _this.translatedKeyCount) || other.translatedKeyCount == _this.translatedKeyCount)&&const DeepCollectionEquality().equals(other.localesUpdated, _this.localesUpdated)&&const DeepCollectionEquality().equals(other.keysByFile, _this.keysByFile)&&(identical(other.failedKeyCount, _this.failedKeyCount) || other.failedKeyCount == _this.failedKeyCount)&&const DeepCollectionEquality().equals(other.warnings, _this.warnings));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,module,targetBranch,mrUrl,translatedKeyCount,const DeepCollectionEquality().hash(localesUpdated),const DeepCollectionEquality().hash(keysByFile),failedKeyCount,const DeepCollectionEquality().hash(warnings));
+int get hashCode {
+  final _this = this as ArbTranslateResult;
+  return Object.hash(runtimeType,_this.module,_this.targetBranch,_this.mrUrl,_this.translatedKeyCount,const DeepCollectionEquality().hash(_this.localesUpdated),const DeepCollectionEquality().hash(_this.keysByFile),_this.failedKeyCount,const DeepCollectionEquality().hash(_this.warnings));
+}
 
 @override
 String toString() {
-  return 'ArbTranslateResult(module: $module, targetBranch: $targetBranch, mrUrl: $mrUrl, translatedKeyCount: $translatedKeyCount, localesUpdated: $localesUpdated, keysByFile: $keysByFile, failedKeyCount: $failedKeyCount, warnings: $warnings)';
+  final _this = this as ArbTranslateResult;
+  return 'ArbTranslateResult(module: ${_this.module}, targetBranch: ${_this.targetBranch}, mrUrl: ${_this.mrUrl}, translatedKeyCount: ${_this.translatedKeyCount}, localesUpdated: ${_this.localesUpdated}, keysByFile: ${_this.keysByFile}, failedKeyCount: ${_this.failedKeyCount}, warnings: ${_this.warnings})';
 }
 
 
@@ -88,7 +94,7 @@ class _$ArbTranslateResultCopyWithImpl<$Res>
 /// Create a copy of ArbTranslateResult
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? module = null,Object? targetBranch = null,Object? mrUrl = freezed,Object? translatedKeyCount = null,Object? localesUpdated = null,Object? keysByFile = null,Object? failedKeyCount = null,Object? warnings = null,}) {
-  return _then(_self.copyWith(
+  return _then(ArbTranslateResult(
 module: null == module ? _self.module : module // ignore: cast_nullable_to_non_nullable
 as String,targetBranch: null == targetBranch ? _self.targetBranch : targetBranch // ignore: cast_nullable_to_non_nullable
 as String,mrUrl: freezed == mrUrl ? _self.mrUrl : mrUrl // ignore: cast_nullable_to_non_nullable
@@ -238,7 +244,7 @@ return $default(_that.module,_that.targetBranch,_that.mrUrl,_that.translatedKeyC
 @JsonSerializable()
 
 class _ArbTranslateResult extends ArbTranslateResult {
-  const _ArbTranslateResult({required this.module, required this.targetBranch, this.mrUrl, this.translatedKeyCount = 0, final  List<String> localesUpdated = const <String>[], final  Map<String, int> keysByFile = const <String, int>{}, this.failedKeyCount = 0, final  List<String> warnings = const <String>[]}): _localesUpdated = localesUpdated,_keysByFile = keysByFile,_warnings = warnings,super._();
+  const _ArbTranslateResult({required this.module, required this.targetBranch, this.mrUrl, this.translatedKeyCount = 0,  List<String> localesUpdated = const <String>[],  Map<String, int> keysByFile = const <String, int>{}, this.failedKeyCount = 0,  List<String> warnings = const <String>[]}): _localesUpdated = localesUpdated,_keysByFile = keysByFile,_warnings = warnings,super._();
   factory _ArbTranslateResult.fromJson(Map<String, dynamic> json) => _$ArbTranslateResultFromJson(json);
 
 /// `TbchatModule.toWire()`'s spelling (e.g. `socialfi`, `cloud_storage`,
@@ -311,16 +317,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArbTranslateResult&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.mrUrl, mrUrl) || other.mrUrl == mrUrl)&&(identical(other.translatedKeyCount, translatedKeyCount) || other.translatedKeyCount == translatedKeyCount)&&const DeepCollectionEquality().equals(other._localesUpdated, _localesUpdated)&&const DeepCollectionEquality().equals(other._keysByFile, _keysByFile)&&(identical(other.failedKeyCount, failedKeyCount) || other.failedKeyCount == failedKeyCount)&&const DeepCollectionEquality().equals(other._warnings, _warnings));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArbTranslateResult&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.mrUrl, mrUrl) || other.mrUrl == mrUrl)&&(identical(other.translatedKeyCount, translatedKeyCount) || other.translatedKeyCount == translatedKeyCount)&&const DeepCollectionEquality().equals(other.localesUpdated, _localesUpdated)&&const DeepCollectionEquality().equals(other.keysByFile, _keysByFile)&&(identical(other.failedKeyCount, failedKeyCount) || other.failedKeyCount == failedKeyCount)&&const DeepCollectionEquality().equals(other.warnings, _warnings));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,module,targetBranch,mrUrl,translatedKeyCount,const DeepCollectionEquality().hash(_localesUpdated),const DeepCollectionEquality().hash(_keysByFile),failedKeyCount,const DeepCollectionEquality().hash(_warnings));
+int get hashCode {
+    return Object.hash(runtimeType,module,targetBranch,mrUrl,translatedKeyCount,const DeepCollectionEquality().hash(_localesUpdated),const DeepCollectionEquality().hash(_keysByFile),failedKeyCount,const DeepCollectionEquality().hash(_warnings));
+}
 
 @override
 String toString() {
-  return 'ArbTranslateResult(module: $module, targetBranch: $targetBranch, mrUrl: $mrUrl, translatedKeyCount: $translatedKeyCount, localesUpdated: $localesUpdated, keysByFile: $keysByFile, failedKeyCount: $failedKeyCount, warnings: $warnings)';
+    return 'ArbTranslateResult(module: $module, targetBranch: $targetBranch, mrUrl: $mrUrl, translatedKeyCount: $translatedKeyCount, localesUpdated: $localesUpdated, keysByFile: $keysByFile, failedKeyCount: $failedKeyCount, warnings: $warnings)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'zentao_status.dart';
@@ -9,6 +9,7 @@ part of 'zentao_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -33,16 +34,21 @@ $ZentaoStatusCopyWith<ZentaoStatus> get copyWith => _$ZentaoStatusCopyWithImpl<Z
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoStatus&&(identical(other.linked, linked) || other.linked == linked)&&(identical(other.account, account) || other.account == account)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.executionId, executionId) || other.executionId == executionId)&&(identical(other.todayTaskId, todayTaskId) || other.todayTaskId == todayTaskId));
+  final _this = this as ZentaoStatus;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoStatus&&(identical(other.linked, _this.linked) || other.linked == _this.linked)&&(identical(other.account, _this.account) || other.account == _this.account)&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId)&&(identical(other.executionId, _this.executionId) || other.executionId == _this.executionId)&&(identical(other.todayTaskId, _this.todayTaskId) || other.todayTaskId == _this.todayTaskId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,linked,account,projectId,executionId,todayTaskId);
+int get hashCode {
+  final _this = this as ZentaoStatus;
+  return Object.hash(runtimeType,_this.linked,_this.account,_this.projectId,_this.executionId,_this.todayTaskId);
+}
 
 @override
 String toString() {
-  return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
+  final _this = this as ZentaoStatus;
+  return 'ZentaoStatus(linked: ${_this.linked}, account: ${_this.account}, projectId: ${_this.projectId}, executionId: ${_this.executionId}, todayTaskId: ${_this.todayTaskId})';
 }
 
 
@@ -71,7 +77,7 @@ class _$ZentaoStatusCopyWithImpl<$Res>
 /// Create a copy of ZentaoStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? linked = null,Object? account = freezed,Object? projectId = null,Object? executionId = null,Object? todayTaskId = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoStatus(
 linked: null == linked ? _self.linked : linked // ignore: cast_nullable_to_non_nullable
 as bool,account: freezed == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as String?,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
@@ -245,16 +251,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoStatus&&(identical(other.linked, linked) || other.linked == linked)&&(identical(other.account, account) || other.account == account)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.executionId, executionId) || other.executionId == executionId)&&(identical(other.todayTaskId, todayTaskId) || other.todayTaskId == todayTaskId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoStatus&&(identical(other.linked, linked) || other.linked == linked)&&(identical(other.account, account) || other.account == account)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.executionId, executionId) || other.executionId == executionId)&&(identical(other.todayTaskId, todayTaskId) || other.todayTaskId == todayTaskId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,linked,account,projectId,executionId,todayTaskId);
+int get hashCode {
+    return Object.hash(runtimeType,linked,account,projectId,executionId,todayTaskId);
+}
 
 @override
 String toString() {
-  return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
+    return 'ZentaoStatus(linked: $linked, account: $account, projectId: $projectId, executionId: $executionId, todayTaskId: $todayTaskId)';
 }
 
 

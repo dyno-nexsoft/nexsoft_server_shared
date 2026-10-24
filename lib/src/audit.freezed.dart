@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'audit.dart';
@@ -9,6 +9,7 @@ part of 'audit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -33,16 +34,21 @@ $AuditEntryCopyWith<AuditEntry> get copyWith => _$AuditEntryCopyWithImpl<AuditEn
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.apiKeyId, apiKeyId) || other.apiKeyId == apiKeyId)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.source, source) || other.source == source)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&const DeepCollectionEquality().equals(other.params, params));
+  final _this = this as AuditEntry;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.at, _this.at) || other.at == _this.at)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.actor, _this.actor) || other.actor == _this.actor)&&(identical(other.apiKeyId, _this.apiKeyId) || other.apiKeyId == _this.apiKeyId)&&(identical(other.discordUserId, _this.discordUserId) || other.discordUserId == _this.discordUserId)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.outcome, _this.outcome) || other.outcome == _this.outcome)&&const DeepCollectionEquality().equals(other.params, _this.params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,at,action,actor,apiKeyId,discordUserId,source,outcome,const DeepCollectionEquality().hash(params));
+int get hashCode {
+  final _this = this as AuditEntry;
+  return Object.hash(runtimeType,_this.id,_this.at,_this.action,_this.actor,_this.apiKeyId,_this.discordUserId,_this.source,_this.outcome,const DeepCollectionEquality().hash(_this.params));
+}
 
 @override
 String toString() {
-  return 'AuditEntry(id: $id, at: $at, action: $action, actor: $actor, apiKeyId: $apiKeyId, discordUserId: $discordUserId, source: $source, outcome: $outcome, params: $params)';
+  final _this = this as AuditEntry;
+  return 'AuditEntry(id: ${_this.id}, at: ${_this.at}, action: ${_this.action}, actor: ${_this.actor}, apiKeyId: ${_this.apiKeyId}, discordUserId: ${_this.discordUserId}, source: ${_this.source}, outcome: ${_this.outcome}, params: ${_this.params})';
 }
 
 
@@ -71,7 +77,7 @@ class _$AuditEntryCopyWithImpl<$Res>
 /// Create a copy of AuditEntry
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? at = null,Object? action = null,Object? actor = null,Object? apiKeyId = freezed,Object? discordUserId = freezed,Object? source = null,Object? outcome = null,Object? params = null,}) {
-  return _then(_self.copyWith(
+  return _then(AuditEntry(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
 as DateTime,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
@@ -222,7 +228,7 @@ return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.
 @JsonSerializable()
 
 class _AuditEntry implements AuditEntry {
-  const _AuditEntry({required this.id, required this.at, required this.action, required this.actor, this.apiKeyId, this.discordUserId, required this.source, required this.outcome, final  Map<String, Object?> params = const {}}): _params = params;
+  const _AuditEntry({required this.id, required this.at, required this.action, required this.actor, this.apiKeyId, this.discordUserId, required this.source, required this.outcome,  Map<String, Object?> params = const {}}): _params = params;
   factory _AuditEntry.fromJson(Map<String, dynamic> json) => _$AuditEntryFromJson(json);
 
 /// The call's correlation id, which the server log's lines for the same
@@ -259,16 +265,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.apiKeyId, apiKeyId) || other.apiKeyId == apiKeyId)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.source, source) || other.source == source)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&const DeepCollectionEquality().equals(other._params, _params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.apiKeyId, apiKeyId) || other.apiKeyId == apiKeyId)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.source, source) || other.source == source)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&const DeepCollectionEquality().equals(other.params, _params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,at,action,actor,apiKeyId,discordUserId,source,outcome,const DeepCollectionEquality().hash(_params));
+int get hashCode {
+    return Object.hash(runtimeType,id,at,action,actor,apiKeyId,discordUserId,source,outcome,const DeepCollectionEquality().hash(_params));
+}
 
 @override
 String toString() {
-  return 'AuditEntry(id: $id, at: $at, action: $action, actor: $actor, apiKeyId: $apiKeyId, discordUserId: $discordUserId, source: $source, outcome: $outcome, params: $params)';
+    return 'AuditEntry(id: $id, at: $at, action: $action, actor: $actor, apiKeyId: $apiKeyId, discordUserId: $discordUserId, source: $source, outcome: $outcome, params: $params)';
 }
 
 
@@ -333,16 +341,21 @@ $AuditListCopyWith<AuditList> get copyWith => _$AuditListCopyWithImpl<AuditList>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditList&&const DeepCollectionEquality().equals(other.entries, entries)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+  final _this = this as AuditList;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditList&&const DeepCollectionEquality().equals(other.entries, _this.entries)&&(identical(other.nextCursor, _this.nextCursor) || other.nextCursor == _this.nextCursor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(entries),nextCursor);
+int get hashCode {
+  final _this = this as AuditList;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.entries),_this.nextCursor);
+}
 
 @override
 String toString() {
-  return 'AuditList(entries: $entries, nextCursor: $nextCursor)';
+  final _this = this as AuditList;
+  return 'AuditList(entries: ${_this.entries}, nextCursor: ${_this.nextCursor})';
 }
 
 
@@ -371,7 +384,7 @@ class _$AuditListCopyWithImpl<$Res>
 /// Create a copy of AuditList
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? entries = null,Object? nextCursor = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AuditList(
 entries: null == entries ? _self.entries : entries // ignore: cast_nullable_to_non_nullable
 as List<AuditEntry>,nextCursor: freezed == nextCursor ? _self.nextCursor : nextCursor // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -515,7 +528,7 @@ return $default(_that.entries,_that.nextCursor);case _:
 @JsonSerializable()
 
 class _AuditList implements AuditList {
-  const _AuditList({final  List<AuditEntry> entries = const [], this.nextCursor}): _entries = entries;
+  const _AuditList({ List<AuditEntry> entries = const [], this.nextCursor}): _entries = entries;
   factory _AuditList.fromJson(Map<String, dynamic> json) => _$AuditListFromJson(json);
 
  final  List<AuditEntry> _entries;
@@ -542,16 +555,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditList&&const DeepCollectionEquality().equals(other._entries, _entries)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditList&&const DeepCollectionEquality().equals(other.entries, _entries)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_entries),nextCursor);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_entries),nextCursor);
+}
 
 @override
 String toString() {
-  return 'AuditList(entries: $entries, nextCursor: $nextCursor)';
+    return 'AuditList(entries: $entries, nextCursor: $nextCursor)';
 }
 
 

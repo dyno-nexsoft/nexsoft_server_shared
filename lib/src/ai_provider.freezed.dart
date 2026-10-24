@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ai_provider.dart';
@@ -9,6 +9,7 @@ part of 'ai_provider.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -33,16 +34,21 @@ $AiProviderSetParamsCopyWith<AiProviderSetParams> get copyWith => _$AiProviderSe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderSetParams&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
+  final _this = this as AiProviderSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderSetParams&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.failover, _this.failover) || other.failover == _this.failover)&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.groqFlash, _this.groqFlash) || other.groqFlash == _this.groqFlash)&&(identical(other.groqPro, _this.groqPro) || other.groqPro == _this.groqPro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,provider,failover,geminiFlash,geminiPro,groqFlash,groqPro);
+int get hashCode {
+  final _this = this as AiProviderSetParams;
+  return Object.hash(runtimeType,_this.provider,_this.failover,_this.geminiFlash,_this.geminiPro,_this.groqFlash,_this.groqPro);
+}
 
 @override
 String toString() {
-  return 'AiProviderSetParams(provider: $provider, failover: $failover, geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
+  final _this = this as AiProviderSetParams;
+  return 'AiProviderSetParams(provider: ${_this.provider}, failover: ${_this.failover}, geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, groqFlash: ${_this.groqFlash}, groqPro: ${_this.groqPro})';
 }
 
 
@@ -71,7 +77,7 @@ class _$AiProviderSetParamsCopyWithImpl<$Res>
 /// Create a copy of AiProviderSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? provider = null,Object? failover = freezed,Object? geminiFlash = freezed,Object? geminiPro = freezed,Object? groqFlash = freezed,Object? groqPro = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(AiProviderSetParams(
 provider: null == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String,failover: freezed == failover ? _self.failover : failover // ignore: cast_nullable_to_non_nullable
 as bool?,geminiFlash: freezed == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
@@ -247,16 +253,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderSetParams&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderSetParams&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,provider,failover,geminiFlash,geminiPro,groqFlash,groqPro);
+int get hashCode {
+    return Object.hash(runtimeType,provider,failover,geminiFlash,geminiPro,groqFlash,groqPro);
+}
 
 @override
 String toString() {
-  return 'AiProviderSetParams(provider: $provider, failover: $failover, geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
+    return 'AiProviderSetParams(provider: $provider, failover: $failover, geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
 }
 
 
@@ -320,16 +328,21 @@ $AiProviderInfoCopyWith<AiProviderInfo> get copyWith => _$AiProviderInfoCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderInfo&&(identical(other.provider, provider) || other.provider == provider)&&const DeepCollectionEquality().equals(other.available, available)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.models, models) || other.models == models));
+  final _this = this as AiProviderInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderInfo&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&const DeepCollectionEquality().equals(other.available, _this.available)&&(identical(other.failover, _this.failover) || other.failover == _this.failover)&&(identical(other.models, _this.models) || other.models == _this.models));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,provider,const DeepCollectionEquality().hash(available),failover,models);
+int get hashCode {
+  final _this = this as AiProviderInfo;
+  return Object.hash(runtimeType,_this.provider,const DeepCollectionEquality().hash(_this.available),_this.failover,_this.models);
+}
 
 @override
 String toString() {
-  return 'AiProviderInfo(provider: $provider, available: $available, failover: $failover, models: $models)';
+  final _this = this as AiProviderInfo;
+  return 'AiProviderInfo(provider: ${_this.provider}, available: ${_this.available}, failover: ${_this.failover}, models: ${_this.models})';
 }
 
 
@@ -358,7 +371,7 @@ class _$AiProviderInfoCopyWithImpl<$Res>
 /// Create a copy of AiProviderInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? provider = null,Object? available = null,Object? failover = null,Object? models = null,}) {
-  return _then(_self.copyWith(
+  return _then(AiProviderInfo(
 provider: null == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String,available: null == available ? _self.available : available // ignore: cast_nullable_to_non_nullable
 as List<String>,failover: null == failover ? _self.failover : failover // ignore: cast_nullable_to_non_nullable
@@ -513,7 +526,7 @@ return $default(_that.provider,_that.available,_that.failover,_that.models);case
 @JsonSerializable()
 
 class _AiProviderInfo implements AiProviderInfo {
-  const _AiProviderInfo({required this.provider, final  List<String> available = const <String>[], this.failover = true, this.models = const AiModelIds()}): _available = available;
+  const _AiProviderInfo({required this.provider,  List<String> available = const <String>[], this.failover = true, this.models = const AiModelIds()}): _available = available;
   factory _AiProviderInfo.fromJson(Map<String, dynamic> json) => _$AiProviderInfoFromJson(json);
 
 @override final  String provider;
@@ -546,16 +559,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderInfo&&(identical(other.provider, provider) || other.provider == provider)&&const DeepCollectionEquality().equals(other._available, _available)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.models, models) || other.models == models));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderInfo&&(identical(other.provider, provider) || other.provider == provider)&&const DeepCollectionEquality().equals(other.available, _available)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.models, models) || other.models == models));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,provider,const DeepCollectionEquality().hash(_available),failover,models);
+int get hashCode {
+    return Object.hash(runtimeType,provider,const DeepCollectionEquality().hash(_available),failover,models);
+}
 
 @override
 String toString() {
-  return 'AiProviderInfo(provider: $provider, available: $available, failover: $failover, models: $models)';
+    return 'AiProviderInfo(provider: $provider, available: $available, failover: $failover, models: $models)';
 }
 
 

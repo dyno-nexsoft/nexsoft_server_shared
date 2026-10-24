@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'server_setting.dart';
@@ -9,6 +9,7 @@ part of 'server_setting.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -32,16 +33,21 @@ $ServerSettingInfoCopyWith<ServerSettingInfo> get copyWith => _$ServerSettingInf
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart));
+  final _this = this as ServerSettingInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingInfo&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.value, _this.value) || other.value == _this.value)&&(identical(other.pendingRestart, _this.pendingRestart) || other.pendingRestart == _this.pendingRestart));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value,pendingRestart);
+int get hashCode {
+  final _this = this as ServerSettingInfo;
+  return Object.hash(runtimeType,_this.name,_this.value,_this.pendingRestart);
+}
 
 @override
 String toString() {
-  return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
+  final _this = this as ServerSettingInfo;
+  return 'ServerSettingInfo(name: ${_this.name}, value: ${_this.value}, pendingRestart: ${_this.pendingRestart})';
 }
 
 
@@ -70,7 +76,7 @@ class _$ServerSettingInfoCopyWithImpl<$Res>
 /// Create a copy of ServerSettingInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = freezed,Object? pendingRestart = null,}) {
-  return _then(_self.copyWith(
+  return _then(ServerSettingInfo(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String?,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
@@ -239,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value,pendingRestart);
+int get hashCode {
+    return Object.hash(runtimeType,name,value,pendingRestart);
+}
 
 @override
 String toString() {
-  return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
+    return 'ServerSettingInfo(name: $name, value: $value, pendingRestart: $pendingRestart)';
 }
 
 
@@ -307,16 +315,21 @@ $ServerSettingsInfoCopyWith<ServerSettingsInfo> get copyWith => _$ServerSettings
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingsInfo&&const DeepCollectionEquality().equals(other.settings, settings)&&(identical(other.isPrimaryOwner, isPrimaryOwner) || other.isPrimaryOwner == isPrimaryOwner));
+  final _this = this as ServerSettingsInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerSettingsInfo&&const DeepCollectionEquality().equals(other.settings, _this.settings)&&(identical(other.isPrimaryOwner, _this.isPrimaryOwner) || other.isPrimaryOwner == _this.isPrimaryOwner));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(settings),isPrimaryOwner);
+int get hashCode {
+  final _this = this as ServerSettingsInfo;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.settings),_this.isPrimaryOwner);
+}
 
 @override
 String toString() {
-  return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
+  final _this = this as ServerSettingsInfo;
+  return 'ServerSettingsInfo(settings: ${_this.settings}, isPrimaryOwner: ${_this.isPrimaryOwner})';
 }
 
 
@@ -345,7 +358,7 @@ class _$ServerSettingsInfoCopyWithImpl<$Res>
 /// Create a copy of ServerSettingsInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? settings = null,Object? isPrimaryOwner = null,}) {
-  return _then(_self.copyWith(
+  return _then(ServerSettingsInfo(
 settings: null == settings ? _self.settings : settings // ignore: cast_nullable_to_non_nullable
 as List<ServerSettingInfo>,isPrimaryOwner: null == isPrimaryOwner ? _self.isPrimaryOwner : isPrimaryOwner // ignore: cast_nullable_to_non_nullable
 as bool,
@@ -489,7 +502,7 @@ return $default(_that.settings,_that.isPrimaryOwner);case _:
 @JsonSerializable()
 
 class _ServerSettingsInfo implements ServerSettingsInfo {
-  const _ServerSettingsInfo({final  List<ServerSettingInfo> settings = const [], this.isPrimaryOwner = false}): _settings = settings;
+  const _ServerSettingsInfo({ List<ServerSettingInfo> settings = const [], this.isPrimaryOwner = false}): _settings = settings;
   factory _ServerSettingsInfo.fromJson(Map<String, dynamic> json) => _$ServerSettingsInfoFromJson(json);
 
  final  List<ServerSettingInfo> _settings;
@@ -516,16 +529,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingsInfo&&const DeepCollectionEquality().equals(other._settings, _settings)&&(identical(other.isPrimaryOwner, isPrimaryOwner) || other.isPrimaryOwner == isPrimaryOwner));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerSettingsInfo&&const DeepCollectionEquality().equals(other.settings, _settings)&&(identical(other.isPrimaryOwner, isPrimaryOwner) || other.isPrimaryOwner == isPrimaryOwner));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_settings),isPrimaryOwner);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_settings),isPrimaryOwner);
+}
 
 @override
 String toString() {
-  return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
+    return 'ServerSettingsInfo(settings: $settings, isPrimaryOwner: $isPrimaryOwner)';
 }
 
 
@@ -581,16 +596,21 @@ $SettingSetParamsCopyWith<SettingSetParams> get copyWith => _$SettingSetParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+  final _this = this as SettingSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SettingSetParams&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.value, _this.value) || other.value == _this.value));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value);
+int get hashCode {
+  final _this = this as SettingSetParams;
+  return Object.hash(runtimeType,_this.name,_this.value);
+}
 
 @override
 String toString() {
-  return 'SettingSetParams(name: $name, value: $value)';
+  final _this = this as SettingSetParams;
+  return 'SettingSetParams(name: ${_this.name}, value: ${_this.value})';
 }
 
 
@@ -619,7 +639,7 @@ class _$SettingSetParamsCopyWithImpl<$Res>
 /// Create a copy of SettingSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? value = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SettingSetParams(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,value: freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -782,16 +802,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SettingSetParams&&(identical(other.name, name) || other.name == name)&&(identical(other.value, value) || other.value == value));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,value);
+int get hashCode {
+    return Object.hash(runtimeType,name,value);
+}
 
 @override
 String toString() {
-  return 'SettingSetParams(name: $name, value: $value)';
+    return 'SettingSetParams(name: $name, value: $value)';
 }
 
 

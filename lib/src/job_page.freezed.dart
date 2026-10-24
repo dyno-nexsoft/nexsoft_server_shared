@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_page.dart';
@@ -9,6 +9,7 @@ part of 'job_page.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $JobPageCopyWith<JobPage> get copyWith => _$JobPageCopyWithImpl<JobPage>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPage&&const DeepCollectionEquality().equals(other.jobs, jobs)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+  final _this = this as JobPage;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobPage&&const DeepCollectionEquality().equals(other.jobs, _this.jobs)&&(identical(other.nextCursor, _this.nextCursor) || other.nextCursor == _this.nextCursor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(jobs),nextCursor);
+int get hashCode {
+  final _this = this as JobPage;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.jobs),_this.nextCursor);
+}
 
 @override
 String toString() {
-  return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
+  final _this = this as JobPage;
+  return 'JobPage(jobs: ${_this.jobs}, nextCursor: ${_this.nextCursor})';
 }
 
 
@@ -66,7 +72,7 @@ class _$JobPageCopyWithImpl<$Res>
 /// Create a copy of JobPage
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? jobs = null,Object? nextCursor = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(JobPage(
 jobs: null == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
 as List<Job>,nextCursor: freezed == nextCursor ? _self.nextCursor : nextCursor // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -210,7 +216,7 @@ return $default(_that.jobs,_that.nextCursor);case _:
 @JsonSerializable()
 
 class _JobPage implements JobPage {
-  const _JobPage({final  List<Job> jobs = const [], this.nextCursor}): _jobs = jobs;
+  const _JobPage({ List<Job> jobs = const [], this.nextCursor}): _jobs = jobs;
   factory _JobPage.fromJson(Map<String, dynamic> json) => _$JobPageFromJson(json);
 
  final  List<Job> _jobs;
@@ -235,16 +241,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobPage&&const DeepCollectionEquality().equals(other._jobs, _jobs)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobPage&&const DeepCollectionEquality().equals(other.jobs, _jobs)&&(identical(other.nextCursor, nextCursor) || other.nextCursor == nextCursor));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_jobs),nextCursor);
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_jobs),nextCursor);
+}
 
 @override
 String toString() {
-  return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
+    return 'JobPage(jobs: $jobs, nextCursor: $nextCursor)';
 }
 
 

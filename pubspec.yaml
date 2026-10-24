@@ -15,9 +15,9 @@ dependencies:
   json_annotation: ^4.12.0
 
 dev_dependencies:
-  # The newest that run on Dart 3.12, as in nexsoft_server's own pubspec:
-  # freezed 3.2.5 stops at analyzer <11, and the rest are held to match.
-  build_runner: ">=2.13.1 <2.15.0"
-  freezed: 3.2.5
-  json_serializable: ">=6.15.2 <6.16.0"
+  # Generating needs Dart 3.13 (freezed 4); what they generate still
+  # compiles on the 3.12 this package declares for its users.
+  build_runner: ^2.17.1
+  freezed: ^4.0.3
+  json_serializable: ^6.15.2
   lints: ^6.1.0

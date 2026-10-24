@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'work_calendar.dart';
@@ -9,6 +9,7 @@ part of 'work_calendar.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $WorkHoursCopyWith<WorkHours> get copyWith => _$WorkHoursCopyWithImpl<WorkHours>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkHours&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end)&&(identical(other.lunchStart, lunchStart) || other.lunchStart == lunchStart)&&(identical(other.lunchEnd, lunchEnd) || other.lunchEnd == lunchEnd));
+  final _this = this as WorkHours;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkHours&&(identical(other.start, _this.start) || other.start == _this.start)&&(identical(other.end, _this.end) || other.end == _this.end)&&(identical(other.lunchStart, _this.lunchStart) || other.lunchStart == _this.lunchStart)&&(identical(other.lunchEnd, _this.lunchEnd) || other.lunchEnd == _this.lunchEnd));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,start,end,lunchStart,lunchEnd);
+int get hashCode {
+  final _this = this as WorkHours;
+  return Object.hash(runtimeType,_this.start,_this.end,_this.lunchStart,_this.lunchEnd);
+}
 
 @override
 String toString() {
-  return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
+  final _this = this as WorkHours;
+  return 'WorkHours(start: ${_this.start}, end: ${_this.end}, lunchStart: ${_this.lunchStart}, lunchEnd: ${_this.lunchEnd})';
 }
 
 
@@ -66,7 +72,7 @@ class _$WorkHoursCopyWithImpl<$Res>
 /// Create a copy of WorkHours
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? start = null,Object? end = null,Object? lunchStart = freezed,Object? lunchEnd = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(WorkHours(
 start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
 as String,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
 as String,lunchStart: freezed == lunchStart ? _self.lunchStart : lunchStart // ignore: cast_nullable_to_non_nullable
@@ -233,16 +239,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkHours&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end)&&(identical(other.lunchStart, lunchStart) || other.lunchStart == lunchStart)&&(identical(other.lunchEnd, lunchEnd) || other.lunchEnd == lunchEnd));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkHours&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end)&&(identical(other.lunchStart, lunchStart) || other.lunchStart == lunchStart)&&(identical(other.lunchEnd, lunchEnd) || other.lunchEnd == lunchEnd));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,start,end,lunchStart,lunchEnd);
+int get hashCode {
+    return Object.hash(runtimeType,start,end,lunchStart,lunchEnd);
+}
 
 @override
 String toString() {
-  return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
+    return 'WorkHours(start: $start, end: $end, lunchStart: $lunchStart, lunchEnd: $lunchEnd)';
 }
 
 
@@ -303,16 +311,21 @@ $WorkWeekdayCopyWith<WorkWeekday> get copyWith => _$WorkWeekdayCopyWithImpl<Work
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkWeekday&&(identical(other.weekday, weekday) || other.weekday == weekday)&&(identical(other.working, working) || other.working == working)&&(identical(other.hours, hours) || other.hours == hours));
+  final _this = this as WorkWeekday;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkWeekday&&(identical(other.weekday, _this.weekday) || other.weekday == _this.weekday)&&(identical(other.working, _this.working) || other.working == _this.working)&&(identical(other.hours, _this.hours) || other.hours == _this.hours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,weekday,working,hours);
+int get hashCode {
+  final _this = this as WorkWeekday;
+  return Object.hash(runtimeType,_this.weekday,_this.working,_this.hours);
+}
 
 @override
 String toString() {
-  return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
+  final _this = this as WorkWeekday;
+  return 'WorkWeekday(weekday: ${_this.weekday}, working: ${_this.working}, hours: ${_this.hours})';
 }
 
 
@@ -341,7 +354,7 @@ class _$WorkWeekdayCopyWithImpl<$Res>
 /// Create a copy of WorkWeekday
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? weekday = null,Object? working = null,Object? hours = null,}) {
-  return _then(_self.copyWith(
+  return _then(WorkWeekday(
 weekday: null == weekday ? _self.weekday : weekday // ignore: cast_nullable_to_non_nullable
 as int,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
 as bool,hours: null == hours ? _self.hours : hours // ignore: cast_nullable_to_non_nullable
@@ -518,16 +531,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkWeekday&&(identical(other.weekday, weekday) || other.weekday == weekday)&&(identical(other.working, working) || other.working == working)&&(identical(other.hours, hours) || other.hours == hours));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkWeekday&&(identical(other.weekday, weekday) || other.weekday == weekday)&&(identical(other.working, working) || other.working == working)&&(identical(other.hours, hours) || other.hours == hours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,weekday,working,hours);
+int get hashCode {
+    return Object.hash(runtimeType,weekday,working,hours);
+}
 
 @override
 String toString() {
-  return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
+    return 'WorkWeekday(weekday: $weekday, working: $working, hours: $hours)';
 }
 
 
@@ -599,16 +614,21 @@ $CalendarExceptionCopyWith<CalendarException> get copyWith => _$CalendarExceptio
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CalendarException&&(identical(other.date, date) || other.date == date)&&(identical(other.working, working) || other.working == working)&&(identical(other.note, note) || other.note == note)&&(identical(other.hours, hours) || other.hours == hours));
+  final _this = this as CalendarException;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CalendarException&&(identical(other.date, _this.date) || other.date == _this.date)&&(identical(other.working, _this.working) || other.working == _this.working)&&(identical(other.note, _this.note) || other.note == _this.note)&&(identical(other.hours, _this.hours) || other.hours == _this.hours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,working,note,hours);
+int get hashCode {
+  final _this = this as CalendarException;
+  return Object.hash(runtimeType,_this.date,_this.working,_this.note,_this.hours);
+}
 
 @override
 String toString() {
-  return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
+  final _this = this as CalendarException;
+  return 'CalendarException(date: ${_this.date}, working: ${_this.working}, note: ${_this.note}, hours: ${_this.hours})';
 }
 
 
@@ -637,7 +657,7 @@ class _$CalendarExceptionCopyWithImpl<$Res>
 /// Create a copy of CalendarException
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? working = null,Object? note = null,Object? hours = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CalendarException(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,working: null == working ? _self.working : working // ignore: cast_nullable_to_non_nullable
 as bool,note: null == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
@@ -822,16 +842,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CalendarException&&(identical(other.date, date) || other.date == date)&&(identical(other.working, working) || other.working == working)&&(identical(other.note, note) || other.note == note)&&(identical(other.hours, hours) || other.hours == hours));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CalendarException&&(identical(other.date, date) || other.date == date)&&(identical(other.working, working) || other.working == working)&&(identical(other.note, note) || other.note == note)&&(identical(other.hours, hours) || other.hours == hours));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,working,note,hours);
+int get hashCode {
+    return Object.hash(runtimeType,date,working,note,hours);
+}
 
 @override
 String toString() {
-  return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
+    return 'CalendarException(date: $date, working: $working, note: $note, hours: $hours)';
 }
 
 
@@ -901,16 +923,21 @@ $WorkCalendarCopyWith<WorkCalendar> get copyWith => _$WorkCalendarCopyWithImpl<W
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkCalendar&&const DeepCollectionEquality().equals(other.weekdays, weekdays)&&const DeepCollectionEquality().equals(other.exceptions, exceptions));
+  final _this = this as WorkCalendar;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WorkCalendar&&const DeepCollectionEquality().equals(other.weekdays, _this.weekdays)&&const DeepCollectionEquality().equals(other.exceptions, _this.exceptions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(weekdays),const DeepCollectionEquality().hash(exceptions));
+int get hashCode {
+  final _this = this as WorkCalendar;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.weekdays),const DeepCollectionEquality().hash(_this.exceptions));
+}
 
 @override
 String toString() {
-  return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
+  final _this = this as WorkCalendar;
+  return 'WorkCalendar(weekdays: ${_this.weekdays}, exceptions: ${_this.exceptions})';
 }
 
 
@@ -939,7 +966,7 @@ class _$WorkCalendarCopyWithImpl<$Res>
 /// Create a copy of WorkCalendar
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? weekdays = null,Object? exceptions = null,}) {
-  return _then(_self.copyWith(
+  return _then(WorkCalendar(
 weekdays: null == weekdays ? _self.weekdays : weekdays // ignore: cast_nullable_to_non_nullable
 as List<WorkWeekday>,exceptions: null == exceptions ? _self.exceptions : exceptions // ignore: cast_nullable_to_non_nullable
 as List<CalendarException>,
@@ -1083,7 +1110,7 @@ return $default(_that.weekdays,_that.exceptions);case _:
 @JsonSerializable()
 
 class _WorkCalendar extends WorkCalendar {
-  const _WorkCalendar({final  List<WorkWeekday> weekdays = const <WorkWeekday>[], final  List<CalendarException> exceptions = const <CalendarException>[]}): _weekdays = weekdays,_exceptions = exceptions,super._();
+  const _WorkCalendar({ List<WorkWeekday> weekdays = const <WorkWeekday>[],  List<CalendarException> exceptions = const <CalendarException>[]}): _weekdays = weekdays,_exceptions = exceptions,super._();
   factory _WorkCalendar.fromJson(Map<String, dynamic> json) => _$WorkCalendarFromJson(json);
 
  final  List<WorkWeekday> _weekdays;
@@ -1114,16 +1141,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkCalendar&&const DeepCollectionEquality().equals(other._weekdays, _weekdays)&&const DeepCollectionEquality().equals(other._exceptions, _exceptions));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _WorkCalendar&&const DeepCollectionEquality().equals(other.weekdays, _weekdays)&&const DeepCollectionEquality().equals(other.exceptions, _exceptions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_weekdays),const DeepCollectionEquality().hash(_exceptions));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_weekdays),const DeepCollectionEquality().hash(_exceptions));
+}
 
 @override
 String toString() {
-  return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
+    return 'WorkCalendar(weekdays: $weekdays, exceptions: $exceptions)';
 }
 
 

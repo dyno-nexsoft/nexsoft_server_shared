@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'secret_info.dart';
@@ -9,6 +9,7 @@ part of 'secret_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -40,16 +41,21 @@ $SecretInfoCopyWith<SecretInfo> get copyWith => _$SecretInfoCopyWithImpl<SecretI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
+  final _this = this as SecretInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretInfo&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.changedAt, _this.changedAt) || other.changedAt == _this.changedAt)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&(identical(other.needsRestart, _this.needsRestart) || other.needsRestart == _this.needsRestart)&&(identical(other.isList, _this.isList) || other.isList == _this.isList)&&(identical(other.pendingRestart, _this.pendingRestart) || other.pendingRestart == _this.pendingRestart)&&(identical(other.boundHost, _this.boundHost) || other.boundHost == _this.boundHost)&&(identical(other.needsReentry, _this.needsReentry) || other.needsReentry == _this.needsReentry));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,pendingRestart,boundHost,needsReentry);
+int get hashCode {
+  final _this = this as SecretInfo;
+  return Object.hash(runtimeType,_this.name,_this.description,_this.source,_this.changedAt,_this.isRequired,_this.needsRestart,_this.isList,_this.pendingRestart,_this.boundHost,_this.needsReentry);
+}
 
 @override
 String toString() {
-  return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
+  final _this = this as SecretInfo;
+  return 'SecretInfo(name: ${_this.name}, description: ${_this.description}, source: ${_this.source}, changedAt: ${_this.changedAt}, isRequired: ${_this.isRequired}, needsRestart: ${_this.needsRestart}, isList: ${_this.isList}, pendingRestart: ${_this.pendingRestart}, boundHost: ${_this.boundHost}, needsReentry: ${_this.needsReentry})';
 }
 
 
@@ -78,7 +84,7 @@ class _$SecretInfoCopyWithImpl<$Res>
 /// Create a copy of SecretInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
-  return _then(_self.copyWith(
+  return _then(SecretInfo(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
@@ -269,16 +275,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,pendingRestart,boundHost,needsReentry);
+int get hashCode {
+    return Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,pendingRestart,boundHost,needsReentry);
+}
 
 @override
 String toString() {
-  return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
+    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
 }
 
 
@@ -342,16 +350,21 @@ $SecretListCopyWith<SecretList> get copyWith => _$SecretListCopyWithImpl<SecretL
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretList&&const DeepCollectionEquality().equals(other.secrets, secrets));
+  final _this = this as SecretList;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretList&&const DeepCollectionEquality().equals(other.secrets, _this.secrets));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(secrets));
+int get hashCode {
+  final _this = this as SecretList;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.secrets));
+}
 
 @override
 String toString() {
-  return 'SecretList(secrets: $secrets)';
+  final _this = this as SecretList;
+  return 'SecretList(secrets: ${_this.secrets})';
 }
 
 
@@ -380,7 +393,7 @@ class _$SecretListCopyWithImpl<$Res>
 /// Create a copy of SecretList
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? secrets = null,}) {
-  return _then(_self.copyWith(
+  return _then(SecretList(
 secrets: null == secrets ? _self.secrets : secrets // ignore: cast_nullable_to_non_nullable
 as List<SecretInfo>,
   ));
@@ -523,7 +536,7 @@ return $default(_that.secrets);case _:
 @JsonSerializable()
 
 class _SecretList implements SecretList {
-  const _SecretList({final  List<SecretInfo> secrets = const []}): _secrets = secrets;
+  const _SecretList({ List<SecretInfo> secrets = const []}): _secrets = secrets;
   factory _SecretList.fromJson(Map<String, dynamic> json) => _$SecretListFromJson(json);
 
  final  List<SecretInfo> _secrets;
@@ -547,16 +560,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretList&&const DeepCollectionEquality().equals(other._secrets, _secrets));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretList&&const DeepCollectionEquality().equals(other.secrets, _secrets));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_secrets));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_secrets));
+}
 
 @override
 String toString() {
-  return 'SecretList(secrets: $secrets)';
+    return 'SecretList(secrets: $secrets)';
 }
 
 

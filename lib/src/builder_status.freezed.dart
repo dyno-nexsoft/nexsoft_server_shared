@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'builder_status.dart';
@@ -9,6 +9,7 @@ part of 'builder_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -35,16 +36,21 @@ $BuilderStatusCopyWith<BuilderStatus> get copyWith => _$BuilderStatusCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuilderStatus&&(identical(other.name, name) || other.name == name)&&(identical(other.online, online) || other.online == online)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.problem, problem) || other.problem == problem)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.paused, paused) || other.paused == paused));
+  final _this = this as BuilderStatus;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuilderStatus&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.online, _this.online) || other.online == _this.online)&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId)&&(identical(other.problem, _this.problem) || other.problem == _this.problem)&&const DeepCollectionEquality().equals(other.labels, _this.labels)&&(identical(other.paused, _this.paused) || other.paused == _this.paused));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,online,jobId,problem,const DeepCollectionEquality().hash(labels),paused);
+int get hashCode {
+  final _this = this as BuilderStatus;
+  return Object.hash(runtimeType,_this.name,_this.online,_this.jobId,_this.problem,const DeepCollectionEquality().hash(_this.labels),_this.paused);
+}
 
 @override
 String toString() {
-  return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
+  final _this = this as BuilderStatus;
+  return 'BuilderStatus(name: ${_this.name}, online: ${_this.online}, jobId: ${_this.jobId}, problem: ${_this.problem}, labels: ${_this.labels}, paused: ${_this.paused})';
 }
 
 
@@ -73,7 +79,7 @@ class _$BuilderStatusCopyWithImpl<$Res>
 /// Create a copy of BuilderStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? online = null,Object? jobId = freezed,Object? problem = freezed,Object? labels = null,Object? paused = null,}) {
-  return _then(_self.copyWith(
+  return _then(BuilderStatus(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,online: null == online ? _self.online : online // ignore: cast_nullable_to_non_nullable
 as bool,jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
@@ -221,7 +227,7 @@ return $default(_that.name,_that.online,_that.jobId,_that.problem,_that.labels,_
 @JsonSerializable()
 
 class _BuilderStatus implements BuilderStatus {
-  const _BuilderStatus({required this.name, required this.online, this.jobId, this.problem, final  List<String> labels = const [], this.paused = false}): _labels = labels;
+  const _BuilderStatus({required this.name, required this.online, this.jobId, this.problem,  List<String> labels = const [], this.paused = false}): _labels = labels;
   factory _BuilderStatus.fromJson(Map<String, dynamic> json) => _$BuilderStatusFromJson(json);
 
 /// The machine's host name, as the bot addresses it.
@@ -258,16 +264,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuilderStatus&&(identical(other.name, name) || other.name == name)&&(identical(other.online, online) || other.online == online)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.problem, problem) || other.problem == problem)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.paused, paused) || other.paused == paused));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuilderStatus&&(identical(other.name, name) || other.name == name)&&(identical(other.online, online) || other.online == online)&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.problem, problem) || other.problem == problem)&&const DeepCollectionEquality().equals(other.labels, _labels)&&(identical(other.paused, paused) || other.paused == paused));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,online,jobId,problem,const DeepCollectionEquality().hash(_labels),paused);
+int get hashCode {
+    return Object.hash(runtimeType,name,online,jobId,problem,const DeepCollectionEquality().hash(_labels),paused);
+}
 
 @override
 String toString() {
-  return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
+    return 'BuilderStatus(name: $name, online: $online, jobId: $jobId, problem: $problem, labels: $labels, paused: $paused)';
 }
 
 

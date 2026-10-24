@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ai_prompts.dart';
@@ -9,6 +9,7 @@ part of 'ai_prompts.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -32,16 +33,21 @@ $AiPromptsCopyWith<AiPrompts> get copyWith => _$AiPromptsCopyWithImpl<AiPrompts>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPrompts&&(identical(other.reviewIntro, reviewIntro) || other.reviewIntro == reviewIntro)&&(identical(other.reviewConventions, reviewConventions) || other.reviewConventions == reviewConventions)&&(identical(other.translatorIntro, translatorIntro) || other.translatorIntro == translatorIntro));
+  final _this = this as AiPrompts;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPrompts&&(identical(other.reviewIntro, _this.reviewIntro) || other.reviewIntro == _this.reviewIntro)&&(identical(other.reviewConventions, _this.reviewConventions) || other.reviewConventions == _this.reviewConventions)&&(identical(other.translatorIntro, _this.translatorIntro) || other.translatorIntro == _this.translatorIntro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,reviewIntro,reviewConventions,translatorIntro);
+int get hashCode {
+  final _this = this as AiPrompts;
+  return Object.hash(runtimeType,_this.reviewIntro,_this.reviewConventions,_this.translatorIntro);
+}
 
 @override
 String toString() {
-  return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
+  final _this = this as AiPrompts;
+  return 'AiPrompts(reviewIntro: ${_this.reviewIntro}, reviewConventions: ${_this.reviewConventions}, translatorIntro: ${_this.translatorIntro})';
 }
 
 
@@ -70,7 +76,7 @@ class _$AiPromptsCopyWithImpl<$Res>
 /// Create a copy of AiPrompts
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? reviewIntro = null,Object? reviewConventions = null,Object? translatorIntro = null,}) {
-  return _then(_self.copyWith(
+  return _then(AiPrompts(
 reviewIntro: null == reviewIntro ? _self.reviewIntro : reviewIntro // ignore: cast_nullable_to_non_nullable
 as String,reviewConventions: null == reviewConventions ? _self.reviewConventions : reviewConventions // ignore: cast_nullable_to_non_nullable
 as String,translatorIntro: null == translatorIntro ? _self.translatorIntro : translatorIntro // ignore: cast_nullable_to_non_nullable
@@ -239,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPrompts&&(identical(other.reviewIntro, reviewIntro) || other.reviewIntro == reviewIntro)&&(identical(other.reviewConventions, reviewConventions) || other.reviewConventions == reviewConventions)&&(identical(other.translatorIntro, translatorIntro) || other.translatorIntro == translatorIntro));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPrompts&&(identical(other.reviewIntro, reviewIntro) || other.reviewIntro == reviewIntro)&&(identical(other.reviewConventions, reviewConventions) || other.reviewConventions == reviewConventions)&&(identical(other.translatorIntro, translatorIntro) || other.translatorIntro == translatorIntro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,reviewIntro,reviewConventions,translatorIntro);
+int get hashCode {
+    return Object.hash(runtimeType,reviewIntro,reviewConventions,translatorIntro);
+}
 
 @override
 String toString() {
-  return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
+    return 'AiPrompts(reviewIntro: $reviewIntro, reviewConventions: $reviewConventions, translatorIntro: $translatorIntro)';
 }
 
 
@@ -305,16 +313,21 @@ $AiPromptsSetParamsCopyWith<AiPromptsSetParams> get copyWith => _$AiPromptsSetPa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsSetParams&&(identical(other.prompts, prompts) || other.prompts == prompts));
+  final _this = this as AiPromptsSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsSetParams&&(identical(other.prompts, _this.prompts) || other.prompts == _this.prompts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,prompts);
+int get hashCode {
+  final _this = this as AiPromptsSetParams;
+  return Object.hash(runtimeType,_this.prompts);
+}
 
 @override
 String toString() {
-  return 'AiPromptsSetParams(prompts: $prompts)';
+  final _this = this as AiPromptsSetParams;
+  return 'AiPromptsSetParams(prompts: ${_this.prompts})';
 }
 
 
@@ -343,7 +356,7 @@ class _$AiPromptsSetParamsCopyWithImpl<$Res>
 /// Create a copy of AiPromptsSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? prompts = null,}) {
-  return _then(_self.copyWith(
+  return _then(AiPromptsSetParams(
 prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
 as AiPrompts,
   ));
@@ -513,16 +526,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsSetParams&&(identical(other.prompts, prompts) || other.prompts == prompts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsSetParams&&(identical(other.prompts, prompts) || other.prompts == prompts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,prompts);
+int get hashCode {
+    return Object.hash(runtimeType,prompts);
+}
 
 @override
 String toString() {
-  return 'AiPromptsSetParams(prompts: $prompts)';
+    return 'AiPromptsSetParams(prompts: $prompts)';
 }
 
 
@@ -586,16 +601,21 @@ $AiPromptsInfoCopyWith<AiPromptsInfo> get copyWith => _$AiPromptsInfoCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsInfo&&(identical(other.prompts, prompts) || other.prompts == prompts)&&(identical(other.defaults, defaults) || other.defaults == defaults));
+  final _this = this as AiPromptsInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiPromptsInfo&&(identical(other.prompts, _this.prompts) || other.prompts == _this.prompts)&&(identical(other.defaults, _this.defaults) || other.defaults == _this.defaults));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,prompts,defaults);
+int get hashCode {
+  final _this = this as AiPromptsInfo;
+  return Object.hash(runtimeType,_this.prompts,_this.defaults);
+}
 
 @override
 String toString() {
-  return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
+  final _this = this as AiPromptsInfo;
+  return 'AiPromptsInfo(prompts: ${_this.prompts}, defaults: ${_this.defaults})';
 }
 
 
@@ -624,7 +644,7 @@ class _$AiPromptsInfoCopyWithImpl<$Res>
 /// Create a copy of AiPromptsInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? prompts = null,Object? defaults = null,}) {
-  return _then(_self.copyWith(
+  return _then(AiPromptsInfo(
 prompts: null == prompts ? _self.prompts : prompts // ignore: cast_nullable_to_non_nullable
 as AiPrompts,defaults: null == defaults ? _self.defaults : defaults // ignore: cast_nullable_to_non_nullable
 as AiPrompts,
@@ -805,16 +825,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsInfo&&(identical(other.prompts, prompts) || other.prompts == prompts)&&(identical(other.defaults, defaults) || other.defaults == defaults));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiPromptsInfo&&(identical(other.prompts, prompts) || other.prompts == prompts)&&(identical(other.defaults, defaults) || other.defaults == defaults));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,prompts,defaults);
+int get hashCode {
+    return Object.hash(runtimeType,prompts,defaults);
+}
 
 @override
 String toString() {
-  return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
+    return 'AiPromptsInfo(prompts: $prompts, defaults: $defaults)';
 }
 
 

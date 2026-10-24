@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'gitlab_params.dart';
@@ -9,6 +9,7 @@ part of 'gitlab_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $GitlabReviewParamsCopyWith<GitlabReviewParams> get copyWith => _$GitlabReviewPa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitlabReviewParams&&(identical(other.url, url) || other.url == url)&&(identical(other.model, model) || other.model == model));
+  final _this = this as GitlabReviewParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitlabReviewParams&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.model, _this.model) || other.model == _this.model));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,model);
+int get hashCode {
+  final _this = this as GitlabReviewParams;
+  return Object.hash(runtimeType,_this.url,_this.model);
+}
 
 @override
 String toString() {
-  return 'GitlabReviewParams(url: $url, model: $model)';
+  final _this = this as GitlabReviewParams;
+  return 'GitlabReviewParams(url: ${_this.url}, model: ${_this.model})';
 }
 
 
@@ -66,7 +72,7 @@ class _$GitlabReviewParamsCopyWithImpl<$Res>
 /// Create a copy of GitlabReviewParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? model = null,}) {
-  return _then(_self.copyWith(
+  return _then(GitlabReviewParams(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as GitLabMrUrl,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as AiModel,
@@ -238,16 +244,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitlabReviewParams&&(identical(other.url, url) || other.url == url)&&(identical(other.model, model) || other.model == model));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitlabReviewParams&&(identical(other.url, url) || other.url == url)&&(identical(other.model, model) || other.model == model));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,model);
+int get hashCode {
+    return Object.hash(runtimeType,url,model);
+}
 
 @override
 String toString() {
-  return 'GitlabReviewParams(url: $url, model: $model)';
+    return 'GitlabReviewParams(url: $url, model: $model)';
 }
 
 
@@ -313,16 +321,21 @@ $GitlabTranslateArbParamsCopyWith<GitlabTranslateArbParams> get copyWith => _$Gi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitlabTranslateArbParams&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.model, model) || other.model == model));
+  final _this = this as GitlabTranslateArbParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitlabTranslateArbParams&&(identical(other.module, _this.module) || other.module == _this.module)&&(identical(other.targetBranch, _this.targetBranch) || other.targetBranch == _this.targetBranch)&&(identical(other.model, _this.model) || other.model == _this.model));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,module,targetBranch,model);
+int get hashCode {
+  final _this = this as GitlabTranslateArbParams;
+  return Object.hash(runtimeType,_this.module,_this.targetBranch,_this.model);
+}
 
 @override
 String toString() {
-  return 'GitlabTranslateArbParams(module: $module, targetBranch: $targetBranch, model: $model)';
+  final _this = this as GitlabTranslateArbParams;
+  return 'GitlabTranslateArbParams(module: ${_this.module}, targetBranch: ${_this.targetBranch}, model: ${_this.model})';
 }
 
 
@@ -351,7 +364,7 @@ class _$GitlabTranslateArbParamsCopyWithImpl<$Res>
 /// Create a copy of GitlabTranslateArbParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? module = null,Object? targetBranch = null,Object? model = null,}) {
-  return _then(_self.copyWith(
+  return _then(GitlabTranslateArbParams(
 module: null == module ? _self.module : module // ignore: cast_nullable_to_non_nullable
 as TbchatModule,targetBranch: null == targetBranch ? _self.targetBranch : targetBranch // ignore: cast_nullable_to_non_nullable
 as String,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
@@ -517,16 +530,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitlabTranslateArbParams&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.model, model) || other.model == model));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitlabTranslateArbParams&&(identical(other.module, module) || other.module == module)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.model, model) || other.model == model));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,module,targetBranch,model);
+int get hashCode {
+    return Object.hash(runtimeType,module,targetBranch,model);
+}
 
 @override
 String toString() {
-  return 'GitlabTranslateArbParams(module: $module, targetBranch: $targetBranch, model: $model)';
+    return 'GitlabTranslateArbParams(module: $module, targetBranch: $targetBranch, model: $model)';
 }
 
 
@@ -584,16 +599,21 @@ $HistoryListParamsCopyWith<HistoryListParams> get copyWith => _$HistoryListParam
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoryListParams&&(identical(other.limit, limit) || other.limit == limit));
+  final _this = this as HistoryListParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoryListParams&&(identical(other.limit, _this.limit) || other.limit == _this.limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limit);
+int get hashCode {
+  final _this = this as HistoryListParams;
+  return Object.hash(runtimeType,_this.limit);
+}
 
 @override
 String toString() {
-  return 'HistoryListParams(limit: $limit)';
+  final _this = this as HistoryListParams;
+  return 'HistoryListParams(limit: ${_this.limit})';
 }
 
 
@@ -622,7 +642,7 @@ class _$HistoryListParamsCopyWithImpl<$Res>
 /// Create a copy of HistoryListParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? limit = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(HistoryListParams(
 limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
@@ -784,16 +804,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoryListParams&&(identical(other.limit, limit) || other.limit == limit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoryListParams&&(identical(other.limit, limit) || other.limit == limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,limit);
+int get hashCode {
+    return Object.hash(runtimeType,limit);
+}
 
 @override
 String toString() {
-  return 'HistoryListParams(limit: $limit)';
+    return 'HistoryListParams(limit: $limit)';
 }
 
 
@@ -848,16 +870,21 @@ $HistoryDeleteParamsCopyWith<HistoryDeleteParams> get copyWith => _$HistoryDelet
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoryDeleteParams&&(identical(other.id, id) || other.id == id));
+  final _this = this as HistoryDeleteParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HistoryDeleteParams&&(identical(other.id, _this.id) || other.id == _this.id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode {
+  final _this = this as HistoryDeleteParams;
+  return Object.hash(runtimeType,_this.id);
+}
 
 @override
 String toString() {
-  return 'HistoryDeleteParams(id: $id)';
+  final _this = this as HistoryDeleteParams;
+  return 'HistoryDeleteParams(id: ${_this.id})';
 }
 
 
@@ -886,7 +913,7 @@ class _$HistoryDeleteParamsCopyWithImpl<$Res>
 /// Create a copy of HistoryDeleteParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,}) {
-  return _then(_self.copyWith(
+  return _then(HistoryDeleteParams(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -1047,16 +1074,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoryDeleteParams&&(identical(other.id, id) || other.id == id));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _HistoryDeleteParams&&(identical(other.id, id) || other.id == id));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id);
+int get hashCode {
+    return Object.hash(runtimeType,id);
+}
 
 @override
 String toString() {
-  return 'HistoryDeleteParams(id: $id)';
+    return 'HistoryDeleteParams(id: $id)';
 }
 
 

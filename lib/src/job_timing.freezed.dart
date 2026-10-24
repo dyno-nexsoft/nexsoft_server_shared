@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_timing.dart';
@@ -9,6 +9,7 @@ part of 'job_timing.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -31,16 +32,21 @@ $JobTimingCopyWith<JobTiming> get copyWith => _$JobTimingCopyWithImpl<JobTiming>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time));
+  final _this = this as JobTiming;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobTiming&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.offsetMinutes, _this.offsetMinutes) || other.offsetMinutes == _this.offsetMinutes)&&(identical(other.time, _this.time) || other.time == _this.time));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,anchor,offsetMinutes,time);
+int get hashCode {
+  final _this = this as JobTiming;
+  return Object.hash(runtimeType,_this.anchor,_this.offsetMinutes,_this.time);
+}
 
 @override
 String toString() {
-  return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
+  final _this = this as JobTiming;
+  return 'JobTiming(anchor: ${_this.anchor}, offsetMinutes: ${_this.offsetMinutes}, time: ${_this.time})';
 }
 
 
@@ -69,7 +75,7 @@ class _$JobTimingCopyWithImpl<$Res>
 /// Create a copy of JobTiming
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(JobTiming(
 anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as TimeAnchor?,offsetMinutes: null == offsetMinutes ? _self.offsetMinutes : offsetMinutes // ignore: cast_nullable_to_non_nullable
 as int,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
@@ -237,16 +243,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,anchor,offsetMinutes,time);
+int get hashCode {
+    return Object.hash(runtimeType,anchor,offsetMinutes,time);
+}
 
 @override
 String toString() {
-  return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
+    return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time)';
 }
 
 

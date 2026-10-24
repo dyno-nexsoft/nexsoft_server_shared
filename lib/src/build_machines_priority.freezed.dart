@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'build_machines_priority.dart';
@@ -9,6 +9,7 @@ part of 'build_machines_priority.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -30,16 +31,21 @@ $BuildMachinesPriorityCopyWith<BuildMachinesPriority> get copyWith => _$BuildMac
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, order)&&const DeepCollectionEquality().equals(other.paused, paused));
+  final _this = this as BuildMachinesPriority;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _this.order)&&const DeepCollectionEquality().equals(other.paused, _this.paused));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(order),const DeepCollectionEquality().hash(paused));
+int get hashCode {
+  final _this = this as BuildMachinesPriority;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.order),const DeepCollectionEquality().hash(_this.paused));
+}
 
 @override
 String toString() {
-  return 'BuildMachinesPriority(order: $order, paused: $paused)';
+  final _this = this as BuildMachinesPriority;
+  return 'BuildMachinesPriority(order: ${_this.order}, paused: ${_this.paused})';
 }
 
 
@@ -68,7 +74,7 @@ class _$BuildMachinesPriorityCopyWithImpl<$Res>
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? order = null,Object? paused = null,}) {
-  return _then(_self.copyWith(
+  return _then(BuildMachinesPriority(
 order: null == order ? _self.order : order // ignore: cast_nullable_to_non_nullable
 as List<String>,paused: null == paused ? _self.paused : paused // ignore: cast_nullable_to_non_nullable
 as List<String>,
@@ -212,7 +218,7 @@ return $default(_that.order,_that.paused);case _:
 @JsonSerializable()
 
 class _BuildMachinesPriority implements BuildMachinesPriority {
-  const _BuildMachinesPriority({required final  List<String> order, final  List<String> paused = const []}): _order = order,_paused = paused;
+  const _BuildMachinesPriority({required  List<String> order,  List<String> paused = const []}): _order = order,_paused = paused;
   factory _BuildMachinesPriority.fromJson(Map<String, dynamic> json) => _$BuildMachinesPriorityFromJson(json);
 
 /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
@@ -247,16 +253,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildMachinesPriority&&const DeepCollectionEquality().equals(other._order, _order)&&const DeepCollectionEquality().equals(other._paused, _paused));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _order)&&const DeepCollectionEquality().equals(other.paused, _paused));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_order),const DeepCollectionEquality().hash(_paused));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_order),const DeepCollectionEquality().hash(_paused));
+}
 
 @override
 String toString() {
-  return 'BuildMachinesPriority(order: $order, paused: $paused)';
+    return 'BuildMachinesPriority(order: $order, paused: $paused)';
 }
 
 

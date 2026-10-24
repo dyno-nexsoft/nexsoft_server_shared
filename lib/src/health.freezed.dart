@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'health.dart';
@@ -9,6 +9,7 @@ part of 'health.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -49,16 +50,21 @@ $HealthCopyWith<Health> get copyWith => _$HealthCopyWithImpl<Health>(this as Hea
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Health&&(identical(other.ok, ok) || other.ok == ok)&&(identical(other.version, version) || other.version == version)&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.devToolsUrl, devToolsUrl) || other.devToolsUrl == devToolsUrl)&&(identical(other.discordLoginEnabled, discordLoginEnabled) || other.discordLoginEnabled == discordLoginEnabled));
+  final _this = this as Health;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Health&&(identical(other.ok, _this.ok) || other.ok == _this.ok)&&(identical(other.version, _this.version) || other.version == _this.version)&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&(identical(other.devToolsUrl, _this.devToolsUrl) || other.devToolsUrl == _this.devToolsUrl)&&(identical(other.discordLoginEnabled, _this.discordLoginEnabled) || other.discordLoginEnabled == _this.discordLoginEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,ok,version,appVersion,uptimeSeconds,hostname,remoteDesktopUrl,devToolsUrl,discordLoginEnabled);
+int get hashCode {
+  final _this = this as Health;
+  return Object.hash(runtimeType,_this.ok,_this.version,_this.appVersion,_this.uptimeSeconds,_this.hostname,_this.remoteDesktopUrl,_this.devToolsUrl,_this.discordLoginEnabled);
+}
 
 @override
 String toString() {
-  return 'Health(ok: $ok, version: $version, appVersion: $appVersion, uptimeSeconds: $uptimeSeconds, hostname: $hostname, remoteDesktopUrl: $remoteDesktopUrl, devToolsUrl: $devToolsUrl, discordLoginEnabled: $discordLoginEnabled)';
+  final _this = this as Health;
+  return 'Health(ok: ${_this.ok}, version: ${_this.version}, appVersion: ${_this.appVersion}, uptimeSeconds: ${_this.uptimeSeconds}, hostname: ${_this.hostname}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, devToolsUrl: ${_this.devToolsUrl}, discordLoginEnabled: ${_this.discordLoginEnabled})';
 }
 
 
@@ -87,7 +93,7 @@ class _$HealthCopyWithImpl<$Res>
 /// Create a copy of Health
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? ok = null,Object? version = null,Object? appVersion = null,Object? uptimeSeconds = null,Object? hostname = null,Object? remoteDesktopUrl = freezed,Object? devToolsUrl = freezed,Object? discordLoginEnabled = null,}) {
-  return _then(_self.copyWith(
+  return _then(Health(
 ok: null == ok ? _self.ok : ok // ignore: cast_nullable_to_non_nullable
 as bool,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
 as String,appVersion: null == appVersion ? _self.appVersion : appVersion // ignore: cast_nullable_to_non_nullable
@@ -283,16 +289,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Health&&(identical(other.ok, ok) || other.ok == ok)&&(identical(other.version, version) || other.version == version)&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.devToolsUrl, devToolsUrl) || other.devToolsUrl == devToolsUrl)&&(identical(other.discordLoginEnabled, discordLoginEnabled) || other.discordLoginEnabled == discordLoginEnabled));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Health&&(identical(other.ok, ok) || other.ok == ok)&&(identical(other.version, version) || other.version == version)&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.devToolsUrl, devToolsUrl) || other.devToolsUrl == devToolsUrl)&&(identical(other.discordLoginEnabled, discordLoginEnabled) || other.discordLoginEnabled == discordLoginEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,ok,version,appVersion,uptimeSeconds,hostname,remoteDesktopUrl,devToolsUrl,discordLoginEnabled);
+int get hashCode {
+    return Object.hash(runtimeType,ok,version,appVersion,uptimeSeconds,hostname,remoteDesktopUrl,devToolsUrl,discordLoginEnabled);
+}
 
 @override
 String toString() {
-  return 'Health(ok: $ok, version: $version, appVersion: $appVersion, uptimeSeconds: $uptimeSeconds, hostname: $hostname, remoteDesktopUrl: $remoteDesktopUrl, devToolsUrl: $devToolsUrl, discordLoginEnabled: $discordLoginEnabled)';
+    return 'Health(ok: $ok, version: $version, appVersion: $appVersion, uptimeSeconds: $uptimeSeconds, hostname: $hostname, remoteDesktopUrl: $remoteDesktopUrl, devToolsUrl: $devToolsUrl, discordLoginEnabled: $discordLoginEnabled)';
 }
 
 

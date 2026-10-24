@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_merge_request.dart';
@@ -9,6 +9,7 @@ part of 'job_merge_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -32,16 +33,21 @@ $JobMergeRequestCopyWith<JobMergeRequest> get copyWith => _$JobMergeRequestCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobMergeRequest&&(identical(other.branch, branch) || other.branch == branch)&&(identical(other.url, url) || other.url == url)&&(identical(other.unchanged, unchanged) || other.unchanged == unchanged));
+  final _this = this as JobMergeRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobMergeRequest&&(identical(other.branch, _this.branch) || other.branch == _this.branch)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.unchanged, _this.unchanged) || other.unchanged == _this.unchanged));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,branch,url,unchanged);
+int get hashCode {
+  final _this = this as JobMergeRequest;
+  return Object.hash(runtimeType,_this.branch,_this.url,_this.unchanged);
+}
 
 @override
 String toString() {
-  return 'JobMergeRequest(branch: $branch, url: $url, unchanged: $unchanged)';
+  final _this = this as JobMergeRequest;
+  return 'JobMergeRequest(branch: ${_this.branch}, url: ${_this.url}, unchanged: ${_this.unchanged})';
 }
 
 
@@ -70,7 +76,7 @@ class _$JobMergeRequestCopyWithImpl<$Res>
 /// Create a copy of JobMergeRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? branch = freezed,Object? url = freezed,Object? unchanged = null,}) {
-  return _then(_self.copyWith(
+  return _then(JobMergeRequest(
 branch: freezed == branch ? _self.branch : branch // ignore: cast_nullable_to_non_nullable
 as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,unchanged: null == unchanged ? _self.unchanged : unchanged // ignore: cast_nullable_to_non_nullable
@@ -239,16 +245,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobMergeRequest&&(identical(other.branch, branch) || other.branch == branch)&&(identical(other.url, url) || other.url == url)&&(identical(other.unchanged, unchanged) || other.unchanged == unchanged));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobMergeRequest&&(identical(other.branch, branch) || other.branch == branch)&&(identical(other.url, url) || other.url == url)&&(identical(other.unchanged, unchanged) || other.unchanged == unchanged));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,branch,url,unchanged);
+int get hashCode {
+    return Object.hash(runtimeType,branch,url,unchanged);
+}
 
 @override
 String toString() {
-  return 'JobMergeRequest(branch: $branch, url: $url, unchanged: $unchanged)';
+    return 'JobMergeRequest(branch: $branch, url: $url, unchanged: $unchanged)';
 }
 
 

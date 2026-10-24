@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'zentao_params.dart';
@@ -9,6 +9,7 @@ part of 'zentao_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -29,16 +30,21 @@ $ZentaoReportStartParamsCopyWith<ZentaoReportStartParams> get copyWith => _$Zent
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoReportStartParams&&(identical(other.description, description) || other.description == description));
+  final _this = this as ZentaoReportStartParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoReportStartParams&&(identical(other.description, _this.description) || other.description == _this.description));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,description);
+int get hashCode {
+  final _this = this as ZentaoReportStartParams;
+  return Object.hash(runtimeType,_this.description);
+}
 
 @override
 String toString() {
-  return 'ZentaoReportStartParams(description: $description)';
+  final _this = this as ZentaoReportStartParams;
+  return 'ZentaoReportStartParams(description: ${_this.description})';
 }
 
 
@@ -67,7 +73,7 @@ class _$ZentaoReportStartParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoReportStartParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? description = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoReportStartParams(
 description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -229,16 +235,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoReportStartParams&&(identical(other.description, description) || other.description == description));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoReportStartParams&&(identical(other.description, description) || other.description == description));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,description);
+int get hashCode {
+    return Object.hash(runtimeType,description);
+}
 
 @override
 String toString() {
-  return 'ZentaoReportStartParams(description: $description)';
+    return 'ZentaoReportStartParams(description: $description)';
 }
 
 
@@ -293,16 +301,21 @@ $ZentaoReportEditParamsCopyWith<ZentaoReportEditParams> get copyWith => _$Zentao
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoReportEditParams&&(identical(other.taskId, taskId) || other.taskId == taskId)&&(identical(other.description, description) || other.description == description));
+  final _this = this as ZentaoReportEditParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoReportEditParams&&(identical(other.taskId, _this.taskId) || other.taskId == _this.taskId)&&(identical(other.description, _this.description) || other.description == _this.description));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,taskId,description);
+int get hashCode {
+  final _this = this as ZentaoReportEditParams;
+  return Object.hash(runtimeType,_this.taskId,_this.description);
+}
 
 @override
 String toString() {
-  return 'ZentaoReportEditParams(taskId: $taskId, description: $description)';
+  final _this = this as ZentaoReportEditParams;
+  return 'ZentaoReportEditParams(taskId: ${_this.taskId}, description: ${_this.description})';
 }
 
 
@@ -331,7 +344,7 @@ class _$ZentaoReportEditParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoReportEditParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? taskId = null,Object? description = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoReportEditParams(
 taskId: null == taskId ? _self.taskId : taskId // ignore: cast_nullable_to_non_nullable
 as int,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,
@@ -494,16 +507,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoReportEditParams&&(identical(other.taskId, taskId) || other.taskId == taskId)&&(identical(other.description, description) || other.description == description));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoReportEditParams&&(identical(other.taskId, taskId) || other.taskId == taskId)&&(identical(other.description, description) || other.description == description));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,taskId,description);
+int get hashCode {
+    return Object.hash(runtimeType,taskId,description);
+}
 
 @override
 String toString() {
-  return 'ZentaoReportEditParams(taskId: $taskId, description: $description)';
+    return 'ZentaoReportEditParams(taskId: $taskId, description: $description)';
 }
 
 
@@ -559,16 +574,21 @@ $ZentaoTaskParamsCopyWith<ZentaoTaskParams> get copyWith => _$ZentaoTaskParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoTaskParams&&(identical(other.taskId, taskId) || other.taskId == taskId));
+  final _this = this as ZentaoTaskParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoTaskParams&&(identical(other.taskId, _this.taskId) || other.taskId == _this.taskId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,taskId);
+int get hashCode {
+  final _this = this as ZentaoTaskParams;
+  return Object.hash(runtimeType,_this.taskId);
+}
 
 @override
 String toString() {
-  return 'ZentaoTaskParams(taskId: $taskId)';
+  final _this = this as ZentaoTaskParams;
+  return 'ZentaoTaskParams(taskId: ${_this.taskId})';
 }
 
 
@@ -597,7 +617,7 @@ class _$ZentaoTaskParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoTaskParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? taskId = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoTaskParams(
 taskId: null == taskId ? _self.taskId : taskId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -758,16 +778,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoTaskParams&&(identical(other.taskId, taskId) || other.taskId == taskId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoTaskParams&&(identical(other.taskId, taskId) || other.taskId == taskId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,taskId);
+int get hashCode {
+    return Object.hash(runtimeType,taskId);
+}
 
 @override
 String toString() {
-  return 'ZentaoTaskParams(taskId: $taskId)';
+    return 'ZentaoTaskParams(taskId: $taskId)';
 }
 
 
@@ -822,16 +844,21 @@ $ZentaoLinkParamsCopyWith<ZentaoLinkParams> get copyWith => _$ZentaoLinkParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoLinkParams&&(identical(other.account, account) || other.account == account)&&(identical(other.password, password) || other.password == password));
+  final _this = this as ZentaoLinkParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoLinkParams&&(identical(other.account, _this.account) || other.account == _this.account)&&(identical(other.password, _this.password) || other.password == _this.password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,account,password);
+int get hashCode {
+  final _this = this as ZentaoLinkParams;
+  return Object.hash(runtimeType,_this.account,_this.password);
+}
 
 @override
 String toString() {
-  return 'ZentaoLinkParams(account: $account, password: $password)';
+  final _this = this as ZentaoLinkParams;
+  return 'ZentaoLinkParams(account: ${_this.account}, password: ${_this.password})';
 }
 
 
@@ -860,7 +887,7 @@ class _$ZentaoLinkParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoLinkParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? password = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoLinkParams(
 account: null == account ? _self.account : account // ignore: cast_nullable_to_non_nullable
 as String,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1023,16 +1050,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoLinkParams&&(identical(other.account, account) || other.account == account)&&(identical(other.password, password) || other.password == password));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoLinkParams&&(identical(other.account, account) || other.account == account)&&(identical(other.password, password) || other.password == password));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,account,password);
+int get hashCode {
+    return Object.hash(runtimeType,account,password);
+}
 
 @override
 String toString() {
-  return 'ZentaoLinkParams(account: $account, password: $password)';
+    return 'ZentaoLinkParams(account: $account, password: $password)';
 }
 
 
@@ -1088,16 +1117,21 @@ $ZentaoProjectParamsCopyWith<ZentaoProjectParams> get copyWith => _$ZentaoProjec
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoProjectParams&&(identical(other.projectId, projectId) || other.projectId == projectId));
+  final _this = this as ZentaoProjectParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoProjectParams&&(identical(other.projectId, _this.projectId) || other.projectId == _this.projectId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,projectId);
+int get hashCode {
+  final _this = this as ZentaoProjectParams;
+  return Object.hash(runtimeType,_this.projectId);
+}
 
 @override
 String toString() {
-  return 'ZentaoProjectParams(projectId: $projectId)';
+  final _this = this as ZentaoProjectParams;
+  return 'ZentaoProjectParams(projectId: ${_this.projectId})';
 }
 
 
@@ -1126,7 +1160,7 @@ class _$ZentaoProjectParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoProjectParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? projectId = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoProjectParams(
 projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -1287,16 +1321,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoProjectParams&&(identical(other.projectId, projectId) || other.projectId == projectId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoProjectParams&&(identical(other.projectId, projectId) || other.projectId == projectId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,projectId);
+int get hashCode {
+    return Object.hash(runtimeType,projectId);
+}
 
 @override
 String toString() {
-  return 'ZentaoProjectParams(projectId: $projectId)';
+    return 'ZentaoProjectParams(projectId: $projectId)';
 }
 
 
@@ -1351,16 +1387,21 @@ $ZentaoExecutionParamsCopyWith<ZentaoExecutionParams> get copyWith => _$ZentaoEx
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoExecutionParams&&(identical(other.executionId, executionId) || other.executionId == executionId));
+  final _this = this as ZentaoExecutionParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ZentaoExecutionParams&&(identical(other.executionId, _this.executionId) || other.executionId == _this.executionId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,executionId);
+int get hashCode {
+  final _this = this as ZentaoExecutionParams;
+  return Object.hash(runtimeType,_this.executionId);
+}
 
 @override
 String toString() {
-  return 'ZentaoExecutionParams(executionId: $executionId)';
+  final _this = this as ZentaoExecutionParams;
+  return 'ZentaoExecutionParams(executionId: ${_this.executionId})';
 }
 
 
@@ -1389,7 +1430,7 @@ class _$ZentaoExecutionParamsCopyWithImpl<$Res>
 /// Create a copy of ZentaoExecutionParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? executionId = null,}) {
-  return _then(_self.copyWith(
+  return _then(ZentaoExecutionParams(
 executionId: null == executionId ? _self.executionId : executionId // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -1550,16 +1591,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoExecutionParams&&(identical(other.executionId, executionId) || other.executionId == executionId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ZentaoExecutionParams&&(identical(other.executionId, executionId) || other.executionId == executionId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,executionId);
+int get hashCode {
+    return Object.hash(runtimeType,executionId);
+}
 
 @override
 String toString() {
-  return 'ZentaoExecutionParams(executionId: $executionId)';
+    return 'ZentaoExecutionParams(executionId: $executionId)';
 }
 
 

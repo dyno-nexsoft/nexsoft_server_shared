@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'system_params.dart';
@@ -9,6 +9,7 @@ part of 'system_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -29,16 +30,21 @@ $RestartParamsCopyWith<RestartParams> get copyWith => _$RestartParamsCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RestartParams&&(identical(other.whenIdle, whenIdle) || other.whenIdle == whenIdle));
+  final _this = this as RestartParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RestartParams&&(identical(other.whenIdle, _this.whenIdle) || other.whenIdle == _this.whenIdle));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,whenIdle);
+int get hashCode {
+  final _this = this as RestartParams;
+  return Object.hash(runtimeType,_this.whenIdle);
+}
 
 @override
 String toString() {
-  return 'RestartParams(whenIdle: $whenIdle)';
+  final _this = this as RestartParams;
+  return 'RestartParams(whenIdle: ${_this.whenIdle})';
 }
 
 
@@ -67,7 +73,7 @@ class _$RestartParamsCopyWithImpl<$Res>
 /// Create a copy of RestartParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? whenIdle = null,}) {
-  return _then(_self.copyWith(
+  return _then(RestartParams(
 whenIdle: null == whenIdle ? _self.whenIdle : whenIdle // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -229,16 +235,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RestartParams&&(identical(other.whenIdle, whenIdle) || other.whenIdle == whenIdle));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _RestartParams&&(identical(other.whenIdle, whenIdle) || other.whenIdle == whenIdle));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,whenIdle);
+int get hashCode {
+    return Object.hash(runtimeType,whenIdle);
+}
 
 @override
 String toString() {
-  return 'RestartParams(whenIdle: $whenIdle)';
+    return 'RestartParams(whenIdle: $whenIdle)';
 }
 
 
@@ -294,16 +302,21 @@ $DbTableCleanParamsCopyWith<DbTableCleanParams> get copyWith => _$DbTableCleanPa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DbTableCleanParams&&(identical(other.table, table) || other.table == table));
+  final _this = this as DbTableCleanParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DbTableCleanParams&&(identical(other.table, _this.table) || other.table == _this.table));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,table);
+int get hashCode {
+  final _this = this as DbTableCleanParams;
+  return Object.hash(runtimeType,_this.table);
+}
 
 @override
 String toString() {
-  return 'DbTableCleanParams(table: $table)';
+  final _this = this as DbTableCleanParams;
+  return 'DbTableCleanParams(table: ${_this.table})';
 }
 
 
@@ -332,7 +345,7 @@ class _$DbTableCleanParamsCopyWithImpl<$Res>
 /// Create a copy of DbTableCleanParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? table = null,}) {
-  return _then(_self.copyWith(
+  return _then(DbTableCleanParams(
 table: null == table ? _self.table : table // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -494,16 +507,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DbTableCleanParams&&(identical(other.table, table) || other.table == table));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DbTableCleanParams&&(identical(other.table, table) || other.table == table));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,table);
+int get hashCode {
+    return Object.hash(runtimeType,table);
+}
 
 @override
 String toString() {
-  return 'DbTableCleanParams(table: $table)';
+    return 'DbTableCleanParams(table: $table)';
 }
 
 
@@ -562,16 +577,21 @@ $CronRunParamsCopyWith<CronRunParams> get copyWith => _$CronRunParamsCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CronRunParams&&(identical(other.job, job) || other.job == job)&&(identical(other.dueAt, dueAt) || other.dueAt == dueAt));
+  final _this = this as CronRunParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CronRunParams&&(identical(other.job, _this.job) || other.job == _this.job)&&(identical(other.dueAt, _this.dueAt) || other.dueAt == _this.dueAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,job,dueAt);
+int get hashCode {
+  final _this = this as CronRunParams;
+  return Object.hash(runtimeType,_this.job,_this.dueAt);
+}
 
 @override
 String toString() {
-  return 'CronRunParams(job: $job, dueAt: $dueAt)';
+  final _this = this as CronRunParams;
+  return 'CronRunParams(job: ${_this.job}, dueAt: ${_this.dueAt})';
 }
 
 
@@ -600,7 +620,7 @@ class _$CronRunParamsCopyWithImpl<$Res>
 /// Create a copy of CronRunParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? job = null,Object? dueAt = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CronRunParams(
 job: null == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
 as String,dueAt: freezed == dueAt ? _self.dueAt : dueAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
@@ -767,16 +787,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CronRunParams&&(identical(other.job, job) || other.job == job)&&(identical(other.dueAt, dueAt) || other.dueAt == dueAt));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CronRunParams&&(identical(other.job, job) || other.job == job)&&(identical(other.dueAt, dueAt) || other.dueAt == dueAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,job,dueAt);
+int get hashCode {
+    return Object.hash(runtimeType,job,dueAt);
+}
 
 @override
 String toString() {
-  return 'CronRunParams(job: $job, dueAt: $dueAt)';
+    return 'CronRunParams(job: $job, dueAt: $dueAt)';
 }
 
 
@@ -832,16 +854,21 @@ $P2pFilesDeleteParamsCopyWith<P2pFilesDeleteParams> get copyWith => _$P2pFilesDe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pFilesDeleteParams&&(identical(other.filename, filename) || other.filename == filename));
+  final _this = this as P2pFilesDeleteParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is P2pFilesDeleteParams&&(identical(other.filename, _this.filename) || other.filename == _this.filename));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,filename);
+int get hashCode {
+  final _this = this as P2pFilesDeleteParams;
+  return Object.hash(runtimeType,_this.filename);
+}
 
 @override
 String toString() {
-  return 'P2pFilesDeleteParams(filename: $filename)';
+  final _this = this as P2pFilesDeleteParams;
+  return 'P2pFilesDeleteParams(filename: ${_this.filename})';
 }
 
 
@@ -870,7 +897,7 @@ class _$P2pFilesDeleteParamsCopyWithImpl<$Res>
 /// Create a copy of P2pFilesDeleteParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? filename = null,}) {
-  return _then(_self.copyWith(
+  return _then(P2pFilesDeleteParams(
 filename: null == filename ? _self.filename : filename // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -1031,16 +1058,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pFilesDeleteParams&&(identical(other.filename, filename) || other.filename == filename));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _P2pFilesDeleteParams&&(identical(other.filename, filename) || other.filename == filename));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,filename);
+int get hashCode {
+    return Object.hash(runtimeType,filename);
+}
 
 @override
 String toString() {
-  return 'P2pFilesDeleteParams(filename: $filename)';
+    return 'P2pFilesDeleteParams(filename: $filename)';
 }
 
 

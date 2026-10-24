@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'system_status.dart';
@@ -9,24 +9,14 @@ part of 'system_status.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$SystemStatus {
 
- String get appVersion; String get dartVersion; String get hostname; int get uptimeSeconds; String get uptime; String get workingDirectory;// The live Cloudflare tunnel to the noVNC remote desktop, when the
-// caller has `Permission.admin` and one is currently up — the fixed LAN
-// address otherwise (including for every non-admin/anonymous caller;
-// see `SystemStatusAction.run`'s doc comment for why this is gated).
-// Always a real value, never null: unlike `Health.remoteDesktopUrl`
-// (which is absent on a machine with no remote desktop at all), this
-// field only ever varies in *which* URL, not whether one exists.
- String get remoteDesktopUrl; List<Job> get running; List<Job> get queued;// A non-job-backed mutation (gitlab.review, gitlab.translateArb)
-// currently running — see ActiveMutation's own doc comment for why this
-// exists alongside running/queued rather than being folded into them.
- List<ActiveMutation> get activeMutations;// The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
- List<BuilderStatus> get builders;
+ String get appVersion; String get dartVersion; String get hostname; int get uptimeSeconds; String get uptime; String get workingDirectory; String get remoteDesktopUrl; List<Job> get running; List<Job> get queued; List<ActiveMutation> get activeMutations; List<BuilderStatus> get builders;
 /// Create a copy of SystemStatus
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -39,16 +29,21 @@ $SystemStatusCopyWith<SystemStatus> get copyWith => _$SystemStatusCopyWithImpl<S
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SystemStatus&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.dartVersion, dartVersion) || other.dartVersion == dartVersion)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.uptime, uptime) || other.uptime == uptime)&&(identical(other.workingDirectory, workingDirectory) || other.workingDirectory == workingDirectory)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&const DeepCollectionEquality().equals(other.running, running)&&const DeepCollectionEquality().equals(other.queued, queued)&&const DeepCollectionEquality().equals(other.activeMutations, activeMutations)&&const DeepCollectionEquality().equals(other.builders, builders));
+  final _this = this as SystemStatus;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SystemStatus&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.dartVersion, _this.dartVersion) || other.dartVersion == _this.dartVersion)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.uptime, _this.uptime) || other.uptime == _this.uptime)&&(identical(other.workingDirectory, _this.workingDirectory) || other.workingDirectory == _this.workingDirectory)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&const DeepCollectionEquality().equals(other.running, _this.running)&&const DeepCollectionEquality().equals(other.queued, _this.queued)&&const DeepCollectionEquality().equals(other.activeMutations, _this.activeMutations)&&const DeepCollectionEquality().equals(other.builders, _this.builders));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,appVersion,dartVersion,hostname,uptimeSeconds,uptime,workingDirectory,remoteDesktopUrl,const DeepCollectionEquality().hash(running),const DeepCollectionEquality().hash(queued),const DeepCollectionEquality().hash(activeMutations),const DeepCollectionEquality().hash(builders));
+int get hashCode {
+  final _this = this as SystemStatus;
+  return Object.hash(runtimeType,_this.appVersion,_this.dartVersion,_this.hostname,_this.uptimeSeconds,_this.uptime,_this.workingDirectory,_this.remoteDesktopUrl,const DeepCollectionEquality().hash(_this.running),const DeepCollectionEquality().hash(_this.queued),const DeepCollectionEquality().hash(_this.activeMutations),const DeepCollectionEquality().hash(_this.builders));
+}
 
 @override
 String toString() {
-  return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
+  final _this = this as SystemStatus;
+  return 'SystemStatus(appVersion: ${_this.appVersion}, dartVersion: ${_this.dartVersion}, hostname: ${_this.hostname}, uptimeSeconds: ${_this.uptimeSeconds}, uptime: ${_this.uptime}, workingDirectory: ${_this.workingDirectory}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, running: ${_this.running}, queued: ${_this.queued}, activeMutations: ${_this.activeMutations}, builders: ${_this.builders})';
 }
 
 
@@ -77,7 +72,7 @@ class _$SystemStatusCopyWithImpl<$Res>
 /// Create a copy of SystemStatus
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? appVersion = null,Object? dartVersion = null,Object? hostname = null,Object? uptimeSeconds = null,Object? uptime = null,Object? workingDirectory = null,Object? remoteDesktopUrl = null,Object? running = null,Object? queued = null,Object? activeMutations = null,Object? builders = null,}) {
-  return _then(_self.copyWith(
+  return _then(SystemStatus(
 appVersion: null == appVersion ? _self.appVersion : appVersion // ignore: cast_nullable_to_non_nullable
 as String,dartVersion: null == dartVersion ? _self.dartVersion : dartVersion // ignore: cast_nullable_to_non_nullable
 as String,hostname: null == hostname ? _self.hostname : hostname // ignore: cast_nullable_to_non_nullable
@@ -230,7 +225,7 @@ return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSe
 @JsonSerializable()
 
 class _SystemStatus extends SystemStatus {
-  const _SystemStatus({required this.appVersion, required this.dartVersion, required this.hostname, required this.uptimeSeconds, required this.uptime, required this.workingDirectory, required this.remoteDesktopUrl, final  List<Job> running = const [], final  List<Job> queued = const [], final  List<ActiveMutation> activeMutations = const [], final  List<BuilderStatus> builders = const []}): _running = running,_queued = queued,_activeMutations = activeMutations,_builders = builders,super._();
+  const _SystemStatus({required this.appVersion, required this.dartVersion, required this.hostname, required this.uptimeSeconds, required this.uptime, required this.workingDirectory, required this.remoteDesktopUrl,  List<Job> running = const [],  List<Job> queued = const [],  List<ActiveMutation> activeMutations = const [],  List<BuilderStatus> builders = const []}): _running = running,_queued = queued,_activeMutations = activeMutations,_builders = builders,super._();
   factory _SystemStatus.fromJson(Map<String, dynamic> json) => _$SystemStatusFromJson(json);
 
 @override final  String appVersion;
@@ -239,13 +234,6 @@ class _SystemStatus extends SystemStatus {
 @override final  int uptimeSeconds;
 @override final  String uptime;
 @override final  String workingDirectory;
-// The live Cloudflare tunnel to the noVNC remote desktop, when the
-// caller has `Permission.admin` and one is currently up — the fixed LAN
-// address otherwise (including for every non-admin/anonymous caller;
-// see `SystemStatusAction.run`'s doc comment for why this is gated).
-// Always a real value, never null: unlike `Health.remoteDesktopUrl`
-// (which is absent on a machine with no remote desktop at all), this
-// field only ever varies in *which* URL, not whether one exists.
 @override final  String remoteDesktopUrl;
  final  List<Job> _running;
 @override@JsonKey() List<Job> get running {
@@ -261,22 +249,14 @@ class _SystemStatus extends SystemStatus {
   return EqualUnmodifiableListView(_queued);
 }
 
-// A non-job-backed mutation (gitlab.review, gitlab.translateArb)
-// currently running — see ActiveMutation's own doc comment for why this
-// exists alongside running/queued rather than being folded into them.
  final  List<ActiveMutation> _activeMutations;
-// A non-job-backed mutation (gitlab.review, gitlab.translateArb)
-// currently running — see ActiveMutation's own doc comment for why this
-// exists alongside running/queued rather than being folded into them.
 @override@JsonKey() List<ActiveMutation> get activeMutations {
   if (_activeMutations is EqualUnmodifiableListView) return _activeMutations;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_activeMutations);
 }
 
-// The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
  final  List<BuilderStatus> _builders;
-// The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
 @override@JsonKey() List<BuilderStatus> get builders {
   if (_builders is EqualUnmodifiableListView) return _builders;
   // ignore: implicit_dynamic_type
@@ -297,16 +277,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SystemStatus&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.dartVersion, dartVersion) || other.dartVersion == dartVersion)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.uptime, uptime) || other.uptime == uptime)&&(identical(other.workingDirectory, workingDirectory) || other.workingDirectory == workingDirectory)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&const DeepCollectionEquality().equals(other._running, _running)&&const DeepCollectionEquality().equals(other._queued, _queued)&&const DeepCollectionEquality().equals(other._activeMutations, _activeMutations)&&const DeepCollectionEquality().equals(other._builders, _builders));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SystemStatus&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.dartVersion, dartVersion) || other.dartVersion == dartVersion)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.uptime, uptime) || other.uptime == uptime)&&(identical(other.workingDirectory, workingDirectory) || other.workingDirectory == workingDirectory)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&const DeepCollectionEquality().equals(other.running, _running)&&const DeepCollectionEquality().equals(other.queued, _queued)&&const DeepCollectionEquality().equals(other.activeMutations, _activeMutations)&&const DeepCollectionEquality().equals(other.builders, _builders));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,appVersion,dartVersion,hostname,uptimeSeconds,uptime,workingDirectory,remoteDesktopUrl,const DeepCollectionEquality().hash(_running),const DeepCollectionEquality().hash(_queued),const DeepCollectionEquality().hash(_activeMutations),const DeepCollectionEquality().hash(_builders));
+int get hashCode {
+    return Object.hash(runtimeType,appVersion,dartVersion,hostname,uptimeSeconds,uptime,workingDirectory,remoteDesktopUrl,const DeepCollectionEquality().hash(_running),const DeepCollectionEquality().hash(_queued),const DeepCollectionEquality().hash(_activeMutations),const DeepCollectionEquality().hash(_builders));
+}
 
 @override
 String toString() {
-  return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
+    return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
 }
 
 

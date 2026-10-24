@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ci_params.dart';
@@ -9,6 +9,7 @@ part of 'ci_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -43,16 +44,21 @@ $CiBuildParamsCopyWith<CiBuildParams> get copyWith => _$CiBuildParamsCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiBuildParams&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.database, database) || other.database == database)&&(identical(other.im, im) || other.im == im)&&(identical(other.wallet, wallet) || other.wallet == wallet)&&(identical(other.cloudStorage, cloudStorage) || other.cloudStorage == cloudStorage)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.releaseNotes, releaseNotes) || other.releaseNotes == releaseNotes)&&(identical(other.buildName, buildName) || other.buildName == buildName)&&(identical(other.buildNumber, buildNumber) || other.buildNumber == buildNumber)&&(identical(other.skipFirebaseDistribution, skipFirebaseDistribution) || other.skipFirebaseDistribution == skipFirebaseDistribution)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
+  final _this = this as CiBuildParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiBuildParams&&(identical(other.tbchat, _this.tbchat) || other.tbchat == _this.tbchat)&&(identical(other.database, _this.database) || other.database == _this.database)&&(identical(other.im, _this.im) || other.im == _this.im)&&(identical(other.wallet, _this.wallet) || other.wallet == _this.wallet)&&(identical(other.cloudStorage, _this.cloudStorage) || other.cloudStorage == _this.cloudStorage)&&(identical(other.socialfi, _this.socialfi) || other.socialfi == _this.socialfi)&&(identical(other.platform, _this.platform) || other.platform == _this.platform)&&(identical(other.environment, _this.environment) || other.environment == _this.environment)&&(identical(other.releaseNotes, _this.releaseNotes) || other.releaseNotes == _this.releaseNotes)&&(identical(other.buildName, _this.buildName) || other.buildName == _this.buildName)&&(identical(other.buildNumber, _this.buildNumber) || other.buildNumber == _this.buildNumber)&&(identical(other.skipFirebaseDistribution, _this.skipFirebaseDistribution) || other.skipFirebaseDistribution == _this.skipFirebaseDistribution)&&(identical(other.runsOn, _this.runsOn) || other.runsOn == _this.runsOn)&&(identical(other.timeoutMinutes, _this.timeoutMinutes) || other.timeoutMinutes == _this.timeoutMinutes)&&(identical(other.retries, _this.retries) || other.retries == _this.retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,tbchat,database,im,wallet,cloudStorage,socialfi,platform,environment,releaseNotes,buildName,buildNumber,skipFirebaseDistribution,runsOn,timeoutMinutes,retries);
+int get hashCode {
+  final _this = this as CiBuildParams;
+  return Object.hash(runtimeType,_this.tbchat,_this.database,_this.im,_this.wallet,_this.cloudStorage,_this.socialfi,_this.platform,_this.environment,_this.releaseNotes,_this.buildName,_this.buildNumber,_this.skipFirebaseDistribution,_this.runsOn,_this.timeoutMinutes,_this.retries);
+}
 
 @override
 String toString() {
-  return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+  final _this = this as CiBuildParams;
+  return 'CiBuildParams(tbchat: ${_this.tbchat}, database: ${_this.database}, im: ${_this.im}, wallet: ${_this.wallet}, cloudStorage: ${_this.cloudStorage}, socialfi: ${_this.socialfi}, platform: ${_this.platform}, environment: ${_this.environment}, releaseNotes: ${_this.releaseNotes}, buildName: ${_this.buildName}, buildNumber: ${_this.buildNumber}, skipFirebaseDistribution: ${_this.skipFirebaseDistribution}, runsOn: ${_this.runsOn}, timeoutMinutes: ${_this.timeoutMinutes}, retries: ${_this.retries})';
 }
 
 
@@ -81,7 +87,7 @@ class _$CiBuildParamsCopyWithImpl<$Res>
 /// Create a copy of CiBuildParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tbchat = null,Object? database = null,Object? im = freezed,Object? wallet = freezed,Object? cloudStorage = freezed,Object? socialfi = freezed,Object? platform = null,Object? environment = null,Object? releaseNotes = freezed,Object? buildName = freezed,Object? buildNumber = freezed,Object? skipFirebaseDistribution = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiBuildParams(
 tbchat: null == tbchat ? _self.tbchat : tbchat // ignore: cast_nullable_to_non_nullable
 as String,database: null == database ? _self.database : database // ignore: cast_nullable_to_non_nullable
 as String,im: freezed == im ? _self.im : im // ignore: cast_nullable_to_non_nullable
@@ -285,16 +291,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiBuildParams&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.database, database) || other.database == database)&&(identical(other.im, im) || other.im == im)&&(identical(other.wallet, wallet) || other.wallet == wallet)&&(identical(other.cloudStorage, cloudStorage) || other.cloudStorage == cloudStorage)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.releaseNotes, releaseNotes) || other.releaseNotes == releaseNotes)&&(identical(other.buildName, buildName) || other.buildName == buildName)&&(identical(other.buildNumber, buildNumber) || other.buildNumber == buildNumber)&&(identical(other.skipFirebaseDistribution, skipFirebaseDistribution) || other.skipFirebaseDistribution == skipFirebaseDistribution)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiBuildParams&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.database, database) || other.database == database)&&(identical(other.im, im) || other.im == im)&&(identical(other.wallet, wallet) || other.wallet == wallet)&&(identical(other.cloudStorage, cloudStorage) || other.cloudStorage == cloudStorage)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.releaseNotes, releaseNotes) || other.releaseNotes == releaseNotes)&&(identical(other.buildName, buildName) || other.buildName == buildName)&&(identical(other.buildNumber, buildNumber) || other.buildNumber == buildNumber)&&(identical(other.skipFirebaseDistribution, skipFirebaseDistribution) || other.skipFirebaseDistribution == skipFirebaseDistribution)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,tbchat,database,im,wallet,cloudStorage,socialfi,platform,environment,releaseNotes,buildName,buildNumber,skipFirebaseDistribution,runsOn,timeoutMinutes,retries);
+int get hashCode {
+    return Object.hash(runtimeType,tbchat,database,im,wallet,cloudStorage,socialfi,platform,environment,releaseNotes,buildName,buildNumber,skipFirebaseDistribution,runsOn,timeoutMinutes,retries);
+}
 
 @override
 String toString() {
-  return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
 }
 
 
@@ -364,16 +372,21 @@ $CiGenParamsCopyWith<CiGenParams> get copyWith => _$CiGenParamsCopyWithImpl<CiGe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiGenParams&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi));
+  final _this = this as CiGenParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiGenParams&&(identical(other.environment, _this.environment) || other.environment == _this.environment)&&(identical(other.socialfi, _this.socialfi) || other.socialfi == _this.socialfi));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,environment,socialfi);
+int get hashCode {
+  final _this = this as CiGenParams;
+  return Object.hash(runtimeType,_this.environment,_this.socialfi);
+}
 
 @override
 String toString() {
-  return 'CiGenParams(environment: $environment, socialfi: $socialfi)';
+  final _this = this as CiGenParams;
+  return 'CiGenParams(environment: ${_this.environment}, socialfi: ${_this.socialfi})';
 }
 
 
@@ -402,7 +415,7 @@ class _$CiGenParamsCopyWithImpl<$Res>
 /// Create a copy of CiGenParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? environment = null,Object? socialfi = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiGenParams(
 environment: null == environment ? _self.environment : environment // ignore: cast_nullable_to_non_nullable
 as EnvironmentBuild,socialfi: freezed == socialfi ? _self.socialfi : socialfi // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -566,16 +579,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiGenParams&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiGenParams&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,environment,socialfi);
+int get hashCode {
+    return Object.hash(runtimeType,environment,socialfi);
+}
 
 @override
 String toString() {
-  return 'CiGenParams(environment: $environment, socialfi: $socialfi)';
+    return 'CiGenParams(environment: $environment, socialfi: $socialfi)';
 }
 
 
@@ -634,16 +649,21 @@ $CiRepostsParamsCopyWith<CiRepostsParams> get copyWith => _$CiRepostsParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiRepostsParams&&(identical(other.url, url) || other.url == url)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.limit, limit) || other.limit == limit));
+  final _this = this as CiRepostsParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiRepostsParams&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.environment, _this.environment) || other.environment == _this.environment)&&(identical(other.limit, _this.limit) || other.limit == _this.limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,environment,limit);
+int get hashCode {
+  final _this = this as CiRepostsParams;
+  return Object.hash(runtimeType,_this.url,_this.environment,_this.limit);
+}
 
 @override
 String toString() {
-  return 'CiRepostsParams(url: $url, environment: $environment, limit: $limit)';
+  final _this = this as CiRepostsParams;
+  return 'CiRepostsParams(url: ${_this.url}, environment: ${_this.environment}, limit: ${_this.limit})';
 }
 
 
@@ -672,7 +692,7 @@ class _$CiRepostsParamsCopyWithImpl<$Res>
 /// Create a copy of CiRepostsParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? environment = null,Object? limit = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiRepostsParams(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,environment: null == environment ? _self.environment : environment // ignore: cast_nullable_to_non_nullable
 as EnvironmentBuild,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
@@ -840,16 +860,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiRepostsParams&&(identical(other.url, url) || other.url == url)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.limit, limit) || other.limit == limit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiRepostsParams&&(identical(other.url, url) || other.url == url)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.limit, limit) || other.limit == limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,environment,limit);
+int get hashCode {
+    return Object.hash(runtimeType,url,environment,limit);
+}
 
 @override
 String toString() {
-  return 'CiRepostsParams(url: $url, environment: $environment, limit: $limit)';
+    return 'CiRepostsParams(url: $url, environment: $environment, limit: $limit)';
 }
 
 
@@ -915,16 +937,21 @@ $CiReplaceParamsCopyWith<CiReplaceParams> get copyWith => _$CiReplaceParamsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiReplaceParams&&(identical(other.url, url) || other.url == url)&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
+  final _this = this as CiReplaceParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiReplaceParams&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.tbchat, _this.tbchat) || other.tbchat == _this.tbchat)&&(identical(other.runsOn, _this.runsOn) || other.runsOn == _this.runsOn)&&(identical(other.timeoutMinutes, _this.timeoutMinutes) || other.timeoutMinutes == _this.timeoutMinutes)&&(identical(other.retries, _this.retries) || other.retries == _this.retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,tbchat,runsOn,timeoutMinutes,retries);
+int get hashCode {
+  final _this = this as CiReplaceParams;
+  return Object.hash(runtimeType,_this.url,_this.tbchat,_this.runsOn,_this.timeoutMinutes,_this.retries);
+}
 
 @override
 String toString() {
-  return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+  final _this = this as CiReplaceParams;
+  return 'CiReplaceParams(url: ${_this.url}, tbchat: ${_this.tbchat}, runsOn: ${_this.runsOn}, timeoutMinutes: ${_this.timeoutMinutes}, retries: ${_this.retries})';
 }
 
 
@@ -953,7 +980,7 @@ class _$CiReplaceParamsCopyWithImpl<$Res>
 /// Create a copy of CiReplaceParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? tbchat = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiReplaceParams(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,tbchat: null == tbchat ? _self.tbchat : tbchat // ignore: cast_nullable_to_non_nullable
 as String,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
@@ -1131,16 +1158,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiReplaceParams&&(identical(other.url, url) || other.url == url)&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiReplaceParams&&(identical(other.url, url) || other.url == url)&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,url,tbchat,runsOn,timeoutMinutes,retries);
+int get hashCode {
+    return Object.hash(runtimeType,url,tbchat,runsOn,timeoutMinutes,retries);
+}
 
 @override
 String toString() {
-  return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+    return 'CiReplaceParams(url: $url, tbchat: $tbchat, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
 }
 
 
@@ -1201,16 +1230,21 @@ $CiUploadParamsCopyWith<CiUploadParams> get copyWith => _$CiUploadParamsCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiUploadParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.platform, platform) || other.platform == platform));
+  final _this = this as CiUploadParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiUploadParams&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId)&&(identical(other.platform, _this.platform) || other.platform == _this.platform));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobId,platform);
+int get hashCode {
+  final _this = this as CiUploadParams;
+  return Object.hash(runtimeType,_this.jobId,_this.platform);
+}
 
 @override
 String toString() {
-  return 'CiUploadParams(jobId: $jobId, platform: $platform)';
+  final _this = this as CiUploadParams;
+  return 'CiUploadParams(jobId: ${_this.jobId}, platform: ${_this.platform})';
 }
 
 
@@ -1239,7 +1273,7 @@ class _$CiUploadParamsCopyWithImpl<$Res>
 /// Create a copy of CiUploadParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? jobId = null,Object? platform = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiUploadParams(
 jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String,platform: freezed == platform ? _self.platform : platform // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -1404,16 +1438,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiUploadParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.platform, platform) || other.platform == platform));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiUploadParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.platform, platform) || other.platform == platform));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobId,platform);
+int get hashCode {
+    return Object.hash(runtimeType,jobId,platform);
+}
 
 @override
 String toString() {
-  return 'CiUploadParams(jobId: $jobId, platform: $platform)';
+    return 'CiUploadParams(jobId: $jobId, platform: $platform)';
 }
 
 
@@ -1470,16 +1506,21 @@ $CiStatsParamsCopyWith<CiStatsParams> get copyWith => _$CiStatsParamsCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiStatsParams&&(identical(other.days, days) || other.days == days));
+  final _this = this as CiStatsParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiStatsParams&&(identical(other.days, _this.days) || other.days == _this.days));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,days);
+int get hashCode {
+  final _this = this as CiStatsParams;
+  return Object.hash(runtimeType,_this.days);
+}
 
 @override
 String toString() {
-  return 'CiStatsParams(days: $days)';
+  final _this = this as CiStatsParams;
+  return 'CiStatsParams(days: ${_this.days})';
 }
 
 
@@ -1508,7 +1549,7 @@ class _$CiStatsParamsCopyWithImpl<$Res>
 /// Create a copy of CiStatsParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? days = null,}) {
-  return _then(_self.copyWith(
+  return _then(CiStatsParams(
 days: null == days ? _self.days : days // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -1670,16 +1711,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiStatsParams&&(identical(other.days, days) || other.days == days));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiStatsParams&&(identical(other.days, days) || other.days == days));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,days);
+int get hashCode {
+    return Object.hash(runtimeType,days);
+}
 
 @override
 String toString() {
-  return 'CiStatsParams(days: $days)';
+    return 'CiStatsParams(days: $days)';
 }
 
 
@@ -1737,16 +1780,21 @@ $CiCleanParamsCopyWith<CiCleanParams> get copyWith => _$CiCleanParamsCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiCleanParams&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn));
+  final _this = this as CiCleanParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiCleanParams&&(identical(other.mode, _this.mode) || other.mode == _this.mode)&&(identical(other.runsOn, _this.runsOn) || other.runsOn == _this.runsOn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,mode,runsOn);
+int get hashCode {
+  final _this = this as CiCleanParams;
+  return Object.hash(runtimeType,_this.mode,_this.runsOn);
+}
 
 @override
 String toString() {
-  return 'CiCleanParams(mode: $mode, runsOn: $runsOn)';
+  final _this = this as CiCleanParams;
+  return 'CiCleanParams(mode: ${_this.mode}, runsOn: ${_this.runsOn})';
 }
 
 
@@ -1775,7 +1823,7 @@ class _$CiCleanParamsCopyWithImpl<$Res>
 /// Create a copy of CiCleanParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? mode = freezed,Object? runsOn = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiCleanParams(
 mode: freezed == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
 as String?,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -1941,16 +1989,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiCleanParams&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiCleanParams&&(identical(other.mode, mode) || other.mode == mode)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,mode,runsOn);
+int get hashCode {
+    return Object.hash(runtimeType,mode,runsOn);
+}
 
 @override
 String toString() {
-  return 'CiCleanParams(mode: $mode, runsOn: $runsOn)';
+    return 'CiCleanParams(mode: $mode, runsOn: $runsOn)';
 }
 
 
@@ -2006,16 +2056,21 @@ $JobIdParamsCopyWith<JobIdParams> get copyWith => _$JobIdParamsCopyWithImpl<JobI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobIdParams&&(identical(other.jobId, jobId) || other.jobId == jobId));
+  final _this = this as JobIdParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobIdParams&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobId);
+int get hashCode {
+  final _this = this as JobIdParams;
+  return Object.hash(runtimeType,_this.jobId);
+}
 
 @override
 String toString() {
-  return 'JobIdParams(jobId: $jobId)';
+  final _this = this as JobIdParams;
+  return 'JobIdParams(jobId: ${_this.jobId})';
 }
 
 
@@ -2044,7 +2099,7 @@ class _$JobIdParamsCopyWithImpl<$Res>
 /// Create a copy of JobIdParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? jobId = null,}) {
-  return _then(_self.copyWith(
+  return _then(JobIdParams(
 jobId: null == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -2205,16 +2260,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobIdParams&&(identical(other.jobId, jobId) || other.jobId == jobId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobIdParams&&(identical(other.jobId, jobId) || other.jobId == jobId));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,jobId);
+int get hashCode {
+    return Object.hash(runtimeType,jobId);
+}
 
 @override
 String toString() {
-  return 'JobIdParams(jobId: $jobId)';
+    return 'JobIdParams(jobId: $jobId)';
 }
 
 
@@ -2272,16 +2329,21 @@ $CiInteractionParamsCopyWith<CiInteractionParams> get copyWith => _$CiInteractio
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiInteractionParams&&(identical(other.type, type) || other.type == type)&&(identical(other.post, post) || other.post == post)&&(identical(other.limit, limit) || other.limit == limit));
+  final _this = this as CiInteractionParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiInteractionParams&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.post, _this.post) || other.post == _this.post)&&(identical(other.limit, _this.limit) || other.limit == _this.limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,post,limit);
+int get hashCode {
+  final _this = this as CiInteractionParams;
+  return Object.hash(runtimeType,_this.type,_this.post,_this.limit);
+}
 
 @override
 String toString() {
-  return 'CiInteractionParams(type: $type, post: $post, limit: $limit)';
+  final _this = this as CiInteractionParams;
+  return 'CiInteractionParams(type: ${_this.type}, post: ${_this.post}, limit: ${_this.limit})';
 }
 
 
@@ -2310,7 +2372,7 @@ class _$CiInteractionParamsCopyWithImpl<$Res>
 /// Create a copy of CiInteractionParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? post = null,Object? limit = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(CiInteractionParams(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as PostInteractionType,post: null == post ? _self.post : post // ignore: cast_nullable_to_non_nullable
 as String,limit: freezed == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
@@ -2478,16 +2540,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiInteractionParams&&(identical(other.type, type) || other.type == type)&&(identical(other.post, post) || other.post == post)&&(identical(other.limit, limit) || other.limit == limit));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiInteractionParams&&(identical(other.type, type) || other.type == type)&&(identical(other.post, post) || other.post == post)&&(identical(other.limit, limit) || other.limit == limit));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,post,limit);
+int get hashCode {
+    return Object.hash(runtimeType,type,post,limit);
+}
 
 @override
 String toString() {
-  return 'CiInteractionParams(type: $type, post: $post, limit: $limit)';
+    return 'CiInteractionParams(type: $type, post: $post, limit: $limit)';
 }
 
 

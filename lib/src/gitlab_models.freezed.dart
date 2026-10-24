@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'gitlab_models.dart';
@@ -9,6 +9,7 @@ part of 'gitlab_models.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -48,16 +49,21 @@ $GitLabMergeRequestCopyWith<GitLabMergeRequest> get copyWith => _$GitLabMergeReq
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMergeRequest&&(identical(other.iid, iid) || other.iid == iid)&&(identical(other.title, title) || other.title == title)&&(identical(other.sourceBranch, sourceBranch) || other.sourceBranch == sourceBranch)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.authorName, authorName) || other.authorName == authorName)&&(identical(other.webUrl, webUrl) || other.webUrl == webUrl)&&(identical(other.state, state) || other.state == state)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.labels, labels)&&(identical(other.changesCount, changesCount) || other.changesCount == changesCount)&&(identical(other.sha, sha) || other.sha == sha)&&(identical(other.diffRefs, diffRefs) || other.diffRefs == diffRefs));
+  final _this = this as GitLabMergeRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMergeRequest&&(identical(other.iid, _this.iid) || other.iid == _this.iid)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.sourceBranch, _this.sourceBranch) || other.sourceBranch == _this.sourceBranch)&&(identical(other.targetBranch, _this.targetBranch) || other.targetBranch == _this.targetBranch)&&(identical(other.authorName, _this.authorName) || other.authorName == _this.authorName)&&(identical(other.webUrl, _this.webUrl) || other.webUrl == _this.webUrl)&&(identical(other.state, _this.state) || other.state == _this.state)&&(identical(other.description, _this.description) || other.description == _this.description)&&const DeepCollectionEquality().equals(other.labels, _this.labels)&&(identical(other.changesCount, _this.changesCount) || other.changesCount == _this.changesCount)&&(identical(other.sha, _this.sha) || other.sha == _this.sha)&&(identical(other.diffRefs, _this.diffRefs) || other.diffRefs == _this.diffRefs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,iid,title,sourceBranch,targetBranch,authorName,webUrl,state,description,const DeepCollectionEquality().hash(labels),changesCount,sha,diffRefs);
+int get hashCode {
+  final _this = this as GitLabMergeRequest;
+  return Object.hash(runtimeType,_this.iid,_this.title,_this.sourceBranch,_this.targetBranch,_this.authorName,_this.webUrl,_this.state,_this.description,const DeepCollectionEquality().hash(_this.labels),_this.changesCount,_this.sha,_this.diffRefs);
+}
 
 @override
 String toString() {
-  return 'GitLabMergeRequest(iid: $iid, title: $title, sourceBranch: $sourceBranch, targetBranch: $targetBranch, authorName: $authorName, webUrl: $webUrl, state: $state, description: $description, labels: $labels, changesCount: $changesCount, sha: $sha, diffRefs: $diffRefs)';
+  final _this = this as GitLabMergeRequest;
+  return 'GitLabMergeRequest(iid: ${_this.iid}, title: ${_this.title}, sourceBranch: ${_this.sourceBranch}, targetBranch: ${_this.targetBranch}, authorName: ${_this.authorName}, webUrl: ${_this.webUrl}, state: ${_this.state}, description: ${_this.description}, labels: ${_this.labels}, changesCount: ${_this.changesCount}, sha: ${_this.sha}, diffRefs: ${_this.diffRefs})';
 }
 
 
@@ -86,7 +92,7 @@ class _$GitLabMergeRequestCopyWithImpl<$Res>
 /// Create a copy of GitLabMergeRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? iid = null,Object? title = null,Object? sourceBranch = null,Object? targetBranch = null,Object? authorName = null,Object? webUrl = null,Object? state = null,Object? description = null,Object? labels = null,Object? changesCount = null,Object? sha = null,Object? diffRefs = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(GitLabMergeRequest(
 iid: null == iid ? _self.iid : iid // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,sourceBranch: null == sourceBranch ? _self.sourceBranch : sourceBranch // ignore: cast_nullable_to_non_nullable
@@ -252,7 +258,7 @@ return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_tha
 @JsonSerializable()
 
 class _GitLabMergeRequest extends GitLabMergeRequest {
-  const _GitLabMergeRequest({required this.iid, required this.title, required this.sourceBranch, required this.targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName) required this.authorName, required this.webUrl, required this.state, this.description = '', final  List<String> labels = const <String>[], this.changesCount = '0', this.sha = '', this.diffRefs}): _labels = labels,super._();
+  const _GitLabMergeRequest({required this.iid, required this.title, required this.sourceBranch, required this.targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName) required this.authorName, required this.webUrl, required this.state, this.description = '',  List<String> labels = const <String>[], this.changesCount = '0', this.sha = '', this.diffRefs}): _labels = labels,super._();
   factory _GitLabMergeRequest.fromJson(Map<String, dynamic> json) => _$GitLabMergeRequestFromJson(json);
 
 /// Internal ID of the MR within its project (the `!123` number on GitLab).
@@ -308,16 +314,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMergeRequest&&(identical(other.iid, iid) || other.iid == iid)&&(identical(other.title, title) || other.title == title)&&(identical(other.sourceBranch, sourceBranch) || other.sourceBranch == sourceBranch)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.authorName, authorName) || other.authorName == authorName)&&(identical(other.webUrl, webUrl) || other.webUrl == webUrl)&&(identical(other.state, state) || other.state == state)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._labels, _labels)&&(identical(other.changesCount, changesCount) || other.changesCount == changesCount)&&(identical(other.sha, sha) || other.sha == sha)&&(identical(other.diffRefs, diffRefs) || other.diffRefs == diffRefs));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMergeRequest&&(identical(other.iid, iid) || other.iid == iid)&&(identical(other.title, title) || other.title == title)&&(identical(other.sourceBranch, sourceBranch) || other.sourceBranch == sourceBranch)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.authorName, authorName) || other.authorName == authorName)&&(identical(other.webUrl, webUrl) || other.webUrl == webUrl)&&(identical(other.state, state) || other.state == state)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.labels, _labels)&&(identical(other.changesCount, changesCount) || other.changesCount == changesCount)&&(identical(other.sha, sha) || other.sha == sha)&&(identical(other.diffRefs, diffRefs) || other.diffRefs == diffRefs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,iid,title,sourceBranch,targetBranch,authorName,webUrl,state,description,const DeepCollectionEquality().hash(_labels),changesCount,sha,diffRefs);
+int get hashCode {
+    return Object.hash(runtimeType,iid,title,sourceBranch,targetBranch,authorName,webUrl,state,description,const DeepCollectionEquality().hash(_labels),changesCount,sha,diffRefs);
+}
 
 @override
 String toString() {
-  return 'GitLabMergeRequest(iid: $iid, title: $title, sourceBranch: $sourceBranch, targetBranch: $targetBranch, authorName: $authorName, webUrl: $webUrl, state: $state, description: $description, labels: $labels, changesCount: $changesCount, sha: $sha, diffRefs: $diffRefs)';
+    return 'GitLabMergeRequest(iid: $iid, title: $title, sourceBranch: $sourceBranch, targetBranch: $targetBranch, authorName: $authorName, webUrl: $webUrl, state: $state, description: $description, labels: $labels, changesCount: $changesCount, sha: $sha, diffRefs: $diffRefs)';
 }
 
 
@@ -395,16 +403,21 @@ $GitLabDiffRefsCopyWith<GitLabDiffRefs> get copyWith => _$GitLabDiffRefsCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabDiffRefs&&(identical(other.baseSha, baseSha) || other.baseSha == baseSha)&&(identical(other.startSha, startSha) || other.startSha == startSha)&&(identical(other.headSha, headSha) || other.headSha == headSha));
+  final _this = this as GitLabDiffRefs;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabDiffRefs&&(identical(other.baseSha, _this.baseSha) || other.baseSha == _this.baseSha)&&(identical(other.startSha, _this.startSha) || other.startSha == _this.startSha)&&(identical(other.headSha, _this.headSha) || other.headSha == _this.headSha));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,baseSha,startSha,headSha);
+int get hashCode {
+  final _this = this as GitLabDiffRefs;
+  return Object.hash(runtimeType,_this.baseSha,_this.startSha,_this.headSha);
+}
 
 @override
 String toString() {
-  return 'GitLabDiffRefs(baseSha: $baseSha, startSha: $startSha, headSha: $headSha)';
+  final _this = this as GitLabDiffRefs;
+  return 'GitLabDiffRefs(baseSha: ${_this.baseSha}, startSha: ${_this.startSha}, headSha: ${_this.headSha})';
 }
 
 
@@ -433,7 +446,7 @@ class _$GitLabDiffRefsCopyWithImpl<$Res>
 /// Create a copy of GitLabDiffRefs
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? baseSha = null,Object? startSha = null,Object? headSha = null,}) {
-  return _then(_self.copyWith(
+  return _then(GitLabDiffRefs(
 baseSha: null == baseSha ? _self.baseSha : baseSha // ignore: cast_nullable_to_non_nullable
 as String,startSha: null == startSha ? _self.startSha : startSha // ignore: cast_nullable_to_non_nullable
 as String,headSha: null == headSha ? _self.headSha : headSha // ignore: cast_nullable_to_non_nullable
@@ -598,16 +611,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabDiffRefs&&(identical(other.baseSha, baseSha) || other.baseSha == baseSha)&&(identical(other.startSha, startSha) || other.startSha == startSha)&&(identical(other.headSha, headSha) || other.headSha == headSha));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabDiffRefs&&(identical(other.baseSha, baseSha) || other.baseSha == baseSha)&&(identical(other.startSha, startSha) || other.startSha == startSha)&&(identical(other.headSha, headSha) || other.headSha == headSha));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,baseSha,startSha,headSha);
+int get hashCode {
+    return Object.hash(runtimeType,baseSha,startSha,headSha);
+}
 
 @override
 String toString() {
-  return 'GitLabDiffRefs(baseSha: $baseSha, startSha: $startSha, headSha: $headSha)';
+    return 'GitLabDiffRefs(baseSha: $baseSha, startSha: $startSha, headSha: $headSha)';
 }
 
 
@@ -670,16 +685,21 @@ $GitLabMrDiffCopyWith<GitLabMrDiff> get copyWith => _$GitLabMrDiffCopyWithImpl<G
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMrDiff&&(identical(other.newPath, newPath) || other.newPath == newPath)&&(identical(other.oldPath, oldPath) || other.oldPath == oldPath)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isRenamed, isRenamed) || other.isRenamed == isRenamed)&&(identical(other.isNewFile, isNewFile) || other.isNewFile == isNewFile));
+  final _this = this as GitLabMrDiff;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMrDiff&&(identical(other.newPath, _this.newPath) || other.newPath == _this.newPath)&&(identical(other.oldPath, _this.oldPath) || other.oldPath == _this.oldPath)&&(identical(other.diff, _this.diff) || other.diff == _this.diff)&&(identical(other.isDeleted, _this.isDeleted) || other.isDeleted == _this.isDeleted)&&(identical(other.isRenamed, _this.isRenamed) || other.isRenamed == _this.isRenamed)&&(identical(other.isNewFile, _this.isNewFile) || other.isNewFile == _this.isNewFile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,newPath,oldPath,diff,isDeleted,isRenamed,isNewFile);
+int get hashCode {
+  final _this = this as GitLabMrDiff;
+  return Object.hash(runtimeType,_this.newPath,_this.oldPath,_this.diff,_this.isDeleted,_this.isRenamed,_this.isNewFile);
+}
 
 @override
 String toString() {
-  return 'GitLabMrDiff(newPath: $newPath, oldPath: $oldPath, diff: $diff, isDeleted: $isDeleted, isRenamed: $isRenamed, isNewFile: $isNewFile)';
+  final _this = this as GitLabMrDiff;
+  return 'GitLabMrDiff(newPath: ${_this.newPath}, oldPath: ${_this.oldPath}, diff: ${_this.diff}, isDeleted: ${_this.isDeleted}, isRenamed: ${_this.isRenamed}, isNewFile: ${_this.isNewFile})';
 }
 
 
@@ -708,7 +728,7 @@ class _$GitLabMrDiffCopyWithImpl<$Res>
 /// Create a copy of GitLabMrDiff
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? newPath = null,Object? oldPath = null,Object? diff = null,Object? isDeleted = null,Object? isRenamed = null,Object? isNewFile = null,}) {
-  return _then(_self.copyWith(
+  return _then(GitLabMrDiff(
 newPath: null == newPath ? _self.newPath : newPath // ignore: cast_nullable_to_non_nullable
 as String,oldPath: null == oldPath ? _self.oldPath : oldPath // ignore: cast_nullable_to_non_nullable
 as String,diff: null == diff ? _self.diff : diff // ignore: cast_nullable_to_non_nullable
@@ -885,16 +905,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMrDiff&&(identical(other.newPath, newPath) || other.newPath == newPath)&&(identical(other.oldPath, oldPath) || other.oldPath == oldPath)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isRenamed, isRenamed) || other.isRenamed == isRenamed)&&(identical(other.isNewFile, isNewFile) || other.isNewFile == isNewFile));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMrDiff&&(identical(other.newPath, newPath) || other.newPath == newPath)&&(identical(other.oldPath, oldPath) || other.oldPath == oldPath)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.isDeleted, isDeleted) || other.isDeleted == isDeleted)&&(identical(other.isRenamed, isRenamed) || other.isRenamed == isRenamed)&&(identical(other.isNewFile, isNewFile) || other.isNewFile == isNewFile));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,newPath,oldPath,diff,isDeleted,isRenamed,isNewFile);
+int get hashCode {
+    return Object.hash(runtimeType,newPath,oldPath,diff,isDeleted,isRenamed,isNewFile);
+}
 
 @override
 String toString() {
-  return 'GitLabMrDiff(newPath: $newPath, oldPath: $oldPath, diff: $diff, isDeleted: $isDeleted, isRenamed: $isRenamed, isNewFile: $isNewFile)';
+    return 'GitLabMrDiff(newPath: $newPath, oldPath: $oldPath, diff: $diff, isDeleted: $isDeleted, isRenamed: $isRenamed, isNewFile: $isNewFile)';
 }
 
 

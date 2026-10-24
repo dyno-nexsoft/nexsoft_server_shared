@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'job_stats.dart';
@@ -9,6 +9,7 @@ part of 'job_stats.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -28,16 +29,21 @@ $DurationTotalCopyWith<DurationTotal> get copyWith => _$DurationTotalCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DurationTotal&&(identical(other.count, count) || other.count == count)&&(identical(other.seconds, seconds) || other.seconds == seconds));
+  final _this = this as DurationTotal;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DurationTotal&&(identical(other.count, _this.count) || other.count == _this.count)&&(identical(other.seconds, _this.seconds) || other.seconds == _this.seconds));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,count,seconds);
+int get hashCode {
+  final _this = this as DurationTotal;
+  return Object.hash(runtimeType,_this.count,_this.seconds);
+}
 
 @override
 String toString() {
-  return 'DurationTotal(count: $count, seconds: $seconds)';
+  final _this = this as DurationTotal;
+  return 'DurationTotal(count: ${_this.count}, seconds: ${_this.seconds})';
 }
 
 
@@ -66,7 +72,7 @@ class _$DurationTotalCopyWithImpl<$Res>
 /// Create a copy of DurationTotal
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? count = null,Object? seconds = null,}) {
-  return _then(_self.copyWith(
+  return _then(DurationTotal(
 count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,seconds: null == seconds ? _self.seconds : seconds // ignore: cast_nullable_to_non_nullable
 as int,
@@ -229,16 +235,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DurationTotal&&(identical(other.count, count) || other.count == count)&&(identical(other.seconds, seconds) || other.seconds == seconds));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DurationTotal&&(identical(other.count, count) || other.count == count)&&(identical(other.seconds, seconds) || other.seconds == seconds));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,count,seconds);
+int get hashCode {
+    return Object.hash(runtimeType,count,seconds);
+}
 
 @override
 String toString() {
-  return 'DurationTotal(count: $count, seconds: $seconds)';
+    return 'DurationTotal(count: $count, seconds: $seconds)';
 }
 
 
@@ -299,16 +307,21 @@ $DayJobStatsCopyWith<DayJobStats> get copyWith => _$DayJobStatsCopyWithImpl<DayJ
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DayJobStats&&(identical(other.date, date) || other.date == date)&&const DeepCollectionEquality().equals(other.byState, byState)&&const DeepCollectionEquality().equals(other.byAction, byAction)&&const DeepCollectionEquality().equals(other.buildDurations, buildDurations));
+  final _this = this as DayJobStats;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DayJobStats&&(identical(other.date, _this.date) || other.date == _this.date)&&const DeepCollectionEquality().equals(other.byState, _this.byState)&&const DeepCollectionEquality().equals(other.byAction, _this.byAction)&&const DeepCollectionEquality().equals(other.buildDurations, _this.buildDurations));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,const DeepCollectionEquality().hash(byState),const DeepCollectionEquality().hash(byAction),const DeepCollectionEquality().hash(buildDurations));
+int get hashCode {
+  final _this = this as DayJobStats;
+  return Object.hash(runtimeType,_this.date,const DeepCollectionEquality().hash(_this.byState),const DeepCollectionEquality().hash(_this.byAction),const DeepCollectionEquality().hash(_this.buildDurations));
+}
 
 @override
 String toString() {
-  return 'DayJobStats(date: $date, byState: $byState, byAction: $byAction, buildDurations: $buildDurations)';
+  final _this = this as DayJobStats;
+  return 'DayJobStats(date: ${_this.date}, byState: ${_this.byState}, byAction: ${_this.byAction}, buildDurations: ${_this.buildDurations})';
 }
 
 
@@ -337,7 +350,7 @@ class _$DayJobStatsCopyWithImpl<$Res>
 /// Create a copy of DayJobStats
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? date = null,Object? byState = null,Object? byAction = null,Object? buildDurations = null,}) {
-  return _then(_self.copyWith(
+  return _then(DayJobStats(
 date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as String,byState: null == byState ? _self.byState : byState // ignore: cast_nullable_to_non_nullable
 as Map<String, int>,byAction: null == byAction ? _self.byAction : byAction // ignore: cast_nullable_to_non_nullable
@@ -483,7 +496,7 @@ return $default(_that.date,_that.byState,_that.byAction,_that.buildDurations);ca
 @JsonSerializable()
 
 class _DayJobStats extends DayJobStats {
-  const _DayJobStats({required this.date, final  Map<String, int> byState = const {}, final  Map<String, int> byAction = const {}, final  Map<String, DurationTotal> buildDurations = const {}}): _byState = byState,_byAction = byAction,_buildDurations = buildDurations,super._();
+  const _DayJobStats({required this.date,  Map<String, int> byState = const {},  Map<String, int> byAction = const {},  Map<String, DurationTotal> buildDurations = const {}}): _byState = byState,_byAction = byAction,_buildDurations = buildDurations,super._();
   factory _DayJobStats.fromJson(Map<String, dynamic> json) => _$DayJobStatsFromJson(json);
 
 /// `yyyy-MM-dd`.
@@ -531,16 +544,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DayJobStats&&(identical(other.date, date) || other.date == date)&&const DeepCollectionEquality().equals(other._byState, _byState)&&const DeepCollectionEquality().equals(other._byAction, _byAction)&&const DeepCollectionEquality().equals(other._buildDurations, _buildDurations));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DayJobStats&&(identical(other.date, date) || other.date == date)&&const DeepCollectionEquality().equals(other.byState, _byState)&&const DeepCollectionEquality().equals(other.byAction, _byAction)&&const DeepCollectionEquality().equals(other.buildDurations, _buildDurations));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,date,const DeepCollectionEquality().hash(_byState),const DeepCollectionEquality().hash(_byAction),const DeepCollectionEquality().hash(_buildDurations));
+int get hashCode {
+    return Object.hash(runtimeType,date,const DeepCollectionEquality().hash(_byState),const DeepCollectionEquality().hash(_byAction),const DeepCollectionEquality().hash(_buildDurations));
+}
 
 @override
 String toString() {
-  return 'DayJobStats(date: $date, byState: $byState, byAction: $byAction, buildDurations: $buildDurations)';
+    return 'DayJobStats(date: $date, byState: $byState, byAction: $byAction, buildDurations: $buildDurations)';
 }
 
 
@@ -598,16 +613,21 @@ $JobStatsCopyWith<JobStats> get copyWith => _$JobStatsCopyWithImpl<JobStats>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStats&&const DeepCollectionEquality().equals(other.days, days));
+  final _this = this as JobStats;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobStats&&const DeepCollectionEquality().equals(other.days, _this.days));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(days));
+int get hashCode {
+  final _this = this as JobStats;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.days));
+}
 
 @override
 String toString() {
-  return 'JobStats(days: $days)';
+  final _this = this as JobStats;
+  return 'JobStats(days: ${_this.days})';
 }
 
 
@@ -636,7 +656,7 @@ class _$JobStatsCopyWithImpl<$Res>
 /// Create a copy of JobStats
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? days = null,}) {
-  return _then(_self.copyWith(
+  return _then(JobStats(
 days: null == days ? _self.days : days // ignore: cast_nullable_to_non_nullable
 as List<DayJobStats>,
   ));
@@ -779,7 +799,7 @@ return $default(_that.days);case _:
 @JsonSerializable()
 
 class _JobStats extends JobStats {
-  const _JobStats({final  List<DayJobStats> days = const []}): _days = days,super._();
+  const _JobStats({ List<DayJobStats> days = const []}): _days = days,super._();
   factory _JobStats.fromJson(Map<String, dynamic> json) => _$JobStatsFromJson(json);
 
  final  List<DayJobStats> _days;
@@ -803,16 +823,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobStats&&const DeepCollectionEquality().equals(other._days, _days));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobStats&&const DeepCollectionEquality().equals(other.days, _days));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_days));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_days));
+}
 
 @override
 String toString() {
-  return 'JobStats(days: $days)';
+    return 'JobStats(days: $days)';
 }
 
 

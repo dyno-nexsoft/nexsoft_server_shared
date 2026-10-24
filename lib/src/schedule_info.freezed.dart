@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'schedule_info.dart';
@@ -9,6 +9,7 @@ part of 'schedule_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -33,16 +34,21 @@ $ScheduledJobInfoCopyWith<ScheduledJobInfo> get copyWith => _$ScheduledJobInfoCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobInfo&&(identical(other.config, config) || other.config == config)&&(identical(other.rule, rule) || other.rule == rule)&&(identical(other.nextRun, nextRun) || other.nextRun == nextRun));
+  final _this = this as ScheduledJobInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobInfo&&(identical(other.config, _this.config) || other.config == _this.config)&&(identical(other.rule, _this.rule) || other.rule == _this.rule)&&(identical(other.nextRun, _this.nextRun) || other.nextRun == _this.nextRun));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,config,rule,nextRun);
+int get hashCode {
+  final _this = this as ScheduledJobInfo;
+  return Object.hash(runtimeType,_this.config,_this.rule,_this.nextRun);
+}
 
 @override
 String toString() {
-  return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
+  final _this = this as ScheduledJobInfo;
+  return 'ScheduledJobInfo(config: ${_this.config}, rule: ${_this.rule}, nextRun: ${_this.nextRun})';
 }
 
 
@@ -71,7 +77,7 @@ class _$ScheduledJobInfoCopyWithImpl<$Res>
 /// Create a copy of ScheduledJobInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? config = null,Object? rule = null,Object? nextRun = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduledJobInfo(
 config: null == config ? _self.config : config // ignore: cast_nullable_to_non_nullable
 as ScheduledJobConfig,rule: null == rule ? _self.rule : rule // ignore: cast_nullable_to_non_nullable
 as String,nextRun: freezed == nextRun ? _self.nextRun : nextRun // ignore: cast_nullable_to_non_nullable
@@ -250,16 +256,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobInfo&&(identical(other.config, config) || other.config == config)&&(identical(other.rule, rule) || other.rule == rule)&&(identical(other.nextRun, nextRun) || other.nextRun == nextRun));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobInfo&&(identical(other.config, config) || other.config == config)&&(identical(other.rule, rule) || other.rule == rule)&&(identical(other.nextRun, nextRun) || other.nextRun == nextRun));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,config,rule,nextRun);
+int get hashCode {
+    return Object.hash(runtimeType,config,rule,nextRun);
+}
 
 @override
 String toString() {
-  return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
+    return 'ScheduledJobInfo(config: $config, rule: $rule, nextRun: $nextRun)';
 }
 
 
@@ -325,16 +333,21 @@ $ScheduleInfoCopyWith<ScheduleInfo> get copyWith => _$ScheduleInfoCopyWithImpl<S
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleInfo&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, jobs));
+  final _this = this as ScheduleInfo;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleInfo&&(identical(other.calendar, _this.calendar) || other.calendar == _this.calendar)&&const DeepCollectionEquality().equals(other.jobs, _this.jobs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(jobs));
+int get hashCode {
+  final _this = this as ScheduleInfo;
+  return Object.hash(runtimeType,_this.calendar,const DeepCollectionEquality().hash(_this.jobs));
+}
 
 @override
 String toString() {
-  return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
+  final _this = this as ScheduleInfo;
+  return 'ScheduleInfo(calendar: ${_this.calendar}, jobs: ${_this.jobs})';
 }
 
 
@@ -363,7 +376,7 @@ class _$ScheduleInfoCopyWithImpl<$Res>
 /// Create a copy of ScheduleInfo
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? calendar = null,Object? jobs = null,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduleInfo(
 calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
 as WorkCalendar,jobs: null == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
 as List<ScheduledJobInfo>,
@@ -516,7 +529,7 @@ return $default(_that.calendar,_that.jobs);case _:
 @JsonSerializable()
 
 class _ScheduleInfo implements ScheduleInfo {
-  const _ScheduleInfo({required this.calendar, final  List<ScheduledJobInfo> jobs = const <ScheduledJobInfo>[]}): _jobs = jobs;
+  const _ScheduleInfo({required this.calendar,  List<ScheduledJobInfo> jobs = const <ScheduledJobInfo>[]}): _jobs = jobs;
   factory _ScheduleInfo.fromJson(Map<String, dynamic> json) => _$ScheduleInfoFromJson(json);
 
 @override final  WorkCalendar calendar;
@@ -541,16 +554,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleInfo&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other._jobs, _jobs));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleInfo&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, _jobs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+int get hashCode {
+    return Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+}
 
 @override
 String toString() {
-  return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
+    return 'ScheduleInfo(calendar: $calendar, jobs: $jobs)';
 }
 
 
@@ -619,16 +634,21 @@ $ScheduleSetParamsCopyWith<ScheduleSetParams> get copyWith => _$ScheduleSetParam
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleSetParams&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, jobs));
+  final _this = this as ScheduleSetParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduleSetParams&&(identical(other.calendar, _this.calendar) || other.calendar == _this.calendar)&&const DeepCollectionEquality().equals(other.jobs, _this.jobs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(jobs));
+int get hashCode {
+  final _this = this as ScheduleSetParams;
+  return Object.hash(runtimeType,_this.calendar,const DeepCollectionEquality().hash(_this.jobs));
+}
 
 @override
 String toString() {
-  return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
+  final _this = this as ScheduleSetParams;
+  return 'ScheduleSetParams(calendar: ${_this.calendar}, jobs: ${_this.jobs})';
 }
 
 
@@ -657,7 +677,7 @@ class _$ScheduleSetParamsCopyWithImpl<$Res>
 /// Create a copy of ScheduleSetParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? calendar = null,Object? jobs = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ScheduleSetParams(
 calendar: null == calendar ? _self.calendar : calendar // ignore: cast_nullable_to_non_nullable
 as WorkCalendar,jobs: freezed == jobs ? _self.jobs : jobs // ignore: cast_nullable_to_non_nullable
 as List<ScheduledJobConfig>?,
@@ -810,7 +830,7 @@ return $default(_that.calendar,_that.jobs);case _:
 @JsonSerializable()
 
 class _ScheduleSetParams implements ScheduleSetParams {
-  const _ScheduleSetParams({required this.calendar, final  List<ScheduledJobConfig>? jobs}): _jobs = jobs;
+  const _ScheduleSetParams({required this.calendar,  List<ScheduledJobConfig>? jobs}): _jobs = jobs;
   factory _ScheduleSetParams.fromJson(Map<String, dynamic> json) => _$ScheduleSetParamsFromJson(json);
 
 /// The whole calendar, replacing what is stored — the dashboard edits it
@@ -843,16 +863,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleSetParams&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other._jobs, _jobs));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduleSetParams&&(identical(other.calendar, calendar) || other.calendar == calendar)&&const DeepCollectionEquality().equals(other.jobs, _jobs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+int get hashCode {
+    return Object.hash(runtimeType,calendar,const DeepCollectionEquality().hash(_jobs));
+}
 
 @override
 String toString() {
-  return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
+    return 'ScheduleSetParams(calendar: $calendar, jobs: $jobs)';
 }
 
 

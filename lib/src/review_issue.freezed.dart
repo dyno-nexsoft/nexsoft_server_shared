@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'review_issue.dart';
@@ -9,6 +9,7 @@ part of 'review_issue.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -44,16 +45,21 @@ $ReviewIssueCopyWith<ReviewIssue> get copyWith => _$ReviewIssueCopyWithImpl<Revi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewIssue&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.file, file) || other.file == file)&&(identical(other.lineStart, lineStart) || other.lineStart == lineStart)&&(identical(other.lineEnd, lineEnd) || other.lineEnd == lineEnd)&&(identical(other.description, description) || other.description == description)&&(identical(other.url, url) || other.url == url)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.discussionId, discussionId) || other.discussionId == discussionId)&&(identical(other.category, category) || other.category == category)&&(identical(other.scenario, scenario) || other.scenario == scenario));
+  final _this = this as ReviewIssue;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewIssue&&(identical(other.severity, _this.severity) || other.severity == _this.severity)&&(identical(other.file, _this.file) || other.file == _this.file)&&(identical(other.lineStart, _this.lineStart) || other.lineStart == _this.lineStart)&&(identical(other.lineEnd, _this.lineEnd) || other.lineEnd == _this.lineEnd)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.discussionId, _this.discussionId) || other.discussionId == _this.discussionId)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.scenario, _this.scenario) || other.scenario == _this.scenario));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,severity,file,lineStart,lineEnd,description,url,anchor,discussionId,category,scenario);
+int get hashCode {
+  final _this = this as ReviewIssue;
+  return Object.hash(runtimeType,_this.severity,_this.file,_this.lineStart,_this.lineEnd,_this.description,_this.url,_this.anchor,_this.discussionId,_this.category,_this.scenario);
+}
 
 @override
 String toString() {
-  return 'ReviewIssue(severity: $severity, file: $file, lineStart: $lineStart, lineEnd: $lineEnd, description: $description, url: $url, anchor: $anchor, discussionId: $discussionId, category: $category, scenario: $scenario)';
+  final _this = this as ReviewIssue;
+  return 'ReviewIssue(severity: ${_this.severity}, file: ${_this.file}, lineStart: ${_this.lineStart}, lineEnd: ${_this.lineEnd}, description: ${_this.description}, url: ${_this.url}, anchor: ${_this.anchor}, discussionId: ${_this.discussionId}, category: ${_this.category}, scenario: ${_this.scenario})';
 }
 
 
@@ -82,7 +88,7 @@ class _$ReviewIssueCopyWithImpl<$Res>
 /// Create a copy of ReviewIssue
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? severity = null,Object? file = null,Object? lineStart = null,Object? lineEnd = freezed,Object? description = null,Object? url = freezed,Object? anchor = freezed,Object? discussionId = freezed,Object? category = freezed,Object? scenario = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ReviewIssue(
 severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
 as ReviewSeverity,file: null == file ? _self.file : file // ignore: cast_nullable_to_non_nullable
 as String,lineStart: null == lineStart ? _self.lineStart : lineStart // ignore: cast_nullable_to_non_nullable
@@ -277,16 +283,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReviewIssue&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.file, file) || other.file == file)&&(identical(other.lineStart, lineStart) || other.lineStart == lineStart)&&(identical(other.lineEnd, lineEnd) || other.lineEnd == lineEnd)&&(identical(other.description, description) || other.description == description)&&(identical(other.url, url) || other.url == url)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.discussionId, discussionId) || other.discussionId == discussionId)&&(identical(other.category, category) || other.category == category)&&(identical(other.scenario, scenario) || other.scenario == scenario));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReviewIssue&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.file, file) || other.file == file)&&(identical(other.lineStart, lineStart) || other.lineStart == lineStart)&&(identical(other.lineEnd, lineEnd) || other.lineEnd == lineEnd)&&(identical(other.description, description) || other.description == description)&&(identical(other.url, url) || other.url == url)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.discussionId, discussionId) || other.discussionId == discussionId)&&(identical(other.category, category) || other.category == category)&&(identical(other.scenario, scenario) || other.scenario == scenario));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,severity,file,lineStart,lineEnd,description,url,anchor,discussionId,category,scenario);
+int get hashCode {
+    return Object.hash(runtimeType,severity,file,lineStart,lineEnd,description,url,anchor,discussionId,category,scenario);
+}
 
 @override
 String toString() {
-  return 'ReviewIssue(severity: $severity, file: $file, lineStart: $lineStart, lineEnd: $lineEnd, description: $description, url: $url, anchor: $anchor, discussionId: $discussionId, category: $category, scenario: $scenario)';
+    return 'ReviewIssue(severity: $severity, file: $file, lineStart: $lineStart, lineEnd: $lineEnd, description: $description, url: $url, anchor: $anchor, discussionId: $discussionId, category: $category, scenario: $scenario)';
 }
 
 

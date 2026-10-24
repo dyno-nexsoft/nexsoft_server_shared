@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'action_schema.dart';
@@ -9,6 +9,7 @@ part of 'action_schema.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -54,16 +55,21 @@ $ActionSchemaCopyWith<ActionSchema> get copyWith => _$ActionSchemaCopyWithImpl<A
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionSchema&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.permission, permission) || other.permission == permission)&&const DeepCollectionEquality().equals(other.params, params)&&(identical(other.supportsProgress, supportsProgress) || other.supportsProgress == supportsProgress)&&(identical(other.isBuildMenu, isBuildMenu) || other.isBuildMenu == isBuildMenu)&&(identical(other.exposedInDashboard, exposedInDashboard) || other.exposedInDashboard == exposedInDashboard));
+  final _this = this as ActionSchema;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionSchema&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.permission, _this.permission) || other.permission == _this.permission)&&const DeepCollectionEquality().equals(other.params, _this.params)&&(identical(other.supportsProgress, _this.supportsProgress) || other.supportsProgress == _this.supportsProgress)&&(identical(other.isBuildMenu, _this.isBuildMenu) || other.isBuildMenu == _this.isBuildMenu)&&(identical(other.exposedInDashboard, _this.exposedInDashboard) || other.exposedInDashboard == _this.exposedInDashboard));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,kind,permission,const DeepCollectionEquality().hash(params),supportsProgress,isBuildMenu,exposedInDashboard);
+int get hashCode {
+  final _this = this as ActionSchema;
+  return Object.hash(runtimeType,_this.name,_this.description,_this.kind,_this.permission,const DeepCollectionEquality().hash(_this.params),_this.supportsProgress,_this.isBuildMenu,_this.exposedInDashboard);
+}
 
 @override
 String toString() {
-  return 'ActionSchema(name: $name, description: $description, kind: $kind, permission: $permission, params: $params, supportsProgress: $supportsProgress, isBuildMenu: $isBuildMenu, exposedInDashboard: $exposedInDashboard)';
+  final _this = this as ActionSchema;
+  return 'ActionSchema(name: ${_this.name}, description: ${_this.description}, kind: ${_this.kind}, permission: ${_this.permission}, params: ${_this.params}, supportsProgress: ${_this.supportsProgress}, isBuildMenu: ${_this.isBuildMenu}, exposedInDashboard: ${_this.exposedInDashboard})';
 }
 
 
@@ -92,7 +98,7 @@ class _$ActionSchemaCopyWithImpl<$Res>
 /// Create a copy of ActionSchema
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? kind = null,Object? permission = null,Object? params = null,Object? supportsProgress = null,Object? isBuildMenu = null,Object? exposedInDashboard = null,}) {
-  return _then(_self.copyWith(
+  return _then(ActionSchema(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
@@ -242,7 +248,7 @@ return $default(_that.name,_that.description,_that.kind,_that.permission,_that.p
 @JsonSerializable()
 
 class _ActionSchema extends ActionSchema {
-  const _ActionSchema({required this.name, this.description = '', required this.kind, @PermissionConverter() required this.permission, final  List<ActionParam> params = const [], this.supportsProgress = false, this.isBuildMenu = false, this.exposedInDashboard = true}): _params = params,super._();
+  const _ActionSchema({required this.name, this.description = '', required this.kind, @PermissionConverter() required this.permission,  List<ActionParam> params = const [], this.supportsProgress = false, this.isBuildMenu = false, this.exposedInDashboard = true}): _params = params,super._();
   factory _ActionSchema.fromJson(Map<String, dynamic> json) => _$ActionSchemaFromJson(json);
 
 @override final  String name;
@@ -299,16 +305,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionSchema&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.permission, permission) || other.permission == permission)&&const DeepCollectionEquality().equals(other._params, _params)&&(identical(other.supportsProgress, supportsProgress) || other.supportsProgress == supportsProgress)&&(identical(other.isBuildMenu, isBuildMenu) || other.isBuildMenu == isBuildMenu)&&(identical(other.exposedInDashboard, exposedInDashboard) || other.exposedInDashboard == exposedInDashboard));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionSchema&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.permission, permission) || other.permission == permission)&&const DeepCollectionEquality().equals(other.params, _params)&&(identical(other.supportsProgress, supportsProgress) || other.supportsProgress == supportsProgress)&&(identical(other.isBuildMenu, isBuildMenu) || other.isBuildMenu == isBuildMenu)&&(identical(other.exposedInDashboard, exposedInDashboard) || other.exposedInDashboard == exposedInDashboard));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,kind,permission,const DeepCollectionEquality().hash(_params),supportsProgress,isBuildMenu,exposedInDashboard);
+int get hashCode {
+    return Object.hash(runtimeType,name,description,kind,permission,const DeepCollectionEquality().hash(_params),supportsProgress,isBuildMenu,exposedInDashboard);
+}
 
 @override
 String toString() {
-  return 'ActionSchema(name: $name, description: $description, kind: $kind, permission: $permission, params: $params, supportsProgress: $supportsProgress, isBuildMenu: $isBuildMenu, exposedInDashboard: $exposedInDashboard)';
+    return 'ActionSchema(name: $name, description: $description, kind: $kind, permission: $permission, params: $params, supportsProgress: $supportsProgress, isBuildMenu: $isBuildMenu, exposedInDashboard: $exposedInDashboard)';
 }
 
 
@@ -381,16 +389,21 @@ $ActionParamCopyWith<ActionParam> get copyWith => _$ActionParamCopyWithImpl<Acti
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionParam&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.type, type) || other.type == type)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&const DeepCollectionEquality().equals(other.choices, choices)&&const DeepCollectionEquality().equals(other.defaultValue, defaultValue)&&(identical(other.isBranchRef, isBranchRef) || other.isBranchRef == isBranchRef)&&(identical(other.isUrl, isUrl) || other.isUrl == isUrl)&&(identical(other.isStringList, isStringList) || other.isStringList == isStringList)&&(identical(other.isSecret, isSecret) || other.isSecret == isSecret));
+  final _this = this as ActionParam;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionParam&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&const DeepCollectionEquality().equals(other.choices, _this.choices)&&const DeepCollectionEquality().equals(other.defaultValue, _this.defaultValue)&&(identical(other.isBranchRef, _this.isBranchRef) || other.isBranchRef == _this.isBranchRef)&&(identical(other.isUrl, _this.isUrl) || other.isUrl == _this.isUrl)&&(identical(other.isStringList, _this.isStringList) || other.isStringList == _this.isStringList)&&(identical(other.isSecret, _this.isSecret) || other.isSecret == _this.isSecret));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,type,isRequired,const DeepCollectionEquality().hash(choices),const DeepCollectionEquality().hash(defaultValue),isBranchRef,isUrl,isStringList,isSecret);
+int get hashCode {
+  final _this = this as ActionParam;
+  return Object.hash(runtimeType,_this.name,_this.description,_this.type,_this.isRequired,const DeepCollectionEquality().hash(_this.choices),const DeepCollectionEquality().hash(_this.defaultValue),_this.isBranchRef,_this.isUrl,_this.isStringList,_this.isSecret);
+}
 
 @override
 String toString() {
-  return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
+  final _this = this as ActionParam;
+  return 'ActionParam(name: ${_this.name}, description: ${_this.description}, type: ${_this.type}, isRequired: ${_this.isRequired}, choices: ${_this.choices}, defaultValue: ${_this.defaultValue}, isBranchRef: ${_this.isBranchRef}, isUrl: ${_this.isUrl}, isStringList: ${_this.isStringList}, isSecret: ${_this.isSecret})';
 }
 
 
@@ -419,7 +432,7 @@ class _$ActionParamCopyWithImpl<$Res>
 /// Create a copy of ActionParam
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? type = null,Object? isRequired = null,Object? choices = null,Object? defaultValue = freezed,Object? isBranchRef = null,Object? isUrl = null,Object? isStringList = null,Object? isSecret = null,}) {
-  return _then(_self.copyWith(
+  return _then(ActionParam(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
@@ -571,7 +584,7 @@ return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.c
 @JsonSerializable()
 
 class _ActionParam implements ActionParam {
-  const _ActionParam({required this.name, this.description = '', required this.type, @JsonKey(name: 'required') this.isRequired = false, final  List<String> choices = const [], @JsonKey(name: 'default') this.defaultValue, this.isBranchRef = false, this.isUrl = false, this.isStringList = false, this.isSecret = false}): _choices = choices;
+  const _ActionParam({required this.name, this.description = '', required this.type, @JsonKey(name: 'required') this.isRequired = false,  List<String> choices = const [], @JsonKey(name: 'default') this.defaultValue, this.isBranchRef = false, this.isUrl = false, this.isStringList = false, this.isSecret = false}): _choices = choices;
   factory _ActionParam.fromJson(Map<String, dynamic> json) => _$ActionParamFromJson(json);
 
 @override final  String name;
@@ -615,16 +628,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionParam&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.type, type) || other.type == type)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&const DeepCollectionEquality().equals(other._choices, _choices)&&const DeepCollectionEquality().equals(other.defaultValue, defaultValue)&&(identical(other.isBranchRef, isBranchRef) || other.isBranchRef == isBranchRef)&&(identical(other.isUrl, isUrl) || other.isUrl == isUrl)&&(identical(other.isStringList, isStringList) || other.isStringList == isStringList)&&(identical(other.isSecret, isSecret) || other.isSecret == isSecret));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionParam&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.type, type) || other.type == type)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&const DeepCollectionEquality().equals(other.choices, _choices)&&const DeepCollectionEquality().equals(other.defaultValue, defaultValue)&&(identical(other.isBranchRef, isBranchRef) || other.isBranchRef == isBranchRef)&&(identical(other.isUrl, isUrl) || other.isUrl == isUrl)&&(identical(other.isStringList, isStringList) || other.isStringList == isStringList)&&(identical(other.isSecret, isSecret) || other.isSecret == isSecret));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,description,type,isRequired,const DeepCollectionEquality().hash(_choices),const DeepCollectionEquality().hash(defaultValue),isBranchRef,isUrl,isStringList,isSecret);
+int get hashCode {
+    return Object.hash(runtimeType,name,description,type,isRequired,const DeepCollectionEquality().hash(_choices),const DeepCollectionEquality().hash(defaultValue),isBranchRef,isUrl,isStringList,isSecret);
+}
 
 @override
 String toString() {
-  return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
+    return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
 }
 
 
