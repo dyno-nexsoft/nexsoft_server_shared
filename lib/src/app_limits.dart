@@ -94,13 +94,13 @@ abstract class AppLimits with _$AppLimits {
   /// Allowed values, by wire (snake_case) field name — what [problems] checks
   /// and what the dashboard offers.
   static const ranges = <String, LimitRange>{
-    // History on this machine is kept a month at most: the database is a
+    // Nothing in the database is kept past a week but the API keys: it is a
     // record of recent work, not an archive.
-    'jobs_days': LimitRange(1, 30),
-    'audit_days': LimitRange(7, 30),
-    'reviews_days': LimitRange(1, 30),
-    'translates_days': LimitRange(1, 30),
-    'notifications_days': LimitRange(1, 30),
+    'jobs_days': LimitRange(1, 7),
+    'audit_days': LimitRange(1, 7),
+    'reviews_days': LimitRange(1, 7),
+    'translates_days': LimitRange(1, 7),
+    'notifications_days': LimitRange(1, 7),
     'artifacts_days': LimitRange(1, 30),
     'api_key_idle_days': LimitRange(7, 365),
     'build_timeout_minutes': LimitRange(10, 1440),
