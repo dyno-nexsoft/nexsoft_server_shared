@@ -95,26 +95,13 @@ enum ServerSetting {
     SettingKind.gitRemote,
     description: 'The proto repository ci.gen clones and generates from',
   ),
-  gitlabGenAssignee(
-    'gitlab_gen_assignee',
+  gitlabMrAssignee(
+    'gitlab_mr_assignee',
     SettingKind.text,
     description:
-        'The GitLab user ci.gen assigns its merge request to; unset, '
-        'it is left unassigned',
-  ),
-  gitlabReplaceAssignee(
-    'gitlab_replace_assignee',
-    SettingKind.text,
-    description:
-        'The GitLab user ci.replace assigns its merge request to; unset, '
-        'it is left unassigned',
-  ),
-  gitlabTranslateAssignee(
-    'gitlab_translate_assignee',
-    SettingKind.text,
-    description:
-        'The GitLab user a new ARB translation merge request is assigned '
-        'to; unset, it is left unassigned',
+        'The GitLab user every merge request the bot opens (ci.gen, '
+        'ci.replace, ARB translations) is assigned to; unset, they are '
+        'left unassigned',
   ),
   zentaoServer(
     'zentao_server',
