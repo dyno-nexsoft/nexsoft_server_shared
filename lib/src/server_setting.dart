@@ -107,9 +107,9 @@ enum ServerSetting {
     'gitlab_auto_review',
     SettingKind.flag,
     description:
-        'Reviews on its own every open merge request assigned to '
-        'gitlab_mr_assignee, once for each new commit, drafts left out; '
-        'looked for every 5 minutes of the working day',
+        "Reviews on its own every open merge request with the bot's GitLab "
+        'account among its Reviewers, once for each new commit, drafts left '
+        'out; looked for every 5 minutes of the working day',
     defaultValue: 'false',
   ),
   zentaoServer(
