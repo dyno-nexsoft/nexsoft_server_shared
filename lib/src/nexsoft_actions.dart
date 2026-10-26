@@ -349,7 +349,7 @@ extension NexsoftActions on ActionTransport {
 
   /// Files sent "via server", as the server lists them.
   Future<List<ArtifactFile>> p2pFilesList() async {
-    final body = await invokeAction('p2p.files.list', const {});
+    final body = await invokeAction(ActionNames.p2pFilesList, const {});
     return [
       for (final file in body['files'] as List<dynamic>? ?? const [])
         ArtifactFile.fromJson(file as Map<String, dynamic>),
@@ -378,6 +378,6 @@ extension NexsoftActions on ActionTransport {
 
   Future<ActionMessage> p2pFilesDelete(P2pFilesDeleteParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('p2p.files.delete', params.toJson()),
+        await invokeAction(ActionNames.p2pFilesDelete, params.toJson()),
       );
 }

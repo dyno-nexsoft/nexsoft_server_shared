@@ -51,6 +51,8 @@ abstract final class ActionNames {
   static const notificationsList = 'notifications.list';
   static const notificationsMarkRead = 'notifications.markRead';
   static const notificationsRemove = 'notifications.remove';
+  static const p2pFilesDelete = 'p2p.files.delete';
+  static const p2pFilesList = 'p2p.files.list';
   static const scheduleGet = 'schedule.get';
   static const scheduleSet = 'schedule.set';
   static const settingsGet = 'settings.get';
@@ -120,6 +122,8 @@ abstract final class ActionNames {
     notificationsList,
     notificationsMarkRead,
     notificationsRemove,
+    p2pFilesDelete,
+    p2pFilesList,
     scheduleGet,
     scheduleSet,
     settingsGet,
