@@ -5,6 +5,20 @@ import 'job_state.dart';
 part 'job_event.freezed.dart';
 part 'job_event.g.dart';
 
+/// The `type` of every [JobEvent], which is also the `event:` name of its SSE frame: spelled once, for the union
+/// below and for a client that has to name the events it listens for.
+abstract final class JobEventTypes {
+  static const queued = 'queued';
+  static const started = 'started';
+  static const promoted = 'promoted';
+  static const status = 'status';
+  static const log = 'log';
+  static const error = 'error';
+  static const finished = 'finished';
+
+  static const all = [queued, started, promoted, status, log, error, finished];
+}
+
 /// Lifecycle events emitted by a job.
 ///
 /// Every event carries a per-job monotonic [seq] starting at 1. That number
@@ -18,7 +32,7 @@ part 'job_event.g.dart';
 sealed class JobEvent with _$JobEvent {
   const JobEvent._();
 
-  @FreezedUnionValue('queued')
+  @FreezedUnionValue(JobEventTypes.queued)
   const factory JobEvent.queued({
     required int seq,
     required DateTime at,
@@ -27,7 +41,7 @@ sealed class JobEvent with _$JobEvent {
     required int position,
   }) = JobQueuedEvent;
 
-  @FreezedUnionValue('started')
+  @FreezedUnionValue(JobEventTypes.started)
   const factory JobEvent.started({
     required int seq,
     required DateTime at,
@@ -36,13 +50,13 @@ sealed class JobEvent with _$JobEvent {
     required bool immediate,
   }) = JobStartedEvent;
 
-  @FreezedUnionValue('promoted')
+  @FreezedUnionValue(JobEventTypes.promoted)
   const factory JobEvent.promoted({required int seq, required DateTime at}) =
       JobPromotedEvent;
 
   /// A coarse human-readable status line — the same two-or-three lines that
   /// go into the Discord message body. Not raw build output.
-  @FreezedUnionValue('status')
+  @FreezedUnionValue(JobEventTypes.status)
   const factory JobEvent.status({
     required int seq,
     required DateTime at,
@@ -53,21 +67,21 @@ sealed class JobEvent with _$JobEvent {
   ///
   /// Deliberately kept out of the Discord path: the message would blow
   /// through Discord's edit rate limit within seconds.
-  @FreezedUnionValue('log')
+  @FreezedUnionValue(JobEventTypes.log)
   const factory JobEvent.log({
     required int seq,
     required DateTime at,
     required String chunk,
   }) = JobLogEvent;
 
-  @FreezedUnionValue('error')
+  @FreezedUnionValue(JobEventTypes.error)
   const factory JobEvent.error({
     required int seq,
     required DateTime at,
     required String message,
   }) = JobErrorEvent;
 
-  @FreezedUnionValue('finished')
+  @FreezedUnionValue(JobEventTypes.finished)
   const factory JobEvent.finished({
     required int seq,
     required DateTime at,
@@ -80,12 +94,12 @@ sealed class JobEvent with _$JobEvent {
 
   /// Discriminator used as the SSE `event:` name. Mirrors the JSON `type`.
   String get type => switch (this) {
-    JobQueuedEvent() => 'queued',
-    JobStartedEvent() => 'started',
-    JobPromotedEvent() => 'promoted',
-    JobStatusEvent() => 'status',
-    JobLogEvent() => 'log',
-    JobErrorEvent() => 'error',
-    JobFinishedEvent() => 'finished',
+    JobQueuedEvent() => JobEventTypes.queued,
+    JobStartedEvent() => JobEventTypes.started,
+    JobPromotedEvent() => JobEventTypes.promoted,
+    JobStatusEvent() => JobEventTypes.status,
+    JobLogEvent() => JobEventTypes.log,
+    JobErrorEvent() => JobEventTypes.error,
+    JobFinishedEvent() => JobEventTypes.finished,
   };
 }

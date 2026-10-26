@@ -1,6 +1,19 @@
 import 'ai_model.dart';
 import 'review_issue.dart';
 
+/// Where a review or translation run stands: still working, or finished (whether it went well is its `failed`, a
+/// matter apart). On the wire it is the value's [name], which the server also keeps in the `state` column of its
+/// history.
+enum GitlabRunState {
+  running,
+  done;
+
+  /// What a stored value says; a record from before the field existed is done, so old history keeps rendering
+  /// instead of crashing.
+  static GitlabRunState parse(Object? value) =>
+      values.where((state) => state.name == value).firstOrNull ?? done;
+}
+
 /// One past (or in-progress) `gitlab.review` run, parsed from
 /// `gitlab.review.history` — same running→done lifecycle a build's `Job`
 /// already has, so a row here can be either.
@@ -52,9 +65,9 @@ class ReviewHistoryEntry {
         // A record from before runs stored it parses as the default tier,
         // which is what those runs used.
         model: AiModel.parse(json['model']),
-        // Defaulted to 'done'/false for a record saved before these fields
+        // Defaulted to done/false for a record saved before these fields
         // existed, so old history keeps rendering instead of crashing.
-        state: json['state'] as String? ?? 'done',
+        state: GitlabRunState.parse(json['state']),
         label: json['label'] as String? ?? json['mr_title'] as String? ?? '',
         status: json['status'] as String? ?? '',
         log: (json['log'] as List<dynamic>? ?? const [])
@@ -86,9 +99,9 @@ class ReviewHistoryEntry {
   final DateTime reviewedAt;
   final String triggeredBy;
 
-  /// `'running'` or `'done'` — see `GitlabHistoryStore`'s lifecycle doc
-  /// comment on the server.
-  final String state;
+  /// Running or done: see `GitlabHistoryStore`'s lifecycle doc comment on
+  /// the server.
+  final GitlabRunState state;
   final String label;
   final String status;
   final List<String> log;
@@ -98,7 +111,7 @@ class ReviewHistoryEntry {
   /// The tier the run used, so a Retry runs the same one.
   final AiModel model;
 
-  bool get isRunning => state == 'running';
+  bool get isRunning => state == GitlabRunState.running;
 }
 
 /// One past (or in-progress) `gitlab.translateArb` run — same running→done
@@ -144,7 +157,7 @@ class TranslateArbHistoryEntry {
         // A record from before runs stored it parses as the default tier,
         // which is what those runs used.
         model: AiModel.parse(json['model']),
-        state: json['state'] as String? ?? 'done',
+        state: GitlabRunState.parse(json['state']),
         label: json['label'] as String? ?? json['module'] as String? ?? '',
         status: json['status'] as String? ?? '',
         log: (json['log'] as List<dynamic>? ?? const [])
@@ -169,7 +182,7 @@ class TranslateArbHistoryEntry {
   final DateTime translatedAt;
   final String triggeredBy;
 
-  final String state;
+  final GitlabRunState state;
   final String label;
   final String status;
   final List<String> log;
@@ -179,5 +192,5 @@ class TranslateArbHistoryEntry {
   /// The tier the run used, so a Retry runs the same one.
   final AiModel model;
 
-  bool get isRunning => state == 'running';
+  bool get isRunning => state == GitlabRunState.running;
 }
