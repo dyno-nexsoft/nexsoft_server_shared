@@ -59,6 +59,11 @@ _Job _$JobFromJson(Map<String, dynamic> json) => _Job(
   sourceBuild: json['source_build'] == null
       ? null
       : JobRef.fromJson(json['source_build'] as Map<String, dynamic>),
+  attempts:
+      (json['attempts'] as List<dynamic>?)
+          ?.map((e) => JobAttempt.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
   logUrl: json['log_url'] as String?,
   warnings:
       (json['warnings'] as List<dynamic>?)?.map((e) => e as String).toList() ??
@@ -100,6 +105,7 @@ Map<String, dynamic> _$JobToJson(_Job instance) => <String, dynamic>{
   'run_id': ?instance.runId,
   'run': ?instance.run?.toJson(),
   'source_build': ?instance.sourceBuild?.toJson(),
+  'attempts': instance.attempts.map((e) => e.toJson()).toList(),
   'log_url': ?instance.logUrl,
   'warnings': instance.warnings,
   'message': ?instance.message,

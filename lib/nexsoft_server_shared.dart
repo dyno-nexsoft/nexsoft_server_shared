@@ -30,6 +30,7 @@ export 'src/gitlab_mr_url.dart';
 export 'src/health.dart';
 export 'src/interaction_hosts.dart';
 export 'src/job.dart';
+export 'src/job_attempt.dart';
 export 'src/job_event.dart';
 export 'src/job_label.dart';
 export 'src/job_log_chunk.dart';

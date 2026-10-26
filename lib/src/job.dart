@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'artifact.dart';
 import 'discord_message_ref.dart';
+import 'job_attempt.dart';
 import 'job_merge_request.dart';
 import 'job_params.dart';
 import 'job_ref.dart';
@@ -96,6 +97,10 @@ abstract class Job with _$Job {
     /// params hold only that build's id.
     JobRef? sourceBuild,
 
+    /// The times it ran before, oldest first, when a retry or a resume ran it
+    /// again under this id: the fields above are the latest run's.
+    @Default([]) List<JobAttempt> attempts,
+
     /// Set only on the response of an action invocation/retry — the build
     /// log's URL, served by the static file handler.
     String? logUrl,
@@ -118,6 +123,9 @@ abstract class Job with _$Job {
 
   /// [actionParams] read by name ([JobParams]).
   JobParams get params => JobParams(actionParams);
+
+  /// Which time this is that the job runs: 1 until it is retried or resumed.
+  int get attempt => attempts.length + 1;
 
   Duration? get runningDuration {
     final started = startedAt;
