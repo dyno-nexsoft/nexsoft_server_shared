@@ -6,7 +6,12 @@
 enum CiScript {
   /// Builds the app. With `--now` it clones a workspace of its own, so it may always run beside anything; it is the
   /// only script that makes artifacts to upload.
-  build('build.sh', runsOnBuilder: true, isolatedByNow: true),
+  build(
+    'build.sh',
+    runsOnBuilder: true,
+    isolatedByNow: true,
+    projectVariables: {'TBCHAT_REPO_URL'},
+  ),
 
   /// Brings a branch of `tbchat` up to date and pushes it. With `--now` it works in a copy of `tbchat`, like a build,
   /// but two of them would push the same bot branch.
@@ -15,12 +20,17 @@ enum CiScript {
     runsOnBuilder: true,
     isolatedByNow: true,
     group: CiScriptGroup.replace,
+    projectVariables: {'TBCHAT_REPO_URL', 'SDK_SERVER', 'MR_ASSIGNEE'},
   ),
 
   /// Generates proto code into `tbchat_socialfi`, from a `proto` checkout of its own (`proto_gen`): it shares nothing
   /// with the reposts, so it waits only for another gen. Not [runsOnBuilder] by itself: a build machine runs it only
   /// once the server has a key that may read the proto repository to give it.
-  gen('gen.sh', group: CiScriptGroup.gen),
+  gen(
+    'gen.sh',
+    group: CiScriptGroup.gen,
+    projectVariables: {'SOCIALFI_REPO_URL', 'PROTO_REPO_URL', 'MR_ASSIGNEE'},
+  ),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
   reposts(
@@ -40,7 +50,7 @@ enum CiScript {
   clean('clean.sh'),
 
   /// Analyzes the shared workspace, and ignores `--now` as well.
-  analyze('analyze.sh'),
+  analyze('analyze.sh', projectVariables: {'TBCHAT_REPO_URL'}),
 
   /// Uploads a finished build's artifacts to Firebase App Distribution
   /// (`ci.upload`). It only reads them, so it may start beside anything.
@@ -55,6 +65,7 @@ enum CiScript {
     this.isolatedByNow = false,
     this.group,
     this.runsBeside = false,
+    this.projectVariables = const {},
   });
 
   /// The script's file in `assets/`, or null for [other].
@@ -75,6 +86,11 @@ enum CiScript {
   /// reads finished files; the reposts and interactions use checkouts and accounts of their own). Its [group] still
   /// holds, and it is not sent `--now`: it is not promoted, it simply never queued behind a build.
   final bool runsBeside;
+
+  /// The project's server settings the script reads, by the environment variable the bot gives it (`TBCHAT_REPO_URL`,
+  /// `SDK_SERVER`, ...): only these are given to a job of this script, so a repost does not carry the SDK server and a
+  /// merge request's assignee into its Discord message. Names only: this package is public.
+  final Set<String> projectVariables;
 
   /// The script [command] runs.
   static CiScript of(String command) => values.firstWhere(
