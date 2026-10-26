@@ -22,6 +22,9 @@ class JobParams {
   /// The `tbchat` branch of a build.
   String? get branch => _text('tbchat');
 
+  /// The note a build was asked for (`release_notes`); null for the default.
+  String? get releaseNotes => _text('release_notes');
+
   /// The machine label asked for (`runs_on`); null when unset or blank, so any machine may take the job.
   String? get runsOn {
     final value = raw['runs_on'];
