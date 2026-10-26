@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'app_platform.dart';
 import 'job.dart';
 
 part 'artifact.freezed.dart';
@@ -55,11 +56,7 @@ abstract class ArtifactFile with _$ArtifactFile {
 
   /// The platform `ci.upload` sends this file for: `android` for an apk,
   /// `ios` for an ipa, null for anything else.
-  String? get platform => switch (name.toLowerCase()) {
-    final n when n.endsWith('.apk') => 'android',
-    final n when n.endsWith('.ipa') => 'ios',
-    _ => null,
-  };
+  String? get platform => AppPlatform.ofFile(name)?.name;
 
   /// The direct download/view URL for this file, inside a listing served at
   /// `origin/listingKey/`.

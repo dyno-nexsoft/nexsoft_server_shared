@@ -1,3 +1,4 @@
+import 'action_names.dart';
 import 'action_results.dart';
 import 'action_transport.dart';
 import 'ai_provider.dart';
@@ -33,42 +34,42 @@ extension NexsoftActions on ActionTransport {
   // the job endpoints.
 
   Future<Job> ciBuild(CiBuildParams params) async =>
-      Job.fromJson(await invokeAction('ci.build', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.build, params.toJson()));
 
   Future<Job> ciGen([CiGenParams params = const CiGenParams()]) async =>
-      Job.fromJson(await invokeAction('ci.gen', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.gen, params.toJson()));
 
   Future<Job> ciReposts(CiRepostsParams params) async =>
-      Job.fromJson(await invokeAction('ci.reposts', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.reposts, params.toJson()));
 
   Future<Job> ciInteraction(CiInteractionParams params) async =>
-      Job.fromJson(await invokeAction('ci.interaction', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.interaction, params.toJson()));
 
   Future<Job> ciReplace(CiReplaceParams params) async =>
-      Job.fromJson(await invokeAction('ci.replace', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.replace, params.toJson()));
 
   /// Sends a finished build's artifacts to Firebase again, as a job of its own.
   Future<Job> ciUpload(CiUploadParams params) async =>
-      Job.fromJson(await invokeAction('ci.upload', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.upload, params.toJson()));
 
   Future<Job> ciClean([CiCleanParams params = const CiCleanParams()]) async =>
-      Job.fromJson(await invokeAction('ci.clean', params.toJson()));
+      Job.fromJson(await invokeAction(ActionNames.clean, params.toJson()));
 
   // ci.job.* — act on one job by its id.
 
   Future<ActionMessage> jobCancel(JobIdParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('ci.job.cancel', params.toJson()),
+        await invokeAction(ActionNames.ciJobCancel, params.toJson()),
       );
 
   Future<ActionMessage> jobPromote(JobIdParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('ci.job.promote', params.toJson()),
+        await invokeAction(ActionNames.ciJobPromote, params.toJson()),
       );
 
   Future<ActionMessage> jobDelete(JobIdParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('ci.job.delete', params.toJson()),
+        await invokeAction(ActionNames.ciJobDelete, params.toJson()),
       );
 
   // gitlab.* — a review or translation runs in the background; follow it
@@ -76,20 +77,20 @@ extension NexsoftActions on ActionTransport {
 
   Future<GitlabRunStarted> gitlabReview(GitlabReviewParams params) async =>
       GitlabRunStarted.fromJson(
-        await invokeAction('gitlab.review', params.toJson()),
+        await invokeAction(ActionNames.review, params.toJson()),
       );
 
   Future<GitlabRunStarted> gitlabTranslateArb(
     GitlabTranslateArbParams params,
   ) async => GitlabRunStarted.fromJson(
-    await invokeAction('gitlab.translateArb', params.toJson()),
+    await invokeAction(ActionNames.translateArb, params.toJson()),
   );
 
   /// Past and running reviews, newest first.
   Future<List<ReviewHistoryEntry>> gitlabReviewHistory([
     HistoryListParams params = const HistoryListParams(),
   ]) async {
-    final body = await invokeAction('gitlab.review.history', params.toJson());
+    final body = await invokeAction(ActionNames.gitlabReviewHistory, params.toJson());
     return [
       for (final run in body['reviews'] as List<dynamic>? ?? const [])
         ReviewHistoryEntry.fromJson(run as Map<String, dynamic>),
@@ -101,7 +102,7 @@ extension NexsoftActions on ActionTransport {
     HistoryListParams params = const HistoryListParams(),
   ]) async {
     final body = await invokeAction(
-      'gitlab.translateArb.history',
+      ActionNames.gitlabTranslateArbHistory,
       params.toJson(),
     );
     return [
@@ -113,141 +114,141 @@ extension NexsoftActions on ActionTransport {
   Future<ActionMessage> gitlabReviewHistoryDelete(
     HistoryDeleteParams params,
   ) async => ActionMessage.fromJson(
-    await invokeAction('gitlab.review.history.delete', params.toJson()),
+    await invokeAction(ActionNames.gitlabReviewHistoryDelete, params.toJson()),
   );
 
   Future<ActionMessage> gitlabTranslateArbHistoryDelete(
     HistoryDeleteParams params,
   ) async => ActionMessage.fromJson(
-    await invokeAction('gitlab.translateArb.history.delete', params.toJson()),
+    await invokeAction(ActionNames.gitlabTranslateArbHistoryDelete, params.toJson()),
   );
 
   // admin.aiProvider.* — which AI backend serves requests.
 
   Future<AiProviderInfo> aiProviderGet() async => AiProviderInfo.fromJson(
-    await invokeAction('admin.aiProvider.get', const {}),
+    await invokeAction(ActionNames.adminAiProviderGet, const {}),
   );
 
   Future<AiProviderInfo> aiProviderSet(AiProviderSetParams params) async =>
       AiProviderInfo.fromJson(
-        await invokeAction('admin.aiProvider.set', params.toJson()),
+        await invokeAction(ActionNames.adminAiProviderSet, params.toJson()),
       );
 
   // limits.* — the knobs an admin can turn without a deploy.
 
   Future<LimitsInfo> limitsGet() async =>
-      LimitsInfo.fromJson(await invokeAction('limits.get', const {}));
+      LimitsInfo.fromJson(await invokeAction(ActionNames.limitsGet, const {}));
 
   Future<LimitsInfo> limitsSet(LimitsSetParams params) async =>
-      LimitsInfo.fromJson(await invokeAction('limits.set', params.toJson()));
+      LimitsInfo.fromJson(await invokeAction(ActionNames.limitsSet, params.toJson()));
 
   // ci.interactionHosts.* — which environment each share-link host belongs to.
 
   Future<InteractionHosts> interactionHostsGet() async =>
-      InteractionHosts.fromJson(await invokeAction('ci.interactionHosts.get', const {}));
+      InteractionHosts.fromJson(await invokeAction(ActionNames.ciInteractionHostsGet, const {}));
 
   /// Lists [host] under [environment], or removes it when [environment] is null.
   Future<InteractionHosts> interactionHostsSet(String host, [EnvironmentBuild? environment]) async =>
       InteractionHosts.fromJson(
-        await invokeAction('ci.interactionHosts.set', {'host': host, if (environment != null) 'environment': environment.name}),
+        await invokeAction(ActionNames.ciInteractionHostsSet, {'host': host, if (environment != null) 'environment': environment.name}),
       );
 
   // ci.machines.* — the order the queue offers work to the machines, and which are paused.
 
   /// The jobs that ended each day of the last [CiStatsParams.days].
   Future<JobStats> ciStats([CiStatsParams params = const CiStatsParams()]) async =>
-      JobStats.fromJson(await invokeAction('ci.stats.get', params.toJson()));
+      JobStats.fromJson(await invokeAction(ActionNames.ciStatsGet, params.toJson()));
 
   Future<BuildMachinesPriority> machinesGet() async =>
-      BuildMachinesPriority.fromJson(await invokeAction('ci.machines.get', const {}));
+      BuildMachinesPriority.fromJson(await invokeAction(ActionNames.ciMachinesGet, const {}));
 
   /// Saves [priority]: its order must name every machine once, as [machinesGet] lists them.
   Future<BuildMachinesPriority> machinesSet(BuildMachinesPriority priority) async =>
-      BuildMachinesPriority.fromJson(await invokeAction('ci.machines.set', priority.toJson()));
+      BuildMachinesPriority.fromJson(await invokeAction(ActionNames.ciMachinesSet, priority.toJson()));
 
   // schedule.* — the working calendar the scheduled jobs follow.
 
   Future<ScheduleInfo> scheduleGet() async =>
-      ScheduleInfo.fromJson(await invokeAction('schedule.get', const {}));
+      ScheduleInfo.fromJson(await invokeAction(ActionNames.scheduleGet, const {}));
 
   Future<ScheduleInfo> scheduleSet(ScheduleSetParams params) async =>
       ScheduleInfo.fromJson(
-        await invokeAction('schedule.set', params.toJson()),
+        await invokeAction(ActionNames.scheduleSet, params.toJson()),
       );
 
   // zentao.*
 
   Future<ZentaoStatus> zentaoStatus() async =>
-      ZentaoStatus.fromJson(await invokeAction('zentao.status', const {}));
+      ZentaoStatus.fromJson(await invokeAction(ActionNames.zentaoStatus, const {}));
 
   Future<ZentaoReportStarted> zentaoReportStart([
     ZentaoReportStartParams params = const ZentaoReportStartParams(),
   ]) async => ZentaoReportStarted.fromJson(
-    await invokeAction('zentao.report.start', params.toJson()),
+    await invokeAction(ActionNames.zentaoReportStart, params.toJson()),
   );
 
   Future<DailyTask> zentaoReportGet(ZentaoTaskParams params) async =>
       DailyTask.parseJson(
-        await invokeAction('zentao.report.get', params.toJson()),
+        await invokeAction(ActionNames.zentaoReportGet, params.toJson()),
       );
 
   Future<ActionMessage> zentaoReportEdit(ZentaoReportEditParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('zentao.report.edit', params.toJson()),
+        await invokeAction(ActionNames.zentaoReportEdit, params.toJson()),
       );
 
   Future<ActionMessage> zentaoReportFinish(ZentaoTaskParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('zentao.report.finish', params.toJson()),
+        await invokeAction(ActionNames.zentaoReportFinish, params.toJson()),
       );
 
   Future<ActionMessage> zentaoReportClose(ZentaoTaskParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('zentao.report.close', params.toJson()),
+        await invokeAction(ActionNames.zentaoReportClose, params.toJson()),
       );
 
   Future<ActionMessage> zentaoLink(ZentaoLinkParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('zentao.link', params.toJson()),
+        await invokeAction(ActionNames.zentaoLink, params.toJson()),
       );
 
   Future<ActionMessage> zentaoUnlink() async =>
-      ActionMessage.fromJson(await invokeAction('zentao.unlink', const {}));
+      ActionMessage.fromJson(await invokeAction(ActionNames.zentaoUnlink, const {}));
 
   Future<ActionMessage> zentaoSetProject(ZentaoProjectParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('zentao.config.setProject', params.toJson()),
+        await invokeAction(ActionNames.zentaoConfigSetProject, params.toJson()),
       );
 
   Future<ActionMessage> zentaoSetExecution(
     ZentaoExecutionParams params,
   ) async => ActionMessage.fromJson(
-    await invokeAction('zentao.config.setExecution', params.toJson()),
+    await invokeAction(ActionNames.zentaoConfigSetExecution, params.toJson()),
   );
 
   // admin.apiKeys.*
 
   Future<ApiKeyList> apiKeysList() async =>
-      ApiKeyList.fromJson(await invokeAction('admin.apiKeys.list', const {}));
+      ApiKeyList.fromJson(await invokeAction(ActionNames.adminApiKeysList, const {}));
 
   Future<ApiKeyCreated> apiKeysAdd(ApiKeyAddParams params) async =>
       ApiKeyCreated.fromJson(
-        await invokeAction('admin.apiKeys.add', params.toJson()),
+        await invokeAction(ActionNames.adminApiKeysAdd, params.toJson()),
       );
 
   Future<ActionMessage> apiKeysEdit(ApiKeyEditParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.apiKeys.edit', params.toJson()),
+        await invokeAction(ActionNames.adminApiKeysEdit, params.toJson()),
       );
 
   Future<ActionMessage> apiKeysRemove(ApiKeyRemoveParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.apiKeys.remove', params.toJson()),
+        await invokeAction(ActionNames.adminApiKeysRemove, params.toJson()),
       );
 
   /// Ends this session's key if it came from Discord sign-in.
   Future<ActionMessage> apiKeysSignOut() async => ActionMessage.fromJson(
-    await invokeAction('admin.apiKeys.signOut', const {}),
+    await invokeAction(ActionNames.adminApiKeysSignOut, const {}),
   );
 
   // admin.audit.*
@@ -255,53 +256,53 @@ extension NexsoftActions on ActionTransport {
   Future<AuditList> auditList([
     AuditListParams params = const AuditListParams(),
   ]) async => AuditList.fromJson(
-    await invokeAction('admin.audit.list', params.toJson()),
+    await invokeAction(ActionNames.adminAuditList, params.toJson()),
   );
 
   // settings.* — the server settings, once the plist's variables.
 
   Future<ServerSettingsInfo> settingsGet() async => ServerSettingsInfo.fromJson(
-    await invokeAction('settings.get', const {}),
+    await invokeAction(ActionNames.settingsGet, const {}),
   );
 
   Future<ServerSettingsInfo> settingsSet(SettingSetParams params) async =>
       ServerSettingsInfo.fromJson(
-        await invokeAction('settings.set', params.toJson()),
+        await invokeAction(ActionNames.settingsSet, params.toJson()),
       );
 
   // admin.secrets.*
 
   Future<SecretList> secretsList() async =>
-      SecretList.fromJson(await invokeAction('admin.secrets.list', const {}));
+      SecretList.fromJson(await invokeAction(ActionNames.adminSecretsList, const {}));
 
   Future<ActionMessage> aiKeysCheck(AiKeysCheckParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.aiKeys.check', params.toJson()),
+        await invokeAction(ActionNames.adminAiKeysCheck, params.toJson()),
       );
 
   Future<ActionMessage> secretsSet(SecretSetParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.secrets.set', params.toJson()),
+        await invokeAction(ActionNames.adminSecretsSet, params.toJson()),
       );
 
   Future<ActionMessage> secretsRemove(SecretNameParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.secrets.remove', params.toJson()),
+        await invokeAction(ActionNames.adminSecretsRemove, params.toJson()),
       );
 
   // admin.owners.*
 
   Future<OwnerList> ownersList() async =>
-      OwnerList.fromJson(await invokeAction('admin.owners.list', const {}));
+      OwnerList.fromJson(await invokeAction(ActionNames.adminOwnersList, const {}));
 
   Future<ActionMessage> ownersAdd(OwnerParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.owners.add', params.toJson()),
+        await invokeAction(ActionNames.adminOwnersAdd, params.toJson()),
       );
 
   Future<ActionMessage> ownersRemove(OwnerParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('admin.owners.remove', params.toJson()),
+        await invokeAction(ActionNames.adminOwnersRemove, params.toJson()),
       );
 
   // admin.logs.tail
@@ -309,37 +310,37 @@ extension NexsoftActions on ActionTransport {
   Future<LogsTail> logsTail([
     LogsTailParams params = const LogsTailParams(),
   ]) async =>
-      LogsTail.fromJson(await invokeAction('admin.logs.tail', params.toJson()));
+      LogsTail.fromJson(await invokeAction(ActionNames.adminLogsTail, params.toJson()));
 
   // notifications.*
 
   Future<NotificationList> notificationsList() async =>
       NotificationList.fromJson(
-        await invokeAction('notifications.list', const {}),
+        await invokeAction(ActionNames.notificationsList, const {}),
       );
 
   Future<ActionMessage> notificationsMarkRead([
     MarkNotificationsReadParams params = const MarkNotificationsReadParams(),
   ]) async => ActionMessage.fromJson(
-    await invokeAction('notifications.markRead', params.toJson()),
+    await invokeAction(ActionNames.notificationsMarkRead, params.toJson()),
   );
 
   Future<ActionMessage> notificationsAnnounce(
     AnnounceNotificationParams params,
   ) async => ActionMessage.fromJson(
-    await invokeAction('notifications.announce', params.toJson()),
+    await invokeAction(ActionNames.notificationsAnnounce, params.toJson()),
   );
 
   Future<ActionMessage> notificationsRemove(
     RemoveNotificationParams params,
   ) async => ActionMessage.fromJson(
-    await invokeAction('notifications.remove', params.toJson()),
+    await invokeAction(ActionNames.notificationsRemove, params.toJson()),
   );
 
   // system.* / cron.* / p2p.*
 
   Future<List<DbTableInfo>> dbList() async {
-    final body = await invokeAction('system.db.list', const {});
+    final body = await invokeAction(ActionNames.systemDbList, const {});
     return [
       for (final table in body['tables'] as List<dynamic>? ?? const [])
         DbTableInfo.fromJson(table as Map<String, dynamic>),
@@ -356,24 +357,24 @@ extension NexsoftActions on ActionTransport {
   }
 
   Future<WhoAmI> whoAmI() async =>
-      WhoAmI.fromJson(await invokeAction('system.whoami', const {}));
+      WhoAmI.fromJson(await invokeAction(ActionNames.systemWhoami, const {}));
 
   Future<ActionMessage> hotReload() async =>
-      ActionMessage.fromJson(await invokeAction('system.hotReload', const {}));
+      ActionMessage.fromJson(await invokeAction(ActionNames.systemHotReload, const {}));
 
   Future<ActionMessage> restart([
     RestartParams params = const RestartParams(),
   ]) async => ActionMessage.fromJson(
-    await invokeAction('system.restart', params.toJson()),
+    await invokeAction(ActionNames.systemRestart, params.toJson()),
   );
 
   Future<ActionMessage> dbClean(DbTableCleanParams params) async =>
       ActionMessage.fromJson(
-        await invokeAction('system.db.clean', params.toJson()),
+        await invokeAction(ActionNames.systemDbClean, params.toJson()),
       );
 
   Future<ActionMessage> cronRun(CronRunParams params) async =>
-      ActionMessage.fromJson(await invokeAction('cron.run', params.toJson()));
+      ActionMessage.fromJson(await invokeAction(ActionNames.cronRun, params.toJson()));
 
   Future<ActionMessage> p2pFilesDelete(P2pFilesDeleteParams params) async =>
       ActionMessage.fromJson(

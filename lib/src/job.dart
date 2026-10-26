@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'artifact.dart';
 import 'discord_message_ref.dart';
 import 'job_merge_request.dart';
+import 'job_params.dart';
 import 'job_ref.dart';
 import 'job_run.dart';
 import 'job_state.dart';
@@ -114,6 +115,9 @@ abstract class Job with _$Job {
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 
   bool get isTerminal => state.isTerminal;
+
+  /// [actionParams] read by name ([JobParams]).
+  JobParams get params => JobParams(actionParams);
 
   Duration? get runningDuration {
     final started = startedAt;
