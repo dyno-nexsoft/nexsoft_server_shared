@@ -109,7 +109,8 @@ enum ServerSetting {
     description:
         "Reviews on its own every open merge request with the bot's GitLab "
         'account among its Reviewers, once for each new commit, drafts left '
-        'out; looked for every 5 minutes of the working day',
+        'out; looked for during the working day, as often as the '
+        'auto_review_minutes limit says',
     defaultValue: 'false',
   ),
   zentaoServer(
