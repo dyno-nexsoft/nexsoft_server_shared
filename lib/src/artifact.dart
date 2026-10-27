@@ -85,6 +85,11 @@ abstract class ArtifactListing with _$ArtifactListing {
     /// The job this artifact directory belongs to, when one is known — null
     /// for a directory whose owning job aged out of history.
     Job? job,
+
+    /// Whether the files come from the job's record, not from the folder: the
+    /// folder was cleaned, and only what the record kept (the apps and their
+    /// Firebase uploads) is left. Set by a client, never by the server.
+    @Default(false) bool fromRecord,
   }) = _ArtifactListing;
 
   factory ArtifactListing.fromJson(Map<String, dynamic> json) =>

@@ -612,7 +612,10 @@ mixin _$ArtifactListing {
 
  String get key; List<ArtifactFile> get files;/// The job this artifact directory belongs to, when one is known — null
 /// for a directory whose owning job aged out of history.
- Job? get job;
+ Job? get job;/// Whether the files come from the job's record, not from the folder: the
+/// folder was cleaned, and only what the record kept (the apps and their
+/// Firebase uploads) is left. Set by a client, never by the server.
+ bool get fromRecord;
 /// Create a copy of ArtifactListing
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -626,20 +629,20 @@ $ArtifactListingCopyWith<ArtifactListing> get copyWith => _$ArtifactListingCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as ArtifactListing;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactListing&&(identical(other.key, _this.key) || other.key == _this.key)&&const DeepCollectionEquality().equals(other.files, _this.files)&&(identical(other.job, _this.job) || other.job == _this.job));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArtifactListing&&(identical(other.key, _this.key) || other.key == _this.key)&&const DeepCollectionEquality().equals(other.files, _this.files)&&(identical(other.job, _this.job) || other.job == _this.job)&&(identical(other.fromRecord, _this.fromRecord) || other.fromRecord == _this.fromRecord));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ArtifactListing;
-  return Object.hash(runtimeType,_this.key,const DeepCollectionEquality().hash(_this.files),_this.job);
+  return Object.hash(runtimeType,_this.key,const DeepCollectionEquality().hash(_this.files),_this.job,_this.fromRecord);
 }
 
 @override
 String toString() {
   final _this = this as ArtifactListing;
-  return 'ArtifactListing(key: ${_this.key}, files: ${_this.files}, job: ${_this.job})';
+  return 'ArtifactListing(key: ${_this.key}, files: ${_this.files}, job: ${_this.job}, fromRecord: ${_this.fromRecord})';
 }
 
 
@@ -650,7 +653,7 @@ abstract mixin class $ArtifactListingCopyWith<$Res>  {
   factory $ArtifactListingCopyWith(ArtifactListing value, $Res Function(ArtifactListing) _then) = _$ArtifactListingCopyWithImpl;
 @useResult
 $Res call({
- String key, List<ArtifactFile> files, Job? job
+ String key, List<ArtifactFile> files, Job? job, bool fromRecord
 });
 
 
@@ -667,12 +670,13 @@ class _$ArtifactListingCopyWithImpl<$Res>
 
 /// Create a copy of ArtifactListing
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? key = null,Object? files = null,Object? job = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? key = null,Object? files = null,Object? job = freezed,Object? fromRecord = null,}) {
   return _then(ArtifactListing(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,files: null == files ? _self.files : files // ignore: cast_nullable_to_non_nullable
 as List<ArtifactFile>,job: freezed == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
-as Job?,
+as Job?,fromRecord: null == fromRecord ? _self.fromRecord : fromRecord // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 /// Create a copy of ArtifactListing
@@ -769,10 +773,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  List<ArtifactFile> files,  Job? job)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String key,  List<ArtifactFile> files,  Job? job,  bool fromRecord)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ArtifactListing() when $default != null:
-return $default(_that.key,_that.files,_that.job);case _:
+return $default(_that.key,_that.files,_that.job,_that.fromRecord);case _:
   return orElse();
 
 }
@@ -790,10 +794,10 @@ return $default(_that.key,_that.files,_that.job);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  List<ArtifactFile> files,  Job? job)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String key,  List<ArtifactFile> files,  Job? job,  bool fromRecord)  $default,) {final _that = this;
 switch (_that) {
 case _ArtifactListing():
-return $default(_that.key,_that.files,_that.job);case _:
+return $default(_that.key,_that.files,_that.job,_that.fromRecord);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -810,10 +814,10 @@ return $default(_that.key,_that.files,_that.job);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  List<ArtifactFile> files,  Job? job)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String key,  List<ArtifactFile> files,  Job? job,  bool fromRecord)?  $default,) {final _that = this;
 switch (_that) {
 case _ArtifactListing() when $default != null:
-return $default(_that.key,_that.files,_that.job);case _:
+return $default(_that.key,_that.files,_that.job,_that.fromRecord);case _:
   return null;
 
 }
@@ -825,7 +829,7 @@ return $default(_that.key,_that.files,_that.job);case _:
 @JsonSerializable()
 
 class _ArtifactListing implements ArtifactListing {
-  const _ArtifactListing({required this.key,  List<ArtifactFile> files = const [], this.job}): _files = files;
+  const _ArtifactListing({required this.key,  List<ArtifactFile> files = const [], this.job, this.fromRecord = false}): _files = files;
   factory _ArtifactListing.fromJson(Map<String, dynamic> json) => _$ArtifactListingFromJson(json);
 
 @override final  String key;
@@ -839,6 +843,10 @@ class _ArtifactListing implements ArtifactListing {
 /// The job this artifact directory belongs to, when one is known — null
 /// for a directory whose owning job aged out of history.
 @override final  Job? job;
+/// Whether the files come from the job's record, not from the folder: the
+/// folder was cleaned, and only what the record kept (the apps and their
+/// Firebase uploads) is left. Set by a client, never by the server.
+@override@JsonKey() final  bool fromRecord;
 
 /// Create a copy of ArtifactListing
 /// with the given fields replaced by the non-null parameter values.
@@ -853,18 +861,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactListing&&(identical(other.key, key) || other.key == key)&&const DeepCollectionEquality().equals(other.files, _files)&&(identical(other.job, job) || other.job == job));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ArtifactListing&&(identical(other.key, key) || other.key == key)&&const DeepCollectionEquality().equals(other.files, _files)&&(identical(other.job, job) || other.job == job)&&(identical(other.fromRecord, fromRecord) || other.fromRecord == fromRecord));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,key,const DeepCollectionEquality().hash(_files),job);
+    return Object.hash(runtimeType,key,const DeepCollectionEquality().hash(_files),job,fromRecord);
 }
 
 @override
 String toString() {
-    return 'ArtifactListing(key: $key, files: $files, job: $job)';
+    return 'ArtifactListing(key: $key, files: $files, job: $job, fromRecord: $fromRecord)';
 }
 
 
@@ -875,7 +883,7 @@ abstract mixin class _$ArtifactListingCopyWith<$Res> implements $ArtifactListing
   factory _$ArtifactListingCopyWith(_ArtifactListing value, $Res Function(_ArtifactListing) _then) = __$ArtifactListingCopyWithImpl;
 @override @useResult
 $Res call({
- String key, List<ArtifactFile> files, Job? job
+ String key, List<ArtifactFile> files, Job? job, bool fromRecord
 });
 
 
@@ -892,12 +900,13 @@ class __$ArtifactListingCopyWithImpl<$Res>
 
 /// Create a copy of ArtifactListing
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? key = null,Object? files = null,Object? job = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? key = null,Object? files = null,Object? job = freezed,Object? fromRecord = null,}) {
   return _then(_ArtifactListing(
 key: null == key ? _self.key : key // ignore: cast_nullable_to_non_nullable
 as String,files: null == files ? _self._files : files // ignore: cast_nullable_to_non_nullable
 as List<ArtifactFile>,job: freezed == job ? _self.job : job // ignore: cast_nullable_to_non_nullable
-as Job?,
+as Job?,fromRecord: null == fromRecord ? _self.fromRecord : fromRecord // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

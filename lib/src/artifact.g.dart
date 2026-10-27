@@ -56,6 +56,7 @@ _ArtifactListing _$ArtifactListingFromJson(Map<String, dynamic> json) =>
       job: json['job'] == null
           ? null
           : Job.fromJson(json['job'] as Map<String, dynamic>),
+      fromRecord: json['from_record'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ArtifactListingToJson(_ArtifactListing instance) =>
@@ -63,4 +64,5 @@ Map<String, dynamic> _$ArtifactListingToJson(_ArtifactListing instance) =>
       'key': instance.key,
       'files': instance.files.map((e) => e.toJson()).toList(),
       'job': ?instance.job?.toJson(),
+      'from_record': instance.fromRecord,
     };
