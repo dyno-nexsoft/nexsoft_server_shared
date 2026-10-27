@@ -7,7 +7,10 @@ publish_to: none
 version: 0.1.0
 
 environment:
-  sdk: ^3.12.0
+  # The floor the MCP keeps, an API client meant for anyone's machine:
+  # json_annotation 4.12 needs 3.9, and what json_serializable writes uses
+  # null-aware elements (3.8). Checked by building the MCP on Dart 3.9.4.
+  sdk: ^3.9.0
 
 dependencies:
   collection: ^1.19.0
@@ -16,7 +19,7 @@ dependencies:
 
 dev_dependencies:
   # Generating needs Dart 3.13 (freezed 4); what they generate still
-  # compiles on the 3.12 this package declares for its users.
+  # compiles on the 3.9 this package declares for its users.
   build_runner: ^2.17.1
   freezed: ^4.0.3
   json_serializable: ^6.15.2
