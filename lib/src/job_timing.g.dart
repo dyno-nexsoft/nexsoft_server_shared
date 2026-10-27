@@ -10,6 +10,7 @@ _JobTiming _$JobTimingFromJson(Map<String, dynamic> json) => _JobTiming(
   anchor: $enumDecodeNullable(_$TimeAnchorEnumMap, json['anchor']),
   offsetMinutes: (json['offset_minutes'] as num?)?.toInt() ?? 0,
   time: json['time'] as String?,
+  everyMinutes: (json['every_minutes'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$JobTimingToJson(_JobTiming instance) =>
@@ -17,6 +18,7 @@ Map<String, dynamic> _$JobTimingToJson(_JobTiming instance) =>
       'anchor': ?_$TimeAnchorEnumMap[instance.anchor],
       'offset_minutes': instance.offsetMinutes,
       'time': ?instance.time,
+      'every_minutes': ?instance.everyMinutes,
     };
 
 const _$TimeAnchorEnumMap = {

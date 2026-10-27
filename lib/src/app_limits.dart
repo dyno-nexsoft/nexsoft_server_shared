@@ -62,10 +62,6 @@ abstract class AppLimits with _$AppLimits {
     /// Most findings one review shows; the rest are summarised as omitted.
     @Default(20) int reviewMaxIssues,
 
-    /// Minutes between two looks for merge requests to auto-review
-    /// (`gitlab_auto_review`), from the start of the working day.
-    @Default(30) int autoReviewMinutes,
-
     /// Tries a request gets on one model and key before moving on.
     @Default(3) int aiAttemptsPerModel,
 
@@ -120,7 +116,6 @@ abstract class AppLimits with _$AppLimits {
     'build_timeout_minutes': LimitRange(10, 1440),
     'report_sweep_days': LimitRange(1, 30),
     'review_max_issues': LimitRange(1, 100),
-    'auto_review_minutes': LimitRange(5, 240),
     'ai_attempts_per_model': LimitRange(1, 6),
     'ai_key_rest_minutes': LimitRange(1, 120),
     'ai_busy_keys': LimitRange(1, 10),

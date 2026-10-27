@@ -36,4 +36,5 @@ const _$JobKindEnumMap = {
   JobKind.announcement: 'announcement',
   JobKind.dailyReport: 'daily_report',
   JobKind.cleanup: 'cleanup',
+  JobKind.gitlabAutoReview: 'gitlab_auto_review',
 };

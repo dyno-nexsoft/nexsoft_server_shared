@@ -5,8 +5,8 @@ import 'job_timing.dart';
 part 'scheduled_job_config.freezed.dart';
 part 'scheduled_job_config.g.dart';
 
-/// What a scheduled job does. The two system kinds exist once each and cannot
-/// be removed (only disabled or re-timed); announcements are the ones an admin
+/// What a scheduled job does. The system kinds exist once each and cannot be
+/// removed (only disabled or re-timed); announcements are the ones an admin
 /// adds and deletes.
 enum JobKind {
   /// Speaks an AI-worded message through the build machine's speakers.
@@ -21,6 +21,11 @@ enum JobKind {
   /// Cleans the build workspace, then restarts the bot.
   @JsonValue('cleanup')
   cleanup,
+
+  /// Reviews the merge requests the bot's GitLab account is a Reviewer of,
+  /// once for each new commit; repeats through the working day.
+  @JsonValue('gitlab_auto_review')
+  gitlabAutoReview,
 }
 
 /// One scheduled job as an admin configures it.
@@ -61,8 +66,16 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
 
   /// Whether a missed run is made up (see [catchUp]). By default the
   /// cleanup and the daily report are, being worth doing late; an
-  /// announcement is not, since a spoken lunch reminder hours later is noise.
-  bool get catchesUp => catchUp ?? isSystem;
+  /// announcement is not, since a spoken lunch reminder hours later is noise,
+  /// and a repeating job is not: its next run is minutes away anyway.
+  bool get catchesUp => catchUp ?? (isSystem && !timing.isRepeating);
+
+  /// The system kinds, each in the schedule exactly once.
+  static const systemKinds = [
+    JobKind.dailyReport,
+    JobKind.cleanup,
+    JobKind.gitlabAutoReview,
+  ];
 
   static final _namePattern = RegExp(r'^[A-Za-z][A-Za-z0-9_]{0,63}$');
 
@@ -94,12 +107,11 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
       if (!names.add(job.name)) found.add('${job.name} is listed twice.');
       found.addAll(job.problems());
     }
-    for (final kind in [JobKind.dailyReport, JobKind.cleanup]) {
+    for (final kind in systemKinds) {
       final count = jobs.where((job) => job.kind == kind).length;
       if (count != 1) {
         found.add(
-          'There must be exactly one ${kind == JobKind.cleanup ? 'cleanup' : 'daily report'} '
-          'job; found $count.',
+          'There must be exactly one ${kind.name} job; found $count.',
         );
       }
     }

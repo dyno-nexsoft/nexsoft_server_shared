@@ -103,16 +103,6 @@ enum ServerSetting {
         'ci.replace, ARB translations) is assigned to; unset, they are '
         'left unassigned',
   ),
-  gitlabAutoReview(
-    'gitlab_auto_review',
-    SettingKind.flag,
-    description:
-        "Reviews on its own every open merge request with the bot's GitLab "
-        'account among its Reviewers, once for each new commit, drafts left '
-        'out; looked for during the working day, as often as the '
-        'auto_review_minutes limit says',
-    defaultValue: 'false',
-  ),
   zentaoServer(
     'zentao_server',
     SettingKind.url,
