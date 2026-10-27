@@ -40,6 +40,10 @@ class ReviewHistoryEntry {
     required this.failed,
     required this.startedAt,
     required this.model,
+    this.mrAuthor,
+    this.sourceBranch,
+    this.targetBranch,
+    this.error,
   });
 
   factory ReviewHistoryEntry.fromJson(Map<String, dynamic> json) =>
@@ -79,10 +83,25 @@ class ReviewHistoryEntry {
             : (json['reviewed_at'] != null
                   ? DateTime.parse(json['reviewed_at'] as String)
                   : DateTime.now()),
+        mrAuthor: json['mr_author'] as String?,
+        sourceBranch: json['mr_source_branch'] as String?,
+        targetBranch: json['mr_target_branch'] as String?,
+        error: json['error'] as String?,
       );
 
   final String id;
   final int mrIid;
+
+  /// Who opened the MR, by their GitLab name; null on a record from before
+  /// it was kept.
+  final String? mrAuthor;
+
+  /// The MR's branches; null on a record from before they were kept.
+  final String? sourceBranch;
+  final String? targetBranch;
+
+  /// Why a failed run failed.
+  final String? error;
   final String mrTitle;
   final String mrUrl;
   final String? noteUrl;
