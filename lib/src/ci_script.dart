@@ -92,6 +92,10 @@ enum CiScript {
   /// merge request's assignee into its Discord message. Names only: this package is public.
   final Set<String> projectVariables;
 
+  /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a build machine: the
+  /// others only print to the log, and a clean even removes the folder it would be read from.
+  bool get leavesOutput => this == build || this == replace;
+
   /// The script [command] runs.
   static CiScript of(String command) => values.firstWhere(
     (script) =>
