@@ -68,6 +68,16 @@ abstract class AppLimits with _$AppLimits {
     /// Minutes a provider key that failed is left alone.
     @Default(10) int aiKeyRestMinutes,
 
+    /// Keys tried while a provider answers that it is overloaded (502, 503,
+    /// 504) before it is taken for down and the other provider is asked:
+    /// overload is the model's, for every key alike.
+    @Default(2) int aiBusyKeys,
+
+    /// Times a review batch no provider could answer is asked again, after
+    /// 30 seconds and then twice as long each time: overload is usually a
+    /// spike that a wait outlasts.
+    @Default(2) int aiBatchRetries,
+
     /// AI requests in flight at once, across every review and
     /// announcement.
     @Default(2) int aiMaxConcurrentRequests,
@@ -108,6 +118,8 @@ abstract class AppLimits with _$AppLimits {
     'review_max_issues': LimitRange(1, 100),
     'ai_attempts_per_model': LimitRange(1, 6),
     'ai_key_rest_minutes': LimitRange(1, 120),
+    'ai_busy_keys': LimitRange(1, 10),
+    'ai_batch_retries': LimitRange(0, 5),
     'ai_max_concurrent_requests': LimitRange(1, 8),
     'ai_groq_batch_chars': LimitRange(5000, 400000),
   };

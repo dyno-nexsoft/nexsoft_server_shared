@@ -19,6 +19,8 @@ _AppLimits _$AppLimitsFromJson(Map<String, dynamic> json) => _AppLimits(
   reviewMaxIssues: (json['review_max_issues'] as num?)?.toInt() ?? 20,
   aiAttemptsPerModel: (json['ai_attempts_per_model'] as num?)?.toInt() ?? 3,
   aiKeyRestMinutes: (json['ai_key_rest_minutes'] as num?)?.toInt() ?? 10,
+  aiBusyKeys: (json['ai_busy_keys'] as num?)?.toInt() ?? 2,
+  aiBatchRetries: (json['ai_batch_retries'] as num?)?.toInt() ?? 2,
   aiMaxConcurrentRequests:
       (json['ai_max_concurrent_requests'] as num?)?.toInt() ?? 2,
   aiGroqBatchChars: (json['ai_groq_batch_chars'] as num?)?.toInt() ?? 40000,
@@ -38,6 +40,8 @@ Map<String, dynamic> _$AppLimitsToJson(_AppLimits instance) =>
       'review_max_issues': instance.reviewMaxIssues,
       'ai_attempts_per_model': instance.aiAttemptsPerModel,
       'ai_key_rest_minutes': instance.aiKeyRestMinutes,
+      'ai_busy_keys': instance.aiBusyKeys,
+      'ai_batch_retries': instance.aiBatchRetries,
       'ai_max_concurrent_requests': instance.aiMaxConcurrentRequests,
       'ai_groq_batch_chars': instance.aiGroqBatchChars,
     };
