@@ -71,6 +71,15 @@ _SecretNameParams _$SecretNameParamsFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$SecretNameParamsToJson(_SecretNameParams instance) =>
     <String, dynamic>{'name': instance.name};
 
+_SecretItemParams _$SecretItemParamsFromJson(Map<String, dynamic> json) =>
+    _SecretItemParams(
+      name: json['name'] as String,
+      index: (json['index'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$SecretItemParamsToJson(_SecretItemParams instance) =>
+    <String, dynamic>{'name': instance.name, 'index': instance.index};
+
 _AuditListParams _$AuditListParamsFromJson(Map<String, dynamic> json) =>
     _AuditListParams(
       limit: (json['limit'] as num?)?.toInt() ?? 200,
@@ -88,7 +97,13 @@ Map<String, dynamic> _$AuditListParamsToJson(_AuditListParams instance) =>
     };
 
 _AiKeysCheckParams _$AiKeysCheckParamsFromJson(Map<String, dynamic> json) =>
-    _AiKeysCheckParams(removeDead: json['remove_dead'] as bool? ?? false);
+    _AiKeysCheckParams(
+      removeDead: json['remove_dead'] as bool? ?? false,
+      name: json['name'] as String?,
+    );
 
 Map<String, dynamic> _$AiKeysCheckParamsToJson(_AiKeysCheckParams instance) =>
-    <String, dynamic>{'remove_dead': instance.removeDead};
+    <String, dynamic>{
+      'remove_dead': instance.removeDead,
+      'name': ?instance.name,
+    };

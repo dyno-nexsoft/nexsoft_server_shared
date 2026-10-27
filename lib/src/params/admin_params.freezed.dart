@@ -1947,6 +1947,279 @@ as String,
 
 
 /// @nodoc
+mixin _$SecretItemParams {
+
+ String get name; int get index;
+/// Create a copy of SecretItemParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SecretItemParamsCopyWith<SecretItemParams> get copyWith => _$SecretItemParamsCopyWithImpl<SecretItemParams>(this as SecretItemParams, _$identity);
+
+  /// Serializes this SecretItemParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as SecretItemParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretItemParams&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.index, _this.index) || other.index == _this.index));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as SecretItemParams;
+  return Object.hash(runtimeType,_this.name,_this.index);
+}
+
+@override
+String toString() {
+  final _this = this as SecretItemParams;
+  return 'SecretItemParams(name: ${_this.name}, index: ${_this.index})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SecretItemParamsCopyWith<$Res>  {
+  factory $SecretItemParamsCopyWith(SecretItemParams value, $Res Function(SecretItemParams) _then) = _$SecretItemParamsCopyWithImpl;
+@useResult
+$Res call({
+ String name, int index
+});
+
+
+
+
+}
+/// @nodoc
+class _$SecretItemParamsCopyWithImpl<$Res>
+    implements $SecretItemParamsCopyWith<$Res> {
+  _$SecretItemParamsCopyWithImpl(this._self, this._then);
+
+  final SecretItemParams _self;
+  final $Res Function(SecretItemParams) _then;
+
+/// Create a copy of SecretItemParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? index = null,}) {
+  return _then(SecretItemParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [SecretItemParams].
+extension SecretItemParamsPatterns on SecretItemParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SecretItemParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SecretItemParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SecretItemParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _SecretItemParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SecretItemParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SecretItemParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  int index)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SecretItemParams() when $default != null:
+return $default(_that.name,_that.index);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  int index)  $default,) {final _that = this;
+switch (_that) {
+case _SecretItemParams():
+return $default(_that.name,_that.index);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  int index)?  $default,) {final _that = this;
+switch (_that) {
+case _SecretItemParams() when $default != null:
+return $default(_that.name,_that.index);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _SecretItemParams implements SecretItemParams {
+  const _SecretItemParams({required this.name, required this.index});
+  factory _SecretItemParams.fromJson(Map<String, dynamic> json) => _$SecretItemParamsFromJson(json);
+
+@override final  String name;
+@override final  int index;
+
+/// Create a copy of SecretItemParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SecretItemParamsCopyWith<_SecretItemParams> get copyWith => __$SecretItemParamsCopyWithImpl<_SecretItemParams>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$SecretItemParamsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretItemParams&&(identical(other.name, name) || other.name == name)&&(identical(other.index, index) || other.index == index));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,name,index);
+}
+
+@override
+String toString() {
+    return 'SecretItemParams(name: $name, index: $index)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SecretItemParamsCopyWith<$Res> implements $SecretItemParamsCopyWith<$Res> {
+  factory _$SecretItemParamsCopyWith(_SecretItemParams value, $Res Function(_SecretItemParams) _then) = __$SecretItemParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, int index
+});
+
+
+
+
+}
+/// @nodoc
+class __$SecretItemParamsCopyWithImpl<$Res>
+    implements _$SecretItemParamsCopyWith<$Res> {
+  __$SecretItemParamsCopyWithImpl(this._self, this._then);
+
+  final _SecretItemParams _self;
+  final $Res Function(_SecretItemParams) _then;
+
+/// Create a copy of SecretItemParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? index = null,}) {
+  return _then(_SecretItemParams(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,index: null == index ? _self.index : index // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$AuditListParams {
 
  int get limit; String? get action; String? get actor;/// The `next_cursor` of the page before: the entries after it.
@@ -2230,7 +2503,7 @@ as String?,
 /// @nodoc
 mixin _$AiKeysCheckParams {
 
- bool get removeDead;
+ bool get removeDead; String? get name;
 /// Create a copy of AiKeysCheckParams
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2244,20 +2517,20 @@ $AiKeysCheckParamsCopyWith<AiKeysCheckParams> get copyWith => _$AiKeysCheckParam
 @override
 bool operator ==(Object other) {
   final _this = this as AiKeysCheckParams;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiKeysCheckParams&&(identical(other.removeDead, _this.removeDead) || other.removeDead == _this.removeDead));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiKeysCheckParams&&(identical(other.removeDead, _this.removeDead) || other.removeDead == _this.removeDead)&&(identical(other.name, _this.name) || other.name == _this.name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiKeysCheckParams;
-  return Object.hash(runtimeType,_this.removeDead);
+  return Object.hash(runtimeType,_this.removeDead,_this.name);
 }
 
 @override
 String toString() {
   final _this = this as AiKeysCheckParams;
-  return 'AiKeysCheckParams(removeDead: ${_this.removeDead})';
+  return 'AiKeysCheckParams(removeDead: ${_this.removeDead}, name: ${_this.name})';
 }
 
 
@@ -2268,7 +2541,7 @@ abstract mixin class $AiKeysCheckParamsCopyWith<$Res>  {
   factory $AiKeysCheckParamsCopyWith(AiKeysCheckParams value, $Res Function(AiKeysCheckParams) _then) = _$AiKeysCheckParamsCopyWithImpl;
 @useResult
 $Res call({
- bool removeDead
+ bool removeDead, String? name
 });
 
 
@@ -2285,10 +2558,11 @@ class _$AiKeysCheckParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiKeysCheckParams
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? removeDead = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? removeDead = null,Object? name = freezed,}) {
   return _then(AiKeysCheckParams(
 removeDead: null == removeDead ? _self.removeDead : removeDead // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -2373,10 +2647,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool removeDead)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool removeDead,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiKeysCheckParams() when $default != null:
-return $default(_that.removeDead);case _:
+return $default(_that.removeDead,_that.name);case _:
   return orElse();
 
 }
@@ -2394,10 +2668,10 @@ return $default(_that.removeDead);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool removeDead)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool removeDead,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _AiKeysCheckParams():
-return $default(_that.removeDead);case _:
+return $default(_that.removeDead,_that.name);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -2414,10 +2688,10 @@ return $default(_that.removeDead);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool removeDead)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool removeDead,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _AiKeysCheckParams() when $default != null:
-return $default(_that.removeDead);case _:
+return $default(_that.removeDead,_that.name);case _:
   return null;
 
 }
@@ -2429,10 +2703,11 @@ return $default(_that.removeDead);case _:
 @JsonSerializable()
 
 class _AiKeysCheckParams implements AiKeysCheckParams {
-  const _AiKeysCheckParams({this.removeDead = false});
+  const _AiKeysCheckParams({this.removeDead = false, this.name});
   factory _AiKeysCheckParams.fromJson(Map<String, dynamic> json) => _$AiKeysCheckParamsFromJson(json);
 
 @override@JsonKey() final  bool removeDead;
+@override final  String? name;
 
 /// Create a copy of AiKeysCheckParams
 /// with the given fields replaced by the non-null parameter values.
@@ -2447,18 +2722,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiKeysCheckParams&&(identical(other.removeDead, removeDead) || other.removeDead == removeDead)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,removeDead);
+    return Object.hash(runtimeType,removeDead,name);
 }
 
 @override
 String toString() {
-    return 'AiKeysCheckParams(removeDead: $removeDead)';
+    return 'AiKeysCheckParams(removeDead: $removeDead, name: $name)';
 }
 
 
@@ -2469,7 +2744,7 @@ abstract mixin class _$AiKeysCheckParamsCopyWith<$Res> implements $AiKeysCheckPa
   factory _$AiKeysCheckParamsCopyWith(_AiKeysCheckParams value, $Res Function(_AiKeysCheckParams) _then) = __$AiKeysCheckParamsCopyWithImpl;
 @override @useResult
 $Res call({
- bool removeDead
+ bool removeDead, String? name
 });
 
 
@@ -2486,10 +2761,11 @@ class __$AiKeysCheckParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiKeysCheckParams
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? removeDead = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? removeDead = null,Object? name = freezed,}) {
   return _then(_AiKeysCheckParams(
 removeDead: null == removeDead ? _self.removeDead : removeDead // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

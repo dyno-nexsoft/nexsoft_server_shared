@@ -102,6 +102,17 @@ abstract class SecretNameParams with _$SecretNameParams {
       _$SecretNameParamsFromJson(json);
 }
 
+/// `admin.secrets.removeItem`: one value of a list secret, by its place in
+/// the list (from 1), the only way a reader can name it, never seeing it.
+@freezed
+abstract class SecretItemParams with _$SecretItemParams {
+  const factory SecretItemParams({required String name, required int index}) =
+      _SecretItemParams;
+
+  factory SecretItemParams.fromJson(Map<String, dynamic> json) =>
+      _$SecretItemParamsFromJson(json);
+}
+
 /// `admin.audit.list`: the newest [limit] entries, narrowed to one [action]
 /// or one [actor] when given.
 @freezed
@@ -119,13 +130,16 @@ abstract class AuditListParams with _$AuditListParams {
       _$AuditListParamsFromJson(json);
 }
 
-/// `admin.aiKeys.check`: one small request with every configured AI key;
-/// with [removeDead], the keys a provider refused are dropped from its list
-/// (and the list removed when none is left).
+/// `admin.aiKeys.check`: one small request with every configured AI key, or
+/// only those of the secret [name]; with [removeDead], the keys a provider
+/// refused are dropped from its list (and the list removed when none is
+/// left).
 @freezed
 abstract class AiKeysCheckParams with _$AiKeysCheckParams {
-  const factory AiKeysCheckParams({@Default(false) bool removeDead}) =
-      _AiKeysCheckParams;
+  const factory AiKeysCheckParams({
+    @Default(false) bool removeDead,
+    String? name,
+  }) = _AiKeysCheckParams;
 
   factory AiKeysCheckParams.fromJson(Map<String, dynamic> json) =>
       _$AiKeysCheckParamsFromJson(json);

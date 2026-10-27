@@ -37,6 +37,10 @@ abstract class SecretInfo with _$SecretInfo {
     /// Holds several values, comma-separated (API keys tried in turn).
     @Default(false) bool isList,
 
+    /// How many values a list holds: they are named by their place in it
+    /// (`admin.secrets.removeItem`), since none of them is ever shown.
+    @Default(0) int itemCount,
+
     /// Set since the server started, and [needsRestart]: it waits for one.
     @Default(false) bool pendingRestart,
 
@@ -56,6 +60,44 @@ abstract class SecretInfo with _$SecretInfo {
       _$SecretInfoFromJson(json);
 
   bool get isSet => source != SecretSource.none;
+}
+
+/// How one AI key answered `admin.aiKeys.check`: the secret it is in and its
+/// place there (from 1), never the key.
+@freezed
+abstract class AiKeyVerdict with _$AiKeyVerdict {
+  const factory AiKeyVerdict({
+    required String name,
+    required int index,
+
+    /// The provider's HTTP status; 0 when it could not be reached.
+    required int status,
+
+    /// In words: `works`, `refused (403), dead`, `over its quota (429), kept`.
+    required String verdict,
+
+    /// Refused for what the key is (unknown, revoked): worth removing.
+    @Default(false) bool dead,
+  }) = _AiKeyVerdict;
+
+  const AiKeyVerdict._();
+
+  factory AiKeyVerdict.fromJson(Map<String, dynamic> json) =>
+      _$AiKeyVerdictFromJson(json);
+
+  bool get works => status == 200;
+}
+
+/// `admin.aiKeys.check`'s answer: its lines, and each key's verdict.
+@freezed
+abstract class AiKeysCheckResult with _$AiKeysCheckResult {
+  const factory AiKeysCheckResult({
+    @Default('') String message,
+    @Default([]) List<AiKeyVerdict> keys,
+  }) = _AiKeysCheckResult;
+
+  factory AiKeysCheckResult.fromJson(Map<String, dynamic> json) =>
+      _$AiKeysCheckResultFromJson(json);
 }
 
 /// `admin.secrets.list`.

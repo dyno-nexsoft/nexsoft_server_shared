@@ -275,14 +275,24 @@ extension NexsoftActions on ActionTransport {
   Future<SecretList> secretsList() async =>
       SecretList.fromJson(await invokeAction(ActionNames.adminSecretsList, const {}));
 
-  Future<ActionMessage> aiKeysCheck(AiKeysCheckParams params) async =>
-      ActionMessage.fromJson(
+  Future<AiKeysCheckResult> aiKeysCheck(AiKeysCheckParams params) async =>
+      AiKeysCheckResult.fromJson(
         await invokeAction(ActionNames.adminAiKeysCheck, params.toJson()),
       );
 
   Future<ActionMessage> secretsSet(SecretSetParams params) async =>
       ActionMessage.fromJson(
         await invokeAction(ActionNames.adminSecretsSet, params.toJson()),
+      );
+
+  Future<ActionMessage> secretsAddItem(SecretSetParams params) async =>
+      ActionMessage.fromJson(
+        await invokeAction(ActionNames.adminSecretsAddItem, params.toJson()),
+      );
+
+  Future<ActionMessage> secretsRemoveItem(SecretItemParams params) async =>
+      ActionMessage.fromJson(
+        await invokeAction(ActionNames.adminSecretsRemoveItem, params.toJson()),
       );
 
   Future<ActionMessage> secretsRemove(SecretNameParams params) async =>

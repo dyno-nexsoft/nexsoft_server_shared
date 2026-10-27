@@ -18,6 +18,7 @@ _SecretInfo _$SecretInfoFromJson(Map<String, dynamic> json) => _SecretInfo(
   isRequired: json['is_required'] as bool? ?? false,
   needsRestart: json['needs_restart'] as bool? ?? false,
   isList: json['is_list'] as bool? ?? false,
+  itemCount: (json['item_count'] as num?)?.toInt() ?? 0,
   pendingRestart: json['pending_restart'] as bool? ?? false,
   boundHost: json['bound_host'] as String?,
   needsReentry: json['needs_reentry'] as bool? ?? false,
@@ -32,6 +33,7 @@ Map<String, dynamic> _$SecretInfoToJson(_SecretInfo instance) =>
       'is_required': instance.isRequired,
       'needs_restart': instance.needsRestart,
       'is_list': instance.isList,
+      'item_count': instance.itemCount,
       'pending_restart': instance.pendingRestart,
       'bound_host': ?instance.boundHost,
       'needs_reentry': instance.needsReentry,
@@ -41,6 +43,40 @@ const _$SecretSourceEnumMap = {
   SecretSource.store: 'store',
   SecretSource.none: 'none',
 };
+
+_AiKeyVerdict _$AiKeyVerdictFromJson(Map<String, dynamic> json) =>
+    _AiKeyVerdict(
+      name: json['name'] as String,
+      index: (json['index'] as num).toInt(),
+      status: (json['status'] as num).toInt(),
+      verdict: json['verdict'] as String,
+      dead: json['dead'] as bool? ?? false,
+    );
+
+Map<String, dynamic> _$AiKeyVerdictToJson(_AiKeyVerdict instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'index': instance.index,
+      'status': instance.status,
+      'verdict': instance.verdict,
+      'dead': instance.dead,
+    };
+
+_AiKeysCheckResult _$AiKeysCheckResultFromJson(Map<String, dynamic> json) =>
+    _AiKeysCheckResult(
+      message: json['message'] as String? ?? '',
+      keys:
+          (json['keys'] as List<dynamic>?)
+              ?.map((e) => AiKeyVerdict.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+    );
+
+Map<String, dynamic> _$AiKeysCheckResultToJson(_AiKeysCheckResult instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'keys': instance.keys.map((e) => e.toJson()).toList(),
+    };
 
 _SecretList _$SecretListFromJson(Map<String, dynamic> json) => _SecretList(
   secrets:

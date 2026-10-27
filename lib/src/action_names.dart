@@ -29,8 +29,10 @@ abstract final class ActionNames {
   static const adminOwnersAdd = 'admin.owners.add';
   static const adminOwnersList = 'admin.owners.list';
   static const adminOwnersRemove = 'admin.owners.remove';
+  static const adminSecretsAddItem = 'admin.secrets.addItem';
   static const adminSecretsList = 'admin.secrets.list';
   static const adminSecretsRemove = 'admin.secrets.remove';
+  static const adminSecretsRemoveItem = 'admin.secrets.removeItem';
   static const adminSecretsSet = 'admin.secrets.set';
   static const ciInteractionHostsGet = 'ci.interactionHosts.get';
   static const ciInteractionHostsSet = 'ci.interactionHosts.set';
@@ -44,7 +46,8 @@ abstract final class ActionNames {
   static const gitlabReviewHistory = 'gitlab.review.history';
   static const gitlabReviewHistoryDelete = 'gitlab.review.history.delete';
   static const gitlabTranslateArbHistory = 'gitlab.translateArb.history';
-  static const gitlabTranslateArbHistoryDelete = 'gitlab.translateArb.history.delete';
+  static const gitlabTranslateArbHistoryDelete =
+      'gitlab.translateArb.history.delete';
   static const limitsGet = 'limits.get';
   static const limitsSet = 'limits.set';
   static const notificationsAnnounce = 'notifications.announce';
@@ -90,8 +93,10 @@ abstract final class ActionNames {
     adminOwnersAdd,
     adminOwnersList,
     adminOwnersRemove,
+    adminSecretsAddItem,
     adminSecretsList,
     adminSecretsRemove,
+    adminSecretsRemoveItem,
     adminSecretsSet,
     build,
     clean,
