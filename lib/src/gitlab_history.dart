@@ -154,6 +154,7 @@ class TranslateArbHistoryEntry {
     required this.failed,
     required this.startedAt,
     required this.model,
+    this.error,
   });
 
   factory TranslateArbHistoryEntry.fromJson(Map<String, dynamic> json) =>
@@ -188,6 +189,7 @@ class TranslateArbHistoryEntry {
             : (json['translated_at'] != null
                   ? DateTime.parse(json['translated_at'] as String)
                   : DateTime.now()),
+        error: json['error'] as String?,
       );
 
   final String id;
@@ -200,6 +202,9 @@ class TranslateArbHistoryEntry {
   final bool skipped;
   final DateTime translatedAt;
   final String triggeredBy;
+
+  /// Why a failed run failed.
+  final String? error;
 
   final GitlabRunState state;
   final String label;
