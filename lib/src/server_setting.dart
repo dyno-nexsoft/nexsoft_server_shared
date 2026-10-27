@@ -60,8 +60,9 @@ enum ServerSetting {
     SettingKind.flag,
     description:
         'Only members of the Discord server may sign in to the '
-        'dashboard with Discord',
-    defaultValue: 'true',
+        'dashboard with Discord; off by default, since the LAN is what '
+        'keeps outsiders out',
+    defaultValue: 'false',
     primaryOwnerOnly: true,
   ),
   discordChannelId(
