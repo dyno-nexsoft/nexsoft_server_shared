@@ -25,6 +25,11 @@ _CiBuildParams _$CiBuildParamsFromJson(Map<String, dynamic> json) =>
       buildNumber: (json['build_number'] as num?)?.toInt(),
       skipFirebaseDistribution:
           json['skip_firebase_distribution'] as bool? ?? false,
+      flutterArgs:
+          (json['flutter_args'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
       runsOn: json['runs_on'] as String?,
       timeoutMinutes: (json['timeout_minutes'] as num?)?.toInt(),
       retries: (json['retries'] as num?)?.toInt(),
@@ -46,6 +51,7 @@ Map<String, dynamic> _$CiBuildParamsToJson(_CiBuildParams instance) =>
       'skip_firebase_distribution': ?_onlyWhenTrue(
         instance.skipFirebaseDistribution,
       ),
+      'flutter_args': ?_nonEmpty(instance.flutterArgs),
       'runs_on': ?instance.runsOn,
       'timeout_minutes': ?instance.timeoutMinutes,
       'retries': ?instance.retries,

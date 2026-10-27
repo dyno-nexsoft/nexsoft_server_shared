@@ -43,6 +43,10 @@ abstract class CiBuildParams with _$CiBuildParams {
     @Default(false)
     bool skipFirebaseDistribution,
 
+    /// Extra flags for `flutter build`, one word each, after everything the build passes itself (`BuildFlag`): a
+    /// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
+    @JsonKey(toJson: _nonEmpty) @Default(<String>[]) List<String> flutterArgs,
+
     /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
     /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
     /// command: it decides where the job runs, not what it builds.
@@ -178,6 +182,10 @@ abstract class JobIdParams with _$JobIdParams {
 /// reads back the same, and a build's recorded params (what the dashboard and
 /// the job list show) carry the flag only when it changed something.
 bool? _onlyWhenTrue(bool value) => value ? true : null;
+
+/// A list written to JSON only when it holds something, for the same reason as [_onlyWhenTrue]: no defines reads back
+/// as no flags.
+List<String>? _nonEmpty(List<String> value) => value.isEmpty ? null : value;
 
 /// What `ci.interaction` does to a post, each the way the app tells the server about it.
 enum PostInteractionType {

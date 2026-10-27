@@ -24,7 +24,9 @@ mixin _$CiBuildParams {
  String? get buildName;/// Overrides the time-of-day build number. Unset keeps the default.
  int? get buildNumber;/// Builds and copies the artifact but does not push it to Firebase App
 /// Distribution.
-@JsonKey(toJson: _onlyWhenTrue) bool get skipFirebaseDistribution;/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+@JsonKey(toJson: _onlyWhenTrue) bool get skipFirebaseDistribution;/// Extra flags for `flutter build`, one word each, after everything the build passes itself (`BuildFlag`): a
+/// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
+@JsonKey(toJson: _nonEmpty) List<String> get flutterArgs;/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
  String? get runsOn;/// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
@@ -45,20 +47,20 @@ $CiBuildParamsCopyWith<CiBuildParams> get copyWith => _$CiBuildParamsCopyWithImp
 @override
 bool operator ==(Object other) {
   final _this = this as CiBuildParams;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiBuildParams&&(identical(other.tbchat, _this.tbchat) || other.tbchat == _this.tbchat)&&(identical(other.database, _this.database) || other.database == _this.database)&&(identical(other.im, _this.im) || other.im == _this.im)&&(identical(other.wallet, _this.wallet) || other.wallet == _this.wallet)&&(identical(other.cloudStorage, _this.cloudStorage) || other.cloudStorage == _this.cloudStorage)&&(identical(other.socialfi, _this.socialfi) || other.socialfi == _this.socialfi)&&(identical(other.platform, _this.platform) || other.platform == _this.platform)&&(identical(other.environment, _this.environment) || other.environment == _this.environment)&&(identical(other.releaseNotes, _this.releaseNotes) || other.releaseNotes == _this.releaseNotes)&&(identical(other.buildName, _this.buildName) || other.buildName == _this.buildName)&&(identical(other.buildNumber, _this.buildNumber) || other.buildNumber == _this.buildNumber)&&(identical(other.skipFirebaseDistribution, _this.skipFirebaseDistribution) || other.skipFirebaseDistribution == _this.skipFirebaseDistribution)&&(identical(other.runsOn, _this.runsOn) || other.runsOn == _this.runsOn)&&(identical(other.timeoutMinutes, _this.timeoutMinutes) || other.timeoutMinutes == _this.timeoutMinutes)&&(identical(other.retries, _this.retries) || other.retries == _this.retries));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CiBuildParams&&(identical(other.tbchat, _this.tbchat) || other.tbchat == _this.tbchat)&&(identical(other.database, _this.database) || other.database == _this.database)&&(identical(other.im, _this.im) || other.im == _this.im)&&(identical(other.wallet, _this.wallet) || other.wallet == _this.wallet)&&(identical(other.cloudStorage, _this.cloudStorage) || other.cloudStorage == _this.cloudStorage)&&(identical(other.socialfi, _this.socialfi) || other.socialfi == _this.socialfi)&&(identical(other.platform, _this.platform) || other.platform == _this.platform)&&(identical(other.environment, _this.environment) || other.environment == _this.environment)&&(identical(other.releaseNotes, _this.releaseNotes) || other.releaseNotes == _this.releaseNotes)&&(identical(other.buildName, _this.buildName) || other.buildName == _this.buildName)&&(identical(other.buildNumber, _this.buildNumber) || other.buildNumber == _this.buildNumber)&&(identical(other.skipFirebaseDistribution, _this.skipFirebaseDistribution) || other.skipFirebaseDistribution == _this.skipFirebaseDistribution)&&const DeepCollectionEquality().equals(other.flutterArgs, _this.flutterArgs)&&(identical(other.runsOn, _this.runsOn) || other.runsOn == _this.runsOn)&&(identical(other.timeoutMinutes, _this.timeoutMinutes) || other.timeoutMinutes == _this.timeoutMinutes)&&(identical(other.retries, _this.retries) || other.retries == _this.retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as CiBuildParams;
-  return Object.hash(runtimeType,_this.tbchat,_this.database,_this.im,_this.wallet,_this.cloudStorage,_this.socialfi,_this.platform,_this.environment,_this.releaseNotes,_this.buildName,_this.buildNumber,_this.skipFirebaseDistribution,_this.runsOn,_this.timeoutMinutes,_this.retries);
+  return Object.hash(runtimeType,_this.tbchat,_this.database,_this.im,_this.wallet,_this.cloudStorage,_this.socialfi,_this.platform,_this.environment,_this.releaseNotes,_this.buildName,_this.buildNumber,_this.skipFirebaseDistribution,const DeepCollectionEquality().hash(_this.flutterArgs),_this.runsOn,_this.timeoutMinutes,_this.retries);
 }
 
 @override
 String toString() {
   final _this = this as CiBuildParams;
-  return 'CiBuildParams(tbchat: ${_this.tbchat}, database: ${_this.database}, im: ${_this.im}, wallet: ${_this.wallet}, cloudStorage: ${_this.cloudStorage}, socialfi: ${_this.socialfi}, platform: ${_this.platform}, environment: ${_this.environment}, releaseNotes: ${_this.releaseNotes}, buildName: ${_this.buildName}, buildNumber: ${_this.buildNumber}, skipFirebaseDistribution: ${_this.skipFirebaseDistribution}, runsOn: ${_this.runsOn}, timeoutMinutes: ${_this.timeoutMinutes}, retries: ${_this.retries})';
+  return 'CiBuildParams(tbchat: ${_this.tbchat}, database: ${_this.database}, im: ${_this.im}, wallet: ${_this.wallet}, cloudStorage: ${_this.cloudStorage}, socialfi: ${_this.socialfi}, platform: ${_this.platform}, environment: ${_this.environment}, releaseNotes: ${_this.releaseNotes}, buildName: ${_this.buildName}, buildNumber: ${_this.buildNumber}, skipFirebaseDistribution: ${_this.skipFirebaseDistribution}, flutterArgs: ${_this.flutterArgs}, runsOn: ${_this.runsOn}, timeoutMinutes: ${_this.timeoutMinutes}, retries: ${_this.retries})';
 }
 
 
@@ -69,7 +71,7 @@ abstract mixin class $CiBuildParamsCopyWith<$Res>  {
   factory $CiBuildParamsCopyWith(CiBuildParams value, $Res Function(CiBuildParams) _then) = _$CiBuildParamsCopyWithImpl;
 @useResult
 $Res call({
- String tbchat, String database, String? im, String? wallet, String? cloudStorage, String? socialfi,@PlatformBuildConverter() PlatformBuild platform, EnvironmentBuild environment, String? releaseNotes, String? buildName, int? buildNumber,@JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution, String? runsOn, int? timeoutMinutes, int? retries
+ String tbchat, String database, String? im, String? wallet, String? cloudStorage, String? socialfi,@PlatformBuildConverter() PlatformBuild platform, EnvironmentBuild environment, String? releaseNotes, String? buildName, int? buildNumber,@JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,@JsonKey(toJson: _nonEmpty) List<String> flutterArgs, String? runsOn, int? timeoutMinutes, int? retries
 });
 
 
@@ -86,7 +88,7 @@ class _$CiBuildParamsCopyWithImpl<$Res>
 
 /// Create a copy of CiBuildParams
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? tbchat = null,Object? database = null,Object? im = freezed,Object? wallet = freezed,Object? cloudStorage = freezed,Object? socialfi = freezed,Object? platform = null,Object? environment = null,Object? releaseNotes = freezed,Object? buildName = freezed,Object? buildNumber = freezed,Object? skipFirebaseDistribution = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? tbchat = null,Object? database = null,Object? im = freezed,Object? wallet = freezed,Object? cloudStorage = freezed,Object? socialfi = freezed,Object? platform = null,Object? environment = null,Object? releaseNotes = freezed,Object? buildName = freezed,Object? buildNumber = freezed,Object? skipFirebaseDistribution = null,Object? flutterArgs = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
   return _then(CiBuildParams(
 tbchat: null == tbchat ? _self.tbchat : tbchat // ignore: cast_nullable_to_non_nullable
 as String,database: null == database ? _self.database : database // ignore: cast_nullable_to_non_nullable
@@ -100,7 +102,8 @@ as EnvironmentBuild,releaseNotes: freezed == releaseNotes ? _self.releaseNotes :
 as String?,buildName: freezed == buildName ? _self.buildName : buildName // ignore: cast_nullable_to_non_nullable
 as String?,buildNumber: freezed == buildNumber ? _self.buildNumber : buildNumber // ignore: cast_nullable_to_non_nullable
 as int?,skipFirebaseDistribution: null == skipFirebaseDistribution ? _self.skipFirebaseDistribution : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
-as bool,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
+as bool,flutterArgs: null == flutterArgs ? _self.flutterArgs : flutterArgs // ignore: cast_nullable_to_non_nullable
+as List<String>,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
 as String?,timeoutMinutes: freezed == timeoutMinutes ? _self.timeoutMinutes : timeoutMinutes // ignore: cast_nullable_to_non_nullable
 as int?,retries: freezed == retries ? _self.retries : retries // ignore: cast_nullable_to_non_nullable
 as int?,
@@ -188,10 +191,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution,  String? runsOn,  int? timeoutMinutes,  int? retries)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution, @JsonKey(toJson: _nonEmpty)  List<String> flutterArgs,  String? runsOn,  int? timeoutMinutes,  int? retries)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CiBuildParams() when $default != null:
-return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
+return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.flutterArgs,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
   return orElse();
 
 }
@@ -209,10 +212,10 @@ return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudSto
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution,  String? runsOn,  int? timeoutMinutes,  int? retries)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution, @JsonKey(toJson: _nonEmpty)  List<String> flutterArgs,  String? runsOn,  int? timeoutMinutes,  int? retries)  $default,) {final _that = this;
 switch (_that) {
 case _CiBuildParams():
-return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
+return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.flutterArgs,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -229,10 +232,10 @@ return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudSto
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution,  String? runsOn,  int? timeoutMinutes,  int? retries)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String tbchat,  String database,  String? im,  String? wallet,  String? cloudStorage,  String? socialfi, @PlatformBuildConverter()  PlatformBuild platform,  EnvironmentBuild environment,  String? releaseNotes,  String? buildName,  int? buildNumber, @JsonKey(toJson: _onlyWhenTrue)  bool skipFirebaseDistribution, @JsonKey(toJson: _nonEmpty)  List<String> flutterArgs,  String? runsOn,  int? timeoutMinutes,  int? retries)?  $default,) {final _that = this;
 switch (_that) {
 case _CiBuildParams() when $default != null:
-return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
+return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudStorage,_that.socialfi,_that.platform,_that.environment,_that.releaseNotes,_that.buildName,_that.buildNumber,_that.skipFirebaseDistribution,_that.flutterArgs,_that.runsOn,_that.timeoutMinutes,_that.retries);case _:
   return null;
 
 }
@@ -244,7 +247,7 @@ return $default(_that.tbchat,_that.database,_that.im,_that.wallet,_that.cloudSto
 @JsonSerializable()
 
 class _CiBuildParams implements CiBuildParams {
-  const _CiBuildParams({required this.tbchat, required this.database, this.im, this.wallet, this.cloudStorage, this.socialfi, @PlatformBuildConverter() this.platform = PlatformBuild.androidIos, this.environment = EnvironmentBuild.dev, this.releaseNotes, this.buildName, this.buildNumber, @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false, this.runsOn, this.timeoutMinutes, this.retries});
+  const _CiBuildParams({required this.tbchat, required this.database, this.im, this.wallet, this.cloudStorage, this.socialfi, @PlatformBuildConverter() this.platform = PlatformBuild.androidIos, this.environment = EnvironmentBuild.dev, this.releaseNotes, this.buildName, this.buildNumber, @JsonKey(toJson: _onlyWhenTrue) this.skipFirebaseDistribution = false, @JsonKey(toJson: _nonEmpty)  List<String> flutterArgs = const <String>[], this.runsOn, this.timeoutMinutes, this.retries}): _flutterArgs = flutterArgs;
   factory _CiBuildParams.fromJson(Map<String, dynamic> json) => _$CiBuildParamsFromJson(json);
 
 /// Branch or commit hash of the `tbchat` repo.
@@ -267,6 +270,17 @@ class _CiBuildParams implements CiBuildParams {
 /// Builds and copies the artifact but does not push it to Firebase App
 /// Distribution.
 @override@JsonKey(toJson: _onlyWhenTrue) final  bool skipFirebaseDistribution;
+/// Extra flags for `flutter build`, one word each, after everything the build passes itself (`BuildFlag`): a
+/// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
+ final  List<String> _flutterArgs;
+/// Extra flags for `flutter build`, one word each, after everything the build passes itself (`BuildFlag`): a
+/// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
+@override@JsonKey(toJson: _nonEmpty) List<String> get flutterArgs {
+  if (_flutterArgs is EqualUnmodifiableListView) return _flutterArgs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_flutterArgs);
+}
+
 /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
@@ -291,18 +305,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiBuildParams&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.database, database) || other.database == database)&&(identical(other.im, im) || other.im == im)&&(identical(other.wallet, wallet) || other.wallet == wallet)&&(identical(other.cloudStorage, cloudStorage) || other.cloudStorage == cloudStorage)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.releaseNotes, releaseNotes) || other.releaseNotes == releaseNotes)&&(identical(other.buildName, buildName) || other.buildName == buildName)&&(identical(other.buildNumber, buildNumber) || other.buildNumber == buildNumber)&&(identical(other.skipFirebaseDistribution, skipFirebaseDistribution) || other.skipFirebaseDistribution == skipFirebaseDistribution)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _CiBuildParams&&(identical(other.tbchat, tbchat) || other.tbchat == tbchat)&&(identical(other.database, database) || other.database == database)&&(identical(other.im, im) || other.im == im)&&(identical(other.wallet, wallet) || other.wallet == wallet)&&(identical(other.cloudStorage, cloudStorage) || other.cloudStorage == cloudStorage)&&(identical(other.socialfi, socialfi) || other.socialfi == socialfi)&&(identical(other.platform, platform) || other.platform == platform)&&(identical(other.environment, environment) || other.environment == environment)&&(identical(other.releaseNotes, releaseNotes) || other.releaseNotes == releaseNotes)&&(identical(other.buildName, buildName) || other.buildName == buildName)&&(identical(other.buildNumber, buildNumber) || other.buildNumber == buildNumber)&&(identical(other.skipFirebaseDistribution, skipFirebaseDistribution) || other.skipFirebaseDistribution == skipFirebaseDistribution)&&const DeepCollectionEquality().equals(other.flutterArgs, _flutterArgs)&&(identical(other.runsOn, runsOn) || other.runsOn == runsOn)&&(identical(other.timeoutMinutes, timeoutMinutes) || other.timeoutMinutes == timeoutMinutes)&&(identical(other.retries, retries) || other.retries == retries));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,tbchat,database,im,wallet,cloudStorage,socialfi,platform,environment,releaseNotes,buildName,buildNumber,skipFirebaseDistribution,runsOn,timeoutMinutes,retries);
+    return Object.hash(runtimeType,tbchat,database,im,wallet,cloudStorage,socialfi,platform,environment,releaseNotes,buildName,buildNumber,skipFirebaseDistribution,const DeepCollectionEquality().hash(_flutterArgs),runsOn,timeoutMinutes,retries);
 }
 
 @override
 String toString() {
-    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
+    return 'CiBuildParams(tbchat: $tbchat, database: $database, im: $im, wallet: $wallet, cloudStorage: $cloudStorage, socialfi: $socialfi, platform: $platform, environment: $environment, releaseNotes: $releaseNotes, buildName: $buildName, buildNumber: $buildNumber, skipFirebaseDistribution: $skipFirebaseDistribution, flutterArgs: $flutterArgs, runsOn: $runsOn, timeoutMinutes: $timeoutMinutes, retries: $retries)';
 }
 
 
@@ -313,7 +327,7 @@ abstract mixin class _$CiBuildParamsCopyWith<$Res> implements $CiBuildParamsCopy
   factory _$CiBuildParamsCopyWith(_CiBuildParams value, $Res Function(_CiBuildParams) _then) = __$CiBuildParamsCopyWithImpl;
 @override @useResult
 $Res call({
- String tbchat, String database, String? im, String? wallet, String? cloudStorage, String? socialfi,@PlatformBuildConverter() PlatformBuild platform, EnvironmentBuild environment, String? releaseNotes, String? buildName, int? buildNumber,@JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution, String? runsOn, int? timeoutMinutes, int? retries
+ String tbchat, String database, String? im, String? wallet, String? cloudStorage, String? socialfi,@PlatformBuildConverter() PlatformBuild platform, EnvironmentBuild environment, String? releaseNotes, String? buildName, int? buildNumber,@JsonKey(toJson: _onlyWhenTrue) bool skipFirebaseDistribution,@JsonKey(toJson: _nonEmpty) List<String> flutterArgs, String? runsOn, int? timeoutMinutes, int? retries
 });
 
 
@@ -330,7 +344,7 @@ class __$CiBuildParamsCopyWithImpl<$Res>
 
 /// Create a copy of CiBuildParams
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? tbchat = null,Object? database = null,Object? im = freezed,Object? wallet = freezed,Object? cloudStorage = freezed,Object? socialfi = freezed,Object? platform = null,Object? environment = null,Object? releaseNotes = freezed,Object? buildName = freezed,Object? buildNumber = freezed,Object? skipFirebaseDistribution = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? tbchat = null,Object? database = null,Object? im = freezed,Object? wallet = freezed,Object? cloudStorage = freezed,Object? socialfi = freezed,Object? platform = null,Object? environment = null,Object? releaseNotes = freezed,Object? buildName = freezed,Object? buildNumber = freezed,Object? skipFirebaseDistribution = null,Object? flutterArgs = null,Object? runsOn = freezed,Object? timeoutMinutes = freezed,Object? retries = freezed,}) {
   return _then(_CiBuildParams(
 tbchat: null == tbchat ? _self.tbchat : tbchat // ignore: cast_nullable_to_non_nullable
 as String,database: null == database ? _self.database : database // ignore: cast_nullable_to_non_nullable
@@ -344,7 +358,8 @@ as EnvironmentBuild,releaseNotes: freezed == releaseNotes ? _self.releaseNotes :
 as String?,buildName: freezed == buildName ? _self.buildName : buildName // ignore: cast_nullable_to_non_nullable
 as String?,buildNumber: freezed == buildNumber ? _self.buildNumber : buildNumber // ignore: cast_nullable_to_non_nullable
 as int?,skipFirebaseDistribution: null == skipFirebaseDistribution ? _self.skipFirebaseDistribution : skipFirebaseDistribution // ignore: cast_nullable_to_non_nullable
-as bool,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
+as bool,flutterArgs: null == flutterArgs ? _self._flutterArgs : flutterArgs // ignore: cast_nullable_to_non_nullable
+as List<String>,runsOn: freezed == runsOn ? _self.runsOn : runsOn // ignore: cast_nullable_to_non_nullable
 as String?,timeoutMinutes: freezed == timeoutMinutes ? _self.timeoutMinutes : timeoutMinutes // ignore: cast_nullable_to_non_nullable
 as int?,retries: freezed == retries ? _self.retries : retries // ignore: cast_nullable_to_non_nullable
 as int?,
