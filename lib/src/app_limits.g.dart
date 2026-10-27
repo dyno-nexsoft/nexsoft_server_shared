@@ -23,7 +23,7 @@ _AppLimits _$AppLimitsFromJson(Map<String, dynamic> json) => _AppLimits(
   aiBatchRetries: (json['ai_batch_retries'] as num?)?.toInt() ?? 2,
   aiMaxConcurrentRequests:
       (json['ai_max_concurrent_requests'] as num?)?.toInt() ?? 2,
-  aiGroqBatchChars: (json['ai_groq_batch_chars'] as num?)?.toInt() ?? 40000,
+  aiGroqBatchChars: (json['ai_groq_batch_chars'] as num?)?.toInt() ?? 12000,
 );
 
 Map<String, dynamic> _$AppLimitsToJson(_AppLimits instance) =>

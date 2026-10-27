@@ -85,7 +85,9 @@ abstract class AppLimits with _$AppLimits {
     /// Characters of code one review (or translation) request may carry when
     /// Groq answers. Groq's free and low tiers allow far fewer tokens a minute
     /// than Gemini, so its batches are smaller and a big MR takes more of them.
-    @Default(40000) int aiGroqBatchChars,
+    /// 12,000 is about 3,600 tokens of code, which with the review prompt's
+    /// own 1,700 or so stays under the 8,000 a minute of the lowest tier.
+    @Default(12000) int aiGroqBatchChars,
   }) = _AppLimits;
 
   factory AppLimits.fromJson(Map<String, dynamic> json) =>

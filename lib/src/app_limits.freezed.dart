@@ -46,6 +46,8 @@ mixin _$AppLimits {
  int get aiMaxConcurrentRequests;/// Characters of code one review (or translation) request may carry when
 /// Groq answers. Groq's free and low tiers allow far fewer tokens a minute
 /// than Gemini, so its batches are smaller and a big MR takes more of them.
+/// 12,000 is about 3,600 tokens of code, which with the review prompt's
+/// own 1,700 or so stays under the 8,000 a minute of the lowest tier.
  int get aiGroqBatchChars;
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
@@ -260,7 +262,7 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 @JsonSerializable()
 
 class _AppLimits extends AppLimits {
-  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2, this.aiGroqBatchChars = 40000}): super._();
+  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2, this.aiGroqBatchChars = 12000}): super._();
   factory _AppLimits.fromJson(Map<String, dynamic> json) => _$AppLimitsFromJson(json);
 
 /// Days a job stays in history (the jobs list, its page, retries). Its
@@ -308,6 +310,8 @@ class _AppLimits extends AppLimits {
 /// Characters of code one review (or translation) request may carry when
 /// Groq answers. Groq's free and low tiers allow far fewer tokens a minute
 /// than Gemini, so its batches are smaller and a big MR takes more of them.
+/// 12,000 is about 3,600 tokens of code, which with the review prompt's
+/// own 1,700 or so stays under the 8,000 a minute of the lowest tier.
 @override@JsonKey() final  int aiGroqBatchChars;
 
 /// Create a copy of AppLimits
