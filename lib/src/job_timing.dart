@@ -31,7 +31,8 @@ enum TimeAnchor {
 /// with the working day (the nightly cleanup) runs at a fixed [time] every day.
 ///
 /// A job that looks for work all day long (the GitLab auto-review) runs
-/// [everyMinutes] apart through each working day, from its start to its end.
+/// [everyMinutes] apart through each working day, from its start to its end,
+/// or, with [everyDay], round the clock on every day, days off included.
 ///
 /// Exactly one of [anchor], [time] and [everyMinutes] is set.
 @freezed
@@ -51,6 +52,10 @@ abstract class JobTiming with _$JobTiming {
     /// Minutes apart, for a job that runs through each working day from its
     /// start (included) to its end.
     int? everyMinutes,
+
+    /// With [everyMinutes]: through the whole of every day, from midnight,
+    /// days off included, rather than through the working day.
+    @Default(false) bool everyDay,
   }) = _JobTiming;
 
   factory JobTiming.fromJson(Map<String, dynamic> json) =>
@@ -76,7 +81,8 @@ abstract class JobTiming with _$JobTiming {
   static const everyMinutesRange = (min: 5, max: 240);
 
   /// Whether the working calendar decides which days this runs on.
-  bool get followsCalendar => anchor != null || everyMinutes != null;
+  bool get followsCalendar =>
+      anchor != null || (everyMinutes != null && !everyDay);
 
   /// Whether this runs again and again through the working day.
   bool get isRepeating => everyMinutes != null;
@@ -109,14 +115,15 @@ abstract class JobTiming with _$JobTiming {
   }
 
   /// The minutes of [day] (since midnight) a repeating job runs at: from the
-  /// start of that working day, [everyMinutes] apart, before its end. Empty
-  /// on a day off, and for a job that does not repeat.
+  /// start of that working day, [everyMinutes] apart, before its end (from
+  /// midnight to midnight with [everyDay]). Empty on a day off unless
+  /// [everyDay], and for a job that does not repeat.
   Iterable<int> _repeatsOn(WorkCalendar calendar, DateTime day) sync* {
     final every = everyMinutes;
     if (every == null || every < 1) return;
-    final hours = calendar.planFor(day)?.hours;
-    final start = hours?.startMinutes;
-    final end = hours?.endMinutes;
+    final hours = everyDay ? null : calendar.planFor(day)?.hours;
+    final start = everyDay ? 0 : hours?.startMinutes;
+    final end = everyDay ? 24 * 60 : hours?.endMinutes;
     if (start == null || end == null) return;
     for (var minute = start; minute < end; minute += every) {
       yield minute;
@@ -149,7 +156,11 @@ abstract class JobTiming with _$JobTiming {
 
   /// The rule in words, for the dashboard.
   String describe() {
-    if (everyMinutes case final every?) return 'Working days, every $every min';
+    if (everyMinutes case final every?) {
+      return everyDay
+          ? 'Every day, every $every min'
+          : 'Working days, every $every min';
+    }
     final anchor = this.anchor;
     if (anchor == null) return 'Every day at ${time ?? '—'}';
     final offset = offsetMinutes == 0
@@ -162,6 +173,9 @@ abstract class JobTiming with _$JobTiming {
 
   /// Everything wrong with this timing, in words an admin can act on.
   List<String> problems() {
+    if (everyDay && everyMinutes == null) {
+      return ['Only a repeating job runs round the clock.'];
+    }
     if (everyMinutes case final every?) {
       return [
         if (anchor != null || time != null)

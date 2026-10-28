@@ -21,7 +21,9 @@ mixin _$JobTiming {
  int get offsetMinutes;/// `HH:mm`, for a job that runs every day at a fixed time.
  String? get time;/// Minutes apart, for a job that runs through each working day from its
 /// start (included) to its end.
- int? get everyMinutes;
+ int? get everyMinutes;/// With [everyMinutes]: through the whole of every day, from midnight,
+/// days off included, rather than through the working day.
+ bool get everyDay;
 /// Create a copy of JobTiming
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -35,20 +37,20 @@ $JobTimingCopyWith<JobTiming> get copyWith => _$JobTimingCopyWithImpl<JobTiming>
 @override
 bool operator ==(Object other) {
   final _this = this as JobTiming;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobTiming&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.offsetMinutes, _this.offsetMinutes) || other.offsetMinutes == _this.offsetMinutes)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.everyMinutes, _this.everyMinutes) || other.everyMinutes == _this.everyMinutes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is JobTiming&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.offsetMinutes, _this.offsetMinutes) || other.offsetMinutes == _this.offsetMinutes)&&(identical(other.time, _this.time) || other.time == _this.time)&&(identical(other.everyMinutes, _this.everyMinutes) || other.everyMinutes == _this.everyMinutes)&&(identical(other.everyDay, _this.everyDay) || other.everyDay == _this.everyDay));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as JobTiming;
-  return Object.hash(runtimeType,_this.anchor,_this.offsetMinutes,_this.time,_this.everyMinutes);
+  return Object.hash(runtimeType,_this.anchor,_this.offsetMinutes,_this.time,_this.everyMinutes,_this.everyDay);
 }
 
 @override
 String toString() {
   final _this = this as JobTiming;
-  return 'JobTiming(anchor: ${_this.anchor}, offsetMinutes: ${_this.offsetMinutes}, time: ${_this.time}, everyMinutes: ${_this.everyMinutes})';
+  return 'JobTiming(anchor: ${_this.anchor}, offsetMinutes: ${_this.offsetMinutes}, time: ${_this.time}, everyMinutes: ${_this.everyMinutes}, everyDay: ${_this.everyDay})';
 }
 
 
@@ -59,7 +61,7 @@ abstract mixin class $JobTimingCopyWith<$Res>  {
   factory $JobTimingCopyWith(JobTiming value, $Res Function(JobTiming) _then) = _$JobTimingCopyWithImpl;
 @useResult
 $Res call({
- TimeAnchor? anchor, int offsetMinutes, String? time, int? everyMinutes
+ TimeAnchor? anchor, int offsetMinutes, String? time, int? everyMinutes, bool everyDay
 });
 
 
@@ -76,13 +78,14 @@ class _$JobTimingCopyWithImpl<$Res>
 
 /// Create a copy of JobTiming
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,Object? everyMinutes = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,Object? everyMinutes = freezed,Object? everyDay = null,}) {
   return _then(JobTiming(
 anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as TimeAnchor?,offsetMinutes: null == offsetMinutes ? _self.offsetMinutes : offsetMinutes // ignore: cast_nullable_to_non_nullable
 as int,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as String?,everyMinutes: freezed == everyMinutes ? _self.everyMinutes : everyMinutes // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,everyDay: null == everyDay ? _self.everyDay : everyDay // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
@@ -167,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes,  bool everyDay)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _JobTiming() when $default != null:
-return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);case _:
+return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes,_that.everyDay);case _:
   return orElse();
 
 }
@@ -188,10 +191,10 @@ return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes,  bool everyDay)  $default,) {final _that = this;
 switch (_that) {
 case _JobTiming():
-return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);case _:
+return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes,_that.everyDay);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +211,10 @@ return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( TimeAnchor? anchor,  int offsetMinutes,  String? time,  int? everyMinutes,  bool everyDay)?  $default,) {final _that = this;
 switch (_that) {
 case _JobTiming() when $default != null:
-return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);case _:
+return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes,_that.everyDay);case _:
   return null;
 
 }
@@ -223,7 +226,7 @@ return $default(_that.anchor,_that.offsetMinutes,_that.time,_that.everyMinutes);
 @JsonSerializable()
 
 class _JobTiming extends JobTiming {
-  const _JobTiming({this.anchor, this.offsetMinutes = 0, this.time, this.everyMinutes}): super._();
+  const _JobTiming({this.anchor, this.offsetMinutes = 0, this.time, this.everyMinutes, this.everyDay = false}): super._();
   factory _JobTiming.fromJson(Map<String, dynamic> json) => _$JobTimingFromJson(json);
 
 /// Pins the job to this point of each working day; null for a daily job.
@@ -235,6 +238,9 @@ class _JobTiming extends JobTiming {
 /// Minutes apart, for a job that runs through each working day from its
 /// start (included) to its end.
 @override final  int? everyMinutes;
+/// With [everyMinutes]: through the whole of every day, from midnight,
+/// days off included, rather than through the working day.
+@override@JsonKey() final  bool everyDay;
 
 /// Create a copy of JobTiming
 /// with the given fields replaced by the non-null parameter values.
@@ -249,18 +255,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time)&&(identical(other.everyMinutes, everyMinutes) || other.everyMinutes == everyMinutes));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _JobTiming&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.offsetMinutes, offsetMinutes) || other.offsetMinutes == offsetMinutes)&&(identical(other.time, time) || other.time == time)&&(identical(other.everyMinutes, everyMinutes) || other.everyMinutes == everyMinutes)&&(identical(other.everyDay, everyDay) || other.everyDay == everyDay));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,anchor,offsetMinutes,time,everyMinutes);
+    return Object.hash(runtimeType,anchor,offsetMinutes,time,everyMinutes,everyDay);
 }
 
 @override
 String toString() {
-    return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time, everyMinutes: $everyMinutes)';
+    return 'JobTiming(anchor: $anchor, offsetMinutes: $offsetMinutes, time: $time, everyMinutes: $everyMinutes, everyDay: $everyDay)';
 }
 
 
@@ -271,7 +277,7 @@ abstract mixin class _$JobTimingCopyWith<$Res> implements $JobTimingCopyWith<$Re
   factory _$JobTimingCopyWith(_JobTiming value, $Res Function(_JobTiming) _then) = __$JobTimingCopyWithImpl;
 @override @useResult
 $Res call({
- TimeAnchor? anchor, int offsetMinutes, String? time, int? everyMinutes
+ TimeAnchor? anchor, int offsetMinutes, String? time, int? everyMinutes, bool everyDay
 });
 
 
@@ -288,13 +294,14 @@ class __$JobTimingCopyWithImpl<$Res>
 
 /// Create a copy of JobTiming
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,Object? everyMinutes = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? anchor = freezed,Object? offsetMinutes = null,Object? time = freezed,Object? everyMinutes = freezed,Object? everyDay = null,}) {
   return _then(_JobTiming(
 anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as TimeAnchor?,offsetMinutes: null == offsetMinutes ? _self.offsetMinutes : offsetMinutes // ignore: cast_nullable_to_non_nullable
 as int,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as String?,everyMinutes: freezed == everyMinutes ? _self.everyMinutes : everyMinutes // ignore: cast_nullable_to_non_nullable
-as int?,
+as int?,everyDay: null == everyDay ? _self.everyDay : everyDay // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
