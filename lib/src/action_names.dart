@@ -43,6 +43,7 @@ abstract final class ActionNames {
   static const ciMachinesGet = 'ci.machines.get';
   static const ciMachinesSet = 'ci.machines.set';
   static const ciStatsGet = 'ci.stats.get';
+  static const gitlabAutoAssignPreview = 'gitlab.autoAssign.preview';
   static const gitlabReviewHistory = 'gitlab.review.history';
   static const gitlabReviewHistoryDelete = 'gitlab.review.history.delete';
   static const gitlabTranslateArbHistory = 'gitlab.translateArb.history';
@@ -116,6 +117,7 @@ abstract final class ActionNames {
     upload,
     cronRun,
     review,
+    gitlabAutoAssignPreview,
     gitlabReviewHistory,
     gitlabReviewHistoryDelete,
     translateArb,

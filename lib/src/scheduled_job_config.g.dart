@@ -19,6 +19,12 @@ _ScheduledJobConfig _$ScheduledJobConfigFromJson(Map<String, dynamic> json) =>
       prompt: json['prompt'] as String? ?? '',
       fallback: json['fallback'] as String? ?? '',
       catchUp: json['catch_up'] as bool?,
+      repos:
+          (json['repos'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+          const <String>[],
+      assignAfterMinutes:
+          (json['assign_after_minutes'] as num?)?.toInt() ??
+          ScheduledJobConfig.defaultAssignAfterMinutes,
     );
 
 Map<String, dynamic> _$ScheduledJobConfigToJson(_ScheduledJobConfig instance) =>
@@ -30,6 +36,8 @@ Map<String, dynamic> _$ScheduledJobConfigToJson(_ScheduledJobConfig instance) =>
       'prompt': instance.prompt,
       'fallback': instance.fallback,
       'catch_up': ?instance.catchUp,
+      'repos': instance.repos,
+      'assign_after_minutes': instance.assignAfterMinutes,
     };
 
 const _$JobKindEnumMap = {
@@ -37,4 +45,5 @@ const _$JobKindEnumMap = {
   JobKind.dailyReport: 'daily_report',
   JobKind.cleanup: 'cleanup',
   JobKind.gitlabAutoReview: 'gitlab_auto_review',
+  JobKind.gitlabAutoAssign: 'gitlab_auto_assign',
 };

@@ -8,6 +8,7 @@ import 'audit.dart';
 import 'build_machines_priority.dart';
 import 'build_target.dart';
 import 'daily_task.dart';
+import 'gitlab_auto_assign.dart';
 import 'gitlab_history.dart';
 import 'interaction_hosts.dart';
 import 'job.dart';
@@ -85,6 +86,13 @@ extension NexsoftActions on ActionTransport {
   ) async => GitlabRunStarted.fromJson(
     await invokeAction(ActionNames.translateArb, params.toJson()),
   );
+
+  /// The GitLab projects the auto-assign can look in, and the merge requests
+  /// waiting for a reviewer in each.
+  Future<AutoAssignPreview> gitlabAutoAssignPreview() async =>
+      AutoAssignPreview.fromJson(
+        await invokeAction(ActionNames.gitlabAutoAssignPreview, const {}),
+      );
 
   /// Past and running reviews, newest first.
   Future<List<ReviewHistoryEntry>> gitlabReviewHistory([

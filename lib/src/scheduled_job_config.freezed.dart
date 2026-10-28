@@ -27,7 +27,13 @@ mixin _$ScheduledJobConfig {
 /// missed. Null means the kind's default, [catchesUp]; kept nullable so a
 /// job saved before this existed still gets that default rather than
 /// "never".
- bool? get catchUp;
+ bool? get catchUp;/// For the GitLab auto-assign: the projects it looks in, each a path in
+/// the namespace builds clone from (`project` of `group/project`).
+/// Unused otherwise.
+ List<String> get repos;/// For the GitLab auto-assign: how long, from its opening, a merge
+/// request is left for its author to name a reviewer before the bot
+/// names itself. Unused otherwise.
+ int get assignAfterMinutes;
 /// Create a copy of ScheduledJobConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -41,20 +47,20 @@ $ScheduledJobConfigCopyWith<ScheduledJobConfig> get copyWith => _$ScheduledJobCo
 @override
 bool operator ==(Object other) {
   final _this = this as ScheduledJobConfig;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobConfig&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.enabled, _this.enabled) || other.enabled == _this.enabled)&&(identical(other.timing, _this.timing) || other.timing == _this.timing)&&(identical(other.prompt, _this.prompt) || other.prompt == _this.prompt)&&(identical(other.fallback, _this.fallback) || other.fallback == _this.fallback)&&(identical(other.catchUp, _this.catchUp) || other.catchUp == _this.catchUp));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScheduledJobConfig&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.kind, _this.kind) || other.kind == _this.kind)&&(identical(other.enabled, _this.enabled) || other.enabled == _this.enabled)&&(identical(other.timing, _this.timing) || other.timing == _this.timing)&&(identical(other.prompt, _this.prompt) || other.prompt == _this.prompt)&&(identical(other.fallback, _this.fallback) || other.fallback == _this.fallback)&&(identical(other.catchUp, _this.catchUp) || other.catchUp == _this.catchUp)&&const DeepCollectionEquality().equals(other.repos, _this.repos)&&(identical(other.assignAfterMinutes, _this.assignAfterMinutes) || other.assignAfterMinutes == _this.assignAfterMinutes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ScheduledJobConfig;
-  return Object.hash(runtimeType,_this.name,_this.kind,_this.enabled,_this.timing,_this.prompt,_this.fallback,_this.catchUp);
+  return Object.hash(runtimeType,_this.name,_this.kind,_this.enabled,_this.timing,_this.prompt,_this.fallback,_this.catchUp,const DeepCollectionEquality().hash(_this.repos),_this.assignAfterMinutes);
 }
 
 @override
 String toString() {
   final _this = this as ScheduledJobConfig;
-  return 'ScheduledJobConfig(name: ${_this.name}, kind: ${_this.kind}, enabled: ${_this.enabled}, timing: ${_this.timing}, prompt: ${_this.prompt}, fallback: ${_this.fallback}, catchUp: ${_this.catchUp})';
+  return 'ScheduledJobConfig(name: ${_this.name}, kind: ${_this.kind}, enabled: ${_this.enabled}, timing: ${_this.timing}, prompt: ${_this.prompt}, fallback: ${_this.fallback}, catchUp: ${_this.catchUp}, repos: ${_this.repos}, assignAfterMinutes: ${_this.assignAfterMinutes})';
 }
 
 
@@ -65,7 +71,7 @@ abstract mixin class $ScheduledJobConfigCopyWith<$Res>  {
   factory $ScheduledJobConfigCopyWith(ScheduledJobConfig value, $Res Function(ScheduledJobConfig) _then) = _$ScheduledJobConfigCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp
+ String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp, List<String> repos, int assignAfterMinutes
 });
 
 
@@ -82,7 +88,7 @@ class _$ScheduledJobConfigCopyWithImpl<$Res>
 
 /// Create a copy of ScheduledJobConfig
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,Object? repos = null,Object? assignAfterMinutes = null,}) {
   return _then(ScheduledJobConfig(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
@@ -91,7 +97,9 @@ as bool,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_
 as JobTiming,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
 as String,fallback: null == fallback ? _self.fallback : fallback // ignore: cast_nullable_to_non_nullable
 as String,catchUp: freezed == catchUp ? _self.catchUp : catchUp // ignore: cast_nullable_to_non_nullable
-as bool?,
+as bool?,repos: null == repos ? _self.repos : repos // ignore: cast_nullable_to_non_nullable
+as List<String>,assignAfterMinutes: null == assignAfterMinutes ? _self.assignAfterMinutes : assignAfterMinutes // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 /// Create a copy of ScheduledJobConfig
@@ -185,10 +193,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp,  List<String> repos,  int assignAfterMinutes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ScheduledJobConfig() when $default != null:
-return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp,_that.repos,_that.assignAfterMinutes);case _:
   return orElse();
 
 }
@@ -206,10 +214,10 @@ return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp,  List<String> repos,  int assignAfterMinutes)  $default,) {final _that = this;
 switch (_that) {
 case _ScheduledJobConfig():
-return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp,_that.repos,_that.assignAfterMinutes);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -226,10 +234,10 @@ return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(unknownEnumValue: JobKind.announcement)  JobKind kind,  bool enabled,  JobTiming timing,  String prompt,  String fallback,  bool? catchUp,  List<String> repos,  int assignAfterMinutes)?  $default,) {final _that = this;
 switch (_that) {
 case _ScheduledJobConfig() when $default != null:
-return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp);case _:
+return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_that.fallback,_that.catchUp,_that.repos,_that.assignAfterMinutes);case _:
   return null;
 
 }
@@ -241,7 +249,7 @@ return $default(_that.name,_that.kind,_that.enabled,_that.timing,_that.prompt,_t
 @JsonSerializable()
 
 class _ScheduledJobConfig extends ScheduledJobConfig {
-  const _ScheduledJobConfig({required this.name, @JsonKey(unknownEnumValue: JobKind.announcement) required this.kind, this.enabled = true, required this.timing, this.prompt = '', this.fallback = '', this.catchUp}): super._();
+  const _ScheduledJobConfig({required this.name, @JsonKey(unknownEnumValue: JobKind.announcement) required this.kind, this.enabled = true, required this.timing, this.prompt = '', this.fallback = '', this.catchUp,  List<String> repos = const <String>[], this.assignAfterMinutes = ScheduledJobConfig.defaultAssignAfterMinutes}): _repos = repos,super._();
   factory _ScheduledJobConfig.fromJson(Map<String, dynamic> json) => _$ScheduledJobConfigFromJson(json);
 
 /// The job's identity — what `cron.run` names it and the audit log shows.
@@ -262,6 +270,23 @@ class _ScheduledJobConfig extends ScheduledJobConfig {
 /// job saved before this existed still gets that default rather than
 /// "never".
 @override final  bool? catchUp;
+/// For the GitLab auto-assign: the projects it looks in, each a path in
+/// the namespace builds clone from (`project` of `group/project`).
+/// Unused otherwise.
+ final  List<String> _repos;
+/// For the GitLab auto-assign: the projects it looks in, each a path in
+/// the namespace builds clone from (`project` of `group/project`).
+/// Unused otherwise.
+@override@JsonKey() List<String> get repos {
+  if (_repos is EqualUnmodifiableListView) return _repos;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_repos);
+}
+
+/// For the GitLab auto-assign: how long, from its opening, a merge
+/// request is left for its author to name a reviewer before the bot
+/// names itself. Unused otherwise.
+@override@JsonKey() final  int assignAfterMinutes;
 
 /// Create a copy of ScheduledJobConfig
 /// with the given fields replaced by the non-null parameter values.
@@ -276,18 +301,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScheduledJobConfig&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.enabled, enabled) || other.enabled == enabled)&&(identical(other.timing, timing) || other.timing == timing)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&(identical(other.fallback, fallback) || other.fallback == fallback)&&(identical(other.catchUp, catchUp) || other.catchUp == catchUp)&&const DeepCollectionEquality().equals(other.repos, _repos)&&(identical(other.assignAfterMinutes, assignAfterMinutes) || other.assignAfterMinutes == assignAfterMinutes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp);
+    return Object.hash(runtimeType,name,kind,enabled,timing,prompt,fallback,catchUp,const DeepCollectionEquality().hash(_repos),assignAfterMinutes);
 }
 
 @override
 String toString() {
-    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp)';
+    return 'ScheduledJobConfig(name: $name, kind: $kind, enabled: $enabled, timing: $timing, prompt: $prompt, fallback: $fallback, catchUp: $catchUp, repos: $repos, assignAfterMinutes: $assignAfterMinutes)';
 }
 
 
@@ -298,7 +323,7 @@ abstract mixin class _$ScheduledJobConfigCopyWith<$Res> implements $ScheduledJob
   factory _$ScheduledJobConfigCopyWith(_ScheduledJobConfig value, $Res Function(_ScheduledJobConfig) _then) = __$ScheduledJobConfigCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp
+ String name,@JsonKey(unknownEnumValue: JobKind.announcement) JobKind kind, bool enabled, JobTiming timing, String prompt, String fallback, bool? catchUp, List<String> repos, int assignAfterMinutes
 });
 
 
@@ -315,7 +340,7 @@ class __$ScheduledJobConfigCopyWithImpl<$Res>
 
 /// Create a copy of ScheduledJobConfig
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? kind = null,Object? enabled = null,Object? timing = null,Object? prompt = null,Object? fallback = null,Object? catchUp = freezed,Object? repos = null,Object? assignAfterMinutes = null,}) {
   return _then(_ScheduledJobConfig(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
@@ -324,7 +349,9 @@ as bool,timing: null == timing ? _self.timing : timing // ignore: cast_nullable_
 as JobTiming,prompt: null == prompt ? _self.prompt : prompt // ignore: cast_nullable_to_non_nullable
 as String,fallback: null == fallback ? _self.fallback : fallback // ignore: cast_nullable_to_non_nullable
 as String,catchUp: freezed == catchUp ? _self.catchUp : catchUp // ignore: cast_nullable_to_non_nullable
-as bool?,
+as bool?,repos: null == repos ? _self._repos : repos // ignore: cast_nullable_to_non_nullable
+as List<String>,assignAfterMinutes: null == assignAfterMinutes ? _self.assignAfterMinutes : assignAfterMinutes // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

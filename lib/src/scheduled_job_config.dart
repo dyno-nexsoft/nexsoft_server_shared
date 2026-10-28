@@ -26,6 +26,12 @@ enum JobKind {
   /// once for each new commit; repeats through the working day.
   @JsonValue('gitlab_auto_review')
   gitlabAutoReview,
+
+  /// Names the bot's GitLab account Reviewer of each open merge request in
+  /// [ScheduledJobConfig.repos] that has gone [ScheduledJobConfig.
+  /// assignAfterMinutes] without one, so the auto-review takes it.
+  @JsonValue('gitlab_auto_assign')
+  gitlabAutoAssign,
 }
 
 /// One scheduled job as an admin configures it.
@@ -56,7 +62,26 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     /// job saved before this existed still gets that default rather than
     /// "never".
     bool? catchUp,
+
+    /// For the GitLab auto-assign: the projects it looks in, each a path in
+    /// the namespace builds clone from (`project` of `group/project`).
+    /// Unused otherwise.
+    @Default(<String>[]) List<String> repos,
+
+    /// For the GitLab auto-assign: how long, from its opening, a merge
+    /// request is left for its author to name a reviewer before the bot
+    /// names itself. Unused otherwise.
+    @Default(ScheduledJobConfig.defaultAssignAfterMinutes)
+    int assignAfterMinutes,
   }) = _ScheduledJobConfig;
+
+  /// An hour: time for an author to ask a colleague first.
+  static const defaultAssignAfterMinutes = 60;
+
+  /// The longest [assignAfterMinutes] makes sense: a week.
+  static const maxAssignAfterMinutes = 7 * 24 * 60;
+
+  static final _projectPathPattern = RegExp(r'^[A-Za-z0-9_.-]+$');
 
   factory ScheduledJobConfig.fromJson(Map<String, dynamic> json) =>
       _$ScheduledJobConfigFromJson(json);
@@ -75,6 +100,7 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     JobKind.dailyReport,
     JobKind.cleanup,
     JobKind.gitlabAutoReview,
+    JobKind.gitlabAutoAssign,
   ];
 
   static final _namePattern = RegExp(r'^[A-Za-z][A-Za-z0-9_]{0,63}$');
@@ -94,6 +120,20 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     if (kind == JobKind.announcement &&
         (prompt.trim().isEmpty || fallback.trim().isEmpty)) {
       found.add('$name: an announcement needs both a prompt and a fallback.');
+    }
+    if (kind == JobKind.gitlabAutoAssign) {
+      for (final repo in repos) {
+        if (!_projectPathPattern.hasMatch(repo)) {
+          found.add('$name: "$repo" is not a GitLab project path.');
+        }
+      }
+      if (assignAfterMinutes < 0 ||
+          assignAfterMinutes > maxAssignAfterMinutes) {
+        found.add(
+          '$name: wait between 0 and $maxAssignAfterMinutes minutes before '
+          'naming the bot a reviewer.',
+        );
+      }
     }
     return found;
   }
