@@ -28,10 +28,7 @@ List<String> linksIn(String text) {
   for (final raw in text.split(RegExp(r'[\r\n]+'))) {
     final line = raw.trim();
     if (line.isEmpty) continue;
-    final webWords = line
-        .split(RegExp(r'\s+'))
-        .where((word) => RegExp(r'^https?://').hasMatch(word))
-        .toList();
+    final webWords = line.split(RegExp(r'\s+')).where((word) => RegExp(r'^https?://').hasMatch(word)).toList();
     for (final link in webWords.length > 1 ? webWords : [line]) {
       if (!links.contains(link)) links.add(link);
     }
@@ -43,10 +40,7 @@ List<String> linksIn(String text) {
 String _linkIn(String text) {
   final words = text.split(RegExp(r'\s+'));
   if (words.length < 2) return text;
-  return words.firstWhere(
-    (word) => RegExp(r'^https?://').hasMatch(word),
-    orElse: () => text,
-  );
+  return words.firstWhere((word) => RegExp(r'^https?://').hasMatch(word), orElse: () => text);
 }
 
 /// Cleans a link someone typed or pasted into a form, so what is sent and stored is short and has a scheme.
@@ -62,32 +56,20 @@ String _linkIn(String text) {
 ///   whitespace in it, so the rest was never part of it; kept, the trailing code became part of the path.
 ///
 /// Null when [raw] is empty or is not an `http(s)` link with a host.
-String? tidyUrl(
-  String raw, {
-  bool dropQuery = false,
-  Set<String> keepKeys = const {},
-}) {
+String? tidyUrl(String raw, {bool dropQuery = false, Set<String> keepKeys = const {}}) {
   var text = _linkIn(raw.trim());
   if (text.isEmpty) return null;
   if (text.startsWith('//')) text = text.substring(2);
-  if (!RegExp(r'^[A-Za-z][A-Za-z0-9+.\-]*://').hasMatch(text))
-    text = 'https://$text';
+  if (!RegExp(r'^[A-Za-z][A-Za-z0-9+.\-]*://').hasMatch(text)) text = 'https://$text';
 
   final uri = Uri.tryParse(text);
-  if (uri == null ||
-      !(uri.scheme == 'http' || uri.scheme == 'https') ||
-      uri.host.isEmpty)
-    return null;
+  if (uri == null || !(uri.scheme == 'http' || uri.scheme == 'https') || uri.host.isEmpty) return null;
   // A bare word is not a link; a host needs a dot (or be localhost / an address).
-  if (!uri.host.contains('.') &&
-      !uri.host.contains(':') &&
-      uri.host != 'localhost')
-    return null;
+  if (!uri.host.contains('.') && !uri.host.contains(':') && uri.host != 'localhost') return null;
 
   final kept = {
     for (final entry in uri.queryParametersAll.entries)
-      if (dropQuery ? keepKeys.contains(entry.key) : !_isTrackingKey(entry.key))
-        entry.key: entry.value,
+      if (dropQuery ? keepKeys.contains(entry.key) : !_isTrackingKey(entry.key)) entry.key: entry.value,
   };
   return Uri(
     scheme: uri.scheme,

@@ -36,33 +36,18 @@ class OpenApiSchema {
       minimum = null,
       maximum = null;
 
-  const OpenApiSchema.string({
-    String? description,
-    List<String>? enumValues,
-    Object? defaultValue,
-    Object? example,
-  }) : this(
-         type: 'string',
-         description: description,
-         enumValues: enumValues,
-         defaultValue: defaultValue,
-         example: example,
-       );
+  const OpenApiSchema.string({String? description, List<String>? enumValues, Object? defaultValue, Object? example})
+    : this(type: 'string', description: description, enumValues: enumValues, defaultValue: defaultValue, example: example);
 
-  const OpenApiSchema.integer({
-    String? description,
-    int? minimum,
-    int? maximum,
-    Object? defaultValue,
-    bool nullable = false,
-  }) : this(
-         type: 'integer',
-         description: description,
-         minimum: minimum,
-         maximum: maximum,
-         defaultValue: defaultValue,
-         nullable: nullable,
-       );
+  const OpenApiSchema.integer({String? description, int? minimum, int? maximum, Object? defaultValue, bool nullable = false})
+    : this(
+        type: 'integer',
+        description: description,
+        minimum: minimum,
+        maximum: maximum,
+        defaultValue: defaultValue,
+        nullable: nullable,
+      );
 
   final String? ref;
   final String? type;
@@ -92,11 +77,7 @@ class OpenApiSchema {
       if (minimum != null) 'minimum': minimum,
       if (maximum != null) 'maximum': maximum,
       if (items != null) 'items': items!.toJson(),
-      if (properties != null)
-        'properties': {
-          for (final entry in properties!.entries)
-            entry.key: entry.value.toJson(),
-        },
+      if (properties != null) 'properties': {for (final entry in properties!.entries) entry.key: entry.value.toJson()},
       if (required != null && required!.isNotEmpty) 'required': required,
     };
   }
@@ -131,12 +112,8 @@ class OpenApiParameter {
 
 /// What an operation answers with for one status: a body of one media type, or a reference to a shared response.
 class OpenApiResponse {
-  const OpenApiResponse({
-    this.description = '',
-    this.schema,
-    this.mediaType = 'application/json',
-    this.headers,
-  }) : ref = null;
+  const OpenApiResponse({this.description = '', this.schema, this.mediaType = 'application/json', this.headers})
+    : ref = null;
 
   /// A reference to the response [name] under `components/responses`.
   const OpenApiResponse.ref(String name)
@@ -162,10 +139,7 @@ class OpenApiResponse {
       if (headers != null)
         'headers': {
           for (final entry in headers!.entries)
-            entry.key: {
-              'description': entry.value.description,
-              'schema': entry.value.schema.toJson(),
-            },
+            entry.key: {'description': entry.value.description, 'schema': entry.value.schema.toJson()},
         },
       if (schema != null)
         'content': {
@@ -185,10 +159,7 @@ class OpenApiRequestBody {
   Map<String, Object?> toJson() => {
     'required': true,
     'content': {
-      'application/json': {
-        'schema': schema.toJson(),
-        if (example != null) 'example': example,
-      },
+      'application/json': {'schema': schema.toJson(), if (example != null) 'example': example},
     },
   };
 }
@@ -228,12 +199,9 @@ class OpenApiOperation {
     'security': [
       for (final scheme in security) {scheme: <String>[]},
     ],
-    if (parameters.isNotEmpty)
-      'parameters': [for (final parameter in parameters) parameter.toJson()],
+    if (parameters.isNotEmpty) 'parameters': [for (final parameter in parameters) parameter.toJson()],
     if (requestBody != null) 'requestBody': requestBody!.toJson(),
-    'responses': {
-      for (final entry in responses.entries) entry.key: entry.value.toJson(),
-    },
+    'responses': {for (final entry in responses.entries) entry.key: entry.value.toJson()},
   };
 }
 
@@ -286,27 +254,16 @@ class OpenApiDocument {
       {'url': serverUrl, 'description': 'This server'},
     ],
     'tags': [
-      for (final entry in tags.entries)
-        {'name': entry.key, 'description': entry.value},
+      for (final entry in tags.entries) {'name': entry.key, 'description': entry.value},
     ],
     'paths': {
       for (final path in paths.entries)
-        path.key: {
-          for (final method in path.value.entries)
-            method.key: method.value.toJson(),
-        },
+        path.key: {for (final method in path.value.entries) method.key: method.value.toJson()},
     },
     'components': {
-      'securitySchemes': {
-        for (final entry in securitySchemes.entries)
-          entry.key: entry.value.toJson(),
-      },
-      'schemas': {
-        for (final entry in schemas.entries) entry.key: entry.value.toJson(),
-      },
-      'responses': {
-        for (final entry in responses.entries) entry.key: entry.value.toJson(),
-      },
+      'securitySchemes': {for (final entry in securitySchemes.entries) entry.key: entry.value.toJson()},
+      'schemas': {for (final entry in schemas.entries) entry.key: entry.value.toJson()},
+      'responses': {for (final entry in responses.entries) entry.key: entry.value.toJson()},
     },
   };
 }

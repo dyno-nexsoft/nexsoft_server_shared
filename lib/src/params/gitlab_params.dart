@@ -76,8 +76,7 @@ abstract class HistoryListParams with _$HistoryListParams {
 /// `gitlab.review.history.delete` and `gitlab.translateArb.history.delete`.
 @freezed
 abstract class HistoryDeleteParams with _$HistoryDeleteParams {
-  const factory HistoryDeleteParams({required String id}) =
-      _HistoryDeleteParams;
+  const factory HistoryDeleteParams({required String id}) = _HistoryDeleteParams;
 
   factory HistoryDeleteParams.fromJson(Map<String, dynamic> json) =>
       _$HistoryDeleteParamsFromJson(json);

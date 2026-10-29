@@ -26,7 +26,5 @@ List<SummaryEntry> parseJobSummary(String text) {
       value: StringBuffer(trimmed.substring(colon + 1).trim()),
     ));
   }
-  return [
-    for (final e in entries) SummaryEntry(key: e.key, value: '${e.value}'),
-  ];
+  return [for (final e in entries) SummaryEntry(key: e.key, value: '${e.value}')];
 }
