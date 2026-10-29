@@ -220,7 +220,7 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claude
 @JsonSerializable()
 
 class _AiModelIds extends AiModelIds {
-  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.claudeFlash = 'sonnet', this.claudePro = 'opus'}): super._();
+  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.claudeFlash = 'claude-sonnet-5-5', this.claudePro = 'claude-opus-5-5'}): super._();
   factory _AiModelIds.fromJson(Map<String, dynamic> json) => _$AiModelIdsFromJson(json);
 
 @override@JsonKey() final  String geminiFlash;

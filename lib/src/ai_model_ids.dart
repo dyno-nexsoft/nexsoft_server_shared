@@ -19,10 +19,10 @@ abstract class AiModelIds with _$AiModelIds {
     @Default('gemini-3.6-flash') String geminiFlash,
     @Default('gemini-3.1-pro') String geminiPro,
 
-    /// The Claude CLI's model aliases, which follow the newest model of each
-    /// family; a full model id works too.
-    @Default('sonnet') String claudeFlash,
-    @Default('opus') String claudePro,
+    /// Full Claude model ids, pinned so the policy names the exact model; the CLI
+    /// aliases (`sonnet`, `opus`) work too.
+    @Default('claude-sonnet-5-5') String claudeFlash,
+    @Default('claude-opus-5-5') String claudePro,
   }) = _AiModelIds;
 
   factory AiModelIds.fromJson(Map<String, dynamic> json) =>

@@ -9,8 +9,8 @@ part of 'ai_model_ids.dart';
 _AiModelIds _$AiModelIdsFromJson(Map<String, dynamic> json) => _AiModelIds(
   geminiFlash: json['gemini_flash'] as String? ?? 'gemini-3.6-flash',
   geminiPro: json['gemini_pro'] as String? ?? 'gemini-3.1-pro',
-  claudeFlash: json['claude_flash'] as String? ?? 'sonnet',
-  claudePro: json['claude_pro'] as String? ?? 'opus',
+  claudeFlash: json['claude_flash'] as String? ?? 'claude-sonnet-5-5',
+  claudePro: json['claude_pro'] as String? ?? 'claude-opus-5-5',
 );
 
 Map<String, dynamic> _$AiModelIdsToJson(_AiModelIds instance) =>
