@@ -159,9 +159,7 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     for (final kind in systemKinds) {
       final count = jobs.where((job) => job.kind == kind).length;
       if (count != 1) {
-        found.add(
-          'There must be exactly one ${kind.name} job; found $count.',
-        );
+        found.add('There must be exactly one ${kind.name} job; found $count.');
       }
     }
     return found;

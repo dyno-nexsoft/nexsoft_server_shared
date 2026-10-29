@@ -24,6 +24,7 @@ _ReviewIssue _$ReviewIssueFromJson(Map<String, dynamic> json) => _ReviewIssue(
     json['category'],
     unknownValue: JsonKey.nullForUndefinedEnumValue,
   ),
+  ref: json['ref'] as String?,
   scenario: json['scenario'] as String?,
 );
 
@@ -38,6 +39,7 @@ Map<String, dynamic> _$ReviewIssueToJson(_ReviewIssue instance) =>
       'anchor': ?instance.anchor,
       'discussion_id': ?instance.discussionId,
       'category': ?_$ReviewCategoryEnumMap[instance.category],
+      'ref': ?instance.ref,
       'scenario': ?instance.scenario,
     };
 

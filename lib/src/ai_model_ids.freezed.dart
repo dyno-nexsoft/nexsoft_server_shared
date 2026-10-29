@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AiModelIds {
 
- String get geminiFlash; String get geminiPro;/// The Claude CLI's model aliases, which follow the newest model of each
-/// family; a full model id works too.
+ String get geminiFlash; String get geminiPro;/// Full Claude model ids, pinned so the policy names the exact model; the CLI
+/// aliases (`sonnet`, `opus`) work too.
  String get claudeFlash; String get claudePro;
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
@@ -225,8 +225,8 @@ class _AiModelIds extends AiModelIds {
 
 @override@JsonKey() final  String geminiFlash;
 @override@JsonKey() final  String geminiPro;
-/// The Claude CLI's model aliases, which follow the newest model of each
-/// family; a full model id works too.
+/// Full Claude model ids, pinned so the policy names the exact model; the CLI
+/// aliases (`sonnet`, `opus`) work too.
 @override@JsonKey() final  String claudeFlash;
 @override@JsonKey() final  String claudePro;
 

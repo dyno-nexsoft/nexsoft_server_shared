@@ -127,6 +127,12 @@ abstract class ReviewIssue with _$ReviewIssue {
     @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
     ReviewCategory? category,
 
+    /// The short tag the finding's thread and the summary cite it by, kept
+    /// so a finding still open in a later review is cited the same way even
+    /// after its line numbers move. Null for findings recorded before this
+    /// existed.
+    String? ref,
+
     /// The concrete trigger — the input or state that makes this go wrong.
     /// Separate from [description] so a reader can check whether the problem
     /// is real without reading the whole explanation. Null when not given.

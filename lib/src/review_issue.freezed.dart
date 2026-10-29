@@ -29,7 +29,11 @@ mixin _$ReviewIssue {
 /// Null for a pipeline notice, and when the inline post was rejected.
  String? get discussionId;/// What kind of problem this is. Null for a pipeline notice, and for
 /// findings recorded before this existed.
-@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? get category;/// The concrete trigger — the input or state that makes this go wrong.
+@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? get category;/// The short tag the finding's thread and the summary cite it by, kept
+/// so a finding still open in a later review is cited the same way even
+/// after its line numbers move. Null for findings recorded before this
+/// existed.
+ String? get ref;/// The concrete trigger — the input or state that makes this go wrong.
 /// Separate from [description] so a reader can check whether the problem
 /// is real without reading the whole explanation. Null when not given.
  String? get scenario;
@@ -46,20 +50,20 @@ $ReviewIssueCopyWith<ReviewIssue> get copyWith => _$ReviewIssueCopyWithImpl<Revi
 @override
 bool operator ==(Object other) {
   final _this = this as ReviewIssue;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewIssue&&(identical(other.severity, _this.severity) || other.severity == _this.severity)&&(identical(other.file, _this.file) || other.file == _this.file)&&(identical(other.lineStart, _this.lineStart) || other.lineStart == _this.lineStart)&&(identical(other.lineEnd, _this.lineEnd) || other.lineEnd == _this.lineEnd)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.discussionId, _this.discussionId) || other.discussionId == _this.discussionId)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.scenario, _this.scenario) || other.scenario == _this.scenario));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReviewIssue&&(identical(other.severity, _this.severity) || other.severity == _this.severity)&&(identical(other.file, _this.file) || other.file == _this.file)&&(identical(other.lineStart, _this.lineStart) || other.lineStart == _this.lineStart)&&(identical(other.lineEnd, _this.lineEnd) || other.lineEnd == _this.lineEnd)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.anchor, _this.anchor) || other.anchor == _this.anchor)&&(identical(other.discussionId, _this.discussionId) || other.discussionId == _this.discussionId)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.ref, _this.ref) || other.ref == _this.ref)&&(identical(other.scenario, _this.scenario) || other.scenario == _this.scenario));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ReviewIssue;
-  return Object.hash(runtimeType,_this.severity,_this.file,_this.lineStart,_this.lineEnd,_this.description,_this.url,_this.anchor,_this.discussionId,_this.category,_this.scenario);
+  return Object.hash(runtimeType,_this.severity,_this.file,_this.lineStart,_this.lineEnd,_this.description,_this.url,_this.anchor,_this.discussionId,_this.category,_this.ref,_this.scenario);
 }
 
 @override
 String toString() {
   final _this = this as ReviewIssue;
-  return 'ReviewIssue(severity: ${_this.severity}, file: ${_this.file}, lineStart: ${_this.lineStart}, lineEnd: ${_this.lineEnd}, description: ${_this.description}, url: ${_this.url}, anchor: ${_this.anchor}, discussionId: ${_this.discussionId}, category: ${_this.category}, scenario: ${_this.scenario})';
+  return 'ReviewIssue(severity: ${_this.severity}, file: ${_this.file}, lineStart: ${_this.lineStart}, lineEnd: ${_this.lineEnd}, description: ${_this.description}, url: ${_this.url}, anchor: ${_this.anchor}, discussionId: ${_this.discussionId}, category: ${_this.category}, ref: ${_this.ref}, scenario: ${_this.scenario})';
 }
 
 
@@ -70,7 +74,7 @@ abstract mixin class $ReviewIssueCopyWith<$Res>  {
   factory $ReviewIssueCopyWith(ReviewIssue value, $Res Function(ReviewIssue) _then) = _$ReviewIssueCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(unknownEnumValue: ReviewSeverity.low) ReviewSeverity severity, String file, int lineStart, int? lineEnd, String description, String? url, String? anchor, String? discussionId,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? category, String? scenario
+@JsonKey(unknownEnumValue: ReviewSeverity.low) ReviewSeverity severity, String file, int lineStart, int? lineEnd, String description, String? url, String? anchor, String? discussionId,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? category, String? ref, String? scenario
 });
 
 
@@ -87,7 +91,7 @@ class _$ReviewIssueCopyWithImpl<$Res>
 
 /// Create a copy of ReviewIssue
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? severity = null,Object? file = null,Object? lineStart = null,Object? lineEnd = freezed,Object? description = null,Object? url = freezed,Object? anchor = freezed,Object? discussionId = freezed,Object? category = freezed,Object? scenario = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? severity = null,Object? file = null,Object? lineStart = null,Object? lineEnd = freezed,Object? description = null,Object? url = freezed,Object? anchor = freezed,Object? discussionId = freezed,Object? category = freezed,Object? ref = freezed,Object? scenario = freezed,}) {
   return _then(ReviewIssue(
 severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
 as ReviewSeverity,file: null == file ? _self.file : file // ignore: cast_nullable_to_non_nullable
@@ -98,7 +102,8 @@ as String,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_
 as String?,anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as String?,discussionId: freezed == discussionId ? _self.discussionId : discussionId // ignore: cast_nullable_to_non_nullable
 as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as ReviewCategory?,scenario: freezed == scenario ? _self.scenario : scenario // ignore: cast_nullable_to_non_nullable
+as ReviewCategory?,ref: freezed == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
+as String?,scenario: freezed == scenario ? _self.scenario : scenario // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -184,10 +189,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? scenario)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? ref,  String? scenario)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReviewIssue() when $default != null:
-return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.scenario);case _:
+return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.ref,_that.scenario);case _:
   return orElse();
 
 }
@@ -205,10 +210,10 @@ return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? scenario)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? ref,  String? scenario)  $default,) {final _that = this;
 switch (_that) {
 case _ReviewIssue():
-return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.scenario);case _:
+return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.ref,_that.scenario);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -225,10 +230,10 @@ return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.de
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? scenario)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(unknownEnumValue: ReviewSeverity.low)  ReviewSeverity severity,  String file,  int lineStart,  int? lineEnd,  String description,  String? url,  String? anchor,  String? discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ReviewCategory? category,  String? ref,  String? scenario)?  $default,) {final _that = this;
 switch (_that) {
 case _ReviewIssue() when $default != null:
-return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.scenario);case _:
+return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.description,_that.url,_that.anchor,_that.discussionId,_that.category,_that.ref,_that.scenario);case _:
   return null;
 
 }
@@ -240,7 +245,7 @@ return $default(_that.severity,_that.file,_that.lineStart,_that.lineEnd,_that.de
 @JsonSerializable()
 
 class _ReviewIssue extends ReviewIssue {
-  const _ReviewIssue({@JsonKey(unknownEnumValue: ReviewSeverity.low) required this.severity, required this.file, required this.lineStart, this.lineEnd, required this.description, this.url, this.anchor, this.discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.category, this.scenario}): super._();
+  const _ReviewIssue({@JsonKey(unknownEnumValue: ReviewSeverity.low) required this.severity, required this.file, required this.lineStart, this.lineEnd, required this.description, this.url, this.anchor, this.discussionId, @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.category, this.ref, this.scenario}): super._();
   factory _ReviewIssue.fromJson(Map<String, dynamic> json) => _$ReviewIssueFromJson(json);
 
 @override@JsonKey(unknownEnumValue: ReviewSeverity.low) final  ReviewSeverity severity;
@@ -265,6 +270,11 @@ class _ReviewIssue extends ReviewIssue {
 /// What kind of problem this is. Null for a pipeline notice, and for
 /// findings recorded before this existed.
 @override@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) final  ReviewCategory? category;
+/// The short tag the finding's thread and the summary cite it by, kept
+/// so a finding still open in a later review is cited the same way even
+/// after its line numbers move. Null for findings recorded before this
+/// existed.
+@override final  String? ref;
 /// The concrete trigger — the input or state that makes this go wrong.
 /// Separate from [description] so a reader can check whether the problem
 /// is real without reading the whole explanation. Null when not given.
@@ -283,18 +293,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReviewIssue&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.file, file) || other.file == file)&&(identical(other.lineStart, lineStart) || other.lineStart == lineStart)&&(identical(other.lineEnd, lineEnd) || other.lineEnd == lineEnd)&&(identical(other.description, description) || other.description == description)&&(identical(other.url, url) || other.url == url)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.discussionId, discussionId) || other.discussionId == discussionId)&&(identical(other.category, category) || other.category == category)&&(identical(other.scenario, scenario) || other.scenario == scenario));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReviewIssue&&(identical(other.severity, severity) || other.severity == severity)&&(identical(other.file, file) || other.file == file)&&(identical(other.lineStart, lineStart) || other.lineStart == lineStart)&&(identical(other.lineEnd, lineEnd) || other.lineEnd == lineEnd)&&(identical(other.description, description) || other.description == description)&&(identical(other.url, url) || other.url == url)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.discussionId, discussionId) || other.discussionId == discussionId)&&(identical(other.category, category) || other.category == category)&&(identical(other.ref, ref) || other.ref == ref)&&(identical(other.scenario, scenario) || other.scenario == scenario));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,severity,file,lineStart,lineEnd,description,url,anchor,discussionId,category,scenario);
+    return Object.hash(runtimeType,severity,file,lineStart,lineEnd,description,url,anchor,discussionId,category,ref,scenario);
 }
 
 @override
 String toString() {
-    return 'ReviewIssue(severity: $severity, file: $file, lineStart: $lineStart, lineEnd: $lineEnd, description: $description, url: $url, anchor: $anchor, discussionId: $discussionId, category: $category, scenario: $scenario)';
+    return 'ReviewIssue(severity: $severity, file: $file, lineStart: $lineStart, lineEnd: $lineEnd, description: $description, url: $url, anchor: $anchor, discussionId: $discussionId, category: $category, ref: $ref, scenario: $scenario)';
 }
 
 
@@ -305,7 +315,7 @@ abstract mixin class _$ReviewIssueCopyWith<$Res> implements $ReviewIssueCopyWith
   factory _$ReviewIssueCopyWith(_ReviewIssue value, $Res Function(_ReviewIssue) _then) = __$ReviewIssueCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(unknownEnumValue: ReviewSeverity.low) ReviewSeverity severity, String file, int lineStart, int? lineEnd, String description, String? url, String? anchor, String? discussionId,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? category, String? scenario
+@JsonKey(unknownEnumValue: ReviewSeverity.low) ReviewSeverity severity, String file, int lineStart, int? lineEnd, String description, String? url, String? anchor, String? discussionId,@JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ReviewCategory? category, String? ref, String? scenario
 });
 
 
@@ -322,7 +332,7 @@ class __$ReviewIssueCopyWithImpl<$Res>
 
 /// Create a copy of ReviewIssue
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? severity = null,Object? file = null,Object? lineStart = null,Object? lineEnd = freezed,Object? description = null,Object? url = freezed,Object? anchor = freezed,Object? discussionId = freezed,Object? category = freezed,Object? scenario = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? severity = null,Object? file = null,Object? lineStart = null,Object? lineEnd = freezed,Object? description = null,Object? url = freezed,Object? anchor = freezed,Object? discussionId = freezed,Object? category = freezed,Object? ref = freezed,Object? scenario = freezed,}) {
   return _then(_ReviewIssue(
 severity: null == severity ? _self.severity : severity // ignore: cast_nullable_to_non_nullable
 as ReviewSeverity,file: null == file ? _self.file : file // ignore: cast_nullable_to_non_nullable
@@ -333,7 +343,8 @@ as String,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_
 as String?,anchor: freezed == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
 as String?,discussionId: freezed == discussionId ? _self.discussionId : discussionId // ignore: cast_nullable_to_non_nullable
 as String?,category: freezed == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
-as ReviewCategory?,scenario: freezed == scenario ? _self.scenario : scenario // ignore: cast_nullable_to_non_nullable
+as ReviewCategory?,ref: freezed == ref ? _self.ref : ref // ignore: cast_nullable_to_non_nullable
+as String?,scenario: freezed == scenario ? _self.scenario : scenario // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

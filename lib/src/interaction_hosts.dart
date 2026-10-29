@@ -12,7 +12,9 @@ class InteractionHosts {
     return InteractionHosts({
       if (raw is Map)
         for (final entry in raw.entries)
-          if (keyOf('${entry.key}') case final key? when environmentNamed('${entry.value}') != null) key: '${entry.value}',
+          if (keyOf('${entry.key}') case final key?
+              when environmentNamed('${entry.value}') != null)
+            key: '${entry.value}',
     });
   }
 
