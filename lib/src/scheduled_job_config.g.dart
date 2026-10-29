@@ -25,6 +25,13 @@ _ScheduledJobConfig _$ScheduledJobConfigFromJson(Map<String, dynamic> json) =>
       assignAfterMinutes:
           (json['assign_after_minutes'] as num?)?.toInt() ??
           ScheduledJobConfig.defaultAssignAfterMinutes,
+      model:
+          $enumDecodeNullable(
+            _$AiModelEnumMap,
+            json['model'],
+            unknownValue: AiModel.flash,
+          ) ??
+          AiModel.flash,
     );
 
 Map<String, dynamic> _$ScheduledJobConfigToJson(_ScheduledJobConfig instance) =>
@@ -38,6 +45,7 @@ Map<String, dynamic> _$ScheduledJobConfigToJson(_ScheduledJobConfig instance) =>
       'catch_up': ?instance.catchUp,
       'repos': instance.repos,
       'assign_after_minutes': instance.assignAfterMinutes,
+      'model': _$AiModelEnumMap[instance.model]!,
     };
 
 const _$JobKindEnumMap = {
@@ -47,3 +55,5 @@ const _$JobKindEnumMap = {
   JobKind.gitlabAutoReview: 'gitlab_auto_review',
   JobKind.gitlabAutoAssign: 'gitlab_auto_assign',
 };
+
+const _$AiModelEnumMap = {AiModel.flash: 'flash', AiModel.pro: 'pro'};

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'ai_model.dart';
 import 'job_timing.dart';
 
 part 'scheduled_job_config.freezed.dart';
@@ -73,6 +74,14 @@ abstract class ScheduledJobConfig with _$ScheduledJobConfig {
     /// names itself. Unused otherwise.
     @Default(ScheduledJobConfig.defaultAssignAfterMinutes)
     int assignAfterMinutes,
+
+    /// For the GitLab auto-review: the tier its reviews are asked of, the
+    /// model each provider answers it with set on the AI card. Flash by
+    /// default, as a review started by hand: the deeper Pro is slower and
+    /// spends more of the provider's quota on every push. Unused otherwise.
+    @JsonKey(unknownEnumValue: AiModel.flash)
+    @Default(AiModel.flash)
+    AiModel model,
   }) = _ScheduledJobConfig;
 
   /// An hour: time for an author to ask a colleague first.
