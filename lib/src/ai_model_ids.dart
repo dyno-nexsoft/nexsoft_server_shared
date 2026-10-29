@@ -20,6 +20,11 @@ abstract class AiModelIds with _$AiModelIds {
     @Default('gemini-3.1-pro') String geminiPro,
     @Default('openai/gpt-oss-20b') String groqFlash,
     @Default('openai/gpt-oss-120b') String groqPro,
+
+    /// The Claude CLI's model aliases, which follow the newest model of each
+    /// family; a full model id works too.
+    @Default('sonnet') String claudeFlash,
+    @Default('opus') String claudePro,
   }) = _AiModelIds;
 
   factory AiModelIds.fromJson(Map<String, dynamic> json) =>
@@ -28,8 +33,10 @@ abstract class AiModelIds with _$AiModelIds {
   /// The longest id accepted: a typo-guard, not a real model name limit.
   static const maxLength = 100;
 
-  /// The id [provider] (`gemini` or `groq`) uses for [tier].
+  /// The id [provider] (`claude`, `gemini` or `groq`) uses for [tier].
   String idFor(String provider, AiModel tier) => switch ((provider, tier)) {
+    ('claude', AiModel.flash) => claudeFlash,
+    ('claude', AiModel.pro) => claudePro,
     ('groq', AiModel.flash) => groqFlash,
     ('groq', AiModel.pro) => groqPro,
     (_, AiModel.flash) => geminiFlash,
@@ -43,6 +50,8 @@ abstract class AiModelIds with _$AiModelIds {
       'gemini_pro': geminiPro,
       'groq_flash': groqFlash,
       'groq_pro': groqPro,
+      'claude_flash': claudeFlash,
+      'claude_pro': claudePro,
     };
     return [
       for (final entry in fields.entries)

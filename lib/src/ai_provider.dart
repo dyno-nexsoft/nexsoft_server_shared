@@ -9,7 +9,7 @@ part 'ai_provider.g.dart';
 @freezed
 abstract class AiProviderSetParams with _$AiProviderSetParams {
   const factory AiProviderSetParams({
-    /// The backend to activate: `gemini` or `groq`.
+    /// The backend to activate: `claude`, `gemini` or `groq`.
     required String provider,
 
     /// Whether to try the other provider when the active one is down. Null
@@ -22,6 +22,8 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
     String? geminiPro,
     String? groqFlash,
     String? groqPro,
+    String? claudeFlash,
+    String? claudePro,
   }) = _AiProviderSetParams;
 
   factory AiProviderSetParams.fromJson(Map<String, dynamic> json) =>
@@ -35,8 +37,9 @@ abstract class AiProviderInfo with _$AiProviderInfo {
   const factory AiProviderInfo({
     required String provider,
 
-    /// Every provider with at least one API key configured — the ones that can
-    /// be selected.
+    /// Every provider that can serve — an API provider with at least one key
+    /// configured, Claude when its CLI is installed — the ones that can be
+    /// selected.
     @Default(<String>[]) List<String> available,
 
     /// Whether a provider that is down hands its request to the other one.

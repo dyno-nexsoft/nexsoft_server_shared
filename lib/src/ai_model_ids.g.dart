@@ -11,6 +11,8 @@ _AiModelIds _$AiModelIdsFromJson(Map<String, dynamic> json) => _AiModelIds(
   geminiPro: json['gemini_pro'] as String? ?? 'gemini-3.1-pro',
   groqFlash: json['groq_flash'] as String? ?? 'openai/gpt-oss-20b',
   groqPro: json['groq_pro'] as String? ?? 'openai/gpt-oss-120b',
+  claudeFlash: json['claude_flash'] as String? ?? 'sonnet',
+  claudePro: json['claude_pro'] as String? ?? 'opus',
 );
 
 Map<String, dynamic> _$AiModelIdsToJson(_AiModelIds instance) =>
@@ -19,4 +21,6 @@ Map<String, dynamic> _$AiModelIdsToJson(_AiModelIds instance) =>
       'gemini_pro': instance.geminiPro,
       'groq_flash': instance.groqFlash,
       'groq_pro': instance.groqPro,
+      'claude_flash': instance.claudeFlash,
+      'claude_pro': instance.claudePro,
     };

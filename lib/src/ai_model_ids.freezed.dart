@@ -16,7 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AiModelIds {
 
- String get geminiFlash; String get geminiPro; String get groqFlash; String get groqPro;
+ String get geminiFlash; String get geminiPro; String get groqFlash; String get groqPro;/// The Claude CLI's model aliases, which follow the newest model of each
+/// family; a full model id works too.
+ String get claudeFlash; String get claudePro;
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +32,20 @@ $AiModelIdsCopyWith<AiModelIds> get copyWith => _$AiModelIdsCopyWithImpl<AiModel
 @override
 bool operator ==(Object other) {
   final _this = this as AiModelIds;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiModelIds&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.groqFlash, _this.groqFlash) || other.groqFlash == _this.groqFlash)&&(identical(other.groqPro, _this.groqPro) || other.groqPro == _this.groqPro));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiModelIds&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.groqFlash, _this.groqFlash) || other.groqFlash == _this.groqFlash)&&(identical(other.groqPro, _this.groqPro) || other.groqPro == _this.groqPro)&&(identical(other.claudeFlash, _this.claudeFlash) || other.claudeFlash == _this.claudeFlash)&&(identical(other.claudePro, _this.claudePro) || other.claudePro == _this.claudePro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiModelIds;
-  return Object.hash(runtimeType,_this.geminiFlash,_this.geminiPro,_this.groqFlash,_this.groqPro);
+  return Object.hash(runtimeType,_this.geminiFlash,_this.geminiPro,_this.groqFlash,_this.groqPro,_this.claudeFlash,_this.claudePro);
 }
 
 @override
 String toString() {
   final _this = this as AiModelIds;
-  return 'AiModelIds(geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, groqFlash: ${_this.groqFlash}, groqPro: ${_this.groqPro})';
+  return 'AiModelIds(geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, groqFlash: ${_this.groqFlash}, groqPro: ${_this.groqPro}, claudeFlash: ${_this.claudeFlash}, claudePro: ${_this.claudePro})';
 }
 
 
@@ -54,7 +56,7 @@ abstract mixin class $AiModelIdsCopyWith<$Res>  {
   factory $AiModelIdsCopyWith(AiModelIds value, $Res Function(AiModelIds) _then) = _$AiModelIdsCopyWithImpl;
 @useResult
 $Res call({
- String geminiFlash, String geminiPro, String groqFlash, String groqPro
+ String geminiFlash, String geminiPro, String groqFlash, String groqPro, String claudeFlash, String claudePro
 });
 
 
@@ -71,12 +73,14 @@ class _$AiModelIdsCopyWithImpl<$Res>
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,Object? claudeFlash = null,Object? claudePro = null,}) {
   return _then(AiModelIds(
 geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
 as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String,groqFlash: null == groqFlash ? _self.groqFlash : groqFlash // ignore: cast_nullable_to_non_nullable
 as String,groqPro: null == groqPro ? _self.groqPro : groqPro // ignore: cast_nullable_to_non_nullable
+as String,claudeFlash: null == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
+as String,claudePro: null == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -162,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro,  String claudeFlash,  String claudePro)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiModelIds() when $default != null:
-return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro,_that.claudeFlash,_that.claudePro);case _:
   return orElse();
 
 }
@@ -183,10 +187,10 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro)
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro,  String claudeFlash,  String claudePro)  $default,) {final _that = this;
 switch (_that) {
 case _AiModelIds():
-return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro,_that.claudeFlash,_that.claudePro);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -203,10 +207,10 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro)
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String geminiFlash,  String geminiPro,  String groqFlash,  String groqPro,  String claudeFlash,  String claudePro)?  $default,) {final _that = this;
 switch (_that) {
 case _AiModelIds() when $default != null:
-return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro,_that.claudeFlash,_that.claudePro);case _:
   return null;
 
 }
@@ -218,13 +222,17 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.groqFlash,_that.groqPro)
 @JsonSerializable()
 
 class _AiModelIds extends AiModelIds {
-  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.groqFlash = 'openai/gpt-oss-20b', this.groqPro = 'openai/gpt-oss-120b'}): super._();
+  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.groqFlash = 'openai/gpt-oss-20b', this.groqPro = 'openai/gpt-oss-120b', this.claudeFlash = 'sonnet', this.claudePro = 'opus'}): super._();
   factory _AiModelIds.fromJson(Map<String, dynamic> json) => _$AiModelIdsFromJson(json);
 
 @override@JsonKey() final  String geminiFlash;
 @override@JsonKey() final  String geminiPro;
 @override@JsonKey() final  String groqFlash;
 @override@JsonKey() final  String groqPro;
+/// The Claude CLI's model aliases, which follow the newest model of each
+/// family; a full model id works too.
+@override@JsonKey() final  String claudeFlash;
+@override@JsonKey() final  String claudePro;
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
@@ -239,18 +247,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.groqFlash, groqFlash) || other.groqFlash == groqFlash)&&(identical(other.groqPro, groqPro) || other.groqPro == groqPro)&&(identical(other.claudeFlash, claudeFlash) || other.claudeFlash == claudeFlash)&&(identical(other.claudePro, claudePro) || other.claudePro == claudePro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,geminiFlash,geminiPro,groqFlash,groqPro);
+    return Object.hash(runtimeType,geminiFlash,geminiPro,groqFlash,groqPro,claudeFlash,claudePro);
 }
 
 @override
 String toString() {
-    return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro)';
+    return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, groqFlash: $groqFlash, groqPro: $groqPro, claudeFlash: $claudeFlash, claudePro: $claudePro)';
 }
 
 
@@ -261,7 +269,7 @@ abstract mixin class _$AiModelIdsCopyWith<$Res> implements $AiModelIdsCopyWith<$
   factory _$AiModelIdsCopyWith(_AiModelIds value, $Res Function(_AiModelIds) _then) = __$AiModelIdsCopyWithImpl;
 @override @useResult
 $Res call({
- String geminiFlash, String geminiPro, String groqFlash, String groqPro
+ String geminiFlash, String geminiPro, String groqFlash, String groqPro, String claudeFlash, String claudePro
 });
 
 
@@ -278,12 +286,14 @@ class __$AiModelIdsCopyWithImpl<$Res>
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? groqFlash = null,Object? groqPro = null,Object? claudeFlash = null,Object? claudePro = null,}) {
   return _then(_AiModelIds(
 geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
 as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String,groqFlash: null == groqFlash ? _self.groqFlash : groqFlash // ignore: cast_nullable_to_non_nullable
 as String,groqPro: null == groqPro ? _self.groqPro : groqPro // ignore: cast_nullable_to_non_nullable
+as String,claudeFlash: null == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
+as String,claudePro: null == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
