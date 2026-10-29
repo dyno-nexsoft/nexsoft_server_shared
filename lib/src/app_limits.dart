@@ -81,13 +81,6 @@ abstract class AppLimits with _$AppLimits {
     /// AI requests in flight at once, across every review and
     /// announcement.
     @Default(2) int aiMaxConcurrentRequests,
-
-    /// Characters of code one review (or translation) request may carry when
-    /// Groq answers. Groq's free and low tiers allow far fewer tokens a minute
-    /// than Gemini, so its batches are smaller and a big MR takes more of them.
-    /// 12,000 is about 3,600 tokens of code, which with the review prompt's
-    /// own 1,700 or so stays under the 8,000 a minute of the lowest tier.
-    @Default(12000) int aiGroqBatchChars,
   }) = _AppLimits;
 
   factory AppLimits.fromJson(Map<String, dynamic> json) =>
@@ -123,7 +116,6 @@ abstract class AppLimits with _$AppLimits {
     'ai_busy_keys': LimitRange(1, 10),
     'ai_batch_retries': LimitRange(0, 5),
     'ai_max_concurrent_requests': LimitRange(1, 8),
-    'ai_groq_batch_chars': LimitRange(5000, 400000),
   };
 
   /// Everything out of range, in words an admin can act on — empty when fine.

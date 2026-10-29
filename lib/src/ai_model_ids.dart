@@ -8,7 +8,7 @@ part 'ai_model_ids.g.dart';
 /// The model id each AI provider answers each [AiModel] tier with.
 ///
 /// Admin-managed rather than compiled in: providers retire and rename models
-/// (a Groq id that stops being served fails every request it is asked), and
+/// (an id that stops being served fails every request it is asked), and
 /// the fix should be an edit on the dashboard, not a release. The defaults are
 /// only where an installation starts.
 @freezed
@@ -18,8 +18,6 @@ abstract class AiModelIds with _$AiModelIds {
   const factory AiModelIds({
     @Default('gemini-3.6-flash') String geminiFlash,
     @Default('gemini-3.1-pro') String geminiPro,
-    @Default('openai/gpt-oss-20b') String groqFlash,
-    @Default('openai/gpt-oss-120b') String groqPro,
 
     /// The Claude CLI's model aliases, which follow the newest model of each
     /// family; a full model id works too.
@@ -33,12 +31,10 @@ abstract class AiModelIds with _$AiModelIds {
   /// The longest id accepted: a typo-guard, not a real model name limit.
   static const maxLength = 100;
 
-  /// The id [provider] (`claude`, `gemini` or `groq`) uses for [tier].
+  /// The id [provider] (`claude` or `gemini`) uses for [tier].
   String idFor(String provider, AiModel tier) => switch ((provider, tier)) {
     ('claude', AiModel.flash) => claudeFlash,
     ('claude', AiModel.pro) => claudePro,
-    ('groq', AiModel.flash) => groqFlash,
-    ('groq', AiModel.pro) => groqPro,
     (_, AiModel.flash) => geminiFlash,
     (_, AiModel.pro) => geminiPro,
   };
@@ -48,8 +44,6 @@ abstract class AiModelIds with _$AiModelIds {
     final fields = {
       'gemini_flash': geminiFlash,
       'gemini_pro': geminiPro,
-      'groq_flash': groqFlash,
-      'groq_pro': groqPro,
       'claude_flash': claudeFlash,
       'claude_pro': claudePro,
     };

@@ -9,7 +9,7 @@ part 'ai_provider.g.dart';
 @freezed
 abstract class AiProviderSetParams with _$AiProviderSetParams {
   const factory AiProviderSetParams({
-    /// The backend to activate: `claude`, `gemini` or `groq`.
+    /// The backend to activate: `claude` or `gemini`.
     required String provider,
 
     /// Whether to try the other provider when the active one is down. Null
@@ -20,8 +20,6 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
     /// null to leave that one as it is.
     String? geminiFlash,
     String? geminiPro,
-    String? groqFlash,
-    String? groqPro,
     String? claudeFlash,
     String? claudePro,
   }) = _AiProviderSetParams;

@@ -12,8 +12,6 @@ _AiProviderSetParams _$AiProviderSetParamsFromJson(Map<String, dynamic> json) =>
       failover: json['failover'] as bool?,
       geminiFlash: json['gemini_flash'] as String?,
       geminiPro: json['gemini_pro'] as String?,
-      groqFlash: json['groq_flash'] as String?,
-      groqPro: json['groq_pro'] as String?,
       claudeFlash: json['claude_flash'] as String?,
       claudePro: json['claude_pro'] as String?,
     );
@@ -25,8 +23,6 @@ Map<String, dynamic> _$AiProviderSetParamsToJson(
   'failover': ?instance.failover,
   'gemini_flash': ?instance.geminiFlash,
   'gemini_pro': ?instance.geminiPro,
-  'groq_flash': ?instance.groqFlash,
-  'groq_pro': ?instance.groqPro,
   'claude_flash': ?instance.claudeFlash,
   'claude_pro': ?instance.claudePro,
 };

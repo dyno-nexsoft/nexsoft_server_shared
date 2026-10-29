@@ -9,8 +9,6 @@ part of 'ai_model_ids.dart';
 _AiModelIds _$AiModelIdsFromJson(Map<String, dynamic> json) => _AiModelIds(
   geminiFlash: json['gemini_flash'] as String? ?? 'gemini-3.6-flash',
   geminiPro: json['gemini_pro'] as String? ?? 'gemini-3.1-pro',
-  groqFlash: json['groq_flash'] as String? ?? 'openai/gpt-oss-20b',
-  groqPro: json['groq_pro'] as String? ?? 'openai/gpt-oss-120b',
   claudeFlash: json['claude_flash'] as String? ?? 'sonnet',
   claudePro: json['claude_pro'] as String? ?? 'opus',
 );
@@ -19,8 +17,6 @@ Map<String, dynamic> _$AiModelIdsToJson(_AiModelIds instance) =>
     <String, dynamic>{
       'gemini_flash': instance.geminiFlash,
       'gemini_pro': instance.geminiPro,
-      'groq_flash': instance.groqFlash,
-      'groq_pro': instance.groqPro,
       'claude_flash': instance.claudeFlash,
       'claude_pro': instance.claudePro,
     };
