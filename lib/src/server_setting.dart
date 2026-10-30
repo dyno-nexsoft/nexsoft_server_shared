@@ -29,6 +29,9 @@ enum SettingKind {
 
   /// A Git SSH remote of one repository, `user@host:path.git`.
   gitRemote,
+
+  /// A positive whole number, such as a Zentao id.
+  number,
 }
 
 /// Every setting an admin changes on the dashboard instead of in the
@@ -117,6 +120,22 @@ enum ServerSetting {
     envName: 'ZENTAO_ACCOUNT',
     description: "The bot's own Zentao account",
     needsRestart: true,
+  ),
+  zentaoProjectId(
+    'zentao_project_id',
+    SettingKind.number,
+    description:
+        'The Zentao project every daily-report task is filed under, for '
+        'everyone',
+    defaultValue: '1',
+  ),
+  zentaoExecutionId(
+    'zentao_execution',
+    SettingKind.number,
+    description:
+        'The Zentao execution (sprint) new daily-report tasks are created '
+        'in, for everyone',
+    defaultValue: '1',
   ),
   zentaoIgnoreBadCertificate(
     'zentao_ignore_bad_certificate',
@@ -227,6 +246,8 @@ enum ServerSetting {
       SettingKind.sshBase
           when !RegExp(r'^[\w.-]+@[\w.-]+:[\w./-]+$').hasMatch(value) =>
         '$key must look like user@host:namespace',
+      SettingKind.number when !RegExp(r'^[1-9]\d{0,8}$').hasMatch(value) =>
+        '$key must be a positive whole number',
       SettingKind.path when !value.startsWith('/') =>
         '$key must be an absolute path',
       SettingKind.gitRemote
