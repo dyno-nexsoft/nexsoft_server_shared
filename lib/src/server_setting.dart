@@ -107,6 +107,14 @@ enum ServerSetting {
         'ci.replace, ARB translations) is assigned to; unset, they are '
         'left unassigned',
   ),
+  gitlabSdkServer(
+    'gitlab_sdk_server',
+    SettingKind.url,
+    description:
+        'The server ci.replace downloads the SDK from, for the merge '
+        'request it opens on GitLab; the host of a pasted link is replaced '
+        'by this one',
+  ),
   zentaoServer(
     'zentao_server',
     SettingKind.url,
@@ -154,19 +162,6 @@ enum ServerSetting {
         'Build machines that take queued jobs over SSH; each must '
         "already be in this machine's known_hosts",
     needsRestart: true,
-  ),
-  novncLogPath(
-    'novnc_log_path',
-    SettingKind.path,
-    envName: 'APP_NOVNC_LOG_PATH',
-    description: "The noVNC service's log, readable from the dashboard",
-  ),
-  sdkServer(
-    'sdk_server',
-    SettingKind.url,
-    description:
-        'The server ci.replace downloads the SDK from; the host of a '
-        'pasted link is replaced by this one',
   );
 
   const ServerSetting(
