@@ -62,6 +62,11 @@ abstract class AppLimits with _$AppLimits {
     /// Most findings one review shows; the rest are summarised as omitted.
     @Default(20) int reviewMaxIssues,
 
+    /// Thousands of characters of files one review request carries; a larger
+    /// MR is split into several requests. Higher lets the model see more of
+    /// the MR at once, until a request outgrows the model's context and fails.
+    @Default(300) int reviewBatchKchars,
+
     /// Tries a request gets on one model and key before moving on.
     @Default(3) int aiAttemptsPerModel,
 
@@ -111,6 +116,7 @@ abstract class AppLimits with _$AppLimits {
     'build_timeout_minutes': LimitRange(10, 1440),
     'report_sweep_days': LimitRange(1, 30),
     'review_max_issues': LimitRange(1, 100),
+    'review_batch_kchars': LimitRange(50, 1000),
     'ai_attempts_per_model': LimitRange(1, 6),
     'ai_key_rest_minutes': LimitRange(1, 120),
     'ai_busy_keys': LimitRange(1, 10),

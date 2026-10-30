@@ -33,7 +33,10 @@ mixin _$AppLimits {
  int get apiKeyIdleDays;/// Minutes a build may run before it is stopped as hung.
  int get buildTimeoutMinutes;/// Days back the sweep looks on a day off, closing the week's reports.
  int get reportSweepDays;/// Most findings one review shows; the rest are summarised as omitted.
- int get reviewMaxIssues;/// Tries a request gets on one model and key before moving on.
+ int get reviewMaxIssues;/// Thousands of characters of files one review request carries; a larger
+/// MR is split into several requests. Higher lets the model see more of
+/// the MR at once, until a request outgrows the model's context and fails.
+ int get reviewBatchKchars;/// Tries a request gets on one model and key before moving on.
  int get aiAttemptsPerModel;/// Minutes a provider key that failed is left alone.
  int get aiKeyRestMinutes;/// Keys tried while a provider answers that it is overloaded (502, 503,
 /// 504) before it is taken for down and the other provider is asked:
@@ -57,20 +60,20 @@ $AppLimitsCopyWith<AppLimits> get copyWith => _$AppLimitsCopyWithImpl<AppLimits>
 @override
 bool operator ==(Object other) {
   final _this = this as AppLimits;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, _this.jobsDays) || other.jobsDays == _this.jobsDays)&&(identical(other.auditDays, _this.auditDays) || other.auditDays == _this.auditDays)&&(identical(other.reviewsDays, _this.reviewsDays) || other.reviewsDays == _this.reviewsDays)&&(identical(other.translatesDays, _this.translatesDays) || other.translatesDays == _this.translatesDays)&&(identical(other.notificationsDays, _this.notificationsDays) || other.notificationsDays == _this.notificationsDays)&&(identical(other.artifactsDays, _this.artifactsDays) || other.artifactsDays == _this.artifactsDays)&&(identical(other.apiKeyIdleDays, _this.apiKeyIdleDays) || other.apiKeyIdleDays == _this.apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, _this.buildTimeoutMinutes) || other.buildTimeoutMinutes == _this.buildTimeoutMinutes)&&(identical(other.reportSweepDays, _this.reportSweepDays) || other.reportSweepDays == _this.reportSweepDays)&&(identical(other.reviewMaxIssues, _this.reviewMaxIssues) || other.reviewMaxIssues == _this.reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, _this.aiAttemptsPerModel) || other.aiAttemptsPerModel == _this.aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, _this.aiKeyRestMinutes) || other.aiKeyRestMinutes == _this.aiKeyRestMinutes)&&(identical(other.aiBusyKeys, _this.aiBusyKeys) || other.aiBusyKeys == _this.aiBusyKeys)&&(identical(other.aiBatchRetries, _this.aiBatchRetries) || other.aiBatchRetries == _this.aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, _this.aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == _this.aiMaxConcurrentRequests));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, _this.jobsDays) || other.jobsDays == _this.jobsDays)&&(identical(other.auditDays, _this.auditDays) || other.auditDays == _this.auditDays)&&(identical(other.reviewsDays, _this.reviewsDays) || other.reviewsDays == _this.reviewsDays)&&(identical(other.translatesDays, _this.translatesDays) || other.translatesDays == _this.translatesDays)&&(identical(other.notificationsDays, _this.notificationsDays) || other.notificationsDays == _this.notificationsDays)&&(identical(other.artifactsDays, _this.artifactsDays) || other.artifactsDays == _this.artifactsDays)&&(identical(other.apiKeyIdleDays, _this.apiKeyIdleDays) || other.apiKeyIdleDays == _this.apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, _this.buildTimeoutMinutes) || other.buildTimeoutMinutes == _this.buildTimeoutMinutes)&&(identical(other.reportSweepDays, _this.reportSweepDays) || other.reportSweepDays == _this.reportSweepDays)&&(identical(other.reviewMaxIssues, _this.reviewMaxIssues) || other.reviewMaxIssues == _this.reviewMaxIssues)&&(identical(other.reviewBatchKchars, _this.reviewBatchKchars) || other.reviewBatchKchars == _this.reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, _this.aiAttemptsPerModel) || other.aiAttemptsPerModel == _this.aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, _this.aiKeyRestMinutes) || other.aiKeyRestMinutes == _this.aiKeyRestMinutes)&&(identical(other.aiBusyKeys, _this.aiBusyKeys) || other.aiBusyKeys == _this.aiBusyKeys)&&(identical(other.aiBatchRetries, _this.aiBatchRetries) || other.aiBatchRetries == _this.aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, _this.aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == _this.aiMaxConcurrentRequests));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AppLimits;
-  return Object.hash(runtimeType,_this.jobsDays,_this.auditDays,_this.reviewsDays,_this.translatesDays,_this.notificationsDays,_this.artifactsDays,_this.apiKeyIdleDays,_this.buildTimeoutMinutes,_this.reportSweepDays,_this.reviewMaxIssues,_this.aiAttemptsPerModel,_this.aiKeyRestMinutes,_this.aiBusyKeys,_this.aiBatchRetries,_this.aiMaxConcurrentRequests);
+  return Object.hash(runtimeType,_this.jobsDays,_this.auditDays,_this.reviewsDays,_this.translatesDays,_this.notificationsDays,_this.artifactsDays,_this.apiKeyIdleDays,_this.buildTimeoutMinutes,_this.reportSweepDays,_this.reviewMaxIssues,_this.reviewBatchKchars,_this.aiAttemptsPerModel,_this.aiKeyRestMinutes,_this.aiBusyKeys,_this.aiBatchRetries,_this.aiMaxConcurrentRequests);
 }
 
 @override
 String toString() {
   final _this = this as AppLimits;
-  return 'AppLimits(jobsDays: ${_this.jobsDays}, auditDays: ${_this.auditDays}, reviewsDays: ${_this.reviewsDays}, translatesDays: ${_this.translatesDays}, notificationsDays: ${_this.notificationsDays}, artifactsDays: ${_this.artifactsDays}, apiKeyIdleDays: ${_this.apiKeyIdleDays}, buildTimeoutMinutes: ${_this.buildTimeoutMinutes}, reportSweepDays: ${_this.reportSweepDays}, reviewMaxIssues: ${_this.reviewMaxIssues}, aiAttemptsPerModel: ${_this.aiAttemptsPerModel}, aiKeyRestMinutes: ${_this.aiKeyRestMinutes}, aiBusyKeys: ${_this.aiBusyKeys}, aiBatchRetries: ${_this.aiBatchRetries}, aiMaxConcurrentRequests: ${_this.aiMaxConcurrentRequests})';
+  return 'AppLimits(jobsDays: ${_this.jobsDays}, auditDays: ${_this.auditDays}, reviewsDays: ${_this.reviewsDays}, translatesDays: ${_this.translatesDays}, notificationsDays: ${_this.notificationsDays}, artifactsDays: ${_this.artifactsDays}, apiKeyIdleDays: ${_this.apiKeyIdleDays}, buildTimeoutMinutes: ${_this.buildTimeoutMinutes}, reportSweepDays: ${_this.reportSweepDays}, reviewMaxIssues: ${_this.reviewMaxIssues}, reviewBatchKchars: ${_this.reviewBatchKchars}, aiAttemptsPerModel: ${_this.aiAttemptsPerModel}, aiKeyRestMinutes: ${_this.aiKeyRestMinutes}, aiBusyKeys: ${_this.aiBusyKeys}, aiBatchRetries: ${_this.aiBatchRetries}, aiMaxConcurrentRequests: ${_this.aiMaxConcurrentRequests})';
 }
 
 
@@ -81,7 +84,7 @@ abstract mixin class $AppLimitsCopyWith<$Res>  {
   factory $AppLimitsCopyWith(AppLimits value, $Res Function(AppLimits) _then) = _$AppLimitsCopyWithImpl;
 @useResult
 $Res call({
- int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests
+ int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests
 });
 
 
@@ -98,7 +101,7 @@ class _$AppLimitsCopyWithImpl<$Res>
 
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,}) {
   return _then(AppLimits(
 jobsDays: null == jobsDays ? _self.jobsDays : jobsDays // ignore: cast_nullable_to_non_nullable
 as int,auditDays: null == auditDays ? _self.auditDays : auditDays // ignore: cast_nullable_to_non_nullable
@@ -110,6 +113,7 @@ as int,apiKeyIdleDays: null == apiKeyIdleDays ? _self.apiKeyIdleDays : apiKeyIdl
 as int,buildTimeoutMinutes: null == buildTimeoutMinutes ? _self.buildTimeoutMinutes : buildTimeoutMinutes // ignore: cast_nullable_to_non_nullable
 as int,reportSweepDays: null == reportSweepDays ? _self.reportSweepDays : reportSweepDays // ignore: cast_nullable_to_non_nullable
 as int,reviewMaxIssues: null == reviewMaxIssues ? _self.reviewMaxIssues : reviewMaxIssues // ignore: cast_nullable_to_non_nullable
+as int,reviewBatchKchars: null == reviewBatchKchars ? _self.reviewBatchKchars : reviewBatchKchars // ignore: cast_nullable_to_non_nullable
 as int,aiAttemptsPerModel: null == aiAttemptsPerModel ? _self.aiAttemptsPerModel : aiAttemptsPerModel // ignore: cast_nullable_to_non_nullable
 as int,aiKeyRestMinutes: null == aiKeyRestMinutes ? _self.aiKeyRestMinutes : aiKeyRestMinutes // ignore: cast_nullable_to_non_nullable
 as int,aiBusyKeys: null == aiBusyKeys ? _self.aiBusyKeys : aiBusyKeys // ignore: cast_nullable_to_non_nullable
@@ -200,10 +204,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppLimits() when $default != null:
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
   return orElse();
 
 }
@@ -221,10 +225,10 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)  $default,) {final _that = this;
 switch (_that) {
 case _AppLimits():
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -241,10 +245,10 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests)?  $default,) {final _that = this;
 switch (_that) {
 case _AppLimits() when $default != null:
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests);case _:
   return null;
 
 }
@@ -256,7 +260,7 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 @JsonSerializable()
 
 class _AppLimits extends AppLimits {
-  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2}): super._();
+  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.reviewBatchKchars = 300, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2}): super._();
   factory _AppLimits.fromJson(Map<String, dynamic> json) => _$AppLimitsFromJson(json);
 
 /// Days a job stays in history (the jobs list, its page, retries). Its
@@ -286,6 +290,10 @@ class _AppLimits extends AppLimits {
 @override@JsonKey() final  int reportSweepDays;
 /// Most findings one review shows; the rest are summarised as omitted.
 @override@JsonKey() final  int reviewMaxIssues;
+/// Thousands of characters of files one review request carries; a larger
+/// MR is split into several requests. Higher lets the model see more of
+/// the MR at once, until a request outgrows the model's context and fails.
+@override@JsonKey() final  int reviewBatchKchars;
 /// Tries a request gets on one model and key before moving on.
 @override@JsonKey() final  int aiAttemptsPerModel;
 /// Minutes a provider key that failed is left alone.
@@ -315,18 +323,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiBusyKeys, aiBusyKeys) || other.aiBusyKeys == aiBusyKeys)&&(identical(other.aiBatchRetries, aiBatchRetries) || other.aiBatchRetries == aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.reviewBatchKchars, reviewBatchKchars) || other.reviewBatchKchars == reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiBusyKeys, aiBusyKeys) || other.aiBusyKeys == aiBusyKeys)&&(identical(other.aiBatchRetries, aiBatchRetries) || other.aiBatchRetries == aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,aiAttemptsPerModel,aiKeyRestMinutes,aiBusyKeys,aiBatchRetries,aiMaxConcurrentRequests);
+    return Object.hash(runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,reviewBatchKchars,aiAttemptsPerModel,aiKeyRestMinutes,aiBusyKeys,aiBatchRetries,aiMaxConcurrentRequests);
 }
 
 @override
 String toString() {
-    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiBusyKeys: $aiBusyKeys, aiBatchRetries: $aiBatchRetries, aiMaxConcurrentRequests: $aiMaxConcurrentRequests)';
+    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, reviewBatchKchars: $reviewBatchKchars, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiBusyKeys: $aiBusyKeys, aiBatchRetries: $aiBatchRetries, aiMaxConcurrentRequests: $aiMaxConcurrentRequests)';
 }
 
 
@@ -337,7 +345,7 @@ abstract mixin class _$AppLimitsCopyWith<$Res> implements $AppLimitsCopyWith<$Re
   factory _$AppLimitsCopyWith(_AppLimits value, $Res Function(_AppLimits) _then) = __$AppLimitsCopyWithImpl;
 @override @useResult
 $Res call({
- int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests
+ int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests
 });
 
 
@@ -354,7 +362,7 @@ class __$AppLimitsCopyWithImpl<$Res>
 
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,}) {
   return _then(_AppLimits(
 jobsDays: null == jobsDays ? _self.jobsDays : jobsDays // ignore: cast_nullable_to_non_nullable
 as int,auditDays: null == auditDays ? _self.auditDays : auditDays // ignore: cast_nullable_to_non_nullable
@@ -366,6 +374,7 @@ as int,apiKeyIdleDays: null == apiKeyIdleDays ? _self.apiKeyIdleDays : apiKeyIdl
 as int,buildTimeoutMinutes: null == buildTimeoutMinutes ? _self.buildTimeoutMinutes : buildTimeoutMinutes // ignore: cast_nullable_to_non_nullable
 as int,reportSweepDays: null == reportSweepDays ? _self.reportSweepDays : reportSweepDays // ignore: cast_nullable_to_non_nullable
 as int,reviewMaxIssues: null == reviewMaxIssues ? _self.reviewMaxIssues : reviewMaxIssues // ignore: cast_nullable_to_non_nullable
+as int,reviewBatchKchars: null == reviewBatchKchars ? _self.reviewBatchKchars : reviewBatchKchars // ignore: cast_nullable_to_non_nullable
 as int,aiAttemptsPerModel: null == aiAttemptsPerModel ? _self.aiAttemptsPerModel : aiAttemptsPerModel // ignore: cast_nullable_to_non_nullable
 as int,aiKeyRestMinutes: null == aiKeyRestMinutes ? _self.aiKeyRestMinutes : aiKeyRestMinutes // ignore: cast_nullable_to_non_nullable
 as int,aiBusyKeys: null == aiBusyKeys ? _self.aiBusyKeys : aiBusyKeys // ignore: cast_nullable_to_non_nullable
