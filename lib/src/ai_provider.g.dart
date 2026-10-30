@@ -14,6 +14,8 @@ _AiProviderSetParams _$AiProviderSetParamsFromJson(Map<String, dynamic> json) =>
       geminiPro: json['gemini_pro'] as String?,
       claudeFlash: json['claude_flash'] as String?,
       claudePro: json['claude_pro'] as String?,
+      claudeFlashEffort: json['claude_flash_effort'] as String?,
+      claudeProEffort: json['claude_pro_effort'] as String?,
     );
 
 Map<String, dynamic> _$AiProviderSetParamsToJson(
@@ -25,6 +27,8 @@ Map<String, dynamic> _$AiProviderSetParamsToJson(
   'gemini_pro': ?instance.geminiPro,
   'claude_flash': ?instance.claudeFlash,
   'claude_pro': ?instance.claudePro,
+  'claude_flash_effort': ?instance.claudeFlashEffort,
+  'claude_pro_effort': ?instance.claudeProEffort,
 };
 
 _AiProviderInfo _$AiProviderInfoFromJson(Map<String, dynamic> json) =>

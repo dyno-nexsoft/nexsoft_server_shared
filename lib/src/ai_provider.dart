@@ -22,6 +22,11 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
     String? geminiPro,
     String? claudeFlash,
     String? claudePro,
+
+    /// How hard Claude thinks for each tier — see [AiModelIds.efforts]; an
+    /// empty string is the CLI's default, null leaves it as it is.
+    String? claudeFlashEffort,
+    String? claudeProEffort,
   }) = _AiProviderSetParams;
 
   factory AiProviderSetParams.fromJson(Map<String, dynamic> json) =>

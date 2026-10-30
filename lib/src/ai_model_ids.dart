@@ -23,10 +23,26 @@ abstract class AiModelIds with _$AiModelIds {
     /// aliases (`sonnet`, `opus`) work too.
     @Default('claude-sonnet-5-5') String claudeFlash,
     @Default('claude-opus-5-5') String claudePro,
+
+    /// How hard the Claude CLI thinks for each tier: one of [efforts], or empty
+    /// for the CLI's own default for that model. Admin-managed like the ids:
+    /// a review wants more than a one-line announcement, and what is worth its
+    /// time changes with the model.
+    @Default('') String claudeFlashEffort,
+    @Default('') String claudeProEffort,
   }) = _AiModelIds;
 
   factory AiModelIds.fromJson(Map<String, dynamic> json) =>
       _$AiModelIdsFromJson(json);
+
+  /// What `claude --effort` takes.
+  static const efforts = ['low', 'medium', 'high', 'xhigh', 'max'];
+
+  /// The effort Claude uses for [tier]: empty for the CLI's default.
+  String claudeEffortFor(AiModel tier) => switch (tier) {
+    AiModel.flash => claudeFlashEffort,
+    AiModel.pro => claudeProEffort,
+  };
 
   /// The longest id accepted: a typo-guard, not a real model name limit.
   static const maxLength = 100;
@@ -47,7 +63,14 @@ abstract class AiModelIds with _$AiModelIds {
       'claude_flash': claudeFlash,
       'claude_pro': claudePro,
     };
+    final efforts = {
+      'claude_flash_effort': claudeFlashEffort,
+      'claude_pro_effort': claudeProEffort,
+    };
     return [
+      for (final entry in efforts.entries)
+        if (entry.value.isNotEmpty && !AiModelIds.efforts.contains(entry.value))
+          '${entry.key} must be empty or one of ${AiModelIds.efforts.join(', ')}.',
       for (final entry in fields.entries)
         if (entry.value.isEmpty ||
             entry.value.contains(RegExp(r'\s')) ||
