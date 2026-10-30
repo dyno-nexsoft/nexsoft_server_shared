@@ -38,6 +38,10 @@ abstract class AiModelIds with _$AiModelIds {
   /// What `claude --effort` takes.
   static const efforts = ['low', 'medium', 'high', 'xhigh', 'max'];
 
+  /// What a caller sends to put an effort back to the CLI's own: an empty
+  /// string would read as "not sent".
+  static const defaultEffort = 'default';
+
   /// The effort Claude uses for [tier]: empty for the CLI's default.
   String claudeEffortFor(AiModel tier) => switch (tier) {
     AiModel.flash => claudeFlashEffort,
@@ -55,28 +59,36 @@ abstract class AiModelIds with _$AiModelIds {
     (_, AiModel.pro) => geminiPro,
   };
 
-  /// Every id that is empty, has whitespace, or is implausibly long.
-  List<String> problems() {
-    final fields = {
-      'gemini_flash': geminiFlash,
-      'gemini_pro': geminiPro,
-      'claude_flash': claudeFlash,
-      'claude_pro': claudePro,
-    };
-    final efforts = {
-      'claude_flash_effort': claudeFlashEffort,
-      'claude_pro_effort': claudeProEffort,
-    };
-    return [
-      for (final entry in efforts.entries)
-        if (entry.value.isNotEmpty && !AiModelIds.efforts.contains(entry.value))
-          '${entry.key} must be empty or one of ${AiModelIds.efforts.join(', ')}.',
-      for (final entry in fields.entries)
-        if (entry.value.isEmpty ||
-            entry.value.contains(RegExp(r'\s')) ||
-            entry.value.length > maxLength)
-          '${entry.key} must be a model id with no spaces '
-              '(up to $maxLength characters).',
-    ];
+  /// This with [changes] laid over it: wire key (`claude_flash`,
+  /// `claude_pro_effort`, …) to the new value, null for one not sent.
+  /// [defaultEffort] becomes the empty string. The one place a set request is
+  /// applied, by the server to what it saves and by the dashboard to what it
+  /// shows before the answer.
+  AiModelIds applying(Map<String, String?> changes) => AiModelIds.fromJson({
+    ...toJson(),
+    for (final entry in changes.entries)
+      if (entry.value case final value?)
+        entry.key: value == defaultEffort ? '' : value,
+  });
+
+  /// Every id that is empty, has whitespace, or is implausibly long, and every
+  /// effort that is not one the CLI takes. Read from the serialised fields, so
+  /// a new one is checked without being listed here as well.
+  List<String> problems() => [
+    for (final entry in toJson().entries)
+      if (entry.value is String) ?_problem(entry.key, entry.value as String),
+  ];
+
+  String? _problem(String key, String value) {
+    if (key.endsWith('_effort')) {
+      return value.isEmpty || efforts.contains(value)
+          ? null
+          : '$key must be empty or one of ${efforts.join(', ')}.';
+    }
+    return value.isEmpty ||
+            value.contains(RegExp(r'\s')) ||
+            value.length > maxLength
+        ? '$key must be a model id with no spaces (up to $maxLength characters).'
+        : null;
   }
 }

@@ -8,6 +8,8 @@ part 'ai_provider.g.dart';
 /// `admin.aiProvider.set`.
 @freezed
 abstract class AiProviderSetParams with _$AiProviderSetParams {
+  const AiProviderSetParams._();
+
   const factory AiProviderSetParams({
     /// The backend to activate: `claude` or `gemini`.
     required String provider,
@@ -31,6 +33,17 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
 
   factory AiProviderSetParams.fromJson(Map<String, dynamic> json) =>
       _$AiProviderSetParamsFromJson(json);
+
+  /// The model ids and efforts this sends, by wire key; null for each left
+  /// as it is. What [AiModelIds.applying] takes.
+  Map<String, String?> get modelChanges => {
+    'gemini_flash': geminiFlash,
+    'gemini_pro': geminiPro,
+    'claude_flash': claudeFlash,
+    'claude_pro': claudePro,
+    'claude_flash_effort': claudeFlashEffort,
+    'claude_pro_effort': claudeProEffort,
+  };
 }
 
 /// `admin.aiProvider.get` and `admin.aiProvider.set`: the backend now serving

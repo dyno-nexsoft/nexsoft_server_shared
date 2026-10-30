@@ -228,8 +228,8 @@ return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,
 /// @nodoc
 @JsonSerializable()
 
-class _AiProviderSetParams implements AiProviderSetParams {
-  const _AiProviderSetParams({required this.provider, this.failover, this.geminiFlash, this.geminiPro, this.claudeFlash, this.claudePro, this.claudeFlashEffort, this.claudeProEffort});
+class _AiProviderSetParams extends AiProviderSetParams {
+  const _AiProviderSetParams({required this.provider, this.failover, this.geminiFlash, this.geminiPro, this.claudeFlash, this.claudePro, this.claudeFlashEffort, this.claudeProEffort}): super._();
   factory _AiProviderSetParams.fromJson(Map<String, dynamic> json) => _$AiProviderSetParamsFromJson(json);
 
 /// The backend to activate: `claude` or `gemini`.

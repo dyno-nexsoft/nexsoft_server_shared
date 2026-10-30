@@ -73,4 +73,5 @@ export 'src/tbchat_module.dart';
 export 'src/url_input.dart';
 export 'src/work_calendar.dart';
 export 'src/zentao_status.dart';
+export 'src/zentao_suggestion.dart';
 export 'src/zentao_user.dart';
