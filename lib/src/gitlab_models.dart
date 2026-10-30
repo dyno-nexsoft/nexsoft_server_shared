@@ -57,6 +57,10 @@ abstract class GitLabMergeRequest with _$GitLabMergeRequest {
     /// Number of changed files as reported by GitLab (e.g. "15").
     @Default('0') String changesCount,
 
+    /// When the MR was opened, as GitLab sent it (ISO 8601); null when the
+    /// response had none.
+    String? createdAt,
+
     /// Head commit SHA of the source branch at the time of the API call.
     ///
     /// Used by the cron job to detect new commits and trigger re-reviews.

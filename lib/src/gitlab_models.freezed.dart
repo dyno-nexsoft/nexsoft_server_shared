@@ -26,7 +26,9 @@ mixin _$GitLabMergeRequest {
  String get state;/// Description written by the author, may be empty.
  String get description;/// Labels applied to this merge request.
  List<String> get labels;/// Number of changed files as reported by GitLab (e.g. "15").
- String get changesCount;/// Head commit SHA of the source branch at the time of the API call.
+ String get changesCount;/// When the MR was opened, as GitLab sent it (ISO 8601); null when the
+/// response had none.
+ String? get createdAt;/// Head commit SHA of the source branch at the time of the API call.
 ///
 /// Used by the cron job to detect new commits and trigger re-reviews.
  String get sha;/// The three SHAs GitLab's Discussions API requires to anchor a comment
@@ -50,20 +52,20 @@ $GitLabMergeRequestCopyWith<GitLabMergeRequest> get copyWith => _$GitLabMergeReq
 @override
 bool operator ==(Object other) {
   final _this = this as GitLabMergeRequest;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMergeRequest&&(identical(other.iid, _this.iid) || other.iid == _this.iid)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.sourceBranch, _this.sourceBranch) || other.sourceBranch == _this.sourceBranch)&&(identical(other.targetBranch, _this.targetBranch) || other.targetBranch == _this.targetBranch)&&(identical(other.authorName, _this.authorName) || other.authorName == _this.authorName)&&(identical(other.webUrl, _this.webUrl) || other.webUrl == _this.webUrl)&&(identical(other.state, _this.state) || other.state == _this.state)&&(identical(other.description, _this.description) || other.description == _this.description)&&const DeepCollectionEquality().equals(other.labels, _this.labels)&&(identical(other.changesCount, _this.changesCount) || other.changesCount == _this.changesCount)&&(identical(other.sha, _this.sha) || other.sha == _this.sha)&&(identical(other.diffRefs, _this.diffRefs) || other.diffRefs == _this.diffRefs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GitLabMergeRequest&&(identical(other.iid, _this.iid) || other.iid == _this.iid)&&(identical(other.title, _this.title) || other.title == _this.title)&&(identical(other.sourceBranch, _this.sourceBranch) || other.sourceBranch == _this.sourceBranch)&&(identical(other.targetBranch, _this.targetBranch) || other.targetBranch == _this.targetBranch)&&(identical(other.authorName, _this.authorName) || other.authorName == _this.authorName)&&(identical(other.webUrl, _this.webUrl) || other.webUrl == _this.webUrl)&&(identical(other.state, _this.state) || other.state == _this.state)&&(identical(other.description, _this.description) || other.description == _this.description)&&const DeepCollectionEquality().equals(other.labels, _this.labels)&&(identical(other.changesCount, _this.changesCount) || other.changesCount == _this.changesCount)&&(identical(other.createdAt, _this.createdAt) || other.createdAt == _this.createdAt)&&(identical(other.sha, _this.sha) || other.sha == _this.sha)&&(identical(other.diffRefs, _this.diffRefs) || other.diffRefs == _this.diffRefs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as GitLabMergeRequest;
-  return Object.hash(runtimeType,_this.iid,_this.title,_this.sourceBranch,_this.targetBranch,_this.authorName,_this.webUrl,_this.state,_this.description,const DeepCollectionEquality().hash(_this.labels),_this.changesCount,_this.sha,_this.diffRefs);
+  return Object.hash(runtimeType,_this.iid,_this.title,_this.sourceBranch,_this.targetBranch,_this.authorName,_this.webUrl,_this.state,_this.description,const DeepCollectionEquality().hash(_this.labels),_this.changesCount,_this.createdAt,_this.sha,_this.diffRefs);
 }
 
 @override
 String toString() {
   final _this = this as GitLabMergeRequest;
-  return 'GitLabMergeRequest(iid: ${_this.iid}, title: ${_this.title}, sourceBranch: ${_this.sourceBranch}, targetBranch: ${_this.targetBranch}, authorName: ${_this.authorName}, webUrl: ${_this.webUrl}, state: ${_this.state}, description: ${_this.description}, labels: ${_this.labels}, changesCount: ${_this.changesCount}, sha: ${_this.sha}, diffRefs: ${_this.diffRefs})';
+  return 'GitLabMergeRequest(iid: ${_this.iid}, title: ${_this.title}, sourceBranch: ${_this.sourceBranch}, targetBranch: ${_this.targetBranch}, authorName: ${_this.authorName}, webUrl: ${_this.webUrl}, state: ${_this.state}, description: ${_this.description}, labels: ${_this.labels}, changesCount: ${_this.changesCount}, createdAt: ${_this.createdAt}, sha: ${_this.sha}, diffRefs: ${_this.diffRefs})';
 }
 
 
@@ -74,7 +76,7 @@ abstract mixin class $GitLabMergeRequestCopyWith<$Res>  {
   factory $GitLabMergeRequestCopyWith(GitLabMergeRequest value, $Res Function(GitLabMergeRequest) _then) = _$GitLabMergeRequestCopyWithImpl;
 @useResult
 $Res call({
- int iid, String title, String sourceBranch, String targetBranch,@JsonKey(name: 'author', readValue: _readAuthorName) String authorName, String webUrl, String state, String description, List<String> labels, String changesCount, String sha, GitLabDiffRefs? diffRefs
+ int iid, String title, String sourceBranch, String targetBranch,@JsonKey(name: 'author', readValue: _readAuthorName) String authorName, String webUrl, String state, String description, List<String> labels, String changesCount, String? createdAt, String sha, GitLabDiffRefs? diffRefs
 });
 
 
@@ -91,7 +93,7 @@ class _$GitLabMergeRequestCopyWithImpl<$Res>
 
 /// Create a copy of GitLabMergeRequest
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? iid = null,Object? title = null,Object? sourceBranch = null,Object? targetBranch = null,Object? authorName = null,Object? webUrl = null,Object? state = null,Object? description = null,Object? labels = null,Object? changesCount = null,Object? sha = null,Object? diffRefs = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? iid = null,Object? title = null,Object? sourceBranch = null,Object? targetBranch = null,Object? authorName = null,Object? webUrl = null,Object? state = null,Object? description = null,Object? labels = null,Object? changesCount = null,Object? createdAt = freezed,Object? sha = null,Object? diffRefs = freezed,}) {
   return _then(GitLabMergeRequest(
 iid: null == iid ? _self.iid : iid // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -103,7 +105,8 @@ as String,state: null == state ? _self.state : state // ignore: cast_nullable_to
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,labels: null == labels ? _self.labels : labels // ignore: cast_nullable_to_non_nullable
 as List<String>,changesCount: null == changesCount ? _self.changesCount : changesCount // ignore: cast_nullable_to_non_nullable
-as String,sha: null == sha ? _self.sha : sha // ignore: cast_nullable_to_non_nullable
+as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String?,sha: null == sha ? _self.sha : sha // ignore: cast_nullable_to_non_nullable
 as String,diffRefs: freezed == diffRefs ? _self.diffRefs : diffRefs // ignore: cast_nullable_to_non_nullable
 as GitLabDiffRefs?,
   ));
@@ -202,10 +205,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String sha,  GitLabDiffRefs? diffRefs)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String? createdAt,  String sha,  GitLabDiffRefs? diffRefs)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GitLabMergeRequest() when $default != null:
-return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.sha,_that.diffRefs);case _:
+return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.createdAt,_that.sha,_that.diffRefs);case _:
   return orElse();
 
 }
@@ -223,10 +226,10 @@ return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String sha,  GitLabDiffRefs? diffRefs)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String? createdAt,  String sha,  GitLabDiffRefs? diffRefs)  $default,) {final _that = this;
 switch (_that) {
 case _GitLabMergeRequest():
-return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.sha,_that.diffRefs);case _:
+return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.createdAt,_that.sha,_that.diffRefs);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -243,10 +246,10 @@ return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String sha,  GitLabDiffRefs? diffRefs)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int iid,  String title,  String sourceBranch,  String targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName)  String authorName,  String webUrl,  String state,  String description,  List<String> labels,  String changesCount,  String? createdAt,  String sha,  GitLabDiffRefs? diffRefs)?  $default,) {final _that = this;
 switch (_that) {
 case _GitLabMergeRequest() when $default != null:
-return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.sha,_that.diffRefs);case _:
+return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_that.authorName,_that.webUrl,_that.state,_that.description,_that.labels,_that.changesCount,_that.createdAt,_that.sha,_that.diffRefs);case _:
   return null;
 
 }
@@ -258,7 +261,7 @@ return $default(_that.iid,_that.title,_that.sourceBranch,_that.targetBranch,_tha
 @JsonSerializable()
 
 class _GitLabMergeRequest extends GitLabMergeRequest {
-  const _GitLabMergeRequest({required this.iid, required this.title, required this.sourceBranch, required this.targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName) required this.authorName, required this.webUrl, required this.state, this.description = '',  List<String> labels = const <String>[], this.changesCount = '0', this.sha = '', this.diffRefs}): _labels = labels,super._();
+  const _GitLabMergeRequest({required this.iid, required this.title, required this.sourceBranch, required this.targetBranch, @JsonKey(name: 'author', readValue: _readAuthorName) required this.authorName, required this.webUrl, required this.state, this.description = '',  List<String> labels = const <String>[], this.changesCount = '0', this.createdAt, this.sha = '', this.diffRefs}): _labels = labels,super._();
   factory _GitLabMergeRequest.fromJson(Map<String, dynamic> json) => _$GitLabMergeRequestFromJson(json);
 
 /// Internal ID of the MR within its project (the `!123` number on GitLab).
@@ -288,6 +291,9 @@ class _GitLabMergeRequest extends GitLabMergeRequest {
 
 /// Number of changed files as reported by GitLab (e.g. "15").
 @override@JsonKey() final  String changesCount;
+/// When the MR was opened, as GitLab sent it (ISO 8601); null when the
+/// response had none.
+@override final  String? createdAt;
 /// Head commit SHA of the source branch at the time of the API call.
 ///
 /// Used by the cron job to detect new commits and trigger re-reviews.
@@ -314,18 +320,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMergeRequest&&(identical(other.iid, iid) || other.iid == iid)&&(identical(other.title, title) || other.title == title)&&(identical(other.sourceBranch, sourceBranch) || other.sourceBranch == sourceBranch)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.authorName, authorName) || other.authorName == authorName)&&(identical(other.webUrl, webUrl) || other.webUrl == webUrl)&&(identical(other.state, state) || other.state == state)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.labels, _labels)&&(identical(other.changesCount, changesCount) || other.changesCount == changesCount)&&(identical(other.sha, sha) || other.sha == sha)&&(identical(other.diffRefs, diffRefs) || other.diffRefs == diffRefs));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GitLabMergeRequest&&(identical(other.iid, iid) || other.iid == iid)&&(identical(other.title, title) || other.title == title)&&(identical(other.sourceBranch, sourceBranch) || other.sourceBranch == sourceBranch)&&(identical(other.targetBranch, targetBranch) || other.targetBranch == targetBranch)&&(identical(other.authorName, authorName) || other.authorName == authorName)&&(identical(other.webUrl, webUrl) || other.webUrl == webUrl)&&(identical(other.state, state) || other.state == state)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.labels, _labels)&&(identical(other.changesCount, changesCount) || other.changesCount == changesCount)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.sha, sha) || other.sha == sha)&&(identical(other.diffRefs, diffRefs) || other.diffRefs == diffRefs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,iid,title,sourceBranch,targetBranch,authorName,webUrl,state,description,const DeepCollectionEquality().hash(_labels),changesCount,sha,diffRefs);
+    return Object.hash(runtimeType,iid,title,sourceBranch,targetBranch,authorName,webUrl,state,description,const DeepCollectionEquality().hash(_labels),changesCount,createdAt,sha,diffRefs);
 }
 
 @override
 String toString() {
-    return 'GitLabMergeRequest(iid: $iid, title: $title, sourceBranch: $sourceBranch, targetBranch: $targetBranch, authorName: $authorName, webUrl: $webUrl, state: $state, description: $description, labels: $labels, changesCount: $changesCount, sha: $sha, diffRefs: $diffRefs)';
+    return 'GitLabMergeRequest(iid: $iid, title: $title, sourceBranch: $sourceBranch, targetBranch: $targetBranch, authorName: $authorName, webUrl: $webUrl, state: $state, description: $description, labels: $labels, changesCount: $changesCount, createdAt: $createdAt, sha: $sha, diffRefs: $diffRefs)';
 }
 
 
@@ -336,7 +342,7 @@ abstract mixin class _$GitLabMergeRequestCopyWith<$Res> implements $GitLabMergeR
   factory _$GitLabMergeRequestCopyWith(_GitLabMergeRequest value, $Res Function(_GitLabMergeRequest) _then) = __$GitLabMergeRequestCopyWithImpl;
 @override @useResult
 $Res call({
- int iid, String title, String sourceBranch, String targetBranch,@JsonKey(name: 'author', readValue: _readAuthorName) String authorName, String webUrl, String state, String description, List<String> labels, String changesCount, String sha, GitLabDiffRefs? diffRefs
+ int iid, String title, String sourceBranch, String targetBranch,@JsonKey(name: 'author', readValue: _readAuthorName) String authorName, String webUrl, String state, String description, List<String> labels, String changesCount, String? createdAt, String sha, GitLabDiffRefs? diffRefs
 });
 
 
@@ -353,7 +359,7 @@ class __$GitLabMergeRequestCopyWithImpl<$Res>
 
 /// Create a copy of GitLabMergeRequest
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? iid = null,Object? title = null,Object? sourceBranch = null,Object? targetBranch = null,Object? authorName = null,Object? webUrl = null,Object? state = null,Object? description = null,Object? labels = null,Object? changesCount = null,Object? sha = null,Object? diffRefs = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? iid = null,Object? title = null,Object? sourceBranch = null,Object? targetBranch = null,Object? authorName = null,Object? webUrl = null,Object? state = null,Object? description = null,Object? labels = null,Object? changesCount = null,Object? createdAt = freezed,Object? sha = null,Object? diffRefs = freezed,}) {
   return _then(_GitLabMergeRequest(
 iid: null == iid ? _self.iid : iid // ignore: cast_nullable_to_non_nullable
 as int,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -365,7 +371,8 @@ as String,state: null == state ? _self.state : state // ignore: cast_nullable_to
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,labels: null == labels ? _self._labels : labels // ignore: cast_nullable_to_non_nullable
 as List<String>,changesCount: null == changesCount ? _self.changesCount : changesCount // ignore: cast_nullable_to_non_nullable
-as String,sha: null == sha ? _self.sha : sha // ignore: cast_nullable_to_non_nullable
+as String,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String?,sha: null == sha ? _self.sha : sha // ignore: cast_nullable_to_non_nullable
 as String,diffRefs: freezed == diffRefs ? _self.diffRefs : diffRefs // ignore: cast_nullable_to_non_nullable
 as GitLabDiffRefs?,
   ));

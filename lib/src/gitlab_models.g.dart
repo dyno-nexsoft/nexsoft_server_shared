@@ -22,6 +22,7 @@ _GitLabMergeRequest _$GitLabMergeRequestFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const <String>[],
       changesCount: json['changes_count'] as String? ?? '0',
+      createdAt: json['created_at'] as String?,
       sha: json['sha'] as String? ?? '',
       diffRefs: json['diff_refs'] == null
           ? null
@@ -40,6 +41,7 @@ Map<String, dynamic> _$GitLabMergeRequestToJson(_GitLabMergeRequest instance) =>
       'description': instance.description,
       'labels': instance.labels,
       'changes_count': instance.changesCount,
+      'created_at': ?instance.createdAt,
       'sha': instance.sha,
       'diff_refs': ?instance.diffRefs?.toJson(),
     };
