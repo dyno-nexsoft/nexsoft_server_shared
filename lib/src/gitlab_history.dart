@@ -131,6 +131,10 @@ class ReviewHistoryEntry {
   final AiModel model;
 
   bool get isRunning => state == GitlabRunState.running;
+
+  /// Nothing to count or show for this run: still going, nothing to do or it
+  /// failed. What a list writes as a dash where a finished run has a number.
+  bool get hasNoResult => isRunning || skipped || failed;
 }
 
 /// One past (or in-progress) `gitlab.translateArb` run — same running→done
@@ -217,4 +221,8 @@ class TranslateArbHistoryEntry {
   final AiModel model;
 
   bool get isRunning => state == GitlabRunState.running;
+
+  /// Nothing to count or show for this run: still going, nothing to do or it
+  /// failed. What a list writes as a dash where a finished run has a number.
+  bool get hasNoResult => isRunning || skipped || failed;
 }

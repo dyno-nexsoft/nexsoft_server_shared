@@ -25,6 +25,13 @@ abstract class GitLabMrUrl with _$GitLabMrUrl {
   factory GitLabMrUrl.fromJson(Map<String, dynamic> json) =>
       _$GitLabMrUrlFromJson(json);
 
+  /// The project's own name, the last segment of [projectPath].
+  String get project => projectPath.split('/').last;
+
+  /// `tbchat !123`: the project's name and the MR's number, as a list reads
+  /// them.
+  String get shortRef => '$project !$mrIid';
+
   static final _urlRegex = RegExp(
     r'^https?://[^/]+/(.+?)/-/merge_requests/(\d+)(?:[/?#].*)?$',
   );
