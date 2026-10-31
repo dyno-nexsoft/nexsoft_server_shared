@@ -115,6 +115,13 @@ enum ServerSetting {
         'request it opens on GitLab; the host of a pasted link is replaced '
         'by this one',
   ),
+  gitlabReviewNotes(
+    'gitlab_review_notes',
+    SettingKind.text,
+    description:
+        'What the AI review must not raise again: patterns the team has '
+        'explained as intended in these projects, one per line',
+  ),
   zentaoServer(
     'zentao_server',
     SettingKind.url,
