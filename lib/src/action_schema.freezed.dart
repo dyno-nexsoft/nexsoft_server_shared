@@ -365,7 +365,10 @@ as bool,
 /// @nodoc
 mixin _$ActionParam {
 
- String get name; String get description; ParamType get type;@JsonKey(name: 'required') bool get isRequired; List<String> get choices;@JsonKey(name: 'default') dynamic get defaultValue; bool get isBranchRef;/// A `string` param that is a web link. The dashboard checks it and sends it through `tidyUrl` (a missing
+ String get name; String get description;/// More than the one line of [description] can say, for the reader who
+/// wonders what the field takes: shown behind a question-mark button, not
+/// under the field. Null when the description says it all.
+ String? get help; ParamType get type;@JsonKey(name: 'required') bool get isRequired; List<String> get choices;@JsonKey(name: 'default') dynamic get defaultValue; bool get isBranchRef;/// A `string` param that is a web link. The dashboard checks it and sends it through `tidyUrl` (a missing
 /// `https://` added, share tracking dropped) so what is sent and stored stays short; the server does the same.
  bool get isUrl;/// A `string` param whose wire value is actually a JSON array of
 /// strings, one per logical entry (e.g. `gitlab.analyze`'s `urls` —
@@ -390,20 +393,20 @@ $ActionParamCopyWith<ActionParam> get copyWith => _$ActionParamCopyWithImpl<Acti
 @override
 bool operator ==(Object other) {
   final _this = this as ActionParam;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionParam&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&const DeepCollectionEquality().equals(other.choices, _this.choices)&&const DeepCollectionEquality().equals(other.defaultValue, _this.defaultValue)&&(identical(other.isBranchRef, _this.isBranchRef) || other.isBranchRef == _this.isBranchRef)&&(identical(other.isUrl, _this.isUrl) || other.isUrl == _this.isUrl)&&(identical(other.isStringList, _this.isStringList) || other.isStringList == _this.isStringList)&&(identical(other.isSecret, _this.isSecret) || other.isSecret == _this.isSecret));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActionParam&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.help, _this.help) || other.help == _this.help)&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&const DeepCollectionEquality().equals(other.choices, _this.choices)&&const DeepCollectionEquality().equals(other.defaultValue, _this.defaultValue)&&(identical(other.isBranchRef, _this.isBranchRef) || other.isBranchRef == _this.isBranchRef)&&(identical(other.isUrl, _this.isUrl) || other.isUrl == _this.isUrl)&&(identical(other.isStringList, _this.isStringList) || other.isStringList == _this.isStringList)&&(identical(other.isSecret, _this.isSecret) || other.isSecret == _this.isSecret));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as ActionParam;
-  return Object.hash(runtimeType,_this.name,_this.description,_this.type,_this.isRequired,const DeepCollectionEquality().hash(_this.choices),const DeepCollectionEquality().hash(_this.defaultValue),_this.isBranchRef,_this.isUrl,_this.isStringList,_this.isSecret);
+  return Object.hash(runtimeType,_this.name,_this.description,_this.help,_this.type,_this.isRequired,const DeepCollectionEquality().hash(_this.choices),const DeepCollectionEquality().hash(_this.defaultValue),_this.isBranchRef,_this.isUrl,_this.isStringList,_this.isSecret);
 }
 
 @override
 String toString() {
   final _this = this as ActionParam;
-  return 'ActionParam(name: ${_this.name}, description: ${_this.description}, type: ${_this.type}, isRequired: ${_this.isRequired}, choices: ${_this.choices}, defaultValue: ${_this.defaultValue}, isBranchRef: ${_this.isBranchRef}, isUrl: ${_this.isUrl}, isStringList: ${_this.isStringList}, isSecret: ${_this.isSecret})';
+  return 'ActionParam(name: ${_this.name}, description: ${_this.description}, help: ${_this.help}, type: ${_this.type}, isRequired: ${_this.isRequired}, choices: ${_this.choices}, defaultValue: ${_this.defaultValue}, isBranchRef: ${_this.isBranchRef}, isUrl: ${_this.isUrl}, isStringList: ${_this.isStringList}, isSecret: ${_this.isSecret})';
 }
 
 
@@ -414,7 +417,7 @@ abstract mixin class $ActionParamCopyWith<$Res>  {
   factory $ActionParamCopyWith(ActionParam value, $Res Function(ActionParam) _then) = _$ActionParamCopyWithImpl;
 @useResult
 $Res call({
- String name, String description, ParamType type,@JsonKey(name: 'required') bool isRequired, List<String> choices,@JsonKey(name: 'default') dynamic defaultValue, bool isBranchRef, bool isUrl, bool isStringList, bool isSecret
+ String name, String description, String? help, ParamType type,@JsonKey(name: 'required') bool isRequired, List<String> choices,@JsonKey(name: 'default') dynamic defaultValue, bool isBranchRef, bool isUrl, bool isStringList, bool isSecret
 });
 
 
@@ -431,11 +434,12 @@ class _$ActionParamCopyWithImpl<$Res>
 
 /// Create a copy of ActionParam
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? type = null,Object? isRequired = null,Object? choices = null,Object? defaultValue = freezed,Object? isBranchRef = null,Object? isUrl = null,Object? isStringList = null,Object? isSecret = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? help = freezed,Object? type = null,Object? isRequired = null,Object? choices = null,Object? defaultValue = freezed,Object? isBranchRef = null,Object? isUrl = null,Object? isStringList = null,Object? isSecret = null,}) {
   return _then(ActionParam(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,help: freezed == help ? _self.help : help // ignore: cast_nullable_to_non_nullable
+as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as ParamType,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
 as bool,choices: null == choices ? _self.choices : choices // ignore: cast_nullable_to_non_nullable
 as List<String>,defaultValue: freezed == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable
@@ -528,10 +532,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String description,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String description,  String? help,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ActionParam() when $default != null:
-return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
+return $default(_that.name,_that.description,_that.help,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
   return orElse();
 
 }
@@ -549,10 +553,10 @@ return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String description,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String description,  String? help,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)  $default,) {final _that = this;
 switch (_that) {
 case _ActionParam():
-return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
+return $default(_that.name,_that.description,_that.help,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -569,10 +573,10 @@ return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String description,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String description,  String? help,  ParamType type, @JsonKey(name: 'required')  bool isRequired,  List<String> choices, @JsonKey(name: 'default')  dynamic defaultValue,  bool isBranchRef,  bool isUrl,  bool isStringList,  bool isSecret)?  $default,) {final _that = this;
 switch (_that) {
 case _ActionParam() when $default != null:
-return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
+return $default(_that.name,_that.description,_that.help,_that.type,_that.isRequired,_that.choices,_that.defaultValue,_that.isBranchRef,_that.isUrl,_that.isStringList,_that.isSecret);case _:
   return null;
 
 }
@@ -584,11 +588,15 @@ return $default(_that.name,_that.description,_that.type,_that.isRequired,_that.c
 @JsonSerializable()
 
 class _ActionParam implements ActionParam {
-  const _ActionParam({required this.name, this.description = '', required this.type, @JsonKey(name: 'required') this.isRequired = false,  List<String> choices = const [], @JsonKey(name: 'default') this.defaultValue, this.isBranchRef = false, this.isUrl = false, this.isStringList = false, this.isSecret = false}): _choices = choices;
+  const _ActionParam({required this.name, this.description = '', this.help, required this.type, @JsonKey(name: 'required') this.isRequired = false,  List<String> choices = const [], @JsonKey(name: 'default') this.defaultValue, this.isBranchRef = false, this.isUrl = false, this.isStringList = false, this.isSecret = false}): _choices = choices;
   factory _ActionParam.fromJson(Map<String, dynamic> json) => _$ActionParamFromJson(json);
 
 @override final  String name;
 @override@JsonKey() final  String description;
+/// More than the one line of [description] can say, for the reader who
+/// wonders what the field takes: shown behind a question-mark button, not
+/// under the field. Null when the description says it all.
+@override final  String? help;
 @override final  ParamType type;
 @override@JsonKey(name: 'required') final  bool isRequired;
  final  List<String> _choices;
@@ -628,18 +636,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionParam&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.type, type) || other.type == type)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&const DeepCollectionEquality().equals(other.choices, _choices)&&const DeepCollectionEquality().equals(other.defaultValue, defaultValue)&&(identical(other.isBranchRef, isBranchRef) || other.isBranchRef == isBranchRef)&&(identical(other.isUrl, isUrl) || other.isUrl == isUrl)&&(identical(other.isStringList, isStringList) || other.isStringList == isStringList)&&(identical(other.isSecret, isSecret) || other.isSecret == isSecret));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActionParam&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.help, help) || other.help == help)&&(identical(other.type, type) || other.type == type)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&const DeepCollectionEquality().equals(other.choices, _choices)&&const DeepCollectionEquality().equals(other.defaultValue, defaultValue)&&(identical(other.isBranchRef, isBranchRef) || other.isBranchRef == isBranchRef)&&(identical(other.isUrl, isUrl) || other.isUrl == isUrl)&&(identical(other.isStringList, isStringList) || other.isStringList == isStringList)&&(identical(other.isSecret, isSecret) || other.isSecret == isSecret));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,name,description,type,isRequired,const DeepCollectionEquality().hash(_choices),const DeepCollectionEquality().hash(defaultValue),isBranchRef,isUrl,isStringList,isSecret);
+    return Object.hash(runtimeType,name,description,help,type,isRequired,const DeepCollectionEquality().hash(_choices),const DeepCollectionEquality().hash(defaultValue),isBranchRef,isUrl,isStringList,isSecret);
 }
 
 @override
 String toString() {
-    return 'ActionParam(name: $name, description: $description, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
+    return 'ActionParam(name: $name, description: $description, help: $help, type: $type, isRequired: $isRequired, choices: $choices, defaultValue: $defaultValue, isBranchRef: $isBranchRef, isUrl: $isUrl, isStringList: $isStringList, isSecret: $isSecret)';
 }
 
 
@@ -650,7 +658,7 @@ abstract mixin class _$ActionParamCopyWith<$Res> implements $ActionParamCopyWith
   factory _$ActionParamCopyWith(_ActionParam value, $Res Function(_ActionParam) _then) = __$ActionParamCopyWithImpl;
 @override @useResult
 $Res call({
- String name, String description, ParamType type,@JsonKey(name: 'required') bool isRequired, List<String> choices,@JsonKey(name: 'default') dynamic defaultValue, bool isBranchRef, bool isUrl, bool isStringList, bool isSecret
+ String name, String description, String? help, ParamType type,@JsonKey(name: 'required') bool isRequired, List<String> choices,@JsonKey(name: 'default') dynamic defaultValue, bool isBranchRef, bool isUrl, bool isStringList, bool isSecret
 });
 
 
@@ -667,11 +675,12 @@ class __$ActionParamCopyWithImpl<$Res>
 
 /// Create a copy of ActionParam
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? type = null,Object? isRequired = null,Object? choices = null,Object? defaultValue = freezed,Object? isBranchRef = null,Object? isUrl = null,Object? isStringList = null,Object? isSecret = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? help = freezed,Object? type = null,Object? isRequired = null,Object? choices = null,Object? defaultValue = freezed,Object? isBranchRef = null,Object? isUrl = null,Object? isStringList = null,Object? isSecret = null,}) {
   return _then(_ActionParam(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,help: freezed == help ? _self.help : help // ignore: cast_nullable_to_non_nullable
+as String?,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as ParamType,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
 as bool,choices: null == choices ? _self._choices : choices // ignore: cast_nullable_to_non_nullable
 as List<String>,defaultValue: freezed == defaultValue ? _self.defaultValue : defaultValue // ignore: cast_nullable_to_non_nullable

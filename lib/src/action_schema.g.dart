@@ -45,6 +45,7 @@ const _$ActionKindEnumMap = {
 _ActionParam _$ActionParamFromJson(Map<String, dynamic> json) => _ActionParam(
   name: json['name'] as String,
   description: json['description'] as String? ?? '',
+  help: json['help'] as String?,
   type: $enumDecode(_$ParamTypeEnumMap, json['type']),
   isRequired: json['required'] as bool? ?? false,
   choices:
@@ -61,6 +62,7 @@ Map<String, dynamic> _$ActionParamToJson(_ActionParam instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
+      'help': ?instance.help,
       'type': _$ParamTypeEnumMap[instance.type]!,
       'required': instance.isRequired,
       'choices': instance.choices,

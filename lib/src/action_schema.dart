@@ -86,6 +86,11 @@ abstract class ActionParam with _$ActionParam {
   const factory ActionParam({
     required String name,
     @Default('') String description,
+
+    /// More than the one line of [description] can say, for the reader who
+    /// wonders what the field takes: shown behind a question-mark button, not
+    /// under the field. Null when the description says it all.
+    String? help,
     required ParamType type,
     @JsonKey(name: 'required') @Default(false) bool isRequired,
     @Default([]) List<String> choices,

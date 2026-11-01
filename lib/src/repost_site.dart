@@ -37,6 +37,35 @@ enum RepostSite {
   /// TikTok and Instagram address a post by its path, so they keep none.
   final Set<String> keepKeys;
 
+  /// The site's name as a reader knows it.
+  String get title => switch (this) {
+    RepostSite.tiktok => 'TikTok',
+    RepostSite.youtube => 'YouTube',
+    RepostSite.facebook => 'Facebook',
+    RepostSite.instagram => 'Instagram',
+    RepostSite.threads => 'Threads',
+  };
+
+  /// What a link from this site may name, for the help beside the field. The
+  /// one place it is written down: the dashboard, REST and MCP all read it from
+  /// the action's schema, and the tool's own refusals say the same
+  /// (`_refuseUnlistable` in `nexsoft_server_hook`).
+  String get accepts => switch (this) {
+    RepostSite.tiktok =>
+      'a video or photo post, or a profile (its latest posts)',
+    RepostSite.youtube =>
+      'a video or a Short, or a channel (Shorts first, then videos)',
+    RepostSite.facebook =>
+      'a reel or video, or a page or profile (its photos); not a page\'s Videos tab',
+    RepostSite.instagram =>
+      'a reel or a post, not a profile: paste the posts\' links, several in one job',
+    RepostSite.threads => 'a post, or a profile',
+  };
+
+  /// [accepts] of every site, one line each: what the link field's help shows.
+  static String get helpText =>
+      [for (final site in values) '${site.title}: ${site.accepts}'].join('\n');
+
   /// The site [url] points at, or null.
   static RepostSite? of(String url) {
     final host = Uri.tryParse(url)?.host.toLowerCase() ?? '';
