@@ -41,7 +41,6 @@ abstract class Job with _$Job {
     /// doc comment for why a Discord snowflake is never a raw `int`.
     String? createdByApiKeyId,
     String? createdByDiscordUserId,
-    int? artifactKey,
     @Default(false) bool promoted,
     @Default(false) bool announce,
     required DateTime createdAt,

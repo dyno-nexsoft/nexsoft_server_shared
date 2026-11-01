@@ -17,8 +17,8 @@ T _$identity<T>(T value) => value;
 mixin _$ActiveMutation {
 
 /// The invoking `ActionRunner`'s own correlation id — stable for the
-/// life of this one call, not reused across retries the way
-/// `artifactKey`/`JobId` are for a job.
+/// life of this one call, not reused across retries the way a job's
+/// `JobId` is.
  String get id; String get actionName;/// One-line description of *this* call specifically (e.g. "Reviewing
 /// `some-mr-title`"), not just the action's own static description —
 /// see `Action.describeInvocation`.
@@ -231,8 +231,8 @@ class _ActiveMutation implements ActiveMutation {
   factory _ActiveMutation.fromJson(Map<String, dynamic> json) => _$ActiveMutationFromJson(json);
 
 /// The invoking `ActionRunner`'s own correlation id — stable for the
-/// life of this one call, not reused across retries the way
-/// `artifactKey`/`JobId` are for a job.
+/// life of this one call, not reused across retries the way a job's
+/// `JobId` is.
 @override final  String id;
 @override final  String actionName;
 /// One-line description of *this* call specifically (e.g. "Reviewing

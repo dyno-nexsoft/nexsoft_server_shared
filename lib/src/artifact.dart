@@ -75,7 +75,7 @@ abstract class ArtifactFile with _$ArtifactFile {
   }
 }
 
-/// `GET /api/v1/artifacts/{key}` — one job's `build/<artifactKey>/` output.
+/// `GET /api/v1/artifacts/{key}` — one job's `build/<job id>/` output.
 @freezed
 abstract class ArtifactListing with _$ArtifactListing {
   const factory ArtifactListing({

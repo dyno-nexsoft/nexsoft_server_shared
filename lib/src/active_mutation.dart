@@ -16,8 +16,8 @@ part 'active_mutation.g.dart';
 abstract class ActiveMutation with _$ActiveMutation {
   const factory ActiveMutation({
     /// The invoking `ActionRunner`'s own correlation id — stable for the
-    /// life of this one call, not reused across retries the way
-    /// `artifactKey`/`JobId` are for a job.
+    /// life of this one call, not reused across retries the way a job's
+    /// `JobId` is.
     required String id,
     required String actionName,
 
