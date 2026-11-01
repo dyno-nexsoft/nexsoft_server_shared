@@ -14,6 +14,10 @@ enum SettingKind {
   /// One line of text.
   text,
 
+  /// Several lines of text, as a person writes a note or a persona: the
+  /// editor is a box, not a field, and the value may run to [longTextMax].
+  longText,
+
   /// `true` or `false`.
   flag,
 
@@ -117,10 +121,18 @@ enum ServerSetting {
   ),
   gitlabReviewNotes(
     'gitlab_review_notes',
-    SettingKind.text,
+    SettingKind.longText,
     description:
         'What the AI review must not raise again: patterns the team has '
         'explained as intended in these projects, one per line',
+  ),
+  aiAnnouncementPersona(
+    'ai_announcement_persona',
+    SettingKind.longText,
+    description:
+        'Who speaks the scheduled announcements and the daily report on the '
+        'build machine, in a few lines: their tone and what they may poke '
+        'fun at. Unset, a friendly office assistant',
   ),
   zentaoServer(
     'zentao_server',
@@ -205,6 +217,9 @@ enum ServerSetting {
   /// sign in, so another admin key, leaked or not, cannot take it over.
   final bool primaryOwnerOnly;
 
+  /// The most a [SettingKind.longText] value may hold.
+  static const longTextMax = 4000;
+
   static ServerSetting? byKey(String key) {
     for (final setting in values) {
       if (setting.key == key) return setting;
@@ -242,6 +257,8 @@ enum ServerSetting {
       SettingKind.url => _urlProblem(value),
       SettingKind.text when value.contains('\n') || value.length > 200 =>
         '$key must be one line of at most 200 characters',
+      SettingKind.longText when value.length > longTextMax =>
+        '$key must be at most $longTextMax characters',
       SettingKind.flag when value != 'true' && value != 'false' =>
         '$key must be true or false',
       SettingKind.builders => _buildersProblem(value),
