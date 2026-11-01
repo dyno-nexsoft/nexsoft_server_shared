@@ -8,6 +8,7 @@ import 'job_params.dart';
 import 'job_ref.dart';
 import 'job_run.dart';
 import 'job_state.dart';
+import 'job_step.dart';
 
 part 'job.freezed.dart';
 part 'job.g.dart';
@@ -67,6 +68,16 @@ abstract class Job with _$Job {
     /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
     /// commit of each module), read with `parseJobSummary`.
     String? summary,
+
+    /// Why it failed, in a line: the step it was in and the last error line of
+    /// its log. Kept with the job because the log is not: the next run of the
+    /// same command empties it, and a clean deletes it. Null for a job that
+    /// did not fail.
+    String? failure,
+
+    /// Its stages as the log marked them, with how long each took and which
+    /// one failed (see [JobStep]). Set as it ends, whatever the outcome.
+    @Default([]) List<JobStep> steps,
 
     /// The apk and ipa it made, by file name, with their sizes in bytes.
     @Default({}) Map<String, int> artifacts,

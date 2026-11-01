@@ -37,6 +37,12 @@ _Job _$JobFromJson(Map<String, dynamic> json) => _Job(
   cancelledBy: json['cancelled_by'] as String?,
   machine: json['machine'] as String?,
   summary: json['summary'] as String?,
+  failure: json['failure'] as String?,
+  steps:
+      (json['steps'] as List<dynamic>?)
+          ?.map((e) => JobStep.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
   artifacts:
       (json['artifacts'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, (e as num).toInt()),
@@ -96,6 +102,8 @@ Map<String, dynamic> _$JobToJson(_Job instance) => <String, dynamic>{
   'cancelled_by': ?instance.cancelledBy,
   'machine': ?instance.machine,
   'summary': ?instance.summary,
+  'failure': ?instance.failure,
+  'steps': instance.steps.map((e) => e.toJson()).toList(),
   'artifacts': instance.artifacts,
   'firebase_uploads': instance.firebaseUploads.map(
     (k, e) => MapEntry(k, e.toJson()),
