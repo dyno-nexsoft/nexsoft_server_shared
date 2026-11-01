@@ -10,7 +10,11 @@ enum CiScript {
     'build.sh',
     runsOnBuilder: true,
     isolatedByNow: true,
-    projectVariables: {'TBCHAT_REPO_URL'},
+    projectVariables: {
+      'TBCHAT_REPO_URL',
+      'FIREBASE_ANDROID_APP_ID',
+      'FIREBASE_IOS_APP_ID',
+    },
   ),
 
   /// Brings a branch of `tbchat` up to date and pushes it. With `--now` it works in a copy of `tbchat`, like a build,
@@ -29,7 +33,12 @@ enum CiScript {
   gen(
     'gen.sh',
     group: CiScriptGroup.gen,
-    projectVariables: {'SOCIALFI_REPO_URL', 'PROTO_REPO_URL', 'MR_ASSIGNEE'},
+    projectVariables: {
+      'SOCIALFI_REPO_URL',
+      'PROTO_REPO_URL',
+      'PROTO_BRANCH',
+      'MR_ASSIGNEE',
+    },
   ),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
@@ -37,6 +46,7 @@ enum CiScript {
     'reposts.sh',
     group: CiScriptGroup.protoAndAccounts,
     runsBeside: true,
+    projectVariables: {'PROTO_BRANCH'},
   ),
 
   /// Likes or comments with the accounts the reposts keep, on the same `proto` checkout.
@@ -44,6 +54,7 @@ enum CiScript {
     'interaction.sh',
     group: CiScriptGroup.protoAndAccounts,
     runsBeside: true,
+    projectVariables: {'PROTO_BRANCH'},
   ),
 
   /// Cleans the machine it runs on. It reads `--now` as an unknown argument, so it never runs beside a job.
@@ -54,7 +65,11 @@ enum CiScript {
 
   /// Uploads a finished build's artifacts to Firebase App Distribution
   /// (`ci.upload`). It only reads them, so it may start beside anything.
-  distribute('distribute.sh', runsBeside: true),
+  distribute(
+    'distribute.sh',
+    runsBeside: true,
+    projectVariables: {'FIREBASE_ANDROID_APP_ID', 'FIREBASE_IOS_APP_ID'},
+  ),
 
   /// A command none of the above: runs only in this machine's own lane, alone.
   other(null);
@@ -87,9 +102,10 @@ enum CiScript {
   /// holds, and it is not sent `--now`: it is not promoted, it simply never queued behind a build.
   final bool runsBeside;
 
-  /// The project's server settings the script reads, by the environment variable the bot gives it (`TBCHAT_REPO_URL`,
-  /// `SDK_SERVER`, ...): only these are given to a job of this script, so a repost does not carry the SDK server and a
-  /// merge request's assignee into its Discord message. Names only: this package is public.
+  /// The project's settings the script reads, by the environment variable the bot gives it: the server settings
+  /// (`TBCHAT_REPO_URL`, `SDK_SERVER`, ...) and its environment's (`PROTO_BRANCH`, `FIREBASE_ANDROID_APP_ID`, ...,
+  /// `EnvironmentSettings`). Only these are given to a job of this script, so a repost does not carry the SDK server and
+  /// a merge request's assignee into its Discord message. Names only: this package is public.
   final Set<String> projectVariables;
 
   /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a build machine: the

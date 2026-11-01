@@ -25,6 +25,7 @@ export 'src/daily_task.dart';
 export 'src/dashboard_version.dart';
 export 'src/discord_message_ref.dart';
 export 'src/discord_user_info.dart';
+export 'src/environment_settings.dart';
 export 'src/gitlab_auto_assign.dart';
 export 'src/gitlab_discussion.dart';
 export 'src/gitlab_history.dart';

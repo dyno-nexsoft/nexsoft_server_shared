@@ -24,6 +24,10 @@ _AppLimits _$AppLimitsFromJson(Map<String, dynamic> json) => _AppLimits(
   aiBatchRetries: (json['ai_batch_retries'] as num?)?.toInt() ?? 2,
   aiMaxConcurrentRequests:
       (json['ai_max_concurrent_requests'] as num?)?.toInt() ?? 2,
+  repostsMaxLinks: (json['reposts_max_links'] as num?)?.toInt() ?? 10,
+  repostsMaxVideos: (json['reposts_max_videos'] as num?)?.toInt() ?? 20,
+  interactionMaxAccounts:
+      (json['interaction_max_accounts'] as num?)?.toInt() ?? 1000,
 );
 
 Map<String, dynamic> _$AppLimitsToJson(_AppLimits instance) =>
@@ -44,6 +48,9 @@ Map<String, dynamic> _$AppLimitsToJson(_AppLimits instance) =>
       'ai_busy_keys': instance.aiBusyKeys,
       'ai_batch_retries': instance.aiBatchRetries,
       'ai_max_concurrent_requests': instance.aiMaxConcurrentRequests,
+      'reposts_max_links': instance.repostsMaxLinks,
+      'reposts_max_videos': instance.repostsMaxVideos,
+      'interaction_max_accounts': instance.interactionMaxAccounts,
     };
 
 _LimitsSetParams _$LimitsSetParamsFromJson(Map<String, dynamic> json) =>

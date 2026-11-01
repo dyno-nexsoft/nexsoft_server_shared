@@ -8,19 +8,8 @@ enum EnvironmentBuild {
   test,
   prod;
 
-  /// Branch of the proto/doc repository that pairs with this environment.
-  String get protoBranch => switch (this) {
-    EnvironmentBuild.dev => 'dev',
-    EnvironmentBuild.test => 'qa',
-    EnvironmentBuild.prod => 'main',
-  };
-
-  /// Default `socialfi` branch used by `/gen` when none is supplied.
-  String get defaultSocialfiBranch => switch (this) {
-    EnvironmentBuild.dev => 'develop_socialfi',
-    EnvironmentBuild.test => 'new_tbchat_test',
-    EnvironmentBuild.prod => 'new_tbchat_release',
-  };
+  // Which branches pair with an environment, and which Firebase apps it
+  // builds for, are the admin's (`EnvironmentSettings`), not code.
 
   static EnvironmentBuild? tryParse(String? name) =>
       EnvironmentBuild.values.where((e) => e.name == name).firstOrNull;
@@ -46,18 +35,9 @@ enum PlatformBuild {
     _ => name,
   };
 
-  /// Parses a wire value. Also accepts every spelling this combination has
-  /// ever had on the wire before landing on the comma form above —
-  /// `mobile`/`android+ios` for [androidIos], `desktop`/`macos+windows` for
-  /// [macosWindows] — because a job's persisted `actionParams` (read back
-  /// verbatim on Retry) can still carry any of them, and a retry must
-  /// resolve to the same platform rather than fail validation on data no
-  /// rename ever touched.
-  static PlatformBuild? tryParse(String? value) => switch (value) {
-    'mobile' || 'android+ios' => PlatformBuild.androidIos,
-    'desktop' || 'macos+windows' => PlatformBuild.macosWindows,
-    _ => PlatformBuild.values.where((e) => e.toWire() == value).firstOrNull,
-  };
+  /// Parses a wire value ([toWire]).
+  static PlatformBuild? tryParse(String? value) =>
+      PlatformBuild.values.where((e) => e.toWire() == value).firstOrNull;
 }
 
 /// Serializes [PlatformBuild] through [PlatformBuild.toWire]/

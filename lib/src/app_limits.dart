@@ -14,8 +14,8 @@ class LimitRange {
 }
 
 /// The knobs an admin can turn without a deploy: how long history is kept, how
-/// long a build may run, when the daily-report sweep may close a report, and
-/// how the AI is called.
+/// long a build may run, when the daily-report sweep may close a report, how
+/// the AI is called, and how much one reposts or interaction job may take on.
 ///
 /// Only what is worth turning is here. Protocol facts (which upstream statuses
 /// are transient), Discord's own rate limits and internal tuning stay in code,
@@ -86,6 +86,15 @@ abstract class AppLimits with _$AppLimits {
     /// AI requests in flight at once, across every review and
     /// announcement.
     @Default(2) int aiMaxConcurrentRequests,
+
+    /// Links one `ci.reposts` job may be given, each reposted in turn.
+    @Default(10) int repostsMaxLinks,
+
+    /// Most recent videos a `ci.reposts` job may take from one profile.
+    @Default(20) int repostsMaxVideos,
+
+    /// Accounts one `ci.interaction` job may act with.
+    @Default(1000) int interactionMaxAccounts,
   }) = _AppLimits;
 
   factory AppLimits.fromJson(Map<String, dynamic> json) =>
@@ -122,6 +131,9 @@ abstract class AppLimits with _$AppLimits {
     'ai_busy_keys': LimitRange(1, 10),
     'ai_batch_retries': LimitRange(0, 5),
     'ai_max_concurrent_requests': LimitRange(1, 8),
+    'reposts_max_links': LimitRange(1, 50),
+    'reposts_max_videos': LimitRange(1, 100),
+    'interaction_max_accounts': LimitRange(1, 10000),
   };
 
   /// Everything out of range, in words an admin can act on — empty when fine.

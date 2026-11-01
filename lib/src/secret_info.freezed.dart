@@ -22,7 +22,9 @@ mixin _$SecretInfo {
  bool get isRequired;/// A new value is read only when the server starts, so it needs a
 /// Restart; every other one applies on its next use.
  bool get needsRestart;/// Holds several values, comma-separated (API keys tried in turn).
- bool get isList;/// How many values a list holds: they are named by their place in it
+ bool get isList;/// Is a text of several lines (a `cookies.txt`), typed in a box rather
+/// than a one-line field, which would join its lines.
+ bool get isMultiline;/// How many values a list holds: they are named by their place in it
 /// (`admin.secrets.removeItem`), since none of them is ever shown.
  int get itemCount;/// Set since the server started, and [needsRestart]: it waits for one.
  bool get pendingRestart;/// Bound to the host of a server setting (`ServerSetting.hostOf`): the
@@ -44,20 +46,20 @@ $SecretInfoCopyWith<SecretInfo> get copyWith => _$SecretInfoCopyWithImpl<SecretI
 @override
 bool operator ==(Object other) {
   final _this = this as SecretInfo;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretInfo&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.changedAt, _this.changedAt) || other.changedAt == _this.changedAt)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&(identical(other.needsRestart, _this.needsRestart) || other.needsRestart == _this.needsRestart)&&(identical(other.isList, _this.isList) || other.isList == _this.isList)&&(identical(other.itemCount, _this.itemCount) || other.itemCount == _this.itemCount)&&(identical(other.pendingRestart, _this.pendingRestart) || other.pendingRestart == _this.pendingRestart)&&(identical(other.boundHost, _this.boundHost) || other.boundHost == _this.boundHost)&&(identical(other.needsReentry, _this.needsReentry) || other.needsReentry == _this.needsReentry));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SecretInfo&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.description, _this.description) || other.description == _this.description)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.changedAt, _this.changedAt) || other.changedAt == _this.changedAt)&&(identical(other.isRequired, _this.isRequired) || other.isRequired == _this.isRequired)&&(identical(other.needsRestart, _this.needsRestart) || other.needsRestart == _this.needsRestart)&&(identical(other.isList, _this.isList) || other.isList == _this.isList)&&(identical(other.isMultiline, _this.isMultiline) || other.isMultiline == _this.isMultiline)&&(identical(other.itemCount, _this.itemCount) || other.itemCount == _this.itemCount)&&(identical(other.pendingRestart, _this.pendingRestart) || other.pendingRestart == _this.pendingRestart)&&(identical(other.boundHost, _this.boundHost) || other.boundHost == _this.boundHost)&&(identical(other.needsReentry, _this.needsReentry) || other.needsReentry == _this.needsReentry));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as SecretInfo;
-  return Object.hash(runtimeType,_this.name,_this.description,_this.source,_this.changedAt,_this.isRequired,_this.needsRestart,_this.isList,_this.itemCount,_this.pendingRestart,_this.boundHost,_this.needsReentry);
+  return Object.hash(runtimeType,_this.name,_this.description,_this.source,_this.changedAt,_this.isRequired,_this.needsRestart,_this.isList,_this.isMultiline,_this.itemCount,_this.pendingRestart,_this.boundHost,_this.needsReentry);
 }
 
 @override
 String toString() {
   final _this = this as SecretInfo;
-  return 'SecretInfo(name: ${_this.name}, description: ${_this.description}, source: ${_this.source}, changedAt: ${_this.changedAt}, isRequired: ${_this.isRequired}, needsRestart: ${_this.needsRestart}, isList: ${_this.isList}, itemCount: ${_this.itemCount}, pendingRestart: ${_this.pendingRestart}, boundHost: ${_this.boundHost}, needsReentry: ${_this.needsReentry})';
+  return 'SecretInfo(name: ${_this.name}, description: ${_this.description}, source: ${_this.source}, changedAt: ${_this.changedAt}, isRequired: ${_this.isRequired}, needsRestart: ${_this.needsRestart}, isList: ${_this.isList}, isMultiline: ${_this.isMultiline}, itemCount: ${_this.itemCount}, pendingRestart: ${_this.pendingRestart}, boundHost: ${_this.boundHost}, needsReentry: ${_this.needsReentry})';
 }
 
 
@@ -68,7 +70,7 @@ abstract mixin class $SecretInfoCopyWith<$Res>  {
   factory $SecretInfoCopyWith(SecretInfo value, $Res Function(SecretInfo) _then) = _$SecretInfoCopyWithImpl;
 @useResult
 $Res call({
- String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, int itemCount, bool pendingRestart, String? boundHost, bool needsReentry
+ String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, bool isMultiline, int itemCount, bool pendingRestart, String? boundHost, bool needsReentry
 });
 
 
@@ -85,7 +87,7 @@ class _$SecretInfoCopyWithImpl<$Res>
 
 /// Create a copy of SecretInfo
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? itemCount = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? isMultiline = null,Object? itemCount = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
   return _then(SecretInfo(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -94,6 +96,7 @@ as SecretSource,changedAt: freezed == changedAt ? _self.changedAt : changedAt //
 as DateTime?,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
 as bool,needsRestart: null == needsRestart ? _self.needsRestart : needsRestart // ignore: cast_nullable_to_non_nullable
 as bool,isList: null == isList ? _self.isList : isList // ignore: cast_nullable_to_non_nullable
+as bool,isMultiline: null == isMultiline ? _self.isMultiline : isMultiline // ignore: cast_nullable_to_non_nullable
 as bool,itemCount: null == itemCount ? _self.itemCount : itemCount // ignore: cast_nullable_to_non_nullable
 as int,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
 as bool,boundHost: freezed == boundHost ? _self.boundHost : boundHost // ignore: cast_nullable_to_non_nullable
@@ -183,10 +186,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool isMultiline,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SecretInfo() when $default != null:
-return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.isMultiline,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
   return orElse();
 
 }
@@ -204,10 +207,10 @@ return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool isMultiline,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)  $default,) {final _that = this;
 switch (_that) {
 case _SecretInfo():
-return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.isMultiline,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -224,10 +227,10 @@ return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  String description,  SecretSource source,  DateTime? changedAt,  bool isRequired,  bool needsRestart,  bool isList,  bool isMultiline,  int itemCount,  bool pendingRestart,  String? boundHost,  bool needsReentry)?  $default,) {final _that = this;
 switch (_that) {
 case _SecretInfo() when $default != null:
-return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
+return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.isRequired,_that.needsRestart,_that.isList,_that.isMultiline,_that.itemCount,_that.pendingRestart,_that.boundHost,_that.needsReentry);case _:
   return null;
 
 }
@@ -239,7 +242,7 @@ return $default(_that.name,_that.description,_that.source,_that.changedAt,_that.
 @JsonSerializable()
 
 class _SecretInfo extends SecretInfo {
-  const _SecretInfo({required this.name, this.description = '', this.source = SecretSource.none, this.changedAt, this.isRequired = false, this.needsRestart = false, this.isList = false, this.itemCount = 0, this.pendingRestart = false, this.boundHost, this.needsReentry = false}): super._();
+  const _SecretInfo({required this.name, this.description = '', this.source = SecretSource.none, this.changedAt, this.isRequired = false, this.needsRestart = false, this.isList = false, this.isMultiline = false, this.itemCount = 0, this.pendingRestart = false, this.boundHost, this.needsReentry = false}): super._();
   factory _SecretInfo.fromJson(Map<String, dynamic> json) => _$SecretInfoFromJson(json);
 
 /// The environment variable it once came from, e.g. `GITLAB_TOKEN`.
@@ -255,6 +258,9 @@ class _SecretInfo extends SecretInfo {
 @override@JsonKey() final  bool needsRestart;
 /// Holds several values, comma-separated (API keys tried in turn).
 @override@JsonKey() final  bool isList;
+/// Is a text of several lines (a `cookies.txt`), typed in a box rather
+/// than a one-line field, which would join its lines.
+@override@JsonKey() final  bool isMultiline;
 /// How many values a list holds: they are named by their place in it
 /// (`admin.secrets.removeItem`), since none of them is ever shown.
 @override@JsonKey() final  int itemCount;
@@ -281,18 +287,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.itemCount, itemCount) || other.itemCount == itemCount)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SecretInfo&&(identical(other.name, name) || other.name == name)&&(identical(other.description, description) || other.description == description)&&(identical(other.source, source) || other.source == source)&&(identical(other.changedAt, changedAt) || other.changedAt == changedAt)&&(identical(other.isRequired, isRequired) || other.isRequired == isRequired)&&(identical(other.needsRestart, needsRestart) || other.needsRestart == needsRestart)&&(identical(other.isList, isList) || other.isList == isList)&&(identical(other.isMultiline, isMultiline) || other.isMultiline == isMultiline)&&(identical(other.itemCount, itemCount) || other.itemCount == itemCount)&&(identical(other.pendingRestart, pendingRestart) || other.pendingRestart == pendingRestart)&&(identical(other.boundHost, boundHost) || other.boundHost == boundHost)&&(identical(other.needsReentry, needsReentry) || other.needsReentry == needsReentry));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,itemCount,pendingRestart,boundHost,needsReentry);
+    return Object.hash(runtimeType,name,description,source,changedAt,isRequired,needsRestart,isList,isMultiline,itemCount,pendingRestart,boundHost,needsReentry);
 }
 
 @override
 String toString() {
-    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, itemCount: $itemCount, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
+    return 'SecretInfo(name: $name, description: $description, source: $source, changedAt: $changedAt, isRequired: $isRequired, needsRestart: $needsRestart, isList: $isList, isMultiline: $isMultiline, itemCount: $itemCount, pendingRestart: $pendingRestart, boundHost: $boundHost, needsReentry: $needsReentry)';
 }
 
 
@@ -303,7 +309,7 @@ abstract mixin class _$SecretInfoCopyWith<$Res> implements $SecretInfoCopyWith<$
   factory _$SecretInfoCopyWith(_SecretInfo value, $Res Function(_SecretInfo) _then) = __$SecretInfoCopyWithImpl;
 @override @useResult
 $Res call({
- String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, int itemCount, bool pendingRestart, String? boundHost, bool needsReentry
+ String name, String description, SecretSource source, DateTime? changedAt, bool isRequired, bool needsRestart, bool isList, bool isMultiline, int itemCount, bool pendingRestart, String? boundHost, bool needsReentry
 });
 
 
@@ -320,7 +326,7 @@ class __$SecretInfoCopyWithImpl<$Res>
 
 /// Create a copy of SecretInfo
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? itemCount = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? description = null,Object? source = null,Object? changedAt = freezed,Object? isRequired = null,Object? needsRestart = null,Object? isList = null,Object? isMultiline = null,Object? itemCount = null,Object? pendingRestart = null,Object? boundHost = freezed,Object? needsReentry = null,}) {
   return _then(_SecretInfo(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
@@ -329,6 +335,7 @@ as SecretSource,changedAt: freezed == changedAt ? _self.changedAt : changedAt //
 as DateTime?,isRequired: null == isRequired ? _self.isRequired : isRequired // ignore: cast_nullable_to_non_nullable
 as bool,needsRestart: null == needsRestart ? _self.needsRestart : needsRestart // ignore: cast_nullable_to_non_nullable
 as bool,isList: null == isList ? _self.isList : isList // ignore: cast_nullable_to_non_nullable
+as bool,isMultiline: null == isMultiline ? _self.isMultiline : isMultiline // ignore: cast_nullable_to_non_nullable
 as bool,itemCount: null == itemCount ? _self.itemCount : itemCount // ignore: cast_nullable_to_non_nullable
 as int,pendingRestart: null == pendingRestart ? _self.pendingRestart : pendingRestart // ignore: cast_nullable_to_non_nullable
 as bool,boundHost: freezed == boundHost ? _self.boundHost : boundHost // ignore: cast_nullable_to_non_nullable

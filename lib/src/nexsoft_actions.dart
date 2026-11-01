@@ -8,6 +8,7 @@ import 'audit.dart';
 import 'build_machines_priority.dart';
 import 'build_target.dart';
 import 'daily_task.dart';
+import 'environment_settings.dart';
 import 'gitlab_auto_assign.dart';
 import 'gitlab_history.dart';
 import 'interaction_hosts.dart';
@@ -159,6 +160,17 @@ extension NexsoftActions on ActionTransport {
   Future<InteractionHosts> interactionHostsSet(String host, [EnvironmentBuild? environment]) async =>
       InteractionHosts.fromJson(
         await invokeAction(ActionNames.ciInteractionHostsSet, {'host': host, if (environment != null) 'environment': environment.name}),
+      );
+
+  // ci.environments.* — the branches and Firebase apps of each environment.
+
+  Future<EnvironmentTable> environmentsGet() async =>
+      EnvironmentTable.fromJson(await invokeAction(ActionNames.ciEnvironmentsGet, const {}));
+
+  /// Replaces [environment]'s settings with [settings].
+  Future<EnvironmentTable> environmentsSet(EnvironmentBuild environment, EnvironmentSettings settings) async =>
+      EnvironmentTable.fromJson(
+        await invokeAction(ActionNames.ciEnvironmentsSet, {'environment': environment.name, ...settings.toJson()}),
       );
 
   // ci.machines.* — the order the queue offers work to the machines, and which are paused.

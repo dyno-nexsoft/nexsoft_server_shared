@@ -37,6 +37,10 @@ abstract class SecretInfo with _$SecretInfo {
     /// Holds several values, comma-separated (API keys tried in turn).
     @Default(false) bool isList,
 
+    /// Is a text of several lines (a `cookies.txt`), typed in a box rather
+    /// than a one-line field, which would join its lines.
+    @Default(false) bool isMultiline,
+
     /// How many values a list holds: they are named by their place in it
     /// (`admin.secrets.removeItem`), since none of them is ever shown.
     @Default(0) int itemCount,
