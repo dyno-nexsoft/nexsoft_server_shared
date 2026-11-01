@@ -1,5 +1,5 @@
 /// One `log` frame of a job's raw stream (`/jobs/{id}/events?raw=1`): a piece
-/// of `build.log` and where in the file it ends.
+/// of `job.log` and where in the file it ends.
 ///
 /// Not a `JobEvent`: raw frames are tailed from the file, not part of the
 /// replayable lifecycle record, so they carry no `seq` or `at`.
@@ -13,7 +13,7 @@ class JobLogChunk {
 
   final String chunk;
 
-  /// The byte offset in `build.log` just past [chunk] — where a
+  /// The byte offset in `job.log` just past [chunk] — where a
   /// `GET /jobs/{id}/log?offset=` picks up from, so a client falling back
   /// from the stream to polling neither repeats nor skips output.
   final int offset;

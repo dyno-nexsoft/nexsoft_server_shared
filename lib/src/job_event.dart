@@ -63,7 +63,7 @@ sealed class JobEvent with _$JobEvent {
     required String line,
   }) = JobStatusEvent;
 
-  /// Raw build output, produced by tailing `build/<artifactKey>/build.log`.
+  /// Raw build output, produced by tailing `build/<artifactKey>/job.log`.
   ///
   /// Deliberately kept out of the Discord path: the message would blow
   /// through Discord's edit rate limit within seconds.
