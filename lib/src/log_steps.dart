@@ -28,21 +28,17 @@ class LogStep {
 /// Finds the steps of a job's log.
 ///
 /// A step is a line the scripts' `step` function writes, `[2026-10-20 09:18:46] ▶ ⚙️  Generating code`: the marker
-/// says it, so every other line, an `info` line with an emoji included, is detail inside the step above it. A log with
-/// no such line (one written before the scripts had `step`) is read the old way instead: an `info` line whose message
-/// opens with a pictograph is a step, a plain one is detail. Either way a `⚠️` or `❌` line is not a step, a `❌` marks
-/// the step it is in as failed, and a line the scripts did not stamp (a tool's own output) is part of the step above.
+/// says it, so every other line, an `info` line with an emoji included, is detail inside the step above it. A `❌` line
+/// marks the step it is in as failed, and a line the scripts did not stamp (a tool's own output) is part of the step
+/// above.
 ///
 /// A line of a parallel section carries its label, `[2026-10-20 09:18:46] [ANDROID] ▶ …`, and so does its step.
 ///
 /// Reads the log once, as it grows: [update] scans only the lines added since the last call, which is what lets a live
 /// log (a flush every 50 ms, tens of thousands of lines) be followed without reading it all again each time.
 class LogStepScanner {
-  /// The `step` lines: once there is one, they alone are the steps.
+  /// Where each step starts, and which failed.
   final _marked = _Starts();
-
-  /// The steps as guessed from `info` lines, for a log with no `step` line.
-  final _guessed = _Starts();
   var _scanned = 0;
   DateTime? _latest;
 
@@ -55,9 +51,6 @@ class LogStepScanner {
   static final _exit = RegExp(
     r'EXIT CODE -?\d+\s+(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})',
   );
-
-  /// Marks the message of an `info` line.
-  static const _info = 'ℹ️';
 
   /// Marks the message of a `step` line.
   static const _step = '▶ ';
@@ -78,7 +71,6 @@ class LogStepScanner {
 
   void _reset() {
     _marked.clear();
-    _guessed.clear();
     _scanned = 0;
     _latest = null;
   }
@@ -111,28 +103,11 @@ class LogStepScanner {
       if (title.isNotEmpty) _marked.add(index, '$section$title', at);
       return;
     }
-    if (message.startsWith(_info)) {
-      final title = message.substring(_info.length).trim();
-      if (title.isNotEmpty && _isPictograph(title.runes.first)) {
-        _guessed.add(index, '$section$title', at);
-        return;
-      }
-    }
-    if (message.startsWith('❌')) {
-      _marked.failCurrent();
-      _guessed.failCurrent();
-    }
+    if (message.startsWith('❌')) _marked.failCurrent();
   }
 
-  /// A character in the emoji and symbol blocks: what the scripts put in front of a step's name. Not `✅` (a step's
-  /// outcome, said after it) and not `↪` (a command echoed inside a step), which would double every git step.
-  static bool _isPictograph(int rune) =>
-      rune != 0x2705 &&
-      rune != 0x21AA &&
-      (rune >= 0x1F000 || (rune >= 0x2190 && rune <= 0x2BFF));
-
   List<LogStep> _steps() {
-    final starts = _marked.isEmpty ? _guessed : _marked;
+    final starts = _marked;
     final latest = _latest;
     return [
       for (var i = 0; i < starts.length; i++)

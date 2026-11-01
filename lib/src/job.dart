@@ -56,7 +56,6 @@ abstract class Job with _$Job {
     /// retries), and a job from before run numbers existed has none.
     int? runNumber,
     DiscordMessageRef? discord,
-    String? resumedFrom,
     String? cancelledBy,
 
     /// What the job left, kept with it: its folder goes after the admin's

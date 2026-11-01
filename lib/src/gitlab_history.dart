@@ -8,8 +8,7 @@ enum GitlabRunState {
   running,
   done;
 
-  /// What a stored value says; a record from before the field existed is done, so old history keeps rendering
-  /// instead of crashing.
+  /// What a stored value says; anything else is done.
   static GitlabRunState parse(Object? value) =>
       values.where((state) => state.name == value).firstOrNull ?? done;
 }
@@ -66,8 +65,6 @@ class ReviewHistoryEntry {
             ? DateTime.parse(json['reviewed_at'] as String)
             : DateTime.now(),
         triggeredBy: json['triggered_by'] as String? ?? 'Unknown',
-        // A record from before runs stored it parses as the default tier,
-        // which is what those runs used.
         model: AiModel.parse(json['model']),
         // Defaulted to done/false for a record saved before these fields
         // existed, so old history keeps rendering instead of crashing.
@@ -182,7 +179,7 @@ class TranslateArbHistoryEntry {
         // which is what those runs used.
         model: AiModel.parse(json['model']),
         state: GitlabRunState.parse(json['state']),
-        label: json['label'] as String? ?? json['module'] as String? ?? '',
+        label: json['label'] as String? ?? '',
         status: json['status'] as String? ?? '',
         log: (json['log'] as List<dynamic>? ?? const [])
             .map((e) => e.toString())

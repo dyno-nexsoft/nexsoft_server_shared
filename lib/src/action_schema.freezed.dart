@@ -36,8 +36,7 @@ mixin _$ActionSchema {
  bool get isBuildMenu;/// Whether a general-purpose dashboard browsing the full catalogue
 /// should list this action at all.
 ///
-/// Defaults `true` (including when an older server omits the field
-/// entirely) so the safe failure is showing an action a screen has no
+/// Defaults `true` so the safe failure is showing an action a screen has no
 /// form for yet, not hiding one a screen actually needs. `false` today
 /// only for `zentao.*` and `admin.owners.*` — real capabilities other
 /// callers (a Discord slash command, `nexsoft_server_mcp`) still reach, just
@@ -284,8 +283,7 @@ class _ActionSchema extends ActionSchema {
 /// Whether a general-purpose dashboard browsing the full catalogue
 /// should list this action at all.
 ///
-/// Defaults `true` (including when an older server omits the field
-/// entirely) so the safe failure is showing an action a screen has no
+/// Defaults `true` so the safe failure is showing an action a screen has no
 /// form for yet, not hiding one a screen actually needs. `false` today
 /// only for `zentao.*` and `admin.owners.*` — real capabilities other
 /// callers (a Discord slash command, `nexsoft_server_mcp`) still reach, just

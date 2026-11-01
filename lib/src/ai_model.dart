@@ -15,12 +15,8 @@ enum AiModel {
     AiModel.pro => 'Pro',
   };
 
-  /// Reads a tier from the wire. Also takes the names the tiers had when each
-  /// model version was its own value (`flash36`, `pro31`, …), so a saved
-  /// command or an older client keeps working: anything starting with `pro` is
-  /// [pro], everything else [flash].
+  /// Reads a tier from the wire by its name; anything else is [flash], the
+  /// default tier.
   static AiModel parse(Object? value) =>
-      value is String && value.trim().toLowerCase().startsWith('pro')
-      ? AiModel.pro
-      : AiModel.flash;
+      values.where((model) => model.name == value).firstOrNull ?? flash;
 }

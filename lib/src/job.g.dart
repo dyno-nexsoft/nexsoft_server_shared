@@ -33,7 +33,6 @@ _Job _$JobFromJson(Map<String, dynamic> json) => _Job(
   discord: json['discord'] == null
       ? null
       : DiscordMessageRef.fromJson(json['discord'] as Map<String, dynamic>),
-  resumedFrom: json['resumed_from'] as String?,
   cancelledBy: json['cancelled_by'] as String?,
   machine: json['machine'] as String?,
   summary: json['summary'] as String?,
@@ -98,7 +97,6 @@ Map<String, dynamic> _$JobToJson(_Job instance) => <String, dynamic>{
   'last_seq': instance.lastSeq,
   'run_number': ?instance.runNumber,
   'discord': ?instance.discord?.toJson(),
-  'resumed_from': ?instance.resumedFrom,
   'cancelled_by': ?instance.cancelledBy,
   'machine': ?instance.machine,
   'summary': ?instance.summary,
