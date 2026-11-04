@@ -6,6 +6,14 @@ part of 'ai_fix.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+_AiFixParams _$AiFixParamsFromJson(Map<String, dynamic> json) => _AiFixParams(
+  jobId: json['job_id'] as String?,
+  errorId: json['error_id'] as String?,
+);
+
+Map<String, dynamic> _$AiFixParamsToJson(_AiFixParams instance) =>
+    <String, dynamic>{'job_id': ?instance.jobId, 'error_id': ?instance.errorId};
+
 _AiFixReport _$AiFixReportFromJson(Map<String, dynamic> json) => _AiFixReport(
   failedJobId: json['failed_job_id'] as String,
   category: $enumDecode(_$FailureCategoryEnumMap, json['category']),

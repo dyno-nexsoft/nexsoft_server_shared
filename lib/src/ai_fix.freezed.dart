@@ -14,8 +14,282 @@ part of 'ai_fix.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+mixin _$AiFixParams {
+
+ String? get jobId; String? get errorId;
+/// Create a copy of AiFixParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AiFixParamsCopyWith<AiFixParams> get copyWith => _$AiFixParamsCopyWithImpl<AiFixParams>(this as AiFixParams, _$identity);
+
+  /// Serializes this AiFixParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as AiFixParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiFixParams&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId)&&(identical(other.errorId, _this.errorId) || other.errorId == _this.errorId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as AiFixParams;
+  return Object.hash(runtimeType,_this.jobId,_this.errorId);
+}
+
+@override
+String toString() {
+  final _this = this as AiFixParams;
+  return 'AiFixParams(jobId: ${_this.jobId}, errorId: ${_this.errorId})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AiFixParamsCopyWith<$Res>  {
+  factory $AiFixParamsCopyWith(AiFixParams value, $Res Function(AiFixParams) _then) = _$AiFixParamsCopyWithImpl;
+@useResult
+$Res call({
+ String? jobId, String? errorId
+});
+
+
+
+
+}
+/// @nodoc
+class _$AiFixParamsCopyWithImpl<$Res>
+    implements $AiFixParamsCopyWith<$Res> {
+  _$AiFixParamsCopyWithImpl(this._self, this._then);
+
+  final AiFixParams _self;
+  final $Res Function(AiFixParams) _then;
+
+/// Create a copy of AiFixParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? jobId = freezed,Object? errorId = freezed,}) {
+  return _then(AiFixParams(
+jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
+as String?,errorId: freezed == errorId ? _self.errorId : errorId // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [AiFixParams].
+extension AiFixParamsPatterns on AiFixParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _AiFixParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _AiFixParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _AiFixParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _AiFixParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _AiFixParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _AiFixParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? jobId,  String? errorId)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _AiFixParams() when $default != null:
+return $default(_that.jobId,_that.errorId);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? jobId,  String? errorId)  $default,) {final _that = this;
+switch (_that) {
+case _AiFixParams():
+return $default(_that.jobId,_that.errorId);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? jobId,  String? errorId)?  $default,) {final _that = this;
+switch (_that) {
+case _AiFixParams() when $default != null:
+return $default(_that.jobId,_that.errorId);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _AiFixParams implements AiFixParams {
+  const _AiFixParams({this.jobId, this.errorId});
+  factory _AiFixParams.fromJson(Map<String, dynamic> json) => _$AiFixParamsFromJson(json);
+
+@override final  String? jobId;
+@override final  String? errorId;
+
+/// Create a copy of AiFixParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AiFixParamsCopyWith<_AiFixParams> get copyWith => __$AiFixParamsCopyWithImpl<_AiFixParams>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$AiFixParamsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiFixParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.errorId, errorId) || other.errorId == errorId));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,jobId,errorId);
+}
+
+@override
+String toString() {
+    return 'AiFixParams(jobId: $jobId, errorId: $errorId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AiFixParamsCopyWith<$Res> implements $AiFixParamsCopyWith<$Res> {
+  factory _$AiFixParamsCopyWith(_AiFixParams value, $Res Function(_AiFixParams) _then) = __$AiFixParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String? jobId, String? errorId
+});
+
+
+
+
+}
+/// @nodoc
+class __$AiFixParamsCopyWithImpl<$Res>
+    implements _$AiFixParamsCopyWith<$Res> {
+  __$AiFixParamsCopyWithImpl(this._self, this._then);
+
+  final _AiFixParams _self;
+  final $Res Function(_AiFixParams) _then;
+
+/// Create a copy of AiFixParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? jobId = freezed,Object? errorId = freezed,}) {
+  return _then(_AiFixParams(
+jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
+as String?,errorId: freezed == errorId ? _self.errorId : errorId // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$AiFixReport {
 
+/// The failed job, or `error-<id>` for an error the server logged.
  String get failedJobId; FailureCategory get category;/// How sure the diagnosis is, 0 to 1.
  double get confidence;/// The cause, in a sentence or two.
  String get summary;/// The log lines that show it.
@@ -241,6 +515,7 @@ class _AiFixReport extends AiFixReport {
   const _AiFixReport({required this.failedJobId, required this.category, this.confidence = 0, required this.summary,  List<String> evidence = const <String>[], this.suggestion, this.securitySeverity,  List<String> changedFiles = const <String>[], this.repository, this.branch, this.commit, this.outcome = AiFixOutcome.reported, this.detail}): _evidence = evidence,_changedFiles = changedFiles,super._();
   factory _AiFixReport.fromJson(Map<String, dynamic> json) => _$AiFixReportFromJson(json);
 
+/// The failed job, or `error-<id>` for an error the server logged.
 @override final  String failedJobId;
 @override final  FailureCategory category;
 /// How sure the diagnosis is, 0 to 1.

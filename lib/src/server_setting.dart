@@ -134,6 +134,15 @@ enum ServerSetting {
         'build machine, in a few lines: their tone and what they may poke '
         'fun at. Unset, a friendly office assistant',
   ),
+  aiFixAuto(
+    'ai_fix_auto',
+    SettingKind.flag,
+    description:
+        'Let Claude fix the server by itself when it logs an error '
+        '(docs/ai-fix.md): at most a few a day, and a security-relevant fix '
+        'still waits for an admin. On by default',
+    defaultValue: 'true',
+  ),
   zentaoServer(
     'zentao_server',
     SettingKind.url,

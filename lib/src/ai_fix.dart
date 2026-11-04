@@ -35,6 +35,16 @@ enum FailureCategory {
   bool get isFixable => this == serverBug;
 }
 
+/// `ai.fix`'s params: a failed job to diagnose, or an error the server
+/// logged (`ServerErrorMonitor`), exactly one.
+@freezed
+abstract class AiFixParams with _$AiFixParams {
+  const factory AiFixParams({String? jobId, String? errorId}) = _AiFixParams;
+
+  factory AiFixParams.fromJson(Map<String, dynamic> json) =>
+      _$AiFixParamsFromJson(json);
+}
+
 /// What `ai.fix` did with its diagnosis.
 enum AiFixOutcome {
   /// Diagnosed only: a user error, the environment, unsure, or a fix that
@@ -59,6 +69,7 @@ abstract class AiFixReport with _$AiFixReport {
   const AiFixReport._();
 
   const factory AiFixReport({
+    /// The failed job, or `error-<id>` for an error the server logged.
     required String failedJobId,
     required FailureCategory category,
 

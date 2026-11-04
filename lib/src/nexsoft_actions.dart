@@ -1,6 +1,7 @@
 import 'action_names.dart';
 import 'action_results.dart';
 import 'action_transport.dart';
+import 'ai_fix.dart';
 import 'ai_provider.dart';
 import 'app_limits.dart';
 import 'artifact.dart';
@@ -56,7 +57,7 @@ extension NexsoftActions on ActionTransport {
 
   /// Has Claude diagnose a failed job and, when it is a bug in code, fix it,
   /// as a job of its own (`docs/ai-fix.md`).
-  Future<Job> aiFix(JobIdParams params) async =>
+  Future<Job> aiFix(AiFixParams params) async =>
       Job.fromJson(await invokeAction(ActionNames.aiFix, params.toJson()));
 
   /// Lets a security-relevant fix an `ai.fix` job kept go out, as a job of
