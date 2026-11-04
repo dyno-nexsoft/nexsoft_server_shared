@@ -1,64 +1,77 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'gitlab_discussion.freezed.dart';
+part 'gitlab_discussion.g.dart';
+
+Object? _username(Object? user) =>
+    user is Map && user['username'] is String ? user['username'] : null;
+
+Object? _readAuthor(Map<dynamic, dynamic> json, String key) =>
+    _username(json['author']) ?? '';
+
+Object? _firstNoteValue(Map<dynamic, dynamic> json, String key) {
+  final notes = json['notes'] as List<dynamic>? ?? const [];
+  final first = notes.isEmpty ? null : notes.first;
+  return first is Map<String, dynamic> ? first[key] : null;
+}
+
+Object? _readResolved(Map<dynamic, dynamic> json, String key) =>
+    _firstNoteValue(json, 'resolved') == true;
+
+Object? _readResolvedBy(Map<dynamic, dynamic> json, String key) =>
+    _username(_firstNoteValue(json, 'resolved_by'));
+
+int _noteIdFromJson(Object? value) => (value as num?)?.toInt() ?? 0;
+
+List<GitLabNote> _notesFromJson(Object? value) {
+  final raw = value as List<dynamic>? ?? const [];
+  return [
+    for (final note in raw)
+      // A note GitLab sent always has an id: an entry without one is not a
+      // note, and would read as note 0.
+      if (note is Map<String, dynamic> && note['id'] is num)
+        GitLabNote.fromJson(note),
+  ];
+}
+
 /// One note of a merge request discussion, as the review's follow-up reads
 /// it: who wrote what, and whether GitLab wrote it itself (a system note such
 /// as "resolved all threads").
-final class GitLabNote {
-  const GitLabNote({
-    required this.id,
-    required this.author,
-    required this.body,
-    this.system = false,
-  });
+@freezed
+abstract class GitLabNote with _$GitLabNote {
+  const factory GitLabNote({
+    @JsonKey(fromJson: _noteIdFromJson) required int id,
 
-  factory GitLabNote.fromJson(Map<String, dynamic> json) => GitLabNote(
-    id: (json['id'] as num?)?.toInt() ?? 0,
-    author: _username(json['author']) ?? '',
-    body: json['body'] as String? ?? '',
-    system: json['system'] == true,
-  );
+    /// The author's username.
+    @JsonKey(readValue: _readAuthor) @Default('') String author,
+    @Default('') String body,
+    @Default(false) bool system,
+  }) = _GitLabNote;
 
-  final int id;
-
-  /// The author's username.
-  final String author;
-  final String body;
-  final bool system;
+  factory GitLabNote.fromJson(Map<String, dynamic> json) =>
+      _$GitLabNoteFromJson(json);
 }
 
 /// A merge request discussion thread: its notes, oldest first, and whether
 /// (and by whom) it is resolved.
-final class GitLabDiscussion {
-  const GitLabDiscussion({
-    required this.id,
-    required this.notes,
-    this.resolved = false,
-    this.resolvedBy,
-  });
+@freezed
+abstract class GitLabDiscussion with _$GitLabDiscussion {
+  const GitLabDiscussion._();
 
-  /// GitLab keeps the resolved state on each resolvable note; a thread is
-  /// resolved when its notes are, and the first note says by whom.
-  factory GitLabDiscussion.fromJson(Map<String, dynamic> json) {
-    final raw = json['notes'] as List<dynamic>? ?? const [];
-    final notes = [
-      for (final note in raw)
-        if (note is Map<String, dynamic>) GitLabNote.fromJson(note),
-    ];
-    final first = raw.isEmpty ? null : raw.first;
-    final firstMap = first is Map<String, dynamic> ? first : null;
-    return GitLabDiscussion(
-      id: json['id'] as String? ?? '',
-      notes: notes,
-      resolved: firstMap?['resolved'] == true,
-      resolvedBy: _username(firstMap?['resolved_by']),
-    );
-  }
+  const factory GitLabDiscussion({
+    @Default('') String id,
+    @JsonKey(fromJson: _notesFromJson)
+    @Default(<GitLabNote>[])
+    List<GitLabNote> notes,
+    @JsonKey(readValue: _readResolved) @Default(false) bool resolved,
 
-  final String id;
-  final List<GitLabNote> notes;
-  final bool resolved;
+    /// The username of whoever resolved it; null when it is open, or GitLab
+    /// did not say.
+    @JsonKey(readValue: _readResolvedBy) String? resolvedBy,
+  }) = _GitLabDiscussion;
 
-  /// The username of whoever resolved it; null when it is open, or GitLab
-  /// did not say.
-  final String? resolvedBy;
+  factory GitLabDiscussion.fromJson(Map<String, dynamic> json) =>
+      _$GitLabDiscussionFromJson(json);
 
   /// The replies under the first note, GitLab's own system notes left out.
   List<GitLabNote> get replies => [
@@ -66,7 +79,3 @@ final class GitLabDiscussion {
       if (!note.system) note,
   ];
 }
-
-String? _username(Object? user) => user is Map && user['username'] is String
-    ? user['username'] as String
-    : null;

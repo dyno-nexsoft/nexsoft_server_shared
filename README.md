@@ -30,12 +30,13 @@ dependency.
 - **GitLab** — `GitLabMergeRequest`, `GitLabMrDiff`, `GitLabMrUrl`.
 - **Zentao** — `DailyTask`, `DailyTaskAction`, `ZentaoUser`.
 
-Most types are `@freezed` + `json_serializable`, generated code committed
-(neither consumer's deploy path runs `build_runner`, so there is nothing to
-generate on their end). A few (`Permission`, `ParamType`, `JobState`,
-`ApiKeyRole`, `EnvironmentBuild`, `PlatformBuild`, `CleanMode`) are plain
-hand-written enums — small and stable enough that codegen would only add
-overhead.
+Wire DTOs and action params use `@freezed` + `json_serializable`; generated
+code is committed (neither consumer's deploy path runs `build_runner`, so
+there is nothing to generate on their end). A few (`Permission`, `ParamType`,
+`JobState`, `ApiKeyRole`, `EnvironmentBuild`, `PlatformBuild`, `CleanMode`)
+are plain hand-written enums — small and stable enough that codegen would only
+add overhead. Internal parsing and utility results that are not JSON contract
+types remain ordinary Dart classes.
 
 ## What's deliberately not here
 
@@ -55,12 +56,11 @@ Anything that isn't a data shape, or that only one repo will ever need:
 
 ## Version pin
 
-`freezed 2.5.2` / `freezed_annotation ^2.4.4` / `json_serializable 6.8.0` /
-`build_runner 2.4.13` — deliberately **not** freezed 3.x. `nexsoft_server` has a
-real (non-dev) dependency on `nyxx_commands 6.1.0`, which pins
-`dart_style ^2.3.2`; `freezed >=3.1.0` requires `dart_style ^3.0.0`, so
-upgrading here would break `nexsoft_server`'s own `pub get`. Don't bump these
-without checking that constraint first.
+The package targets Dart `^3.9.0` so the MCP server can run on older SDKs.
+Generation uses `freezed ^4.0.3`, `json_serializable ^6.15.2`, and
+`build_runner ^2.17.1`, which require Dart 3.13; use the repository-pinned
+SDK (`fvm dart`) to regenerate. The committed generated output remains
+compatible with the package's Dart 3.9 floor.
 
 ## Keeping consumers in sync
 

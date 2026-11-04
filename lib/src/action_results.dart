@@ -1,192 +1,172 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'api_key_info.dart';
 import 'api_key_role.dart';
 import 'app_notification.dart';
 import 'owner_info.dart';
 
+part 'action_results.freezed.dart';
+part 'action_results.g.dart';
+
+Object? _readActionMessage(Map<dynamic, dynamic> json, String key) =>
+    json['message'] ?? json['summary'] ?? 'Done';
+
+ApiKeyRole _apiKeyRoleFromJson(Object? value) =>
+    ApiKeyRole.tryParse(value as String?) ?? ApiKeyRole.user;
+
+Set<String> _permissionsFromJson(Object? value) =>
+    (value as List<dynamic>? ?? const []).map((item) => item as String).toSet();
+
+List<String> _stringsFromJson(Object? value) =>
+    (value as List<dynamic>? ?? const []).map((item) => '$item').toList();
+
+int _zeroIntFromJson(Object? value) => (value as num?)?.toInt() ?? 0;
+
+int _oneIntFromJson(Object? value) => (value as num?)?.toInt() ?? 1;
+
+int _requiredIntFromJson(Object? value) => (value as num).toInt();
+
 /// What a mutating action answers with — the sentence the server would show
 /// ("✅ Deleted API key …"), ready for a toast.
-class ActionMessage {
-  const ActionMessage(this.message);
+@freezed
+abstract class ActionMessage with _$ActionMessage {
+  const factory ActionMessage({
+    @JsonKey(readValue: _readActionMessage) @Default('Done') String message,
+  }) = _ActionMessage;
 
-  factory ActionMessage.fromJson(Map<String, dynamic> json) => ActionMessage(
-    // `summary` is what a result that is a freezed class carries instead.
-    (json['message'] ?? json['summary']) as String? ?? 'Done',
-  );
-
-  final String message;
+  factory ActionMessage.fromJson(Map<String, dynamic> json) =>
+      _$ActionMessageFromJson(json);
 }
 
 /// `admin.apiKeys.add` — the new key, with its secret. The only time the
 /// secret exists: the server keeps just a hash.
-class ApiKeyCreated {
-  const ApiKeyCreated({
-    required this.id,
-    required this.secret,
-    required this.role,
-  });
+@freezed
+abstract class ApiKeyCreated with _$ApiKeyCreated {
+  const factory ApiKeyCreated({
+    required String id,
+    required String secret,
+    @JsonKey(fromJson: _apiKeyRoleFromJson)
+    @Default(ApiKeyRole.user)
+    ApiKeyRole role,
+  }) = _ApiKeyCreated;
 
-  factory ApiKeyCreated.fromJson(Map<String, dynamic> json) => ApiKeyCreated(
-    id: json['id'] as String,
-    secret: json['secret'] as String,
-    role: ApiKeyRole.tryParse(json['role'] as String?) ?? ApiKeyRole.user,
-  );
-
-  final String id;
-  final String secret;
-  final ApiKeyRole role;
+  factory ApiKeyCreated.fromJson(Map<String, dynamic> json) =>
+      _$ApiKeyCreatedFromJson(json);
 }
 
 /// `system.whoami` — who the presented API key is, so a client can offer only what the key may do.
-class WhoAmI {
-  const WhoAmI({required this.name, required this.permissions});
+@freezed
+abstract class WhoAmI with _$WhoAmI {
+  const WhoAmI._();
 
-  factory WhoAmI.fromJson(Map<String, dynamic> json) => WhoAmI(
-    name: json['name'] as String? ?? '',
-    permissions: {
-      for (final wire in json['permissions'] as List<dynamic>? ?? const [])
-        wire as String,
-    },
-  );
+  const factory WhoAmI({
+    @Default('') String name,
+    @JsonKey(fromJson: _permissionsFromJson)
+    @Default(<String>{})
+    Set<String> permissions,
+  }) = _WhoAmI;
 
-  /// Display name of the caller: the key's name, or `Anonymous` when none was sent or it was refused.
-  final String name;
-
-  /// The wire form of each permission the key holds (`read`, `invoke`, `invoke_dangerous`, `admin`).
-  final Set<String> permissions;
+  factory WhoAmI.fromJson(Map<String, dynamic> json) => _$WhoAmIFromJson(json);
 
   /// Whether the key may administer the server. An admin also passes every other check.
   bool get isAdmin => permissions.contains('admin');
 }
 
 /// `admin.apiKeys.list`.
-class ApiKeyList {
-  const ApiKeyList({required this.keys, this.currentKeyId});
+@freezed
+abstract class ApiKeyList with _$ApiKeyList {
+  const factory ApiKeyList({
+    @Default(<ApiKeyInfo>[]) List<ApiKeyInfo> keys,
 
-  factory ApiKeyList.fromJson(Map<String, dynamic> json) => ApiKeyList(
-    currentKeyId: json['current_key_id'] as String?,
-    keys: [
-      for (final key in json['keys'] as List<dynamic>? ?? const [])
-        ApiKeyInfo.fromJson(key as Map<String, dynamic>),
-    ],
-  );
+    /// The key this very request was made with, when it is one of [keys].
+    String? currentKeyId,
+  }) = _ApiKeyList;
 
-  final List<ApiKeyInfo> keys;
-
-  /// The key this very request was made with, when it is one of [keys].
-  final String? currentKeyId;
+  factory ApiKeyList.fromJson(Map<String, dynamic> json) =>
+      _$ApiKeyListFromJson(json);
 }
 
 /// `admin.owners.list`.
-class OwnerList {
-  const OwnerList(this.owners);
+@freezed
+abstract class OwnerList with _$OwnerList {
+  const factory OwnerList({@Default(<OwnerInfo>[]) List<OwnerInfo> owners}) =
+      _OwnerList;
 
-  factory OwnerList.fromJson(Map<String, dynamic> json) => OwnerList([
-    for (final owner in json['owners'] as List<dynamic>? ?? const [])
-      OwnerInfo.fromJson(owner as Map<String, dynamic>),
-  ]);
-
-  final List<OwnerInfo> owners;
+  factory OwnerList.fromJson(Map<String, dynamic> json) =>
+      _$OwnerListFromJson(json);
 }
 
 /// `admin.logs.tail`.
-class LogsTail {
-  const LogsTail({
-    required this.lines,
-    required this.firstLine,
-    required this.totalLines,
-  });
+@freezed
+abstract class LogsTail with _$LogsTail {
+  const factory LogsTail({
+    @JsonKey(fromJson: _stringsFromJson)
+    @Default(<String>[])
+    List<String> lines,
 
-  factory LogsTail.fromJson(Map<String, dynamic> json) => LogsTail(
-    lines: [
-      for (final line in json['lines'] as List<dynamic>? ?? const []) '$line',
-    ],
-    firstLine: (json['first_line'] as num?)?.toInt() ?? 1,
-    totalLines: (json['total_lines'] as num?)?.toInt() ?? 0,
-  );
+    /// The absolute, 1-based number of `lines[0]`.
+    @JsonKey(fromJson: _oneIntFromJson) @Default(1) int firstLine,
 
-  final List<String> lines;
+    /// How long the whole log is.
+    @JsonKey(fromJson: _zeroIntFromJson) @Default(0) int totalLines,
+  }) = _LogsTail;
 
-  /// The absolute, 1-based number of `lines[0]`.
-  final int firstLine;
-
-  /// How long the whole log is.
-  final int totalLines;
+  factory LogsTail.fromJson(Map<String, dynamic> json) =>
+      _$LogsTailFromJson(json);
 }
 
 /// `zentao.report.start` — the task it opened, and the server's sentence.
-class ZentaoReportStarted {
-  const ZentaoReportStarted({required this.taskId, required this.message});
+@freezed
+abstract class ZentaoReportStarted with _$ZentaoReportStarted {
+  const factory ZentaoReportStarted({
+    @JsonKey(fromJson: _requiredIntFromJson) required int taskId,
+    @JsonKey(readValue: _readActionMessage) required String message,
+  }) = _ZentaoReportStarted;
 
   factory ZentaoReportStarted.fromJson(Map<String, dynamic> json) =>
-      ZentaoReportStarted(
-        taskId: (json['task_id'] as num).toInt(),
-        message: ActionMessage.fromJson(json).message,
-      );
-
-  final int taskId;
-  final String message;
+      _$ZentaoReportStartedFromJson(json);
 }
 
 /// `gitlab.review` and `gitlab.translateArb` answer the moment the run
 /// starts, not when it ends: [id] is its history record, whose detail page
 /// shows the live status.
-class GitlabRunStarted {
-  const GitlabRunStarted({required this.id, required this.label});
+@freezed
+abstract class GitlabRunStarted with _$GitlabRunStarted {
+  const factory GitlabRunStarted({
+    required String id,
+    @Default('') String label,
+  }) = _GitlabRunStarted;
 
   factory GitlabRunStarted.fromJson(Map<String, dynamic> json) =>
-      GitlabRunStarted(
-        id: json['id'] as String,
-        label: json['label'] as String? ?? '',
-      );
-
-  final String id;
-  final String label;
+      _$GitlabRunStartedFromJson(json);
 }
 
 /// One entry of `system.db.list`'s `tables` array: a table of the server's
 /// database and how many rows it holds.
-class DbTableInfo {
-  const DbTableInfo({
-    required this.name,
-    required this.rowCount,
-    this.clearable = false,
-  });
+@freezed
+abstract class DbTableInfo with _$DbTableInfo {
+  const factory DbTableInfo({
+    @Default('') String name,
+    @JsonKey(fromJson: _zeroIntFromJson) @Default(0) int rowCount,
 
-  factory DbTableInfo.fromJson(Map<String, dynamic> json) => DbTableInfo(
-    name: json['name'] as String? ?? '',
-    rowCount: (json['row_count'] as num?)?.toInt() ?? 0,
-    clearable: json['clearable'] as bool? ?? false,
-  );
+    /// Whether `system.db.clean` accepts it: a table of history or a cache,
+    /// not one of settings (the settings, the secrets, the run counter, the
+    /// audit log), which the server refuses to clear.
+    @Default(false) bool clearable,
+  }) = _DbTableInfo;
 
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'row_count': rowCount,
-    'clearable': clearable,
-  };
-
-  final String name;
-  final int rowCount;
-
-  /// Whether `system.db.clean` accepts it: a table of history or a cache,
-  /// not one of settings (the settings, the secrets, the run counter, the
-  /// audit log), which the server refuses to clear.
-  final bool clearable;
+  factory DbTableInfo.fromJson(Map<String, dynamic> json) =>
+      _$DbTableInfoFromJson(json);
 }
 
 /// `notifications.list`.
-class NotificationList {
-  const NotificationList({required this.notifications, required this.unread});
+@freezed
+abstract class NotificationList with _$NotificationList {
+  const factory NotificationList({
+    @Default(<AppNotification>[]) List<AppNotification> notifications,
+    @JsonKey(fromJson: _zeroIntFromJson) @Default(0) int unread,
+  }) = _NotificationList;
 
   factory NotificationList.fromJson(Map<String, dynamic> json) =>
-      NotificationList(
-        notifications: [
-          for (final item
-              in json['notifications'] as List<dynamic>? ?? const [])
-            AppNotification.fromJson(item as Map<String, dynamic>),
-        ],
-        unread: (json['unread_count'] as num?)?.toInt() ?? 0,
-      );
-
-  final List<AppNotification> notifications;
-  final int unread;
+      _$NotificationListFromJson(json);
 }
