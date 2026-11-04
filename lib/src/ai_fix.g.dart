@@ -24,7 +24,6 @@ _AiFixReport _$AiFixReportFromJson(Map<String, dynamic> json) => _AiFixReport(
   repository: json['repository'] as String?,
   branch: json['branch'] as String?,
   commit: json['commit'] as String?,
-  mergeRequestUrl: json['merge_request_url'] as String?,
   outcome:
       $enumDecodeNullable(_$AiFixOutcomeEnumMap, json['outcome']) ??
       AiFixOutcome.reported,
@@ -44,7 +43,6 @@ Map<String, dynamic> _$AiFixReportToJson(_AiFixReport instance) =>
       'repository': ?instance.repository,
       'branch': ?instance.branch,
       'commit': ?instance.commit,
-      'merge_request_url': ?instance.mergeRequestUrl,
       'outcome': _$AiFixOutcomeEnumMap[instance.outcome]!,
       'detail': ?instance.detail,
     };

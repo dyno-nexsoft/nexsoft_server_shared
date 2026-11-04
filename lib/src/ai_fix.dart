@@ -4,8 +4,8 @@ part 'ai_fix.freezed.dart';
 part 'ai_fix.g.dart';
 
 /// Why a job failed, as `ai.fix` diagnoses it: what decides whether anything
-/// is changed at all. Only a bug in code is fixed; the others are answered
-/// with what to do instead.
+/// is changed at all. Only a bug in the server's own code is fixed; the
+/// others are answered with what to do instead.
 enum FailureCategory {
   /// What was asked was wrong (a branch that does not exist, a module left
   /// out, a wrong environment): nothing to fix, the job is sent again with
@@ -18,11 +18,12 @@ enum FailureCategory {
   @JsonValue('environment')
   environment,
 
-  /// A bug in the app's code (the repository the job built).
+  /// A bug in the app's code (the repository the job built): reported, for
+  /// the app's developers; this never changes it.
   @JsonValue('app_bug')
   appBug,
 
-  /// A bug in the server's own code or scripts.
+  /// A bug in the server's own code, scripts or dashboard: the one kind fixed.
   @JsonValue('server_bug')
   serverBug,
 
@@ -30,8 +31,8 @@ enum FailureCategory {
   @JsonValue('unknown')
   unknown;
 
-  /// Whether a fix is code to change.
-  bool get isCodeBug => this == appBug || this == serverBug;
+  /// Whether this bot changes code for it.
+  bool get isFixable => this == serverBug;
 }
 
 /// What `ai.fix` did with its diagnosis.
@@ -41,8 +42,8 @@ enum AiFixOutcome {
   @JsonValue('reported')
   reported,
 
-  /// The fix was pushed (to the job's branch, or the server's) and, for the
-  /// app, the failed job sent again on it.
+  /// The fix was pushed to the server's master and deployed, and the failed
+  /// job sent again.
   @JsonValue('pushed')
   pushed,
 
@@ -81,15 +82,12 @@ abstract class AiFixReport with _$AiFixReport {
     /// What the fix changed, relative to its repository.
     @Default(<String>[]) List<String> changedFiles,
 
-    /// `tbchat` or `nexsoft_server`, for a fix.
+    /// `nexsoft_server`, for a fix.
     String? repository,
 
-    /// Where the fix went (or would go).
+    /// Where the fix went (or would go), and its commit.
     String? branch,
     String? commit,
-
-    /// A merge request, only when the branch could not be pushed to.
-    String? mergeRequestUrl,
 
     @Default(AiFixOutcome.reported) AiFixOutcome outcome,
 

@@ -24,10 +24,9 @@ mixin _$AiFixReport {
  String? get suggestion;/// `P0` to `P3` when the fix touches security, else null. P0 and P1 wait
 /// for an admin.
  String? get securitySeverity;/// What the fix changed, relative to its repository.
- List<String> get changedFiles;/// `tbchat` or `nexsoft_server`, for a fix.
- String? get repository;/// Where the fix went (or would go).
- String? get branch; String? get commit;/// A merge request, only when the branch could not be pushed to.
- String? get mergeRequestUrl; AiFixOutcome get outcome;/// Why it ended as it did, when that is not plain from the rest.
+ List<String> get changedFiles;/// `nexsoft_server`, for a fix.
+ String? get repository;/// Where the fix went (or would go), and its commit.
+ String? get branch; String? get commit; AiFixOutcome get outcome;/// Why it ended as it did, when that is not plain from the rest.
  String? get detail;
 /// Create a copy of AiFixReport
 /// with the given fields replaced by the non-null parameter values.
@@ -42,20 +41,20 @@ $AiFixReportCopyWith<AiFixReport> get copyWith => _$AiFixReportCopyWithImpl<AiFi
 @override
 bool operator ==(Object other) {
   final _this = this as AiFixReport;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiFixReport&&(identical(other.failedJobId, _this.failedJobId) || other.failedJobId == _this.failedJobId)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.confidence, _this.confidence) || other.confidence == _this.confidence)&&(identical(other.summary, _this.summary) || other.summary == _this.summary)&&const DeepCollectionEquality().equals(other.evidence, _this.evidence)&&(identical(other.suggestion, _this.suggestion) || other.suggestion == _this.suggestion)&&(identical(other.securitySeverity, _this.securitySeverity) || other.securitySeverity == _this.securitySeverity)&&const DeepCollectionEquality().equals(other.changedFiles, _this.changedFiles)&&(identical(other.repository, _this.repository) || other.repository == _this.repository)&&(identical(other.branch, _this.branch) || other.branch == _this.branch)&&(identical(other.commit, _this.commit) || other.commit == _this.commit)&&(identical(other.mergeRequestUrl, _this.mergeRequestUrl) || other.mergeRequestUrl == _this.mergeRequestUrl)&&(identical(other.outcome, _this.outcome) || other.outcome == _this.outcome)&&(identical(other.detail, _this.detail) || other.detail == _this.detail));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiFixReport&&(identical(other.failedJobId, _this.failedJobId) || other.failedJobId == _this.failedJobId)&&(identical(other.category, _this.category) || other.category == _this.category)&&(identical(other.confidence, _this.confidence) || other.confidence == _this.confidence)&&(identical(other.summary, _this.summary) || other.summary == _this.summary)&&const DeepCollectionEquality().equals(other.evidence, _this.evidence)&&(identical(other.suggestion, _this.suggestion) || other.suggestion == _this.suggestion)&&(identical(other.securitySeverity, _this.securitySeverity) || other.securitySeverity == _this.securitySeverity)&&const DeepCollectionEquality().equals(other.changedFiles, _this.changedFiles)&&(identical(other.repository, _this.repository) || other.repository == _this.repository)&&(identical(other.branch, _this.branch) || other.branch == _this.branch)&&(identical(other.commit, _this.commit) || other.commit == _this.commit)&&(identical(other.outcome, _this.outcome) || other.outcome == _this.outcome)&&(identical(other.detail, _this.detail) || other.detail == _this.detail));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiFixReport;
-  return Object.hash(runtimeType,_this.failedJobId,_this.category,_this.confidence,_this.summary,const DeepCollectionEquality().hash(_this.evidence),_this.suggestion,_this.securitySeverity,const DeepCollectionEquality().hash(_this.changedFiles),_this.repository,_this.branch,_this.commit,_this.mergeRequestUrl,_this.outcome,_this.detail);
+  return Object.hash(runtimeType,_this.failedJobId,_this.category,_this.confidence,_this.summary,const DeepCollectionEquality().hash(_this.evidence),_this.suggestion,_this.securitySeverity,const DeepCollectionEquality().hash(_this.changedFiles),_this.repository,_this.branch,_this.commit,_this.outcome,_this.detail);
 }
 
 @override
 String toString() {
   final _this = this as AiFixReport;
-  return 'AiFixReport(failedJobId: ${_this.failedJobId}, category: ${_this.category}, confidence: ${_this.confidence}, summary: ${_this.summary}, evidence: ${_this.evidence}, suggestion: ${_this.suggestion}, securitySeverity: ${_this.securitySeverity}, changedFiles: ${_this.changedFiles}, repository: ${_this.repository}, branch: ${_this.branch}, commit: ${_this.commit}, mergeRequestUrl: ${_this.mergeRequestUrl}, outcome: ${_this.outcome}, detail: ${_this.detail})';
+  return 'AiFixReport(failedJobId: ${_this.failedJobId}, category: ${_this.category}, confidence: ${_this.confidence}, summary: ${_this.summary}, evidence: ${_this.evidence}, suggestion: ${_this.suggestion}, securitySeverity: ${_this.securitySeverity}, changedFiles: ${_this.changedFiles}, repository: ${_this.repository}, branch: ${_this.branch}, commit: ${_this.commit}, outcome: ${_this.outcome}, detail: ${_this.detail})';
 }
 
 
@@ -66,7 +65,7 @@ abstract mixin class $AiFixReportCopyWith<$Res>  {
   factory $AiFixReportCopyWith(AiFixReport value, $Res Function(AiFixReport) _then) = _$AiFixReportCopyWithImpl;
 @useResult
 $Res call({
- String failedJobId, FailureCategory category, double confidence, String summary, List<String> evidence, String? suggestion, String? securitySeverity, List<String> changedFiles, String? repository, String? branch, String? commit, String? mergeRequestUrl, AiFixOutcome outcome, String? detail
+ String failedJobId, FailureCategory category, double confidence, String summary, List<String> evidence, String? suggestion, String? securitySeverity, List<String> changedFiles, String? repository, String? branch, String? commit, AiFixOutcome outcome, String? detail
 });
 
 
@@ -83,7 +82,7 @@ class _$AiFixReportCopyWithImpl<$Res>
 
 /// Create a copy of AiFixReport
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? failedJobId = null,Object? category = null,Object? confidence = null,Object? summary = null,Object? evidence = null,Object? suggestion = freezed,Object? securitySeverity = freezed,Object? changedFiles = null,Object? repository = freezed,Object? branch = freezed,Object? commit = freezed,Object? mergeRequestUrl = freezed,Object? outcome = null,Object? detail = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? failedJobId = null,Object? category = null,Object? confidence = null,Object? summary = null,Object? evidence = null,Object? suggestion = freezed,Object? securitySeverity = freezed,Object? changedFiles = null,Object? repository = freezed,Object? branch = freezed,Object? commit = freezed,Object? outcome = null,Object? detail = freezed,}) {
   return _then(AiFixReport(
 failedJobId: null == failedJobId ? _self.failedJobId : failedJobId // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
@@ -96,7 +95,6 @@ as String?,changedFiles: null == changedFiles ? _self.changedFiles : changedFile
 as List<String>,repository: freezed == repository ? _self.repository : repository // ignore: cast_nullable_to_non_nullable
 as String?,branch: freezed == branch ? _self.branch : branch // ignore: cast_nullable_to_non_nullable
 as String?,commit: freezed == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
-as String?,mergeRequestUrl: freezed == mergeRequestUrl ? _self.mergeRequestUrl : mergeRequestUrl // ignore: cast_nullable_to_non_nullable
 as String?,outcome: null == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable
 as AiFixOutcome,detail: freezed == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -184,10 +182,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  String? mergeRequestUrl,  AiFixOutcome outcome,  String? detail)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  AiFixOutcome outcome,  String? detail)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiFixReport() when $default != null:
-return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.mergeRequestUrl,_that.outcome,_that.detail);case _:
+return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.outcome,_that.detail);case _:
   return orElse();
 
 }
@@ -205,10 +203,10 @@ return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  String? mergeRequestUrl,  AiFixOutcome outcome,  String? detail)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  AiFixOutcome outcome,  String? detail)  $default,) {final _that = this;
 switch (_that) {
 case _AiFixReport():
-return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.mergeRequestUrl,_that.outcome,_that.detail);case _:
+return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.outcome,_that.detail);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -225,10 +223,10 @@ return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  String? mergeRequestUrl,  AiFixOutcome outcome,  String? detail)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String failedJobId,  FailureCategory category,  double confidence,  String summary,  List<String> evidence,  String? suggestion,  String? securitySeverity,  List<String> changedFiles,  String? repository,  String? branch,  String? commit,  AiFixOutcome outcome,  String? detail)?  $default,) {final _that = this;
 switch (_that) {
 case _AiFixReport() when $default != null:
-return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.mergeRequestUrl,_that.outcome,_that.detail);case _:
+return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,_that.evidence,_that.suggestion,_that.securitySeverity,_that.changedFiles,_that.repository,_that.branch,_that.commit,_that.outcome,_that.detail);case _:
   return null;
 
 }
@@ -240,7 +238,7 @@ return $default(_that.failedJobId,_that.category,_that.confidence,_that.summary,
 @JsonSerializable()
 
 class _AiFixReport extends AiFixReport {
-  const _AiFixReport({required this.failedJobId, required this.category, this.confidence = 0, required this.summary,  List<String> evidence = const <String>[], this.suggestion, this.securitySeverity,  List<String> changedFiles = const <String>[], this.repository, this.branch, this.commit, this.mergeRequestUrl, this.outcome = AiFixOutcome.reported, this.detail}): _evidence = evidence,_changedFiles = changedFiles,super._();
+  const _AiFixReport({required this.failedJobId, required this.category, this.confidence = 0, required this.summary,  List<String> evidence = const <String>[], this.suggestion, this.securitySeverity,  List<String> changedFiles = const <String>[], this.repository, this.branch, this.commit, this.outcome = AiFixOutcome.reported, this.detail}): _evidence = evidence,_changedFiles = changedFiles,super._();
   factory _AiFixReport.fromJson(Map<String, dynamic> json) => _$AiFixReportFromJson(json);
 
 @override final  String failedJobId;
@@ -273,13 +271,11 @@ class _AiFixReport extends AiFixReport {
   return EqualUnmodifiableListView(_changedFiles);
 }
 
-/// `tbchat` or `nexsoft_server`, for a fix.
+/// `nexsoft_server`, for a fix.
 @override final  String? repository;
-/// Where the fix went (or would go).
+/// Where the fix went (or would go), and its commit.
 @override final  String? branch;
 @override final  String? commit;
-/// A merge request, only when the branch could not be pushed to.
-@override final  String? mergeRequestUrl;
 @override@JsonKey() final  AiFixOutcome outcome;
 /// Why it ended as it did, when that is not plain from the rest.
 @override final  String? detail;
@@ -297,18 +293,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiFixReport&&(identical(other.failedJobId, failedJobId) || other.failedJobId == failedJobId)&&(identical(other.category, category) || other.category == category)&&(identical(other.confidence, confidence) || other.confidence == confidence)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other.evidence, _evidence)&&(identical(other.suggestion, suggestion) || other.suggestion == suggestion)&&(identical(other.securitySeverity, securitySeverity) || other.securitySeverity == securitySeverity)&&const DeepCollectionEquality().equals(other.changedFiles, _changedFiles)&&(identical(other.repository, repository) || other.repository == repository)&&(identical(other.branch, branch) || other.branch == branch)&&(identical(other.commit, commit) || other.commit == commit)&&(identical(other.mergeRequestUrl, mergeRequestUrl) || other.mergeRequestUrl == mergeRequestUrl)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&(identical(other.detail, detail) || other.detail == detail));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiFixReport&&(identical(other.failedJobId, failedJobId) || other.failedJobId == failedJobId)&&(identical(other.category, category) || other.category == category)&&(identical(other.confidence, confidence) || other.confidence == confidence)&&(identical(other.summary, summary) || other.summary == summary)&&const DeepCollectionEquality().equals(other.evidence, _evidence)&&(identical(other.suggestion, suggestion) || other.suggestion == suggestion)&&(identical(other.securitySeverity, securitySeverity) || other.securitySeverity == securitySeverity)&&const DeepCollectionEquality().equals(other.changedFiles, _changedFiles)&&(identical(other.repository, repository) || other.repository == repository)&&(identical(other.branch, branch) || other.branch == branch)&&(identical(other.commit, commit) || other.commit == commit)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&(identical(other.detail, detail) || other.detail == detail));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,failedJobId,category,confidence,summary,const DeepCollectionEquality().hash(_evidence),suggestion,securitySeverity,const DeepCollectionEquality().hash(_changedFiles),repository,branch,commit,mergeRequestUrl,outcome,detail);
+    return Object.hash(runtimeType,failedJobId,category,confidence,summary,const DeepCollectionEquality().hash(_evidence),suggestion,securitySeverity,const DeepCollectionEquality().hash(_changedFiles),repository,branch,commit,outcome,detail);
 }
 
 @override
 String toString() {
-    return 'AiFixReport(failedJobId: $failedJobId, category: $category, confidence: $confidence, summary: $summary, evidence: $evidence, suggestion: $suggestion, securitySeverity: $securitySeverity, changedFiles: $changedFiles, repository: $repository, branch: $branch, commit: $commit, mergeRequestUrl: $mergeRequestUrl, outcome: $outcome, detail: $detail)';
+    return 'AiFixReport(failedJobId: $failedJobId, category: $category, confidence: $confidence, summary: $summary, evidence: $evidence, suggestion: $suggestion, securitySeverity: $securitySeverity, changedFiles: $changedFiles, repository: $repository, branch: $branch, commit: $commit, outcome: $outcome, detail: $detail)';
 }
 
 
@@ -319,7 +315,7 @@ abstract mixin class _$AiFixReportCopyWith<$Res> implements $AiFixReportCopyWith
   factory _$AiFixReportCopyWith(_AiFixReport value, $Res Function(_AiFixReport) _then) = __$AiFixReportCopyWithImpl;
 @override @useResult
 $Res call({
- String failedJobId, FailureCategory category, double confidence, String summary, List<String> evidence, String? suggestion, String? securitySeverity, List<String> changedFiles, String? repository, String? branch, String? commit, String? mergeRequestUrl, AiFixOutcome outcome, String? detail
+ String failedJobId, FailureCategory category, double confidence, String summary, List<String> evidence, String? suggestion, String? securitySeverity, List<String> changedFiles, String? repository, String? branch, String? commit, AiFixOutcome outcome, String? detail
 });
 
 
@@ -336,7 +332,7 @@ class __$AiFixReportCopyWithImpl<$Res>
 
 /// Create a copy of AiFixReport
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? failedJobId = null,Object? category = null,Object? confidence = null,Object? summary = null,Object? evidence = null,Object? suggestion = freezed,Object? securitySeverity = freezed,Object? changedFiles = null,Object? repository = freezed,Object? branch = freezed,Object? commit = freezed,Object? mergeRequestUrl = freezed,Object? outcome = null,Object? detail = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? failedJobId = null,Object? category = null,Object? confidence = null,Object? summary = null,Object? evidence = null,Object? suggestion = freezed,Object? securitySeverity = freezed,Object? changedFiles = null,Object? repository = freezed,Object? branch = freezed,Object? commit = freezed,Object? outcome = null,Object? detail = freezed,}) {
   return _then(_AiFixReport(
 failedJobId: null == failedJobId ? _self.failedJobId : failedJobId // ignore: cast_nullable_to_non_nullable
 as String,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
@@ -349,7 +345,6 @@ as String?,changedFiles: null == changedFiles ? _self._changedFiles : changedFil
 as List<String>,repository: freezed == repository ? _self.repository : repository // ignore: cast_nullable_to_non_nullable
 as String?,branch: freezed == branch ? _self.branch : branch // ignore: cast_nullable_to_non_nullable
 as String?,commit: freezed == commit ? _self.commit : commit // ignore: cast_nullable_to_non_nullable
-as String?,mergeRequestUrl: freezed == mergeRequestUrl ? _self.mergeRequestUrl : mergeRequestUrl // ignore: cast_nullable_to_non_nullable
 as String?,outcome: null == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable
 as AiFixOutcome,detail: freezed == detail ? _self.detail : detail // ignore: cast_nullable_to_non_nullable
 as String?,
