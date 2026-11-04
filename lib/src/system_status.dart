@@ -25,6 +25,10 @@ abstract class SystemStatus with _$SystemStatus {
     // (which is absent on a machine with no remote desktop at all), this
     // field only ever varies in *which* URL, not whether one exists.
     required String remoteDesktopUrl,
+    // The plain-HTTP landing beside HTTPS (`http://<host>:8080`), where a QR
+    // code a phone scans should point: it explains how to trust the server's
+    // CA, and goes on over HTTPS once the phone does. Null without HTTPS.
+    String? landingUrl,
     @Default([]) List<Job> running,
     @Default([]) List<Job> queued,
     // A non-job-backed mutation (gitlab.review, gitlab.translateArb)

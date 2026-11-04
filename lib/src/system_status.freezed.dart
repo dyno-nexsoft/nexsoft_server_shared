@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SystemStatus {
 
- String get appVersion; String get dartVersion; String get hostname; int get uptimeSeconds; String get uptime; String get workingDirectory; String get remoteDesktopUrl; List<Job> get running; List<Job> get queued; List<ActiveMutation> get activeMutations; List<BuilderStatus> get builders;
+ String get appVersion; String get dartVersion; String get hostname; int get uptimeSeconds; String get uptime; String get workingDirectory; String get remoteDesktopUrl; String? get landingUrl; List<Job> get running; List<Job> get queued; List<ActiveMutation> get activeMutations; List<BuilderStatus> get builders;
 /// Create a copy of SystemStatus
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $SystemStatusCopyWith<SystemStatus> get copyWith => _$SystemStatusCopyWithImpl<S
 @override
 bool operator ==(Object other) {
   final _this = this as SystemStatus;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SystemStatus&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.dartVersion, _this.dartVersion) || other.dartVersion == _this.dartVersion)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.uptime, _this.uptime) || other.uptime == _this.uptime)&&(identical(other.workingDirectory, _this.workingDirectory) || other.workingDirectory == _this.workingDirectory)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&const DeepCollectionEquality().equals(other.running, _this.running)&&const DeepCollectionEquality().equals(other.queued, _this.queued)&&const DeepCollectionEquality().equals(other.activeMutations, _this.activeMutations)&&const DeepCollectionEquality().equals(other.builders, _this.builders));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SystemStatus&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.dartVersion, _this.dartVersion) || other.dartVersion == _this.dartVersion)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.uptime, _this.uptime) || other.uptime == _this.uptime)&&(identical(other.workingDirectory, _this.workingDirectory) || other.workingDirectory == _this.workingDirectory)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&(identical(other.landingUrl, _this.landingUrl) || other.landingUrl == _this.landingUrl)&&const DeepCollectionEquality().equals(other.running, _this.running)&&const DeepCollectionEquality().equals(other.queued, _this.queued)&&const DeepCollectionEquality().equals(other.activeMutations, _this.activeMutations)&&const DeepCollectionEquality().equals(other.builders, _this.builders));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as SystemStatus;
-  return Object.hash(runtimeType,_this.appVersion,_this.dartVersion,_this.hostname,_this.uptimeSeconds,_this.uptime,_this.workingDirectory,_this.remoteDesktopUrl,const DeepCollectionEquality().hash(_this.running),const DeepCollectionEquality().hash(_this.queued),const DeepCollectionEquality().hash(_this.activeMutations),const DeepCollectionEquality().hash(_this.builders));
+  return Object.hash(runtimeType,_this.appVersion,_this.dartVersion,_this.hostname,_this.uptimeSeconds,_this.uptime,_this.workingDirectory,_this.remoteDesktopUrl,_this.landingUrl,const DeepCollectionEquality().hash(_this.running),const DeepCollectionEquality().hash(_this.queued),const DeepCollectionEquality().hash(_this.activeMutations),const DeepCollectionEquality().hash(_this.builders));
 }
 
 @override
 String toString() {
   final _this = this as SystemStatus;
-  return 'SystemStatus(appVersion: ${_this.appVersion}, dartVersion: ${_this.dartVersion}, hostname: ${_this.hostname}, uptimeSeconds: ${_this.uptimeSeconds}, uptime: ${_this.uptime}, workingDirectory: ${_this.workingDirectory}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, running: ${_this.running}, queued: ${_this.queued}, activeMutations: ${_this.activeMutations}, builders: ${_this.builders})';
+  return 'SystemStatus(appVersion: ${_this.appVersion}, dartVersion: ${_this.dartVersion}, hostname: ${_this.hostname}, uptimeSeconds: ${_this.uptimeSeconds}, uptime: ${_this.uptime}, workingDirectory: ${_this.workingDirectory}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, landingUrl: ${_this.landingUrl}, running: ${_this.running}, queued: ${_this.queued}, activeMutations: ${_this.activeMutations}, builders: ${_this.builders})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $SystemStatusCopyWith<$Res>  {
   factory $SystemStatusCopyWith(SystemStatus value, $Res Function(SystemStatus) _then) = _$SystemStatusCopyWithImpl;
 @useResult
 $Res call({
- String appVersion, String dartVersion, String hostname, int uptimeSeconds, String uptime, String workingDirectory, String remoteDesktopUrl, List<Job> running, List<Job> queued, List<ActiveMutation> activeMutations, List<BuilderStatus> builders
+ String appVersion, String dartVersion, String hostname, int uptimeSeconds, String uptime, String workingDirectory, String remoteDesktopUrl, String? landingUrl, List<Job> running, List<Job> queued, List<ActiveMutation> activeMutations, List<BuilderStatus> builders
 });
 
 
@@ -71,7 +71,7 @@ class _$SystemStatusCopyWithImpl<$Res>
 
 /// Create a copy of SystemStatus
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? appVersion = null,Object? dartVersion = null,Object? hostname = null,Object? uptimeSeconds = null,Object? uptime = null,Object? workingDirectory = null,Object? remoteDesktopUrl = null,Object? running = null,Object? queued = null,Object? activeMutations = null,Object? builders = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? appVersion = null,Object? dartVersion = null,Object? hostname = null,Object? uptimeSeconds = null,Object? uptime = null,Object? workingDirectory = null,Object? remoteDesktopUrl = null,Object? landingUrl = freezed,Object? running = null,Object? queued = null,Object? activeMutations = null,Object? builders = null,}) {
   return _then(SystemStatus(
 appVersion: null == appVersion ? _self.appVersion : appVersion // ignore: cast_nullable_to_non_nullable
 as String,dartVersion: null == dartVersion ? _self.dartVersion : dartVersion // ignore: cast_nullable_to_non_nullable
@@ -80,7 +80,8 @@ as String,uptimeSeconds: null == uptimeSeconds ? _self.uptimeSeconds : uptimeSec
 as int,uptime: null == uptime ? _self.uptime : uptime // ignore: cast_nullable_to_non_nullable
 as String,workingDirectory: null == workingDirectory ? _self.workingDirectory : workingDirectory // ignore: cast_nullable_to_non_nullable
 as String,remoteDesktopUrl: null == remoteDesktopUrl ? _self.remoteDesktopUrl : remoteDesktopUrl // ignore: cast_nullable_to_non_nullable
-as String,running: null == running ? _self.running : running // ignore: cast_nullable_to_non_nullable
+as String,landingUrl: freezed == landingUrl ? _self.landingUrl : landingUrl // ignore: cast_nullable_to_non_nullable
+as String?,running: null == running ? _self.running : running // ignore: cast_nullable_to_non_nullable
 as List<Job>,queued: null == queued ? _self.queued : queued // ignore: cast_nullable_to_non_nullable
 as List<Job>,activeMutations: null == activeMutations ? _self.activeMutations : activeMutations // ignore: cast_nullable_to_non_nullable
 as List<ActiveMutation>,builders: null == builders ? _self.builders : builders // ignore: cast_nullable_to_non_nullable
@@ -169,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  String? landingUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SystemStatus() when $default != null:
-return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
+return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.landingUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
   return orElse();
 
 }
@@ -190,10 +191,10 @@ return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  String? landingUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)  $default,) {final _that = this;
 switch (_that) {
 case _SystemStatus():
-return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
+return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.landingUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -210,10 +211,10 @@ return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String appVersion,  String dartVersion,  String hostname,  int uptimeSeconds,  String uptime,  String workingDirectory,  String remoteDesktopUrl,  String? landingUrl,  List<Job> running,  List<Job> queued,  List<ActiveMutation> activeMutations,  List<BuilderStatus> builders)?  $default,) {final _that = this;
 switch (_that) {
 case _SystemStatus() when $default != null:
-return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
+return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSeconds,_that.uptime,_that.workingDirectory,_that.remoteDesktopUrl,_that.landingUrl,_that.running,_that.queued,_that.activeMutations,_that.builders);case _:
   return null;
 
 }
@@ -225,7 +226,7 @@ return $default(_that.appVersion,_that.dartVersion,_that.hostname,_that.uptimeSe
 @JsonSerializable()
 
 class _SystemStatus extends SystemStatus {
-  const _SystemStatus({required this.appVersion, required this.dartVersion, required this.hostname, required this.uptimeSeconds, required this.uptime, required this.workingDirectory, required this.remoteDesktopUrl,  List<Job> running = const [],  List<Job> queued = const [],  List<ActiveMutation> activeMutations = const [],  List<BuilderStatus> builders = const []}): _running = running,_queued = queued,_activeMutations = activeMutations,_builders = builders,super._();
+  const _SystemStatus({required this.appVersion, required this.dartVersion, required this.hostname, required this.uptimeSeconds, required this.uptime, required this.workingDirectory, required this.remoteDesktopUrl, this.landingUrl,  List<Job> running = const [],  List<Job> queued = const [],  List<ActiveMutation> activeMutations = const [],  List<BuilderStatus> builders = const []}): _running = running,_queued = queued,_activeMutations = activeMutations,_builders = builders,super._();
   factory _SystemStatus.fromJson(Map<String, dynamic> json) => _$SystemStatusFromJson(json);
 
 @override final  String appVersion;
@@ -235,6 +236,7 @@ class _SystemStatus extends SystemStatus {
 @override final  String uptime;
 @override final  String workingDirectory;
 @override final  String remoteDesktopUrl;
+@override final  String? landingUrl;
  final  List<Job> _running;
 @override@JsonKey() List<Job> get running {
   if (_running is EqualUnmodifiableListView) return _running;
@@ -277,18 +279,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SystemStatus&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.dartVersion, dartVersion) || other.dartVersion == dartVersion)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.uptime, uptime) || other.uptime == uptime)&&(identical(other.workingDirectory, workingDirectory) || other.workingDirectory == workingDirectory)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&const DeepCollectionEquality().equals(other.running, _running)&&const DeepCollectionEquality().equals(other.queued, _queued)&&const DeepCollectionEquality().equals(other.activeMutations, _activeMutations)&&const DeepCollectionEquality().equals(other.builders, _builders));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SystemStatus&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.dartVersion, dartVersion) || other.dartVersion == dartVersion)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.uptime, uptime) || other.uptime == uptime)&&(identical(other.workingDirectory, workingDirectory) || other.workingDirectory == workingDirectory)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.landingUrl, landingUrl) || other.landingUrl == landingUrl)&&const DeepCollectionEquality().equals(other.running, _running)&&const DeepCollectionEquality().equals(other.queued, _queued)&&const DeepCollectionEquality().equals(other.activeMutations, _activeMutations)&&const DeepCollectionEquality().equals(other.builders, _builders));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,appVersion,dartVersion,hostname,uptimeSeconds,uptime,workingDirectory,remoteDesktopUrl,const DeepCollectionEquality().hash(_running),const DeepCollectionEquality().hash(_queued),const DeepCollectionEquality().hash(_activeMutations),const DeepCollectionEquality().hash(_builders));
+    return Object.hash(runtimeType,appVersion,dartVersion,hostname,uptimeSeconds,uptime,workingDirectory,remoteDesktopUrl,landingUrl,const DeepCollectionEquality().hash(_running),const DeepCollectionEquality().hash(_queued),const DeepCollectionEquality().hash(_activeMutations),const DeepCollectionEquality().hash(_builders));
 }
 
 @override
 String toString() {
-    return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
+    return 'SystemStatus(appVersion: $appVersion, dartVersion: $dartVersion, hostname: $hostname, uptimeSeconds: $uptimeSeconds, uptime: $uptime, workingDirectory: $workingDirectory, remoteDesktopUrl: $remoteDesktopUrl, landingUrl: $landingUrl, running: $running, queued: $queued, activeMutations: $activeMutations, builders: $builders)';
 }
 
 
@@ -299,7 +301,7 @@ abstract mixin class _$SystemStatusCopyWith<$Res> implements $SystemStatusCopyWi
   factory _$SystemStatusCopyWith(_SystemStatus value, $Res Function(_SystemStatus) _then) = __$SystemStatusCopyWithImpl;
 @override @useResult
 $Res call({
- String appVersion, String dartVersion, String hostname, int uptimeSeconds, String uptime, String workingDirectory, String remoteDesktopUrl, List<Job> running, List<Job> queued, List<ActiveMutation> activeMutations, List<BuilderStatus> builders
+ String appVersion, String dartVersion, String hostname, int uptimeSeconds, String uptime, String workingDirectory, String remoteDesktopUrl, String? landingUrl, List<Job> running, List<Job> queued, List<ActiveMutation> activeMutations, List<BuilderStatus> builders
 });
 
 
@@ -316,7 +318,7 @@ class __$SystemStatusCopyWithImpl<$Res>
 
 /// Create a copy of SystemStatus
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? appVersion = null,Object? dartVersion = null,Object? hostname = null,Object? uptimeSeconds = null,Object? uptime = null,Object? workingDirectory = null,Object? remoteDesktopUrl = null,Object? running = null,Object? queued = null,Object? activeMutations = null,Object? builders = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? appVersion = null,Object? dartVersion = null,Object? hostname = null,Object? uptimeSeconds = null,Object? uptime = null,Object? workingDirectory = null,Object? remoteDesktopUrl = null,Object? landingUrl = freezed,Object? running = null,Object? queued = null,Object? activeMutations = null,Object? builders = null,}) {
   return _then(_SystemStatus(
 appVersion: null == appVersion ? _self.appVersion : appVersion // ignore: cast_nullable_to_non_nullable
 as String,dartVersion: null == dartVersion ? _self.dartVersion : dartVersion // ignore: cast_nullable_to_non_nullable
@@ -325,7 +327,8 @@ as String,uptimeSeconds: null == uptimeSeconds ? _self.uptimeSeconds : uptimeSec
 as int,uptime: null == uptime ? _self.uptime : uptime // ignore: cast_nullable_to_non_nullable
 as String,workingDirectory: null == workingDirectory ? _self.workingDirectory : workingDirectory // ignore: cast_nullable_to_non_nullable
 as String,remoteDesktopUrl: null == remoteDesktopUrl ? _self.remoteDesktopUrl : remoteDesktopUrl // ignore: cast_nullable_to_non_nullable
-as String,running: null == running ? _self._running : running // ignore: cast_nullable_to_non_nullable
+as String,landingUrl: freezed == landingUrl ? _self.landingUrl : landingUrl // ignore: cast_nullable_to_non_nullable
+as String?,running: null == running ? _self._running : running // ignore: cast_nullable_to_non_nullable
 as List<Job>,queued: null == queued ? _self._queued : queued // ignore: cast_nullable_to_non_nullable
 as List<Job>,activeMutations: null == activeMutations ? _self._activeMutations : activeMutations // ignore: cast_nullable_to_non_nullable
 as List<ActiveMutation>,builders: null == builders ? _self._builders : builders // ignore: cast_nullable_to_non_nullable

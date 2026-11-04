@@ -15,6 +15,7 @@ _SystemStatus _$SystemStatusFromJson(Map<String, dynamic> json) =>
       uptime: json['uptime'] as String,
       workingDirectory: json['working_directory'] as String,
       remoteDesktopUrl: json['remote_desktop_url'] as String,
+      landingUrl: json['landing_url'] as String?,
       running:
           (json['running'] as List<dynamic>?)
               ?.map((e) => Job.fromJson(e as Map<String, dynamic>))
@@ -47,6 +48,7 @@ Map<String, dynamic> _$SystemStatusToJson(
   'uptime': instance.uptime,
   'working_directory': instance.workingDirectory,
   'remote_desktop_url': instance.remoteDesktopUrl,
+  'landing_url': ?instance.landingUrl,
   'running': instance.running.map((e) => e.toJson()).toList(),
   'queued': instance.queued.map((e) => e.toJson()).toList(),
   'active_mutations': instance.activeMutations.map((e) => e.toJson()).toList(),
