@@ -64,7 +64,7 @@ abstract class ArtifactFile with _$ArtifactFile {
       '$origin/$listingKey/${Uri.encodeComponent(name)}';
 
   /// Apple's over-the-air install handoff URL for this `.ipa`: the device
-  /// fetches the manifest (served by `ftp_handler`'s `manifest.plist?ipa=`
+  /// fetches the manifest (served by the server's `manifest.plist?ipa=`
   /// route), which points back at this file. Requires an iOS device *and*
   /// HTTPS — a bare `http://` [origin] will not trigger the install.
   String iosInstallUrl({required String origin, required String listingKey}) {
