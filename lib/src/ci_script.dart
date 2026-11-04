@@ -71,6 +71,16 @@ enum CiScript {
     projectVariables: {'FIREBASE_ANDROID_APP_ID', 'FIREBASE_IOS_APP_ID'},
   ),
 
+  /// Has Claude diagnose a failed job and fix a bug in code (`ai.fix`), in a
+  /// clone of its own in the job's folder: it touches no build workspace, so
+  /// it starts beside a build, one at a time.
+  aiFix(
+    'ai_fix.sh',
+    group: CiScriptGroup.aiFix,
+    runsBeside: true,
+    projectVariables: {'TBCHAT_REPO_URL', 'MR_ASSIGNEE'},
+  ),
+
   /// A command none of the above: runs only in this machine's own lane, alone.
   other(null);
 
@@ -134,6 +144,9 @@ enum CiScript {
 enum CiScriptGroup {
   /// The bot branch [CiScript.replace] pushes.
   replace,
+
+  /// The Claude sessions and the pushes of [CiScript.aiFix].
+  aiFix,
 
   /// The shared `proto` checkout and the kept accounts.
   protoAndAccounts,

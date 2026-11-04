@@ -54,6 +54,16 @@ extension NexsoftActions on ActionTransport {
   Future<Job> ciUpload(CiUploadParams params) async =>
       Job.fromJson(await invokeAction(ActionNames.upload, params.toJson()));
 
+  /// Has Claude diagnose a failed job and, when it is a bug in code, fix it,
+  /// as a job of its own (`docs/ai-fix.md`).
+  Future<Job> aiFix(JobIdParams params) async =>
+      Job.fromJson(await invokeAction(ActionNames.aiFix, params.toJson()));
+
+  /// Lets a security-relevant fix an `ai.fix` job kept go out, as a job of
+  /// its own: admins only.
+  Future<Job> aiFixApprove(JobIdParams params) async =>
+      Job.fromJson(await invokeAction(ActionNames.aiFixApprove, params.toJson()));
+
   Future<Job> ciClean([CiCleanParams params = const CiCleanParams()]) async =>
       Job.fromJson(await invokeAction(ActionNames.clean, params.toJson()));
 

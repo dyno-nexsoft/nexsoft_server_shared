@@ -10,6 +10,8 @@ abstract final class ActionNames {
   static const reposts = 'ci.reposts';
   static const interaction = 'ci.interaction';
   static const clean = 'ci.clean';
+  static const aiFix = 'ai.fix';
+  static const aiFixApprove = 'ai.fix.approve';
   static const review = 'gitlab.review';
   static const translateArb = 'gitlab.translateArb';
   static const cronRun = 'cron.run';
@@ -83,6 +85,8 @@ abstract final class ActionNames {
 
   /// Every name above, for a test that holds the registry to it.
   static const all = [
+    aiFix,
+    aiFixApprove,
     adminAiKeysCheck,
     adminAiProviderGet,
     adminAiProviderSet,
