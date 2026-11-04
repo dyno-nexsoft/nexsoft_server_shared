@@ -40,6 +40,11 @@ abstract class Health with _$Health {
     /// hides the button instead of making `fromJson` throw.
     @Default(false) bool discordLoginEnabled,
 
+    /// Whether the bot is connected to Discord: a server that answers
+    /// `/health` but lost its gateway is not well, and the AI fix's deploy
+    /// watcher reads this to tell.
+    @Default(false) bool discordConnected,
+
     /// The plain-HTTP landing beside HTTPS (`http://<host>:8080`), where a
     /// device learns how to trust the server's certificate; null when the
     /// server has no HTTPS. The login screen links to its `/setup` for someone

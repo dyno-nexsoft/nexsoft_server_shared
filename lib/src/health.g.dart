@@ -15,6 +15,7 @@ _Health _$HealthFromJson(Map<String, dynamic> json) => _Health(
   remoteDesktopUrl: json['remote_desktop_url'] as String?,
   devToolsUrl: json['dev_tools_url'] as String?,
   discordLoginEnabled: json['discord_login_enabled'] as bool? ?? false,
+  discordConnected: json['discord_connected'] as bool? ?? false,
   landingUrl: json['landing_url'] as String?,
 );
 
@@ -27,5 +28,6 @@ Map<String, dynamic> _$HealthToJson(_Health instance) => <String, dynamic>{
   'remote_desktop_url': ?instance.remoteDesktopUrl,
   'dev_tools_url': ?instance.devToolsUrl,
   'discord_login_enabled': instance.discordLoginEnabled,
+  'discord_connected': instance.discordConnected,
   'landing_url': ?instance.landingUrl,
 };
