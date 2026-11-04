@@ -25,7 +25,7 @@ mixin _$Job {
 /// doc comment for why a Discord snowflake is never a raw `int`.
  String? get createdByApiKeyId; String? get createdByDiscordUserId; bool get promoted; bool get announce; DateTime get createdAt; DateTime? get startedAt; DateTime? get finishedAt; int? get exitCode; String? get lastLine; int get lastSeq;/// A human-friendly `#123`, assigned in order as jobs are registered.
 /// Display only: [id] stays the identity everywhere (routes, buttons,
-/// retries), and a job from before run numbers existed has none.
+/// retries), and a job without one is shown by its label alone.
  int? get runNumber; DiscordMessageRef? get discord; String? get cancelledBy;/// What the job left, kept with it: its folder goes after the admin's
 /// `artifacts_days`, its history should not. Set as it ends.
 ///
@@ -384,7 +384,7 @@ class _Job extends Job {
 @override@JsonKey() final  int lastSeq;
 /// A human-friendly `#123`, assigned in order as jobs are registered.
 /// Display only: [id] stays the identity everywhere (routes, buttons,
-/// retries), and a job from before run numbers existed has none.
+/// retries), and a job without one is shown by its label alone.
 @override final  int? runNumber;
 @override final  DiscordMessageRef? discord;
 @override final  String? cancelledBy;

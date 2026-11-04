@@ -89,11 +89,10 @@ class ReviewHistoryEntry {
   final String id;
   final int mrIid;
 
-  /// Who opened the MR, by their GitLab name; null on a record from before
-  /// it was kept.
+  /// Who opened the MR, by their GitLab name.
   final String? mrAuthor;
 
-  /// The MR's branches; null on a record from before they were kept.
+  /// The MR's branches.
   final String? sourceBranch;
   final String? targetBranch;
 
@@ -104,8 +103,7 @@ class ReviewHistoryEntry {
   final String? noteUrl;
   final int filesReviewed;
 
-  /// Files in a batch that no model could answer; 0 on a record from before
-  /// this was kept.
+  /// Files in a batch that no model could answer.
   final int filesFailed;
   final int totalFiles;
   final bool skipped;
@@ -175,8 +173,7 @@ class TranslateArbHistoryEntry {
             ? DateTime.parse(json['translated_at'] as String)
             : DateTime.now(),
         triggeredBy: json['triggered_by'] as String? ?? 'Unknown',
-        // A record from before runs stored it parses as the default tier,
-        // which is what those runs used.
+        // A missing or unknown tier parses as the default one.
         model: AiModel.parse(json['model']),
         state: GitlabRunState.parse(json['state']),
         label: json['label'] as String? ?? '',

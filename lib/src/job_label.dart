@@ -19,7 +19,7 @@ String actionLabel(String? actionName) => switch (actionName) {
 };
 
 /// The action's label with the job's run number, `Build #12`, so two jobs of one kind can be told apart and found
-/// again on the Builds page. A job from before run numbers existed is just its label.
+/// again on the Builds page. A job without a run number is just its label.
 String jobTitle(String? actionName, int? runNumber) => runNumber == null
     ? actionLabel(actionName)
     : '${actionLabel(actionName)} #$runNumber';

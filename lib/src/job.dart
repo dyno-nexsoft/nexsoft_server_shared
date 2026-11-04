@@ -52,7 +52,7 @@ abstract class Job with _$Job {
 
     /// A human-friendly `#123`, assigned in order as jobs are registered.
     /// Display only: [id] stays the identity everywhere (routes, buttons,
-    /// retries), and a job from before run numbers existed has none.
+    /// retries), and a job without one is shown by its label alone.
     int? runNumber,
     DiscordMessageRef? discord,
     String? cancelledBy,
