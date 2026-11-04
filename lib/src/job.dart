@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'ai_fix.dart';
+
 import 'artifact.dart';
 import 'discord_message_ref.dart';
 import 'job_attempt.dart';
@@ -88,6 +90,11 @@ abstract class Job with _$Job {
     /// that it had nothing to push; null for any other job, or one that
     /// ended before it pushed.
     JobMergeRequest? mergeRequest,
+
+    /// What an `ai.fix` job did with its diagnosis: pushed, only reported, or
+    /// a fix kept for an admin (the dashboard's Approve); null for any other
+    /// job.
+    AiFixOutcome? aiFixOutcome,
 
     /// It failed because it ran out of time (`timeout_minutes`), not by
     /// itself.

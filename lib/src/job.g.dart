@@ -55,6 +55,10 @@ _Job _$JobFromJson(Map<String, dynamic> json) => _Job(
   mergeRequest: json['merge_request'] == null
       ? null
       : JobMergeRequest.fromJson(json['merge_request'] as Map<String, dynamic>),
+  aiFixOutcome: $enumDecodeNullable(
+    _$AiFixOutcomeEnumMap,
+    json['ai_fix_outcome'],
+  ),
   timedOut: json['timed_out'] as bool? ?? false,
   runId: json['run_id'] as String?,
   run: json['run'] == null
@@ -105,6 +109,7 @@ Map<String, dynamic> _$JobToJson(_Job instance) => <String, dynamic>{
     (k, e) => MapEntry(k, e.toJson()),
   ),
   'merge_request': ?instance.mergeRequest?.toJson(),
+  'ai_fix_outcome': ?_$AiFixOutcomeEnumMap[instance.aiFixOutcome],
   'timed_out': instance.timedOut,
   'run_id': ?instance.runId,
   'run': ?instance.run?.toJson(),
@@ -113,4 +118,10 @@ Map<String, dynamic> _$JobToJson(_Job instance) => <String, dynamic>{
   'log_url': ?instance.logUrl,
   'warnings': instance.warnings,
   'message': ?instance.message,
+};
+
+const _$AiFixOutcomeEnumMap = {
+  AiFixOutcome.reported: 'reported',
+  AiFixOutcome.pushed: 'pushed',
+  AiFixOutcome.awaitingApproval: 'awaiting_approval',
 };
