@@ -39,6 +39,13 @@ abstract class Health with _$Health {
     /// Defaults to false so an *older* server that never sends the field just
     /// hides the button instead of making `fromJson` throw.
     @Default(false) bool discordLoginEnabled,
+
+    /// The plain-HTTP landing beside HTTPS (`http://<host>:8080`), where a
+    /// device learns how to trust the server's certificate; null when the
+    /// server has no HTTPS. The login screen links to its `/setup` for someone
+    /// who got to the HTTPS address directly, past the browser's warning, and
+    /// was never told. Nullable for the same reason as [remoteDesktopUrl].
+    String? landingUrl,
   }) = _Health;
 
   factory Health.fromJson(Map<String, dynamic> json) => _$HealthFromJson(json);
