@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'ci_script.dart';
+
 part 'build_machines_priority.freezed.dart';
 part 'build_machines_priority.g.dart';
 
@@ -16,10 +18,22 @@ abstract class BuildMachinesPriority with _$BuildMachinesPriority {
 
     /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
     @Default([]) List<String> paused,
+
+    /// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+    /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
+    /// a job no build machine takes runs there.
+    @Default({}) Map<String, List<CiScript>> blockedScripts,
   }) = _BuildMachinesPriority;
+
+  const BuildMachinesPriority._();
 
   factory BuildMachinesPriority.fromJson(Map<String, dynamic> json) =>
       _$BuildMachinesPriorityFromJson(json);
+
+  /// Whether the build machine [name] takes [script]: not paused, and not kept from it.
+  bool takes(String name, CiScript script) =>
+      !paused.contains(name) &&
+      !(blockedScripts[name]?.contains(script) ?? false);
 
   /// The name of the bot's own machine in [order].
   static const local = 'local';

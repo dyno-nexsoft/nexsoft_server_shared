@@ -116,6 +116,11 @@ enum CiScript {
   /// a merge request's assignee into its Discord message. Names only: this package is public.
   final Set<String> projectVariables;
 
+  /// The scripts a build machine may be given, in the order the dashboard lists them: what an admin may keep off one
+  /// machine (`BuildMachinesPriority.blockedScripts`). [gen] needs the GitLab SSH key as well, and a [clean] goes to a
+  /// build machine only when named for it.
+  static const onBuilders = [build, replace, gen, clean, reposts];
+
   /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a build machine: the
   /// others only print to the log, and a clean even removes the folder it would be read from.
   bool get leavesOutput => this == build || this == replace;

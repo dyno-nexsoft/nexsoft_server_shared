@@ -8,6 +8,7 @@ import 'artifact.dart';
 import 'audit.dart';
 import 'build_machines_priority.dart';
 import 'build_target.dart';
+import 'ci_script.dart';
 import 'daily_task.dart';
 import 'environment_settings.dart';
 import 'gitlab_auto_assign.dart';
@@ -242,6 +243,17 @@ extension NexsoftActions on ActionTransport {
     BuildMachinesPriority priority,
   ) async => BuildMachinesPriority.fromJson(
     await invokeAction(ActionNames.ciMachinesSet, priority.toJson()),
+  );
+
+  /// Keeps the build machine [machine] from the scripts in [blocked] (none: it takes every one it may).
+  Future<BuildMachinesPriority> machinesSetScripts(
+    String machine,
+    List<CiScript> blocked,
+  ) async => BuildMachinesPriority.fromJson(
+    await invokeAction(ActionNames.ciMachinesSetScripts, {
+      'machine': machine,
+      'blocked': [for (final script in blocked) script.name],
+    }),
   );
 
   // schedule.* — the working calendar the scheduled jobs follow.

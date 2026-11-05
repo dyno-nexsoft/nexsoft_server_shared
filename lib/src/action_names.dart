@@ -50,6 +50,7 @@ abstract final class ActionNames {
   static const ciJobPromote = 'ci.job.promote';
   static const ciMachinesGet = 'ci.machines.get';
   static const ciMachinesSet = 'ci.machines.set';
+  static const ciMachinesSetScripts = 'ci.machines.setScripts';
   static const ciStatsGet = 'ci.stats.get';
   static const gitlabAutoAssignPreview = 'gitlab.autoAssign.preview';
   static const gitlabReviewHistory = 'gitlab.review.history';
@@ -127,6 +128,7 @@ abstract final class ActionNames {
     ciJobPromote,
     ciMachinesGet,
     ciMachinesSet,
+    ciMachinesSetScripts,
     replace,
     reposts,
     ciStatsGet,

@@ -18,7 +18,10 @@ mixin _$BuildMachinesPriority {
 
 /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
  List<String> get order;/// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
- List<String> get paused;
+ List<String> get paused;/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
+/// a job no build machine takes runs there.
+ Map<String, List<CiScript>> get blockedScripts;
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -32,20 +35,20 @@ $BuildMachinesPriorityCopyWith<BuildMachinesPriority> get copyWith => _$BuildMac
 @override
 bool operator ==(Object other) {
   final _this = this as BuildMachinesPriority;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _this.order)&&const DeepCollectionEquality().equals(other.paused, _this.paused));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _this.order)&&const DeepCollectionEquality().equals(other.paused, _this.paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _this.blockedScripts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as BuildMachinesPriority;
-  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.order),const DeepCollectionEquality().hash(_this.paused));
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.order),const DeepCollectionEquality().hash(_this.paused),const DeepCollectionEquality().hash(_this.blockedScripts));
 }
 
 @override
 String toString() {
   final _this = this as BuildMachinesPriority;
-  return 'BuildMachinesPriority(order: ${_this.order}, paused: ${_this.paused})';
+  return 'BuildMachinesPriority(order: ${_this.order}, paused: ${_this.paused}, blockedScripts: ${_this.blockedScripts})';
 }
 
 
@@ -56,7 +59,7 @@ abstract mixin class $BuildMachinesPriorityCopyWith<$Res>  {
   factory $BuildMachinesPriorityCopyWith(BuildMachinesPriority value, $Res Function(BuildMachinesPriority) _then) = _$BuildMachinesPriorityCopyWithImpl;
 @useResult
 $Res call({
- List<String> order, List<String> paused
+ List<String> order, List<String> paused, Map<String, List<CiScript>> blockedScripts
 });
 
 
@@ -73,11 +76,12 @@ class _$BuildMachinesPriorityCopyWithImpl<$Res>
 
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? order = null,Object? paused = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? order = null,Object? paused = null,Object? blockedScripts = null,}) {
   return _then(BuildMachinesPriority(
 order: null == order ? _self.order : order // ignore: cast_nullable_to_non_nullable
 as List<String>,paused: null == paused ? _self.paused : paused // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as List<String>,blockedScripts: null == blockedScripts ? _self.blockedScripts : blockedScripts // ignore: cast_nullable_to_non_nullable
+as Map<String, List<CiScript>>,
   ));
 }
 
@@ -162,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BuildMachinesPriority() when $default != null:
-return $default(_that.order,_that.paused);case _:
+return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   return orElse();
 
 }
@@ -183,10 +187,10 @@ return $default(_that.order,_that.paused);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)  $default,) {final _that = this;
 switch (_that) {
 case _BuildMachinesPriority():
-return $default(_that.order,_that.paused);case _:
+return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -203,10 +207,10 @@ return $default(_that.order,_that.paused);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> order,  List<String> paused)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)?  $default,) {final _that = this;
 switch (_that) {
 case _BuildMachinesPriority() when $default != null:
-return $default(_that.order,_that.paused);case _:
+return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   return null;
 
 }
@@ -217,8 +221,8 @@ return $default(_that.order,_that.paused);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _BuildMachinesPriority implements BuildMachinesPriority {
-  const _BuildMachinesPriority({required  List<String> order,  List<String> paused = const []}): _order = order,_paused = paused;
+class _BuildMachinesPriority extends BuildMachinesPriority {
+  const _BuildMachinesPriority({required  List<String> order,  List<String> paused = const [],  Map<String, List<CiScript>> blockedScripts = const {}}): _order = order,_paused = paused,_blockedScripts = blockedScripts,super._();
   factory _BuildMachinesPriority.fromJson(Map<String, dynamic> json) => _$BuildMachinesPriorityFromJson(json);
 
 /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
@@ -239,6 +243,19 @@ class _BuildMachinesPriority implements BuildMachinesPriority {
   return EqualUnmodifiableListView(_paused);
 }
 
+/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
+/// a job no build machine takes runs there.
+ final  Map<String, List<CiScript>> _blockedScripts;
+/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
+/// a job no build machine takes runs there.
+@override@JsonKey() Map<String, List<CiScript>> get blockedScripts {
+  if (_blockedScripts is EqualUnmodifiableMapView) return _blockedScripts;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableMapView(_blockedScripts);
+}
+
 
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
@@ -253,18 +270,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _order)&&const DeepCollectionEquality().equals(other.paused, _paused));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _order)&&const DeepCollectionEquality().equals(other.paused, _paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _blockedScripts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_order),const DeepCollectionEquality().hash(_paused));
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_order),const DeepCollectionEquality().hash(_paused),const DeepCollectionEquality().hash(_blockedScripts));
 }
 
 @override
 String toString() {
-    return 'BuildMachinesPriority(order: $order, paused: $paused)';
+    return 'BuildMachinesPriority(order: $order, paused: $paused, blockedScripts: $blockedScripts)';
 }
 
 
@@ -275,7 +292,7 @@ abstract mixin class _$BuildMachinesPriorityCopyWith<$Res> implements $BuildMach
   factory _$BuildMachinesPriorityCopyWith(_BuildMachinesPriority value, $Res Function(_BuildMachinesPriority) _then) = __$BuildMachinesPriorityCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> order, List<String> paused
+ List<String> order, List<String> paused, Map<String, List<CiScript>> blockedScripts
 });
 
 
@@ -292,11 +309,12 @@ class __$BuildMachinesPriorityCopyWithImpl<$Res>
 
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? order = null,Object? paused = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? order = null,Object? paused = null,Object? blockedScripts = null,}) {
   return _then(_BuildMachinesPriority(
 order: null == order ? _self._order : order // ignore: cast_nullable_to_non_nullable
 as List<String>,paused: null == paused ? _self._paused : paused // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as List<String>,blockedScripts: null == blockedScripts ? _self._blockedScripts : blockedScripts // ignore: cast_nullable_to_non_nullable
+as Map<String, List<CiScript>>,
   ));
 }
 
