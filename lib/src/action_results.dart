@@ -115,6 +115,57 @@ abstract class LogsTail with _$LogsTail {
       _$LogsTailFromJson(json);
 }
 
+/// One server error the monitor caught (`admin.errors.list`): what the Server
+/// errors list shows per row.
+@freezed
+abstract class ServerErrorEntry with _$ServerErrorEntry {
+  const factory ServerErrorEntry({
+    /// `e-…`, what `ai.fix` takes as `error_id`.
+    required String id,
+    required DateTime at,
+
+    /// The logger that wrote it, e.g. `ActionRunner`.
+    @Default('') String logger,
+
+    /// The first line of what it said.
+    @Default('') String message,
+
+    /// The `ai.fix` job started for it, when there is one.
+    String? fixJobId,
+
+    /// How that job ended: `pushed`, `awaiting_approval` or `reported`;
+    /// null while it runs, or when there is none.
+    String? fixOutcome,
+  }) = _ServerErrorEntry;
+
+  factory ServerErrorEntry.fromJson(Map<String, dynamic> json) =>
+      _$ServerErrorEntryFromJson(json);
+}
+
+/// `admin.errors.list`, newest first.
+@freezed
+abstract class ServerErrorList with _$ServerErrorList {
+  const factory ServerErrorList({
+    @Default(<ServerErrorEntry>[]) List<ServerErrorEntry> entries,
+  }) = _ServerErrorList;
+
+  factory ServerErrorList.fromJson(Map<String, dynamic> json) =>
+      _$ServerErrorListFromJson(json);
+}
+
+/// `admin.errors.get`: the evidence of one error, as written (secrets
+/// already taken out).
+@freezed
+abstract class ServerErrorDetail with _$ServerErrorDetail {
+  const factory ServerErrorDetail({
+    required String id,
+    @Default('') String text,
+  }) = _ServerErrorDetail;
+
+  factory ServerErrorDetail.fromJson(Map<String, dynamic> json) =>
+      _$ServerErrorDetailFromJson(json);
+}
+
 /// `zentao.report.start` — the task it opened, and the server's sentence.
 @freezed
 abstract class ZentaoReportStarted with _$ZentaoReportStarted {

@@ -130,6 +130,15 @@ abstract class AuditListParams with _$AuditListParams {
       _$AuditListParamsFromJson(json);
 }
 
+/// `admin.errors.get`: the error with this [id] (`e-…`).
+@freezed
+abstract class ServerErrorParams with _$ServerErrorParams {
+  const factory ServerErrorParams({required String id}) = _ServerErrorParams;
+
+  factory ServerErrorParams.fromJson(Map<String, dynamic> json) =>
+      _$ServerErrorParamsFromJson(json);
+}
+
 /// `admin.aiKeys.check`: one small request with every configured AI key, or
 /// only those of the secret [name]; with [removeDead], the keys a provider
 /// refused are dropped from its list (and the list removed when none is

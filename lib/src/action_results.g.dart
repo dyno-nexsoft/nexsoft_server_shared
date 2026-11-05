@@ -93,6 +93,49 @@ Map<String, dynamic> _$LogsTailToJson(_LogsTail instance) => <String, dynamic>{
   'total_lines': instance.totalLines,
 };
 
+_ServerErrorEntry _$ServerErrorEntryFromJson(Map<String, dynamic> json) =>
+    _ServerErrorEntry(
+      id: json['id'] as String,
+      at: DateTime.parse(json['at'] as String),
+      logger: json['logger'] as String? ?? '',
+      message: json['message'] as String? ?? '',
+      fixJobId: json['fix_job_id'] as String?,
+      fixOutcome: json['fix_outcome'] as String?,
+    );
+
+Map<String, dynamic> _$ServerErrorEntryToJson(_ServerErrorEntry instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'at': instance.at.toIso8601String(),
+      'logger': instance.logger,
+      'message': instance.message,
+      'fix_job_id': ?instance.fixJobId,
+      'fix_outcome': ?instance.fixOutcome,
+    };
+
+_ServerErrorList _$ServerErrorListFromJson(Map<String, dynamic> json) =>
+    _ServerErrorList(
+      entries:
+          (json['entries'] as List<dynamic>?)
+              ?.map((e) => ServerErrorEntry.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <ServerErrorEntry>[],
+    );
+
+Map<String, dynamic> _$ServerErrorListToJson(_ServerErrorList instance) =>
+    <String, dynamic>{
+      'entries': instance.entries.map((e) => e.toJson()).toList(),
+    };
+
+_ServerErrorDetail _$ServerErrorDetailFromJson(Map<String, dynamic> json) =>
+    _ServerErrorDetail(
+      id: json['id'] as String,
+      text: json['text'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$ServerErrorDetailToJson(_ServerErrorDetail instance) =>
+    <String, dynamic>{'id': instance.id, 'text': instance.text};
+
 _ZentaoReportStarted _$ZentaoReportStartedFromJson(Map<String, dynamic> json) =>
     _ZentaoReportStarted(
       taskId: _requiredIntFromJson(json['task_id']),

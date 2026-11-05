@@ -1682,6 +1682,852 @@ as int,
 
 
 /// @nodoc
+mixin _$ServerErrorEntry {
+
+/// `e-…`, what `ai.fix` takes as `error_id`.
+ String get id; DateTime get at;/// The logger that wrote it, e.g. `ActionRunner`.
+ String get logger;/// The first line of what it said.
+ String get message;/// The `ai.fix` job started for it, when there is one.
+ String? get fixJobId;/// How that job ended: `pushed`, `awaiting_approval` or `reported`;
+/// null while it runs, or when there is none.
+ String? get fixOutcome;
+/// Create a copy of ServerErrorEntry
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerErrorEntryCopyWith<ServerErrorEntry> get copyWith => _$ServerErrorEntryCopyWithImpl<ServerErrorEntry>(this as ServerErrorEntry, _$identity);
+
+  /// Serializes this ServerErrorEntry to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as ServerErrorEntry;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerErrorEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.at, _this.at) || other.at == _this.at)&&(identical(other.logger, _this.logger) || other.logger == _this.logger)&&(identical(other.message, _this.message) || other.message == _this.message)&&(identical(other.fixJobId, _this.fixJobId) || other.fixJobId == _this.fixJobId)&&(identical(other.fixOutcome, _this.fixOutcome) || other.fixOutcome == _this.fixOutcome));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as ServerErrorEntry;
+  return Object.hash(runtimeType,_this.id,_this.at,_this.logger,_this.message,_this.fixJobId,_this.fixOutcome);
+}
+
+@override
+String toString() {
+  final _this = this as ServerErrorEntry;
+  return 'ServerErrorEntry(id: ${_this.id}, at: ${_this.at}, logger: ${_this.logger}, message: ${_this.message}, fixJobId: ${_this.fixJobId}, fixOutcome: ${_this.fixOutcome})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ServerErrorEntryCopyWith<$Res>  {
+  factory $ServerErrorEntryCopyWith(ServerErrorEntry value, $Res Function(ServerErrorEntry) _then) = _$ServerErrorEntryCopyWithImpl;
+@useResult
+$Res call({
+ String id, DateTime at, String logger, String message, String? fixJobId, String? fixOutcome
+});
+
+
+
+
+}
+/// @nodoc
+class _$ServerErrorEntryCopyWithImpl<$Res>
+    implements $ServerErrorEntryCopyWith<$Res> {
+  _$ServerErrorEntryCopyWithImpl(this._self, this._then);
+
+  final ServerErrorEntry _self;
+  final $Res Function(ServerErrorEntry) _then;
+
+/// Create a copy of ServerErrorEntry
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? at = null,Object? logger = null,Object? message = null,Object? fixJobId = freezed,Object? fixOutcome = freezed,}) {
+  return _then(ServerErrorEntry(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,logger: null == logger ? _self.logger : logger // ignore: cast_nullable_to_non_nullable
+as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,fixJobId: freezed == fixJobId ? _self.fixJobId : fixJobId // ignore: cast_nullable_to_non_nullable
+as String?,fixOutcome: freezed == fixOutcome ? _self.fixOutcome : fixOutcome // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [ServerErrorEntry].
+extension ServerErrorEntryPatterns on ServerErrorEntry {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerErrorEntry value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerErrorEntry() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerErrorEntry value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorEntry():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerErrorEntry value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorEntry() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime at,  String logger,  String message,  String? fixJobId,  String? fixOutcome)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerErrorEntry() when $default != null:
+return $default(_that.id,_that.at,_that.logger,_that.message,_that.fixJobId,_that.fixOutcome);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime at,  String logger,  String message,  String? fixJobId,  String? fixOutcome)  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorEntry():
+return $default(_that.id,_that.at,_that.logger,_that.message,_that.fixJobId,_that.fixOutcome);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime at,  String logger,  String message,  String? fixJobId,  String? fixOutcome)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorEntry() when $default != null:
+return $default(_that.id,_that.at,_that.logger,_that.message,_that.fixJobId,_that.fixOutcome);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _ServerErrorEntry implements ServerErrorEntry {
+  const _ServerErrorEntry({required this.id, required this.at, this.logger = '', this.message = '', this.fixJobId, this.fixOutcome});
+  factory _ServerErrorEntry.fromJson(Map<String, dynamic> json) => _$ServerErrorEntryFromJson(json);
+
+/// `e-…`, what `ai.fix` takes as `error_id`.
+@override final  String id;
+@override final  DateTime at;
+/// The logger that wrote it, e.g. `ActionRunner`.
+@override@JsonKey() final  String logger;
+/// The first line of what it said.
+@override@JsonKey() final  String message;
+/// The `ai.fix` job started for it, when there is one.
+@override final  String? fixJobId;
+/// How that job ended: `pushed`, `awaiting_approval` or `reported`;
+/// null while it runs, or when there is none.
+@override final  String? fixOutcome;
+
+/// Create a copy of ServerErrorEntry
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerErrorEntryCopyWith<_ServerErrorEntry> get copyWith => __$ServerErrorEntryCopyWithImpl<_ServerErrorEntry>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerErrorEntryToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerErrorEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.logger, logger) || other.logger == logger)&&(identical(other.message, message) || other.message == message)&&(identical(other.fixJobId, fixJobId) || other.fixJobId == fixJobId)&&(identical(other.fixOutcome, fixOutcome) || other.fixOutcome == fixOutcome));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,id,at,logger,message,fixJobId,fixOutcome);
+}
+
+@override
+String toString() {
+    return 'ServerErrorEntry(id: $id, at: $at, logger: $logger, message: $message, fixJobId: $fixJobId, fixOutcome: $fixOutcome)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerErrorEntryCopyWith<$Res> implements $ServerErrorEntryCopyWith<$Res> {
+  factory _$ServerErrorEntryCopyWith(_ServerErrorEntry value, $Res Function(_ServerErrorEntry) _then) = __$ServerErrorEntryCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, DateTime at, String logger, String message, String? fixJobId, String? fixOutcome
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerErrorEntryCopyWithImpl<$Res>
+    implements _$ServerErrorEntryCopyWith<$Res> {
+  __$ServerErrorEntryCopyWithImpl(this._self, this._then);
+
+  final _ServerErrorEntry _self;
+  final $Res Function(_ServerErrorEntry) _then;
+
+/// Create a copy of ServerErrorEntry
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? at = null,Object? logger = null,Object? message = null,Object? fixJobId = freezed,Object? fixOutcome = freezed,}) {
+  return _then(_ServerErrorEntry(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
+as DateTime,logger: null == logger ? _self.logger : logger // ignore: cast_nullable_to_non_nullable
+as String,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,fixJobId: freezed == fixJobId ? _self.fixJobId : fixJobId // ignore: cast_nullable_to_non_nullable
+as String?,fixOutcome: freezed == fixOutcome ? _self.fixOutcome : fixOutcome // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$ServerErrorList {
+
+ List<ServerErrorEntry> get entries;
+/// Create a copy of ServerErrorList
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerErrorListCopyWith<ServerErrorList> get copyWith => _$ServerErrorListCopyWithImpl<ServerErrorList>(this as ServerErrorList, _$identity);
+
+  /// Serializes this ServerErrorList to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as ServerErrorList;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerErrorList&&const DeepCollectionEquality().equals(other.entries, _this.entries));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as ServerErrorList;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.entries));
+}
+
+@override
+String toString() {
+  final _this = this as ServerErrorList;
+  return 'ServerErrorList(entries: ${_this.entries})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ServerErrorListCopyWith<$Res>  {
+  factory $ServerErrorListCopyWith(ServerErrorList value, $Res Function(ServerErrorList) _then) = _$ServerErrorListCopyWithImpl;
+@useResult
+$Res call({
+ List<ServerErrorEntry> entries
+});
+
+
+
+
+}
+/// @nodoc
+class _$ServerErrorListCopyWithImpl<$Res>
+    implements $ServerErrorListCopyWith<$Res> {
+  _$ServerErrorListCopyWithImpl(this._self, this._then);
+
+  final ServerErrorList _self;
+  final $Res Function(ServerErrorList) _then;
+
+/// Create a copy of ServerErrorList
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? entries = null,}) {
+  return _then(ServerErrorList(
+entries: null == entries ? _self.entries : entries // ignore: cast_nullable_to_non_nullable
+as List<ServerErrorEntry>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [ServerErrorList].
+extension ServerErrorListPatterns on ServerErrorList {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerErrorList value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerErrorList() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerErrorList value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorList():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerErrorList value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorList() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<ServerErrorEntry> entries)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerErrorList() when $default != null:
+return $default(_that.entries);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<ServerErrorEntry> entries)  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorList():
+return $default(_that.entries);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<ServerErrorEntry> entries)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorList() when $default != null:
+return $default(_that.entries);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _ServerErrorList implements ServerErrorList {
+  const _ServerErrorList({ List<ServerErrorEntry> entries = const <ServerErrorEntry>[]}): _entries = entries;
+  factory _ServerErrorList.fromJson(Map<String, dynamic> json) => _$ServerErrorListFromJson(json);
+
+ final  List<ServerErrorEntry> _entries;
+@override@JsonKey() List<ServerErrorEntry> get entries {
+  if (_entries is EqualUnmodifiableListView) return _entries;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_entries);
+}
+
+
+/// Create a copy of ServerErrorList
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerErrorListCopyWith<_ServerErrorList> get copyWith => __$ServerErrorListCopyWithImpl<_ServerErrorList>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerErrorListToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerErrorList&&const DeepCollectionEquality().equals(other.entries, _entries));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_entries));
+}
+
+@override
+String toString() {
+    return 'ServerErrorList(entries: $entries)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerErrorListCopyWith<$Res> implements $ServerErrorListCopyWith<$Res> {
+  factory _$ServerErrorListCopyWith(_ServerErrorList value, $Res Function(_ServerErrorList) _then) = __$ServerErrorListCopyWithImpl;
+@override @useResult
+$Res call({
+ List<ServerErrorEntry> entries
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerErrorListCopyWithImpl<$Res>
+    implements _$ServerErrorListCopyWith<$Res> {
+  __$ServerErrorListCopyWithImpl(this._self, this._then);
+
+  final _ServerErrorList _self;
+  final $Res Function(_ServerErrorList) _then;
+
+/// Create a copy of ServerErrorList
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? entries = null,}) {
+  return _then(_ServerErrorList(
+entries: null == entries ? _self._entries : entries // ignore: cast_nullable_to_non_nullable
+as List<ServerErrorEntry>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$ServerErrorDetail {
+
+ String get id; String get text;
+/// Create a copy of ServerErrorDetail
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ServerErrorDetailCopyWith<ServerErrorDetail> get copyWith => _$ServerErrorDetailCopyWithImpl<ServerErrorDetail>(this as ServerErrorDetail, _$identity);
+
+  /// Serializes this ServerErrorDetail to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as ServerErrorDetail;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ServerErrorDetail&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.text, _this.text) || other.text == _this.text));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as ServerErrorDetail;
+  return Object.hash(runtimeType,_this.id,_this.text);
+}
+
+@override
+String toString() {
+  final _this = this as ServerErrorDetail;
+  return 'ServerErrorDetail(id: ${_this.id}, text: ${_this.text})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $ServerErrorDetailCopyWith<$Res>  {
+  factory $ServerErrorDetailCopyWith(ServerErrorDetail value, $Res Function(ServerErrorDetail) _then) = _$ServerErrorDetailCopyWithImpl;
+@useResult
+$Res call({
+ String id, String text
+});
+
+
+
+
+}
+/// @nodoc
+class _$ServerErrorDetailCopyWithImpl<$Res>
+    implements $ServerErrorDetailCopyWith<$Res> {
+  _$ServerErrorDetailCopyWithImpl(this._self, this._then);
+
+  final ServerErrorDetail _self;
+  final $Res Function(ServerErrorDetail) _then;
+
+/// Create a copy of ServerErrorDetail
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? text = null,}) {
+  return _then(ServerErrorDetail(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [ServerErrorDetail].
+extension ServerErrorDetailPatterns on ServerErrorDetail {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ServerErrorDetail value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ServerErrorDetail() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ServerErrorDetail value)  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorDetail():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ServerErrorDetail value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ServerErrorDetail() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String text)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ServerErrorDetail() when $default != null:
+return $default(_that.id,_that.text);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String text)  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorDetail():
+return $default(_that.id,_that.text);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String text)?  $default,) {final _that = this;
+switch (_that) {
+case _ServerErrorDetail() when $default != null:
+return $default(_that.id,_that.text);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _ServerErrorDetail implements ServerErrorDetail {
+  const _ServerErrorDetail({required this.id, this.text = ''});
+  factory _ServerErrorDetail.fromJson(Map<String, dynamic> json) => _$ServerErrorDetailFromJson(json);
+
+@override final  String id;
+@override@JsonKey() final  String text;
+
+/// Create a copy of ServerErrorDetail
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ServerErrorDetailCopyWith<_ServerErrorDetail> get copyWith => __$ServerErrorDetailCopyWithImpl<_ServerErrorDetail>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$ServerErrorDetailToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ServerErrorDetail&&(identical(other.id, id) || other.id == id)&&(identical(other.text, text) || other.text == text));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,id,text);
+}
+
+@override
+String toString() {
+    return 'ServerErrorDetail(id: $id, text: $text)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ServerErrorDetailCopyWith<$Res> implements $ServerErrorDetailCopyWith<$Res> {
+  factory _$ServerErrorDetailCopyWith(_ServerErrorDetail value, $Res Function(_ServerErrorDetail) _then) = __$ServerErrorDetailCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String text
+});
+
+
+
+
+}
+/// @nodoc
+class __$ServerErrorDetailCopyWithImpl<$Res>
+    implements _$ServerErrorDetailCopyWith<$Res> {
+  __$ServerErrorDetailCopyWithImpl(this._self, this._then);
+
+  final _ServerErrorDetail _self;
+  final $Res Function(_ServerErrorDetail) _then;
+
+/// Create a copy of ServerErrorDetail
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? text = null,}) {
+  return _then(_ServerErrorDetail(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$ZentaoReportStarted {
 
 @JsonKey(fromJson: _requiredIntFromJson) int get taskId;@JsonKey(readValue: _readActionMessage) String get message;

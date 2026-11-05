@@ -96,6 +96,12 @@ Map<String, dynamic> _$AuditListParamsToJson(_AuditListParams instance) =>
       'before': ?instance.before,
     };
 
+_ServerErrorParams _$ServerErrorParamsFromJson(Map<String, dynamic> json) =>
+    _ServerErrorParams(id: json['id'] as String);
+
+Map<String, dynamic> _$ServerErrorParamsToJson(_ServerErrorParams instance) =>
+    <String, dynamic>{'id': instance.id};
+
 _AiKeysCheckParams _$AiKeysCheckParamsFromJson(Map<String, dynamic> json) =>
     _AiKeysCheckParams(
       removeDead: json['remove_dead'] as bool? ?? false,
