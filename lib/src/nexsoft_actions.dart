@@ -21,6 +21,7 @@ import 'params/gitlab_params.dart';
 import 'params/notification_params.dart';
 import 'params/system_params.dart';
 import 'params/zentao_params.dart';
+import 'repost_account.dart';
 import 'schedule_info.dart';
 import 'secret_info.dart';
 import 'server_setting.dart';
@@ -189,6 +190,21 @@ extension NexsoftActions on ActionTransport {
       if (environment != null) 'environment': environment.name,
     }),
   );
+
+  // ci.repostAccounts.* — the accounts the reposts made, kept in the database.
+
+  Future<RepostAccounts> repostAccountsList() async => RepostAccounts.fromJson(
+    await invokeAction(ActionNames.ciRepostAccountsList, const {}),
+  );
+
+  /// Forgets the account [name] of [env]: its rows and its SDK folder.
+  Future<RepostAccounts> repostAccountsRemove(String env, String name) async =>
+      RepostAccounts.fromJson(
+        await invokeAction(ActionNames.ciRepostAccountsRemove, {
+          'env': env,
+          'name': name,
+        }),
+      );
 
   // ci.environments.* — the branches and Firebase apps of each environment.
 

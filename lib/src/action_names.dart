@@ -40,6 +40,8 @@ abstract final class ActionNames {
   static const adminSecretsSet = 'admin.secrets.set';
   static const ciInteractionHostsGet = 'ci.interactionHosts.get';
   static const ciInteractionHostsSet = 'ci.interactionHosts.set';
+  static const ciRepostAccountsList = 'ci.repostAccounts.list';
+  static const ciRepostAccountsRemove = 'ci.repostAccounts.remove';
   static const ciEnvironmentsGet = 'ci.environments.get';
   static const ciEnvironmentsSet = 'ci.environments.set';
   static const ciJobCancel = 'ci.job.cancel';
@@ -115,6 +117,8 @@ abstract final class ActionNames {
     interaction,
     ciInteractionHostsGet,
     ciInteractionHostsSet,
+    ciRepostAccountsList,
+    ciRepostAccountsRemove,
     ciEnvironmentsGet,
     ciEnvironmentsSet,
     ciJobCancel,

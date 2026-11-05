@@ -8,6 +8,10 @@ enum EnvironmentBuild {
   test,
   prod;
 
+  /// The environments the reposts and interactions run on: the throwaway ones. No production account is made or used by
+  /// this project, so `prod` is not offered for them.
+  static const repostable = [dev, test];
+
   // Which branches pair with an environment, and which Firebase apps it
   // builds for, are the admin's (`EnvironmentSettings`), not code.
 
