@@ -117,7 +117,7 @@ enum CiScript {
   final Set<String> projectVariables;
 
   /// The scripts a builder may be given, in the order the dashboard lists them: what an admin may keep off one
-  /// machine (`BuildMachinesPriority.blockedScripts`). [gen] needs the GitLab SSH key as well, and a [clean] goes to a
+  /// machine (`BuildersPriority.blockedScripts`). [gen] needs the GitLab SSH key as well, and a [clean] goes to a
   /// builder only when named for it.
   static const onBuilders = [build, replace, gen, clean, reposts];
 

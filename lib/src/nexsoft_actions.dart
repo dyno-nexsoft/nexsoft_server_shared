@@ -6,8 +6,8 @@ import 'ai_provider.dart';
 import 'app_limits.dart';
 import 'artifact.dart';
 import 'audit.dart';
-import 'build_machines_priority.dart';
 import 'build_target.dart';
+import 'builders_priority.dart';
 import 'ci_script.dart';
 import 'daily_task.dart';
 import 'environment_settings.dart';
@@ -233,23 +233,23 @@ extension NexsoftActions on ActionTransport {
     await invokeAction(ActionNames.ciStatsGet, params.toJson()),
   );
 
-  Future<BuildMachinesPriority> machinesGet() async =>
-      BuildMachinesPriority.fromJson(
+  Future<BuildersPriority> machinesGet() async =>
+      BuildersPriority.fromJson(
         await invokeAction(ActionNames.ciMachinesGet, const {}),
       );
 
   /// Saves [priority]: its order must name every machine once, as [machinesGet] lists them.
-  Future<BuildMachinesPriority> machinesSet(
-    BuildMachinesPriority priority,
-  ) async => BuildMachinesPriority.fromJson(
+  Future<BuildersPriority> machinesSet(
+    BuildersPriority priority,
+  ) async => BuildersPriority.fromJson(
     await invokeAction(ActionNames.ciMachinesSet, priority.toJson()),
   );
 
   /// Keeps the builder [machine] from the scripts in [blocked] (none: it takes every one it may).
-  Future<BuildMachinesPriority> machinesSetScripts(
+  Future<BuildersPriority> machinesSetScripts(
     String machine,
     List<CiScript> blocked,
-  ) async => BuildMachinesPriority.fromJson(
+  ) async => BuildersPriority.fromJson(
     await invokeAction(ActionNames.ciMachinesSetScripts, {
       'machine': machine,
       'blocked': [for (final script in blocked) script.name],

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'build_machines_priority.dart';
+part of 'builders_priority.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,7 +14,7 @@ part of 'build_machines_priority.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$BuildMachinesPriority {
+mixin _$BuildersPriority {
 
 /// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
  List<String> get order;/// Builders that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
@@ -22,41 +22,41 @@ mixin _$BuildMachinesPriority {
 /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
 /// a job no builder takes runs there.
  Map<String, List<CiScript>> get blockedScripts;
-/// Create a copy of BuildMachinesPriority
+/// Create a copy of BuildersPriority
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$BuildMachinesPriorityCopyWith<BuildMachinesPriority> get copyWith => _$BuildMachinesPriorityCopyWithImpl<BuildMachinesPriority>(this as BuildMachinesPriority, _$identity);
+$BuildersPriorityCopyWith<BuildersPriority> get copyWith => _$BuildersPriorityCopyWithImpl<BuildersPriority>(this as BuildersPriority, _$identity);
 
-  /// Serializes this BuildMachinesPriority to a JSON map.
+  /// Serializes this BuildersPriority to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  final _this = this as BuildMachinesPriority;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _this.order)&&const DeepCollectionEquality().equals(other.paused, _this.paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _this.blockedScripts));
+  final _this = this as BuildersPriority;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BuildersPriority&&const DeepCollectionEquality().equals(other.order, _this.order)&&const DeepCollectionEquality().equals(other.paused, _this.paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _this.blockedScripts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-  final _this = this as BuildMachinesPriority;
+  final _this = this as BuildersPriority;
   return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.order),const DeepCollectionEquality().hash(_this.paused),const DeepCollectionEquality().hash(_this.blockedScripts));
 }
 
 @override
 String toString() {
-  final _this = this as BuildMachinesPriority;
-  return 'BuildMachinesPriority(order: ${_this.order}, paused: ${_this.paused}, blockedScripts: ${_this.blockedScripts})';
+  final _this = this as BuildersPriority;
+  return 'BuildersPriority(order: ${_this.order}, paused: ${_this.paused}, blockedScripts: ${_this.blockedScripts})';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $BuildMachinesPriorityCopyWith<$Res>  {
-  factory $BuildMachinesPriorityCopyWith(BuildMachinesPriority value, $Res Function(BuildMachinesPriority) _then) = _$BuildMachinesPriorityCopyWithImpl;
+abstract mixin class $BuildersPriorityCopyWith<$Res>  {
+  factory $BuildersPriorityCopyWith(BuildersPriority value, $Res Function(BuildersPriority) _then) = _$BuildersPriorityCopyWithImpl;
 @useResult
 $Res call({
  List<String> order, List<String> paused, Map<String, List<CiScript>> blockedScripts
@@ -67,17 +67,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$BuildMachinesPriorityCopyWithImpl<$Res>
-    implements $BuildMachinesPriorityCopyWith<$Res> {
-  _$BuildMachinesPriorityCopyWithImpl(this._self, this._then);
+class _$BuildersPriorityCopyWithImpl<$Res>
+    implements $BuildersPriorityCopyWith<$Res> {
+  _$BuildersPriorityCopyWithImpl(this._self, this._then);
 
-  final BuildMachinesPriority _self;
-  final $Res Function(BuildMachinesPriority) _then;
+  final BuildersPriority _self;
+  final $Res Function(BuildersPriority) _then;
 
-/// Create a copy of BuildMachinesPriority
+/// Create a copy of BuildersPriority
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? order = null,Object? paused = null,Object? blockedScripts = null,}) {
-  return _then(BuildMachinesPriority(
+  return _then(BuildersPriority(
 order: null == order ? _self.order : order // ignore: cast_nullable_to_non_nullable
 as List<String>,paused: null == paused ? _self.paused : paused // ignore: cast_nullable_to_non_nullable
 as List<String>,blockedScripts: null == blockedScripts ? _self.blockedScripts : blockedScripts // ignore: cast_nullable_to_non_nullable
@@ -88,8 +88,8 @@ as Map<String, List<CiScript>>,
 }
 
 
-/// Adds pattern-matching-related methods to [BuildMachinesPriority].
-extension BuildMachinesPriorityPatterns on BuildMachinesPriority {
+/// Adds pattern-matching-related methods to [BuildersPriority].
+extension BuildersPriorityPatterns on BuildersPriority {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -102,10 +102,10 @@ extension BuildMachinesPriorityPatterns on BuildMachinesPriority {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BuildMachinesPriority value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BuildersPriority value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _BuildMachinesPriority() when $default != null:
+case _BuildersPriority() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -124,10 +124,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BuildMachinesPriority value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BuildersPriority value)  $default,){
 final _that = this;
 switch (_that) {
-case _BuildMachinesPriority():
+case _BuildersPriority():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -145,10 +145,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BuildMachinesPriority value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BuildersPriority value)?  $default,){
 final _that = this;
 switch (_that) {
-case _BuildMachinesPriority() when $default != null:
+case _BuildersPriority() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -168,7 +168,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _BuildMachinesPriority() when $default != null:
+case _BuildersPriority() when $default != null:
 return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   return orElse();
 
@@ -189,7 +189,7 @@ return $default(_that.order,_that.paused,_that.blockedScripts);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)  $default,) {final _that = this;
 switch (_that) {
-case _BuildMachinesPriority():
+case _BuildersPriority():
 return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   throw StateError('Unexpected subclass');
 
@@ -209,7 +209,7 @@ return $default(_that.order,_that.paused,_that.blockedScripts);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> order,  List<String> paused,  Map<String, List<CiScript>> blockedScripts)?  $default,) {final _that = this;
 switch (_that) {
-case _BuildMachinesPriority() when $default != null:
+case _BuildersPriority() when $default != null:
 return $default(_that.order,_that.paused,_that.blockedScripts);case _:
   return null;
 
@@ -221,9 +221,9 @@ return $default(_that.order,_that.paused,_that.blockedScripts);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _BuildMachinesPriority extends BuildMachinesPriority {
-  const _BuildMachinesPriority({required  List<String> order,  List<String> paused = const [],  Map<String, List<CiScript>> blockedScripts = const {}}): _order = order,_paused = paused,_blockedScripts = blockedScripts,super._();
-  factory _BuildMachinesPriority.fromJson(Map<String, dynamic> json) => _$BuildMachinesPriorityFromJson(json);
+class _BuildersPriority extends BuildersPriority {
+  const _BuildersPriority({required  List<String> order,  List<String> paused = const [],  Map<String, List<CiScript>> blockedScripts = const {}}): _order = order,_paused = paused,_blockedScripts = blockedScripts,super._();
+  factory _BuildersPriority.fromJson(Map<String, dynamic> json) => _$BuildersPriorityFromJson(json);
 
 /// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
  final  List<String> _order;
@@ -257,20 +257,20 @@ class _BuildMachinesPriority extends BuildMachinesPriority {
 }
 
 
-/// Create a copy of BuildMachinesPriority
+/// Create a copy of BuildersPriority
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$BuildMachinesPriorityCopyWith<_BuildMachinesPriority> get copyWith => __$BuildMachinesPriorityCopyWithImpl<_BuildMachinesPriority>(this, _$identity);
+_$BuildersPriorityCopyWith<_BuildersPriority> get copyWith => __$BuildersPriorityCopyWithImpl<_BuildersPriority>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$BuildMachinesPriorityToJson(this, );
+  return _$BuildersPriorityToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildMachinesPriority&&const DeepCollectionEquality().equals(other.order, _order)&&const DeepCollectionEquality().equals(other.paused, _paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _blockedScripts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BuildersPriority&&const DeepCollectionEquality().equals(other.order, _order)&&const DeepCollectionEquality().equals(other.paused, _paused)&&const DeepCollectionEquality().equals(other.blockedScripts, _blockedScripts));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -281,15 +281,15 @@ int get hashCode {
 
 @override
 String toString() {
-    return 'BuildMachinesPriority(order: $order, paused: $paused, blockedScripts: $blockedScripts)';
+    return 'BuildersPriority(order: $order, paused: $paused, blockedScripts: $blockedScripts)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$BuildMachinesPriorityCopyWith<$Res> implements $BuildMachinesPriorityCopyWith<$Res> {
-  factory _$BuildMachinesPriorityCopyWith(_BuildMachinesPriority value, $Res Function(_BuildMachinesPriority) _then) = __$BuildMachinesPriorityCopyWithImpl;
+abstract mixin class _$BuildersPriorityCopyWith<$Res> implements $BuildersPriorityCopyWith<$Res> {
+  factory _$BuildersPriorityCopyWith(_BuildersPriority value, $Res Function(_BuildersPriority) _then) = __$BuildersPriorityCopyWithImpl;
 @override @useResult
 $Res call({
  List<String> order, List<String> paused, Map<String, List<CiScript>> blockedScripts
@@ -300,17 +300,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$BuildMachinesPriorityCopyWithImpl<$Res>
-    implements _$BuildMachinesPriorityCopyWith<$Res> {
-  __$BuildMachinesPriorityCopyWithImpl(this._self, this._then);
+class __$BuildersPriorityCopyWithImpl<$Res>
+    implements _$BuildersPriorityCopyWith<$Res> {
+  __$BuildersPriorityCopyWithImpl(this._self, this._then);
 
-  final _BuildMachinesPriority _self;
-  final $Res Function(_BuildMachinesPriority) _then;
+  final _BuildersPriority _self;
+  final $Res Function(_BuildersPriority) _then;
 
-/// Create a copy of BuildMachinesPriority
+/// Create a copy of BuildersPriority
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? order = null,Object? paused = null,Object? blockedScripts = null,}) {
-  return _then(_BuildMachinesPriority(
+  return _then(_BuildersPriority(
 order: null == order ? _self._order : order // ignore: cast_nullable_to_non_nullable
 as List<String>,paused: null == paused ? _self._paused : paused // ignore: cast_nullable_to_non_nullable
 as List<String>,blockedScripts: null == blockedScripts ? _self._blockedScripts : blockedScripts // ignore: cast_nullable_to_non_nullable
