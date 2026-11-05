@@ -21,7 +21,7 @@ enum SettingKind {
   /// `true` or `false`.
   flag,
 
-  /// Build machines, `user@host:/absolute/path` each, optionally followed by
+  /// Builders, `user@host:/absolute/path` each, optionally followed by
   /// `#label,label`; stored comma-separated.
   builders,
 
@@ -131,7 +131,7 @@ enum ServerSetting {
     SettingKind.longText,
     description:
         'Who speaks the scheduled announcements and the daily report on the '
-        'build machine, in a few lines: their tone and what they may poke '
+        'bot machine, in a few lines: their tone and what they may poke '
         'fun at. Unset, a friendly office assistant',
   ),
   aiFixAuto(
@@ -187,7 +187,7 @@ enum ServerSetting {
     SettingKind.builders,
     envName: 'APP_REMOTE_BUILDERS',
     description:
-        'Build machines that take queued jobs over SSH; each must '
+        'Builders that take queued jobs over SSH; each must '
         "already be in this machine's known_hosts",
     needsRestart: true,
   );

@@ -25,7 +25,7 @@ mixin _$AppLimits {
  int get notificationsDays;/// Days a build's files stay on the bot machine before the nightly clean
 /// deletes them. The disk is small and every build adds hundreds of
 /// megabytes, so this is short; a full clean deletes them all whatever it
-/// says. Build machines keep nothing: a job's files are deleted there once
+/// says. Builders keep nothing: a job's files are deleted there once
 /// copied to the bot.
  int get artifactsDays;/// Days an API key may go unused before it is removed, so keys from people
 /// who left or browsers nobody opens again do not pile up. Whoever signs in
@@ -291,7 +291,7 @@ class _AppLimits extends AppLimits {
 /// Days a build's files stay on the bot machine before the nightly clean
 /// deletes them. The disk is small and every build adds hundreds of
 /// megabytes, so this is short; a full clean deletes them all whatever it
-/// says. Build machines keep nothing: a job's files are deleted there once
+/// says. Builders keep nothing: a job's files are deleted there once
 /// copied to the bot.
 @override@JsonKey() final  int artifactsDays;
 /// Days an API key may go unused before it is removed, so keys from people

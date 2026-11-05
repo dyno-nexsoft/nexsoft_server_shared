@@ -10,7 +10,7 @@ part 'scheduled_job_config.g.dart';
 /// removed (only disabled or re-timed); announcements are the ones an admin
 /// adds and deletes.
 enum JobKind {
-  /// Speaks an AI-worded message through the build machine's speakers.
+  /// Speaks an AI-worded message through the bot machine's speakers.
   @JsonValue('announcement')
   announcement,
 

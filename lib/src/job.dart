@@ -62,7 +62,7 @@ abstract class Job with _$Job {
     /// What the job left, kept with it: its folder goes after the admin's
     /// `artifacts_days`, its history should not. Set as it ends.
     ///
-    /// The machine that ran it: a build machine's host, or the server's.
+    /// The machine that ran it: a builder's host, or the server's.
     String? machine,
 
     /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and

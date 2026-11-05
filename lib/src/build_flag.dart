@@ -4,7 +4,7 @@
 /// twice, such as a define, theirs wins.
 ///
 /// They travel in the job's shell command, unquoted, so an entry keeps to characters no shell reads as anything else; and
-/// a flag that names a file on the build machine, or what `build.sh` decides itself, is refused: a build that could be
+/// a flag that names a file on the builder, or what `build.sh` decides itself, is refused: a build that could be
 /// told to read `--dart-define-from-file=<any path>` would put that file's lines into an app anyone can download.
 abstract final class BuildFlag {
   /// How many a build takes: enough for the switches a build is tried with, few enough to read in its command.
@@ -14,7 +14,7 @@ abstract final class BuildFlag {
     r'^--?[A-Za-z][A-Za-z0-9-]*(=[A-Za-z0-9_.:/@+,=-]*)?$',
   );
 
-  /// Flags `build.sh` decides, or that take a path on the build machine. Compared without the leading dashes and the
+  /// Flags `build.sh` decides, or that take a path on the builder. Compared without the leading dashes and the
   /// value, in lower case.
   static const refused = {
     'dart-define-from-file',
@@ -50,7 +50,7 @@ abstract final class BuildFlag {
         .toLowerCase();
     if (refused.contains(name)) {
       return '`--$name` is not allowed here: the build sets it itself, or it '
-          'names a file on the build machine';
+          'names a file on the builder';
     }
     return null;
   }

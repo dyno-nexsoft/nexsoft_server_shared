@@ -29,7 +29,7 @@ mixin _$Job {
  int? get runNumber; DiscordMessageRef? get discord; String? get cancelledBy;/// What the job left, kept with it: its folder goes after the admin's
 /// `artifacts_days`, its history should not. Set as it ends.
 ///
-/// The machine that ran it: a build machine's host, or the server's.
+/// The machine that ran it: a builder's host, or the server's.
  String? get machine;/// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
 /// commit of each module), read with `parseJobSummary`.
  String? get summary;/// Why it failed, in a line: the step it was in and the last error line of
@@ -395,7 +395,7 @@ class _Job extends Job {
 /// What the job left, kept with it: its folder goes after the admin's
 /// `artifacts_days`, its history should not. Set as it ends.
 ///
-/// The machine that ran it: a build machine's host, or the server's.
+/// The machine that ran it: a builder's host, or the server's.
 @override final  String? machine;
 /// `build.sh`'s `summary.txt` as the job ended (versions, the branch and
 /// commit of each module), read with `parseJobSummary`.

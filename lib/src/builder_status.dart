@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'builder_status.freezed.dart';
 part 'builder_status.g.dart';
 
-/// One secondary build machine the queue hands `build.sh` jobs to over SSH, as `GET /status` reports it: whether it
+/// One secondary builder the queue hands `build.sh` jobs to over SSH, as `GET /status` reports it: whether it
 /// answers, and what it is running.
 @freezed
 abstract class BuilderStatus with _$BuilderStatus {

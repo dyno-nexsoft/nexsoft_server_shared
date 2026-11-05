@@ -44,7 +44,7 @@ abstract class AppLimits with _$AppLimits {
     /// Days a build's files stay on the bot machine before the nightly clean
     /// deletes them. The disk is small and every build adds hundreds of
     /// megabytes, so this is short; a full clean deletes them all whatever it
-    /// says. Build machines keep nothing: a job's files are deleted there once
+    /// says. Builders keep nothing: a job's files are deleted there once
     /// copied to the bot.
     @Default(1) int artifactsDays,
 

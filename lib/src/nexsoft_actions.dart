@@ -245,7 +245,7 @@ extension NexsoftActions on ActionTransport {
     await invokeAction(ActionNames.ciMachinesSet, priority.toJson()),
   );
 
-  /// Keeps the build machine [machine] from the scripts in [blocked] (none: it takes every one it may).
+  /// Keeps the builder [machine] from the scripts in [blocked] (none: it takes every one it may).
   Future<BuildMachinesPriority> machinesSetScripts(
     String machine,
     List<CiScript> blocked,

@@ -5,7 +5,7 @@ import 'ci_script.dart';
 part 'build_machines_priority.freezed.dart';
 part 'build_machines_priority.g.dart';
 
-/// The order the queue offers work to the machines that build, and which build machines an admin has paused
+/// The order the queue offers work to the machines that build, and which builders an admin has paused
 /// (`ci.machines.get` and `ci.machines.set`).
 ///
 /// A queued job goes to the first machine in [order] that is idle and may run it, so the admin decides which machines
@@ -13,15 +13,15 @@ part 'build_machines_priority.g.dart';
 @freezed
 abstract class BuildMachinesPriority with _$BuildMachinesPriority {
   const factory BuildMachinesPriority({
-    /// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
+    /// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
     required List<String> order,
 
-    /// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
+    /// Builders that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
     @Default([]) List<String> paused,
 
-    /// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+    /// The scripts each builder does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
     /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
-    /// a job no build machine takes runs there.
+    /// a job no builder takes runs there.
     @Default({}) Map<String, List<CiScript>> blockedScripts,
   }) = _BuildMachinesPriority;
 
@@ -30,7 +30,7 @@ abstract class BuildMachinesPriority with _$BuildMachinesPriority {
   factory BuildMachinesPriority.fromJson(Map<String, dynamic> json) =>
       _$BuildMachinesPriorityFromJson(json);
 
-  /// Whether the build machine [name] takes [script]: not paused, and not kept from it.
+  /// Whether the builder [name] takes [script]: not paused, and not kept from it.
   bool takes(String name, CiScript script) =>
       !paused.contains(name) &&
       !(blockedScripts[name]?.contains(script) ?? false);

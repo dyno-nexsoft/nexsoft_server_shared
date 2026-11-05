@@ -35,7 +35,7 @@ abstract class SystemStatus with _$SystemStatus {
     // currently running — see ActiveMutation's own doc comment for why this
     // exists alongside running/queued rather than being folded into them.
     @Default([]) List<ActiveMutation> activeMutations,
-    // The secondary build machines and what they are doing; empty when the bot builds on this machine alone.
+    // The secondary builders and what they are doing; empty when the bot builds on this machine alone.
     @Default([]) List<BuilderStatus> builders,
   }) = _SystemStatus;
 

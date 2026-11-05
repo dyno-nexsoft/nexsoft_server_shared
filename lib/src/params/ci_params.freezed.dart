@@ -26,7 +26,7 @@ mixin _$CiBuildParams {
 /// Distribution.
 @JsonKey(toJson: _onlyWhenTrue) bool get skipFirebaseDistribution;/// Extra flags for `flutter build`, one word each, after everything the build passes itself (`BuildFlag`): a
 /// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
-@JsonKey(toJson: _nonEmpty) List<String> get flutterArgs;/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+@JsonKey(toJson: _nonEmpty) List<String> get flutterArgs;/// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
  String? get runsOn;/// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
@@ -281,7 +281,7 @@ class _CiBuildParams implements CiBuildParams {
   return EqualUnmodifiableListView(_flutterArgs);
 }
 
-/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+/// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
 @override final  String? runsOn;
@@ -932,7 +932,7 @@ mixin _$CiReplaceParams {
 
 /// URL of the SDK archive.
  String get url;/// Branch or commit hash of the `tbchat` repo.
- String get tbchat;/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+ String get tbchat;/// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
  String? get runsOn;/// Stops the job after this many minutes, as a failure. Unset, or more than the admin's `build_timeout_minutes`,
@@ -1149,7 +1149,7 @@ class _CiReplaceParams implements CiReplaceParams {
 @override final  String url;
 /// Branch or commit hash of the `tbchat` repo.
 @override final  String tbchat;
-/// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+/// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
 /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
 /// command: it decides where the job runs, not what it builds.
 @override final  String? runsOn;

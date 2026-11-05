@@ -1,7 +1,7 @@
 /// The scripts in the server's `assets/` that a job runs, and what each allows: where it may run and what may run
 /// beside it.
 ///
-/// One place for these rules, read from a job's command, so the queue, Run now and the build machines cannot disagree
+/// One place for these rules, read from a job's command, so the queue, Run now and the builders cannot disagree
 /// about a script, and a new script is one more value here rather than a string match in each of them.
 enum CiScript {
   /// Builds the app. With `--now` it clones a workspace of its own, so it may always run beside anything; it is the
@@ -28,7 +28,7 @@ enum CiScript {
   ),
 
   /// Generates proto code into `tbchat_socialfi`, from a `proto` checkout of its own (`proto_gen`): it shares nothing
-  /// with the reposts, so it waits only for another gen. Not [runsOnBuilder] by itself: a build machine runs it only
+  /// with the reposts, so it waits only for another gen. Not [runsOnBuilder] by itself: a builder runs it only
   /// once the server has a key that may read the proto repository to give it.
   gen(
     'gen.sh',
@@ -42,7 +42,7 @@ enum CiScript {
   ),
 
   /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch. An idle
-  /// build machine with the site tools may fetch it (`--fetch`: the downloads, nothing of an account); the post half
+  /// builder with the site tools may fetch it (`--fetch`: the downloads, nothing of an account); the post half
   /// (`--post`) always runs on the bot machine, where the accounts are. Otherwise all of it runs there, beside the builds.
   reposts(
     'reposts.sh',
@@ -93,7 +93,7 @@ enum CiScript {
   /// The script's file in `assets/`, or null for [other].
   final String? fileName;
 
-  /// Whether a build machine may run it: only the scripts that work in a `tbchat` of their own. The others act on this
+  /// Whether a builder may run it: only the scripts that work in a `tbchat` of their own. The others act on this
   /// machine's shared checkouts and accounts, and [clean] cleans whichever machine runs it.
   final bool runsOnBuilder;
 
@@ -106,7 +106,7 @@ enum CiScript {
   /// Whether it starts in the server's parallel lane by itself, beside whatever its serial lane runs, instead of
   /// waiting its turn there: a short job only this machine runs, touching nothing of a build's workspace (an upload
   /// reads finished files; the reposts and interactions use checkouts and accounts of their own; a reposts may fetch on an
-  /// idle build machine first). Its [group] still
+  /// idle builder first). Its [group] still
   /// holds, and it is not sent `--now`: it is not promoted, it simply never queued behind a build.
   final bool runsBeside;
 
@@ -116,12 +116,12 @@ enum CiScript {
   /// a merge request's assignee into its Discord message. Names only: this package is public.
   final Set<String> projectVariables;
 
-  /// The scripts a build machine may be given, in the order the dashboard lists them: what an admin may keep off one
+  /// The scripts a builder may be given, in the order the dashboard lists them: what an admin may keep off one
   /// machine (`BuildMachinesPriority.blockedScripts`). [gen] needs the GitLab SSH key as well, and a [clean] goes to a
-  /// build machine only when named for it.
+  /// builder only when named for it.
   static const onBuilders = [build, replace, gen, clean, reposts];
 
-  /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a build machine: the
+  /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a builder: the
   /// others only print to the log, and a clean even removes the folder it would be read from.
   bool get leavesOutput => this == build || this == replace;
 

@@ -47,7 +47,7 @@ abstract class CiBuildParams with _$CiBuildParams {
     /// `--dart-define=KEY=VALUE` among them wins over the `.env.<environment>` file's own value.
     @JsonKey(toJson: _nonEmpty) @Default(<String>[]) List<String> flutterArgs,
 
-    /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+    /// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
     /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
     /// command: it decides where the job runs, not what it builds.
     String? runsOn,
@@ -106,7 +106,7 @@ abstract class CiReplaceParams with _$CiReplaceParams {
     /// Branch or commit hash of the `tbchat` repo.
     required String tbchat,
 
-    /// The label of the machine that must run it (`local` for the bot's own machine, a build machine's host or short
+    /// The label of the machine that must run it (`local` for the bot's own machine, a builder's host or short
     /// name, or a label its `APP_REMOTE_BUILDERS` entry gives it); unset lets any machine take it. Not part of the
     /// command: it decides where the job runs, not what it builds.
     String? runsOn,

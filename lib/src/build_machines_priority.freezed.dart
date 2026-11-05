@@ -16,11 +16,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BuildMachinesPriority {
 
-/// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
- List<String> get order;/// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
- List<String> get paused;/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
+ List<String> get order;/// Builders that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
+ List<String> get paused;/// The scripts each builder does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
 /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
-/// a job no build machine takes runs there.
+/// a job no builder takes runs there.
  Map<String, List<CiScript>> get blockedScripts;
 /// Create a copy of BuildMachinesPriority
 /// with the given fields replaced by the non-null parameter values.
@@ -225,31 +225,31 @@ class _BuildMachinesPriority extends BuildMachinesPriority {
   const _BuildMachinesPriority({required  List<String> order,  List<String> paused = const [],  Map<String, List<CiScript>> blockedScripts = const {}}): _order = order,_paused = paused,_blockedScripts = blockedScripts,super._();
   factory _BuildMachinesPriority.fromJson(Map<String, dynamic> json) => _$BuildMachinesPriorityFromJson(json);
 
-/// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
+/// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
  final  List<String> _order;
-/// Every machine, the first offered work first: a build machine by its host, the bot's own as [local].
+/// Every machine, the first offered work first: a builder by its host, the bot's own as [local].
 @override List<String> get order {
   if (_order is EqualUnmodifiableListView) return _order;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_order);
 }
 
-/// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
+/// Builders that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
  final  List<String> _paused;
-/// Build machines that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
+/// Builders that take no job for now, by host. Never [local]: it alone runs reposts and interaction.
 @override@JsonKey() List<String> get paused {
   if (_paused is EqualUnmodifiableListView) return _paused;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_paused);
 }
 
-/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// The scripts each builder does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
 /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
-/// a job no build machine takes runs there.
+/// a job no builder takes runs there.
  final  Map<String, List<CiScript>> _blockedScripts;
-/// The scripts each build machine does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
+/// The scripts each builder does not take, by host (`ci.machines.setScripts`): a machine that cannot reach a
 /// site, or one kept for builds. One not named takes every script it may ([CiScript.onBuilders]). Never [local]:
-/// a job no build machine takes runs there.
+/// a job no builder takes runs there.
 @override@JsonKey() Map<String, List<CiScript>> get blockedScripts {
   if (_blockedScripts is EqualUnmodifiableMapView) return _blockedScripts;
   // ignore: implicit_dynamic_type
