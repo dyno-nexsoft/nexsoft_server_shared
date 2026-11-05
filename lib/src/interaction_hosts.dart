@@ -30,7 +30,7 @@ class InteractionHosts {
 
   /// The environment called [name], or null.
   static EnvironmentBuild? environmentNamed(String name) {
-    for (final value in EnvironmentBuild.repostable) {
+    for (final value in EnvironmentBuild.values) {
       if (value.name == name) return value;
     }
     return null;
@@ -54,7 +54,7 @@ class InteractionHosts {
     for (final entry in hosts.entries) ...[
       if (keyOf(entry.key) == null) '`${entry.key}` is not a host.',
       if (environmentNamed(entry.value) == null)
-        '`${entry.value}` is not an environment (one of: ${EnvironmentBuild.repostable.map((e) => e.name).join(', ')}).',
+        '`${entry.value}` is not an environment (one of: ${EnvironmentBuild.values.map((e) => e.name).join(', ')}).',
     ],
   ];
 }

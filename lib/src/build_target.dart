@@ -5,12 +5,10 @@ import 'package:json_annotation/json_annotation.dart';
 /// builders, and the REST layer.
 enum EnvironmentBuild {
   dev,
-  test,
-  prod;
+  test;
 
-  /// The environments the reposts and interactions run on: the throwaway ones. No production account is made or used by
-  /// this project, so `prod` is not offered for them.
-  static const repostable = [dev, test];
+  // There is no production environment: this project builds, reposts and
+  // interacts for dev and test only (CLAUDE.md).
 
   // Which branches pair with an environment, and which Firebase apps it
   // builds for, are the admin's (`EnvironmentSettings`), not code.

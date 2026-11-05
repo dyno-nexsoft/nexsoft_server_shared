@@ -60,7 +60,6 @@ Map<String, dynamic> _$CiBuildParamsToJson(_CiBuildParams instance) =>
 const _$EnvironmentBuildEnumMap = {
   EnvironmentBuild.dev: 'dev',
   EnvironmentBuild.test: 'test',
-  EnvironmentBuild.prod: 'prod',
 };
 
 _CiGenParams _$CiGenParamsFromJson(Map<String, dynamic> json) => _CiGenParams(

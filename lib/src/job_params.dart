@@ -16,7 +16,7 @@ class JobParams {
     return value == null || value.isEmpty ? const {} : value.split(',').toSet();
   }
 
-  /// The environment a build or a repost ran for (`dev`, `test`, `prod`).
+  /// The environment a build or a repost ran for (`dev`, `test`).
   String? get environment => _text('environment');
 
   /// The `tbchat` branch of a build.
