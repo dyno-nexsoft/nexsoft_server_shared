@@ -41,7 +41,9 @@ enum CiScript {
     },
   ),
 
-  /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch.
+  /// Reposts videos with the kept accounts, switching the shared `proto` checkout to its environment's branch. An idle
+  /// build machine with the site tools may fetch it (`--fetch`: the downloads, nothing of an account); the post half
+  /// (`--post`) always runs on the bot machine, where the accounts are. Otherwise all of it runs there, beside the builds.
   reposts(
     'reposts.sh',
     group: CiScriptGroup.protoAndAccounts,
@@ -103,7 +105,8 @@ enum CiScript {
 
   /// Whether it starts in the server's parallel lane by itself, beside whatever its serial lane runs, instead of
   /// waiting its turn there: a short job only this machine runs, touching nothing of a build's workspace (an upload
-  /// reads finished files; the reposts and interactions use checkouts and accounts of their own). Its [group] still
+  /// reads finished files; the reposts and interactions use checkouts and accounts of their own; a reposts may fetch on an
+  /// idle build machine first). Its [group] still
   /// holds, and it is not sent `--now`: it is not promoted, it simply never queued behind a build.
   final bool runsBeside;
 
