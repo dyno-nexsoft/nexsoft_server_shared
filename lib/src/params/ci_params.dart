@@ -200,6 +200,12 @@ enum PostInteractionType {
 
   /// Comments on the post with a text (`CreateComment`), as the app's comment box does.
   comment,
+
+  /// Follows the post's author (`UserHandler.Follow`, which toggles), unless the account follows them already.
+  follow,
+
+  /// All of the above from each account: it views, likes, comments, follows the author and shares, on one login.
+  full,
 }
 
 /// `ci.interaction` — likes, shares, views or comments on one SocialFi post as the accounts kept for an environment.

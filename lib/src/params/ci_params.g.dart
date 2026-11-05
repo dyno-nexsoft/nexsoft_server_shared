@@ -160,4 +160,6 @@ const _$PostInteractionTypeEnumMap = {
   PostInteractionType.share: 'share',
   PostInteractionType.view: 'view',
   PostInteractionType.comment: 'comment',
+  PostInteractionType.follow: 'follow',
+  PostInteractionType.full: 'full',
 };
