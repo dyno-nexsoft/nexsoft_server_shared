@@ -49,7 +49,11 @@ mixin _$AppLimits {
  int get aiMaxConcurrentRequests;/// Links one `ci.reposts` job may be given, each reposted in turn.
  int get repostsMaxLinks;/// Most recent videos a `ci.reposts` job may take from one profile.
  int get repostsMaxVideos;/// Accounts one `ci.interaction` job may act with.
- int get interactionMaxAccounts;
+ int get interactionMaxAccounts;/// `ai.fix` runs in 24 hours, by hand and by the error monitor together.
+ int get aiFixMaxPerDay;/// Of those, the ones the error monitor starts by itself.
+ int get aiFixAutoPerDay;/// Dollars one Claude run of `ai.fix` may spend before it ends.
+ int get aiFixBudgetUsd;/// Minutes one Claude run of `ai.fix` may take before it ends.
+ int get aiFixMinutes;
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -63,20 +67,20 @@ $AppLimitsCopyWith<AppLimits> get copyWith => _$AppLimitsCopyWithImpl<AppLimits>
 @override
 bool operator ==(Object other) {
   final _this = this as AppLimits;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, _this.jobsDays) || other.jobsDays == _this.jobsDays)&&(identical(other.auditDays, _this.auditDays) || other.auditDays == _this.auditDays)&&(identical(other.reviewsDays, _this.reviewsDays) || other.reviewsDays == _this.reviewsDays)&&(identical(other.translatesDays, _this.translatesDays) || other.translatesDays == _this.translatesDays)&&(identical(other.notificationsDays, _this.notificationsDays) || other.notificationsDays == _this.notificationsDays)&&(identical(other.artifactsDays, _this.artifactsDays) || other.artifactsDays == _this.artifactsDays)&&(identical(other.apiKeyIdleDays, _this.apiKeyIdleDays) || other.apiKeyIdleDays == _this.apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, _this.buildTimeoutMinutes) || other.buildTimeoutMinutes == _this.buildTimeoutMinutes)&&(identical(other.reportSweepDays, _this.reportSweepDays) || other.reportSweepDays == _this.reportSweepDays)&&(identical(other.reviewMaxIssues, _this.reviewMaxIssues) || other.reviewMaxIssues == _this.reviewMaxIssues)&&(identical(other.reviewBatchKchars, _this.reviewBatchKchars) || other.reviewBatchKchars == _this.reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, _this.aiAttemptsPerModel) || other.aiAttemptsPerModel == _this.aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, _this.aiKeyRestMinutes) || other.aiKeyRestMinutes == _this.aiKeyRestMinutes)&&(identical(other.aiBusyKeys, _this.aiBusyKeys) || other.aiBusyKeys == _this.aiBusyKeys)&&(identical(other.aiBatchRetries, _this.aiBatchRetries) || other.aiBatchRetries == _this.aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, _this.aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == _this.aiMaxConcurrentRequests)&&(identical(other.repostsMaxLinks, _this.repostsMaxLinks) || other.repostsMaxLinks == _this.repostsMaxLinks)&&(identical(other.repostsMaxVideos, _this.repostsMaxVideos) || other.repostsMaxVideos == _this.repostsMaxVideos)&&(identical(other.interactionMaxAccounts, _this.interactionMaxAccounts) || other.interactionMaxAccounts == _this.interactionMaxAccounts));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLimits&&(identical(other.jobsDays, _this.jobsDays) || other.jobsDays == _this.jobsDays)&&(identical(other.auditDays, _this.auditDays) || other.auditDays == _this.auditDays)&&(identical(other.reviewsDays, _this.reviewsDays) || other.reviewsDays == _this.reviewsDays)&&(identical(other.translatesDays, _this.translatesDays) || other.translatesDays == _this.translatesDays)&&(identical(other.notificationsDays, _this.notificationsDays) || other.notificationsDays == _this.notificationsDays)&&(identical(other.artifactsDays, _this.artifactsDays) || other.artifactsDays == _this.artifactsDays)&&(identical(other.apiKeyIdleDays, _this.apiKeyIdleDays) || other.apiKeyIdleDays == _this.apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, _this.buildTimeoutMinutes) || other.buildTimeoutMinutes == _this.buildTimeoutMinutes)&&(identical(other.reportSweepDays, _this.reportSweepDays) || other.reportSweepDays == _this.reportSweepDays)&&(identical(other.reviewMaxIssues, _this.reviewMaxIssues) || other.reviewMaxIssues == _this.reviewMaxIssues)&&(identical(other.reviewBatchKchars, _this.reviewBatchKchars) || other.reviewBatchKchars == _this.reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, _this.aiAttemptsPerModel) || other.aiAttemptsPerModel == _this.aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, _this.aiKeyRestMinutes) || other.aiKeyRestMinutes == _this.aiKeyRestMinutes)&&(identical(other.aiBusyKeys, _this.aiBusyKeys) || other.aiBusyKeys == _this.aiBusyKeys)&&(identical(other.aiBatchRetries, _this.aiBatchRetries) || other.aiBatchRetries == _this.aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, _this.aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == _this.aiMaxConcurrentRequests)&&(identical(other.repostsMaxLinks, _this.repostsMaxLinks) || other.repostsMaxLinks == _this.repostsMaxLinks)&&(identical(other.repostsMaxVideos, _this.repostsMaxVideos) || other.repostsMaxVideos == _this.repostsMaxVideos)&&(identical(other.interactionMaxAccounts, _this.interactionMaxAccounts) || other.interactionMaxAccounts == _this.interactionMaxAccounts)&&(identical(other.aiFixMaxPerDay, _this.aiFixMaxPerDay) || other.aiFixMaxPerDay == _this.aiFixMaxPerDay)&&(identical(other.aiFixAutoPerDay, _this.aiFixAutoPerDay) || other.aiFixAutoPerDay == _this.aiFixAutoPerDay)&&(identical(other.aiFixBudgetUsd, _this.aiFixBudgetUsd) || other.aiFixBudgetUsd == _this.aiFixBudgetUsd)&&(identical(other.aiFixMinutes, _this.aiFixMinutes) || other.aiFixMinutes == _this.aiFixMinutes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AppLimits;
-  return Object.hashAll([runtimeType,_this.jobsDays,_this.auditDays,_this.reviewsDays,_this.translatesDays,_this.notificationsDays,_this.artifactsDays,_this.apiKeyIdleDays,_this.buildTimeoutMinutes,_this.reportSweepDays,_this.reviewMaxIssues,_this.reviewBatchKchars,_this.aiAttemptsPerModel,_this.aiKeyRestMinutes,_this.aiBusyKeys,_this.aiBatchRetries,_this.aiMaxConcurrentRequests,_this.repostsMaxLinks,_this.repostsMaxVideos,_this.interactionMaxAccounts]);
+  return Object.hashAll([runtimeType,_this.jobsDays,_this.auditDays,_this.reviewsDays,_this.translatesDays,_this.notificationsDays,_this.artifactsDays,_this.apiKeyIdleDays,_this.buildTimeoutMinutes,_this.reportSweepDays,_this.reviewMaxIssues,_this.reviewBatchKchars,_this.aiAttemptsPerModel,_this.aiKeyRestMinutes,_this.aiBusyKeys,_this.aiBatchRetries,_this.aiMaxConcurrentRequests,_this.repostsMaxLinks,_this.repostsMaxVideos,_this.interactionMaxAccounts,_this.aiFixMaxPerDay,_this.aiFixAutoPerDay,_this.aiFixBudgetUsd,_this.aiFixMinutes]);
 }
 
 @override
 String toString() {
   final _this = this as AppLimits;
-  return 'AppLimits(jobsDays: ${_this.jobsDays}, auditDays: ${_this.auditDays}, reviewsDays: ${_this.reviewsDays}, translatesDays: ${_this.translatesDays}, notificationsDays: ${_this.notificationsDays}, artifactsDays: ${_this.artifactsDays}, apiKeyIdleDays: ${_this.apiKeyIdleDays}, buildTimeoutMinutes: ${_this.buildTimeoutMinutes}, reportSweepDays: ${_this.reportSweepDays}, reviewMaxIssues: ${_this.reviewMaxIssues}, reviewBatchKchars: ${_this.reviewBatchKchars}, aiAttemptsPerModel: ${_this.aiAttemptsPerModel}, aiKeyRestMinutes: ${_this.aiKeyRestMinutes}, aiBusyKeys: ${_this.aiBusyKeys}, aiBatchRetries: ${_this.aiBatchRetries}, aiMaxConcurrentRequests: ${_this.aiMaxConcurrentRequests}, repostsMaxLinks: ${_this.repostsMaxLinks}, repostsMaxVideos: ${_this.repostsMaxVideos}, interactionMaxAccounts: ${_this.interactionMaxAccounts})';
+  return 'AppLimits(jobsDays: ${_this.jobsDays}, auditDays: ${_this.auditDays}, reviewsDays: ${_this.reviewsDays}, translatesDays: ${_this.translatesDays}, notificationsDays: ${_this.notificationsDays}, artifactsDays: ${_this.artifactsDays}, apiKeyIdleDays: ${_this.apiKeyIdleDays}, buildTimeoutMinutes: ${_this.buildTimeoutMinutes}, reportSweepDays: ${_this.reportSweepDays}, reviewMaxIssues: ${_this.reviewMaxIssues}, reviewBatchKchars: ${_this.reviewBatchKchars}, aiAttemptsPerModel: ${_this.aiAttemptsPerModel}, aiKeyRestMinutes: ${_this.aiKeyRestMinutes}, aiBusyKeys: ${_this.aiBusyKeys}, aiBatchRetries: ${_this.aiBatchRetries}, aiMaxConcurrentRequests: ${_this.aiMaxConcurrentRequests}, repostsMaxLinks: ${_this.repostsMaxLinks}, repostsMaxVideos: ${_this.repostsMaxVideos}, interactionMaxAccounts: ${_this.interactionMaxAccounts}, aiFixMaxPerDay: ${_this.aiFixMaxPerDay}, aiFixAutoPerDay: ${_this.aiFixAutoPerDay}, aiFixBudgetUsd: ${_this.aiFixBudgetUsd}, aiFixMinutes: ${_this.aiFixMinutes})';
 }
 
 
@@ -87,7 +91,7 @@ abstract mixin class $AppLimitsCopyWith<$Res>  {
   factory $AppLimitsCopyWith(AppLimits value, $Res Function(AppLimits) _then) = _$AppLimitsCopyWithImpl;
 @useResult
 $Res call({
- int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests, int repostsMaxLinks, int repostsMaxVideos, int interactionMaxAccounts
+ int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests, int repostsMaxLinks, int repostsMaxVideos, int interactionMaxAccounts, int aiFixMaxPerDay, int aiFixAutoPerDay, int aiFixBudgetUsd, int aiFixMinutes
 });
 
 
@@ -104,7 +108,7 @@ class _$AppLimitsCopyWithImpl<$Res>
 
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,Object? repostsMaxLinks = null,Object? repostsMaxVideos = null,Object? interactionMaxAccounts = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,Object? repostsMaxLinks = null,Object? repostsMaxVideos = null,Object? interactionMaxAccounts = null,Object? aiFixMaxPerDay = null,Object? aiFixAutoPerDay = null,Object? aiFixBudgetUsd = null,Object? aiFixMinutes = null,}) {
   return _then(AppLimits(
 jobsDays: null == jobsDays ? _self.jobsDays : jobsDays // ignore: cast_nullable_to_non_nullable
 as int,auditDays: null == auditDays ? _self.auditDays : auditDays // ignore: cast_nullable_to_non_nullable
@@ -125,6 +129,10 @@ as int,aiMaxConcurrentRequests: null == aiMaxConcurrentRequests ? _self.aiMaxCon
 as int,repostsMaxLinks: null == repostsMaxLinks ? _self.repostsMaxLinks : repostsMaxLinks // ignore: cast_nullable_to_non_nullable
 as int,repostsMaxVideos: null == repostsMaxVideos ? _self.repostsMaxVideos : repostsMaxVideos // ignore: cast_nullable_to_non_nullable
 as int,interactionMaxAccounts: null == interactionMaxAccounts ? _self.interactionMaxAccounts : interactionMaxAccounts // ignore: cast_nullable_to_non_nullable
+as int,aiFixMaxPerDay: null == aiFixMaxPerDay ? _self.aiFixMaxPerDay : aiFixMaxPerDay // ignore: cast_nullable_to_non_nullable
+as int,aiFixAutoPerDay: null == aiFixAutoPerDay ? _self.aiFixAutoPerDay : aiFixAutoPerDay // ignore: cast_nullable_to_non_nullable
+as int,aiFixBudgetUsd: null == aiFixBudgetUsd ? _self.aiFixBudgetUsd : aiFixBudgetUsd // ignore: cast_nullable_to_non_nullable
+as int,aiFixMinutes: null == aiFixMinutes ? _self.aiFixMinutes : aiFixMinutes // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -210,10 +218,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts,  int aiFixMaxPerDay,  int aiFixAutoPerDay,  int aiFixBudgetUsd,  int aiFixMinutes)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AppLimits() when $default != null:
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts,_that.aiFixMaxPerDay,_that.aiFixAutoPerDay,_that.aiFixBudgetUsd,_that.aiFixMinutes);case _:
   return orElse();
 
 }
@@ -231,10 +239,10 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts,  int aiFixMaxPerDay,  int aiFixAutoPerDay,  int aiFixBudgetUsd,  int aiFixMinutes)  $default,) {final _that = this;
 switch (_that) {
 case _AppLimits():
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts,_that.aiFixMaxPerDay,_that.aiFixAutoPerDay,_that.aiFixBudgetUsd,_that.aiFixMinutes);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -251,10 +259,10 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int jobsDays,  int auditDays,  int reviewsDays,  int translatesDays,  int notificationsDays,  int artifactsDays,  int apiKeyIdleDays,  int buildTimeoutMinutes,  int reportSweepDays,  int reviewMaxIssues,  int reviewBatchKchars,  int aiAttemptsPerModel,  int aiKeyRestMinutes,  int aiBusyKeys,  int aiBatchRetries,  int aiMaxConcurrentRequests,  int repostsMaxLinks,  int repostsMaxVideos,  int interactionMaxAccounts,  int aiFixMaxPerDay,  int aiFixAutoPerDay,  int aiFixBudgetUsd,  int aiFixMinutes)?  $default,) {final _that = this;
 switch (_that) {
 case _AppLimits() when $default != null:
-return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts);case _:
+return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translatesDays,_that.notificationsDays,_that.artifactsDays,_that.apiKeyIdleDays,_that.buildTimeoutMinutes,_that.reportSweepDays,_that.reviewMaxIssues,_that.reviewBatchKchars,_that.aiAttemptsPerModel,_that.aiKeyRestMinutes,_that.aiBusyKeys,_that.aiBatchRetries,_that.aiMaxConcurrentRequests,_that.repostsMaxLinks,_that.repostsMaxVideos,_that.interactionMaxAccounts,_that.aiFixMaxPerDay,_that.aiFixAutoPerDay,_that.aiFixBudgetUsd,_that.aiFixMinutes);case _:
   return null;
 
 }
@@ -266,7 +274,7 @@ return $default(_that.jobsDays,_that.auditDays,_that.reviewsDays,_that.translate
 @JsonSerializable()
 
 class _AppLimits extends AppLimits {
-  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.reviewBatchKchars = 300, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2, this.repostsMaxLinks = 10, this.repostsMaxVideos = 20, this.interactionMaxAccounts = 1000}): super._();
+  const _AppLimits({this.jobsDays = 7, this.auditDays = 7, this.reviewsDays = 7, this.translatesDays = 7, this.notificationsDays = 7, this.artifactsDays = 1, this.apiKeyIdleDays = 30, this.buildTimeoutMinutes = 120, this.reportSweepDays = 7, this.reviewMaxIssues = 20, this.reviewBatchKchars = 300, this.aiAttemptsPerModel = 3, this.aiKeyRestMinutes = 10, this.aiBusyKeys = 2, this.aiBatchRetries = 2, this.aiMaxConcurrentRequests = 2, this.repostsMaxLinks = 10, this.repostsMaxVideos = 20, this.interactionMaxAccounts = 1000, this.aiFixMaxPerDay = 10, this.aiFixAutoPerDay = 3, this.aiFixBudgetUsd = 2, this.aiFixMinutes = 15}): super._();
   factory _AppLimits.fromJson(Map<String, dynamic> json) => _$AppLimitsFromJson(json);
 
 /// Days a job stays in history (the jobs list, its page, retries). Its
@@ -321,6 +329,14 @@ class _AppLimits extends AppLimits {
 @override@JsonKey() final  int repostsMaxVideos;
 /// Accounts one `ci.interaction` job may act with.
 @override@JsonKey() final  int interactionMaxAccounts;
+/// `ai.fix` runs in 24 hours, by hand and by the error monitor together.
+@override@JsonKey() final  int aiFixMaxPerDay;
+/// Of those, the ones the error monitor starts by itself.
+@override@JsonKey() final  int aiFixAutoPerDay;
+/// Dollars one Claude run of `ai.fix` may spend before it ends.
+@override@JsonKey() final  int aiFixBudgetUsd;
+/// Minutes one Claude run of `ai.fix` may take before it ends.
+@override@JsonKey() final  int aiFixMinutes;
 
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
@@ -335,18 +351,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.reviewBatchKchars, reviewBatchKchars) || other.reviewBatchKchars == reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiBusyKeys, aiBusyKeys) || other.aiBusyKeys == aiBusyKeys)&&(identical(other.aiBatchRetries, aiBatchRetries) || other.aiBatchRetries == aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests)&&(identical(other.repostsMaxLinks, repostsMaxLinks) || other.repostsMaxLinks == repostsMaxLinks)&&(identical(other.repostsMaxVideos, repostsMaxVideos) || other.repostsMaxVideos == repostsMaxVideos)&&(identical(other.interactionMaxAccounts, interactionMaxAccounts) || other.interactionMaxAccounts == interactionMaxAccounts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AppLimits&&(identical(other.jobsDays, jobsDays) || other.jobsDays == jobsDays)&&(identical(other.auditDays, auditDays) || other.auditDays == auditDays)&&(identical(other.reviewsDays, reviewsDays) || other.reviewsDays == reviewsDays)&&(identical(other.translatesDays, translatesDays) || other.translatesDays == translatesDays)&&(identical(other.notificationsDays, notificationsDays) || other.notificationsDays == notificationsDays)&&(identical(other.artifactsDays, artifactsDays) || other.artifactsDays == artifactsDays)&&(identical(other.apiKeyIdleDays, apiKeyIdleDays) || other.apiKeyIdleDays == apiKeyIdleDays)&&(identical(other.buildTimeoutMinutes, buildTimeoutMinutes) || other.buildTimeoutMinutes == buildTimeoutMinutes)&&(identical(other.reportSweepDays, reportSweepDays) || other.reportSweepDays == reportSweepDays)&&(identical(other.reviewMaxIssues, reviewMaxIssues) || other.reviewMaxIssues == reviewMaxIssues)&&(identical(other.reviewBatchKchars, reviewBatchKchars) || other.reviewBatchKchars == reviewBatchKchars)&&(identical(other.aiAttemptsPerModel, aiAttemptsPerModel) || other.aiAttemptsPerModel == aiAttemptsPerModel)&&(identical(other.aiKeyRestMinutes, aiKeyRestMinutes) || other.aiKeyRestMinutes == aiKeyRestMinutes)&&(identical(other.aiBusyKeys, aiBusyKeys) || other.aiBusyKeys == aiBusyKeys)&&(identical(other.aiBatchRetries, aiBatchRetries) || other.aiBatchRetries == aiBatchRetries)&&(identical(other.aiMaxConcurrentRequests, aiMaxConcurrentRequests) || other.aiMaxConcurrentRequests == aiMaxConcurrentRequests)&&(identical(other.repostsMaxLinks, repostsMaxLinks) || other.repostsMaxLinks == repostsMaxLinks)&&(identical(other.repostsMaxVideos, repostsMaxVideos) || other.repostsMaxVideos == repostsMaxVideos)&&(identical(other.interactionMaxAccounts, interactionMaxAccounts) || other.interactionMaxAccounts == interactionMaxAccounts)&&(identical(other.aiFixMaxPerDay, aiFixMaxPerDay) || other.aiFixMaxPerDay == aiFixMaxPerDay)&&(identical(other.aiFixAutoPerDay, aiFixAutoPerDay) || other.aiFixAutoPerDay == aiFixAutoPerDay)&&(identical(other.aiFixBudgetUsd, aiFixBudgetUsd) || other.aiFixBudgetUsd == aiFixBudgetUsd)&&(identical(other.aiFixMinutes, aiFixMinutes) || other.aiFixMinutes == aiFixMinutes));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hashAll([runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,reviewBatchKchars,aiAttemptsPerModel,aiKeyRestMinutes,aiBusyKeys,aiBatchRetries,aiMaxConcurrentRequests,repostsMaxLinks,repostsMaxVideos,interactionMaxAccounts]);
+    return Object.hashAll([runtimeType,jobsDays,auditDays,reviewsDays,translatesDays,notificationsDays,artifactsDays,apiKeyIdleDays,buildTimeoutMinutes,reportSweepDays,reviewMaxIssues,reviewBatchKchars,aiAttemptsPerModel,aiKeyRestMinutes,aiBusyKeys,aiBatchRetries,aiMaxConcurrentRequests,repostsMaxLinks,repostsMaxVideos,interactionMaxAccounts,aiFixMaxPerDay,aiFixAutoPerDay,aiFixBudgetUsd,aiFixMinutes]);
 }
 
 @override
 String toString() {
-    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, reviewBatchKchars: $reviewBatchKchars, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiBusyKeys: $aiBusyKeys, aiBatchRetries: $aiBatchRetries, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, repostsMaxLinks: $repostsMaxLinks, repostsMaxVideos: $repostsMaxVideos, interactionMaxAccounts: $interactionMaxAccounts)';
+    return 'AppLimits(jobsDays: $jobsDays, auditDays: $auditDays, reviewsDays: $reviewsDays, translatesDays: $translatesDays, notificationsDays: $notificationsDays, artifactsDays: $artifactsDays, apiKeyIdleDays: $apiKeyIdleDays, buildTimeoutMinutes: $buildTimeoutMinutes, reportSweepDays: $reportSweepDays, reviewMaxIssues: $reviewMaxIssues, reviewBatchKchars: $reviewBatchKchars, aiAttemptsPerModel: $aiAttemptsPerModel, aiKeyRestMinutes: $aiKeyRestMinutes, aiBusyKeys: $aiBusyKeys, aiBatchRetries: $aiBatchRetries, aiMaxConcurrentRequests: $aiMaxConcurrentRequests, repostsMaxLinks: $repostsMaxLinks, repostsMaxVideos: $repostsMaxVideos, interactionMaxAccounts: $interactionMaxAccounts, aiFixMaxPerDay: $aiFixMaxPerDay, aiFixAutoPerDay: $aiFixAutoPerDay, aiFixBudgetUsd: $aiFixBudgetUsd, aiFixMinutes: $aiFixMinutes)';
 }
 
 
@@ -357,7 +373,7 @@ abstract mixin class _$AppLimitsCopyWith<$Res> implements $AppLimitsCopyWith<$Re
   factory _$AppLimitsCopyWith(_AppLimits value, $Res Function(_AppLimits) _then) = __$AppLimitsCopyWithImpl;
 @override @useResult
 $Res call({
- int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests, int repostsMaxLinks, int repostsMaxVideos, int interactionMaxAccounts
+ int jobsDays, int auditDays, int reviewsDays, int translatesDays, int notificationsDays, int artifactsDays, int apiKeyIdleDays, int buildTimeoutMinutes, int reportSweepDays, int reviewMaxIssues, int reviewBatchKchars, int aiAttemptsPerModel, int aiKeyRestMinutes, int aiBusyKeys, int aiBatchRetries, int aiMaxConcurrentRequests, int repostsMaxLinks, int repostsMaxVideos, int interactionMaxAccounts, int aiFixMaxPerDay, int aiFixAutoPerDay, int aiFixBudgetUsd, int aiFixMinutes
 });
 
 
@@ -374,7 +390,7 @@ class __$AppLimitsCopyWithImpl<$Res>
 
 /// Create a copy of AppLimits
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,Object? repostsMaxLinks = null,Object? repostsMaxVideos = null,Object? interactionMaxAccounts = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? jobsDays = null,Object? auditDays = null,Object? reviewsDays = null,Object? translatesDays = null,Object? notificationsDays = null,Object? artifactsDays = null,Object? apiKeyIdleDays = null,Object? buildTimeoutMinutes = null,Object? reportSweepDays = null,Object? reviewMaxIssues = null,Object? reviewBatchKchars = null,Object? aiAttemptsPerModel = null,Object? aiKeyRestMinutes = null,Object? aiBusyKeys = null,Object? aiBatchRetries = null,Object? aiMaxConcurrentRequests = null,Object? repostsMaxLinks = null,Object? repostsMaxVideos = null,Object? interactionMaxAccounts = null,Object? aiFixMaxPerDay = null,Object? aiFixAutoPerDay = null,Object? aiFixBudgetUsd = null,Object? aiFixMinutes = null,}) {
   return _then(_AppLimits(
 jobsDays: null == jobsDays ? _self.jobsDays : jobsDays // ignore: cast_nullable_to_non_nullable
 as int,auditDays: null == auditDays ? _self.auditDays : auditDays // ignore: cast_nullable_to_non_nullable
@@ -395,6 +411,10 @@ as int,aiMaxConcurrentRequests: null == aiMaxConcurrentRequests ? _self.aiMaxCon
 as int,repostsMaxLinks: null == repostsMaxLinks ? _self.repostsMaxLinks : repostsMaxLinks // ignore: cast_nullable_to_non_nullable
 as int,repostsMaxVideos: null == repostsMaxVideos ? _self.repostsMaxVideos : repostsMaxVideos // ignore: cast_nullable_to_non_nullable
 as int,interactionMaxAccounts: null == interactionMaxAccounts ? _self.interactionMaxAccounts : interactionMaxAccounts // ignore: cast_nullable_to_non_nullable
+as int,aiFixMaxPerDay: null == aiFixMaxPerDay ? _self.aiFixMaxPerDay : aiFixMaxPerDay // ignore: cast_nullable_to_non_nullable
+as int,aiFixAutoPerDay: null == aiFixAutoPerDay ? _self.aiFixAutoPerDay : aiFixAutoPerDay // ignore: cast_nullable_to_non_nullable
+as int,aiFixBudgetUsd: null == aiFixBudgetUsd ? _self.aiFixBudgetUsd : aiFixBudgetUsd // ignore: cast_nullable_to_non_nullable
+as int,aiFixMinutes: null == aiFixMinutes ? _self.aiFixMinutes : aiFixMinutes // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }

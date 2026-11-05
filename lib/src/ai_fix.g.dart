@@ -9,10 +9,15 @@ part of 'ai_fix.dart';
 _AiFixParams _$AiFixParamsFromJson(Map<String, dynamic> json) => _AiFixParams(
   jobId: json['job_id'] as String?,
   errorId: json['error_id'] as String?,
+  note: json['note'] as String?,
 );
 
 Map<String, dynamic> _$AiFixParamsToJson(_AiFixParams instance) =>
-    <String, dynamic>{'job_id': ?instance.jobId, 'error_id': ?instance.errorId};
+    <String, dynamic>{
+      'job_id': ?instance.jobId,
+      'error_id': ?instance.errorId,
+      'note': ?instance.note,
+    };
 
 _AiFixReport _$AiFixReportFromJson(Map<String, dynamic> json) => _AiFixReport(
   failedJobId: json['failed_job_id'] as String,
@@ -61,6 +66,7 @@ const _$FailureCategoryEnumMap = {
   FailureCategory.appBug: 'app_bug',
   FailureCategory.serverBug: 'server_bug',
   FailureCategory.unknown: 'unknown',
+  FailureCategory.answer: 'answer',
 };
 
 const _$AiFixOutcomeEnumMap = {

@@ -29,17 +29,25 @@ enum FailureCategory {
 
   /// Not sure: reported, nothing done.
   @JsonValue('unknown')
-  unknown;
+  unknown,
+
+  /// An admin's question about a job that did not fail (or any job, with a
+  /// note) answered: nothing is changed unless the note asked for a fix and
+  /// the diagnosis found a bug; then it is [serverBug].
+  @JsonValue('answer')
+  answer;
 
   /// Whether this bot changes code for it.
   bool get isFixable => this == serverBug;
 }
 
-/// `ai.fix`'s params: a failed job to diagnose, or an error the server
-/// logged (`ServerErrorMonitor`), exactly one.
+/// `ai.fix`'s params: a job to diagnose, or an error the server logged
+/// (`ServerErrorMonitor`), exactly one. A [note] is what an admin tells Claude
+/// about it (a question, what looked wrong); a job that did not fail needs one.
 @freezed
 abstract class AiFixParams with _$AiFixParams {
-  const factory AiFixParams({String? jobId, String? errorId}) = _AiFixParams;
+  const factory AiFixParams({String? jobId, String? errorId, String? note}) =
+      _AiFixParams;
 
   factory AiFixParams.fromJson(Map<String, dynamic> json) =>
       _$AiFixParamsFromJson(json);

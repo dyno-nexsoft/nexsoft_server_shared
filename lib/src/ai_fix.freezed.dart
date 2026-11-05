@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AiFixParams {
 
- String? get jobId; String? get errorId;
+ String? get jobId; String? get errorId; String? get note;
 /// Create a copy of AiFixParams
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $AiFixParamsCopyWith<AiFixParams> get copyWith => _$AiFixParamsCopyWithImpl<AiFi
 @override
 bool operator ==(Object other) {
   final _this = this as AiFixParams;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiFixParams&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId)&&(identical(other.errorId, _this.errorId) || other.errorId == _this.errorId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiFixParams&&(identical(other.jobId, _this.jobId) || other.jobId == _this.jobId)&&(identical(other.errorId, _this.errorId) || other.errorId == _this.errorId)&&(identical(other.note, _this.note) || other.note == _this.note));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiFixParams;
-  return Object.hash(runtimeType,_this.jobId,_this.errorId);
+  return Object.hash(runtimeType,_this.jobId,_this.errorId,_this.note);
 }
 
 @override
 String toString() {
   final _this = this as AiFixParams;
-  return 'AiFixParams(jobId: ${_this.jobId}, errorId: ${_this.errorId})';
+  return 'AiFixParams(jobId: ${_this.jobId}, errorId: ${_this.errorId}, note: ${_this.note})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $AiFixParamsCopyWith<$Res>  {
   factory $AiFixParamsCopyWith(AiFixParams value, $Res Function(AiFixParams) _then) = _$AiFixParamsCopyWithImpl;
 @useResult
 $Res call({
- String? jobId, String? errorId
+ String? jobId, String? errorId, String? note
 });
 
 
@@ -71,10 +71,11 @@ class _$AiFixParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiFixParams
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? jobId = freezed,Object? errorId = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? jobId = freezed,Object? errorId = freezed,Object? note = freezed,}) {
   return _then(AiFixParams(
 jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String?,errorId: freezed == errorId ? _self.errorId : errorId // ignore: cast_nullable_to_non_nullable
+as String?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -160,10 +161,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? jobId,  String? errorId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? jobId,  String? errorId,  String? note)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiFixParams() when $default != null:
-return $default(_that.jobId,_that.errorId);case _:
+return $default(_that.jobId,_that.errorId,_that.note);case _:
   return orElse();
 
 }
@@ -181,10 +182,10 @@ return $default(_that.jobId,_that.errorId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? jobId,  String? errorId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? jobId,  String? errorId,  String? note)  $default,) {final _that = this;
 switch (_that) {
 case _AiFixParams():
-return $default(_that.jobId,_that.errorId);case _:
+return $default(_that.jobId,_that.errorId,_that.note);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +202,10 @@ return $default(_that.jobId,_that.errorId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? jobId,  String? errorId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? jobId,  String? errorId,  String? note)?  $default,) {final _that = this;
 switch (_that) {
 case _AiFixParams() when $default != null:
-return $default(_that.jobId,_that.errorId);case _:
+return $default(_that.jobId,_that.errorId,_that.note);case _:
   return null;
 
 }
@@ -216,11 +217,12 @@ return $default(_that.jobId,_that.errorId);case _:
 @JsonSerializable()
 
 class _AiFixParams implements AiFixParams {
-  const _AiFixParams({this.jobId, this.errorId});
+  const _AiFixParams({this.jobId, this.errorId, this.note});
   factory _AiFixParams.fromJson(Map<String, dynamic> json) => _$AiFixParamsFromJson(json);
 
 @override final  String? jobId;
 @override final  String? errorId;
+@override final  String? note;
 
 /// Create a copy of AiFixParams
 /// with the given fields replaced by the non-null parameter values.
@@ -235,18 +237,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiFixParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.errorId, errorId) || other.errorId == errorId));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiFixParams&&(identical(other.jobId, jobId) || other.jobId == jobId)&&(identical(other.errorId, errorId) || other.errorId == errorId)&&(identical(other.note, note) || other.note == note));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,jobId,errorId);
+    return Object.hash(runtimeType,jobId,errorId,note);
 }
 
 @override
 String toString() {
-    return 'AiFixParams(jobId: $jobId, errorId: $errorId)';
+    return 'AiFixParams(jobId: $jobId, errorId: $errorId, note: $note)';
 }
 
 
@@ -257,7 +259,7 @@ abstract mixin class _$AiFixParamsCopyWith<$Res> implements $AiFixParamsCopyWith
   factory _$AiFixParamsCopyWith(_AiFixParams value, $Res Function(_AiFixParams) _then) = __$AiFixParamsCopyWithImpl;
 @override @useResult
 $Res call({
- String? jobId, String? errorId
+ String? jobId, String? errorId, String? note
 });
 
 
@@ -274,10 +276,11 @@ class __$AiFixParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiFixParams
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? jobId = freezed,Object? errorId = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? jobId = freezed,Object? errorId = freezed,Object? note = freezed,}) {
   return _then(_AiFixParams(
 jobId: freezed == jobId ? _self.jobId : jobId // ignore: cast_nullable_to_non_nullable
 as String?,errorId: freezed == errorId ? _self.errorId : errorId // ignore: cast_nullable_to_non_nullable
+as String?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
