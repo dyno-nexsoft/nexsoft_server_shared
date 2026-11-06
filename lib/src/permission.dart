@@ -11,6 +11,18 @@ enum Permission {
   invokeDangerous,
   admin;
 
+  /// Every permission: what `admin` stands for. A key, or a principal, that
+  /// has `admin` carries all of them, so the one scope an action needs is
+  /// the only one it ever checks.
+  ///
+  /// Spelled out, not [values], to stay a constant (`Principal.system` is
+  /// one); a test keeps it equal to [values].
+  static const Set<Permission> all = {read, invoke, invokeDangerous, admin};
+
+  /// [permissions], and with `admin` in them, all of them (see [all]).
+  static Set<Permission> normalized(Set<Permission> permissions) =>
+      permissions.contains(admin) ? all : permissions;
+
   /// The wire value — snake_case, unlike the enum's own Dart-convention
   /// camelCase name. Serializing via bare `.name` (as the server did before
   /// this package existed) put a literal `invokeDangerous` on the wire, a

@@ -65,8 +65,9 @@ abstract class ApiKeyInfo with _$ApiKeyInfo {
 
   bool get isAdmin => scopes.contains(Permission.admin.name);
 
-  bool can(Permission permission) =>
-      isAdmin || scopes.contains(permission.name);
+  /// An admin key carries every scope (see [Permission.all]), so one check
+  /// is enough.
+  bool can(Permission permission) => scopes.contains(permission.name);
 }
 
 String? _discordUserIdFromJson(Object? value) => value?.toString();
