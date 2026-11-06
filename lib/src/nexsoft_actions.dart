@@ -23,6 +23,7 @@ import 'params/gitlab_params.dart';
 import 'params/notification_params.dart';
 import 'params/system_params.dart';
 import 'params/zentao_params.dart';
+import 'remote_desktop_check.dart';
 import 'repost_account.dart';
 import 'schedule_info.dart';
 import 'secret_info.dart';
@@ -163,6 +164,13 @@ extension NexsoftActions on ActionTransport {
   Future<AiProviderInfo> aiProviderSet(AiProviderSetParams params) async =>
       AiProviderInfo.fromJson(
         await invokeAction(ActionNames.adminAiProviderSet, params.toJson()),
+      );
+
+  // system.remoteDesktop.check — whether the remote desktop answers.
+
+  Future<RemoteDesktopCheck> systemRemoteDesktopCheck() async =>
+      RemoteDesktopCheck.fromJson(
+        await invokeAction(ActionNames.systemRemoteDesktopCheck, const {}),
       );
 
   // limits.* — the knobs an admin can turn without a deploy.

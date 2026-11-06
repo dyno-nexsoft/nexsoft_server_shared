@@ -74,6 +74,7 @@ abstract final class ActionNames {
   static const systemDbClean = 'system.db.clean';
   static const systemDbList = 'system.db.list';
   static const systemHotReload = 'system.hotReload';
+  static const systemRemoteDesktopCheck = 'system.remoteDesktop.check';
   static const systemRestart = 'system.restart';
   static const systemShutdown = 'system.shutdown';
   static const systemStatus = 'system.status';
@@ -158,6 +159,7 @@ abstract final class ActionNames {
     systemDbClean,
     systemDbList,
     systemHotReload,
+    systemRemoteDesktopCheck,
     systemRestart,
     systemShutdown,
     systemStatus,

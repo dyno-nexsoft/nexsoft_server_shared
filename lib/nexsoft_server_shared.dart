@@ -63,6 +63,7 @@ export 'src/params/notification_params.dart';
 export 'src/params/system_params.dart';
 export 'src/params/zentao_params.dart';
 export 'src/permission.dart';
+export 'src/remote_desktop_check.dart';
 export 'src/repost_account.dart';
 export 'src/repost_site.dart';
 export 'src/review_issue.dart';
