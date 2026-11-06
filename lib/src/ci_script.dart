@@ -121,9 +121,10 @@ enum CiScript {
   /// builder only when named for it.
   static const onBuilders = [build, replace, gen, clean, reposts];
 
-  /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a builder: the
+  /// Whether a run of it leaves a folder of output (`build/<key>/`) worth copying back from a builder: the apps of a
+  /// build, and the merge request a replace or a gen opened (`merge_request.txt`, which the job page links). The
   /// others only print to the log, and a clean even removes the folder it would be read from.
-  bool get leavesOutput => this == build || this == replace;
+  bool get leavesOutput => this == build || this == replace || this == gen;
 
   /// The script [command] runs.
   static CiScript of(String command) => values.firstWhere(
