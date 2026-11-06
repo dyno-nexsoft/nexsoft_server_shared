@@ -14,6 +14,282 @@ part of 'owner_info.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+mixin _$DiscordUserList {
+
+ List<OwnerInfo> get users;
+/// Create a copy of DiscordUserList
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DiscordUserListCopyWith<DiscordUserList> get copyWith => _$DiscordUserListCopyWithImpl<DiscordUserList>(this as DiscordUserList, _$identity);
+
+  /// Serializes this DiscordUserList to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as DiscordUserList;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiscordUserList&&const DeepCollectionEquality().equals(other.users, _this.users));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as DiscordUserList;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.users));
+}
+
+@override
+String toString() {
+  final _this = this as DiscordUserList;
+  return 'DiscordUserList(users: ${_this.users})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DiscordUserListCopyWith<$Res>  {
+  factory $DiscordUserListCopyWith(DiscordUserList value, $Res Function(DiscordUserList) _then) = _$DiscordUserListCopyWithImpl;
+@useResult
+$Res call({
+ List<OwnerInfo> users
+});
+
+
+
+
+}
+/// @nodoc
+class _$DiscordUserListCopyWithImpl<$Res>
+    implements $DiscordUserListCopyWith<$Res> {
+  _$DiscordUserListCopyWithImpl(this._self, this._then);
+
+  final DiscordUserList _self;
+  final $Res Function(DiscordUserList) _then;
+
+/// Create a copy of DiscordUserList
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? users = null,}) {
+  return _then(DiscordUserList(
+users: null == users ? _self.users : users // ignore: cast_nullable_to_non_nullable
+as List<OwnerInfo>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DiscordUserList].
+extension DiscordUserListPatterns on DiscordUserList {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DiscordUserList value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DiscordUserList() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DiscordUserList value)  $default,){
+final _that = this;
+switch (_that) {
+case _DiscordUserList():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DiscordUserList value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DiscordUserList() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<OwnerInfo> users)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DiscordUserList() when $default != null:
+return $default(_that.users);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<OwnerInfo> users)  $default,) {final _that = this;
+switch (_that) {
+case _DiscordUserList():
+return $default(_that.users);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<OwnerInfo> users)?  $default,) {final _that = this;
+switch (_that) {
+case _DiscordUserList() when $default != null:
+return $default(_that.users);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DiscordUserList implements DiscordUserList {
+  const _DiscordUserList({ List<OwnerInfo> users = const []}): _users = users;
+  factory _DiscordUserList.fromJson(Map<String, dynamic> json) => _$DiscordUserListFromJson(json);
+
+ final  List<OwnerInfo> _users;
+@override@JsonKey() List<OwnerInfo> get users {
+  if (_users is EqualUnmodifiableListView) return _users;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_users);
+}
+
+
+/// Create a copy of DiscordUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DiscordUserListCopyWith<_DiscordUserList> get copyWith => __$DiscordUserListCopyWithImpl<_DiscordUserList>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DiscordUserListToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiscordUserList&&const DeepCollectionEquality().equals(other.users, _users));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_users));
+}
+
+@override
+String toString() {
+    return 'DiscordUserList(users: $users)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DiscordUserListCopyWith<$Res> implements $DiscordUserListCopyWith<$Res> {
+  factory _$DiscordUserListCopyWith(_DiscordUserList value, $Res Function(_DiscordUserList) _then) = __$DiscordUserListCopyWithImpl;
+@override @useResult
+$Res call({
+ List<OwnerInfo> users
+});
+
+
+
+
+}
+/// @nodoc
+class __$DiscordUserListCopyWithImpl<$Res>
+    implements _$DiscordUserListCopyWith<$Res> {
+  __$DiscordUserListCopyWithImpl(this._self, this._then);
+
+  final _DiscordUserList _self;
+  final $Res Function(_DiscordUserList) _then;
+
+/// Create a copy of DiscordUserList
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? users = null,}) {
+  return _then(_DiscordUserList(
+users: null == users ? _self._users : users // ignore: cast_nullable_to_non_nullable
+as List<OwnerInfo>,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$OwnerInfo {
 
  String get id; DiscordUserInfo? get discord;

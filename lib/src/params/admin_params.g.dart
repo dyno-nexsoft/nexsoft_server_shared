@@ -40,6 +40,14 @@ _OwnerParams _$OwnerParamsFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$OwnerParamsToJson(_OwnerParams instance) =>
     <String, dynamic>{'user_id': instance.userId};
 
+_DiscordUserSearchParams _$DiscordUserSearchParamsFromJson(
+  Map<String, dynamic> json,
+) => _DiscordUserSearchParams(query: json['query'] as String);
+
+Map<String, dynamic> _$DiscordUserSearchParamsToJson(
+  _DiscordUserSearchParams instance,
+) => <String, dynamic>{'query': instance.query};
+
 _LogsTailParams _$LogsTailParamsFromJson(Map<String, dynamic> json) =>
     _LogsTailParams(
       lines: (json['lines'] as num?)?.toInt(),

@@ -1117,6 +1117,278 @@ as String,
 
 
 /// @nodoc
+mixin _$DiscordUserSearchParams {
+
+/// The start of a username or nickname, or a whole Discord user id.
+ String get query;
+/// Create a copy of DiscordUserSearchParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DiscordUserSearchParamsCopyWith<DiscordUserSearchParams> get copyWith => _$DiscordUserSearchParamsCopyWithImpl<DiscordUserSearchParams>(this as DiscordUserSearchParams, _$identity);
+
+  /// Serializes this DiscordUserSearchParams to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  final _this = this as DiscordUserSearchParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DiscordUserSearchParams&&(identical(other.query, _this.query) || other.query == _this.query));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as DiscordUserSearchParams;
+  return Object.hash(runtimeType,_this.query);
+}
+
+@override
+String toString() {
+  final _this = this as DiscordUserSearchParams;
+  return 'DiscordUserSearchParams(query: ${_this.query})';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DiscordUserSearchParamsCopyWith<$Res>  {
+  factory $DiscordUserSearchParamsCopyWith(DiscordUserSearchParams value, $Res Function(DiscordUserSearchParams) _then) = _$DiscordUserSearchParamsCopyWithImpl;
+@useResult
+$Res call({
+ String query
+});
+
+
+
+
+}
+/// @nodoc
+class _$DiscordUserSearchParamsCopyWithImpl<$Res>
+    implements $DiscordUserSearchParamsCopyWith<$Res> {
+  _$DiscordUserSearchParamsCopyWithImpl(this._self, this._then);
+
+  final DiscordUserSearchParams _self;
+  final $Res Function(DiscordUserSearchParams) _then;
+
+/// Create a copy of DiscordUserSearchParams
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? query = null,}) {
+  return _then(DiscordUserSearchParams(
+query: null == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [DiscordUserSearchParams].
+extension DiscordUserSearchParamsPatterns on DiscordUserSearchParams {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _DiscordUserSearchParams value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _DiscordUserSearchParams value)  $default,){
+final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _DiscordUserSearchParams value)?  $default,){
+final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String query)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams() when $default != null:
+return $default(_that.query);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String query)  $default,) {final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams():
+return $default(_that.query);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String query)?  $default,) {final _that = this;
+switch (_that) {
+case _DiscordUserSearchParams() when $default != null:
+return $default(_that.query);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _DiscordUserSearchParams implements DiscordUserSearchParams {
+  const _DiscordUserSearchParams({required this.query});
+  factory _DiscordUserSearchParams.fromJson(Map<String, dynamic> json) => _$DiscordUserSearchParamsFromJson(json);
+
+/// The start of a username or nickname, or a whole Discord user id.
+@override final  String query;
+
+/// Create a copy of DiscordUserSearchParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DiscordUserSearchParamsCopyWith<_DiscordUserSearchParams> get copyWith => __$DiscordUserSearchParamsCopyWithImpl<_DiscordUserSearchParams>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$DiscordUserSearchParamsToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DiscordUserSearchParams&&(identical(other.query, query) || other.query == query));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,query);
+}
+
+@override
+String toString() {
+    return 'DiscordUserSearchParams(query: $query)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DiscordUserSearchParamsCopyWith<$Res> implements $DiscordUserSearchParamsCopyWith<$Res> {
+  factory _$DiscordUserSearchParamsCopyWith(_DiscordUserSearchParams value, $Res Function(_DiscordUserSearchParams) _then) = __$DiscordUserSearchParamsCopyWithImpl;
+@override @useResult
+$Res call({
+ String query
+});
+
+
+
+
+}
+/// @nodoc
+class __$DiscordUserSearchParamsCopyWithImpl<$Res>
+    implements _$DiscordUserSearchParamsCopyWith<$Res> {
+  __$DiscordUserSearchParamsCopyWithImpl(this._self, this._then);
+
+  final _DiscordUserSearchParams _self;
+  final $Res Function(_DiscordUserSearchParams) _then;
+
+/// Create a copy of DiscordUserSearchParams
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? query = null,}) {
+  return _then(_DiscordUserSearchParams(
+query: null == query ? _self.query : query // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
 mixin _$LogsTailParams {
 
 /// How many lines — the server defaults to 200 and caps at 1000.

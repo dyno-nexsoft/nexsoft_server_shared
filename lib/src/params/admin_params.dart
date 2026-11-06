@@ -58,6 +58,18 @@ abstract class OwnerParams with _$OwnerParams {
       _$OwnerParamsFromJson(json);
 }
 
+/// `admin.discord.searchUsers`.
+@freezed
+abstract class DiscordUserSearchParams with _$DiscordUserSearchParams {
+  const factory DiscordUserSearchParams({
+    /// The start of a username or nickname, or a whole Discord user id.
+    required String query,
+  }) = _DiscordUserSearchParams;
+
+  factory DiscordUserSearchParams.fromJson(Map<String, dynamic> json) =>
+      _$DiscordUserSearchParamsFromJson(json);
+}
+
 /// `admin.logs.tail`.
 ///
 /// With neither [fromLine] nor [toLine] it reads the newest [lines]; with a

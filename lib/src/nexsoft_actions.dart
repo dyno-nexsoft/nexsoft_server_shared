@@ -16,6 +16,7 @@ import 'gitlab_history.dart';
 import 'interaction_hosts.dart';
 import 'job.dart';
 import 'job_stats.dart';
+import 'owner_info.dart';
 import 'params/admin_params.dart';
 import 'params/ci_params.dart';
 import 'params/gitlab_params.dart';
@@ -405,6 +406,14 @@ extension NexsoftActions on ActionTransport {
       ActionMessage.fromJson(
         await invokeAction(ActionNames.adminSecretsRemove, params.toJson()),
       );
+
+  // admin.discord.*
+
+  Future<DiscordUserList> discordUsersSearch(
+    DiscordUserSearchParams params,
+  ) async => DiscordUserList.fromJson(
+    await invokeAction(ActionNames.adminDiscordSearchUsers, params.toJson()),
+  );
 
   // admin.owners.*
 

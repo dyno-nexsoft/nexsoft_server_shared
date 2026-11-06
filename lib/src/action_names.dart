@@ -27,6 +27,7 @@ abstract final class ActionNames {
   static const adminApiKeysRemove = 'admin.apiKeys.remove';
   static const adminApiKeysSignOut = 'admin.apiKeys.signOut';
   static const adminAuditList = 'admin.audit.list';
+  static const adminDiscordSearchUsers = 'admin.discord.searchUsers';
   static const adminErrorsGet = 'admin.errors.get';
   static const adminErrorsList = 'admin.errors.list';
   static const adminLogsTail = 'admin.logs.tail';
@@ -101,6 +102,7 @@ abstract final class ActionNames {
     adminApiKeysRemove,
     adminApiKeysSignOut,
     adminAuditList,
+    adminDiscordSearchUsers,
     adminErrorsGet,
     adminErrorsList,
     adminLogsTail,
