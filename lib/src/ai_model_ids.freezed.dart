@@ -18,12 +18,13 @@ mixin _$AiModelIds {
 
  String get geminiFlash; String get geminiPro;/// Full Claude model ids, pinned so the policy names the exact model; the CLI
 /// aliases (`sonnet`, `opus`) work too.
- String get claudeFlash; String get claudePro;/// How hard the model thinks for each tier, whichever provider answers:
-/// one of [efforts], or empty for the model's own default. Claude takes it
-/// as `--effort`, Gemini 3 as `thinkingLevel` ([geminiEffortFor]).
-/// Admin-managed like the ids: a review wants more than a one-line
-/// announcement, and what is worth its time changes with the model.
- String get flashEffort; String get proEffort;
+ String get claudeFlash; String get claudePro;/// How hard each model thinks: one of [efforts] for Claude (`--effort`)
+/// and of [geminiEfforts] for Gemini 3 and later (`thinkingLevel`), or
+/// empty for the model's own default. One per model row, since the two
+/// providers do not share a scale. Admin-managed like the ids: a review
+/// wants more than a one-line announcement, and what is worth its time
+/// changes with the model.
+ String get claudeFlashEffort; String get claudeProEffort; String get geminiFlashEffort; String get geminiProEffort;
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,20 +38,20 @@ $AiModelIdsCopyWith<AiModelIds> get copyWith => _$AiModelIdsCopyWithImpl<AiModel
 @override
 bool operator ==(Object other) {
   final _this = this as AiModelIds;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiModelIds&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.claudeFlash, _this.claudeFlash) || other.claudeFlash == _this.claudeFlash)&&(identical(other.claudePro, _this.claudePro) || other.claudePro == _this.claudePro)&&(identical(other.flashEffort, _this.flashEffort) || other.flashEffort == _this.flashEffort)&&(identical(other.proEffort, _this.proEffort) || other.proEffort == _this.proEffort));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiModelIds&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.claudeFlash, _this.claudeFlash) || other.claudeFlash == _this.claudeFlash)&&(identical(other.claudePro, _this.claudePro) || other.claudePro == _this.claudePro)&&(identical(other.claudeFlashEffort, _this.claudeFlashEffort) || other.claudeFlashEffort == _this.claudeFlashEffort)&&(identical(other.claudeProEffort, _this.claudeProEffort) || other.claudeProEffort == _this.claudeProEffort)&&(identical(other.geminiFlashEffort, _this.geminiFlashEffort) || other.geminiFlashEffort == _this.geminiFlashEffort)&&(identical(other.geminiProEffort, _this.geminiProEffort) || other.geminiProEffort == _this.geminiProEffort));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiModelIds;
-  return Object.hash(runtimeType,_this.geminiFlash,_this.geminiPro,_this.claudeFlash,_this.claudePro,_this.flashEffort,_this.proEffort);
+  return Object.hash(runtimeType,_this.geminiFlash,_this.geminiPro,_this.claudeFlash,_this.claudePro,_this.claudeFlashEffort,_this.claudeProEffort,_this.geminiFlashEffort,_this.geminiProEffort);
 }
 
 @override
 String toString() {
   final _this = this as AiModelIds;
-  return 'AiModelIds(geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, claudeFlash: ${_this.claudeFlash}, claudePro: ${_this.claudePro}, flashEffort: ${_this.flashEffort}, proEffort: ${_this.proEffort})';
+  return 'AiModelIds(geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, claudeFlash: ${_this.claudeFlash}, claudePro: ${_this.claudePro}, claudeFlashEffort: ${_this.claudeFlashEffort}, claudeProEffort: ${_this.claudeProEffort}, geminiFlashEffort: ${_this.geminiFlashEffort}, geminiProEffort: ${_this.geminiProEffort})';
 }
 
 
@@ -61,7 +62,7 @@ abstract mixin class $AiModelIdsCopyWith<$Res>  {
   factory $AiModelIdsCopyWith(AiModelIds value, $Res Function(AiModelIds) _then) = _$AiModelIdsCopyWithImpl;
 @useResult
 $Res call({
- String geminiFlash, String geminiPro, String claudeFlash, String claudePro, String flashEffort, String proEffort
+ String geminiFlash, String geminiPro, String claudeFlash, String claudePro, String claudeFlashEffort, String claudeProEffort, String geminiFlashEffort, String geminiProEffort
 });
 
 
@@ -78,14 +79,16 @@ class _$AiModelIdsCopyWithImpl<$Res>
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? claudeFlash = null,Object? claudePro = null,Object? flashEffort = null,Object? proEffort = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? claudeFlash = null,Object? claudePro = null,Object? claudeFlashEffort = null,Object? claudeProEffort = null,Object? geminiFlashEffort = null,Object? geminiProEffort = null,}) {
   return _then(AiModelIds(
 geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
 as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String,claudeFlash: null == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
 as String,claudePro: null == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
-as String,flashEffort: null == flashEffort ? _self.flashEffort : flashEffort // ignore: cast_nullable_to_non_nullable
-as String,proEffort: null == proEffort ? _self.proEffort : proEffort // ignore: cast_nullable_to_non_nullable
+as String,claudeFlashEffort: null == claudeFlashEffort ? _self.claudeFlashEffort : claudeFlashEffort // ignore: cast_nullable_to_non_nullable
+as String,claudeProEffort: null == claudeProEffort ? _self.claudeProEffort : claudeProEffort // ignore: cast_nullable_to_non_nullable
+as String,geminiFlashEffort: null == geminiFlashEffort ? _self.geminiFlashEffort : geminiFlashEffort // ignore: cast_nullable_to_non_nullable
+as String,geminiProEffort: null == geminiProEffort ? _self.geminiProEffort : geminiProEffort // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -171,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String flashEffort,  String proEffort)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String claudeFlashEffort,  String claudeProEffort,  String geminiFlashEffort,  String geminiProEffort)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiModelIds() when $default != null:
-return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort,_that.geminiFlashEffort,_that.geminiProEffort);case _:
   return orElse();
 
 }
@@ -192,10 +195,10 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claude
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String flashEffort,  String proEffort)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String claudeFlashEffort,  String claudeProEffort,  String geminiFlashEffort,  String geminiProEffort)  $default,) {final _that = this;
 switch (_that) {
 case _AiModelIds():
-return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort,_that.geminiFlashEffort,_that.geminiProEffort);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -212,10 +215,10 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claude
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String flashEffort,  String proEffort)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String geminiFlash,  String geminiPro,  String claudeFlash,  String claudePro,  String claudeFlashEffort,  String claudeProEffort,  String geminiFlashEffort,  String geminiProEffort)?  $default,) {final _that = this;
 switch (_that) {
 case _AiModelIds() when $default != null:
-return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
+return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort,_that.geminiFlashEffort,_that.geminiProEffort);case _:
   return null;
 
 }
@@ -227,7 +230,7 @@ return $default(_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claude
 @JsonSerializable()
 
 class _AiModelIds extends AiModelIds {
-  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.claudeFlash = 'claude-sonnet-5-5', this.claudePro = 'claude-opus-5-5', this.flashEffort = '', this.proEffort = ''}): super._();
+  const _AiModelIds({this.geminiFlash = 'gemini-3.6-flash', this.geminiPro = 'gemini-3.1-pro', this.claudeFlash = 'claude-sonnet-5-5', this.claudePro = 'claude-opus-5-5', this.claudeFlashEffort = '', this.claudeProEffort = '', this.geminiFlashEffort = '', this.geminiProEffort = ''}): super._();
   factory _AiModelIds.fromJson(Map<String, dynamic> json) => _$AiModelIdsFromJson(json);
 
 @override@JsonKey() final  String geminiFlash;
@@ -236,13 +239,16 @@ class _AiModelIds extends AiModelIds {
 /// aliases (`sonnet`, `opus`) work too.
 @override@JsonKey() final  String claudeFlash;
 @override@JsonKey() final  String claudePro;
-/// How hard the model thinks for each tier, whichever provider answers:
-/// one of [efforts], or empty for the model's own default. Claude takes it
-/// as `--effort`, Gemini 3 as `thinkingLevel` ([geminiEffortFor]).
-/// Admin-managed like the ids: a review wants more than a one-line
-/// announcement, and what is worth its time changes with the model.
-@override@JsonKey() final  String flashEffort;
-@override@JsonKey() final  String proEffort;
+/// How hard each model thinks: one of [efforts] for Claude (`--effort`)
+/// and of [geminiEfforts] for Gemini 3 and later (`thinkingLevel`), or
+/// empty for the model's own default. One per model row, since the two
+/// providers do not share a scale. Admin-managed like the ids: a review
+/// wants more than a one-line announcement, and what is worth its time
+/// changes with the model.
+@override@JsonKey() final  String claudeFlashEffort;
+@override@JsonKey() final  String claudeProEffort;
+@override@JsonKey() final  String geminiFlashEffort;
+@override@JsonKey() final  String geminiProEffort;
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
@@ -257,18 +263,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.claudeFlash, claudeFlash) || other.claudeFlash == claudeFlash)&&(identical(other.claudePro, claudePro) || other.claudePro == claudePro)&&(identical(other.flashEffort, flashEffort) || other.flashEffort == flashEffort)&&(identical(other.proEffort, proEffort) || other.proEffort == proEffort));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiModelIds&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.claudeFlash, claudeFlash) || other.claudeFlash == claudeFlash)&&(identical(other.claudePro, claudePro) || other.claudePro == claudePro)&&(identical(other.claudeFlashEffort, claudeFlashEffort) || other.claudeFlashEffort == claudeFlashEffort)&&(identical(other.claudeProEffort, claudeProEffort) || other.claudeProEffort == claudeProEffort)&&(identical(other.geminiFlashEffort, geminiFlashEffort) || other.geminiFlashEffort == geminiFlashEffort)&&(identical(other.geminiProEffort, geminiProEffort) || other.geminiProEffort == geminiProEffort));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,geminiFlash,geminiPro,claudeFlash,claudePro,flashEffort,proEffort);
+    return Object.hash(runtimeType,geminiFlash,geminiPro,claudeFlash,claudePro,claudeFlashEffort,claudeProEffort,geminiFlashEffort,geminiProEffort);
 }
 
 @override
 String toString() {
-    return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, claudeFlash: $claudeFlash, claudePro: $claudePro, flashEffort: $flashEffort, proEffort: $proEffort)';
+    return 'AiModelIds(geminiFlash: $geminiFlash, geminiPro: $geminiPro, claudeFlash: $claudeFlash, claudePro: $claudePro, claudeFlashEffort: $claudeFlashEffort, claudeProEffort: $claudeProEffort, geminiFlashEffort: $geminiFlashEffort, geminiProEffort: $geminiProEffort)';
 }
 
 
@@ -279,7 +285,7 @@ abstract mixin class _$AiModelIdsCopyWith<$Res> implements $AiModelIdsCopyWith<$
   factory _$AiModelIdsCopyWith(_AiModelIds value, $Res Function(_AiModelIds) _then) = __$AiModelIdsCopyWithImpl;
 @override @useResult
 $Res call({
- String geminiFlash, String geminiPro, String claudeFlash, String claudePro, String flashEffort, String proEffort
+ String geminiFlash, String geminiPro, String claudeFlash, String claudePro, String claudeFlashEffort, String claudeProEffort, String geminiFlashEffort, String geminiProEffort
 });
 
 
@@ -296,14 +302,16 @@ class __$AiModelIdsCopyWithImpl<$Res>
 
 /// Create a copy of AiModelIds
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? claudeFlash = null,Object? claudePro = null,Object? flashEffort = null,Object? proEffort = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? geminiFlash = null,Object? geminiPro = null,Object? claudeFlash = null,Object? claudePro = null,Object? claudeFlashEffort = null,Object? claudeProEffort = null,Object? geminiFlashEffort = null,Object? geminiProEffort = null,}) {
   return _then(_AiModelIds(
 geminiFlash: null == geminiFlash ? _self.geminiFlash : geminiFlash // ignore: cast_nullable_to_non_nullable
 as String,geminiPro: null == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String,claudeFlash: null == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
 as String,claudePro: null == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
-as String,flashEffort: null == flashEffort ? _self.flashEffort : flashEffort // ignore: cast_nullable_to_non_nullable
-as String,proEffort: null == proEffort ? _self.proEffort : proEffort // ignore: cast_nullable_to_non_nullable
+as String,claudeFlashEffort: null == claudeFlashEffort ? _self.claudeFlashEffort : claudeFlashEffort // ignore: cast_nullable_to_non_nullable
+as String,claudeProEffort: null == claudeProEffort ? _self.claudeProEffort : claudeProEffort // ignore: cast_nullable_to_non_nullable
+as String,geminiFlashEffort: null == geminiFlashEffort ? _self.geminiFlashEffort : geminiFlashEffort // ignore: cast_nullable_to_non_nullable
+as String,geminiProEffort: null == geminiProEffort ? _self.geminiProEffort : geminiProEffort // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

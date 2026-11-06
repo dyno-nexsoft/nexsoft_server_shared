@@ -25,11 +25,12 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
     String? claudeFlash,
     String? claudePro,
 
-    /// How hard the model thinks for each tier, whichever provider answers —
-    /// see [AiModelIds.efforts]; an empty string is the model's default, null
-    /// leaves it as it is.
-    String? flashEffort,
-    String? proEffort,
+    /// How hard each model thinks — see [AiModelIds.effortsFor]; an empty
+    /// string is the model's default, null leaves it as it is.
+    String? claudeFlashEffort,
+    String? claudeProEffort,
+    String? geminiFlashEffort,
+    String? geminiProEffort,
   }) = _AiProviderSetParams;
 
   factory AiProviderSetParams.fromJson(Map<String, dynamic> json) =>
@@ -42,8 +43,10 @@ abstract class AiProviderSetParams with _$AiProviderSetParams {
     'gemini_pro': geminiPro,
     'claude_flash': claudeFlash,
     'claude_pro': claudePro,
-    'flash_effort': flashEffort,
-    'pro_effort': proEffort,
+    'claude_flash_effort': claudeFlashEffort,
+    'claude_pro_effort': claudeProEffort,
+    'gemini_flash_effort': geminiFlashEffort,
+    'gemini_pro_effort': geminiProEffort,
   };
 }
 
