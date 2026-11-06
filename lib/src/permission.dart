@@ -5,23 +5,31 @@
 /// `invokeDangerous` just because they hold `invoke`) — `admin` is the only
 /// value that acts as a universal override, and that special-casing lives in
 /// each side's own auth code (`Principal.can`), not here.
+/// The scopes of a key, lowest first: each one carries every scope before it
+/// (`invoke` comes with `read`, `invokeDangerous` with both, `admin` with all
+/// of them), so a check asks for the one scope it needs and nothing else.
 enum Permission {
   read,
   invoke,
   invokeDangerous,
   admin;
 
-  /// Every permission: what `admin` stands for. A key, or a principal, that
-  /// has `admin` carries all of them, so the one scope an action needs is
-  /// the only one it ever checks.
+  /// Every permission: what `admin` stands for (see [implied]).
   ///
   /// Spelled out, not [values], to stay a constant (`Principal.system` is
   /// one); a test keeps it equal to [values].
   static const Set<Permission> all = {read, invoke, invokeDangerous, admin};
 
-  /// [permissions], and with `admin` in them, all of them (see [all]).
-  static Set<Permission> normalized(Set<Permission> permissions) =>
-      permissions.contains(admin) ? all : permissions;
+  /// This scope and every scope below it, which come with it.
+  Set<Permission> get implied => {
+    for (final p in values)
+      if (p.index <= index) p,
+  };
+
+  /// [permissions] with every scope each of them carries ([implied]).
+  static Set<Permission> normalized(Set<Permission> permissions) => {
+    for (final permission in permissions) ...permission.implied,
+  };
 
   /// The wire value — snake_case, unlike the enum's own Dart-convention
   /// camelCase name. Serializing via bare `.name` (as the server did before
