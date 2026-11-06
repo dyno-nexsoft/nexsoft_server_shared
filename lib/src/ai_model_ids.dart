@@ -24,29 +24,39 @@ abstract class AiModelIds with _$AiModelIds {
     @Default('claude-sonnet-5-5') String claudeFlash,
     @Default('claude-opus-5-5') String claudePro,
 
-    /// How hard the Claude CLI thinks for each tier: one of [efforts], or empty
-    /// for the CLI's own default for that model. Admin-managed like the ids:
-    /// a review wants more than a one-line announcement, and what is worth its
-    /// time changes with the model.
-    @Default('') String claudeFlashEffort,
-    @Default('') String claudeProEffort,
+    /// How hard the model thinks for each tier, whichever provider answers:
+    /// one of [efforts], or empty for the model's own default. Claude takes it
+    /// as `--effort`, Gemini 3 as `thinkingLevel` ([geminiEffortFor]).
+    /// Admin-managed like the ids: a review wants more than a one-line
+    /// announcement, and what is worth its time changes with the model.
+    @Default('') String flashEffort,
+    @Default('') String proEffort,
   }) = _AiModelIds;
 
   factory AiModelIds.fromJson(Map<String, dynamic> json) =>
       _$AiModelIdsFromJson(json);
 
-  /// What `claude --effort` takes.
+  /// What `claude --effort` takes, and so what an effort may be.
   static const efforts = ['low', 'medium', 'high', 'xhigh', 'max'];
 
-  /// What a caller sends to put an effort back to the CLI's own: an empty
+  /// What a caller sends to put an effort back to the model's own: an empty
   /// string would read as "not sent".
   static const defaultEffort = 'default';
 
-  /// The effort Claude uses for [tier]: empty for the CLI's default.
-  String claudeEffortFor(AiModel tier) => switch (tier) {
-    AiModel.flash => claudeFlashEffort,
-    AiModel.pro => claudeProEffort,
+  /// The effort for [tier]: empty for the model's default.
+  String effortFor(AiModel tier) => switch (tier) {
+    AiModel.flash => flashEffort,
+    AiModel.pro => proEffort,
   };
+
+  /// [effortFor] as Gemini's `thinkingLevel` takes it: `low`, `medium` and
+  /// `high` as they are, and what is above `high` (Claude's `xhigh` and
+  /// `max`) as `high`, the most both the Flash and the Pro take. Empty stays
+  /// empty, so nothing is sent.
+  String geminiEffortFor(AiModel tier) {
+    final effort = effortFor(tier);
+    return effort == 'xhigh' || effort == 'max' ? 'high' : effort;
+  }
 
   /// The longest id accepted: a typo-guard, not a real model name limit.
   static const maxLength = 100;
@@ -60,7 +70,7 @@ abstract class AiModelIds with _$AiModelIds {
   };
 
   /// This with [changes] laid over it: wire key (`claude_flash`,
-  /// `claude_pro_effort`, …) to the new value, null for one not sent.
+  /// `pro_effort`, …) to the new value, null for one not sent.
   /// [defaultEffort] becomes the empty string. The one place a set request is
   /// applied, by the server to what it saves and by the dashboard to what it
   /// shows before the answer.
@@ -72,7 +82,7 @@ abstract class AiModelIds with _$AiModelIds {
   });
 
   /// Every id that is empty, has whitespace, or is implausibly long, and every
-  /// effort that is not one the CLI takes. Read from the serialised fields, so
+  /// effort that is not one of [efforts]. Read from the serialised fields, so
   /// a new one is checked without being listed here as well.
   List<String> problems() => [
     for (final entry in toJson().entries)

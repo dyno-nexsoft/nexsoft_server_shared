@@ -21,9 +21,10 @@ mixin _$AiProviderSetParams {
 /// leaves it as it is.
  bool? get failover;/// The model id a provider answers a tier with — see [AiModelIds]. Each is
 /// null to leave that one as it is.
- String? get geminiFlash; String? get geminiPro; String? get claudeFlash; String? get claudePro;/// How hard Claude thinks for each tier — see [AiModelIds.efforts]; an
-/// empty string is the CLI's default, null leaves it as it is.
- String? get claudeFlashEffort; String? get claudeProEffort;
+ String? get geminiFlash; String? get geminiPro; String? get claudeFlash; String? get claudePro;/// How hard the model thinks for each tier, whichever provider answers —
+/// see [AiModelIds.efforts]; an empty string is the model's default, null
+/// leaves it as it is.
+ String? get flashEffort; String? get proEffort;
 /// Create a copy of AiProviderSetParams
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,20 +38,20 @@ $AiProviderSetParamsCopyWith<AiProviderSetParams> get copyWith => _$AiProviderSe
 @override
 bool operator ==(Object other) {
   final _this = this as AiProviderSetParams;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderSetParams&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.failover, _this.failover) || other.failover == _this.failover)&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.claudeFlash, _this.claudeFlash) || other.claudeFlash == _this.claudeFlash)&&(identical(other.claudePro, _this.claudePro) || other.claudePro == _this.claudePro)&&(identical(other.claudeFlashEffort, _this.claudeFlashEffort) || other.claudeFlashEffort == _this.claudeFlashEffort)&&(identical(other.claudeProEffort, _this.claudeProEffort) || other.claudeProEffort == _this.claudeProEffort));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AiProviderSetParams&&(identical(other.provider, _this.provider) || other.provider == _this.provider)&&(identical(other.failover, _this.failover) || other.failover == _this.failover)&&(identical(other.geminiFlash, _this.geminiFlash) || other.geminiFlash == _this.geminiFlash)&&(identical(other.geminiPro, _this.geminiPro) || other.geminiPro == _this.geminiPro)&&(identical(other.claudeFlash, _this.claudeFlash) || other.claudeFlash == _this.claudeFlash)&&(identical(other.claudePro, _this.claudePro) || other.claudePro == _this.claudePro)&&(identical(other.flashEffort, _this.flashEffort) || other.flashEffort == _this.flashEffort)&&(identical(other.proEffort, _this.proEffort) || other.proEffort == _this.proEffort));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AiProviderSetParams;
-  return Object.hash(runtimeType,_this.provider,_this.failover,_this.geminiFlash,_this.geminiPro,_this.claudeFlash,_this.claudePro,_this.claudeFlashEffort,_this.claudeProEffort);
+  return Object.hash(runtimeType,_this.provider,_this.failover,_this.geminiFlash,_this.geminiPro,_this.claudeFlash,_this.claudePro,_this.flashEffort,_this.proEffort);
 }
 
 @override
 String toString() {
   final _this = this as AiProviderSetParams;
-  return 'AiProviderSetParams(provider: ${_this.provider}, failover: ${_this.failover}, geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, claudeFlash: ${_this.claudeFlash}, claudePro: ${_this.claudePro}, claudeFlashEffort: ${_this.claudeFlashEffort}, claudeProEffort: ${_this.claudeProEffort})';
+  return 'AiProviderSetParams(provider: ${_this.provider}, failover: ${_this.failover}, geminiFlash: ${_this.geminiFlash}, geminiPro: ${_this.geminiPro}, claudeFlash: ${_this.claudeFlash}, claudePro: ${_this.claudePro}, flashEffort: ${_this.flashEffort}, proEffort: ${_this.proEffort})';
 }
 
 
@@ -61,7 +62,7 @@ abstract mixin class $AiProviderSetParamsCopyWith<$Res>  {
   factory $AiProviderSetParamsCopyWith(AiProviderSetParams value, $Res Function(AiProviderSetParams) _then) = _$AiProviderSetParamsCopyWithImpl;
 @useResult
 $Res call({
- String provider, bool? failover, String? geminiFlash, String? geminiPro, String? claudeFlash, String? claudePro, String? claudeFlashEffort, String? claudeProEffort
+ String provider, bool? failover, String? geminiFlash, String? geminiPro, String? claudeFlash, String? claudePro, String? flashEffort, String? proEffort
 });
 
 
@@ -78,7 +79,7 @@ class _$AiProviderSetParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiProviderSetParams
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? provider = null,Object? failover = freezed,Object? geminiFlash = freezed,Object? geminiPro = freezed,Object? claudeFlash = freezed,Object? claudePro = freezed,Object? claudeFlashEffort = freezed,Object? claudeProEffort = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? provider = null,Object? failover = freezed,Object? geminiFlash = freezed,Object? geminiPro = freezed,Object? claudeFlash = freezed,Object? claudePro = freezed,Object? flashEffort = freezed,Object? proEffort = freezed,}) {
   return _then(AiProviderSetParams(
 provider: null == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String,failover: freezed == failover ? _self.failover : failover // ignore: cast_nullable_to_non_nullable
@@ -86,8 +87,8 @@ as bool?,geminiFlash: freezed == geminiFlash ? _self.geminiFlash : geminiFlash /
 as String?,geminiPro: freezed == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String?,claudeFlash: freezed == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
 as String?,claudePro: freezed == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
-as String?,claudeFlashEffort: freezed == claudeFlashEffort ? _self.claudeFlashEffort : claudeFlashEffort // ignore: cast_nullable_to_non_nullable
-as String?,claudeProEffort: freezed == claudeProEffort ? _self.claudeProEffort : claudeProEffort // ignore: cast_nullable_to_non_nullable
+as String?,flashEffort: freezed == flashEffort ? _self.flashEffort : flashEffort // ignore: cast_nullable_to_non_nullable
+as String?,proEffort: freezed == proEffort ? _self.proEffort : proEffort // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -173,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? claudeFlashEffort,  String? claudeProEffort)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? flashEffort,  String? proEffort)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AiProviderSetParams() when $default != null:
-return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort);case _:
+return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
   return orElse();
 
 }
@@ -194,10 +195,10 @@ return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? claudeFlashEffort,  String? claudeProEffort)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? flashEffort,  String? proEffort)  $default,) {final _that = this;
 switch (_that) {
 case _AiProviderSetParams():
-return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort);case _:
+return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +215,10 @@ return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? claudeFlashEffort,  String? claudeProEffort)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String provider,  bool? failover,  String? geminiFlash,  String? geminiPro,  String? claudeFlash,  String? claudePro,  String? flashEffort,  String? proEffort)?  $default,) {final _that = this;
 switch (_that) {
 case _AiProviderSetParams() when $default != null:
-return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.claudeFlashEffort,_that.claudeProEffort);case _:
+return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,_that.claudeFlash,_that.claudePro,_that.flashEffort,_that.proEffort);case _:
   return null;
 
 }
@@ -229,7 +230,7 @@ return $default(_that.provider,_that.failover,_that.geminiFlash,_that.geminiPro,
 @JsonSerializable()
 
 class _AiProviderSetParams extends AiProviderSetParams {
-  const _AiProviderSetParams({required this.provider, this.failover, this.geminiFlash, this.geminiPro, this.claudeFlash, this.claudePro, this.claudeFlashEffort, this.claudeProEffort}): super._();
+  const _AiProviderSetParams({required this.provider, this.failover, this.geminiFlash, this.geminiPro, this.claudeFlash, this.claudePro, this.flashEffort, this.proEffort}): super._();
   factory _AiProviderSetParams.fromJson(Map<String, dynamic> json) => _$AiProviderSetParamsFromJson(json);
 
 /// The backend to activate: `claude` or `gemini`.
@@ -243,10 +244,11 @@ class _AiProviderSetParams extends AiProviderSetParams {
 @override final  String? geminiPro;
 @override final  String? claudeFlash;
 @override final  String? claudePro;
-/// How hard Claude thinks for each tier — see [AiModelIds.efforts]; an
-/// empty string is the CLI's default, null leaves it as it is.
-@override final  String? claudeFlashEffort;
-@override final  String? claudeProEffort;
+/// How hard the model thinks for each tier, whichever provider answers —
+/// see [AiModelIds.efforts]; an empty string is the model's default, null
+/// leaves it as it is.
+@override final  String? flashEffort;
+@override final  String? proEffort;
 
 /// Create a copy of AiProviderSetParams
 /// with the given fields replaced by the non-null parameter values.
@@ -261,18 +263,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderSetParams&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.claudeFlash, claudeFlash) || other.claudeFlash == claudeFlash)&&(identical(other.claudePro, claudePro) || other.claudePro == claudePro)&&(identical(other.claudeFlashEffort, claudeFlashEffort) || other.claudeFlashEffort == claudeFlashEffort)&&(identical(other.claudeProEffort, claudeProEffort) || other.claudeProEffort == claudeProEffort));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AiProviderSetParams&&(identical(other.provider, provider) || other.provider == provider)&&(identical(other.failover, failover) || other.failover == failover)&&(identical(other.geminiFlash, geminiFlash) || other.geminiFlash == geminiFlash)&&(identical(other.geminiPro, geminiPro) || other.geminiPro == geminiPro)&&(identical(other.claudeFlash, claudeFlash) || other.claudeFlash == claudeFlash)&&(identical(other.claudePro, claudePro) || other.claudePro == claudePro)&&(identical(other.flashEffort, flashEffort) || other.flashEffort == flashEffort)&&(identical(other.proEffort, proEffort) || other.proEffort == proEffort));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,provider,failover,geminiFlash,geminiPro,claudeFlash,claudePro,claudeFlashEffort,claudeProEffort);
+    return Object.hash(runtimeType,provider,failover,geminiFlash,geminiPro,claudeFlash,claudePro,flashEffort,proEffort);
 }
 
 @override
 String toString() {
-    return 'AiProviderSetParams(provider: $provider, failover: $failover, geminiFlash: $geminiFlash, geminiPro: $geminiPro, claudeFlash: $claudeFlash, claudePro: $claudePro, claudeFlashEffort: $claudeFlashEffort, claudeProEffort: $claudeProEffort)';
+    return 'AiProviderSetParams(provider: $provider, failover: $failover, geminiFlash: $geminiFlash, geminiPro: $geminiPro, claudeFlash: $claudeFlash, claudePro: $claudePro, flashEffort: $flashEffort, proEffort: $proEffort)';
 }
 
 
@@ -283,7 +285,7 @@ abstract mixin class _$AiProviderSetParamsCopyWith<$Res> implements $AiProviderS
   factory _$AiProviderSetParamsCopyWith(_AiProviderSetParams value, $Res Function(_AiProviderSetParams) _then) = __$AiProviderSetParamsCopyWithImpl;
 @override @useResult
 $Res call({
- String provider, bool? failover, String? geminiFlash, String? geminiPro, String? claudeFlash, String? claudePro, String? claudeFlashEffort, String? claudeProEffort
+ String provider, bool? failover, String? geminiFlash, String? geminiPro, String? claudeFlash, String? claudePro, String? flashEffort, String? proEffort
 });
 
 
@@ -300,7 +302,7 @@ class __$AiProviderSetParamsCopyWithImpl<$Res>
 
 /// Create a copy of AiProviderSetParams
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? provider = null,Object? failover = freezed,Object? geminiFlash = freezed,Object? geminiPro = freezed,Object? claudeFlash = freezed,Object? claudePro = freezed,Object? claudeFlashEffort = freezed,Object? claudeProEffort = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? provider = null,Object? failover = freezed,Object? geminiFlash = freezed,Object? geminiPro = freezed,Object? claudeFlash = freezed,Object? claudePro = freezed,Object? flashEffort = freezed,Object? proEffort = freezed,}) {
   return _then(_AiProviderSetParams(
 provider: null == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as String,failover: freezed == failover ? _self.failover : failover // ignore: cast_nullable_to_non_nullable
@@ -308,8 +310,8 @@ as bool?,geminiFlash: freezed == geminiFlash ? _self.geminiFlash : geminiFlash /
 as String?,geminiPro: freezed == geminiPro ? _self.geminiPro : geminiPro // ignore: cast_nullable_to_non_nullable
 as String?,claudeFlash: freezed == claudeFlash ? _self.claudeFlash : claudeFlash // ignore: cast_nullable_to_non_nullable
 as String?,claudePro: freezed == claudePro ? _self.claudePro : claudePro // ignore: cast_nullable_to_non_nullable
-as String?,claudeFlashEffort: freezed == claudeFlashEffort ? _self.claudeFlashEffort : claudeFlashEffort // ignore: cast_nullable_to_non_nullable
-as String?,claudeProEffort: freezed == claudeProEffort ? _self.claudeProEffort : claudeProEffort // ignore: cast_nullable_to_non_nullable
+as String?,flashEffort: freezed == flashEffort ? _self.flashEffort : flashEffort // ignore: cast_nullable_to_non_nullable
+as String?,proEffort: freezed == proEffort ? _self.proEffort : proEffort // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
