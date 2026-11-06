@@ -22,6 +22,11 @@ abstract class AuditEntry with _$AuditEntry {
     String? apiKeyId,
     String? discordUserId,
 
+    /// The program that made a REST call, as it named itself in `X-Client`
+    /// (an MCP sends its agent: `claude-code/2.1.0`). A key's name says whose
+    /// key it is, not which agent used it; null when the caller said nothing.
+    String? client,
+
     /// The Discord account behind [discordUserId], as `admin.audit.list`
     /// resolves it: a REST key's entry says whose key it is, since the key's
     /// own name (`AI`) says nothing about the person. Null when there is no

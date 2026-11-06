@@ -19,7 +19,10 @@ mixin _$AuditEntry {
 /// The call's correlation id, which the server log's lines for the same
 /// call carry too.
  String get id; DateTime get at; String get action;/// The display name of who asked: a person, an API key's name, `Cron`.
- String get actor; String? get apiKeyId; String? get discordUserId;/// The Discord account behind [discordUserId], as `admin.audit.list`
+ String get actor; String? get apiKeyId; String? get discordUserId;/// The program that made a REST call, as it named itself in `X-Client`
+/// (an MCP sends its agent: `claude-code/2.1.0`). A key's name says whose
+/// key it is, not which agent used it; null when the caller said nothing.
+ String? get client;/// The Discord account behind [discordUserId], as `admin.audit.list`
 /// resolves it: a REST key's entry says whose key it is, since the key's
 /// own name (`AI`) says nothing about the person. Null when there is no
 /// account or Discord could not be asked; the id stays then.
@@ -39,20 +42,20 @@ $AuditEntryCopyWith<AuditEntry> get copyWith => _$AuditEntryCopyWithImpl<AuditEn
 @override
 bool operator ==(Object other) {
   final _this = this as AuditEntry;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.at, _this.at) || other.at == _this.at)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.actor, _this.actor) || other.actor == _this.actor)&&(identical(other.apiKeyId, _this.apiKeyId) || other.apiKeyId == _this.apiKeyId)&&(identical(other.discordUserId, _this.discordUserId) || other.discordUserId == _this.discordUserId)&&(identical(other.discord, _this.discord) || other.discord == _this.discord)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.outcome, _this.outcome) || other.outcome == _this.outcome)&&const DeepCollectionEquality().equals(other.params, _this.params));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuditEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.at, _this.at) || other.at == _this.at)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.actor, _this.actor) || other.actor == _this.actor)&&(identical(other.apiKeyId, _this.apiKeyId) || other.apiKeyId == _this.apiKeyId)&&(identical(other.discordUserId, _this.discordUserId) || other.discordUserId == _this.discordUserId)&&(identical(other.client, _this.client) || other.client == _this.client)&&(identical(other.discord, _this.discord) || other.discord == _this.discord)&&(identical(other.source, _this.source) || other.source == _this.source)&&(identical(other.outcome, _this.outcome) || other.outcome == _this.outcome)&&const DeepCollectionEquality().equals(other.params, _this.params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AuditEntry;
-  return Object.hash(runtimeType,_this.id,_this.at,_this.action,_this.actor,_this.apiKeyId,_this.discordUserId,_this.discord,_this.source,_this.outcome,const DeepCollectionEquality().hash(_this.params));
+  return Object.hash(runtimeType,_this.id,_this.at,_this.action,_this.actor,_this.apiKeyId,_this.discordUserId,_this.client,_this.discord,_this.source,_this.outcome,const DeepCollectionEquality().hash(_this.params));
 }
 
 @override
 String toString() {
   final _this = this as AuditEntry;
-  return 'AuditEntry(id: ${_this.id}, at: ${_this.at}, action: ${_this.action}, actor: ${_this.actor}, apiKeyId: ${_this.apiKeyId}, discordUserId: ${_this.discordUserId}, discord: ${_this.discord}, source: ${_this.source}, outcome: ${_this.outcome}, params: ${_this.params})';
+  return 'AuditEntry(id: ${_this.id}, at: ${_this.at}, action: ${_this.action}, actor: ${_this.actor}, apiKeyId: ${_this.apiKeyId}, discordUserId: ${_this.discordUserId}, client: ${_this.client}, discord: ${_this.discord}, source: ${_this.source}, outcome: ${_this.outcome}, params: ${_this.params})';
 }
 
 
@@ -63,7 +66,7 @@ abstract mixin class $AuditEntryCopyWith<$Res>  {
   factory $AuditEntryCopyWith(AuditEntry value, $Res Function(AuditEntry) _then) = _$AuditEntryCopyWithImpl;
 @useResult
 $Res call({
- String id, DateTime at, String action, String actor, String? apiKeyId, String? discordUserId, DiscordUserInfo? discord, String source, String outcome, Map<String, Object?> params
+ String id, DateTime at, String action, String actor, String? apiKeyId, String? discordUserId, String? client, DiscordUserInfo? discord, String source, String outcome, Map<String, Object?> params
 });
 
 
@@ -80,7 +83,7 @@ class _$AuditEntryCopyWithImpl<$Res>
 
 /// Create a copy of AuditEntry
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? at = null,Object? action = null,Object? actor = null,Object? apiKeyId = freezed,Object? discordUserId = freezed,Object? discord = freezed,Object? source = null,Object? outcome = null,Object? params = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? at = null,Object? action = null,Object? actor = null,Object? apiKeyId = freezed,Object? discordUserId = freezed,Object? client = freezed,Object? discord = freezed,Object? source = null,Object? outcome = null,Object? params = null,}) {
   return _then(AuditEntry(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
@@ -88,6 +91,7 @@ as DateTime,action: null == action ? _self.action : action // ignore: cast_nulla
 as String,actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,apiKeyId: freezed == apiKeyId ? _self.apiKeyId : apiKeyId // ignore: cast_nullable_to_non_nullable
 as String?,discordUserId: freezed == discordUserId ? _self.discordUserId : discordUserId // ignore: cast_nullable_to_non_nullable
+as String?,client: freezed == client ? _self.client : client // ignore: cast_nullable_to_non_nullable
 as String?,discord: freezed == discord ? _self.discord : discord // ignore: cast_nullable_to_non_nullable
 as DiscordUserInfo?,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as String,outcome: null == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable
@@ -189,10 +193,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  String? client,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AuditEntry() when $default != null:
-return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.discord,_that.source,_that.outcome,_that.params);case _:
+return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.client,_that.discord,_that.source,_that.outcome,_that.params);case _:
   return orElse();
 
 }
@@ -210,10 +214,10 @@ return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  String? client,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)  $default,) {final _that = this;
 switch (_that) {
 case _AuditEntry():
-return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.discord,_that.source,_that.outcome,_that.params);case _:
+return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.client,_that.discord,_that.source,_that.outcome,_that.params);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -230,10 +234,10 @@ return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  DateTime at,  String action,  String actor,  String? apiKeyId,  String? discordUserId,  String? client,  DiscordUserInfo? discord,  String source,  String outcome,  Map<String, Object?> params)?  $default,) {final _that = this;
 switch (_that) {
 case _AuditEntry() when $default != null:
-return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.discord,_that.source,_that.outcome,_that.params);case _:
+return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.discordUserId,_that.client,_that.discord,_that.source,_that.outcome,_that.params);case _:
   return null;
 
 }
@@ -245,7 +249,7 @@ return $default(_that.id,_that.at,_that.action,_that.actor,_that.apiKeyId,_that.
 @JsonSerializable()
 
 class _AuditEntry implements AuditEntry {
-  const _AuditEntry({required this.id, required this.at, required this.action, required this.actor, this.apiKeyId, this.discordUserId, this.discord, required this.source, required this.outcome,  Map<String, Object?> params = const {}}): _params = params;
+  const _AuditEntry({required this.id, required this.at, required this.action, required this.actor, this.apiKeyId, this.discordUserId, this.client, this.discord, required this.source, required this.outcome,  Map<String, Object?> params = const {}}): _params = params;
   factory _AuditEntry.fromJson(Map<String, dynamic> json) => _$AuditEntryFromJson(json);
 
 /// The call's correlation id, which the server log's lines for the same
@@ -257,6 +261,10 @@ class _AuditEntry implements AuditEntry {
 @override final  String actor;
 @override final  String? apiKeyId;
 @override final  String? discordUserId;
+/// The program that made a REST call, as it named itself in `X-Client`
+/// (an MCP sends its agent: `claude-code/2.1.0`). A key's name says whose
+/// key it is, not which agent used it; null when the caller said nothing.
+@override final  String? client;
 /// The Discord account behind [discordUserId], as `admin.audit.list`
 /// resolves it: a REST key's entry says whose key it is, since the key's
 /// own name (`AI`) says nothing about the person. Null when there is no
@@ -287,18 +295,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.apiKeyId, apiKeyId) || other.apiKeyId == apiKeyId)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.discord, discord) || other.discord == discord)&&(identical(other.source, source) || other.source == source)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&const DeepCollectionEquality().equals(other.params, _params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuditEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.at, at) || other.at == at)&&(identical(other.action, action) || other.action == action)&&(identical(other.actor, actor) || other.actor == actor)&&(identical(other.apiKeyId, apiKeyId) || other.apiKeyId == apiKeyId)&&(identical(other.discordUserId, discordUserId) || other.discordUserId == discordUserId)&&(identical(other.client, client) || other.client == client)&&(identical(other.discord, discord) || other.discord == discord)&&(identical(other.source, source) || other.source == source)&&(identical(other.outcome, outcome) || other.outcome == outcome)&&const DeepCollectionEquality().equals(other.params, _params));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,at,action,actor,apiKeyId,discordUserId,discord,source,outcome,const DeepCollectionEquality().hash(_params));
+    return Object.hash(runtimeType,id,at,action,actor,apiKeyId,discordUserId,client,discord,source,outcome,const DeepCollectionEquality().hash(_params));
 }
 
 @override
 String toString() {
-    return 'AuditEntry(id: $id, at: $at, action: $action, actor: $actor, apiKeyId: $apiKeyId, discordUserId: $discordUserId, discord: $discord, source: $source, outcome: $outcome, params: $params)';
+    return 'AuditEntry(id: $id, at: $at, action: $action, actor: $actor, apiKeyId: $apiKeyId, discordUserId: $discordUserId, client: $client, discord: $discord, source: $source, outcome: $outcome, params: $params)';
 }
 
 
@@ -309,7 +317,7 @@ abstract mixin class _$AuditEntryCopyWith<$Res> implements $AuditEntryCopyWith<$
   factory _$AuditEntryCopyWith(_AuditEntry value, $Res Function(_AuditEntry) _then) = __$AuditEntryCopyWithImpl;
 @override @useResult
 $Res call({
- String id, DateTime at, String action, String actor, String? apiKeyId, String? discordUserId, DiscordUserInfo? discord, String source, String outcome, Map<String, Object?> params
+ String id, DateTime at, String action, String actor, String? apiKeyId, String? discordUserId, String? client, DiscordUserInfo? discord, String source, String outcome, Map<String, Object?> params
 });
 
 
@@ -326,7 +334,7 @@ class __$AuditEntryCopyWithImpl<$Res>
 
 /// Create a copy of AuditEntry
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? at = null,Object? action = null,Object? actor = null,Object? apiKeyId = freezed,Object? discordUserId = freezed,Object? discord = freezed,Object? source = null,Object? outcome = null,Object? params = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? at = null,Object? action = null,Object? actor = null,Object? apiKeyId = freezed,Object? discordUserId = freezed,Object? client = freezed,Object? discord = freezed,Object? source = null,Object? outcome = null,Object? params = null,}) {
   return _then(_AuditEntry(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,at: null == at ? _self.at : at // ignore: cast_nullable_to_non_nullable
@@ -334,6 +342,7 @@ as DateTime,action: null == action ? _self.action : action // ignore: cast_nulla
 as String,actor: null == actor ? _self.actor : actor // ignore: cast_nullable_to_non_nullable
 as String,apiKeyId: freezed == apiKeyId ? _self.apiKeyId : apiKeyId // ignore: cast_nullable_to_non_nullable
 as String?,discordUserId: freezed == discordUserId ? _self.discordUserId : discordUserId // ignore: cast_nullable_to_non_nullable
+as String?,client: freezed == client ? _self.client : client // ignore: cast_nullable_to_non_nullable
 as String?,discord: freezed == discord ? _self.discord : discord // ignore: cast_nullable_to_non_nullable
 as DiscordUserInfo?,source: null == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as String,outcome: null == outcome ? _self.outcome : outcome // ignore: cast_nullable_to_non_nullable

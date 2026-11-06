@@ -16,6 +16,10 @@ const webLoginKeySource = 'discord_login';
 /// finally needed the key.
 const apiKeyRejectedHeader = 'X-Api-Key-Rejected';
 
+/// Request header a client names itself in (`claude-code/2.1.0`), kept in the
+/// audit log: an API key's own name is the same for every agent holding it.
+const clientHeader = 'X-Client';
+
 /// One entry of `admin.apiKeys.list`'s `keys` array.
 @freezed
 abstract class ApiKeyInfo with _$ApiKeyInfo {
