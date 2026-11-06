@@ -27,11 +27,7 @@ mixin _$Health {
 /// the dashboard's login screen probes an arbitrary URL the user types,
 /// which may be an *older* server that never sends this field, and a
 /// required one would make `fromJson` throw there.
- String? get remoteDesktopUrl;/// A live link into the running bot process's own Dart DevTools, if the
-/// VM service was up by the time the gateway connected — same nullable
-/// reasoning as [remoteDesktopUrl], plus the VM service itself being
-/// disabled or the info call failing.
- String? get devToolsUrl;/// Whether `GET /auth/discord/start` will work on this server — that is,
+ String? get remoteDesktopUrl;/// Whether `GET /auth/discord/start` will work on this server — that is,
 /// a Discord OAuth client secret is configured. The login screen only
 /// offers "Sign in with Discord" when this is true.
 ///
@@ -59,20 +55,20 @@ $HealthCopyWith<Health> get copyWith => _$HealthCopyWithImpl<Health>(this as Hea
 @override
 bool operator ==(Object other) {
   final _this = this as Health;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Health&&(identical(other.ok, _this.ok) || other.ok == _this.ok)&&(identical(other.version, _this.version) || other.version == _this.version)&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&(identical(other.devToolsUrl, _this.devToolsUrl) || other.devToolsUrl == _this.devToolsUrl)&&(identical(other.discordLoginEnabled, _this.discordLoginEnabled) || other.discordLoginEnabled == _this.discordLoginEnabled)&&(identical(other.discordConnected, _this.discordConnected) || other.discordConnected == _this.discordConnected)&&(identical(other.landingUrl, _this.landingUrl) || other.landingUrl == _this.landingUrl));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Health&&(identical(other.ok, _this.ok) || other.ok == _this.ok)&&(identical(other.version, _this.version) || other.version == _this.version)&&(identical(other.appVersion, _this.appVersion) || other.appVersion == _this.appVersion)&&(identical(other.uptimeSeconds, _this.uptimeSeconds) || other.uptimeSeconds == _this.uptimeSeconds)&&(identical(other.hostname, _this.hostname) || other.hostname == _this.hostname)&&(identical(other.remoteDesktopUrl, _this.remoteDesktopUrl) || other.remoteDesktopUrl == _this.remoteDesktopUrl)&&(identical(other.discordLoginEnabled, _this.discordLoginEnabled) || other.discordLoginEnabled == _this.discordLoginEnabled)&&(identical(other.discordConnected, _this.discordConnected) || other.discordConnected == _this.discordConnected)&&(identical(other.landingUrl, _this.landingUrl) || other.landingUrl == _this.landingUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as Health;
-  return Object.hash(runtimeType,_this.ok,_this.version,_this.appVersion,_this.uptimeSeconds,_this.hostname,_this.remoteDesktopUrl,_this.devToolsUrl,_this.discordLoginEnabled,_this.discordConnected,_this.landingUrl);
+  return Object.hash(runtimeType,_this.ok,_this.version,_this.appVersion,_this.uptimeSeconds,_this.hostname,_this.remoteDesktopUrl,_this.discordLoginEnabled,_this.discordConnected,_this.landingUrl);
 }
 
 @override
 String toString() {
   final _this = this as Health;
-  return 'Health(ok: ${_this.ok}, version: ${_this.version}, appVersion: ${_this.appVersion}, uptimeSeconds: ${_this.uptimeSeconds}, hostname: ${_this.hostname}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, devToolsUrl: ${_this.devToolsUrl}, discordLoginEnabled: ${_this.discordLoginEnabled}, discordConnected: ${_this.discordConnected}, landingUrl: ${_this.landingUrl})';
+  return 'Health(ok: ${_this.ok}, version: ${_this.version}, appVersion: ${_this.appVersion}, uptimeSeconds: ${_this.uptimeSeconds}, hostname: ${_this.hostname}, remoteDesktopUrl: ${_this.remoteDesktopUrl}, discordLoginEnabled: ${_this.discordLoginEnabled}, discordConnected: ${_this.discordConnected}, landingUrl: ${_this.landingUrl})';
 }
 
 
@@ -83,7 +79,7 @@ abstract mixin class $HealthCopyWith<$Res>  {
   factory $HealthCopyWith(Health value, $Res Function(Health) _then) = _$HealthCopyWithImpl;
 @useResult
 $Res call({
- bool ok, String version, String appVersion, int uptimeSeconds, String hostname, String? remoteDesktopUrl, String? devToolsUrl, bool discordLoginEnabled, bool discordConnected, String? landingUrl
+ bool ok, String version, String appVersion, int uptimeSeconds, String hostname, String? remoteDesktopUrl, bool discordLoginEnabled, bool discordConnected, String? landingUrl
 });
 
 
@@ -100,7 +96,7 @@ class _$HealthCopyWithImpl<$Res>
 
 /// Create a copy of Health
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? ok = null,Object? version = null,Object? appVersion = null,Object? uptimeSeconds = null,Object? hostname = null,Object? remoteDesktopUrl = freezed,Object? devToolsUrl = freezed,Object? discordLoginEnabled = null,Object? discordConnected = null,Object? landingUrl = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? ok = null,Object? version = null,Object? appVersion = null,Object? uptimeSeconds = null,Object? hostname = null,Object? remoteDesktopUrl = freezed,Object? discordLoginEnabled = null,Object? discordConnected = null,Object? landingUrl = freezed,}) {
   return _then(Health(
 ok: null == ok ? _self.ok : ok // ignore: cast_nullable_to_non_nullable
 as bool,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
@@ -108,7 +104,6 @@ as String,appVersion: null == appVersion ? _self.appVersion : appVersion // igno
 as String,uptimeSeconds: null == uptimeSeconds ? _self.uptimeSeconds : uptimeSeconds // ignore: cast_nullable_to_non_nullable
 as int,hostname: null == hostname ? _self.hostname : hostname // ignore: cast_nullable_to_non_nullable
 as String,remoteDesktopUrl: freezed == remoteDesktopUrl ? _self.remoteDesktopUrl : remoteDesktopUrl // ignore: cast_nullable_to_non_nullable
-as String?,devToolsUrl: freezed == devToolsUrl ? _self.devToolsUrl : devToolsUrl // ignore: cast_nullable_to_non_nullable
 as String?,discordLoginEnabled: null == discordLoginEnabled ? _self.discordLoginEnabled : discordLoginEnabled // ignore: cast_nullable_to_non_nullable
 as bool,discordConnected: null == discordConnected ? _self.discordConnected : discordConnected // ignore: cast_nullable_to_non_nullable
 as bool,landingUrl: freezed == landingUrl ? _self.landingUrl : landingUrl // ignore: cast_nullable_to_non_nullable
@@ -197,10 +192,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  String? devToolsUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Health() when $default != null:
-return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.devToolsUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
+return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
   return orElse();
 
 }
@@ -218,10 +213,10 @@ return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  String? devToolsUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)  $default,) {final _that = this;
 switch (_that) {
 case _Health():
-return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.devToolsUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
+return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -238,10 +233,10 @@ return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  String? devToolsUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool ok,  String version,  String appVersion,  int uptimeSeconds,  String hostname,  String? remoteDesktopUrl,  bool discordLoginEnabled,  bool discordConnected,  String? landingUrl)?  $default,) {final _that = this;
 switch (_that) {
 case _Health() when $default != null:
-return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.devToolsUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
+return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_that.hostname,_that.remoteDesktopUrl,_that.discordLoginEnabled,_that.discordConnected,_that.landingUrl);case _:
   return null;
 
 }
@@ -253,7 +248,7 @@ return $default(_that.ok,_that.version,_that.appVersion,_that.uptimeSeconds,_tha
 @JsonSerializable()
 
 class _Health implements Health {
-  const _Health({required this.ok, required this.version, required this.appVersion, required this.uptimeSeconds, required this.hostname, this.remoteDesktopUrl, this.devToolsUrl, this.discordLoginEnabled = false, this.discordConnected = false, this.landingUrl});
+  const _Health({required this.ok, required this.version, required this.appVersion, required this.uptimeSeconds, required this.hostname, this.remoteDesktopUrl, this.discordLoginEnabled = false, this.discordConnected = false, this.landingUrl});
   factory _Health.fromJson(Map<String, dynamic> json) => _$HealthFromJson(json);
 
 @override final  bool ok;
@@ -273,11 +268,6 @@ class _Health implements Health {
 /// which may be an *older* server that never sends this field, and a
 /// required one would make `fromJson` throw there.
 @override final  String? remoteDesktopUrl;
-/// A live link into the running bot process's own Dart DevTools, if the
-/// VM service was up by the time the gateway connected — same nullable
-/// reasoning as [remoteDesktopUrl], plus the VM service itself being
-/// disabled or the info call failing.
-@override final  String? devToolsUrl;
 /// Whether `GET /auth/discord/start` will work on this server — that is,
 /// a Discord OAuth client secret is configured. The login screen only
 /// offers "Sign in with Discord" when this is true.
@@ -309,18 +299,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Health&&(identical(other.ok, ok) || other.ok == ok)&&(identical(other.version, version) || other.version == version)&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.devToolsUrl, devToolsUrl) || other.devToolsUrl == devToolsUrl)&&(identical(other.discordLoginEnabled, discordLoginEnabled) || other.discordLoginEnabled == discordLoginEnabled)&&(identical(other.discordConnected, discordConnected) || other.discordConnected == discordConnected)&&(identical(other.landingUrl, landingUrl) || other.landingUrl == landingUrl));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Health&&(identical(other.ok, ok) || other.ok == ok)&&(identical(other.version, version) || other.version == version)&&(identical(other.appVersion, appVersion) || other.appVersion == appVersion)&&(identical(other.uptimeSeconds, uptimeSeconds) || other.uptimeSeconds == uptimeSeconds)&&(identical(other.hostname, hostname) || other.hostname == hostname)&&(identical(other.remoteDesktopUrl, remoteDesktopUrl) || other.remoteDesktopUrl == remoteDesktopUrl)&&(identical(other.discordLoginEnabled, discordLoginEnabled) || other.discordLoginEnabled == discordLoginEnabled)&&(identical(other.discordConnected, discordConnected) || other.discordConnected == discordConnected)&&(identical(other.landingUrl, landingUrl) || other.landingUrl == landingUrl));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,ok,version,appVersion,uptimeSeconds,hostname,remoteDesktopUrl,devToolsUrl,discordLoginEnabled,discordConnected,landingUrl);
+    return Object.hash(runtimeType,ok,version,appVersion,uptimeSeconds,hostname,remoteDesktopUrl,discordLoginEnabled,discordConnected,landingUrl);
 }
 
 @override
 String toString() {
-    return 'Health(ok: $ok, version: $version, appVersion: $appVersion, uptimeSeconds: $uptimeSeconds, hostname: $hostname, remoteDesktopUrl: $remoteDesktopUrl, devToolsUrl: $devToolsUrl, discordLoginEnabled: $discordLoginEnabled, discordConnected: $discordConnected, landingUrl: $landingUrl)';
+    return 'Health(ok: $ok, version: $version, appVersion: $appVersion, uptimeSeconds: $uptimeSeconds, hostname: $hostname, remoteDesktopUrl: $remoteDesktopUrl, discordLoginEnabled: $discordLoginEnabled, discordConnected: $discordConnected, landingUrl: $landingUrl)';
 }
 
 
@@ -331,7 +321,7 @@ abstract mixin class _$HealthCopyWith<$Res> implements $HealthCopyWith<$Res> {
   factory _$HealthCopyWith(_Health value, $Res Function(_Health) _then) = __$HealthCopyWithImpl;
 @override @useResult
 $Res call({
- bool ok, String version, String appVersion, int uptimeSeconds, String hostname, String? remoteDesktopUrl, String? devToolsUrl, bool discordLoginEnabled, bool discordConnected, String? landingUrl
+ bool ok, String version, String appVersion, int uptimeSeconds, String hostname, String? remoteDesktopUrl, bool discordLoginEnabled, bool discordConnected, String? landingUrl
 });
 
 
@@ -348,7 +338,7 @@ class __$HealthCopyWithImpl<$Res>
 
 /// Create a copy of Health
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? ok = null,Object? version = null,Object? appVersion = null,Object? uptimeSeconds = null,Object? hostname = null,Object? remoteDesktopUrl = freezed,Object? devToolsUrl = freezed,Object? discordLoginEnabled = null,Object? discordConnected = null,Object? landingUrl = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? ok = null,Object? version = null,Object? appVersion = null,Object? uptimeSeconds = null,Object? hostname = null,Object? remoteDesktopUrl = freezed,Object? discordLoginEnabled = null,Object? discordConnected = null,Object? landingUrl = freezed,}) {
   return _then(_Health(
 ok: null == ok ? _self.ok : ok // ignore: cast_nullable_to_non_nullable
 as bool,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
@@ -356,7 +346,6 @@ as String,appVersion: null == appVersion ? _self.appVersion : appVersion // igno
 as String,uptimeSeconds: null == uptimeSeconds ? _self.uptimeSeconds : uptimeSeconds // ignore: cast_nullable_to_non_nullable
 as int,hostname: null == hostname ? _self.hostname : hostname // ignore: cast_nullable_to_non_nullable
 as String,remoteDesktopUrl: freezed == remoteDesktopUrl ? _self.remoteDesktopUrl : remoteDesktopUrl // ignore: cast_nullable_to_non_nullable
-as String?,devToolsUrl: freezed == devToolsUrl ? _self.devToolsUrl : devToolsUrl // ignore: cast_nullable_to_non_nullable
 as String?,discordLoginEnabled: null == discordLoginEnabled ? _self.discordLoginEnabled : discordLoginEnabled // ignore: cast_nullable_to_non_nullable
 as bool,discordConnected: null == discordConnected ? _self.discordConnected : discordConnected // ignore: cast_nullable_to_non_nullable
 as bool,landingUrl: freezed == landingUrl ? _self.landingUrl : landingUrl // ignore: cast_nullable_to_non_nullable

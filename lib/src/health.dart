@@ -26,12 +26,6 @@ abstract class Health with _$Health {
     /// required one would make `fromJson` throw there.
     String? remoteDesktopUrl,
 
-    /// A live link into the running bot process's own Dart DevTools, if the
-    /// VM service was up by the time the gateway connected — same nullable
-    /// reasoning as [remoteDesktopUrl], plus the VM service itself being
-    /// disabled or the info call failing.
-    String? devToolsUrl,
-
     /// Whether `GET /auth/discord/start` will work on this server — that is,
     /// a Discord OAuth client secret is configured. The login screen only
     /// offers "Sign in with Discord" when this is true.
