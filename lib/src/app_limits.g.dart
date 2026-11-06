@@ -28,7 +28,6 @@ _AppLimits _$AppLimitsFromJson(Map<String, dynamic> json) => _AppLimits(
   repostsMaxVideos: (json['reposts_max_videos'] as num?)?.toInt() ?? 20,
   interactionMaxAccounts:
       (json['interaction_max_accounts'] as num?)?.toInt() ?? 1000,
-  aiFixMaxPerDay: (json['ai_fix_max_per_day'] as num?)?.toInt() ?? 10,
   aiFixAutoPerDay: (json['ai_fix_auto_per_day'] as num?)?.toInt() ?? 3,
   aiFixBudgetUsd: (json['ai_fix_budget_usd'] as num?)?.toInt() ?? 2,
   aiFixMinutes: (json['ai_fix_minutes'] as num?)?.toInt() ?? 15,
@@ -55,7 +54,6 @@ Map<String, dynamic> _$AppLimitsToJson(_AppLimits instance) =>
       'reposts_max_links': instance.repostsMaxLinks,
       'reposts_max_videos': instance.repostsMaxVideos,
       'interaction_max_accounts': instance.interactionMaxAccounts,
-      'ai_fix_max_per_day': instance.aiFixMaxPerDay,
       'ai_fix_auto_per_day': instance.aiFixAutoPerDay,
       'ai_fix_budget_usd': instance.aiFixBudgetUsd,
       'ai_fix_minutes': instance.aiFixMinutes,

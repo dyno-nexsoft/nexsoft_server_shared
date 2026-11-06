@@ -96,10 +96,9 @@ abstract class AppLimits with _$AppLimits {
     /// Accounts one `ci.interaction` job may act with.
     @Default(1000) int interactionMaxAccounts,
 
-    /// `ai.fix` runs in 24 hours, by hand and by the error monitor together.
-    @Default(10) int aiFixMaxPerDay,
-
-    /// Of those, the ones the error monitor starts by itself.
+    /// `ai.fix` runs in 24 hours that the error monitor starts by itself. A run
+    /// an admin starts by hand is never counted: they press it when and as
+    /// often as they like.
     @Default(3) int aiFixAutoPerDay,
 
     /// Dollars one Claude run of `ai.fix` may spend before it ends.
@@ -146,7 +145,6 @@ abstract class AppLimits with _$AppLimits {
     'reposts_max_links': LimitRange(1, 50),
     'reposts_max_videos': LimitRange(1, 100),
     'interaction_max_accounts': LimitRange(1, 10000),
-    'ai_fix_max_per_day': LimitRange(1, 50),
     'ai_fix_auto_per_day': LimitRange(0, 20),
     'ai_fix_budget_usd': LimitRange(1, 20),
     'ai_fix_minutes': LimitRange(5, 60),
