@@ -13,6 +13,9 @@ _AuditEntry _$AuditEntryFromJson(Map<String, dynamic> json) => _AuditEntry(
   actor: json['actor'] as String,
   apiKeyId: json['api_key_id'] as String?,
   discordUserId: json['discord_user_id'] as String?,
+  discord: json['discord'] == null
+      ? null
+      : DiscordUserInfo.fromJson(json['discord'] as Map<String, dynamic>),
   source: json['source'] as String,
   outcome: json['outcome'] as String,
   params: json['params'] as Map<String, dynamic>? ?? const {},
@@ -26,6 +29,7 @@ Map<String, dynamic> _$AuditEntryToJson(_AuditEntry instance) =>
       'actor': instance.actor,
       'api_key_id': ?instance.apiKeyId,
       'discord_user_id': ?instance.discordUserId,
+      'discord': ?instance.discord?.toJson(),
       'source': instance.source,
       'outcome': instance.outcome,
       'params': instance.params,

@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'discord_user_info.dart';
+
 part 'audit.freezed.dart';
 part 'audit.g.dart';
 
@@ -19,6 +21,12 @@ abstract class AuditEntry with _$AuditEntry {
     required String actor,
     String? apiKeyId,
     String? discordUserId,
+
+    /// The Discord account behind [discordUserId], as `admin.audit.list`
+    /// resolves it: a REST key's entry says whose key it is, since the key's
+    /// own name (`AI`) says nothing about the person. Null when there is no
+    /// account or Discord could not be asked; the id stays then.
+    DiscordUserInfo? discord,
 
     /// Where it came from: `rest`, `discord`, `cron`, …
     required String source,
