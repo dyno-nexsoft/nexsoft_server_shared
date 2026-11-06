@@ -103,6 +103,13 @@ enum ServerSetting {
     SettingKind.gitRemote,
     description: 'The proto repository ci.gen clones and generates from',
   ),
+  tbchatBuildYaml(
+    'tbchat_build_yaml',
+    SettingKind.longText,
+    description:
+        "The build_runner configuration (build.yaml) a build writes over the "
+        "app's own before it generates code; unset, the app's own is used",
+  ),
   gitlabMrAssignee(
     'gitlab_mr_assignee',
     SettingKind.text,
